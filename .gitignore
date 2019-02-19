@@ -1,0 +1,19 @@
+# data
+/Anims/asc_anims
+/Music
+/Presets
+/Video
+/Worlds
+
+# meshes
+/Meshes/*
+!/Meshes/_compiled
+/Meshes/_compiled/INVISIBLE_*
+
+# scripts
+/Scripts/_Compiled
+/Scripts/Content/CUTSCENE
+/Scripts/system
+
+# vscode
+/.vscode
