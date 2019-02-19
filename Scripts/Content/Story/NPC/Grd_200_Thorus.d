@@ -59,3 +59,8 @@ FUNC VOID Rtn_Start_200 ()
     TA_Sleep	(23,00,08,00,"OCC_BARONS_UPPER_RIGHT_ROOM_BED1");
 };
 
+func void Rtn_out_200 ()
+{
+	TA_Stay	(07,00,20,00,"WP_INTRO_WI05");
+	TA_Stay	(20,00,07,00,"WP_INTRO_WI05");
+};

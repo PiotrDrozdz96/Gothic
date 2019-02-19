@@ -262,6 +262,8 @@ func VOID DIA_Milten_ComesBack_Info()
 	{
 		AI_Output (self, other,"DIA_Milten_ComesBack_02_02"); //Corristo jest niezwykle uradowany. Powiedzia³, ¿e mo¿esz iœæ do Torreza i wybraæ sobie nagrodê.
 	};
+	AI_StopProcessInfos	(self);
+	B_ExchangeRoutine	(PC_Mage,	"MeetFriend");
 };
 
 //*********************************************
@@ -1525,7 +1527,7 @@ instance Info_Milten_LSNOW (C_INFO)
 FUNC int Info_Milten_LSNOW_Condition()
 {
 	if	Npc_KnowsInfo(hero, Info_Milten_LSOREHEAP)
-	&&	Npc_HasItems (hero, Mythrilklinge01)
+	&&	(Npc_HasItems (hero, Mythrilklinge01) || Npc_HasItems (hero, ITMW_1H_URIZIEL_1))
 	&&	Npc_HasItems (hero, Scroll4Milten)
 	&&	(Npc_GetDistToWP(hero, "NC_PATH41") < 1000)
 	{
@@ -1541,7 +1543,14 @@ func void Info_Milten_LSNOW_Info()
 	AI_Output			(hero, self,"Info_Milten_LSNOW_15_04"); //Zatem do dzie³a!
 
 	B_GiveInvItems 	(hero, self, Scroll4Milten, 1);	
-	B_GiveInvItems 	(hero, self, Mythrilklinge01, 1);	
+	if( Npc_HasItems (hero, Mythrilklinge01) ){
+		B_GiveInvItems 	(hero, self, Mythrilklinge01, 1);
+		Uriziel_1H = false;
+	}
+	else{
+		B_GiveInvItems 	(hero, self, ITMW_1H_URIZIEL_1, 1);
+		Uriziel_1H = true;
+	};
 
 	StartChaptersSix = TRUE;
 
@@ -1618,13 +1627,31 @@ func void Info_Milten_LSDONE_Info()
 	AI_StopProcessInfos	(self);
 };
 
+//***************************************************************************
+//	DROPS Milten_IN_OCR_HUT_Z5
+//***************************************************************************
 
+instance Milten_MeetFriend (C_INFO)
+{
+	npc			= PC_Mage;
+	condition	= Milten_MeetFriend_Condition;
+	information	= Milten_MeetFriend_Info;
+	important	= 1;
+	permanent	= 0;
+};
 
+FUNC int Milten_MeetFriend_Condition()
+{
+	if ( Npc_KnowsInfo(hero, Diego_MeetFriend) && Npc_GetDistToWP(hero,"OCR_HUT_Z5_SIT2") < 1000 )
+	{
+		return TRUE;
+	};	
+};
 
-//#####################################################################
-//##
-//##
-//##							KAPITEL 6
-//##
-//##
-//#####################################################################
+func void Milten_MeetFriend_Info()
+{	
+	Log_CreateTopic		("Zawalona Wie¿a",		LOG_MISSION);
+	Log_SetTopicStatus	("Zawalona Wie¿a",		LOG_RUNNING);
+	B_LogEntry			("Zawalona Wie¿a","Okazuje siê ¿e Milten noc¹ wymyka siê ze œwi¹tyni by spotkaæ siê z Diegiem.");
+	AI_StopProcessInfos	(self);
+};

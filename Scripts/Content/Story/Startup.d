@@ -1,5 +1,9 @@
 func VOID STARTUP_SUB_PSICAMP ()
-{
+{	
+	//-----------ERPRESSER----------------------------------------
+	//Wld_InsertNpc(ORG_888_Erpresser,"OW_PATH_056");
+	//Wld_InsertNpc(ORG_889_CoErpresser,"OW_PATH_056");
+
 	//-----------OLD MINE-----------------------------------------
 	Wld_InsertNpc				(Tpl_1400_GorNaBar,"PSI_START");	
 	Wld_InsertNpc				(Tpl_1401_GorNaKosh,"PSI_START");	
@@ -387,8 +391,8 @@ func VOID STARTUP_SUB_NEWCAMP ()
 	Wld_InsertNpc				(ORG_831_Organisator,"NC_DAM"); //Vortor
 	Wld_InsertNpc				(ORG_832_Organisator,"NC_DAM"); //Vortor
 	Wld_InsertNpc				(ORG_834_Organisator,"NC_DAM"); //Wheel-Wache
-	//Wld_InsertNpc				(BAU_925_Bauer,"NC_DAM"); 		//Nach Vortor
-	//Wld_InsertNpc				(BAU_926_Bauer,"NC_DAM"); 		//Nach Vortor
+	// Wld_InsertNpc				(BAU_925_Bauer,"NC_DAM"); 		//Nach Vortor
+	// Wld_InsertNpc				(BAU_926_Bauer,"NC_DAM"); 		//Nach Vortor
 	//----------------Bauern---------------------------------
 	Wld_InsertNpc				(BAU_900_Ricelord,"NC_DAM"); //Im Ricebunker
 	Wld_InsertNpc				(BAU_901_Horatio,"NC_DAM"); //CF3
@@ -1064,6 +1068,11 @@ FUNC VOID INIT_SUB_FREEMINECAMP ()
 //*******************************************************************************
 FUNC VOID STARTUP_SUB_SURFACE ()
 {
+	// Drops
+	Wld_InsertItem				(ITSH_LONG_A,"OW_PATH_ORCRUIN_GOLEM");
+	
+	//------------------
+	
 	Wld_InsertNpc				(GRD_254_Orry,"OC1");
 	Wld_InsertNpc				(GRD_281_Gardist,"OC1");//Orry-Wache
 
@@ -2371,6 +2380,8 @@ FUNC VOID INIT_ORCGRAVEYARD ()
 
 FUNC VOID STARTUP_ORCTEMPEL ()
 {
+	Wld_InsertItem			(ITSH_STALHRIM_S_SM,"TPL_254");
+	
 	//-------- globale StoryVariable --------
 	B_Story_EnteredTemple();
 
@@ -2452,6 +2463,7 @@ FUNC VOID STARTUP_ORCTEMPEL ()
 	
 	
 	// TPL - Vorstufe (Rüstung 150)
+	// Wld_InsertNpc(TPL_1405_GorNaRan,"TPL_408");
 	Wld_InsertNpc				( TPL_1455_GorBoba, "TPL_408" ); // Spricht den SC an
 	Wld_InsertNpc				( TPL_1447_Templer, "TPL_408" ); 
 	Wld_InsertNpc				( TPL_1448_Templer,	"TPL_408" );

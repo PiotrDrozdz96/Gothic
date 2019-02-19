@@ -37,6 +37,7 @@ instance GRD_282_Nek (Npc_Default)
 	//-------- inventory --------
 	
 	CreateInvItem	(self, Neks_Amulett);
+	CreateInvItem (self, ITSH_G3_01_OLD);
 	CreateInvItems	(self, ItMiNugget, 10);		        
 	
 	//-------------Daily Routine-------------

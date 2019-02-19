@@ -54,6 +54,14 @@ FUNC VOID Rtn_start_4 ()
 	TA_Smalltalk	(23,00,	08,00,"PSI_GUARD_TREE_EX");
 };
 
+FUNC VOID Rtn_MeetFriend_4 ()
+{	
+	TA_Smalltalk	(08,00,	23,00,"PSI_GUARD_TREE_EX");    
+	TA_Smalltalk	(23,00,	03,00,"PSI_GUARD_TREE_EX");
+	TA_SitAround	(03,00,05,30,"OCR_HUT_Z5_SIT");
+	TA_Smalltalk	(05,30,	08,00,"PSI_GUARD_TREE_EX");
+};
+
 // SN: Wichtig für Kapitel 3: Lester wartet vor Bergfestung auf den Spieler
 FUNC VOID Rtn_FortressWait_4 ()
 {	

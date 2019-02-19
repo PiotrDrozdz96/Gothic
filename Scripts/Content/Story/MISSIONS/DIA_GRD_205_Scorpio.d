@@ -172,14 +172,14 @@ instance  GRD_205_Scorpio_CROSSBOW (C_INFO)
 
 FUNC int  GRD_205_Scorpio_CROSSBOW_Condition()
 {	
-	if (Kapitel >= 4)
-	|| (Npc_GetTrueGuild (hero) == GIL_GRD) 
+	if ( (Kapitel >= 4 || Npc_GetTrueGuild (hero) == GIL_GRD )
+	&& log_scorpiocrossbow == FALSE )
 	
 	{
 		return TRUE;
 	};
-
 };
+
 FUNC void  GRD_205_Scorpio_CROSSBOW_Info()
 {
 	AI_Output (other, self,"GRD_205_Scorpio_CROSSBOW_Info_15_01"); //Mo¿esz mnie czegoœ nauczyæ?
@@ -195,33 +195,52 @@ FUNC void  GRD_205_Scorpio_CROSSBOW_Info()
 	&& (Kapitel > 4)
 	{
 		Log_CreateTopic   	(GE_TeacherOW,LOG_NOTE);
-		B_LogEntry			(GE_TeacherOW,"Skorpion mo¿e mnie nauczyæ pos³ugiwaæ siê kusz¹.n");
+		B_LogEntry			(GE_TeacherOW,"Skorpion mo¿e mnie nauczyæ pos³ugiwaæ siê kusz¹");
 		log_scorpiocrossbow = TRUE;
 	};
-	Info_ClearChoices (GRD_205_Scorpio_CROSSBOW);
-	Info_Addchoice 	(GRD_205_Scorpio_CROSSBOW,B_BuildLearnString(NAME_LearnCrossbow_1,	LPCOST_TALENT_CROSSBOW_1,200),GRD_205_Scorpio_CROSSBOW_OK);
-	Info_Addchoice 	(GRD_205_Scorpio_CROSSBOW,DIALOG_BACK,GRD_205_Scorpio_CROSSBOW_BACK);
-
 };  
-func void GRD_205_Scorpio_CROSSBOW_BACK()
+
+instance  GRD_205_Scorpio_CROSSBOW_OK (C_INFO)
 {
-	Info_ClearChoices	(GRD_205_Scorpio_CROSSBOW );
+	npc				= GRD_205_Scorpio;
+	condition		= GRD_205_Scorpio_CROSSBOW_OK_Condition;
+	information		= GRD_205_Scorpio_CROSSBOW_OK_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= "Kusza +4% (200 bry³ek rudy, 10pkt. umiejêtnoœci)"; 
 };
 
-func void GRD_205_Scorpio_CROSSBOW_OK()
+FUNC int  GRD_205_Scorpio_CROSSBOW_OK_Condition()
+{	
+	if (Npc_GetTalentValue(hero, NPC_TALENT_CROSSBOW) < 20 && log_scorpiocrossbow == TRUE )
+	{
+		return TRUE;
+	};
+};
+
+func void GRD_205_Scorpio_CROSSBOW_OK_Info()
 {
 	AI_Output (other, self,"GRD_205_Scorpio_CROSSBOW_OK_15_01"); //Umowa stoi. Poka¿ mi jak obchodziæ siê z kusz¹.
 	if (Npc_HasItems (hero,ItMiNugget)>= 200)
 	{
-		if (B_GiveSkill(other,NPC_TALENT_CROSSBOW , 1, LPCOST_TALENT_CROSSBOW_1))
+		if (B_GiveSkill(other,NPC_TALENT_CROSSBOW , Npc_GetTalentSkill(hero, NPC_TALENT_CROSSBOW)+1, LPCOST_TALENT_CROSSBOW_1))
 		{
-			AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW_OK_13_02"); //Dobra. Bierzmy siê do roboty.
-			AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW_OK_13_03"); //Z³ap kuszê mocno i oprzyj j¹ o ramiê. To powinno zwiêkszyæ celnoœæ strza³u.
-			AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW_OK_13_04"); //Przez kilka pierwszych dni twoje ramiê da ci siê nieŸle we znaki, ale z czasem przywykniesz.
-			AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW_OK_13_05"); //Po jakimœ tygodniu bêdziesz mia³ rêce ze stali!
-			AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW_OK_13_06"); //Wyceluj spokojnie i powoli œci¹gnij spust. Be³t niesie ze sob¹ wiêcej si³y ni¿ strza³a, dlatego powoduje wiêksze zniszczenia.
-			B_GiveInvItems (hero,other,ItMiNugget,200);
-			GRD_205_Scorpio_CROSSBOW.permanent = 0;
+			if (Npc_GetTalentValue(hero, NPC_TALENT_CROSSBOW) == 4){
+				AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW_OK_13_02"); //Dobra. Bierzmy siê do roboty.
+			}
+			else if (Npc_GetTalentValue(hero, NPC_TALENT_CROSSBOW) == 8){
+				AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW_OK_13_03"); //Z³ap kuszê mocno i oprzyj j¹ o ramiê. To powinno zwiêkszyæ celnoœæ strza³u.
+			}
+			else if (Npc_GetTalentValue(hero, NPC_TALENT_CROSSBOW) == 12){
+				AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW_OK_13_04"); //Przez kilka pierwszych dni twoje ramiê da ci siê nieŸle we znaki, ale z czasem przywykniesz.
+			}
+			else if (Npc_GetTalentValue(hero, NPC_TALENT_CROSSBOW) == 16){	
+				AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW_OK_13_05"); //Po jakimœ tygodniu bêdziesz mia³ rêce ze stali!
+			}
+			else if (Npc_GetTalentValue(hero, NPC_TALENT_CROSSBOW) == 20){	
+				AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW_OK_13_06"); //Wyceluj spokojnie i powoli œci¹gnij spust. Be³t niesie ze sob¹ wiêcej si³y ni¿ strza³a, dlatego powoduje wiêksze zniszczenia.
+			};
+			B_GiveInvItems(other,self,itminugget,200);
 		};
 	}
 	else
@@ -246,42 +265,62 @@ instance  GRD_205_Scorpio_CROSSBOW2 (C_INFO)
 
 FUNC int  GRD_205_Scorpio_CROSSBOW2_Condition()
 {
-	if (Npc_GetTalentSkill  ( hero, NPC_TALENT_CROSSBOW ) == 1) 
+	if (Npc_GetTalentValue(hero, NPC_TALENT_CROSSBOW) > 16 && log_scorpiocrossbow == TRUE )
 	{
 		return TRUE;
 	};
 
 };
+
 FUNC void  GRD_205_Scorpio_CROSSBOW2_Info()
 {
 	AI_Output (other, self,"GRD_205_Scorpio_CROSSBOW2_Info_15_01"); //Chcia³bym dowiedzieæ siê czegoœ wiêcej o strzelaniu z kuszy.
 	AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW2_Info_13_02"); //To ciê bêdzie kosztowaæ 300 bry³ek rudy.
-  
-	Info_ClearChoices (GRD_205_Scorpio_CROSSBOW2);
-	Info_Addchoice 	(GRD_205_Scorpio_CROSSBOW2,B_BuildLearnString(NAME_LearnCrossbow_2,	LPCOST_TALENT_CROSSBOW_2,300),GRD_205_Scorpio_CROSSBOW2_OK);
-	Info_Addchoice 	(GRD_205_Scorpio_CROSSBOW2,DIALOG_BACK,  GRD_205_Scorpio_CROSSBOW2_BACK);
-	
-
+	GRD_205_Scorpio_CROSSBOW2.permanent = 0;
 };  
-func void GRD_205_Scorpio_CROSSBOW2_BACK()
+
+instance  GRD_205_Scorpio_CROSSBOW2_OK (C_INFO)
 {
-	Info_ClearChoices (GRD_205_Scorpio_CROSSBOW);
+	npc				= GRD_205_Scorpio;
+	condition		= GRD_205_Scorpio_CROSSBOW2_OK_Condition;
+	information		= GRD_205_Scorpio_CROSSBOW2_OK_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= "Kusza +4% (300 bry³ek rudy, 10pkt. umiejêtnoœci)"; 
 };
 
-func void GRD_205_Scorpio_CROSSBOW2_OK()
+FUNC int  GRD_205_Scorpio_CROSSBOW2_OK_Condition()
+{
+	if (Npc_GetTalentValue(hero, NPC_TALENT_CROSSBOW) < 40  && Npc_KnowsInfo (hero,GRD_205_Scorpio_CROSSBOW2)  )
+	{
+		return TRUE;
+	};
+
+};
+
+func void GRD_205_Scorpio_CROSSBOW2_OK_Info()
 {
 	AI_Output (other, self,"GRD_205_Scorpio_CROSSBOW2_OK_15_01"); //Zaczynajmy.
 	if (Npc_HasItems (hero,ItMiNugget)>= 300)
 	{
-		if (B_GiveSkill(other,NPC_TALENT_CROSSBOW , 2, LPCOST_TALENT_CROSSBOW_2))
+		if (B_GiveSkill(other,NPC_TALENT_CROSSBOW , Npc_GetTalentSkill(hero, NPC_TALENT_CROSSBOW)+1, LPCOST_TALENT_CROSSBOW_1))
 		{
-		AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW2_OK_13_02"); //Dobra. Twoje strza³y bêd¹ celniejsze, jeœli przed œci¹gniêciem spustu ugniesz nieco nogi w kolanach.
-		AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW2_OK_13_03"); //Naucz siê poprawnie oceniaæ prêdkoœæ z jak¹ porusza siê twój cel.
-		AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW2_OK_13_04"); //Wystrzel pocisk tak, by w odpowiednim miejscu i czasie przeci¹³ œcie¿kê, któr¹ porusza siê cel.
-		AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW2_OK_13_05"); //Jeœli atakujesz wiêcej ni¿ jeden cel, nie traæ czasu: musisz mo¿liwie szybko przygwoŸdziæ jeden za drugim dobrze wymierzonymi strza³ami.
-		AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW2_OK_13_06"); //To by by³o na tyle.
-		B_GiveInvItems (hero,other,ItMiNugget,300);
-		GRD_205_Scorpio_CROSSBOW2.permanent = 0;
+			if (Npc_GetTalentValue(hero, NPC_TALENT_CROSSBOW) == 24){
+				AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW2_OK_13_02"); //Dobra. Twoje strza³y bêd¹ celniejsze, jeœli przed œci¹gniêciem spustu ugniesz nieco nogi w kolanach.
+			}			
+			else if (Npc_GetTalentValue(hero, NPC_TALENT_CROSSBOW) == 28){
+				AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW2_OK_13_03"); //Naucz siê poprawnie oceniaæ prêdkoœæ z jak¹ porusza siê twój cel.
+			}
+			else if (Npc_GetTalentValue(hero, NPC_TALENT_CROSSBOW) == 32){	
+				AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW2_OK_13_04"); //Wystrzel pocisk tak, by w odpowiednim miejscu i czasie przeci¹³ œcie¿kê, któr¹ porusza siê cel.
+			}
+			else if (Npc_GetTalentValue(hero, NPC_TALENT_CROSSBOW) == 36){	
+				AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW2_OK_13_05"); //Jeœli atakujesz wiêcej ni¿ jeden cel, nie traæ czasu: musisz mo¿liwie szybko przygwoŸdziæ jeden za drugim dobrze wymierzonymi strza³ami.
+			}
+			else if (Npc_GetTalentValue(hero, NPC_TALENT_CROSSBOW) == 40){
+				AI_Output (self, other,"GRD_205_Scorpio_CROSSBOW2_OK_13_06"); //To by by³o na tyle.
+			};			
+		B_GiveInvItems(other,self,itminugget,300);
 		};
 	}
 	else

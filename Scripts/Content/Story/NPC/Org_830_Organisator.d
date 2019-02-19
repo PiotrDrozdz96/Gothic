@@ -4,7 +4,7 @@ instance Org_830_Organisator (Npc_Default)
 	
 	name =					Name_Torwache;
 	Npctype =				NPCTYPE_MAIN;
-	guild =							GIL_ORG;       
+	guild =							GIL_SLD;       
 	level =							4;
 
 	
@@ -14,8 +14,8 @@ instance Org_830_Organisator (Npc_Default)
 
 	//-------- abilities --------
 
-	attribute[ATR_STRENGTH] =		15;
-	attribute[ATR_DEXTERITY] =		15;
+	attribute[ATR_STRENGTH] =		20;
+	attribute[ATR_DEXTERITY] =		20;
 	attribute[ATR_MANA_MAX] =		0;
 	attribute[ATR_MANA] =			0;
 	attribute[ATR_HITPOINTS_MAX] =	88;
@@ -25,8 +25,9 @@ instance Org_830_Organisator (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
+	Mdl_ApplyOverlayMds (self,"SHIELD_ST1.MDS");
 	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
-	Mdl_SetVisualBody (self,"hum_body_Naked0",1, 0,"Hum_Head_FatBald", 12 , 2, ORG_ARMOR_L);
+	Mdl_SetVisualBody (self,"hum_body_Naked0",1, 0,"Hum_Head_FatBald", 10, 1, ORG_ARMOR_H);
 	
 	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
@@ -37,12 +38,14 @@ instance Org_830_Organisator (Npc_Default)
 	
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);	
+	Npc_SetTalentSkill	(self, NPC_TALENT_SHIELD,1);
 	
 	Npc_SetTalentSkill (self, NPC_TALENT_SNEAK,	1);	
 	
 	//-------- inventory --------                                    
 
 	EquipItem (self, ItMw_1H_Mace_01);
+	EquipItem (self, ITSH_REINFORCED_A);
     CreateInvItems (self, ItKeLockpick,1);		
 	CreateInvItems(self, ItMiNugget, 10);
 	CreateInvItems (self, ItFoRice,7);

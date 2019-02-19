@@ -211,11 +211,12 @@ FUNC void  Sld_700_Lee_BECOMESLDNOW_NOOTHER()
 {
 	AI_Output			(other, self,"Sld_700_Lee_BECOMESLDNOW_NOOTHER_15_01"); //W tamtych obozach tylko traci³bym czas.
 	AI_Output			(self, other,"Sld_700_Lee_BECOMESLDNOW_NOOTHER_08_02"); //Jedyna rzecz, która ma tutaj jak¹œ prawdziw¹ wartoœæ to pragnienie wolnoœci. Witaj wœród nas, NAJEMNIKU!
-	CreateInvItem		(self,SLD_ARMOR_L);
-	B_GiveInvItems      (self, hero, SLD_ARMOR_L, 1);
+	CreateInvItem		(self,ORG_ARMOR_H);
+	B_GiveInvItems      (self, hero, ORG_ARMOR_H, 1);
 	AI_EquipBestArmor	(hero);
 	Npc_SetTrueGuild	(hero,GIL_SLD);
 	hero.guild = GIL_SLD;
+	Mdl_ApplyOverlayMds(hero,"Humans_Militia.mds");
 	AI_StopProcessInfos	(self);
 };
 
@@ -223,11 +224,12 @@ FUNC void  Sld_700_Lee_BECOMESLDNOW_FREEDOM()
 {
 	AI_Output			(other, self,"Sld_700_Lee_BECOMESLDNOW_FREEDOM_15_01"); //Od pocz¹tku myœla³em tylko o odzyskaniu wolnoœci.
 	AI_Output			(self, other,"Sld_700_Lee_BECOMESLDNOW_FREEDOM_08_02"); //I dziêki nam wkrótce j¹ odzyskasz. Witaj wœród nas, NAJEMNIKU!
-	CreateInvItem		(self,SLD_ARMOR_L);
-	B_GiveInvItems      (self, hero, SLD_ARMOR_L, 1);
+	CreateInvItem		(self,ORG_ARMOR_H);
+	B_GiveInvItems      (self, hero, ORG_ARMOR_H, 1);
 	AI_EquipBestArmor	(hero);
 	Npc_SetTrueGuild	(hero,GIL_SLD);
 	hero.guild = GIL_SLD;
+	Mdl_ApplyOverlayMds(hero,"Humans_Militia.mds");
 	AI_StopProcessInfos	(self);
 };
 
@@ -235,11 +237,12 @@ FUNC void  Sld_700_Lee_BECOMESLDNOW_JUSTBECAUSE()
 {
 	AI_Output			(other, self,"Sld_700_Lee_BECOMESLDNOW_JUSTBECAUSE_15_01"); //Tak siê jakoœ z³o¿y³o.
 	AI_Output			(self, other,"Sld_700_Lee_BECOMESLDNOW_JUSTBECAUSE_08_02"); //¯eby siê tylko nie z³o¿y³o, ¿e kiedyœ nagle zmienisz zdanie. Witaj wœród nas, NAJEMNIKU!
-	CreateInvItem		(self,SLD_ARMOR_L);
-	B_GiveInvItems      (self, hero, SLD_ARMOR_L, 1);
+	CreateInvItem		(self,ORG_ARMOR_H);
+	B_GiveInvItems      (self, hero, ORG_ARMOR_H, 1);
 	AI_EquipBestArmor	(hero);
 	Npc_SetTrueGuild	(hero,GIL_SLD);
 	hero.guild = GIL_SLD;
+	Mdl_ApplyOverlayMds(hero,"Humans_Militia.mds");
 	AI_StopProcessInfos	(self);
 };
 
@@ -570,14 +573,14 @@ instance  Sld_700_Lee_ZWEIHAND1 (C_INFO)
 	information		= Sld_700_Lee_ZWEIHAND1_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn2h_1, LPCOST_TALENT_2H_1,0); 
+	description		= "Broñ dwurêczna +1% (10pkt. umiejêtnoœci)"; 
 };
 
 FUNC int  Sld_700_Lee_ZWEIHAND1_Condition()
 {	
 	if 	( 
-			(Npc_GetTalentSkill  (hero,NPC_TALENT_2H) < 1)
-			&& ((Npc_GetTrueGuild    (hero) == GIL_SLD) || ((Npc_GetTrueGuild(hero)==GIL_KDW) && (Kapitel >= 4))  )	//jetzt auch als Wassermagier im 4. Kapitel möglich ***BJÖRN***
+			(Npc_GetTalentValue(hero, NPC_TALENT_2H) < 10)
+			&& ((Npc_GetTrueGuild    (hero) == GIL_SLD) || (Npc_GetTrueGuild(hero)==GIL_KDW)  )
 		)
 	{
 		return TRUE;
@@ -588,58 +591,69 @@ FUNC void  Sld_700_Lee_ZWEIHAND1_Info()
 {
 	AI_Output			(other, self,"Sld_700_Lee_ZWEIHAND1_Info_15_01"); //Chcê siê nauczyæ pos³ugiwaæ dwurêcznym mieczem.
 	
-	if (B_GiveSkill(other,NPC_TALENT_2H , 1, LPCOST_TALENT_2H_1))
+	if (B_GiveSkill(hero,NPC_TALENT_2H,Npc_GetTalentSkill(hero, NPC_TALENT_2H)+1,LPCOST_TALENT_1H_1))
 	{
-		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND1_Info_08_02"); //W porz¹dku. Najpierw omówimy podstawy.
-		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND1_Info_08_03"); //Wyci¹gnij miecz przed siebie. Aby zaatakowaæ wroga tak ciê¿k¹ broni¹, musisz mocniej siê zamachn¹æ.
-		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND1_Info_08_04"); //Unieœ rêkê i zdecydowanie opuœæ miecz. To powinno wystarczyæ, ¿eby powaliæ przeciwnika na ziemiê.
-		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND1_Info_08_05"); //Wykorzystaj bezw³adnoœæ broni, by unieœæ j¹ ponownie do góry.
-		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND1_Info_08_06"); //Dwurêczne miecze œwietnie sprawdzaj¹ siê przy zadawaniu ciosów z boku. W ten sposób mo¿esz trzymaæ przeciwnika na dystans.
-		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND1_Info_08_07"); //To ci powinno wystarczyæ na pocz¹tek. Potrenuj trochê.
-	
-		Sld_700_Lee_ZWEIHAND1.permanent = 0;
+		if (Npc_GetTalentValue(hero, NPC_TALENT_2H) == 1){
+			AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND1_Info_08_02"); //W porz¹dku. Najpierw omówimy podstawy.
+			AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND1_Info_08_03"); //Wyci¹gnij miecz przed siebie. Aby zaatakowaæ wroga tak ciê¿k¹ broni¹, musisz mocniej siê zamachn¹æ.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_2H) == 2){
+			AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND1_Info_08_04"); //Unieœ rêkê i zdecydowanie opuœæ miecz. To powinno wystarczyæ, ¿eby powaliæ przeciwnika na ziemiê.
+			AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND1_Info_08_05"); //Wykorzystaj bezw³adnoœæ broni, by unieœæ j¹ ponownie do góry.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_2H) == 3){
+			AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND1_Info_08_06"); //Dwurêczne miecze œwietnie sprawdzaj¹ siê przy zadawaniu ciosów z boku. W ten sposób mo¿esz trzymaæ przeciwnika na dystans.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_2H) == 6){
+			AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_02"); //Musisz siê nauczyæ p³ynnie przenosiæ swój œrodek ciê¿koœci. Trzymaj miecz pionowo. Obie d³onie mocno zaciœnij na rêkojeœci i przesuñ go nieco w bok.
+			AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_03"); //Teraz uderz szybko od góry i pozwól klindze powêdrowaæ nad twoje ramiê. Teraz mo¿esz wyprowadziæ szybkie ciêcie na prawo.
+			AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_04"); //Twój przeciwnik nie bêdzie mia³ okazji podejœæ bli¿ej.
+			AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_05"); //Albo spróbuj wyprowadziæ z lewej strony cios do przodu, aby odrzuciæ rywala do ty³u. 
+			AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_06"); //Teraz obrót, ¿eby kolejny cios nabra³ odpowiedniej mocy. Przy odrobinie szczêœcia wróg nie prze¿yje tego uderzenia.
+			AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_07"); //A jeœli i to nie wystarczy, wykorzystaj resztê si³y zamachowej, by ponownie unieœæ miecz do góry.
+			AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_08"); //Po skoñczonym ataku wykonaj zas³onê i wypatruj luki w obronie przeciwnika.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_2H) < 6){
+			AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND1_Info_08_07"); //To ci powinno wystarczyæ na pocz¹tek. Potrenuj trochê.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_2H) < 8){
+			AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_09"); //Kluczem do sukcesu jest ci¹g³a zmiana pozycji i umiejêtne wykorzystanie bezw³adnoœci broni.
+		}
+		else {
+			AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND1_Info_08_10"); //Najsilniejszy cios nic nie znaczy, jeœli nie trafi w cel. U¿ywaj swojej si³y z wiêkszym wyczuciem.
+		};
 	};
 };  
+
 //-------------------------------------------------------------------------
-//							ZWEIHANDKAMPF LERNEN STUFE 2
+//		Info about trouble in PSI_CAMP KAPITEL 3 --- Drops
 //-------------------------------------------------------------------------
-instance  Sld_700_Lee_ZWEIHAND2 (C_INFO)
+instance Info_Lee_PSICAMP (C_INFO)
 {
-	npc				= Sld_700_Lee;
-	condition		= Sld_700_Lee_ZWEIHAND2_Condition;
-	information		= Sld_700_Lee_ZWEIHAND2_Info;
-	important		= 0;
-	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn2h_2, LPCOST_TALENT_2H_2,0); 
+	npc			= Sld_700_Lee;
+	nr			= 30;
+	condition	= Info_Lee_PSICAMP_Condition;
+	information	= Info_Lee_PSICAMP_Info;
+	permanent	= 0;
+	important 	= 0;
+	description = "Guru zorientowali siê, ¿e oddawali czeœæ potê¿nemu demonowi z piek³a rodem!";
 };
 
-FUNC int  Sld_700_Lee_ZWEIHAND2_Condition()
+FUNC INT Info_Lee_PSICAMP_Condition()
 {	
-	if
-		( 
-			(Npc_GetTalentSkill  (hero,NPC_TALENT_2H) == 1)
-			&& ( (Npc_GetTrueGuild    (hero) == GIL_SLD) ||  ((Npc_GetTrueGuild(hero)==GIL_KDW) && (Kapitel >= 4))  )	//jetzt auch als Wassermagier im 4. Kapitel möglich ***BJÖRN***
-		)
+	if	(CorAngar_SendToNC==TRUE
+	&&	!Npc_KnowsInfo(hero, Info_Lee_PSICAMP)
+	&&	Npc_GetTrueGuild    (hero) == GIL_SLD
+	&&	Kapitel == 3 )
 	{
 		return TRUE;
-	};
-
+	};	
 };
-FUNC void  Sld_700_Lee_ZWEIHAND2_Info()
+
+FUNC VOID Info_Lee_PSICAMP_Info()
 {
-	AI_Output			(other, self,"Sld_700_Lee_ZWEIHAND2_Info_15_01"); //Chcia³bym siê dowiedzieæ czegoœ wiêcej o walce dwurêcznym mieczem.
-	
-	if (B_GiveSkill(other,NPC_TALENT_2H , 2, LPCOST_TALENT_2H_2))
-	{
-		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_02"); //Musisz siê nauczyæ p³ynnie przenosiæ swój œrodek ciê¿koœci. Trzymaj miecz pionowo. Obie d³onie mocno zaciœnij na rêkojeœci i przesuñ go nieco w bok.
-		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_03"); //Teraz uderz szybko od góry i pozwól klindze powêdrowaæ nad twoje ramiê. Teraz mo¿esz wyprowadziæ szybkie ciêcie na prawo.
-		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_04"); //Twój przeciwnik nie bêdzie mia³ okazji podejœæ bli¿ej.
-		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_05"); //Albo spróbuj wyprowadziæ z lewej strony cios do przodu, aby odrzuciæ rywala do ty³u. 
-		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_06"); //Teraz obrót, ¿eby kolejny cios nabra³ odpowiedniej mocy. Przy odrobinie szczêœcia wróg nie prze¿yje tego uderzenia.
-		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_07"); //A jeœli i to nie wystarczy, wykorzystaj resztê si³y zamachowej, by ponownie unieœæ miecz do góry.
-		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_08"); //Po skoñczonym ataku wykonaj zas³onê i wypatruj luki w obronie przeciwnika.
-		AI_Output			(self, other,"Sld_700_Lee_ZWEIHAND2_Info_08_09"); //Kluczem do sukcesu jest ci¹g³a zmiana pozycji i umiejêtne wykorzystanie bezw³adnoœci broni.
-	
-		Sld_700_Lee_ZWEIHAND2.permanent = 0;
-	};
-};  
+	AI_Output			(other, self,"Info_Cronos_SLEEPER_15_01"); //Guru zorientowali siê, ¿e oddawali czeœæ potê¿nemu demonowi z piek³a rodem!
+	AI_Output			(self, other,"Info_Lee_PSICAMP_08_02"); //A daj mi spokój z tym gównem. Mam doœæ k³opotów i bez tego.
+
+	AI_StopProcessInfos	(self);
+};

@@ -24,6 +24,7 @@ instance ORG_840_Roscoe (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
+	Mdl_ApplyOverlayMds (self,"SHIELD_ST1.MDS");
 	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0,2,"Hum_Head_Pony", 9, 1, ORG_ARMOR_M);
 	
@@ -37,6 +38,7 @@ instance ORG_840_Roscoe (Npc_Default)
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);	
+	Npc_SetTalentSkill	(self, NPC_TALENT_SHIELD,1);
 
 	//-------- inventory --------
 	                                    
@@ -50,8 +52,9 @@ instance ORG_840_Roscoe (Npc_Default)
 	CreateInvItem (self, ItFoLoaf);
 	CreateInvItem (self, ItAt_Teeth_01);	
 	EquipItem (self, ItMw_1H_Mace_War_01);
-	EquipItem (self, ItRw_Bow_Long_01);
-	CreateInvItems (self, ItAmArrow, 20);
+	//EquipItem (self, ItRw_Bow_Long_01);
+	EquipItem (self, IT_SHIELD_SKULL);
+	//CreateInvItems (self, ItAmArrow, 20);
 
 	//-------------Daily Routine-------------
 

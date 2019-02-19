@@ -18,9 +18,17 @@ func void B_BuyAttributePoints (var C_NPC typ, var int ATR, var int AtrPlus)
 						
 			if (ATR == ATR_STRENGTH)
 			{
-				typ.attribute[ATR_STRENGTH] = typ.attribute[ATR_STRENGTH] + AtrPlus;
-				PrintString = ConcatStrings(NAME_BuyAttributeSTR, AtrPlusSTRING);
-				PrintScreen	(PrintSTRING, -1,-1,"FONT_OLD_20_WHITE.TGA",1);
+				if (Shield_Equip){
+					CreateInvItems 		(typ,	SHIELD_Destroyer,	1);
+					AI_EquipBestMeleeWeapon	(typ);
+					AI_UnequipWeapons	(typ);
+					PrintScreen	("Przed treningiem zdejmij tarczê", -1,-1,"FONT_OLD_20_WHITE.TGA",1);
+				}
+				else{
+					typ.attribute[ATR_STRENGTH] = typ.attribute[ATR_STRENGTH] + AtrPlus;
+					PrintString = ConcatStrings(NAME_BuyAttributeSTR, AtrPlusSTRING);
+					PrintScreen	(PrintSTRING, -1,-1,"FONT_OLD_20_WHITE.TGA",1);
+				};
 			}
 			else if (ATR == ATR_DEXTERITY)
 			{

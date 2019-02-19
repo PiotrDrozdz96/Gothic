@@ -60,7 +60,7 @@ INSTANCE ItAt_Meatbug_01 (C_Item)
 {	
 	name 				=	"Miêso chrz¹szcza";
 
-	mainflag 			=	ITEM_KAT_NONE;
+	mainflag 			=	ITEM_KAT_FOOD;
 	flags 				=	ITEM_MULTI;
 	
 	value 				=	Value_Bugmeat;

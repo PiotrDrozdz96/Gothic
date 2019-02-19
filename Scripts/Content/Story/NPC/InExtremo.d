@@ -419,7 +419,7 @@ instance IE_397_Announcer(Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,	"HUMANS.MDS");
 	//							Body-Mesh			Body-Tex	Skin-Color	Head-MMS			Head-Tex	Teeth-Tex	ARMOR
-	Mdl_SetVisualBody 	(self,	"Hum_Body_Naked0",	4,			1,			"Hum_Head_Fatbald", 113,  		DEFAULT, 	-1);
+	Mdl_SetVisualBody 	(self,	"Hum_Body_Naked0",	4,			3,			"Hum_Head_Fatbald", 113,  		DEFAULT, 	-1);
 	
 	fight_tactic	=	FAI_HUMAN_STRONG;
 	

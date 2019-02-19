@@ -155,6 +155,11 @@ FUNC VOID Rtn_start_538 ()
 	TA_Smith_Anvil	(21,50,22,00,"OCR_HUT_34");
 };
 
+func void Rtn_out_538 ()
+{
+	TA_Stay	(07,00,20,00,"WP_INTRO_WI05");
+	TA_Stay	(20,00,07,00,"WP_INTRO_WI05");
+};
 
 
 

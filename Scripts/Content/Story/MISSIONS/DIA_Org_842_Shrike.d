@@ -72,7 +72,7 @@ instance DIA_Shrike_GetLost (C_INFO)
 
 FUNC int  DIA_Shrike_GetLost_Condition()
 {	
-	if	self.aivar[AIV_WASDEFEATEDBYSC]
+	if	(self.aivar[AIV_WASDEFEATEDBYSC] && Npc_KnowsInfo(hero, DIA_Gorn_First) )
 	{
 		return 1;
 	};

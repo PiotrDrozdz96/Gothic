@@ -26,7 +26,7 @@ instance ORG_804_Organisator (Npc_Default)
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
 	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
-	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 0,"Hum_Head_FatBald", 10, 1,ORG_ARMOR_H);
+	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 0,"Hum_Head_FatBald", 10, 1,ORG_ARMOR_M);
 	
 	B_Scale (self);	
 	Mdl_SetModelFatness (self, 0);		

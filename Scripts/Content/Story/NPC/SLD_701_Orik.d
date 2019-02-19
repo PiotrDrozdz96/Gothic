@@ -42,8 +42,6 @@ instance SLD_701_Orik (Npc_Default)
 	//-------- inventory --------                                    
 	
 	EquipItem (self, Oriks_Axt);
-	EquipItem (self, ItRw_Bow_Long_01);
-	CreateInvItems(self, ItAmArrow, 20);
 	CreateInvItems (self, ItFoRice,7);
 	CreateInvItems (self, ItFoLoaf,5);
 	CreateInvItems (self, ItFoMutton,4);

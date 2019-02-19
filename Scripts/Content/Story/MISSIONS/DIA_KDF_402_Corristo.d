@@ -333,6 +333,7 @@ func void  KDF_402_Corristo_ROBE_Info()
 	AI_UnequipWeapons	(hero);
 	Npc_SetTrueGuild	(hero,GIL_KDF);
 	hero.guild = GIL_KDF;
+	Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
 	
 	hero.attribute [ATR_HITPOINTS] = hero.attribute [ATR_HITPOINTS_MAX];
 
@@ -609,7 +610,8 @@ FUNC int  KDF_402_Corristo_HEAVYARMOR_Condition()
 FUNC void  KDF_402_Corristo_HEAVYARMOR_Info()
 {
 	AI_Output (other, self,"KDF_402_Corristo_HEAVYARMOR_Info_15_01"); //Mistrzu, chcia³bym nosiæ szatê Arcymaga Ognia.
-	if (Kapitel < 3) 
+	if (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE ) < 4)
+	&& (Kapitel < 3)
 	{
 		AI_Output (self, other,"KDF_402_Corristo_WANNBEKDF_Info_14_04"); //Nie jesteœ jeszcze gotów. Wróæ do mnie, kiedy zdobêdziesz wiêcej doœwiadczenia.
 		//AI_Output (other, self,"KDF_402_Corristo_HEAVYARMOR_Info_15_02"); //Es ist noch nicht deine Zeit, die hohe Robe zu tragen. //***FALSCHE STIMME***

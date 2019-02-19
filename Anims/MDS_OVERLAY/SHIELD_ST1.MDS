@@ -1,0 +1,290 @@
+Model ("HUS")
+{
+	meshAndTree ("HUM_BODY_NAKED0.ASC" DONT_USE_MESH)
+	aniEnum
+	{
+	modelTag	("DEF_HIT_LIMB"		"zs_RightHand")
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//	1H - WEAPON READY
+
+	ani		("t_Run_2_1h"		1	"s_1h"		0.0 	0.0 	M.	"B_SHIELD_DRAW.ASC"	F	0	5)
+	ani		("s_1h"				1	"s_1h"		0.0 	0.0 	M.	"B_SHIELD_DRAW.ASC"	F	6	6)
+	ani		("t_1h_2_1hRun"		1	"s_1hRun"	0.0 	0.0 	M.	"B_SHIELD_DRAW.ASC"	F   7	19)
+	{
+	*eventTag	(7 "DEF_FIGHTMODE"	"1H")
+      	//*eventSwapMesh   (7 "ZS_SHIELD" "ZS_LEFTARM")
+	*eventTag	(7	"DEF_DRAWSOUND")
+	}
+	ani		("t_1hRun_2_1h"		1	"s_1h"		0.0 	0.0 	M.	"B_SHIELD_DRAW.ASC"	R   	7	19)
+	{
+	*eventTag	(7 "DEF_FIGHTMODE"	"")
+        //*eventSwapMesh   (7 "ZS_LEFTARM" "ZS_SHIELD")
+	*eventTag	(12	"DEF_UNDRAWSOUND")
+	}
+	aniAlias	("t_1h_2_Run"		1	"s_Run"		0.0 	0.1 	M.	"t_Run_2_1h"		R)
+
+//	Schwert beim Rennen ziehen
+
+	ani		("t_Move_2_1hMove"	2	""		0.1	0.1	M.	"B_SHIELD_DRAW_MV.ASC"	F	0	19)
+	{
+	*eventTag	(9 "DEF_FIGHTMODE"	"1H")
+	*eventTag	(9	"DEF_DRAWSOUND")
+	}
+	ani		("t_1hMove_2_Move"	2	""		0.1	0.1	M.	"B_SHIELD_DRAW_MV.ASC"	R	0	19)
+	{
+	*eventTag	(9	"DEF_UNDRAWSOUND")
+	*eventTag	(9 "DEF_FIGHTMODE"	"")
+	}
+
+///////////////////////
+// 1H MOVEMENT
+///////////////////////
+
+//	1h-RUN
+
+    ani      ("S_1HRUN"                   1               "S_1HRUN"         0.1 0.1  MI "B_SHIELD_RUN.ASC"          F  0  50) 
+	aniBlend ("T_1HRUN_2_1HRUNL"                          "S_1HRUNL"        0.2 0.2)                                          
+	ani      ("S_1HRUNL"                  1               "S_1HRUNL"        0.0 0.0  M. "B_SHIELD_RUNL.ASC"         F  11 30) 
+	{
+		*eventSFXGrnd (11 "RUN")
+		*eventSFXGrnd (21 "RUN")
+	}
+	aniBlend	("t_1hRunL_2_1hRun"		"s_1hRun"	0.2	0.2)
+	aniBlend	("t_1hRunR_2_1hRun"		"s_1hRun"	0.2	0.2)
+
+
+//	1h-WALK
+
+	ani		("s_1hWalk"		1	"s_1hWalk"	0.1 	0.1 	MI	"SH_RUN.ASC"	F	90	180)
+
+	ani		("t_1hWalk_2_1hWalkL"	1	"s_1hWalkL"	0.0	0.0	M.	"SH_WALKL.ASC"	F	0	5)
+	ani		("s_1hWalkL"		1	"s_1hWalkL"	0.0	0.0	M.	"SH_WALKL.ASC"	F	6	31)
+	{
+	*eventSFXGrnd	(10	"Run")
+	*eventSFXGrnd	(23	"Run")
+	}
+	aniBlend	("t_1hWalkL_2_1hWalk"		"s_1hWalk"	0.2	0.2)
+	aniBlend	("t_1hWalkR_2_1hWalk"		"s_1hWalk"	0.2	0.2)
+
+//	1h-Walk Backwards Movement
+
+	aniBlend	("t_1hWalk_2_1hWalkBL"		"s_1hWalkBL"	0.1	0.1)
+	ani		("s_1hWalkBL"		1	"s_1hWalkBL"	0.0	0.0	M.	"SH_WALKL.ASC"	R	6	31)
+	{
+	*eventSFXGrnd	(10	"Run")
+	*eventSFXGrnd	(23	"Run")
+	}
+	aniBlend	("t_1hWalkBL_2_1hWalk"		"s_1hWalk"	0.2	0.2)
+	aniBlend	("t_1hWalkBR_2_1hWalk"		"s_1hWalk"	0.2	0.2)
+
+//	1h-Run Backwards Movement
+
+	ani		("t_1hJumpB" 		1 	"s_1hRun" 	0.0 	0.0 	M. 	"SH_JBACK.ASC"	F	0	17)
+	{
+	*eventSFXGrnd	(8	"Run")	
+	}
+	ani		("t_1hParadeJumpB"	1	""		0.0	0.0	M.	"SH_JBACK.ASC"	F	0	17)
+	{
+	*eventTag	(0 "DEF_WINDOW"		"3 14")
+	*eventSFXGrnd	(8	"Run")	
+	}
+
+///////////////////////
+// 1H STRAFING
+///////////////////////
+
+
+			ani			("t_1hRunStrafeL"			1	"t_1hRunStrafeL"	0.1	0.1	M.	"Hum_1hStrafeLT2_M02.asc"	F	0	18)
+			{
+				*eventSFXGrnd	(0	"Run")
+				*eventSFXGrnd	(9	"Run")
+			}
+			ani			("t_1hRunStrafeR"			1	"t_1hRunStrafeR"	0.1	0.1	M.	"Hum_1hStrafeRT2_M02.asc"	F	0	18)
+			{
+				*eventSFXGrnd	(0	"Run")
+				*eventSFXGrnd	(9	"Run")
+			}
+
+			aniAlias	("t_1hWalkStrafeL"			1	"t_1hWalkStrafeL"	0.1	0.1	M.	"t_1hRunStrafeL"			F)
+			aniAlias	("t_1hWalkStrafeR"			1	"t_1hWalkStrafeR"	0.1	0.1	M.	"t_1hRunStrafeR"			F)
+
+
+
+
+
+
+///////////////////////
+// 1H TURNING
+///////////////////////
+
+	ani      	("T_1HRUNTURNL"        20       "T_1HRUNTURNL"   0.1 	0.1  	M. 	"SH_TURNL.ASC"   F  	0  	25)         
+	{
+	*eventSFXGrnd (12  "TURN")
+	*eventSFXGrnd (20 "TURN")
+	}	
+	ani      	("T_1HRUNTURNR"        20       "T_1HRUNTURNR"   0.1 	0.1  	M. 	"SH_TURNR.ASC"   F  	0 	25)         
+	{
+	*eventSFXGrnd (12 "TURN")
+	*eventSFXGrnd (20 "TURN")
+	}
+	ani      	("T_1HWALKTURNL"       20       "T_1HWALKTURNL"   0.1 	0.1  	M. 	"SH_TURNL.ASC"   F  	0  	25)         
+	{
+	*eventSFXGrnd (12  "TURN")
+	*eventSFXGrnd (20 "TURN")
+	}	
+	ani      	("T_1HWALKTURNR"       20       "T_1HWALKTURNR"   0.1 	0.1  	M. 	"SH_TURNR.ASC"  F  	0 	25)         
+	{
+	*eventSFXGrnd (12 "TURN")
+	*eventSFXGrnd (20 "TURN")
+	}     
+
+///////////////////////
+// 1H TRANSITIONS
+///////////////////////
+
+//	Movement-Modes
+
+	ani      	("T_1HRUN_2_1HSNEAK"    1       "S_1HSNEAK"     0.0 	0.0  	M. 	"SH_SNEAK.ASC"   F  	0 	10)         
+	aniAlias 	("T_1HSNEAK_2_1HRUN"    1       "S_1HRUN"       0.0 	0.0  	M. 	"T_1HRUN_2_1HSNEAK"     R)          
+	aniBlend 	("T_1HSNEAKL_2_1HRUNL"          "S_1HRUNL"      0.2 	0.2)                                                    
+	aniBlend 	("T_1HRUNL_2_1HSNEAKL"          "S_1HSNEAKL"    0.2 	0.2)                                              
+
+	ani		("s_1hSneak"		1	"s_1hSneak"	0.1	0.1	MI	"SH_SNEAK.ASC"	F	10	70)
+	ani		("t_1hSneak_2_1hSneakL"	1	"s_1hSneakL"	0.0	0.0	M.	"SH_SNEAK.ASC"	F	70	74)
+	ani		("s_1hSneakL"		1	"s_1hSneakL"	0.1	0.1	M.	"SH_SNEAK.ASC"	F	75     115)
+	{
+	*eventSFXGrnd   (84	"Sneak")
+	*eventSFXGrnd   (104	"Sneak")
+	}
+	aniBlend	("t_1hSneakL_2_1hSneak"		"s_1hSneak"	0.1	0.1)
+	aniBlend	("t_1hSneakR_2_1hSneak"		"s_1hSneak"	0.1	0.1)
+	aniBlend	("t_1hSneak_2_1hSneakBL" 	"s_1hSneakBL"	0.2	0.2)
+	ani		("s_1hSneakBL"		1	"s_1hSneakBL"	0.1	0.1	M.	"SH_SNEAK.ASC"	R	75     115)
+	aniBlend	("t_1hSneakBL_2_1hSneak" 	"s_1hSneak"	0.2	0.2)
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+///////////////////////
+// 1H SWORD FIGHTING
+///////////////////////
+
+	ani			("s_1hAttack"				1	"s_1hAttack"	0.0	0.0	M.	"B_SHIELD_ATTACKCOMBO.ASC"		F	1	140)
+			{
+				*eventTag (0   "DEF_HIT_LIMB"  "ZS_RIGHTHAND")      
+				*eventTag (0   "DEF_OPT_FRAME" "4 37 74 110")       
+				*eventTag (0   "DEF_HIT_END"   "33 68 103 119")     
+				*eventTag (0   "DEF_WINDOW"    "12 36 47 71 82 106")
+				*eventSFX (5   "WHOOSH"        EMPTY_SLOT)          
+				*eventSFX (37  "WHOOSH"        EMPTY_SLOT)          
+				*eventSFX (74  "WHOOSH"        EMPTY_SLOT)          
+				*eventSFX (108 "WHOOSH"        EMPTY_SLOT) 
+			}
+
+
+//	Drehschl‰ge	
+				
+	ani      ("T_1HATTACKL"          	1       ""              0.0	0.2	M.	"B_SHIELD_ATACK_LR.ASC"  F  0  24)                  
+	{
+		*eventTag (0 "DEF_HIT_LIMB"  "ZS_RIGHTHAND")
+		*eventTag (0 "DEF_OPT_FRAME" "4")           
+		*eventTag (0 "DEF_HIT_END"   "23")          
+		*eventTag (0 "DEF_WINDOW"    "10 23")       
+		*eventSFX (4 "WHOOSH"        EMPTY_SLOT)      
+	}
+	ani      ("T_1HATTACKR"          	1       ""              0.0	0.1	M.	"B_SHIELD_ATACK_LR.ASC"  F  25 50)                  
+	{
+		*eventTag (0  "DEF_HIT_LIMB"  "ZS_RIGHTHAND")
+		*eventTag (0  "DEF_OPT_FRAME" "5")           
+		*eventTag (0  "DEF_HIT_END"   "24")          
+		*eventTag (0  "DEF_WINDOW"    "10 24")       
+		*eventSFX (28 "WHOOSH"        EMPTY_SLOT)    
+	}
+
+//	w‰hrend des Laufens zuschlagen
+
+	ani	("t_1hAttackMove"		2	""		0.1	0.1	M.	"B_SHIELD_MOVEATTACK.ASC"	F	0	20)
+	{
+	*eventTag		(0 "DEF_HIT_LIMB"	"ZS_RIGHTHAND")
+	*eventTag		(0 "DEF_OPT_FRAME"	"10")
+	*eventSFX		(7	"Whoosh"	EMPTY_SLOT)
+	}
+     
+//	Parade
+
+	ani	("t_1hParade_O"			1	""		0.1	0.0	M.	"SH_PARADE.ASC"	F	0	15)
+	{
+	*eventTag	(0 "DEF_WINDOW"		"1 14")
+	}
+
+//	Todesstoﬂ - Entfernung zwischen Bip01 Angreifer und Bip01 Opfer ca. 200 cm
+
+	ani	("t_1hSFinish"			1	""		0.1	0.1	M.	"SH_FINISH.ASC"	F	0	80)
+	{
+	*eventSFX	(25	"FIG_SwordFinal"	EMPTY_SLOT)
+	}
+
+//	TRANSITIONS
+	
+	ani		("t_Run_2_Sneak"	1	"s_Sneak"	0.1	0.0	M.	"SH_SNEAKL.ASC"	F	0	10)
+	aniAlias	("t_Sneak_2_Run"	1	"s_Run"		0.0	0.1	M.	"t_Run_2_Sneak"		R)
+
+	ani		("t_Walk_2_Sneak"	1	"s_Sneak"	0.1	0.0	M.	"SH_SNEAKL.ASC"	F	0	10)
+	aniAlias	("t_Sneak_2_Walk"	1	"s_Walk"	0.0	0.1	M.	"t_Walk_2_Sneak"	R)
+	
+	aniBlend	("t_SneakL_2_RunL"		"s_RunL"	0.2	0.2)
+	aniBlend	("t_RunL_2_SneakL"		"s_SneakL"	0.2	0.2)
+
+	aniBlend	("t_WalkL_2_SneakL"		"s_SneakL"	0.2	0.2)
+	aniBlend	("t_SneakL_2_WalkL"		"s_WalkL"	0.2	0.2)
+
+//	SNEAK-Mode
+
+	ani		("s_Sneak"		1	"s_Sneak"	0.0	0.0	MI	"SH_SNEAKL.ASC"	F	10	70)
+	ani		("t_Sneak_2_SneakL"	1	"s_SneakL"	0.0	0.1	M.	"SH_SNEAKL.ASC"	F	70	80)
+	ani		("s_SneakL"		1	"s_SneakL"	0.0	0.1	M.	"SH_SNEAKL.ASC"	F	80	120)
+	{
+	*eventSFXGrnd   (85	"Sneak")
+	*eventSFXGrnd   (105	"Sneak")
+	}
+	aniBlend	("t_SneakL_2_Sneak"		"s_Sneak"	0.2	0.2)
+	aniBlend	("t_SneakR_2_Sneak"		"s_Sneak"	0.2	0.2)
+
+	aniBlend	("t_Sneak_2_SneakBL"		"s_SneakBL"	0.2	0.2)	
+	ani		("s_SneakBL"		1	"s_SneakBL"	0.0	0.1	M.	"SH_SNEAKL.ASC"	R	80	120)
+	aniBlend	("t_SneakBL_2_Sneak"		"s_Sneak"	0.2	0.2)
+	aniBlend	("t_SneakBR_2_Sneak"		"s_Sneak"	0.2	0.2)
+	
+//	Fist-SNEAK
+
+	ani      	("T_FISTRUN_2_FISTSNEAK"    1   "S_FISTSNEAK"   0.1 	0.0  	M. 	"SH_SNEAK_FT.ASC"   F  	0 	10)         
+	aniAlias 	("T_FISTSNEAK_2_FISTRUN"    1   "S_FISTRUN"     0.1 	0.1  	M. 	"T_FISTRUN_2_FISTSNEAK" R)          
+	aniBlend 	("T_FISTSNEAKL_2_FISTRUNL"      "S_FISTRUNL"    0.2 	0.2)                                                    
+	aniBlend 	("T_FISTRUNL_2_FISTSNEAKL"      "S_FISTSNEAKL"  0.2 	0.2)                                              
+
+	ani		("s_FISTSneak"		1	"s_FISTSneak"	0.1	0.1	MI	"SH_SNEAK_FT.ASC"	F	10	70)
+	ani		("t_FISTSneak_2_FISTSneakL" 1	"s_FISTSneakL"	0.0	0.0	M.	"SH_SNEAK_FT.ASC"	F	70	80)
+	ani		("s_FISTSneakL"		1	"s_FISTSneakL"	0.0	0.1	M.	"SH_SNEAK_FT.ASC"	F	80     120)
+	{
+	*eventSFXGrnd   (85	"Sneak")
+	*eventSFXGrnd   (105	"Sneak")
+	}
+	aniBlend	("t_FISTSneakL_2_FISTSneak"	"s_FISTSneak"	0.1	0.1)
+	aniBlend	("t_FISTSneakR_2_FISTSneak"	"s_FISTSneak"	0.1	0.1)
+	aniBlend	("t_FISTSneak_2_FISTSneakBL" 	"s_FISTSneakBL"	0.2	0.2)
+	ani		("s_FISTSneakBL"	1	"s_FISTSneakBL"	0.0	0.1	M.	"SH_SNEAK_FT.ASC"	R	80     120)
+	aniBlend	("t_FISTSneakBL_2_FISTSneak" 	"s_FISTSneak"	0.2	0.2)
+
+//	JUMP
+	
+	ani		("t_Stand_2_Jump"	1	"s_Jump"	0.1	0.0	MF	"SH_JUMP.ASC"	F	3	29)
+	ani		("s_Jump"		1	"s_Jump"	0.1	0.1 	MF	"SH_JUMP.ASC"	F	30	30)
+	ani		("t_Jump_2_Stand"	1	""		0.1 	0.2	M.	"SH_JUMP.ASC"	F	31	45)
+	{
+	*eventSFXGrnd	(31	"Run")
+	}
+
+	}
+}
+

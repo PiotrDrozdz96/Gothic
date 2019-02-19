@@ -58,7 +58,7 @@ INSTANCE DIA_Silas_Trade(C_Info)
 	nr			= 1;
 	condition	= DIA_Silas_Trade_Condition;
 	information	= DIA_Silas_Trade_Info;
-	permanent	= 0;
+	permanent	= 1;
 	description = "Chcê siê napiæ.";
 	trade		= 1;
 };                       

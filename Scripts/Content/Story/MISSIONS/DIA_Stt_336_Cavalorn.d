@@ -84,14 +84,9 @@ FUNC VOID DIA_cavalorn_Lehrer_Info()
 	Info_ClearChoices	(DIA_cavalorn_Lehrer );
 	Info_AddChoice		(DIA_cavalorn_Lehrer,DIALOG_BACK															,DIA_cavalorn_Lehrer_BACK);
 
-	if	(Npc_GetTalentSkill (hero,NPC_TALENT_BOW) == 1)
+	if	(Npc_GetTalentValue(hero, NPC_TALENT_BOW) < 30 )
 	{
-		Info_AddChoice		(DIA_cavalorn_Lehrer,B_BuildLearnString(NAME_LearnBow_2,		LPCOST_TALENT_BOW_2,0)	,DIA_cavalorn_Lehrer_Bow_2);
-	};
-
-	if	(Npc_GetTalentSkill (hero,NPC_TALENT_BOW) == 0)
-	{
-		Info_AddChoice		(DIA_cavalorn_Lehrer,B_BuildLearnString(NAME_LearnBow_1,		LPCOST_TALENT_BOW_1,0)	,DIA_cavalorn_Lehrer_Bow);
+		Info_AddChoice		(DIA_cavalorn_Lehrer, "£uk +3% (50 bry³ek rudy, 10pkt. umiejêtnoœci)" ,DIA_cavalorn_Lehrer_Bow);
 	};
 	
 	if	(Npc_GetTalentSkill (hero,NPC_TALENT_SNEAK) == 0)
@@ -107,13 +102,47 @@ func void DIA_cavalorn_Lehrer_BACK()
 
 func void DIA_Cavalorn_Lehrer_Bow()
 {
-	if (B_GiveSkill(other, NPC_TALENT_BOW, 1, LPCOST_TALENT_BOW_1))
-	{		
+	if B_GiveSkill(hero,NPC_TALENT_BOW,Npc_GetTalentSkill(hero, NPC_TALENT_BOW)+1,LPCOST_TALENT_BOW_1)
+	{
 		AI_Output (other, self,"DIA_cavalorn_Lehrer_Bow_15_00"); //Mo¿esz mnie nauczyæ, jak sprawniej pos³ugiwaæ siê ³ukiem?
-		AI_Output (self, other,"DIA_cavalorn_Lehrer_Bow_12_01"); //Jako pocz¹tkuj¹cy powinieneœ zawsze pamiêtaæ, ¿e skutecznoœæ strzelania z ³uku zale¿y przede wszystkim od przyjêtej postawy.
-		AI_Output (self, other,"DIA_cavalorn_Lehrer_Bow_12_02"); //Rozstaw stopy szeroko, ramiona unieœ na tê sam¹ wysokoœæ, wstrzymaj oddech i strzelaj!
-		AI_Output (self, other,"DIA_cavalorn_Lehrer_Bow_12_03"); //Jeœli uda ci siê trafiæ w szczególnie wra¿liwe punkty cia³a ofiary, nie bêdzie potrzeby oddawania drugiego strza³u. Oczywiœcie pocz¹tkuj¹cy strzelcy mog¹ tylko pomarzyæ o trafieniu w czu³y punkt.
-		AI_Output (self, other,"DIA_cavalorn_Lehrer_Bow_12_04"); //Ale jeœli zastosujesz siê do moich wskazówek, mo¿esz liczyæ na wiêcej trafieñ w cel.
+		
+		if (Npc_GetTalentValue(hero, NPC_TALENT_BOW) == 3){
+			AI_Output (self, other,"DIA_cavalorn_Lehrer_Bow_12_01"); //Jako pocz¹tkuj¹cy powinieneœ zawsze pamiêtaæ, ¿e skutecznoœæ strzelania z ³uku zale¿y przede wszystkim od przyjêtej postawy.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_BOW) == 6){
+			AI_Output (self, other,"DIA_cavalorn_Lehrer_Bow_12_02"); //Rozstaw stopy szeroko, ramiona unieœ na tê sam¹ wysokoœæ, wstrzymaj oddech i strzelaj!
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_BOW) == 9){
+			AI_Output (self, other,"DIA_cavalorn_Lehrer_Bow_12_03"); //Jeœli uda ci siê trafiæ w szczególnie wra¿liwe punkty cia³a ofiary, nie bêdzie potrzeby oddawania drugiego strza³u. Oczywiœcie pocz¹tkuj¹cy strzelcy mog¹ tylko pomarzyæ o trafieniu w czu³y punkt.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_BOW) == 12){
+			AI_Output (self, other,"DIA_cavalorn_Lehrer_Bow_12_04"); //Ale jeœli zastosujesz siê do moich wskazówek, mo¿esz liczyæ na wiêcej trafieñ w cel.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_BOW) == 15){
+			AI_Output (self, other,"DIA_Cavalorn_Lehrer_Bow_2_Info_12_02"); //Jesteœ ju¿ ca³kiem niez³ym myœliwym. Teraz pora abyœ pozna³ resztê najwa¿niejszych informacji.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_BOW) == 18){
+			AI_Output (self, other,"DIA_Cavalorn_Lehrer_Bow_2_Info_12_03"); //Dobry ³ucznik bierze pod uwagê wiele czynników zewnêtrznych, ale robi to odruchowo, nieœwiadomie.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_BOW) == 21){
+			AI_Output (self, other,"DIA_Cavalorn_Lehrer_Bow_2_Info_12_04"); //Odkryj tajniki funkcjonowania twojego oka, pamiêtaj o sile naci¹gu i wyobra¿aj sobie trajektoriê lotu strza³y, ale przede wszystkim - zawsze b¹dŸ czujny!
+		}
+		else{
+			AI_Output (self, other,"DIA_Cavalorn_Lehrer_Bow_2_Info_12_05"); //Opanowa³eœ ju¿ wiêkszoœæ tajników strzelania z ³uku. Teraz pozosta³o ci tylko rozwijaæ twoje umiejêtnoœci podczas polowania i walki.
+		};
+		
+		Info_ClearChoices	(DIA_cavalorn_Lehrer );
+		Info_AddChoice		(DIA_cavalorn_Lehrer,DIALOG_BACK															,DIA_cavalorn_Lehrer_BACK);
+
+		if	(Npc_GetTalentValue(hero, NPC_TALENT_BOW) < 30 )
+		{
+			Info_AddChoice		(DIA_cavalorn_Lehrer, "£uk +3% (50 bry³ek rudy, 10pkt. umiejêtnoœci)" ,DIA_cavalorn_Lehrer_Bow);
+		};
+		
+		if	(Npc_GetTalentSkill (hero,NPC_TALENT_SNEAK) == 0)
+		{
+			Info_AddChoice		(DIA_cavalorn_Lehrer,B_BuildLearnString(NAME_LearnSneak, 		LPCOST_TALENT_SNEAK,0)	,DIA_cavalorn_Lehrer_Schleichen);
+		};
 	};
 };
 
@@ -128,16 +157,7 @@ func void DIA_Cavalorn_Lehrer_Schleichen()
 		AI_Output (self, other,"DIA_cavalorn_Lehrer_Schleichen_12_04"); //Zapamiêtaj sobie dobrze co ci powiedzia³em, i przede wszystkim nie daj siê z³apaæ!
 	};
 };
-func void DIA_Cavalorn_Lehrer_Bow_2()
-{
-	if (B_GiveSkill(other, NPC_TALENT_BOW, 2, LPCOST_TALENT_BOW_2))
-	{		
-			AI_Output (self, other,"DIA_Cavalorn_Lehrer_Bow_2_Info_12_02"); //Jesteœ ju¿ ca³kiem niez³ym myœliwym. Teraz pora abyœ pozna³ resztê najwa¿niejszych informacji.
-			AI_Output (self, other,"DIA_Cavalorn_Lehrer_Bow_2_Info_12_03"); //Dobry ³ucznik bierze pod uwagê wiele czynników zewnêtrznych, ale robi to odruchowo, nieœwiadomie.
-			AI_Output (self, other,"DIA_Cavalorn_Lehrer_Bow_2_Info_12_04"); //Odkryj tajniki funkcjonowania twojego oka, pamiêtaj o sile naci¹gu i wyobra¿aj sobie trajektoriê lotu strza³y, ale przede wszystkim - zawsze b¹dŸ czujny!
-			AI_Output (self, other,"DIA_Cavalorn_Lehrer_Bow_2_Info_12_05"); //Opanowa³eœ ju¿ wiêkszoœæ tajników strzelania z ³uku. Teraz pozosta³o ci tylko rozwijaæ twoje umiejêtnoœci podczas polowania i walki.
-	};
-};
+
 /*------------------------------------------------------------------------
 						BOGEN KAUFEN						
 ------------------------------------------------------------------------*/

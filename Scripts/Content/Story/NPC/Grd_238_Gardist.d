@@ -22,6 +22,7 @@ instance GRD_238_Gardist (Npc_Default)
 	// 			animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
+	Mdl_ApplyOverlayMds (self,"SHIELD_ST1.MDS");
 	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_Thief", 14,  2, GRD_ARMOR_M);
         
@@ -33,12 +34,14 @@ instance GRD_238_Gardist (Npc_Default)
 				
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);		
+	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);
+	Npc_SetTalentSkill (self, NPC_TALENT_SHIELD,1);	
 			
 	//-------- inventory --------
 	
-	CreateInvItem	(self, ItMw_1H_Sword_02);
-	CreateInvItem	(self, ItRw_Crossbow_01);
+	EquipItem	(self, ItMw_1H_Sword_02);
+	EquipItem (self, ITSH_G3_03);
+	EquipItem	(self, ItRw_Crossbow_01);
 	CreateInvItems	(self, ItAmBolt, 30);
 	CreateInvItem	(self, ItFoCheese);
 	CreateInvItem	(self, ItFoApple);

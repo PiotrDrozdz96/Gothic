@@ -24,6 +24,7 @@ instance SLD_723_Soeldner (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
+	Mdl_ApplyOverlayMds (self,"SHIELD_ST2.MDS");
 	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 1, 1,"Hum_Head_Pony", 48, 1,SLD_ARMOR_H);
 	
@@ -37,11 +38,13 @@ instance SLD_723_Soeldner (Npc_Default)
 
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);	
+	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
+	Npc_SetTalentSkill	(self, NPC_TALENT_SHIELD,2);	
 
 	//-------- inventory --------                                    
 
 	EquipItem (self, ItMw_1H_Mace_War_03);
+	EquipItem (self, ITSH_KORSHAN_A);
 	EquipItem (self, ItRw_Bow_Long_01);
 	CreateInvItems(self, ItAmArrow, 20);
 	CreateInvItems (self, ItFoRice,7);

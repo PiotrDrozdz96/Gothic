@@ -71,3 +71,9 @@ FUNC VOID Rtn_OT_105 ()
 	TA_Guard		(07,00,20,00,"OCC_CENTER_1");
 	TA_Guard		(20,00,07,00,"OCC_CENTER_1");
 };
+
+func void Rtn_out_105 ()
+{
+	TA_Stay	(07,00,20,00,"WP_INTRO_WI05");
+	TA_Stay	(20,00,07,00,"WP_INTRO_WI05");
+};

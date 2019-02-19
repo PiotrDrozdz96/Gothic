@@ -467,6 +467,146 @@ FUNC void  Info_Xardas_RETURN_Info()
 
 //#####################################################################
 //##
+//##							DROPS
+//##						Wybór Œcie¿ki Maga
+//##
+//#####################################################################
+
+instance  Info_Xardas_GIL_DMB (C_INFO)
+{
+	npc				= Kdf_404_Xardas;
+	condition		= Info_Xardas_GIL_DMB_Condition;
+	information		= Info_Xardas_GIL_DMB_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= "Chcia³bym pod¹¿aæ twoj¹ œcie¿k¹. (Œcie¿ka Nekromanty)"; 
+};
+
+FUNC int  Info_Xardas_GIL_DMB_Condition()
+{	
+	if Npc_KnowsInfo(hero, Info_Xardas_RETURN)
+	&& (Npc_GetTrueGuild (hero) == GIL_KDW || Npc_GetTrueGuild (hero) == GIL_KDF || Npc_GetTrueGuild (hero) == GIL_GUR )
+	{			
+		if ( !Npc_KnowsInfo(hero, KDW_600_Saturas_HEAVYARMOR) )
+		{
+			return TRUE;
+		};
+	};	
+};
+func void  Info_Xardas_GIL_DMB_Info()
+{
+	AI_Output (other, self,"Info_Xardas_GIL_DMB_15_01");		//Chcia³bym przyst¹piæ do magicznego krêgu.
+	
+	if (Npc_GetTrueGuild (hero) == GIL_GUR && Npc_GetTalentSkill( hero,	NPC_TALENT_MAGE ) == 4 ){
+		AI_Output (self, other,"Info_Xardas_GIL_DMB_14_02"); //Jeœli tego w³aœnie chcesz, proszê.
+		CreateInvItem 		(hero, DMB_ARMOR_GUR);		
+		AI_EquipBestArmor	(hero);
+		
+		//Fakeitem für Bildschirmausgabe
+		CreateInvItem		(self,			ItAmArrow);
+		B_GiveInvItems		(self, hero,	ItAmArrow, 1);
+		Npc_RemoveInvItem	(hero,			ItAmArrow);
+		
+		hero.guild 	= GIL_DMB;	
+		Npc_SetTrueGuild	( hero, GIL_DMB );
+		Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
+		B_GiveSkill(hero, NPC_TALENT_MAGE, 5, 0);
+		Info_Xardas_GIL_DMB.permanent = 0;
+		hero.attribute[ATR_HITPOINTS] = 1;
+		
+		AI_Output (hero, self,"Info_Xardas_GIL_DMB_15_04"); //Czujê siê, czujê siê...
+		AI_Output (self, other,"Info_Xardas_GIL_DMB_14_05"); //To niesamowite.
+		AI_Output (hero, self,"Info_Xardas_RETURN_15_11"); //Nic nie rozumiem!
+		AI_Output (self, other,"Info_Xardas_GIL_DMB_14_06"); //Ale doœæ ju¿ o tym.
+		
+		
+		AI_StopProcessInfos	( self );
+		
+	}
+	else if ( Npc_GetTalentSkill	( hero,	NPC_TALENT_MAGE ) == 5) 
+	{
+		
+		AI_Output (self, other,"Info_Xardas_GIL_DMB_14_02"); //Jeœli tego w³aœnie chcesz, proszê.
+		
+		CreateInvItem 		(hero, DMB_ARMOR_M);		// SN: kann nicht mit B_GiveInvItem() übergeben werden, da Xardas sonst nackt dasteht!
+		AI_EquipBestArmor	(hero);
+
+		//Fakeitem für Bildschirmausgabe
+		CreateInvItem		(self,			ItAmArrow);
+		B_GiveInvItems		(self, hero,	ItAmArrow, 1);
+		Npc_RemoveInvItem	(hero,			ItAmArrow);
+
+		hero.guild 	= GIL_DMB;	
+		Npc_SetTrueGuild	( hero, GIL_DMB );
+		Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
+		Info_Xardas_GIL_DMB.permanent = 0;
+		AI_StopProcessInfos	( self );
+		
+	}
+	else 
+	{
+		if Npc_GetTrueGuild (hero) == GIL_GUR
+		{
+			AI_Output (self, other,"Info_Xardas_GIL_DMB_14_07"); 	//Jeszcze nie. Jesteœ zdolny, ale brak ci niezbêdnego doœwiadczenia.
+		}
+		else{
+			AI_Output (self, other,"Info_Xardas_GIL_DMB_14_03"); 	//Jeszcze nie. Jesteœ zdolny, ale brak ci niezbêdnego doœwiadczenia. Niech Saturas popracuje nad tob¹ przez jakiœ czas. Wtedy zobaczymy.
+		};
+		
+		AI_StopProcessInfos	( self );
+	};
+};
+
+instance  Info_Xardas_GIL_KDF (C_INFO)
+{
+	npc				= Kdf_404_Xardas;
+	condition		= Info_Xardas_GIL_KDF_Condition;
+	information		= Info_Xardas_GIL_KDF_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= "Chcia³bym nosiæ szatê Arcymaga Ognia. (Œcie¿ka Maga Ognia)"; 
+};
+
+FUNC int  Info_Xardas_GIL_KDF_Condition()
+{	
+	if Npc_KnowsInfo(hero, Info_Xardas_RETURN)
+	&& (Npc_GetTrueGuild (hero) == GIL_KDF )
+	{			
+		return TRUE;
+	};	
+};
+func void  Info_Xardas_GIL_KDF_Info()
+{
+	AI_Output (other, self,"Info_Xardas_GIL_KDF_15_01");		//Chcia³bym nosiæ szatê Arcymaga Ognia.
+	
+	if ( Npc_GetTalentSkill	( hero,	NPC_TALENT_MAGE ) == 5) 
+	{
+		
+		AI_Output (self, other,"Info_Xardas_GIL_KDF_14_02"); //Odk¹d opuœci³em Magów Ognia nie bêdê mia³ z niej po¿ytku, wiêc przynajmniej tobie na coœ siê przyda.
+		
+		CreateInvItem 		(hero, KDF_ARMOR_H2);
+		AI_EquipBestArmor	(hero);
+
+		//Fakeitem für Bildschirmausgabe
+		CreateInvItem		(self,			ItAmArrow);
+		B_GiveInvItems		(self, hero,	ItAmArrow, 1);
+		Npc_RemoveInvItem	(hero,			ItAmArrow);
+
+		Info_Xardas_GIL_DMB.permanent = 0;
+		Info_Xardas_GIL_KDF.permanent = 0;
+		AI_StopProcessInfos	( self );
+		
+	}
+	else 
+	{
+		AI_Output (self, other,"Info_Xardas_GIL_KDF_14_03"); 	//Jeszcze nie. Jesteœ zdolny, ale brak ci niezbêdnego doœwiadczenia. Niech Saturas popracuje nad tob¹ przez jakiœ czas. Wtedy zobaczymy.
+		
+		AI_StopProcessInfos	( self );
+	};
+};
+
+//#####################################################################
+//##
 //##
 //##							KAPITEL 5
 //##
@@ -559,7 +699,10 @@ FUNC void  Info_Xardas_LOADSWORD_Info()
 	AI_Output				(other, self,"Info_Xardas_LOADSWORD_15_01"); //Znalaz³em dziwny miecz.
 	AI_Output				(self, other,"Info_Xardas_LOADSWORD_14_02"); //Poka¿ mi go.
 
-	CreateInvItem 			(self, Mythrilklinge01);
+	if (Npc_GetTalentValue(hero, NPC_TALENT_1H)>Npc_GetTalentValue(hero, NPC_TALENT_2H)){
+		CreateInvItem 			(self, ITMW_1H_URIZIEL_1);
+	}
+	else {CreateInvItem 			(self, Mythrilklinge01);};
 	AI_EquipBestMeleeWeapon	(self);
 	AI_ReadyMeleeWeapon		(self);
 	AI_PlayAni				(self, "T_1HSINSPECT");
@@ -572,7 +715,10 @@ FUNC void  Info_Xardas_LOADSWORD_Info()
 	AI_Output				(self, other,"Info_Xardas_LOADSWORD_14_06"); //Wed³ug legendy, miecz ma posiadaæ niezwyk³e moce, ale nie wyczuwam wokó³ niego magicznej aury!
 	
 	Npc_RemoveInvItem 		(hero, Mythrilklinge);	
-	CreateInvItem 			(hero, Mythrilklinge01);
+	if (Npc_GetTalentValue(hero, NPC_TALENT_1H)>Npc_GetTalentValue(hero, NPC_TALENT_2H)){
+		CreateInvItem 			(hero, ITMW_1H_URIZIEL_1);
+	}
+	else {CreateInvItem 			(hero, Mythrilklinge01);};
 };
 
 //---------------------------------------------------------------------
@@ -600,6 +746,7 @@ FUNC int  Info_Xardas_LOADSWORD01_Condition()
 FUNC void  Info_Xardas_LOADSWORD01_Info()
 {
 	Npc_RemoveInvItem 	(self, Mythrilklinge01);
+	Npc_RemoveInvItem 	(self, ITMW_1H_URIZIEL_1);
 
 	AI_Output 			(other, self,"Info_Xardas_LOADSWORD01_15_01"); //URIZIEL posiada³ niezwyk³e moce?
 	AI_Output 			(self, other,"Info_Xardas_LOADSWORD01_14_02"); //Napisano, ¿e posiadacz tej broni by³ w stanie przebiæ najgrubszy pancerz i przezwyciê¿yæ najsilniejsze zaklêcia.
@@ -784,7 +931,7 @@ instance  Info_Xardas_ALTRUNE (C_INFO)
 FUNC int  Info_Xardas_ALTRUNE_Condition()
 {	
 	if	Npc_KnowsInfo(hero, Info_Xardas_FORMULA)
-	&&	((Npc_GetTrueGuild(hero) == GIL_KDW) || (Npc_GetTrueGuild(hero) == GIL_DMB))
+	&&	((Npc_GetTrueGuild(hero) == GIL_KDW) || (Npc_GetTrueGuild(hero) == GIL_DMB) || (Npc_GetTrueGuild(hero) == GIL_KDF))
 	{			
 		return TRUE;
 	}; 
@@ -813,7 +960,7 @@ instance  Info_Xardas_SWORDLOADED (C_INFO)
 
 FUNC int  Info_Xardas_SWORDLOADED_Condition()
 {	
-	if  Npc_HasItems(hero,Mythrilklinge02)
+	if  (Npc_HasItems(hero,Mythrilklinge02) || Npc_HasItems(hero,ITMW_1H_URIZIEL_2))
 	{			
 		return TRUE;	
 	}; 
@@ -877,7 +1024,7 @@ instance  Info_Xardas_MAKERUNEDOIT (C_INFO)
 FUNC int  Info_Xardas_MAKERUNEDOIT_Condition()
 {	
 	if	Npc_KnowsInfo(hero, Info_Xardas_MAKERUNE)
-	&&	Npc_HasItems (hero,	Mythrilklinge02)
+	&&	(Npc_HasItems (hero,	Mythrilklinge02) || Npc_HasItems (hero,	ITMW_1H_URIZIEL_2))
 	{			
 		return TRUE;	
 	}; 
@@ -903,11 +1050,16 @@ func void Info_Xardas_MAKERUNE_YES ()
 	AI_Output			(other, self,"Info_Xardas_MAKERUNEDOIT_15_04"); //TAK, zrób to!
 	AI_Output			(self, other,"Info_Xardas_MAKERUNEDOIT_14_05"); //Jeœli tego w³aœnie chcesz... Proszê, oto miecz i runa!
 
-	Npc_RemoveInvItem 	(hero, Mythrilklinge02);
-	CreateInvItems 		(self, UrizielRune, 2);	
-	B_GiveInvItems      (self, hero, UrizielRune, 2);// Wegen Ausgabe "2 Items übergeben", wird direkt angeglichen
-	Npc_RemoveInvItem	(hero, UrizielRune);
-	CreateInvItem		(hero, Mythrilklinge03);
+	if (Npc_HasItems (hero,	Mythrilklinge02)){
+		Npc_RemoveInvItem 	(hero, Mythrilklinge02);
+		CreateInvItem		(hero, Mythrilklinge03);
+	}
+	else{
+		Npc_RemoveInvItem 	(hero, ITMW_1H_URIZIEL_2);
+		CreateInvItem		(hero, ITMW_1H_URIZIEL_3);
+	};
+	
+	CreateInvItem		(hero, UrizielRune);
 	B_LogEntry			(CH5_Uriziel,	"Xardas usun¹³ magiczny kryszta³ z Uriziela. Magiczna moc tego miecza spoczywa teraz w magicznej runie.");
 	Log_SetTopicStatus	(CH5_Uriziel,	LOG_SUCCESS);
 };	
@@ -936,7 +1088,7 @@ instance  Info_Xardas_LOADSWORD09 (C_INFO)
 FUNC int  Info_Xardas_LOADSWORD09_Condition()
 {	
 	if (EnteredTemple)
-	&& (Npc_GetTrueGuild (hero) == GIL_KDW)
+	&& (Npc_GetTrueGuild (hero) == GIL_KDW || Npc_GetTrueGuild (hero) == GIL_DMB || Npc_GetTrueGuild (hero) == GIL_KDF)
 	{			
 		return TRUE;
 	};	
@@ -955,17 +1107,7 @@ func void  Info_Xardas_LOADSWORD09_Info()
 			AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_04"); //Twoim znakiem jest zjednoczenie elementów.
 			AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_05"); //Szósty Kr¹g pozwala ci wykorzystywaæ magiê dowolnej runy.
 			AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_06"); //I nie zapomnij: twoim zadaniem jest s³u¿yæ potêdze magii, a nie j¹ wykorzystywaæ.
-			
-			CreateInvItem 		(hero, DMB_ARMOR_M);		// SN: kann nicht mit B_GiveInvItem() übergeben werden, da Xardas sonst nackt dasteht!
-			AI_EquipBestArmor	(hero);
-
-			//Fakeitem für Bildschirmausgabe
-			CreateInvItem		(self,			ItAmArrow);
-			B_GiveInvItems		(self, hero,	ItAmArrow, 1);
-			Npc_RemoveInvItem	(hero,			ItAmArrow);
-
-			hero.guild 	= GIL_DMB;	
-			Npc_SetTrueGuild	( hero, GIL_DMB );	
+				
 			Info_Xardas_LOADSWORD09.permanent = 0;
 			AI_StopProcessInfos	( self );
 		};

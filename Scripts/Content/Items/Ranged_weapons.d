@@ -1,4 +1,22 @@
 //KURZBOGEN//
+FUNC VOID Condition_Bow()
+{
+	if(Npc_GetTalentSkill(hero, NPC_TALENT_BOW)==0){
+		AI_UnequipWeapons	(hero);
+		AI_EquipBestMeleeWeapon	(hero);
+		PrintScreen	("Nie umiesz pos³ugiwaæ siê £ukiem", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
+	};
+};
+
+FUNC VOID Condition_CrossBow()
+{
+	if(Npc_GetTalentSkill(hero, NPC_TALENT_CROSSBOW)==0){
+		AI_UnequipWeapons	(hero);
+		AI_EquipBestMeleeWeapon	(hero);
+		PrintScreen	("Nie umiesz pos³ugiwaæ siê Kusz¹", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
+	};
+};
+
 INSTANCE ItRw_Bow_Small_01 (C_Item)
 {
 	name 				=	"Krótki ³uk";
@@ -6,6 +24,7 @@ INSTANCE ItRw_Bow_Small_01 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	40;//20;
 
@@ -31,6 +50,7 @@ INSTANCE ItRw_Bow_Small_02 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	80;//40;
 
@@ -55,6 +75,7 @@ INSTANCE ItRw_Bow_Small_03 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	120;//60;
 
@@ -79,6 +100,7 @@ INSTANCE ItRw_Bow_Small_04 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	160;//80;
 
@@ -103,6 +125,7 @@ INSTANCE ItRw_Bow_Small_05 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	200;//100;
 
@@ -130,6 +153,7 @@ INSTANCE ItRw_Bow_Long_01 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	240;//120;
 
@@ -154,6 +178,7 @@ INSTANCE ItRw_Bow_Long_02 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	280;//140;
 
@@ -178,6 +203,7 @@ INSTANCE ItRw_Bow_Long_03 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	320;//160;
 
@@ -202,6 +228,7 @@ INSTANCE ItRw_Bow_Long_04 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	360;//180;
 
@@ -226,6 +253,7 @@ INSTANCE ItRw_Bow_Long_05 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	440;//220;
 
@@ -250,6 +278,7 @@ INSTANCE ItRw_Bow_Long_06 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	480;//240;
 
@@ -273,6 +302,7 @@ INSTANCE ItRw_Bow_Long_07 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	520;//260;
 
@@ -297,6 +327,7 @@ INSTANCE ItRw_Bow_Long_08 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	560;//280;
 
@@ -321,6 +352,7 @@ INSTANCE ItRw_Bow_Long_09 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	600;//300;
 
@@ -347,6 +379,7 @@ INSTANCE ItRw_Bow_War_01 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	640;//320;
 
@@ -371,6 +404,7 @@ INSTANCE ItRw_Bow_War_02 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	680;//340;
 
@@ -395,6 +429,7 @@ INSTANCE ItRw_Bow_War_03 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	720;//360;
 
@@ -419,6 +454,7 @@ INSTANCE ItRw_Bow_War_04 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	760;//380;
 
@@ -443,6 +479,7 @@ INSTANCE ItRw_Bow_War_05 (C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_BOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Bow;
 
 	value 				=	1000;//500;
 
@@ -469,6 +506,7 @@ INSTANCE ItRw_Crossbow_01(C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_CROSSBOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_CrossBow;
 
 	value 				=	180;
 
@@ -493,6 +531,7 @@ INSTANCE ItRw_Crossbow_02(C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_CROSSBOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_CrossBow;
 
 	value 				=	780;//390;
 
@@ -518,6 +557,7 @@ INSTANCE ItRw_Crossbow_03(C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_CROSSBOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_CrossBow;
 
 	value 				=	1000;//500;
 
@@ -542,6 +582,7 @@ INSTANCE ItRw_Crossbow_04(C_Item)
 	mainflag 			=	ITEM_KAT_FF;
 	flags 				=	ITEM_CROSSBOW;
 	material 			=	MAT_WOOD;
+	on_equip			=	Condition_CrossBow;
 
 	value 				=	1300;//650;
 

@@ -787,6 +787,7 @@ FUNC void  GRD_200_Thorus_AUFNAHME_Info()
 
 	Npc_SetTrueGuild (hero,GIL_GRD);
 	hero.guild = GIL_GRD;
+	Mdl_ApplyOverlayMds(hero,"Humans_Militia.mds");
 };  
 //---------------------------------------------------------------
 // GARDIST WERDEN TEIL 2
@@ -815,7 +816,7 @@ func void  GRD_200_Thorus_NOCHWAS_Info()
 	AI_StopProcessInfos	(self);
 
 	Log_CreateTopic		(GE_BecomeGuard,	LOG_NOTE);
-	B_LogEntry			(GE_BecomeGuard,	"Dziœ Thorus przyj¹³ mnie w poczet Stra¿ników. Mogê teraz odebraæ nale¿ny mi pancerz. Dostanê go od Smitha, w zamku.");
+	B_LogEntry			(GE_BecomeGuard,	"Dziœ Thorus przyj¹³ mnie w poczet Stra¿ników. Mogê teraz odebraæ nale¿ny mi pancerz. Dostanê go od Kowala, w zamku.");
 	
 };
 
@@ -949,14 +950,13 @@ instance  GRD_200_Thorus_ZWEIHAND1 (C_INFO)
 	information		= GRD_200_Thorus_ZWEIHAND1_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn2h_1, LPCOST_TALENT_2H_1,0); 
+	description		= "Broñ dwurêczna +1% (10pkt. umiejêtnoœci)";
 };
 
 FUNC int  GRD_200_Thorus_ZWEIHAND1_Condition()
 {	
-	if (Npc_GetTalentSkill  (hero,NPC_TALENT_1H) == 2)
-	&& (Npc_GetTalentSkill  (hero,NPC_TALENT_2H) < 1)
-	&& (Npc_GetTrueGuild    (hero) == GIL_GRD)
+	var C_NPC Mordrag; Mordrag = Hlp_GetNpc(Org_826_Mordrag);
+	if (Npc_GetTalentValue(hero, NPC_TALENT_2H) < 10 &&(Npc_GetTrueGuild (hero) == GIL_GRD || (Npc_GetTrueGuild (hero) == GIL_STT && Npc_IsDead(Mordrag) ) ) )
 	{
 		return TRUE;
 	};
@@ -967,59 +967,38 @@ FUNC void  GRD_200_Thorus_ZWEIHAND1_Info()
 	if (log_thorusfight == FALSE)
 	{
 		Log_CreateTopic   	(GE_TeacherOC,LOG_NOTE);
-		B_LogEntry			(GE_TeacherOC,"Thorus mo¿e mnie nauczyæ walki dwurêcznym orê¿em, gdy tylko poznam tajniki walki broni¹ jednorêczn¹..");
+		B_LogEntry			(GE_TeacherOC,"Thorus mo¿e mnie nauczyæ walki dwurêcznym orê¿em.");
 		log_thorusfight = TRUE;
 	};
 	AI_Output (other, self,"GRD_200_Thorus_ZWEIHAND1_Info_15_01"); //Chcia³bym nauczyæ siê pos³ugiwaæ dwurêcznym mieczem.
 	
-	
-	if (B_GiveSkill(other,NPC_TALENT_2H , 1, LPCOST_TALENT_2H_1))
+	if (B_GiveSkill(hero,NPC_TALENT_2H,Npc_GetTalentSkill(hero, NPC_TALENT_2H)+1,LPCOST_TALENT_1H_1))
 	{
-		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND1_Info_09_02"); //Dobrze, najpierw zajmiemy siê podstawami.
-		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND1_Info_09_03"); //Wyci¹gnij miecz przed siebie. Aby zaatakowaæ wroga tak ciê¿k¹ broni¹, musisz mocniej siê zamachn¹æ.
-		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND1_Info_09_04"); //Unieœ ramiê i zdecydowanie opuœæ miecz. To powinno wystarczyæ, ¿eby powaliæ przeciwnika na ziemiê.
-		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND1_Info_09_05"); //Wykorzystaj bezw³adnoœæ broni, by unieœæ j¹ ponownie do góry.
-		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND1_Info_09_06"); //Dwurêczne miecze œwietnie sprawdzaj¹ siê przy zadawaniu ciosów z boku. W ten sposób mo¿esz trzymaæ przeciwnika na dystans.
-		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND1_Info_09_07"); //To ci powinno wystarczyæ na pocz¹tek. Teraz trochê poæwicz.
-		GRD_200_Thorus_ZWEIHAND1.permanent = 0;
+		if (Npc_GetTalentValue(hero, NPC_TALENT_2H) == 1){
+			AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND1_Info_09_02"); //Dobrze, najpierw zajmiemy siê podstawami.
+			AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND1_Info_09_03"); //Wyci¹gnij miecz przed siebie. Aby zaatakowaæ wroga tak ciê¿k¹ broni¹, musisz mocniej siê zamachn¹æ.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_2H) == 2){
+			AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND1_Info_09_04"); //Unieœ ramiê i zdecydowanie opuœæ miecz. To powinno wystarczyæ, ¿eby powaliæ przeciwnika na ziemiê.
+			AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND1_Info_09_05"); //Wykorzystaj bezw³adnoœæ broni, by unieœæ j¹ ponownie do góry.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_2H) == 3){
+			AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND1_Info_09_06"); //Dwurêczne miecze œwietnie sprawdzaj¹ siê przy zadawaniu ciosów z boku. W ten sposób mo¿esz trzymaæ przeciwnika na dystans.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_2H) == 6){
+			AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_02"); //Musisz siê nauczyæ p³ynnie przenosiæ œrodek ciê¿koœci. Trzymaj miecz pionowo. Obie d³onie mocno zaciœnij na jego rêkojeœci i przesuñ go nieco w bok.
+			AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_03"); //Teraz uderz szybko od góry, i pozwól klindze powêdrowaæ nad twoje ramiê. Teraz mo¿esz wyprowadziæ szybkie ciêcie na prawo.
+			AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_04"); //Twój przeciwnik nie bêdzie mia³ okazji podejœæ bli¿ej.
+			AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_05"); //Albo spróbuj wyprowadziæ z lewej strony cios do przodu, aby odrzuciæ od siebie rywala. 
+			AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_06"); //Teraz obrót, ¿eby kolejny cios nabra³ odpowiedniej mocy. Przy odrobinie szczêœcia wróg nie prze¿yje tego uderzenia.
+			AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_07"); //A jeœli i to nie wystarczy, wykorzystaj resztê si³y zamachowej, by ponownie unieœæ miecz do góry.
+			AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_08"); //Po skoñczonym ataku wykonaj zas³onê i wypatruj luki w obronie przeciwnika.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_2H) < 6){
+			AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND1_Info_09_07"); //To ci powinno wystarczyæ na pocz¹tek. Teraz trochê poæwicz.
+		}
+		else{
+			AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_09"); //Kluczem do sukcesu jest ci¹g³a zmiana pozycji i umiejêtne wykorzystanie bezw³adnoœci broni.
+		};
 	};
-};  
-//-------------------------------------------------------------------------
-//							ZWEIHANDKAMPF LERNEN STUFE 2
-//-------------------------------------------------------------------------
-instance  GRD_200_Thorus_ZWEIHAND2 (C_INFO)
-{
-	npc				= GRD_200_Thorus;
-	condition		= GRD_200_Thorus_ZWEIHAND2_Condition;
-	information		= GRD_200_Thorus_ZWEIHAND2_Info;
-	important		= 0;
-	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn2h_2, LPCOST_TALENT_2H_2,0); 
 };
-
-FUNC int  GRD_200_Thorus_ZWEIHAND2_Condition()
-{	
-	if (Npc_GetTalentSkill  (hero,NPC_TALENT_2H) == 1)
-	&& (Npc_GetTrueGuild    (hero) == GIL_GRD)
-	{
-		return TRUE;
-	};
-
-};
-FUNC void  GRD_200_Thorus_ZWEIHAND2_Info()
-{
-	AI_Output (other, self,"GRD_200_Thorus_ZWEIHAND2_Info_15_01"); //Chcia³bym dowiedzieæ siê czegoœ wiêcej o walce dwurêcznym mieczem.
-	
-	if (B_GiveSkill(other,NPC_TALENT_2H , 2, LPCOST_TALENT_2H_2))
-	{
-		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_02"); //Musisz siê nauczyæ p³ynnie przenosiæ œrodek ciê¿koœci. Trzymaj miecz pionowo. Obie d³onie mocno zaciœnij na jego rêkojeœci i przesuñ go nieco w bok.
-		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_03"); //Teraz uderz szybko od góry, i pozwól klindze powêdrowaæ nad twoje ramiê. Teraz mo¿esz wyprowadziæ szybkie ciêcie na prawo.
-		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_04"); //Twój przeciwnik nie bêdzie mia³ okazji podejœæ bli¿ej.
-		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_05"); //Albo spróbuj wyprowadziæ z lewej strony cios do przodu, aby odrzuciæ od siebie rywala.
-		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_06"); //Teraz obrót, ¿eby kolejny cios nabra³ odpowiedniej mocy. Przy odrobinie szczêœcia wróg nie prze¿yje tego uderzenia.
-		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_07"); //A jeœli i to nie wystarczy, wykorzystaj resztê si³y zamachowej, by ponownie unieœæ miecz do góry.
-		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_08"); //Po skoñczonym ataku wykonaj zas³onê i wypatruj luki w obronie przeciwnika.
-		AI_Output (self, other,"GRD_200_Thorus_ZWEIHAND2_Info_09_09"); //Kluczem do sukcesu jest ci¹g³a zmiana pozycji i umiejêtne wykorzystanie bezw³adnoœci broni.
-		GRD_200_Thorus_ZWEIHAND2.permanent = 0 ;
-	};
-};  

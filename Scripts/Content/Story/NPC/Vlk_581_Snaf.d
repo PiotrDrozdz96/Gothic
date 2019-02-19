@@ -52,4 +52,10 @@ FUNC VOID Rtn_start_581 ()
 	TA_Sleep	(22,00,08,00,"OCR_HUT_14");
 };
 
+func void Rtn_out_581 ()
+{
+	TA_Stay	(07,00,20,00,"WP_INTRO_WI05");
+	TA_Stay	(20,00,07,00,"WP_INTRO_WI05");
+};
+
 

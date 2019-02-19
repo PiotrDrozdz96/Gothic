@@ -1,729 +1,912 @@
-//------------------------------------------------------------------
-//PERSÖNLICHE WAFFEN
-/***********************************************************/
-//ALTES LAGER
-/***********************************************************/
-//THORUS
-//------------------------------------------------------------------
-INSTANCE Thorus_Schwert (C_Item)
-{
-	name 				=	"Miecz Thorusa";
+//---------------------------------------------------------------------
+//	DROPS -  MOST COMPLICATED SHIELD CONDITION EVER
+//---------------------------------------------------------------------
+
+instance SHIELD_Destroyer (C_Item) 
+{	
+	name 				=	"";
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD;
+	flags 				=	ITEM_2HD_SWD;	
 	material 			=	MAT_METAL;
 
-	value 				=	500;
+	value 				=	0;
+
+	damageTotal			= 	181;
+	damagetype			=	DAM_EDGE;
+	range    			=  	0;		
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	0;
+	on_equip 			= 	destroy_shield;
+
+	description			= 	name;
+};
+
+func void destroy_shield()
+{
+	Npc_RemoveInvItem 		(self, SHIELD_Destroyer);
+};
+
+func int equip_it_shield()
+{
+	if(Npc_GetTalentSkill(self,NPC_TALENT_SHIELD) == 2)
+	{
+		Mdl_ApplyOverlayMds(self,"SHIELD_ST2.MDS");
+		Shield_Equip = TRUE;
+	}
+	else if(Npc_GetTalentSkill(self,NPC_TALENT_SHIELD) == 1)
+	{
+		Mdl_ApplyOverlayMds(self,"SHIELD_ST1.MDS");
+		Shield_Equip = TRUE;
+	}
+	else
+	{
+		CreateInvItems 		(self,	SHIELD_Destroyer,	1);
+		AI_EquipBestMeleeWeapon	(self);
+		AI_UnequipWeapons	(self);
+		PrintScreen	("Nie umiesz pos³ugiwaæ siê Tarcz¹", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
+	};
+	return Shield_Equip;
+};
+
+func void unequip_it_shield()
+{
+	Mdl_RemoveOverlayMds(self,"SHIELD_ST1.MDS");
+	Mdl_RemoveOverlayMds(self,"SHIELD_ST2.MDS");
+	Shield_Equip = FALSE;
+};
+
+//-----------------------------------------------------------
+// shield in oldStoryMod
+//-----------------------------------------------------------
+
+instance IT_SHIELD_SKULL(C_Item)
+{
+	name = "Tarcza Czaszki";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 650;
+	protection[PROT_EDGE] = 20;
+	protection[PROT_BLUNT] = 20;
+	protection[PROT_POINT] = 25;
+	protection[PROT_FIRE] = 0;
+	protection[PROT_MAGIC] = 0;
+	visual = "G3_Armor_Shield_Skull_01.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 20;
+	on_equip = equip_it_shield_skull;
+	on_unequip = unequip_it_shield_skull;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_skull(){
+	self.attribute[ATR_STRENGTH] -= 20;
+	equip_it_shield();
+}; 
+
+func void unequip_it_shield_skull(){
+	self.attribute[ATR_STRENGTH] += 20;
+	unequip_it_shield();
+};
+
+//-----------------------------------------------------------
+// shield in L`hivier
+//-----------------------------------------------------------
+
+instance ITSH_REINFORCED_A(C_Item)
+{
+	name = "Tarcza";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 500;
+	protection[PROT_EDGE] = 15;
+	protection[PROT_BLUNT] = 15;
+	protection[PROT_POINT] = 20;
+	protection[PROT_FIRE] = 0;
+	protection[PROT_MAGIC] = 0;
+	visual = "ITSH_REINFORCED_A.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 20;
+	on_equip = equip_it_shield_reinforced_a;
+	on_unequip = unequip_it_shield_reinforced_a;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_reinforced_a(){
+	self.attribute[ATR_STRENGTH] -= 20;
+	equip_it_shield();
+}; 
+
+func void unequip_it_shield_reinforced_a(){
+	self.attribute[ATR_STRENGTH] += 20;
+	unequip_it_shield();
+};
+
+instance ITSH_W2_EXECUTIONER(C_Item)
+{
+	name = "Tarcza Kharima";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 900;
+	protection[PROT_EDGE] = 20;
+	protection[PROT_BLUNT] = 20;
+	protection[PROT_POINT] = 20;
+	protection[PROT_FIRE] = 0;
+	protection[PROT_MAGIC] = 0;
+	visual = "ITSH_W2_EXECUTIONER.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 15;
+	on_equip = equip_it_shield_W2_EXECUTIONER;
+	on_unequip = unequip_it_shield_W2_EXECUTIONER;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_W2_EXECUTIONER(){
+	self.attribute[ATR_STRENGTH] -= 15;
+	equip_it_shield();
+}; 
+
+func void unequip_it_shield_W2_EXECUTIONER(){
+	self.attribute[ATR_STRENGTH] += 15;
+	unequip_it_shield();
+};
+
+instance ITSH_WOLF_A(C_Item)
+{
+	name = "Tarcza Wilka";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 900;
+	protection[PROT_EDGE] = 20;
+	protection[PROT_BLUNT] = 20;
+	protection[PROT_POINT] = 25;
+	protection[PROT_FIRE] = 0;
+	protection[PROT_MAGIC] = 0;
+	visual = "ITSH_WOLF_A.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 20;
+	on_equip = equip_it_shield_WOLF_A;
+	on_unequip = unequip_it_shield_WOLF_A;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_WOLF_A(){
+	self.attribute[ATR_STRENGTH] -= 20;
+	equip_it_shield();
+}; 
+
+func void unequip_it_shield_WOLF_A(){
+	self.attribute[ATR_STRENGTH] += 20;
+	unequip_it_shield();
+};
+
+instance ITSH_LONG_A(C_Item)
+{
+	name = "Antyczna Tarcza";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 1050;
+	protection[PROT_EDGE] = 20;
+	protection[PROT_BLUNT] = 20;
+	protection[PROT_POINT] = 20;
+	protection[PROT_FIRE] = 10;
+	protection[PROT_MAGIC] = 20;
+	visual = "ITSH_LONG_A.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 25;
+	on_equip = equip_it_shield_LONG_A;
+	on_unequip = unequip_it_shield_LONG_A;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_LONG_A(){
+	self.attribute[ATR_STRENGTH] -= 25;
+	equip_it_shield();
+}; 
+
+func void unequip_it_shield_LONG_A(){
+	self.attribute[ATR_STRENGTH] += 25;
+	unequip_it_shield();
+};
+
+instance ITSH_STALHRIM_S_SM(C_Item)
+{
+	name = "Tarcza z czystej rudy";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 2400;
+	protection[PROT_EDGE] = 30;
+	protection[PROT_BLUNT] = 30;
+	protection[PROT_POINT] = 35;
+	protection[PROT_FIRE] = 15;
+	protection[PROT_MAGIC] = 25;
+	visual = "ITSH_STALHRIM_S_SM.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 40;
+	on_equip = equip_it_shield_STALHRIM_S_SM;
+	on_unequip = unequip_it_shield_STALHRIM_S_SM;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_STALHRIM_S_SM(){
+	self.attribute[ATR_STRENGTH] -= 40;
+	equip_it_shield();
+}; 
+
+func void unequip_it_shield_STALHRIM_S_SM(){
+	self.attribute[ATR_STRENGTH] += 40;
+	unequip_it_shield();
+};
+
+instance ITSH_STALHRIM_B_SM(C_Item)
+{
+	name = "Ciê¿ka tarcza z czystej rudy";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 3750;
+	protection[PROT_EDGE] = 40;
+	protection[PROT_BLUNT] = 40;
+	protection[PROT_POINT] = 45;
+	protection[PROT_FIRE] = 20;
+	protection[PROT_MAGIC] = 30;
+	visual = "ITSH_Stalhrim_B_SM.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 60;
+	on_equip = equip_it_shield_STALHRIM_B_SM;
+	on_unequip = unequip_it_shield_STALHRIM_B_SM;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_STALHRIM_B_SM(){
+	self.attribute[ATR_STRENGTH] -= 60;
+	equip_it_shield();
+}; 
+
+func void unequip_it_shield_STALHRIM_B_SM(){
+	self.attribute[ATR_STRENGTH] += 60;
+	unequip_it_shield();
+};
+
+instance ITSH_PALADIN_A(C_Item)
+{
+	name = "Tarcza paladyna";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 650;
+	protection[PROT_EDGE] = 20;
+	protection[PROT_BLUNT] = 20;
+	protection[PROT_POINT] = 25;
+	protection[PROT_FIRE] = 10;
+	protection[PROT_MAGIC] = 10;
+	visual = "ITSH_PALADIN_A.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 20;
+	on_equip = equip_it_shield_PALADIN_A;
+	on_unequip = unequip_it_shield_PALADIN_A;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_PALADIN_A(){
+	self.attribute[ATR_STRENGTH] -= 20;
+	equip_it_shield();
+}; 
+
+func void unequip_it_shield_PALADIN_A(){
+	self.attribute[ATR_STRENGTH] += 20;
+	unequip_it_shield();
+};
+
+instance ITSH_G3_01_OLD(C_Item)
+{
+	name = "Stara okr¹g³a tarcza";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 7;
+	protection[PROT_EDGE] = 5;
+	protection[PROT_BLUNT] = 5;
+	protection[PROT_POINT] = 5;
+	protection[PROT_FIRE] = 0;
+	protection[PROT_MAGIC] = 0;
+	visual = "ITSH_G3_01_OLD.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 5;
+	on_equip = equip_it_shield_G3_01_OLD;
+	on_unequip = unequip_it_shield_G3_01_OLD;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_G3_01_OLD(){
+	self.attribute[ATR_STRENGTH] -= 5;
+	equip_it_shield();
+}; 
+
+func void unequip_it_shield_G3_01_OLD(){
+	self.attribute[ATR_STRENGTH] += 5;
+	unequip_it_shield();
+};
+
+instance ITSH_G3_02_V2(C_Item)
+{
+	name = "Zniszczona tarcza";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 10;
+	protection[PROT_EDGE] = 10;
+	protection[PROT_BLUNT] = 5;
+	protection[PROT_POINT] = 15;
+	protection[PROT_FIRE] = 0;
+	protection[PROT_MAGIC] = 0;
+	visual = "ITSH_G3_02_V2.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 10;
+	on_equip = equip_it_shield_G3_02_V2;
+	on_unequip = unequip_it_shield_G3_02_V2;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_G3_02_V2(){
+	self.attribute[ATR_STRENGTH] -= 10;
+	equip_it_shield();
+}; 
+
+func void unequip_it_shield_G3_02_V2(){
+	self.attribute[ATR_STRENGTH] += 10;
+	unequip_it_shield();
+};
+
+instance ITSH_G3_03(C_Item)
+{
+	name = "Drewniana tarcza stra¿nika";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 650;
+	protection[PROT_EDGE] = 20;
+	protection[PROT_BLUNT] = 20;
+	protection[PROT_POINT] = 25;
+	protection[PROT_FIRE] = 0;
+	protection[PROT_MAGIC] = 0;
+	visual = "ITSH_G3_03.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 25;
+	on_equip = equip_it_shield_G3_03;
+	on_unequip = unequip_it_shield_G3_03;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_G3_03(){
+	self.attribute[ATR_STRENGTH] -= 25;
+	equip_it_shield();
+}; 
+
+func void unequip_it_shield_G3_03(){
+	self.attribute[ATR_STRENGTH] += 25;
+	unequip_it_shield();
+};
+
+instance ITSH_W2_E3_REDANIA(C_Item)
+{
+	name = "Drewniana elitarna tarcza stra¿nika";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 835;
+	protection[PROT_EDGE] = 25;
+	protection[PROT_BLUNT] = 25;
+	protection[PROT_POINT] = 30;
+	protection[PROT_FIRE] = 0;
+	protection[PROT_MAGIC] = 0;
+	visual = "ITSH_W2_E3_REDANIA.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 40;
+	on_equip = equip_it_shield_W2_E3_REDANIA;
+	on_unequip = unequip_it_shield_W2_E3_REDANIA;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_W2_E3_REDANIA(){
+	self.attribute[ATR_STRENGTH] -= 30;
+	equip_it_shield();
+}; 
+
+func void unequip_it_shield_W2_E3_REDANIA(){
+	self.attribute[ATR_STRENGTH] += 30;
+	unequip_it_shield();
+};
+
+instance ITSH_G3_04(C_Item)
+{
+	name = "Zu¿yta tarcza stra¿nika";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 355;
+	protection[PROT_EDGE] = 20;
+	protection[PROT_BLUNT] = 20;
+	protection[PROT_POINT] = 20;
+	protection[PROT_FIRE] = 0;
+	protection[PROT_MAGIC] = 0;
+	visual = "ITSH_G3_04.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 20;
+	on_equip = equip_it_shield_G3_04;
+	on_unequip = unequip_it_shield_G3_04;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_G3_04(){
+	self.attribute[ATR_STRENGTH] -= 20;
+	equip_it_shield();
+}; 
+
+func void unequip_it_shield_G3_04(){
+	self.attribute[ATR_STRENGTH] += 20;
+	unequip_it_shield();
+};
+
+instance ITSH_G3_BROKEN(C_Item)
+{
+	name = "Zniszczona tarcza";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 10;
+	protection[PROT_EDGE] = 10;
+	protection[PROT_BLUNT] = 5;
+	protection[PROT_POINT] = 15;
+	protection[PROT_FIRE] = 0;
+	protection[PROT_MAGIC] = 0;
+	visual = "ITSH_G3_BROKEN.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 10;
+	on_equip = equip_it_shield;
+	on_unequip = unequip_it_shield;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_G3_BROKEN(){
+	self.attribute[ATR_STRENGTH] -= 10;
+	equip_it_shield();
+}; 
+
+func void unequip_it_shield_G3_BROKEN(){
+	self.attribute[ATR_STRENGTH] += 10;
+	unequip_it_shield();
+};
+
+instance ITSH_SM_STEEL(C_Item)
+{
+	name = "Stalowa tarcza";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 1875;
+	protection[PROT_EDGE] = 40;
+	protection[PROT_BLUNT] = 40;
+	protection[PROT_POINT] = 45;
+	protection[PROT_FIRE] = 5;
+	protection[PROT_MAGIC] = 5;
+	visual = "ITSH_SM_STEEL.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 50;
+	on_equip = equip_it_shield_SM_STEEL;
+	on_unequip = unequip_it_shield_SM_STEEL;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_SM_STEEL(){
+	self.attribute[ATR_STRENGTH] -= 50;
+	equip_it_shield();
+}; 
+
+func void unequip_it_shield_SM_STEEL(){
+	self.attribute[ATR_STRENGTH] += 50;
+	unequip_it_shield();
+};
+
+instance ITSH_KORSHAN_A(C_Item)
+{
+	name = "Okr¹g³a tarcza Najemnika";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 1240;
+	protection[PROT_EDGE] = 25;
+	protection[PROT_BLUNT] = 25;
+	protection[PROT_POINT] = 30;
+	protection[PROT_FIRE] = 5;
+	protection[PROT_MAGIC] = 5;
+	visual = "ITSH_KORSHAN_A.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 25;
+	on_equip = equip_it_shield_KORSHAN_A;
+	on_unequip = unequip_it_shield_KORSHAN_A;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_KORSHAN_A(){
+	self.attribute[ATR_STRENGTH] -= 25;
+	equip_it_shield();
+};
+
+func void unequip_it_shield_KORSHAN_A(){
+	self.attribute[ATR_STRENGTH] += 25;
+	unequip_it_shield();
+};
+
+instance ITSH_R_ROUND(C_Item)
+{
+	name = "Tarcza wojownika Œni¹cego";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 815;
+	protection[PROT_EDGE] = 25;
+	protection[PROT_BLUNT] = 25;
+	protection[PROT_POINT] = 30;
+	protection[PROT_FIRE] = 10;
+	protection[PROT_MAGIC] = 15;
+	visual = "ITSH_R_ROUND.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 25;
+	on_equip = equip_it_shield_R_ROUND;
+	on_unequip = unequip_it_shield_R_ROUND;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_R_ROUND(){
+	self.attribute[ATR_STRENGTH] -= 25;
+	equip_it_shield();
+}; 
+
+func void unequip_it_shield_R_ROUND(){
+	self.attribute[ATR_STRENGTH] += 25;
+	unequip_it_shield();
+};
+
+instance ITSH_W2_E2_KAEDWEN(C_Item)
+{
+	name = "Stara tarcza";
+	mainflag = ITEM_KAT_NF;
+	flags = ITEM_SHIELD;
+	value = 80;
+	protection[PROT_EDGE] = 10;
+	protection[PROT_BLUNT] = 10;
+	protection[PROT_POINT] = 10;
+	protection[PROT_FIRE] = 0;
+	protection[PROT_MAGIC] = 0;
+	visual = "ITSH_W2_E2_KAEDWEN.3ds";
+	material = MAT_WOOD;
+	cond_atr[2] = ATR_STRENGTH;
+	cond_value[2] = 10;
+	on_equip = equip_it_shield_W2_E2_KAEDWEN;
+	on_unequip = unequip_it_shield_W2_E2_KAEDWEN;
+	description = name;
+	text[0] = NAME_Str_grab;
+	count[0] = cond_value[2];
+	text[1] = NAME_Prot_Edge;
+	count[1] = protection[PROT_EDGE];
+	text[2] = NAME_Prot_Point;
+	count[2] = protection[PROT_POINT];
+	text[3] = NAME_Prot_Fire;
+	count[3] = protection[PROT_FIRE];
+	text[4] = NAME_Prot_Magic;
+	count[4] = protection[PROT_MAGIC];
+	text[5] = NAME_Value;
+	count[5] = value;
+};
+
+func void equip_it_shield_W2_E2_KAEDWEN(){
+	self.attribute[ATR_STRENGTH] -= 10;
+	equip_it_shield();
+}; 
+
+func void unequip_it_shield_W2_E2_KAEDWEN(){
+	self.attribute[ATR_STRENGTH] += 10;
+	unequip_it_shield();
+};
+
+
+//-----------------------------------------------------------
+// MeeleWeapon_1H
+//-----------------------------------------------------------
+
+INSTANCE ITMW_1H_URIZIEL_1 (C_Item)
+{	
+	name 				=	"URIZIEL";  
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_SWD|ITEM_MISSION;	
+	material 			=	MAT_METAL;
+
+	value 				=	900;
+	
 
 	damageTotal			= 	90;
 	damagetype			=	DAM_EDGE;
-	range    			=  	150;
+	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	75;
+	cond_value[2]  		= 	30;
+	visual 				=	"ItMw_1H_URIZIEL.3DS";
 
-	owner 				= 	GRD_200_THORUS;
-	visual 				=	"ItMw_2H_Sword_01.3DS";
+	description			= 	name;
+	TEXT[0]				=	"Xardas twierdzi, ¿e miecz nazywa siê URIZIEL.";
+	TEXT[1]				=	"Jest ponoæ bardzo stary i dysponowa³ niegdyœ";
+	TEXT[2]				=	"potê¿n¹ moc¹ magiczn¹, ale j¹ utraci³.";
 
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_TwoHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+	TEXT[3]				=	NAME_Damage;				COUNT[3] =	damageTotal;
+	TEXT[4] 			=	NAME_Str_needed;			COUNT[4] =	cond_value[2];
+	TEXT[5]				=	NAME_Value;					COUNT[5] =	value;
 };
 
-//-----------------------------------------------------------
-//GOMEZ
-//-----------------------------------------------------------
-INSTANCE Innos_Zorn (C_Item)
-{
-	name 				=	"Gniew Innosa";
+INSTANCE ITMW_1H_URIZIEL_2 (C_Item)
+{	
+	name 				=	"URIZIEL";  
 
 	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD;
+	flags 				=	ITEM_SWD|ITEM_MISSION;	
 	material 			=	MAT_METAL;
 
-	value 				=	570;
+	value 				=	10000;
+	
 
-	damageTotal			= 	110;
+	damageType			=	DAM_FIRE|DAM_MAGIC;
+	damage[DAM_INDEX_FIRE]	=	 30;
+	damage[DAM_INDEX_MAGIC]	=	110;
+	range    			=  	150;		
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	30;
+	visual 				=	"ItMw_1H_URIZIEL_2.3DS";
+
+	description			= 	name;
+	TEXT[0]				=	"To staro¿ytny miecz Uriziel.";
+	TEXT[1]				= 	"Uriziel zosta³ magicznie na³adowany.";
+	TEXT[2]				=	NAME_Dam_Magic;			COUNT[2]	=	damage[DAM_INDEX_MAGIC];
+	TEXT[3]				=	NAME_Dam_Fire;			COUNT[3]	=	damage[DAM_INDEX_FIRE];
+	TEXT[4] 			=	NAME_Str_needed;		COUNT[4]	=	cond_value[2];
+	TEXT[5]				=	NAME_Value;				COUNT[5]	=	value;
+};
+
+INSTANCE ITMW_1H_URIZIEL_3 (C_Item)
+{	
+	name 				=	"URIZIEL";  
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_SWD|ITEM_MISSION;	
+	material 			=	MAT_METAL;
+
+	value 				=	900;
+	
+
+	damageTotal			= 	90;
 	damagetype			=	DAM_EDGE;
-	range    			=  	160;
+	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	90;
+	cond_value[2]  		= 	30;
+	visual 				=	"ItMw_1H_URIZIEL.3DS";
 
-	owner 				= 	EBR_100_GOMEZ;
-	visual 				=	"ItMw_2H_Sword_Heavy_03.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_TwoHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+	description			= 	name;
+	TEXT[0]				=	"Magiczny kryszta³ zosta³ usuniêty z miecza.";
+	TEXT[1]				=	"Jest to wci¹¿ bardzo potê¿na broñ, choæ";
+	TEXT[2]				=	"pozbawiona mocy magicznych.";
+	TEXT[3]				=	NAME_Damage;				COUNT[3] =	damageTotal;
+	TEXT[4] 			=	NAME_Str_needed;			COUNT[4] =	cond_value[2];
+	TEXT[5]				=	NAME_Value;					COUNT[5] =	value;
 };
-
-//-----------------------------------------------------------
-//SCAR
-//-----------------------------------------------------------
-INSTANCE Scars_Schwert (C_Item)
-{
-	name 				=	"Miecz Blizny";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;
-	material 			=	MAT_METAL;
-
-	value 				=	460;
-
-	damageTotal 		= 	85;
-	damagetype 			= 	DAM_EDGE;
-	range    			=  	130;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	70;
-
-	owner 				=   EBR_101_SCAR;
-	visual 				=	"ItMw_1H_Sword_Bastard_04.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_OneHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-	COUNT[5]			= value;
-};
-
-//-----------------------------------------------------------
-//ARTO
-//-----------------------------------------------------------
-INSTANCE Artos_Schwert (C_Item)
-{
-	name 				=	"Miecz Arto";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;
-	material 			=	MAT_METAL;
-
-	value 				=	360;
-
-	damageTotal 		= 	65;
-	damagetype 			= 	DAM_EDGE;
-	range    			=  	100;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	50;
-
-	owner 				= 	EBR_102_ARTO;
-	visual 				=	"ItMw_1H_Sword_Long_02.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_OneHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//RAVEN
-//-----------------------------------------------------------
-INSTANCE Rabenrecht (C_Item)
-{
-	name 				=	"Prawo Kruka";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;
-	material 			=	MAT_METAL;
-
-	value 				=	400;
-
-	damageTotal			= 	70;
-	damagetype 			= 	DAM_EDGE;
-	range    			=  	130;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	55;
-
-	owner 				= 	EBR_105_RAVEN;
-	visual 				=	"ItMw_1H_Sword_Broad_04.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_OneHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//BARTHOLO
-//-----------------------------------------------------------
-INSTANCE Prankenhieb (C_Item)
-{
-	name 				=	"Cios ³ap¹";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;
-	material 			=	MAT_METAL;
-
-	value 				=	300;
-
-	damageTotal			= 	55;
-	damagetype 			= 	DAM_EDGE;
-	range    			=  	100;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	40;
-
-	owner 				= 	EBR_106_BARTHOLO;
-	visual 				=	"ItMw_1H_Sword_Long_05.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_OneHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//DIEGO
-//-----------------------------------------------------------
-INSTANCE Diegos_Bogen (C_Item)
-{
-	name 				= "£uk Diego";
-
-	mainflag 			= ITEM_KAT_FF;
-	flags 				= ITEM_BOW;
-	material 			= MAT_WOOD;
-
-	value 				= 390;
-
-	damageTotal 		= 70;
-	damagetype			= DAM_POINT;
-	munition			= ItAmArrow;
-
-	cond_atr[2]   		= ATR_DEXTERITY;
-	cond_value[2]  		= 45;
-
-	owner 				= PC_THIEF;
-	visual 				= "ItRwLongbow.mms";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//Whistler (Bei Fisk)
-//-----------------------------------------------------------
-INSTANCE Whistlers_Schwert (C_Item)
-{
-	name 				=	"Miecz Œwistaka";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;
-	material 			=	MAT_METAL;
-
-	value 				=	110;
-
-	damageTotal			= 	20;
-	damagetype 			= 	DAM_EDGE;
-	range    			=  	100;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	15;
-	//owner 				= STT_309_Whistler;		raus wegen Mission
-	visual 				=	"ItMw_1H_Sword_02.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_OneHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-
-/***********************************************************/
-//BRUDERSCHAFT
-/***********************************************************/
-//-----------------------------------------------------------
-//Y'BERION
-//-----------------------------------------------------------
-INSTANCE Stab_des_Lichts (C_Item)
-{
-	name 				=	"Kostur Œwiat³a";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;
-	material 			=	MAT_WOOD;
-
-	value 				=	350;
-
-	damageTotal			= 	65;
-	damagetype 			=	DAM_BLUNT;
-	range    			=  	160;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	45;
-
-	owner 				=   GUR_1200_YBERION;
-	visual 				=	"ItMw_2H_Staff_03.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_TwoHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//COR KALOM
-//-----------------------------------------------------------
-INSTANCE Kaloms_Schwert (C_Item)
-{
-	name 				=	"Miecz Kaloma";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_SWD;
-	material 			=	MAT_METAL;
-
-	value 				=	400;
-
-	damageTotal			= 	70;
-	damagetype 			= 	DAM_EDGE;
-	range    			=  	100;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	55;
-
-	owner 				=   GUR_1201_CORKALOM;
-	visual 				=	"ItMw_1H_Sword_05.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_OneHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//LESTER
-//-----------------------------------------------------------
-INSTANCE Streitschlichter (C_Item)
-{
-	name 				=	"Negocjator Lestera ";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;
-	material 			=	MAT_METAL;
-
-	value 				=	340;
-
-	damageTotal			=   60;
-	damagetype			=	DAM_BLUNT;
-	range    			=  	90;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	40;
-
-	owner 				= 	PC_PSIONIC;
-	visual 				=	"ItMw_1H_Mace_War_02.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_OneHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//COR ANGAR
-//-----------------------------------------------------------
-INSTANCE Roter_Wind (C_Item)
-{
-	name 				=	"Czerwony Wiatr";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_SWD;
-	material 			=	MAT_METAL;
-
-	value 				=	570;
-
-	damageTotal			= 	105;
-	damagetype			=	DAM_EDGE;
-	range    			=  	140;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	80;
-
-	owner 				= 	GUR_1202_CORANGAR;
-	visual 				=	"ItMw_2H_Sword_02.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_TwoHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//BAAL NAMIB
-//-----------------------------------------------------------
-INSTANCE Namibs_Keule (C_Item)
-{
-	name 				=	"Pa³ka Namiba";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;
-	material 			=	MAT_METAL;
-
-	value 				=	300;
-
-	damageTotal			=   55;
-	damagetype			=	DAM_BLUNT;
-	range    			=  	90;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	40;
-
-	owner 				= 	GUR_1204_BAALNAMIB;
-	visual 				=	"ItMw_1H_Mace_01.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_OneHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//BAAL ORUN
-//-----------------------------------------------------------
-INSTANCE Oruns_Keule (C_Item)
-{
-	name 				=	"Pa³ka Oruna";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;
-	material 			=	MAT_METAL;
-
-	value 				=	330;
-
-	damageTotal  		=   60;
-	damagetype			=	DAM_BLUNT;
-	range    			=  	90;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	50;
-
-	owner 				= 	GUR_1209_BAALORUN;
-	visual 				=	"ItMw_1H_Mace_02.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_OneHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//FORTUNO
-//-----------------------------------------------------------
-INSTANCE Fortunos_Keule (C_Item)
-{
-	name 				=	"Pa³ka Fortuno";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;
-	material 			=	MAT_METAL;
-
-	value 				=	110;
-
-	damageTotal			=   20;
-	damagetype			=	DAM_BLUNT;
-	range    			=  	90;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	15;
-
-	owner 				= 	NOV_1357_FORTUNO;
-	visual 				=	"ItMw_1H_Mace_03.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_OneHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-/***********************************************************/
-//NEUES LAGER
-/***********************************************************/
-//-----------------------------------------------------------
-//LEE
-//-----------------------------------------------------------
-INSTANCE Lees_Axt (C_Item)
-{
-	name 				=	"Topór Lee";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;
-	material 			=	MAT_METAL;
-
-	value 				=	560;
-
-	damageTotal			= 	105;
-	damagetype			=	DAM_EDGE;
-	range    			=  	130;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	95;
-
-	owner 				= 	SLD_700_LEE;
-	visual 				=	"ItMw_2H_Axe_Heavy_01.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_TwoHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//ORIK
-//-----------------------------------------------------------
-INSTANCE Oriks_Axt (C_Item)
-{
-	name 				=	"Topór Orika";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;
-	material 			=	MAT_METAL;
-
-	value 				=	540;
-
-	damageTotal			= 	95;
-	damagetype			=	DAM_EDGE;
-	range    			=  	130;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	90;
-
-	owner 				=   SLD_701_ORIK;
-	visual 				=	"ItMw_2H_Axe_Heavy_02.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_TwoHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//TORLOF
-//-----------------------------------------------------------
-INSTANCE Torlofs_Axt (C_Item)
-{
-	name 				=	"Topór Torlofa";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;
-	material 			=	MAT_METAL;
-
-	value 				=	550;
-
-	damageTotal			= 	99;
-	damagetype			=	DAM_EDGE;
-	range    			=  	130;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	85;
-
-	owner 				= 	SLD_737_TORLOF;
-	visual 				=	"ItMw_2H_Axe_Heavy_03.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_TwoHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//CORD
-//-----------------------------------------------------------
-INSTANCE Cords_Spalter (C_Item)
-{
-	name 				=	"Siekacz Corda";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;
-	material 			=	MAT_METAL;
-
-	value 				=	310;
-
-	damageTotal			=   60;
-	damagetype			=	DAM_EDGE;
-	range    			=  	100;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	50;
-
-	owner 				= 	SLD_709_CORD;
-	visual 				=	"ItMw_1H_Axe_02.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_OneHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//GORN
-//-----------------------------------------------------------
-INSTANCE Gorns_Rache (C_Item)
-{
-	name 				=	"Zemsta Gorna";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;
-	material 			=	MAT_METAL;
-
-	value 				=	560;
-
-	damageTotal			= 	100;
-	damagetype			=	DAM_EDGE;
-	range    			=  	130;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	80;
-
-	owner 				=    PC_FIGHTER;
-	visual 				=	"ItMw_2H_Axe_Heavy_03.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_TwoHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//LARES
-//-----------------------------------------------------------
-INSTANCE Lares_Axt (C_Item)
-{
-	name 				=	"Topór Laresa";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;
-	material 			=	MAT_METAL;
-
-	value 				=	340;
-
-	damageTotal			=   65;
-	damagetype			=	DAM_EDGE;
-	range    			=  	100;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	45;
-
-	owner 				= 	ORG_801_LARES;
-	visual 				=	"ItMw_1H_Axe_02.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_OneHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//WOLF
-//-----------------------------------------------------------
-INSTANCE Wolfs_Bogen (C_Item)
-{
-	name 				=	"£uk Wilka";
-
-	mainflag 			=	ITEM_KAT_FF;
-	flags 				=	ITEM_BOW;
-	material 			=	MAT_WOOD;
-
-	value 				=	200;
-
-	damageTotal			=	35;
-	damagetype			=	DAM_POINT;
-	munition			=	ItAmArrow;
-
-	cond_atr[2]   		= 	ATR_DEXTERITY;
-	cond_value[2]  		= 	35;
-
-	owner 				=   ORG_855_WOLF;
-	visual 				=	"ItRwLongbow.mms";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//SILAS
-//-----------------------------------------------------------
-INSTANCE Silas_Axt (C_Item)
-{
-	name 				=	"Topór Silasa";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_AXE;
-	material 			=	MAT_METAL;
-
-	value 				=	290;
-
-	damageTotal			=   55;
-	damagetype			=	DAM_EDGE;
-	range    			=  	100;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	40;
-
-	owner 				=   ORG_841_SILAS;
-	visual 				=	"ItMw_1H_Axe_03.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_OneHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-
-//-----------------------------------------------------------
-//RICELORD
-//-----------------------------------------------------------
-INSTANCE Heerscherstab (C_Item)
-{
-	name 				=	"Ber³o";
-
-	mainflag 			=	ITEM_KAT_NF;
-	flags 				=	ITEM_2HD_AXE;
-	material 			=	MAT_WOOD;
-
-	value 				=	150;
-
-	damageTotal			= 	26;
-	damagetype 			=	DAM_EDGE;
-	range    			=  	150;
-
-	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	20;
-
-	owner 				=   BAU_900_RICELORD;
-	visual 				=	"ItMw_2H_Staff_02.3DS";
-
-	description			= name;
-	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
-	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_TwoHanded;
-	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
-};
-

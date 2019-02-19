@@ -42,8 +42,6 @@ instance SLD_709_Cord (Npc_Default)
 	//-------- inventory --------                                    
 
 	EquipItem (self, Cords_Spalter);
-	EquipItem (self, ItRw_Bow_Long_01);
-	CreateInvItems(self, ItAmArrow, 23);
 	CreateInvItems (self, ItFoRice,7);
 	CreateInvItems (self, ItFoLoaf,7);
 	CreateInvItems (self, ItFoMutton,4);

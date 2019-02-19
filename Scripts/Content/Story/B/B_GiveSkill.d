@@ -2,16 +2,16 @@ func int B_GiveSkill(var C_NPC typ, var int TAL, var int NEW_Wert, var int LP_Co
 {
 	// ---------- Umwandeln von var in const
 	var int TAL_Wert; 
-	if 		(TAL == NPC_TALENT_1H)			{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_1H		);	}
-	else if (TAL == NPC_TALENT_2H)			{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_2H		);	}
-	else if (TAL == NPC_TALENT_BOW)			{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_BOW		);	}
-	else if (TAL == NPC_TALENT_CROSSBOW)	{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_CROSSBOW	);	}
+	if 		(TAL == NPC_TALENT_1H)			{	if(NEW_Wert==4){NEW_Wert=1;TAL_Wert=0;} else{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_1H);	};	}
+	else if (TAL == NPC_TALENT_2H)			{	if(NEW_Wert==4){NEW_Wert=1;TAL_Wert=0;} else{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_2H);	};	}
+	else if (TAL == NPC_TALENT_BOW)			{	if(NEW_Wert==4){NEW_Wert=1;TAL_Wert=0;} else{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_BOW);	};	}
+	else if (TAL == NPC_TALENT_CROSSBOW)	{	if(NEW_Wert==4){NEW_Wert=1;TAL_Wert=0;} else{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_CROSSBOW);};}
 	else if (TAL == NPC_TALENT_PICKLOCK)	{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_PICKLOCK	);	}
 	else if (TAL == NPC_TALENT_PICKPOCKET)	{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_PICKPOCKET);	}
 	else if (TAL == NPC_TALENT_MAGE)		{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_MAGE		);	}
 	else if (TAL == NPC_TALENT_SNEAK)		{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_SNEAK		);	}
 	else if (TAL == NPC_TALENT_REGENERATE)	{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_REGENERATE);	}
-	else if (TAL == NPC_TALENT_FIREMASTER)	{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_FIREMASTER);	}
+	else if (TAL == NPC_TALENT_SHIELD)		{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_SHIELD	);	}
 	else if (TAL == NPC_TALENT_ACROBAT)		{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_ACROBAT	);	};
 
 	// ----------- Bedingungen/LP checken, dann ggf. vergeben
@@ -23,29 +23,56 @@ func int B_GiveSkill(var C_NPC typ, var int TAL, var int NEW_Wert, var int LP_Co
 			
 			if (tal == NPC_TALENT_1H)			
 			{	
-				Npc_SetTalentSkill(typ, NPC_TALENT_1H, NEW_Wert);
-				Npc_SetTalentValue(typ, NPC_TALENT_1H, Npc_GetTalentValue(typ, NPC_TALENT_1H)+5);
+				if (Npc_GetTalentValue(typ, NPC_TALENT_1H) == 2 || Npc_GetTalentValue(typ, NPC_TALENT_1H) == 5){
+					Npc_SetTalentSkill(typ, NPC_TALENT_1H, 0);
+					Npc_SetTalentSkill(typ, NPC_TALENT_1H, NEW_Wert);
+					if (Shield_Equip){
+						Mdl_ApplyOverlayMds(typ,"SHIELD_ST1.MDS");
+					};
+				}
+				else if (Npc_GetTalentValue(typ, NPC_TALENT_1H) == 0){
+					Npc_SetTalentSkill(typ, NPC_TALENT_1H, 3);
+				};
+				Npc_SetTalentValue(typ, NPC_TALENT_1H, Npc_GetTalentValue(typ, NPC_TALENT_1H)+1);
 				PrintScreen	("Nowa umiejêtnoœæ: Walka jednorêcznym orê¿em", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
 				return 1;
 			}
 			else if (tal == NPC_TALENT_2H)
 			{
-				Npc_SetTalentSkill(typ, NPC_TALENT_2H, NEW_Wert);
-				Npc_SetTalentValue(typ, NPC_TALENT_2H, Npc_GetTalentValue(typ, NPC_TALENT_2H)+5);
+				if (Npc_GetTalentValue(typ, NPC_TALENT_2H) == 2 || Npc_GetTalentValue(typ, NPC_TALENT_2H) == 5){
+					Npc_SetTalentSkill(typ, NPC_TALENT_2H, 0);
+					Npc_SetTalentSkill(typ, NPC_TALENT_2H, NEW_Wert);
+				}
+				else if (Npc_GetTalentValue(typ, NPC_TALENT_2H) == 0){
+					Npc_SetTalentSkill(typ, NPC_TALENT_2H, 3);
+				};
+				Npc_SetTalentValue(typ, NPC_TALENT_2H, Npc_GetTalentValue(typ, NPC_TALENT_2H)+1);
 				PrintScreen	("Nowa umiejêtnoœæ: Walka dwurêcznym orê¿em", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
 				return 1;
 			}
 			else if (tal == NPC_TALENT_BOW)
 			{
-				Npc_SetTalentSkill(typ, NPC_TALENT_BOW, NEW_Wert);
-				Npc_SetTalentValue(typ, NPC_TALENT_BOW, Npc_GetTalentValue(typ, NPC_TALENT_BOW)+15);
+				if (Npc_GetTalentValue(typ, NPC_TALENT_BOW) == 6 || Npc_GetTalentValue(typ, NPC_TALENT_BOW) == 15){
+					Npc_SetTalentSkill(typ, NPC_TALENT_BOW, 0);
+					Npc_SetTalentSkill(typ, NPC_TALENT_BOW, NEW_Wert);
+				}
+				else if (Npc_GetTalentValue(typ, NPC_TALENT_BOW) == 0){
+					Npc_SetTalentSkill(typ, NPC_TALENT_BOW, 3);
+				};
+				Npc_SetTalentValue(typ, NPC_TALENT_BOW, Npc_GetTalentValue(typ, NPC_TALENT_BOW)+3);
 				PrintScreen	("Nowa umiejêtnoœæ: Strzelanie z ³uku", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
 				return 1;
 			}
 			else if (tal == NPC_TALENT_CROSSBOW)
 			{
-				Npc_SetTalentSkill(typ, NPC_TALENT_CROSSBOW, NEW_Wert);
-				Npc_SetTalentValue(typ, NPC_TALENT_CROSSBOW, Npc_GetTalentValue(typ, NPC_TALENT_CROSSBOW)+20);
+				if (Npc_GetTalentValue(typ, NPC_TALENT_CROSSBOW) == 8 || Npc_GetTalentValue(typ, NPC_TALENT_CROSSBOW) == 20){
+					Npc_SetTalentSkill(typ, NPC_TALENT_CROSSBOW, 0);
+					Npc_SetTalentSkill(typ, NPC_TALENT_CROSSBOW, NEW_Wert);
+				}
+				else if (Npc_GetTalentValue(typ, NPC_TALENT_CROSSBOW) == 0){
+					Npc_SetTalentSkill(typ, NPC_TALENT_CROSSBOW, 3);
+				};
+				Npc_SetTalentValue(typ, NPC_TALENT_CROSSBOW, Npc_GetTalentValue(typ, NPC_TALENT_CROSSBOW)+4);
 				PrintScreen	("Nowa umiejêtnoœæ: Strzelanie z kuszy", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
 				return 1;
 			}
@@ -81,11 +108,27 @@ func int B_GiveSkill(var C_NPC typ, var int TAL, var int NEW_Wert, var int LP_Co
 				PrintScreen	("Zwiêkszone tempo regeneracji", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
 				return 1;
 			}
-			else if (tal == NPC_TALENT_FIREMASTER)
+			else if (tal == NPC_TALENT_SHIELD)
 			{
-				Npc_SetTalentSkill(typ, NPC_TALENT_FIREMASTER, NEW_Wert);
-				PrintScreen	("Nowa umiejêtnoœæ: Mistrz Ognia", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
-				return 1;
+				if (NEW_Wert == 1 && Npc_GetTalentValue(typ, NPC_TALENT_1H) < 5){
+					PrintScreen	("Wymagane min. 5% w walce Broni¹ Jednorêczn¹", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
+					B_Say (self, other, "$NOLEARNNOPOINTS");
+					return 0;
+				}
+				else if (NEW_Wert == 2 && Npc_GetTalentValue(typ, NPC_TALENT_1H) < 9){
+					PrintScreen	("Wymagane min. 9% w walce Broni¹ Jednorêczn¹", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
+					B_Say (self, other, "$NOLEARNNOPOINTS");
+					return 0;
+				}
+				else{
+					Npc_SetTalentSkill(typ, NPC_TALENT_SHIELD, NEW_Wert);
+					PrintScreen	("Nowa umiejêtnoœæ: Walka Tarcz¹", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
+					if (Shield_Equip && NEW_Wert == 2){
+						Mdl_ApplyOverlayMds(typ,"SHIELD_ST2.MDS");
+					};
+					return 1;
+				};
+				
 			}
 			else if (tal == NPC_TALENT_ACROBAT)
 			{

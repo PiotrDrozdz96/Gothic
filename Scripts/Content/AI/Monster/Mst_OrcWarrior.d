@@ -10,8 +10,8 @@ PROTOTYPE Mst_Default_OrcWarrior(C_Npc)
 	voice							=	17;
 	level							=	25;
 //----------------------------------------------------------	
-	attribute	[ATR_STRENGTH]		=	60;
-	attribute	[ATR_DEXTERITY]		=	50;
+	attribute	[ATR_STRENGTH]		=	80;
+	attribute	[ATR_DEXTERITY]		=	80;
 	
 	attribute	[ATR_HITPOINTS_MAX]	=	250;
 	attribute	[ATR_HITPOINTS]		=	250;
@@ -73,7 +73,7 @@ INSTANCE OrcWarrior1	(Mst_Default_OrcWarrior)
 	Set_OrcWarrior_Visuals();
 
 	//-------- attributes --------
-	attribute	[ATR_STRENGTH]		=	55;
+	attribute	[ATR_STRENGTH]		=	70;
 	attribute	[ATR_HITPOINTS_MAX]	=	210;
 	attribute	[ATR_HITPOINTS]		=	210;
 
@@ -84,7 +84,7 @@ INSTANCE OrcWarrior1	(Mst_Default_OrcWarrior)
 	protection	[PROT_FIRE]			=	30;
 
 	//-------- inventory --------
-	EquipItem (self, ItMw2hOrcaxe01);
+	EquipItem (self, ItMw2hOrcAxe02);
 };
 
 /*************************************************************************
@@ -100,7 +100,7 @@ INSTANCE OrcWarrior2	(Mst_Default_OrcWarrior)
 	Set_OrcWarrior_Visuals();
 
 	//-------- attributes --------
-	attribute	[ATR_STRENGTH]		=	60;
+	attribute	[ATR_STRENGTH]		=	75;
 	attribute	[ATR_HITPOINTS_MAX]	=	230;
 	attribute	[ATR_HITPOINTS]		=	230;
 
@@ -111,7 +111,7 @@ INSTANCE OrcWarrior2	(Mst_Default_OrcWarrior)
 	protection	[PROT_FIRE]			=	35;
 
 	//-------- inventory --------
-	EquipItem (self, ItMw2hOrcaxe02);
+	EquipItem (self, ItMw2hOrcAxe03);
 };
 
 /*************************************************************************
@@ -127,7 +127,7 @@ INSTANCE OrcWarrior3	(Mst_Default_OrcWarrior)
 	Set_OrcWarrior_Visuals();
 
 	//-------- attributes --------
-	attribute	[ATR_STRENGTH]		=	65;
+	attribute	[ATR_STRENGTH]		=	85;
 	attribute	[ATR_HITPOINTS_MAX]	=	250;
 	attribute	[ATR_HITPOINTS]		=	250;
 
@@ -138,7 +138,7 @@ INSTANCE OrcWarrior3	(Mst_Default_OrcWarrior)
 	protection	[PROT_FIRE]			=	40;
 
 	//-------- inventory --------
-	EquipItem (self, ItMw2hOrcaxe03);
+	EquipItem (self, ItMw2hOrcSword01);
 };
 
 /*************************************************************************
@@ -154,7 +154,7 @@ INSTANCE OrcWarrior4	(Mst_Default_OrcWarrior)
 	Set_OrcWarrior_Visuals();
 
 	//-------- attributes --------
-	attribute	[ATR_STRENGTH]		=	75;
+	attribute	[ATR_STRENGTH]		=	95;
 	attribute	[ATR_HITPOINTS_MAX]	=	300;
 	attribute	[ATR_HITPOINTS]		=	300;
 

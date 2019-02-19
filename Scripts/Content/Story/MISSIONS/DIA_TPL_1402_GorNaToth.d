@@ -67,7 +67,7 @@ instance DIA_GorNaToth_AngarTalked (C_INFO)
 
 FUNC int DIA_GorNaToth_AngarTalked_Condition()
 {
-	if (Npc_KnowsInfo(hero,DIA_CorAngar_LaterTrainer))
+	if (Npc_KnowsInfo(hero,DIA_CorAngar_LaterTrainer) && Npc_GetTrueGuild(hero) != GIL_GUR)
 	{
 		return 1;
 	};
@@ -386,14 +386,14 @@ instance  TPL_1402_GorNaToth_TRAIN (C_INFO)
 	information		= TPL_1402_GorNaToth_TRAIN_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn1h_1,LPCOST_TALENT_1H_1,0); 
+	description		= "Broñ jednorêczna +1% (10pkt. umiejêtnoœci)";  
 };
 
 FUNC int  TPL_1402_GorNaToth_TRAIN_Condition()
 {	
 	
-	if (Npc_GetTalentSkill (hero,NPC_TALENT_1H) < 1)
-	&& (C_NpcBelongsToPsiCamp(hero))  
+	if	(C_NpcBelongsToPsiCamp(hero)
+	&&	Npc_GetTalentValue(hero, NPC_TALENT_1H) < 10 ) 
 	{
 		return TRUE;
 	};
@@ -409,56 +409,30 @@ FUNC void  TPL_1402_GorNaToth_TRAIN_Info()
 	};
 	AI_Output (other, self,"TPL_1402_GorNaToth_TRAIN_Info_15_00"); //Chcia³bym nauczyæ siê walki jednorêcznym orê¿em.
 	
-	if B_GiveSkill(hero,NPC_TALENT_1H,1,LPCOST_TALENT_1H_1)
+	if B_GiveSkill(hero,NPC_TALENT_1H,Npc_GetTalentSkill(hero, NPC_TALENT_1H)+1,LPCOST_TALENT_1H_1)
 	{
-		AI_Output			(self,other,"TPL_1402_GorNaToth_TRAIN_11_01"); //M¹dra decyzja. Jednak zanim poznasz bardziej zaawansowane techniki, powinieneœ nauczyæ siê prawid³owo trzymaæ orê¿ w rêku.
-		AI_Output			(self,other,"TPL_1402_GorNaToth_TRAIN_11_02"); //Pocz¹tkuj¹cy czêsto ³api¹ zwyk³y miecz obydwoma rêkami. Radzi³bym ci siê do tego nie przyzwyczajaæ, to fatalny nawyk.
-		AI_Output			(self,other,"TPL_1402_GorNaToth_TRAIN_11_03"); //Trzymaj broñ jedn¹ rêk¹, ostrzem do góry, i zacznij ni¹ machaæ.
-		AI_Output			(self,other,"TPL_1402_GorNaToth_TRAIN_11_04"); //Musisz siê nauczyæ, jak zgraæ twoje ruchy z bezw³adnoœci¹ orê¿a. Dziêki temu twoje ataki bêd¹ szybsze i bardziej zaskakuj¹ce.
-		AI_Output			(self,other,"TPL_1402_GorNaToth_TRAIN_11_05"); //Zapamiêtaj sobie dobrze co ci powiedzia³em, a twój styl walki stanie siê o wiele bardziej elegancki i skuteczny.
-		AI_Output			(self,other,"TPL_1402_GorNaToth_TRAIN_11_06"); //A, i jeszcze coœ! Niektóre ciosy powoduj¹ wiêksze obra¿enia ni¿ zwykle. Oczywiœcie, jako pocz¹tkuj¹cy masz raczej niewielkie szanse na zadanie krytycznego uderzenia.
-		AI_Output			(self,other,"TPL_1402_GorNaToth_TRAIN_11_07"); //Ale to siê zmieni w miarê czynienia przez ciebie postêpów.
-		TPL_1402_GorNaToth_TRAIN.permanent = 0;
-
-		AI_StopProcessInfos	(self);
-		B_PracticeCombat	("PSI_PATH_6_7");
+		if (Npc_GetTalentValue(hero, NPC_TALENT_1H) == 1){
+			AI_Output (self,other,"TPL_1402_GorNaToth_TRAIN_11_01"); //M¹dra decyzja. Jednak zanim poznasz bardziej zaawansowane techniki, powinieneœ nauczyæ siê prawid³owo trzymaæ orê¿ w rêku.
+			AI_Output (self,other,"TPL_1402_GorNaToth_TRAIN_11_02"); //Pocz¹tkuj¹cy czêsto ³api¹ zwyk³y miecz obydwoma rêkami. Radzi³bym ci siê do tego nie przyzwyczajaæ, to fatalny nawyk.
+			AI_Output (self,other,"TPL_1402_GorNaToth_TRAIN_11_03"); //Trzymaj broñ jedn¹ rêk¹, ostrzem do góry, i zacznij ni¹ machaæ.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_1H) == 3){
+			AI_Output (self,other,"TPL_1402_GorNaToth_TRAIN_11_04"); //Musisz siê nauczyæ, jak zgraæ twoje ruchy z bezw³adnoœci¹ orê¿a. Dziêki temu twoje ataki bêd¹ szybsze i bardziej zaskakuj¹ce.
+			AI_Output (self,other,"TPL_1402_GorNaToth_TRAIN_11_05"); //Zapamiêtaj sobie dobrze, co ci powiedzia³em, a twój styl walki stanie siê o wiele bardziej elegancki i skuteczny.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_1H) == 5){
+			B_PracticeCombat	("PSI_PATH_6_7");
+			AI_Output (self,other,"TPL_1402_GorNaToth_TRAIN_11_06"); //A, i jeszcze coœ! Niektóre ciosy powoduj¹ wiêksze obra¿enia ni¿ zwykle. Oczywiœcie, jako pocz¹tkuj¹cy masz raczej niewielkie szanse na zadanie krytycznego uderzenia.
+			AI_Output (self,other,"TPL_1402_GorNaToth_TRAIN_11_07"); //Ale to siê zmieni w miarê czynienia przez ciebie postêpów.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_1H) == 6){
+			AI_Output (self, other,"TPL_1402_GorNaToth_TRAINAGAIN_Info_11_02"); //Dobrze, podstawy ju¿ znasz. Nieznaczne opuszczenie broni zwiêkszy si³ê twojego pierwszego ciosu.
+			AI_Output (self, other,"TPL_1402_GorNaToth_TRAINAGAIN_Info_11_03"); //Musisz wykorzystaæ si³ê bezw³adnoœci, pamiêtasz? Œwietnie. Teraz nauczysz siê lepiej balansowaæ cia³em. Po zadaniu dwóch ciosów wykonaj obrót. To powinno zmyliæ twojego przeciwnika i pozwoliæ ci wyjœæ na dobr¹ pozycjê do nastêpnego ataku.
+			AI_Output (self, other,"TPL_1402_GorNaToth_TRAINAGAIN_Info_11_04"); //Wtedy wyprowadŸ nastêpne ciêcie z prawej strony...
+			AI_Output (self, other,"TPL_1402_GorNaToth_TRAINAGAIN_Info_11_05"); //I znowu do przodu. Pamiêtaj - trening czyni mistrza, wiêc najlepiej weŸ siê od razu do roboty!
+		}
+		else{
+			AI_Output (self, other,"TPL_1402_GorNaToth_TRAINAGAIN_Info_11_05"); //I znowu do przodu. Pamiêtaj - trening czyni mistrza, wiêc najlepiej weŸ siê od razu do roboty!
+		};
 	};
 };  
-/*------------------------------------------------------------------------
-						EINHANDKAMPF	DIE ZWEITE LEHRSTUNDE							
-------------------------------------------------------------------------*/
-
-instance  TPL_1402_GorNaToth_TRAINAGAIN (C_INFO)
-{
-	npc				= TPL_1402_GorNaToth;
-	condition		= TPL_1402_GorNaToth_TRAINAGAIN_Condition;
-	information		= TPL_1402_GorNaToth_TRAINAGAIN_Info;
-	important		= 0;
-	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn1h_2,			LPCOST_TALENT_1H_2,0); 
-};
-
-FUNC int  TPL_1402_GorNaToth_TRAINAGAIN_Condition()
-{	
-	if (Npc_GetTalentSkill (hero,NPC_TALENT_1H) == 1)
-	&& (C_NpcBelongsToPsiCamp(hero))  
-	{
-		return TRUE;
-	};
-
-};
-FUNC void  TPL_1402_GorNaToth_TRAINAGAIN_Info()
-{
-	AI_Output (other, self,"TPL_1402_GorNaToth_TRAINAGAIN_Info_15_01"); //Naucz mnie, jak sprawniej pos³ugiwaæ siê jednorêczn¹ broni¹.
-	if B_GiveSkill(hero,NPC_TALENT_1H,2,LPCOST_TALENT_1H_2)
-	{
-		AI_Output (self, other,"TPL_1402_GorNaToth_TRAINAGAIN_Info_11_02"); //Dobrze, podstawy ju¿ znasz. Nieznaczne opuszczenie broni zwiêkszy si³ê twojego pierwszego ciosu.
-		AI_Output (self, other,"TPL_1402_GorNaToth_TRAINAGAIN_Info_11_03"); //Musisz wykorzystaæ si³ê bezw³adnoœci, pamiêtasz? Œwietnie. Teraz nauczysz siê lepiej balansowaæ cia³em. Po zadaniu dwóch ciosów wykonaj obrót. To powinno zmyliæ twojego przeciwnika i pozwoliæ ci wyjœæ na dobr¹ pozycjê do nastêpnego ataku.
-		AI_Output (self, other,"TPL_1402_GorNaToth_TRAINAGAIN_Info_11_04"); //Wtedy wyprowadŸ nastêpne ciêcie z prawej strony...
-		AI_Output (self, other,"TPL_1402_GorNaToth_TRAINAGAIN_Info_11_05"); //I znowu do przodu. Pamiêtaj - trening czyni mistrza, wiêc najlepiej weŸ siê od razu do roboty!
-		TPL_1402_GorNaToth_TRAINAGAIN.permanent = 0;
-
-		AI_StopProcessInfos	(self);
-		B_PracticeCombat	("PSI_PATH_6_7");
-	};
-}; 

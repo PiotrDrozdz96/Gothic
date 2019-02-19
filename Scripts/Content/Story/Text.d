@@ -276,7 +276,7 @@ CONST STRING TXT_TALENTS [NPC_TALENT_MAX] =
 	"Magia",
 	"Skradanie siê",
 	"Regeneracja",
-	"Mistrz ognia",
+	"Tarcza",
 	"Akrobatyka"
 };
 
@@ -302,17 +302,17 @@ CONST STRING TXT_TALENTS_DESC [NPC_TALENT_MAX] =
 CONST STRING TXT_TALENTS_SKILLS [NPC_TALENT_MAX] = 
 {
 	"",	
-	"brak|adept|mistrz",								//NPC_TALENT_1H          
-	"brak|adept|mistrz",								//NPC_TALENT_2H           
-	"brak|adept|mistrz",								//NPC_TALENT_BOW         
-	"brak|adept|mistrz",								//NPC_TALENT_CROSSBOW    
-	"brak|adept|mistrz",								//NPC_TALENT_PICKLOCK   
-	"brak|adept|mistrz",								//NPC_TALENT_PICKPOCKET
-	"brak|Kr¹g 1|Kr¹g 2|Kr¹g 3|Kr¹g 4|Kr¹g 5|Kr¹g 6",	//NPC_TALENT_MAGE         
+	"Brak|Wojownik|Mistrz|Zielony",								//NPC_TALENT_1H          
+	"Brak|Wojownik|Mistrz|Zielony",								//NPC_TALENT_2H           
+	"Brak|Strzelec|Mistrz|Zielony",								//NPC_TALENT_BOW         
+	"Brak|Strzelec|Mistrz|Zielony",								//NPC_TALENT_CROSSBOW    
+	"Brak|Adept|Mistrz",								//NPC_TALENT_PICKLOCK   
+	"Brak|Adept|Mistrz",								//NPC_TALENT_PICKPOCKET
+	"Brak|Kr¹g 1|Kr¹g 2|Kr¹g 3|Kr¹g 4|Kr¹g 5|Kr¹g 6",	//NPC_TALENT_MAGE         
 	"Nie|Tak",                                          //NPC_TALENT_SNEAK       
 	"|",                                      		    //NPC_TALENT_REGENERATE 
-	"|",                                          		//NPC_TALENT_FIREMASTER   
-	"Nie|Tak"                                           //NPC_TALENT_ACROBAT      
+	"Brak|Adept|Mistrz",                                //NPC_TALENT_SHIELD   
+	"Nie|Tak"                                        	//NPC_TALENT_ACROBAT 
 };
 
 // *****************************************************************************************
@@ -584,18 +584,18 @@ const string NAME_RaiseHealthMax	=	"Maksymalne P¯ +";
 
 const string NAME_CorristoHighRobe	= 	"Mistrzu, chcia³bym nosiæ szatê Arcymaga Ognia.";
 const string NAME_SaturasHighRobe	= 	"Szata Arcymaga";
-const string NAME_DiegoHeavyShadows	=	"Ciê¿ka Zbroja Cienia. Broñ 40, Pociski 5, Ogieñ 20";
-const string NAME_StoneHeavyGuards	= 	"Ciê¿ka Zbroja Stra¿nika. Broñ 70, Pociski 10, Ogieñ 35";
-const string NAME_StoneGuards		= 	"Zbroja Stra¿nika. Broñ 55, Pociski 10, Ogieñ 25";
-const string NAME_WolfBandits		= 	"Pancerz Szkodnika. Broñ 35, Pociski 5, Ogieñ 15"; 
-const string NAME_WolfHeavyBandits	= 	"Ciê¿ki Pancerz Szkodnika. Broñ 40, Pociski 5, Ogieñ 20";
-const string NAME_LeeMercs			= 	"Pancerz Najemnika. Broñ 55, Pociski 10, Ogieñ 25";
-const string NAME_LeeHeavyMercs		= 	"Ciê¿ki Pancerz Najemnika. Broñ 70, Pociski 10, Ogieñ 35";
-const string NAME_FiskLightDiggers	= 	"Lekkie Spodnie Kopacza. Broñ 10, Ogieñ 5";
-const string NAME_FiskDiggers		= 	"Spodnie Kopacza. Broñ 15, Ogieñ 5";
-const string NAME_GorNaTothHeavyTpl = 	"Ciê¿ka Zbroja Œwi¹tynna. Broñ 70, Pociski 10, Ogieñ 35";
-const string NAME_GorNaTothTpl 		=	"Zbroja Œwi¹tynna. Broñ 55, Pociski 10, Ogieñ 25";
-const string NAME_TorwachenPsiRock	=	"Przepaska. Broñ 15, Ogieñ 10";
+const string NAME_DiegoHeavyShadows	=	"Ciê¿ka Zbroja Cienia. Broñ 30, Pociski 30";
+const string NAME_StoneHeavyGuards	= 	"Ciê¿ka Zbroja Stra¿nika. Broñ 70, Pociski 70";
+const string NAME_StoneGuards		= 	"Zbroja Stra¿nika. Broñ 50, Pociski 50";
+const string NAME_WolfBandits		= 	"Pancerz Szkodnika. Broñ 20, Pociski 20"; 
+const string NAME_WolfHeavyBandits	= 	"Ciê¿ki Pancerz Szkodnika. Broñ 25, Pociski 25";
+const string NAME_LeeMercs			= 	"Pancerz Najemnika. Broñ 45, Pociski 45, Ogieñ 5, Magia 5";
+const string NAME_LeeHeavyMercs		= 	"Ciê¿ki Pancerz Najemnika. Broñ 60, Pociski 60, Ogieñ 10, Magia 10";
+const string NAME_FiskLightDiggers	= 	"Lekkie Spodnie Kopacza. Broñ 10, Pociski 10";
+const string NAME_FiskDiggers		= 	"Spodnie Kopacza. Broñ 15, Pociski 15";
+const string NAME_GorNaTothHeavyTpl = 	"Ciê¿ka Zbroja Œwi¹tynna. Broñ 70, Pociski 70, Ogieñ 35";
+const string NAME_GorNaTothTpl 		=	"Zbroja Œwi¹tynna. Broñ 45, Pociski 40, Ogieñ 25";
+const string NAME_TorwachenPsiRock	=	"Przepaska. Broñ 15, Pociski 15";
 
 
 
@@ -617,3 +617,6 @@ const string MENU_TEXT_NEEDS_RESTART	= "Czêœæ zmian wejdzie w ¿ycie po zrestarto
 const string STR_INFO_TRADE_ACCEPT						= "Przyjmij"			;
 const string STR_INFO_TRADE_RESET						= "Odrzuæ"			;
 const string STR_INFO_TRADE_EXIT						= "WSTECZ"				;	
+
+// Drops text
+const string NAME_Str_grab = "Obci¹¿enie si³y:";

@@ -13,8 +13,8 @@ instance ORG_833_Buster (Npc_Default)
 
 	//-------- abilities --------
 
-	attribute[ATR_STRENGTH] =		20;
-	attribute[ATR_DEXTERITY] =		15;
+	attribute[ATR_STRENGTH] =		30;
+	attribute[ATR_DEXTERITY] =		30;
 	attribute[ATR_MANA_MAX] =		0;
 	attribute[ATR_MANA] =			0;
 	attribute[ATR_HITPOINTS_MAX] =	88;

@@ -94,15 +94,14 @@ instance  Org_855_Wolf_TRADE (C_INFO)
 
 FUNC int  Org_855_Wolf_TRADE_Condition()
 {	
-	return 1;
+	if (Npc_KnowsInfo(hero,Org_855_Wolf_SELLBOW)){
+		return 1;
+	};
 };
 
 FUNC void  Org_855_Wolf_TRADE_Info()
 {
-	AI_Output (other, self,"Org_855_Wolf_TRADE_15_00"); //Zajmujesz siê czymœ jeszcze?
-	AI_Output (self, other,"Org_855_Wolf_TRADE_09_01"); //Skupujê skóry i futra od myœliwych. Gdybyœ mia³ kiedyœ taki towar na zbyciu - zg³oœ siê do mnie.
-	
-
+	AI_Output (other, self,"Org_843_Sharky_TRADE_Info_15_01"); //Przyda³oby mi siê kilka drobiazgów.
 };
 
 //****************************************
@@ -121,7 +120,9 @@ instance  Org_855_Wolf_WhereHunter (C_INFO)
 
 FUNC int  Org_855_Wolf_WhereHunter_Condition()
 {	
-	return 1;
+	if (Npc_KnowsInfo(hero,Org_855_Wolf_Aufgaben)){
+		return 1;
+	};
 };
 
 FUNC void  Org_855_Wolf_WhereHunter_Info()
@@ -659,7 +660,84 @@ FUNC void  Org_855_Wolf_SELLBOW_Info()
 
 };  
 
+/*------------------------------------------------------------------------
+						BUY Fur Info ----- Drops						
+------------------------------------------------------------------------*/
 
+instance  Org_855_Wolf_Aufgaben (C_INFO)
+{
+	npc				= Org_855_Wolf;
+	condition		= Org_855_Wolf_Aufgaben_Condition;
+	information		= Org_855_Wolf_Aufgaben_Info;
+	permanent		= 0;
+	description		= "Zajmujesz siê czymœ jeszcze?"; 
+};
 
+FUNC int  Org_855_Wolf_Aufgaben_Condition()
+{	
+	if (Npc_KnowsInfo(hero,DIA_Wolf_Hello)){
+		return 1;
+	};
+};
 
+FUNC void  Org_855_Wolf_Aufgaben_Info()
+{
+	AI_Output (other, self,"Org_855_Wolf_TRADE_15_00"); //Zajmujesz siê czymœ jeszcze?
+	AI_Output (self, other,"Org_855_Wolf_TRADE_09_01"); //Skupujê skóry i futra od myœliwych. Gdybyœ mia³ kiedyœ taki towar na zbyciu - zg³oœ siê do mnie.
+	Log_CreateTopic   	(GE_TraderNC,LOG_NOTE);
+	B_LogEntry			(GE_TraderNC,"Szkodnik imieniem Wilk odkupuje od myœliwych skóry i futra.");
+
+};
+
+/*------------------------------------------------------------------------
+						BUY Fur ----- Drops						
+------------------------------------------------------------------------*/
+
+instance  Org_855_Wolf_SellFur (C_INFO)
+{
+	npc				= Org_855_Wolf;
+	condition		= Org_855_Wolf_SellFur_Condition;
+	information		= Org_855_Wolf_SellFur_Info;
+	permanent		= 1;
+	description		= "Mam dla ciebie kilka skór...";
+};
+
+FUNC int  Org_855_Wolf_SellFur_Condition()
+{	
+	if (Npc_KnowsInfo(hero,Org_855_Wolf_Aufgaben)){
+		return 1;
+	};
+};
+
+FUNC void  Org_855_Wolf_SellFur_Info()
+{
+	AI_Output(other,self,"DIA_Wolf_SellFur_15_00");	//Mam dla ciebie kilka skór.
+	if (Npc_HasItems (hero,ItAt_Wolf_01) > 0 || Npc_HasItems (hero,ItAt_Wolf_02) > 0 || Npc_HasItems (hero,ItAt_Shadow_01) > 0 || Npc_HasItems (hero,ItAt_Troll_01) > 0 ){
+		if (Npc_HasItems (hero,ItAt_Wolf_01) > 0){
+			CreateInvItems(self, itminugget, Value_Wolfsfell*Npc_HasItems (hero,ItAt_Wolf_01));
+			B_GiveInvItems(self, other, itminugget, Value_Wolfsfell*Npc_HasItems (hero,ItAt_Wolf_01));
+			B_GiveInvItems	(hero, self, ItAt_Wolf_01,	Npc_HasItems (hero,ItAt_Wolf_01));
+		};
+		if (Npc_HasItems (hero,ItAt_Wolf_02) > 0){
+			CreateInvItems(self, itminugget, Value_Orkhundfell*Npc_HasItems (hero,ItAt_Wolf_02));
+			B_GiveInvItems(self, other, itminugget, Value_Orkhundfell*Npc_HasItems (hero,ItAt_Wolf_02));
+			B_GiveInvItems	(hero, self, ItAt_Wolf_01,	Npc_HasItems (hero,ItAt_Wolf_02));
+		};
+		if (Npc_HasItems (hero,ItAt_Shadow_01) > 0){
+			CreateInvItems(self, itminugget, Value_Shadowbeastfell*Npc_HasItems (hero,ItAt_Shadow_01));
+			B_GiveInvItems(self, other, itminugget, Value_Shadowbeastfell*Npc_HasItems (hero,ItAt_Shadow_01));
+			B_GiveInvItems	(hero, self, ItAt_Wolf_01,	Npc_HasItems (hero,ItAt_Shadow_01));
+		};
+		if (Npc_HasItems (hero,ItAt_Troll_01) > 0){
+			CreateInvItems(self, itminugget, Value_Trollfell*Npc_HasItems (hero,ItAt_Troll_01));
+			B_GiveInvItems(self, other, itminugget, Value_Trollfell*Npc_HasItems (hero,ItAt_Troll_01));
+			B_GiveInvItems	(hero, self, ItAt_Wolf_01,	Npc_HasItems (hero,ItAt_Wolf_01));
+		};
+		
+		AI_Output(self,other,"DIA_Wolf_SellFur_09_01");	//Fantastycznie.
+	} 
+	else{
+		AI_Output(self,other,"DIA_Wolf_SellFur_09_02");	//¯arty siê ciebie trzymaj¹.
+	};
+};
 

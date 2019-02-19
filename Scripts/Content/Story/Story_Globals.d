@@ -366,6 +366,11 @@ var int log_wedgelearn;
 var int log_scattytrain;
 var int log_cavalorntrain;
 
+// marev LOG
+var int log_bustertrain;
+var int log_gravoinfo;
+var int log_fingerscavalorn;
+
 var int Dexter_Traded;
 var int Scorpio_Exile;
 
@@ -374,3 +379,13 @@ var int Scorpio_Exile;
 //------------------------------------------------------------------------
 
 var int LeftyDead;
+
+//------------------------------------------------------------------------
+//	Drops Shield
+//------------------------------------------------------------------------
+
+const int	LPCOST_TALENT_SHIELD_1		=	10;	
+const int	LPCOST_TALENT_SHIELD_2		=	20;	
+var int Shield_Equip;
+const int	XP_TOWER_IN_OC	= 1000;
+var int Uriziel_1H;

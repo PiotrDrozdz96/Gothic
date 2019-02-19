@@ -10,8 +10,8 @@ PROTOTYPE Mst_Default_OrcScout(C_Npc)
 	voice							=	17;
 	level							=	20;
 //----------------------------------------------------------	
-	attribute	[ATR_STRENGTH]		=	40;
-	attribute	[ATR_DEXTERITY]		=	40;
+	attribute	[ATR_STRENGTH]		=	55;
+	attribute	[ATR_DEXTERITY]		=	55;
 	
 	attribute	[ATR_HITPOINTS_MAX]	=	200;
 	attribute	[ATR_HITPOINTS]		=	200;
@@ -71,7 +71,7 @@ func void Set_OrcScout_Visuals()
 INSTANCE OrcScout (Mst_Default_OrcScout)
 {
 	Set_OrcScout_Visuals	();
-	EquipItem 				(self, ItMw2hOrcSword01);
+	EquipItem 				(self, ItMw2hOrcAxe01);
 	//EquipItem				(self, ItRw_Crossbow_01);
 	//CreateInvItems			(self,	ItAmBolt,	30);
 };
@@ -89,7 +89,7 @@ INSTANCE OrcPeasantEatAndDrink (Mst_Default_OrcScout)
 	Set_OrcScout_Visuals();
 
 	//-------- inventory --------
-	CreateInvItem	(self,	ItMw2hOrcSword01);	
+	CreateInvItem	(self,	ItMw2hOrcAxe01);	
 
 	//-------- ai --------
 	start_aistate	= ZS_Orc_EatAndDrink;
@@ -107,7 +107,7 @@ INSTANCE OrcScoutGYD (Mst_Default_OrcScout)
 	name						=	"Ork-zwiadowca";
 	level						=	18;
 
-	attribute[ATR_STRENGTH]		=	30;	// SN: reguläre OrcScouts wären an dieser Stelle noch zu heftig!
+	attribute[ATR_STRENGTH]		=	50;	// SN: reguläre OrcScouts wären an dieser Stelle noch zu heftig!
 
 	aivar[AIV_MM_PercRange]		=	1500;
 	aivar[AIV_MM_DrohRange]		=	1200;
@@ -119,6 +119,6 @@ INSTANCE OrcScoutGYD (Mst_Default_OrcScout)
 	self.aivar[AIV_MM_RoamStart]=	OnlyRoutine;
 
 	Set_OrcScout_Visuals	();
-	EquipItem 				(self, ItMw2hOrcSword01);
+	EquipItem 				(self, ItMw2hOrcAxe01);
 };
 

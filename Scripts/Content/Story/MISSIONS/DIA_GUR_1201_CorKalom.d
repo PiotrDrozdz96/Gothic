@@ -293,6 +293,7 @@ func void  GUR_1201_CorKalom_JoinPSI_Info()
 			AI_EquipBestArmor	(other);
 			Npc_SetTrueGuild	(hero,GIL_NOV);
 			hero.guild = GIL_NOV;
+			Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
 			B_LogEntry			(CH1_JoinPsi,	"Dziœ Cor Kalom przyj¹³ mnie w poczet Nowicjuszy. By³ jak zwykle wredny, ale teraz jestem przynajmniej pe³noprawnym cz³onkiem Bractwa Œni¹cego.");
 			B_LogEntry			(GE_TraderPSI,	"Powinienem odebraæ szatê Nowicjusza u Baal Namiba.");
 			Log_SetTopicStatus	(CH1_JoinPsi,	LOG_SUCCESS);
@@ -511,19 +512,6 @@ FUNC VOID Info_Kalom_KrautboteBACK_Info()
 		AI_Output (self, other,"Mis_1_Psi_Kalom_KrautboteBACK_10_02"); //Gdzie jest 500 bry³ek rudy, ch³opcze? Lepiej siê pospiesz. Nie bêdê d³ugo czeka³.
 	}; 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // **************************************************************************
 //
@@ -1140,5 +1128,52 @@ FUNC VOID  GUR_1201_CorKalom_Exit_Info()
 };
 // *******************************************************************************************************
 
+// ***Drops*Guru*Werden***********************************************************************************
+
+instance  GUR_1201_CorKalom_WANNABEGUR (C_INFO)
+{
+	npc				= GUR_1201_CorKalom;
+	condition		= GUR_1201_CorKalom_WANNABEGUR_Condition;
+	information		= GUR_1201_CorKalom_WANNABEGUR_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= "Chcia³bym przyst¹piæ do magicznego Krêgu.";
+};
+
+FUNC int  GUR_1201_CorKalom_WANNABEGUR_Condition()
+{	
+	if (CorKalom_BringMCQBalls == LOG_SUCCESS)
+	&& (Npc_GetTrueGuild (hero) == GIL_NOV)
+	{
+		return TRUE;
+	};
+
+};
+FUNC void  GUR_1201_CorKalom_WANNABEGUR_Info()
+{
+	AI_Output (other, self,"KDF_402_Corristo_WANNBEKDF_Info_15_01"); //Chcia³bym przyst¹piæ do magicznego Krêgu.
+	
+	if	(Npc_GetTalentSkill (hero,NPC_TALENT_MAGE) < 3)
+	{ 
+		AI_Output (self, other,"GUR_1201_CorKalom_WANNABEGUR_NOT_10_02"); //Marnujesz tylko mój cenny czas.
+		PrintScreen	("Wymagany 3 kr¹g Magii", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
+    }
+	else if(hero.level < 10)
+	{
+		AI_Output (self, other,"GUR_1201_CorKalom_WANNABEGUR_NOT_10_02"); //Marnujesz tylko mój cenny czas.
+		B_PrintGuildCondition(10);
+	}
+    else
+    {
+	    AI_Output (self, other,"GUR_1201_CORKALOM_WANNABEGUR_10_02"); //Dobrze. Masz, za³ó¿ to.
+		Npc_SetTrueGuild(hero, GIL_GUR);
+		hero.guild = GIL_GUR;
+		CreateInvItem		(hero,GUR_ARMOR_M);
+		CreateInvItem		(hero,ItMw_2H_Staff_03);
+		AI_EquipBestArmor	(hero);
+		Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
+	};
+
+};
 
 

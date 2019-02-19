@@ -24,7 +24,7 @@ instance ORG_858_Quentin (Npc_Default)
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
 	//	body mesh,	head mesh,	hairmesh,	face-tex,	hair-tex,	skin	
-	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 2,"Hum_Head_Pony", 8,  1, ORG_ARMOR_M);
+	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 2,"Hum_Head_Pony", 8,  1, BDT_ARMOR_H);
 	
 	B_Scale (self);	
 	Mdl_SetModelFatness (self, 0);		

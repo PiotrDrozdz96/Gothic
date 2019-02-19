@@ -22,6 +22,7 @@ instance ORG_876_Tuersteher (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
+	Mdl_ApplyOverlayMds (self,"SHIELD_ST1.MDS");
 	//				body mesh,				head mesh,				36hairmesh,	face-tex,	hair-tex,	skin	
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1, "Hum_Head_FatBald", 93, 2, ORG_ARMOR_H);
 	
@@ -35,6 +36,7 @@ instance ORG_876_Tuersteher (Npc_Default)
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
+	Npc_SetTalentSkill	(self, NPC_TALENT_SHIELD,1);
 
 	//-------- inventory --------   
 	                                 
@@ -50,8 +52,9 @@ instance ORG_876_Tuersteher (Npc_Default)
 	CreateInvItem (self, ItFoLoaf);
 	CreateInvItem (self, ItAt_Claws_01);
 	EquipItem (self, ItMw_1H_Mace_02);
-	EquipItem (self, ItRw_Bow_Long_01);
-	CreateInvItems (self, ItAmArrow, 20);
+	//EquipItem (self, ItRw_Bow_Long_01);
+	EquipItem (self, IT_SHIELD_SKULL);
+	//CreateInvItems (self, ItAmArrow, 20);
 	
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_876;

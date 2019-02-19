@@ -91,4 +91,10 @@ FUNC VOID Rtn_FMTaken2_233 ()
 	TA_Stay		(20,00,07,00, "OCR_NORTHGATE_LEFT_GUARD_CHANGE");
 };
 
+func void Rtn_out_233 ()
+{
+	TA_Stay	(07,00,20,00,"WP_INTRO_WI05");
+	TA_Stay	(20,00,07,00,"WP_INTRO_WI05");
+};
+
 

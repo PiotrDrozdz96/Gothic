@@ -829,6 +829,7 @@ func void  KDW_600_Saturas_KDWAUFNAHME_Info()
 	Snd_Play  			("MFX_Heal_Cast"); 
 	Npc_SetTrueGuild	(hero,GIL_KDW);
 	hero.guild = GIL_KDW;
+	Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
 
 	B_LogEntry			(CH4_BannedFromOC,	"Do³¹czy³em do Magów Wody. Od tej chwili uzyska³em dostêp do obydwu szkó³ magii."); 
 	Log_SetTopicStatus	(CH4_BannedFromOC,	LOG_SUCCESS);
@@ -853,6 +854,7 @@ instance  KDW_600_Saturas_LESSON (C_INFO)
 FUNC int  KDW_600_Saturas_LESSON_Condition()
 {	
 	if (Npc_GetTrueGuild (hero) == GIL_KDW) 
+	|| (	(Npc_GetTrueGuild (hero) == GIL_KDF) && Npc_KnowsInfo (hero,KDW_600_Saturas_NOMOREOC)	)
 	{
 		return TRUE;
 	};
@@ -897,7 +899,6 @@ FUNC int  KDW_600_Saturas_KREIS1_Condition()
 {	
 	if (Npc_KnowsInfo (hero,KDW_600_Saturas_LESSON))
 	&& (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE) == 0)
-	&& (Npc_GetTrueGuild (hero) == GIL_KDW)
 	{
 		return TRUE;
 	};
@@ -938,7 +939,6 @@ FUNC int  KDW_600_Saturas_KREIS2_Condition()
 {	
 	if (Npc_KnowsInfo (hero,KDW_600_Saturas_LESSON))
 	&& (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE) == 1)
-	&& (Npc_GetTrueGuild (hero) == GIL_KDW)
 
 	{
 		return TRUE;
@@ -980,7 +980,6 @@ FUNC int  KDW_600_Saturas_KREIS3_Condition()
 {	
 	if (Npc_KnowsInfo (hero,KDW_600_Saturas_LESSON))
 	&& (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE ) == 2)
-	&& (Npc_GetTrueGuild (hero) == GIL_KDW)
 
 	{
 		return TRUE;
@@ -1020,7 +1019,6 @@ FUNC int  KDW_600_Saturas_KREIS4_Condition()
 {	
 	if (Npc_KnowsInfo (hero,KDW_600_Saturas_LESSON))
 	&& (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE ) == 3)
-	&& (Npc_GetTrueGuild (hero) == GIL_KDW)
 	
 	{
 		return TRUE;
@@ -1060,7 +1058,6 @@ FUNC int  KDW_600_Saturas_KREIS5_Condition()
 {	
 	if (Npc_KnowsInfo (hero,KDW_600_Saturas_LESSON))
 	&& (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE ) == 4)
-	&& (Npc_GetTrueGuild (hero) == GIL_KDW)
 	{
 		return TRUE;
 	};
@@ -1107,7 +1104,7 @@ FUNC void  KDW_600_Saturas_HEAVYARMOR_Info()
 {
 	AI_Output				(other, self,"KDW_600_Saturas_HEAVYARMOR_Info_15_01"); //Chcia³bym nosiæ szatê Arcymaga Wody.
 	
-	if (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE ) < 4)
+	if (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE ) < 5)
 	&& (Kapitel < 5)
 	{
 		AI_Output			(self, other,"KDW_600_Saturas_HEAVYARMOR_Info_14_02"); //Nie jesteœ jeszcze godzien nosiæ szatê Arcymaga.
@@ -1180,34 +1177,8 @@ FUNC INT Info_Saturas_XARDAS_Condition()
 {	
 	if	Npc_KnowsInfo(hero, Info_Saturas_COLLAPSE)
 	&&	Npc_KnowsInfo(hero, Info_Saturas_MURDER)
-	{		 										//***Björn***>
-
-		if( (Npc_GetTrueGuild(hero)!=GIL_GRD)  &&  (Npc_GetTrueGuild(hero)!=GIL_KDF)  )
-		{
-			return TRUE;
-		};
-
-/*												
-		if 		(oldHeroGuild==GIL_GRD)
-		{
-			if (Npc_GetTrueGuild(hero)==GIL_SLD)
-			{
-				return TRUE;
-			};
-		}
-		else if (oldHeroGuild==GIL_KDF)
-		{
-			if (Npc_GetTrueGuild(hero)==GIL_KDW)
-			{
-				return TRUE;
-			};
-		}
-		else
-		{
-			return TRUE;
-		}; 											<***Björn***
-*/												
-
+	{		 																		
+		return TRUE;
 	};	
 };
 
@@ -1219,10 +1190,10 @@ FUNC VOID Info_Saturas_XARDAS_Info()
 	AI_Output			(self,hero,"Info_Saturas_XARDAS_14_04"); //No dobrze ju¿, dobrze.
 	AI_Output			(self,hero,"Info_Saturas_XARDAS_14_05"); //Wiele lat temu...
 	AI_Output			(hero,self,"Info_Saturas_XARDAS_15_06"); //Wola³bym wersjê skrócon¹, jeœli ³aska!
-	AI_Output			(self,hero,"Info_Saturas_XARDAS_14_07"); //B¹dŸ cierpliwy. Có¿, kiedy tworzyliœmy magiczn¹ Barierê, nadzorowa³ nas jeszcze jeden, trzynasty mag.
-	AI_Output			(hero,self,"Info_Saturas_XARDAS_15_08"); //Trzynasty mag? Wed³ug legendy mia³o was byæ tylko dwunastu!
-	AI_Output			(self,hero,"Info_Saturas_XARDAS_14_09"); //Niewielu z ¿yj¹cych pamiêta dok³adnie wydarzenia tamtych dni, a my - magowie - woleliœmy nie odœwie¿aæ im niepotrzebnie pamiêci.
-	AI_Output			(self,hero,"Info_Saturas_XARDAS_14_10"); //Ten trzynasty mag by³ naszym przywódc¹. Oczywiœcie dzia³o siê to jeszcze przed podzia³em na Krêgi Wody i Ognia.
+	AI_Output			(self,hero,"Info_Saturas_XARDAS_14_07"); //B¹dŸ cierpliwy. Có¿, kiedy tworzyliœmy magiczn¹ Barierê, nadzorowa³ nas jeszcze jeden.
+	/*AI_Output			(hero,self,"Info_Saturas_XARDAS_15_08"); //Trzynasty mag? Wed³ug legendy mia³o was byæ tylko dwunastu!*/
+	/*AI_Output			(self,hero,"Info_Saturas_XARDAS_14_09"); //Niewielu z ¿yj¹cych pamiêta dok³adnie wydarzenia tamtych dni, a my - magowie - woleliœmy nie odœwie¿aæ im niepotrzebnie pamiêci.*/
+	AI_Output			(self,hero,"Info_Saturas_XARDAS_14_10"); //Ten mag by³ naszym przywódc¹.
 	AI_Output			(self,hero,"Info_Saturas_XARDAS_14_11"); //Tu¿ po za³o¿eniu Starego Obozu - a wtedy by³ to jeszcze jedyny obóz w kolonii - ów mag postanowi³ wieœæ ¿ycie samotnika.
 };
 
@@ -1236,7 +1207,7 @@ instance Info_Saturas_XARDASWHO (C_INFO)
 	information	= Info_Saturas_XARDASWHO_Info;
 	permanent	= 0;
 	important 	= 0;
-	description = "Jak ma na imiê ten trzynasty mag?";
+	description = "Jak ma na imiê ten mag?";
 };
 
 FUNC INT Info_Saturas_XARDASWHO_Condition()
@@ -1249,7 +1220,7 @@ FUNC INT Info_Saturas_XARDASWHO_Condition()
 
 FUNC VOID Info_Saturas_XARDASWHO_Info()
 {
-	AI_Output			(hero,self,"Info_Saturas_XARDASWHO_15_01"); //Jak ma na imiê ten trzynasty mag?
+	AI_Output			(hero,self,"Info_Saturas_XARDASWHO_15_01"); //Jak ma na imiê ten mag?
 	AI_Output			(self,hero,"Info_Saturas_XARDASWHO_14_02"); //Nazywa³ siê Xardas. Dzisiaj ju¿ tylko garstka ludzi pamiêta o jego istnieniu.
 	AI_Output			(self,hero,"Info_Saturas_XARDASWHO_14_03"); //Ale ci, którzy go znali, nazywali go po prostu NEKROMANT¥!
 };
@@ -1294,7 +1265,7 @@ instance Info_Saturas_XARDASWHERE (C_INFO)
 	information	= Info_Saturas_XARDASWHERE_Info;
 	permanent	= 0;
 	important 	= 0;
-	description = "Wiesz mo¿e, gdzie podziewa siê teraz ten trzynasty mag?";
+	description = "Wiesz mo¿e, gdzie podziewa siê teraz ten mag?";
 };
 
 FUNC INT Info_Saturas_XARDASWHERE_Condition()
@@ -1307,7 +1278,7 @@ FUNC INT Info_Saturas_XARDASWHERE_Condition()
 
 FUNC VOID Info_Saturas_XARDASWHERE_Info()
 {
-	AI_Output			(hero,self,"Info_Saturas_XARDASWHERE_15_01"); //Wiesz mo¿e, gdzie podziewa siê teraz ten trzynasty mag?
+	AI_Output			(hero,self,"Info_Saturas_XARDASWHERE_15_01"); //Wiesz mo¿e, gdzie podziewa siê teraz ten mag?
 	AI_Output			(self,hero,"Info_Saturas_XARDASWHERE_14_02"); //¯yje w odosobnieniu, w swej wie¿y, gdzieœ na terytoriach kontrolowanych przez Orków.
 	AI_Output			(self,hero,"Info_Saturas_XARDASWHERE_14_03"); //To chyba najdalej wysuniêty na po³udnie punkt ca³ej kolonii.
 };
@@ -1491,12 +1462,12 @@ instance KDW_600_Saturas_HogeAUFNAHME (C_INFO)
 	condition		= KDW_600_Saturas_HogeAUFNAHME_Condition;
 	information		= KDW_600_Saturas_HogeAUFNAHME_Info;
 	permanent		= 0;
-	description		= "Nefarius powiedzia³, ¿e mogê ju¿ za³o¿yæ szatê Maga Wody."; 
+	description		= "Czy jestem ju¿ gotów, by zostaæ Magiem Wody?"; 
 };
 
 FUNC int  KDW_600_Saturas_HogeAUFNAHME_Condition()
 {	
-	if ( Npc_KnowsInfo(hero,Info_Saturas_MURDER) && (Npc_GetTrueGuild(hero)==GIL_SLD) )
+	if ( Npc_KnowsInfo(hero,Info_Saturas_OFFER) && (Npc_GetTrueGuild(hero)==GIL_SLD) )
 	{
 		return 1;
 	};
@@ -1504,7 +1475,7 @@ FUNC int  KDW_600_Saturas_HogeAUFNAHME_Condition()
 
 func void  KDW_600_Saturas_HogeAUFNAHME_Info()
 {
-	AI_Output(other, self,"KDW_600_Saturas_HogeAUFNAHME_15_00"); //Nefarius powiedzia³, ¿e mogê ju¿ za³o¿yæ szatê Maga Wody.
+	AI_Output(other, self,"Info_Nefarius_NowReady_15_00"); //Czy jestem ju¿ gotów, by zostaæ Magiem Wody?
 	
 	/* AB HIER IST ALLES DOPPELT - geklaut aus der KdF-KdW-Aufnahme */
 	
@@ -1556,6 +1527,7 @@ func void  KDW_600_Saturas_HogeAUFNAHMETeil2_Info()
 	Snd_Play  			("MFX_Heal_Cast"); 
 	Npc_SetTrueGuild	(hero,GIL_KDW);
 	hero.guild = GIL_KDW;
+	Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
 
 	Log_CreateTopic		(CH4_SldToKdW,	LOG_NOTE);
 	B_LogEntry			(CH4_SldToKdW,	"Saturas przyj¹³ mnie w poczet Magów Wody.");

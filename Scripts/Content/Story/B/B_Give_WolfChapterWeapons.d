@@ -16,6 +16,10 @@ func void B_Give_WolfChapter1Weapons ()
 	
 	CreateInvItems (npc,ItMiNugget,200);
 	CreateInvItem (npc,ItWr_Bloodfly_01);
+	
+	CreateInvItem (npc,ITSH_G3_02_V2);
+	CreateInvItem (npc,ITSH_G3_BROKEN);
+	
 	//-------- Munition --------
   
 };
@@ -34,6 +38,8 @@ func void B_Give_WolfChapter2Weapons ()
 	CreateInvItem (npc,ItRw_Bow_Small_04);
 	CreateInvItem (npc,ItRw_Bow_Small_05);
 	CreateInvItem (npc,ItRw_Bow_Long_01);
+	
+	CreateInvItem (npc,ITSH_REINFORCED_A);
 	
 	
 	CreateInvItems (npc,ItAmArrow,400);
@@ -54,7 +60,9 @@ func void B_Give_WolfChapter3Weapons ()
 	CreateInvItem (npc,ItRw_Bow_Long_02);	
  	CreateInvItem (npc,ItRw_Bow_Long_03);	
  	CreateInvItem (npc,ItRw_Bow_Long_04);	
- 	CreateInvItem (npc,ItRw_Bow_Long_05);	
+ 	CreateInvItem (npc,ItRw_Bow_Long_05);
+	
+	CreateInvItem (npc,IT_SHIELD_SKULL);	
  
  	CreateInvItems (npc,ItAmArrow,600);
 	CreateInvItems (npc,ItAmBolt,600);
@@ -78,9 +86,11 @@ func void B_Give_WolfChapter4Weapons ()
 	CreateInvItems (npc,ItAmBolt,800);
 	CreateInvItem (npc,ItRw_Bow_Long_08);
 	
-		CreateInvItem (npc,ItRw_Crossbow_01);
-		CreateInvItem (npc,ItRw_Crossbow_02);
-		CreateInvItem (npc,ItRw_Crossbow_03);
+	CreateInvItem (npc,ITSH_KORSHAN_A);
+	
+	//CreateInvItem (npc,ItRw_Crossbow_01);
+	//CreateInvItem (npc,ItRw_Crossbow_02);
+	//CreateInvItem (npc,ItRw_Crossbow_03);
 		
 	//-------- Munition --------
   
@@ -100,7 +110,8 @@ func void B_Give_WolfChapter5Weapons ()
 	CreateInvItems (npc,ItAmArrow,800);
 	CreateInvItems (npc,ItAmBolt,800);
 	CreateInvItem (npc,ItRw_Bow_War_03);
-	CreateInvItems (npc,ItRw_Crossbow_04,2);
+	CreateInvItem (npc,ITSH_SM_STEEL);
+	//CreateInvItems (npc,ItRw_Crossbow_04,2);
 	
 	
 	

@@ -357,8 +357,8 @@ FUNC VOID  DIA_Lester_Show_Info()
 	AI_Output (self, other,"DIA_Lester_Show_05_05"); //JESTEŒ SZCZÊŒLIWYM CZ£OWIEKIEM, NIEZNAJOMY: TYLKO NIELICZNI DOST¥PILI TAKIEJ NAGRODY.
 
 	BaalNamib_Ansprechbar = TRUE;
-
-	AI_StopProcessInfos(self);
+	AI_StopProcessInfos	(self);
+	B_ExchangeRoutine	(PC_Psionic,	"MeetFriend");
 };
 
 // **************************************************
@@ -1262,4 +1262,33 @@ func VOID Info_Lester_DIEGOMILTEN_Info()
 
 	AI_StopProcessInfos(self);
 
+};
+
+//***************************************************************************
+//	DROPS Lester_IN_OCR_HUT_Z5
+//***************************************************************************
+
+instance Lester_MeetFriend (C_INFO)
+{
+	npc			= PC_Psionic;
+	condition	= Lester_MeetFriend_Condition;
+	information	= Lester_MeetFriend_Info;
+	important	= 1;
+	permanent	= 0;
+};
+
+FUNC int Lester_MeetFriend_Condition()
+{
+	if ( Npc_KnowsInfo(hero, Diego_MeetFriend) && Npc_GetDistToWP(hero,"OCR_HUT_Z5_SIT") < 1000 )
+	{
+		return TRUE;
+	};	
+};
+
+func void Lester_MeetFriend_Info()
+{	
+	Log_CreateTopic		("Zawalona Wie¿a",		LOG_MISSION);
+	Log_SetTopicStatus	("Zawalona Wie¿a",		LOG_RUNNING);
+	B_LogEntry			("Zawalona Wie¿a","Lester z obozu na bagnie noc¹ równie¿ pojawia siê w zawalonej wie¿y.");
+	AI_StopProcessInfos	(self);
 };

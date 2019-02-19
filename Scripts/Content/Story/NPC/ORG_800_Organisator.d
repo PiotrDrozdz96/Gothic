@@ -2,9 +2,9 @@ instance ORG_800_Organisator (Npc_Default)
 {
 	//-------- primary data --------
 	
-	name =					Name_Organisator;
+	name =					Name_Soeldner;
 	Npctype =				Npctype_Ambient;
-	guild =							GIL_ORG;      
+	guild =							GIL_SLD;      
 	level =							15;
 	
 	voice =							13;
@@ -25,7 +25,7 @@ instance ORG_800_Organisator (Npc_Default)
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
 	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
-	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1,"Hum_Head_Fatbald", 35, 2,ORG_ARMOR_H);
+	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1,"Hum_Head_Fatbald", 10, 1,ORG_ARMOR_H);
 	
 	B_Scale (self);	
 	Mdl_SetModelFatness (self, 0);	

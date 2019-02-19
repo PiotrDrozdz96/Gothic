@@ -24,7 +24,7 @@ instance SFB_1000_Senyan (Npc_Default)
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
 	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
-	Mdl_SetVisualBody (self,"hum_body_Naked0",2,1,"Hum_Head_Psionic", 42,  1, SFB_ARMOR_L);
+	Mdl_SetVisualBody (self,"hum_body_Naked0",2,3,"Hum_Head_Bald", 1,  1, SFB_ARMOR_L);
 	
 	B_Scale (self);
 	Mdl_SetModelFatness(self,0);

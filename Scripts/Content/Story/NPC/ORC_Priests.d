@@ -284,6 +284,7 @@ instance ORC_Priest_5 (Npc_Default)
 	CreateInvItem		(self,	ItRwUdOrcstaff);		// für Magiemodus
 	CreateInvItem		(self, 	Bannklinge);
 	CreateInvItem		(self,	ItArRuneBreathOfDeath);
+	CreateInvItem		(self,ITSH_STALHRIM_B_SM);
 
 	//------------- ai -------------
 	daily_routine	=	Rtn_PreStart_2999;

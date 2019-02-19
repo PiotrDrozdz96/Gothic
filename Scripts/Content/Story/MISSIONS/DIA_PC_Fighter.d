@@ -161,6 +161,8 @@ func void DIA_Gorn_HutFree_Info()
 	Log_SetTopicStatus	(CH1_ShrikesHut,	LOG_SUCCESS);
 	B_LogEntry			(CH1_ShrikesHut,	"Wykopuj¹c Krzykacza z jego chaty wprawi³em Gorna w dobry humor. To chyba porz¹dny cz³owiek - twardy, ale uczciwy. W przysz³oœci bêdê siê trzyma³ blisko niego.");
 	B_GiveXP			(XP_ReportedKickedShrike);
+	AI_StopProcessInfos	( self );
+	B_ExchangeRoutine	(PC_Fighter,	"MeetFriend");
 };
 
 //*************************************
@@ -1604,10 +1606,72 @@ func VOID Info_Gorn_FOUNDULUMULU_Info()
 	AI_StopProcessInfos	(self);
 };
 
+//---------------------------------------------------------------------
+//	Gorn teach 2H ------ Drops
+//---------------------------------------------------------------------
 
+INSTANCE Gorn_Teach (C_INFO)
+{
+	npc			= PC_Fighter;
+	condition	= Gorn_Teach_Condition;
+	information	= Gorn_Teach_Info;
+	important	= 0;	
+	permanent	= 1;
+	description	= "Broñ dwurêczna +1% (10pkt. umiejêtnoœci)"; 
+};                       
 
+FUNC INT Gorn_Teach_Condition()
+{
+	if 	( 
+			Npc_GetTalentValue(hero, NPC_TALENT_2H) < 10
+			&& (Npc_GetTrueGuild    (hero) == GIL_ORG || Npc_GetTrueGuild    (hero) == GIL_SLD || Npc_GetTrueGuild(hero)==GIL_KDW )
+		)
+	{
+		return TRUE;
+	};
+};
 
+func VOID Gorn_Teach_Info()
+{
+	AI_Output			(other, self,"Gorn_Teach_Info_15_00"); //Chcê trochê potrenowaæ.
+	if (B_GiveSkill(hero,NPC_TALENT_2H,Npc_GetTalentSkill(hero, NPC_TALENT_2H)+1,LPCOST_TALENT_1H_1))
+	{
+		if (Npc_GetTalentValue(hero, NPC_TALENT_2H) < 6){
+			AI_Output			(self, other,"Gorn_Teach_Info_12_01"); //Fakt. Przyda ci siê.
+		}
+		else{
+			AI_Output			(self, other,"Gorn_Teach_Info_12_02"); //Spróbuj trzymaæ orê¿ trochê wy¿ej. Tak¹ gard¹ nie sparujesz nawet laski niewidomego.
+		};
+	};
+};
 
+//***************************************************************************
+//	DROPS Gorn_IN_OCR_HUT_Z5
+//***************************************************************************
 
+instance Gorn_MeetFriend (C_INFO)
+{
+	npc			= PC_Fighter;
+	condition	= Gorn_MeetFriend_Condition;
+	information	= Gorn_MeetFriend_Info;
+	important	= 1;
+	permanent	= 0;
+};
+
+FUNC int Gorn_MeetFriend_Condition()
+{
+	if ( Npc_KnowsInfo(hero, Diego_MeetFriend) && Npc_GetDistToWP(hero,"OCR_HUT_Z5_SIT4") < 1000 )
+	{
+		return TRUE;
+	};	
+};
+
+func void Gorn_MeetFriend_Info()
+{	
+	Log_CreateTopic		("Zawalona Wie¿a",		LOG_MISSION);
+	Log_SetTopicStatus	("Zawalona Wie¿a",		LOG_RUNNING);
+	B_LogEntry			("Zawalona Wie¿a","Gorn wiele ryzykuje przychodz¹c do starego obozu na co nocne spotkania.");
+	AI_StopProcessInfos	(self);
+};
 
 

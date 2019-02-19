@@ -24,8 +24,9 @@ instance SLD_729_Kharim (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
+	Mdl_ApplyOverlayMds (self,"SHIELD_ST1.MDS");
 	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
-	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 3,"Hum_Head_FatBald", 9, 1, SLD_ARMOR_M);
+	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 3,"Hum_Head_FatBald", 9, 1, SLD_ARMOR_L);
 	
 	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);
@@ -35,11 +36,13 @@ instance SLD_729_Kharim (Npc_Default)
 	//-------- Talente --------
 	
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);	
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
+	Npc_SetTalentSkill	(self, NPC_TALENT_SHIELD,1);
 	
 	//-------- inventory --------                                    
 
 	EquipItem (self, ItMw_1H_Mace_02);
+	EquipItem (self, ITSH_W2_EXECUTIONER);
 	//EquipItem (self, ItRw_Bow_Long_01);
 	//CreateInvItems(self, ItAmArrow, 20);
 	CreateInvItems (self, ItFoRice,7);

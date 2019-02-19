@@ -26,7 +26,7 @@ instance VLK_555_Buddler (Npc_Default)
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
 	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
-	Mdl_SetVisualBody (self,"hum_body_Naked0",3,2,"Hum_Head_Psionic", 0,  1, VLK_ARMOR_L);
+	Mdl_SetVisualBody (self,"hum_body_Naked0",3,2,"Hum_Head_Psionic", 1,  2, VLK_ARMOR_L);
 
 	B_Scale (self); 
 	Mdl_SetModelFatness (self, 0);

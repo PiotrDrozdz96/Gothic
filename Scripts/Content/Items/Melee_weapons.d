@@ -207,12 +207,12 @@ INSTANCE ItMw_1H_Sword_Old_01 (C_Item)
 
 	value 				=	10;
 
-	damageTotal			= 	10;
+	damageTotal			= 	15;
 	damagetype 			=	DAM_EDGE;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	5;
+	cond_value[2]  		= 	10;
 	visual 				=	"ItMw_1H_Sword_Old_01.3DS";
 
 	description			= name;
@@ -234,12 +234,12 @@ INSTANCE ItMw_1H_Nailmace_01 (C_Item)
 
 	value 				=	13;
 
-	damageTotal			= 	11;
+	damageTotal			= 	12;
 	damagetype 			=	DAM_BLUNT;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	5;
+	cond_value[2]  		= 	10;
 	visual 				=	"ItMw_1H_Nailmace_01.3DS";
 
 	description			= name;
@@ -263,12 +263,12 @@ INSTANCE ItMw_1H_Sword_Short_01 (C_Item)
 
 	value 				=	44;//22;
 
-	damageTotal			= 	12;
+	damageTotal			= 	10;
 	damagetype 			=	DAM_EDGE;		
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	6;
+	cond_value[2]  		= 	10;
 	visual 				=	"ItMw_1H_Sword_Short_01.3DS";
 
 	description			= name;
@@ -290,12 +290,12 @@ INSTANCE ItMw_1H_Sword_Short_02 (C_Item)
 
 	value 				=	64;//32;
 
-	damageTotal			= 	14;
+	damageTotal			= 	12;
 	damagetype 			=	DAM_EDGE;		
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	7;
+	cond_value[2]  		= 	10;
 	visual 				=	"ItMw_1H_Sword_Short_02.3DS";
 
 	description			= name;
@@ -323,7 +323,7 @@ INSTANCE ItMw_1H_Sword_Short_03 (C_Item)
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	8;
+	cond_value[2]  		= 	10;
 	visual 				=	"ItMw_1H_Sword_Short_03.3DS";
 
 	description			= name;
@@ -345,12 +345,12 @@ INSTANCE ItMw_1H_Sword_Short_04 (C_Item)
 
 	value 				=	120;//60;
 
-	damageTotal			= 	18;
+	damageTotal			= 	20;
 	damagetype 			=	DAM_EDGE;		
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	9;
+	cond_value[2]  		= 	10;
 	visual 				=	"ItMw_1H_Sword_Short_04.3DS";
 
 	description			= name;
@@ -372,12 +372,12 @@ INSTANCE ItMw_1H_Sword_Short_05 (C_Item)
 
 	value 				=	160;//80;//40
 
-	damageTotal			= 	20;
+	damageTotal			= 	25;
 	damagetype 			=	DAM_EDGE;		
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	10;
+	cond_value[2]  		= 	15;
 	visual 				=	"ItMw_1H_Sword_Short_05.3DS";
 
 	description			= name;
@@ -401,12 +401,12 @@ instance ItMw_1H_Axe_Old_01 (C_Item)
 
 	value 				=	19;
 
-	damageTotal     	=   13;
+	damageTotal     	=   10;
 	damagetype			=	DAM_EDGE;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	7;
+	cond_value[2]  		= 	10;
 	visual 				=	"ItMw_1H_Axe_Old_01.3DS";
 
 	description			= name;
@@ -429,12 +429,12 @@ INSTANCE ItMw_1H_Scythe_01 (C_Item)
 
 	value 				=	25;
 
-	damageTotal			= 	15;
+	damageTotal			= 	12;
 	damagetype 			=	DAM_EDGE;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	8;
+	cond_value[2]  		= 	10;
 	visual 				=	"ItMw_1H_Scythe_01.3DS";
 
 	description			= name;
@@ -456,12 +456,12 @@ INSTANCE ItMw_2H_Staff_01 (C_Item)
 
 	value 				=	62;//31;
 
-	damageTotal			= 	17;
+	damageTotal			= 	20;
 	damagetype 			=	DAM_BLUNT;
 	range    			=  	160;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	9;
+	cond_value[2]  		= 	15;
 	visual 				=	"ItMw_2H_Staff_01.3DS";
 
 	description			= name;
@@ -483,12 +483,12 @@ INSTANCE ItMw_2H_Staff_02 (C_Item)
 
 	value 				=	72;//36;
 
-	damageTotal			= 	19;
+	damageTotal			= 	25;
 	damagetype 			=	DAM_EDGE;
 	range    			=  	160;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	10;
+	cond_value[2]  		= 	20;
 	visual 				=	"ItMw_2H_Staff_02.3DS";
 
 	description			= name;
@@ -509,12 +509,12 @@ INSTANCE ItMw_2H_Staff_03 (C_Item)
 
 	value 				=	90;//45;
 
-	damageTotal			= 	21;
+	damageTotal			= 	32;
 	damagetype 			=	DAM_BLUNT;
 	range    			=  	160;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	10;
+	cond_value[2]  		= 	20;
 	visual 				=	"ItMw_2H_Staff_03.3DS";
 
 	description			= name;
@@ -567,12 +567,12 @@ INSTANCE ItMw_1H_Mace_01 (C_Item)
 
 	value 				=	55;
 
-	damageTotal			=   23;
+	damageTotal			=   28;
 	damagetype			=	DAM_BLUNT;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	10;
+	cond_value[2]  		= 	20;
 	visual 				=	"ItMw_1H_Mace_01.3DS";
 
 	description			= name;
@@ -592,14 +592,14 @@ INSTANCE ItMw_1H_Mace_02 (C_Item)
 	flags 				=	ITEM_AXE;	
 	material 			=	MAT_WOOD;
 
-	value 				=	65;
+	value 				=	75;
 
-	damageTotal			=   25;
+	damageTotal			=   35;
 	damagetype			=	DAM_BLUNT;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	11;
+	cond_value[2]  		= 	30;
 	visual 				=	"ItMw_1H_Mace_02.3DS";
 
 	description			= name;
@@ -619,14 +619,14 @@ INSTANCE ItMw_1H_Mace_03 (C_Item)
 	flags 				=	ITEM_AXE;	
 	material 			=	MAT_WOOD;
 
-	value 				=	75;
+	value 				=	65;
 
-	damageTotal			=   26;
+	damageTotal			=   30;
 	damagetype			=	DAM_BLUNT;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	11;
+	cond_value[2]  		= 	30;
 	visual 				=	"ItMw_1H_Mace_03.3DS";
 
 	description			= name;
@@ -648,12 +648,12 @@ INSTANCE ItMw_1H_Mace_04 (C_Item)
 
 	value 				=	85;
 
-	damageTotal			=   29;
+	damageTotal			=   45;
 	damagetype			=	DAM_BLUNT;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	11;
+	cond_value[2]  		= 	45;
 	visual 				=	"ItMw_1H_Mace_04.3DS";
 
 	description			= name;
@@ -677,12 +677,12 @@ INSTANCE ItMw_1H_Sword_01 (C_Item)
 
 	value 				=	Value_1H_Sword_01; 	//SN: WICHTIG, da diese Instanz das Produkt des SC-Schmiedens ist!!!
 
-	damageTotal			= 	20; //30 weil Schmieden und verkaufen runtergesetzt
+	damageTotal			= 	25;
 	damagetype 			= 	DAM_EDGE;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	20; //12 
+	cond_value[2]  		= 	20; 
 	visual 				=	"ItMw_1H_Sword_01.3DS";
 
 	description			= name;
@@ -704,12 +704,12 @@ INSTANCE ItMw_1H_Sword_02 (C_Item)
 
 	value 				=	97;
 
-	damageTotal			= 	30;
+	damageTotal			= 	25;
 	damagetype 			= 	DAM_EDGE;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	12;
+	cond_value[2]  		= 	20;
 	visual 				=	"ItMw_1H_Sword_02.3DS";
 
 	description			= name;
@@ -729,14 +729,14 @@ INSTANCE ItMw_1H_Sword_03 (C_Item)
 	flags 				=	ITEM_SWD;	
 	material 			=	MAT_METAL;
 
-	value 				=	104;
+	value 				=	920;
 
-	damageTotal			= 	32;
+	damageTotal			= 	50;
 	damagetype 			= 	DAM_EDGE;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	12;
+	cond_value[2]  		= 	50;
 	visual 				=	"ItMw_1H_Sword_03.3DS";
 
 	description			= name;
@@ -758,12 +758,12 @@ INSTANCE ItMw_1H_Sword_04 (C_Item)
 
 	value 				=	111;
 
-	damageTotal			= 	33;
+	damageTotal			= 	35;
 	damagetype 			= 	DAM_EDGE;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	13;
+	cond_value[2]  		= 	30;
 	visual 				=	"ItMw_1H_Sword_04.3DS";
 
 	description			= name;
@@ -783,14 +783,14 @@ INSTANCE ItMw_1H_Sword_05 (C_Item)
 	flags 				=	ITEM_SWD;	
 	material 			=	MAT_METAL;
 
-	value 				=	472;//236;//118
+	value 				=	920;
 
-	damageTotal			= 	34;
+	damageTotal			= 	50;
 	damagetype 			= 	DAM_EDGE;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	14;
+	cond_value[2]  		= 	50;
 	visual 				=	"ItMw_1H_Sword_05.3DS";
 
 	description			= name;
@@ -815,12 +815,12 @@ INSTANCE ItMw_1H_Mace_War_01 (C_Item)
 
 	value 				=	125;
 
-	damageTotal			=   35;
+	damageTotal			=   22;
 	damagetype			=	DAM_BLUNT;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	14;
+	cond_value[2]  		= 	20;
 	visual 				=	"ItMw_1H_Mace_War_01.3DS";
 
 	description			= name;
@@ -842,12 +842,12 @@ INSTANCE ItMw_1H_Mace_War_02 (C_Item)
 
 	value 				=	132;
 
-	damageTotal			=   36;
+	damageTotal			=   35;
 	damagetype			=	DAM_BLUNT;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	15;
+	cond_value[2]  		= 	25;
 	visual 				=	"ItMw_1H_Mace_War_02.3DS";
 
 	description			= name;
@@ -869,12 +869,12 @@ INSTANCE ItMw_1H_Mace_War_03 (C_Item)
 
 	value 				=	139;
 
-	damageTotal			=   37;
+	damageTotal			=   45;
 	damagetype			=	DAM_BLUNT;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	26;
+	cond_value[2]  		= 	35;
 	visual 				=	"ItMw_1H_Mace_War_03.3DS";
 
 	description			= name;
@@ -894,14 +894,14 @@ INSTANCE ItMw_1H_Mace_War_04 (C_Item)
 	flags 				=	ITEM_AXE;	
 	material 			=	MAT_WOOD;
 
-	value 				=	600;//300;//153
+	value 				=	1200;
 
-	damageTotal			=   39;
+	damageTotal			=   60;
 	damagetype			=	DAM_BLUNT;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	17;
+	cond_value[2]  		= 	50;
 	visual 				=	"ItMw_1H_Mace_War_04.3DS";
 
 	description			= name;
@@ -923,14 +923,14 @@ INSTANCE ItMw_1H_Sword_Long_01 (C_Item)
 	flags 				=	ITEM_SWD;	
 	material 			=	MAT_METAL;
 
-	value 				=	640;//320;//160
+	value 				=	320;
 
-	damageTotal			= 	40;
+	damageTotal			= 	30;
 	damagetype 			= 	DAM_EDGE;
 	range    			=  	120;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	17;
+	cond_value[2]  		= 	30;
 	visual 				=	"ItMw_1H_Sword_Long_01.3DS";
 
 	description			= name;
@@ -952,12 +952,12 @@ INSTANCE ItMw_1H_Sword_Long_02 (C_Item)
 
 	value 				=	680;//340;//178
 
-	damageTotal			= 	42;
+	damageTotal			= 	40;
 	damagetype 			= 	DAM_EDGE;
 	range    			=  	120;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	18;
+	cond_value[2]  		= 	35;
 	visual 				=	"ItMw_1H_Sword_Long_02.3DS";
 
 	description			= name;
@@ -979,12 +979,12 @@ INSTANCE ItMw_1H_Sword_Long_03 (C_Item)
 
 	value 				=	800;//400;//196
 
-	damageTotal			= 	44;
+	damageTotal			= 	45;
 	damagetype 			= 	DAM_EDGE;
 	range    			=  	120;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	18;
+	cond_value[2]  		= 	40;
 	visual 				=	"ItMw_1H_Sword_Long_03.3DS";
 
 	description			= name;
@@ -1006,12 +1006,12 @@ INSTANCE ItMw_1H_Sword_Long_04 (C_Item)
 
 	value 				=	860;//430;//214
 
-	damageTotal			= 	46;
+	damageTotal			= 	45;
 	damagetype 			= 	DAM_EDGE;
 	range    			=  	120;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	20;
+	cond_value[2]  		= 	35;
 	visual 				=	"ItMw_1H_Sword_Long_04.3DS";
 
 	description			= name;
@@ -1033,12 +1033,12 @@ INSTANCE ItMw_1H_Sword_Long_05 (C_Item)
 
 	value 				=	920;//460;//232
 
-	damageTotal			= 	48;
+	damageTotal			= 	55;
 	damagetype 			= 	DAM_EDGE;
 	range    			=  	120;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	21;
+	cond_value[2]  		= 	50;
 	visual 				=	"ItMw_1H_Sword_Long_05.3DS";
 
 	description			= name;
@@ -1065,7 +1065,7 @@ INSTANCE ItMw_1H_Warhammer_01 (C_Item)
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	22;
+	cond_value[2]  		= 	40;
 	visual 				=	"ItMw_1H_Warhammer_01.3DS";
 
 	description			= name;
@@ -1087,12 +1087,12 @@ INSTANCE ItMw_1H_Warhammer_02 (C_Item)
 
 	value 				=	1040;//520;//261
 
-	damageTotal			=   51;
+	damageTotal			=   58;
 	damagetype			=	DAM_BLUNT;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	23;
+	cond_value[2]  		= 	50;
 	visual 				=	"ItMw_1H_Warhammer_02.3DS";
 
 	description			= name;
@@ -1112,14 +1112,14 @@ INSTANCE ItMw_1H_Warhammer_03 (C_Item)
 	flags 				=	ITEM_AXE;	
 	material 			=	MAT_WOOD;
 
-	value 				=	1080;//540;//272
+	value 				=	1480;
 
-	damageTotal			=   52;
+	damageTotal			=   65;
 	damagetype			=	DAM_BLUNT;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	23;
+	cond_value[2]  		= 	70;
 	visual 				=	"ItMw_1H_Warhammer_03.3DS";
 
 	description			= name;
@@ -1144,12 +1144,12 @@ INSTANCE ItMw_1H_Axe_01 (C_Item)
 
 	value 				=	320;//160;//85
 
-	damageTotal			=   29;
+	damageTotal			=   30;
 	damagetype			=	DAM_EDGE;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	12;
+	cond_value[2]  		= 	25;
 	visual 				=	"ItMw_1H_Axe_01.3DS";
 
 	description			= name;
@@ -1169,14 +1169,14 @@ INSTANCE ItMw_1H_Axe_02 (C_Item)
 	flags 				=	ITEM_AXE;	
 	material 			=	MAT_WOOD;
 
-	value 				=	1020;//560;//283
+	value 				=	560;
 
-	damageTotal			=   53;
+	damageTotal			=   40;
 	damagetype			=	DAM_EDGE;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	24;
+	cond_value[2]  		= 	35;
 	visual 				=	"ItMw_1H_Axe_02.3DS";
 
 	description			= name;
@@ -1196,14 +1196,14 @@ INSTANCE ItMw_1H_Axe_03 (C_Item)
 	flags 				=	ITEM_AXE;	
 	material 			=	MAT_WOOD;
 
-	value 				=	1160;//580;//294
+	value 				=	580;
 
-	damageTotal			=   54;
+	damageTotal			=   40;
 	damagetype			=	DAM_EDGE;
 	range    			=  	100;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	25;
+	cond_value[2]  		= 	40;
 	visual 				=	"ItMw_1H_Axe_03.3DS";
 
 	description			= name;
@@ -1225,14 +1225,14 @@ INSTANCE ItMw_1H_Sword_Broad_01 (C_Item)
 	flags 				=	ITEM_SWD;	
 	material 			=	MAT_METAL;
 
-	value 				=	1240;//610;//305
+	value 				=	305;
 
-	damageTotal			= 	55;
+	damageTotal			= 	25;
 	damagetype 			= 	DAM_EDGE;
 	range    			=  	130;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	26;
+	cond_value[2]  		= 	20;
 	visual 				=	"ItMw_1H_Sword_Broad_01.3DS";
 
 	description			= name;
@@ -1252,14 +1252,14 @@ INSTANCE ItMw_1H_Sword_Broad_02 (C_Item)
 	flags 				=	ITEM_SWD;	
 	material 			=	MAT_METAL;
 
-	value 				=	1300;//650;//327
+	value 				=	327;
 
-	damageTotal			= 	57;
+	damageTotal			= 	30;
 	damagetype 			= 	DAM_EDGE;
 	range    			=  	130;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	27;
+	cond_value[2]  		= 	20;
 	visual 				=	"ItMw_1H_Sword_Broad_02.3DS";
 
 	description			= name;
@@ -1281,12 +1281,12 @@ INSTANCE ItMw_1H_Sword_Broad_03 (C_Item)
 
 	value 				=	1360;//680;//338
 
-	damageTotal			= 	58;
+	damageTotal			= 	60;
 	damagetype 			= 	DAM_EDGE;
 	range    			=  	130;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	28;
+	cond_value[2]  		= 	50;
 	visual 				=	"ItMw_1H_Sword_Broad_03.3DS";
 
 	description			= name;
@@ -1308,12 +1308,12 @@ INSTANCE ItMw_1H_Sword_Broad_04 (C_Item)
 
 	value 				=	1400;//700;//349
 
-	damageTotal			= 	59;
+	damageTotal			= 	60;
 	damagetype 			= 	DAM_EDGE;
 	range    			=  	130;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	29;
+	cond_value[2]  		= 	50;
 	visual 				=	"ItMw_1H_Sword_Broad_04.3DS";
 
 	description			= name;
@@ -1329,20 +1329,20 @@ INSTANCE ItMw_1H_Sword_Broad_04 (C_Item)
 // keine NPCs
 INSTANCE ItMw_2H_Sword_Old_01 (C_Item) 
 {	
-	name 				=	"Zardzewia³y miecz oburêczny";
+	name 				=	"Zardzewia³y miecz dwurêczny";
 
 	mainflag 			=	ITEM_KAT_NF;
 	flags 				=	ITEM_2HD_SWD;	
 	material 			=	MAT_METAL;
 
-	value 				=	1480;//740;//372
+	value 				=	372;
 
-	damageTotal			= 	61;
+	damageTotal			= 	25;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	30;
+	cond_value[2]  		= 	25;
 	visual 				=	"ItMw_2H_Sword_Old_01.3DS";
 
 	description			= name;
@@ -1364,14 +1364,14 @@ INSTANCE ItMw_1H_Sword_Bastard_01 (C_Item)
 	flags 				=	ITEM_SWD;	
 	material 			=	MAT_METAL;
 
-	value 				=	200;//810;//406
+	value 				=	406;
 
 	damageTotal			= 	45;// weil es im OGY rumliegt und der Spieler Anfang des dritten Kapitels dort hinkommt!
 	damagetype 			= 	DAM_EDGE;
 	range    			=  	130;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	31;
+	cond_value[2]  		= 	45;
 	visual 				=	"ItMw_1H_Sword_Bastard_01.3DS";
 
 	description			= name;
@@ -1398,13 +1398,13 @@ INSTANCE ItMw_1H_Sword_Bastard_02 (C_Item)
 	range    			=  	130;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	32;
+	cond_value[2]  		= 	64;
 	visual 				=	"ItMw_1H_Sword_Bastard_02.3DS";
 
 	description			= name;
 	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
 	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
-	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[4] 			= NAME_OneHanded;
 	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
 };
 
@@ -1425,7 +1425,7 @@ INSTANCE ItMw_1H_Sword_Bastard_03 (C_Item)
 	range    			=  	130;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	33;
+	cond_value[2]  		= 	65;
 	visual 				=	"ItMw_1H_Sword_Bastard_03.3DS";
 
 	description			= name;
@@ -1452,7 +1452,7 @@ INSTANCE ItMw_1H_Sword_Bastard_04 (C_Item)
 	range    			=  	130;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	35;
+	cond_value[2]  		= 	66;
 	visual 				=	"ItMw_1H_Sword_Bastard_04.3DS";
 
 	description			= name;
@@ -1474,14 +1474,14 @@ INSTANCE ItMw_2H_Axe_Old_01 (C_Item)
 	flags 				=	ITEM_2HD_AXE;	
 	material 			=	MAT_WOOD;
 
-	value 				=	1800;//900;//454
+	value 				=	454;
 	
-	damageTotal			= 	67;
+	damageTotal			= 	25;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	36;
+	cond_value[2]  		= 	25;
 	visual 				=	"ItMw_2H_Axe_Old_01.3DS";
 
 	description			= name;
@@ -1501,14 +1501,14 @@ INSTANCE ItMw_2H_Axe_Old_02 (C_Item)
 	flags 				=	ITEM_2HD_AXE;	
 	material 			=	MAT_WOOD;
 
-	value 				=	1840;//920;//466
+	value 				=	466;
 	
-	damageTotal			= 	68;
+	damageTotal			= 	28;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	38;
+	cond_value[2]  		= 	20;
 	visual 				=	"ItMw_2H_Axe_Old_02.3DS";
 
 	description			= name;
@@ -1528,14 +1528,14 @@ INSTANCE ItMw_2H_Axe_Old_03 (C_Item)
 	flags 				=	ITEM_2HD_AXE;	
 	material 			=	MAT_WOOD;
 
-	value 				=	1880;//940;//478
+	value 				=	478;
 	
-	damageTotal			= 	69;
+	damageTotal			= 	28;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	40;
+	cond_value[2]  		= 	20;
 	visual 				=	"ItMw_2H_Axe_Old_03.3DS";
 
 	description			= name;
@@ -1557,14 +1557,14 @@ INSTANCE ItMw_2H_Sword_Light_01 (C_Item)
 	flags 				=	ITEM_2HD_SWD;	
 	material 			=	MAT_METAL;
 
-	value 				=	1900;
+	value 				=	519;
 
-	damageTotal			= 	70;
+	damageTotal			= 	30;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	42;
+	cond_value[2]  		= 	32;
 	visual 				=	"ItMw_2H_Sword_Light_01.3DS";
 
 	description			= name;
@@ -1586,12 +1586,12 @@ INSTANCE ItMw_2H_Sword_Light_02 (C_Item)
 
 	value 				=	1950;
 
-	damageTotal			= 	71;
+	damageTotal			= 	70;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	44;
+	cond_value[2]  		= 	70;
 	visual 				=	"ItMw_2H_Sword_Light_02.3DS";
 
 	description			= name;
@@ -1611,14 +1611,14 @@ INSTANCE ItMw_2H_Sword_Light_03 (C_Item)
 	flags 				=	ITEM_2HD_SWD;	
 	material 			=	MAT_METAL;
 
-	value 				=	2000;//1000;//535
+	value 				=	535;
 
-	damageTotal			= 	73;
+	damageTotal			= 	40;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	46;
+	cond_value[2]  		= 	40;
 	visual 				=	"ItMw_2H_Sword_Light_03.3DS";
 
 	description			= name;
@@ -1638,14 +1638,14 @@ INSTANCE ItMw_2H_Sword_Light_04 (C_Item)
 	flags 				=	ITEM_2HD_SWD;	
 	material 			=	MAT_METAL;
 
-	value 				=	2200;//1100;//550
+	value 				=	1100;
 
-	damageTotal			= 	74;
+	damageTotal			= 	50;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	48;
+	cond_value[2]  		= 	50;
 	visual 				=	"ItMw_2H_Sword_Light_04.3DS";
 
 	description			= name;
@@ -1665,14 +1665,14 @@ INSTANCE ItMw_2H_Sword_Light_05 (C_Item)
 	flags 				=	ITEM_2HD_SWD;	
 	material 			=	MAT_METAL;
 
-	value 				=	2320;//1160;//580
+	value 				=	1160;
 
-	damageTotal			= 	76;
+	damageTotal			= 	55;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	50;
+	cond_value[2]  		= 	60;
 	visual 				=	"ItMw_2H_Sword_Light_05.3DS";
 
 	description			= name;
@@ -1694,14 +1694,14 @@ INSTANCE ItMw_2H_Axe_light_01 (C_Item)
 	flags 				=	ITEM_2HD_AXE;	
 	material 			=	MAT_WOOD;
 
-	value 				=	2400;//1200;//595
+	value 				=	595;
 	
-	damageTotal			= 	77;
+	damageTotal			= 	35;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	52;
+	cond_value[2]  		= 	40;
 	visual 				=	"ItMw_2H_Axe_light_01.3DS";
 
 	description			= name;
@@ -1721,14 +1721,14 @@ INSTANCE ItMw_2H_Axe_light_02 (C_Item)
 	flags 				=	ITEM_2HD_AXE;	
 	material 			=	MAT_WOOD;
 
-	value 				=	2440;//1220;//610
+	value 				=	610;
 	
-	damageTotal			= 	79;
+	damageTotal			= 	35;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	54;
+	cond_value[2]  		= 	30;
 	visual 				=	"ItMw_2H_Axe_light_02.3DS";
 
 	description			= name;
@@ -1748,14 +1748,14 @@ INSTANCE ItMw_2H_Axe_light_03 (C_Item)
 	flags 				=	ITEM_2HD_AXE;	
 	material 			=	MAT_WOOD;
 
-	value 				=	2520;//1260;//630
+	value 				=	630;
 	
-	damageTotal			= 	80;
+	damageTotal			= 	35;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	56;
+	cond_value[2]  		= 	30;
 	visual 				=	"ItMw_2H_Axe_light_03.3DS";
 
 	description			= name;
@@ -1777,14 +1777,14 @@ INSTANCE ItMw_2H_Sword_01 (C_Item)
 	flags 				=	ITEM_2HD_SWD;	
 	material 			=	MAT_METAL;
 
-	value 				=	2600;//1300;//650
+	value 				=	1300;
 
-	damageTotal			= 	81;
+	damageTotal			= 	60;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	58;
+	cond_value[2]  		= 	60;
 	visual 				=	"ItMw_2H_Sword_01.3DS";
 
 	description			= name;
@@ -1804,14 +1804,14 @@ INSTANCE ItMw_2H_Sword_02 (C_Item)
 	flags 				=	ITEM_2HD_SWD;	
 	material 			=	MAT_METAL;
 
-	value 				=	2760;//1380;//690
+	value 				=	1380;
 
-	damageTotal			= 	83;
+	damageTotal			= 	68;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	60;
+	cond_value[2]  		= 	68;
 	visual 				=	"ItMw_2H_Sword_02.3DS";
 
 	description			= name;
@@ -1833,12 +1833,12 @@ INSTANCE ItMw_2H_Sword_03 (C_Item)
 
 	value 				=	2840;//1420;//710
 
-	damageTotal			= 	85;
+	damageTotal			= 	80;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	62;
+	cond_value[2]  		= 	80;
 	visual 				=	"ItMw_2H_Sword_03.3DS";
 
 	description			= name;
@@ -1862,12 +1862,12 @@ INSTANCE ItMw_2H_Sword_Heavy_01 (C_Item)
 
 	value 				=	2920;//1460;//730
 
-	damageTotal			= 	86;
+	damageTotal			= 	70;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	64;
+	cond_value[2]  		= 	50;
 	visual 				=	"ItMw_2H_Sword_Heavy_01.3DS";
 
 	description			= name;
@@ -1887,13 +1887,13 @@ INSTANCE ItMw_2H_Sword_Heavy_02 (C_Item)
 	flags 				=	ITEM_2HD_SWD;	
 	material 			=	MAT_METAL;
 
-	value 				=	3040;//1520;//770
+	value 				=	770;
 
-	damageTotal			= 	88;
+	damageTotal			= 	35;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	66;
+	cond_value[2]  		= 	40;
 	visual 				=	"ItMw_2H_Sword_Heavy_02.3DS";
 
 	description			= name;
@@ -1913,14 +1913,14 @@ INSTANCE ItMw_2H_Sword_Heavy_03 (C_Item)
 	flags 				=	ITEM_2HD_SWD;	
 	material 			=	MAT_METAL;
 
-	value 				=	3260;//1630;//815
+	value 				=	2660;
 
-	damageTotal			= 	90;
+	damageTotal			= 	75;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	68;
+	cond_value[2]  		= 	65;
 	visual 				=	"ItMw_2H_Sword_Heavy_03.3DS";
 
 	description			= name;
@@ -1940,14 +1940,14 @@ INSTANCE ItMw_2H_Sword_Heavy_04 (C_Item)
 	flags 				=	ITEM_2HD_SWD;	
 	material 			=	MAT_METAL;
 
-	value 				=	3440;//1720;//865
+	value 				=	4360;
 
-	damageTotal			= 	92;
+	damageTotal			= 	90;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	70;
+	cond_value[2]  		= 	90;
 	visual 				=	"ItMw_2H_Sword_Heavy_04.3DS";
 
 	description			= name;
@@ -1969,14 +1969,14 @@ INSTANCE ItMw_2H_Axe_Heavy_01 (C_Item)
 	flags 				=	ITEM_2HD_AXE;	
 	material 			=	MAT_WOOD;
 
-	value 				=	3660;//1830;//915
+	value 				=	3220;
 	
-	damageTotal			= 	94;
+	damageTotal			= 	60;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	72;
+	cond_value[2]  		= 	60;
 	visual 				=	"ItMw_2H_Axe_Heavy_01.3DS";
 
 	description			= name;
@@ -1996,14 +1996,14 @@ INSTANCE ItMw_2H_Axe_Heavy_02 (C_Item)
 	flags 				=	ITEM_2HD_AXE;	
 	material 			=	MAT_WOOD;
 
-	value 				=	3860;//1930;//965
+	value 				=	4060;
 	
-	damageTotal			= 	96;
+	damageTotal			= 	80;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	74;
+	cond_value[2]  		= 	80;
 	visual 				=	"ItMw_2H_Axe_Heavy_02.3DS";
 
 	description			= name;
@@ -2023,14 +2023,14 @@ INSTANCE ItMw_2H_Axe_Heavy_03 (C_Item)
 	flags 				=	ITEM_2HD_AXE;	
 	material 			=	MAT_WOOD;
 
-	value 				=	4060;//2030;//1015
+	value 				=	3440;
 	
-	damageTotal			= 	98;
+	damageTotal			= 	70;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	76;
+	cond_value[2]  		= 	70;
 	visual 				=	"ItMw_2H_Axe_Heavy_03.3DS";
 
 	description			= name;
@@ -2050,14 +2050,14 @@ INSTANCE ItMw_2H_Axe_Heavy_04 (C_Item)
 	flags 				=	ITEM_2HD_AXE;	
 	material 			=	MAT_WOOD;
 
-	value 				=	4360;//2180;//1090
+	value 				=	3860;
 	
-	damageTotal			= 	100;
+	damageTotal			= 	75;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		= 	ATR_STRENGTH;
-	cond_value[2]  		= 	78;
+	cond_value[2]  		= 	75;
 	visual 				=	"ItMw_2H_Axe_Heavy_04.3DS";
 
 	description			= name;
@@ -2081,12 +2081,12 @@ INSTANCE ItMw2hOrcSword01 (C_Item)
 
 	value 				=	30;//90
 
-	damageTotal			= 	45;
+	damageTotal			= 	40;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		=	ATR_STRENGTH;
-	cond_value[2]  		=	25;
+	cond_value[2]  		=	80;
 	visual 				=	"ItMw_2H_OrcSword_01.3DS";
 
 	description			= name;
@@ -2108,12 +2108,12 @@ INSTANCE ItMw2hOrcAxe01 (C_Item)
 
 	value 				=	35;//100;
 
-	damageTotal			= 	50;
+	damageTotal			= 	30;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		=   ATR_STRENGTH;
-	cond_value[2]  		=   30;
+	cond_value[2]  		=   50;
 	visual 				=	"ItMw_2H_OrcAxe_01.3DS";
 
 	description			= name;
@@ -2135,12 +2135,12 @@ INSTANCE ItMw2hOrcAxe02 (C_Item)
 
 	value 				=	38;//110;
 
-	damageTotal			= 	55;
+	damageTotal			= 	35;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		=  	ATR_STRENGTH;
-	cond_value[2]  		=  	35;
+	cond_value[2]  		=  	55;
 	visual 				=	"ItMw_2H_OrcAxe_02.3DS";
 
 	description			= name;
@@ -2162,12 +2162,12 @@ INSTANCE ItMw2hOrcAxe03 (C_Item)
 
 	value 				=	40;//120;
 
-	damageTotal			= 	60;
+	damageTotal			= 	40;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		=   ATR_STRENGTH;
-	cond_value[2]  		=   40;
+	cond_value[2]  		=   60;
 	visual 				= "ItMw_2H_OrcAxe_03.3DS";
 
 	description			= name;
@@ -2189,12 +2189,12 @@ INSTANCE ItMw2hOrcAxe04 (C_Item)
 
 	value 				=	43;//130;
 
-	damageTotal			= 	65;
+	damageTotal			= 	45;
 	damagetype			=	DAM_EDGE;
 	range    			=  	150;		
 
 	cond_atr[2]   		=   ATR_STRENGTH;
-	cond_value[2]  		=   45;
+	cond_value[2]  		=   65;
 	visual 				=	"ItMw_2H_OrcAxe_04.3DS";
 
 	description			= name;
@@ -2221,7 +2221,7 @@ INSTANCE ItMw2hOrcMace01 (C_Item)
 	range    			=  	150;		
 
 	cond_atr[2]   		=   ATR_STRENGTH;
-	cond_value[2]  		=   50;
+	cond_value[2]  		=   75;
 	visual 				=	"ItMw_2H_OrcMace_01.3DS";
 
 	description			= name;
@@ -2280,4 +2280,737 @@ INSTANCE ItRwUdOrcstaff (C_Item)
 	//TEXT[3] 			= NAME_Dex_needed;		COUNT[3]	= cond_value[2];
 	//TEXT[4]			= ""; 					COUNT[4]	= ;
 	TEXT[5]				= NAME_Value;			COUNT[5]	= value;
+};
+
+/*********************************************************************************
+** WEAPONS.d --- named weapon 										 			**
+*********************************************************************************/
+
+//------------------------------------------------------------------
+//PERSÖNLICHE WAFFEN
+/***********************************************************/
+//ALTES LAGER
+/***********************************************************/
+//THORUS
+//------------------------------------------------------------------
+INSTANCE Thorus_Schwert (C_Item)
+{
+	name 				=	"Miecz Thorusa";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_SWD;
+	material 			=	MAT_METAL;
+
+	value 				=	500;
+
+	damageTotal			= 	90;
+	damagetype			=	DAM_EDGE;
+	range    			=  	150;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	75;
+
+	owner 				= 	GRD_200_THORUS;
+	visual 				=	"ItMw_2H_Sword_01.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//GOMEZ
+//-----------------------------------------------------------
+INSTANCE Innos_Zorn (C_Item)
+{
+	name 				=	"Gniew Innosa";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_SWD;
+	material 			=	MAT_METAL;
+
+	value 				=	570;
+
+	damageTotal			= 	110;
+	damagetype			=	DAM_EDGE;
+	range    			=  	160;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	90;
+
+	owner 				= 	EBR_100_GOMEZ;
+	visual 				=	"ItMw_2H_Sword_Heavy_03.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//SCAR
+//-----------------------------------------------------------
+INSTANCE Scars_Schwert (C_Item)
+{
+	name 				=	"Miecz Blizny";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_SWD;
+	material 			=	MAT_METAL;
+
+	value 				=	460;
+
+	damageTotal 		= 	85;
+	damagetype 			= 	DAM_EDGE;
+	range    			=  	130;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	70;
+
+	owner 				=   EBR_101_SCAR;
+	visual 				=	"ItMw_1H_Sword_Bastard_04.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_OneHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+	COUNT[5]			= value;
+};
+
+//-----------------------------------------------------------
+//ARTO
+//-----------------------------------------------------------
+INSTANCE Artos_Schwert (C_Item)
+{
+	name 				=	"Miecz Arto";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_SWD;
+	material 			=	MAT_METAL;
+
+	value 				=	360;
+
+	damageTotal 		= 	65;
+	damagetype 			= 	DAM_EDGE;
+	range    			=  	100;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	50;
+
+	owner 				= 	EBR_102_ARTO;
+	visual 				=	"ItMw_1H_Sword_Long_02.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_OneHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//RAVEN
+//-----------------------------------------------------------
+INSTANCE Rabenrecht (C_Item)
+{
+	name 				=	"Prawo Kruka";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_SWD;
+	material 			=	MAT_METAL;
+
+	value 				=	400;
+
+	damageTotal			= 	70;
+	damagetype 			= 	DAM_EDGE;
+	range    			=  	130;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	55;
+
+	owner 				= 	EBR_105_RAVEN;
+	visual 				=	"ItMw_1H_Sword_Broad_04.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_OneHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//BARTHOLO
+//-----------------------------------------------------------
+INSTANCE Prankenhieb (C_Item)
+{
+	name 				=	"Cios ³ap¹";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_SWD;
+	material 			=	MAT_METAL;
+
+	value 				=	300;
+
+	damageTotal			= 	55;
+	damagetype 			= 	DAM_EDGE;
+	range    			=  	100;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	40;
+
+	owner 				= 	EBR_106_BARTHOLO;
+	visual 				=	"ItMw_1H_Sword_Long_05.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_OneHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//DIEGO
+//-----------------------------------------------------------
+INSTANCE Diegos_Bogen (C_Item)
+{
+	name 				= "£uk Diego";
+
+	mainflag 			= ITEM_KAT_FF;
+	flags 				= ITEM_BOW;
+	material 			= MAT_WOOD;
+
+	value 				= 390;
+
+	damageTotal 		= 70;
+	damagetype			= DAM_POINT;
+	munition			= ItAmArrow;
+
+	cond_atr[2]   		= ATR_DEXTERITY;
+	cond_value[2]  		= 45;
+
+	owner 				= PC_THIEF;
+	visual 				= "ItRwLongbow.mms";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//Whistler (Bei Fisk)
+//-----------------------------------------------------------
+INSTANCE Whistlers_Schwert (C_Item)
+{
+	name 				=	"Miecz Œwistaka";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_SWD;
+	material 			=	MAT_METAL;
+
+	value 				=	110;
+
+	damageTotal			= 	20;
+	damagetype 			= 	DAM_EDGE;
+	range    			=  	100;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	15;
+	//owner 				= STT_309_Whistler;		raus wegen Mission
+	visual 				=	"ItMw_1H_Sword_02.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_OneHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+
+/***********************************************************/
+//BRUDERSCHAFT
+/***********************************************************/
+//-----------------------------------------------------------
+//Y'BERION
+//-----------------------------------------------------------
+INSTANCE Stab_des_Lichts (C_Item)
+{
+	name 				=	"Kostur Œwiat³a";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_AXE;
+	material 			=	MAT_WOOD;
+
+	value 				=	350;
+
+	damageTotal			= 	65;
+	damagetype 			=	DAM_BLUNT;
+	range    			=  	160;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	45;
+
+	owner 				=   GUR_1200_YBERION;
+	visual 				=	"ItMw_2H_Staff_03.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//COR KALOM
+//-----------------------------------------------------------
+INSTANCE Kaloms_Schwert (C_Item)
+{
+	name 				=	"Miecz Kaloma";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_SWD;
+	material 			=	MAT_METAL;
+
+	value 				=	400;
+
+	damageTotal			= 	70;
+	damagetype 			= 	DAM_EDGE;
+	range    			=  	100;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	55;
+
+	owner 				=   GUR_1201_CORKALOM;
+	visual 				=	"ItMw_1H_Sword_05.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_OneHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//LESTER
+//-----------------------------------------------------------
+INSTANCE Streitschlichter (C_Item)
+{
+	name 				=	"Negocjator Lestera ";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_AXE;
+	material 			=	MAT_METAL;
+
+	value 				=	340;
+
+	damageTotal			=   60;
+	damagetype			=	DAM_BLUNT;
+	range    			=  	90;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	40;
+
+	owner 				= 	PC_PSIONIC;
+	visual 				=	"ItMw_1H_Mace_War_02.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_OneHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//COR ANGAR
+//-----------------------------------------------------------
+INSTANCE Roter_Wind (C_Item)
+{
+	name 				=	"Czerwony Wiatr";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_SWD;
+	material 			=	MAT_METAL;
+
+	value 				=	570;
+
+	damageTotal			= 	105;
+	damagetype			=	DAM_EDGE;
+	range    			=  	140;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	80;
+
+	owner 				= 	GUR_1202_CORANGAR;
+	visual 				=	"ItMw_2H_Sword_02.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//BAAL NAMIB
+//-----------------------------------------------------------
+INSTANCE Namibs_Keule (C_Item)
+{
+	name 				=	"Pa³ka Namiba";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_AXE;
+	material 			=	MAT_METAL;
+
+	value 				=	300;
+
+	damageTotal			=   55;
+	damagetype			=	DAM_BLUNT;
+	range    			=  	90;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	40;
+
+	owner 				= 	GUR_1204_BAALNAMIB;
+	visual 				=	"ItMw_1H_Mace_01.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_OneHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//BAAL ORUN
+//-----------------------------------------------------------
+INSTANCE Oruns_Keule (C_Item)
+{
+	name 				=	"Pa³ka Oruna";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_AXE;
+	material 			=	MAT_METAL;
+
+	value 				=	330;
+
+	damageTotal  		=   60;
+	damagetype			=	DAM_BLUNT;
+	range    			=  	90;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	50;
+
+	owner 				= 	GUR_1209_BAALORUN;
+	visual 				=	"ItMw_1H_Mace_02.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_OneHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//FORTUNO
+//-----------------------------------------------------------
+INSTANCE Fortunos_Keule (C_Item)
+{
+	name 				=	"Pa³ka Fortuno";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_AXE;
+	material 			=	MAT_METAL;
+
+	value 				=	110;
+
+	damageTotal			=   20;
+	damagetype			=	DAM_BLUNT;
+	range    			=  	90;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	15;
+
+	owner 				= 	NOV_1357_FORTUNO;
+	visual 				=	"ItMw_1H_Mace_03.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_OneHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+/***********************************************************/
+//NEUES LAGER
+/***********************************************************/
+//-----------------------------------------------------------
+//LEE
+//-----------------------------------------------------------
+INSTANCE Lees_Axt (C_Item)
+{
+	name 				=	"Topór Lee";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_AXE;
+	material 			=	MAT_METAL;
+
+	value 				=	560;
+
+	damageTotal			= 	105;
+	damagetype			=	DAM_EDGE;
+	range    			=  	130;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	95;
+
+	owner 				= 	SLD_700_LEE;
+	visual 				=	"ItMw_2H_Axe_Heavy_01.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//ORIK
+//-----------------------------------------------------------
+INSTANCE Oriks_Axt (C_Item)
+{
+	name 				=	"Topór Orika";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_AXE;
+	material 			=	MAT_METAL;
+
+	value 				=	540;
+
+	damageTotal			= 	95;
+	damagetype			=	DAM_EDGE;
+	range    			=  	130;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	90;
+
+	owner 				=   SLD_701_ORIK;
+	visual 				=	"ItMw_2H_Axe_Heavy_02.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//TORLOF
+//-----------------------------------------------------------
+INSTANCE Torlofs_Axt (C_Item)
+{
+	name 				=	"Topór Torlofa";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_AXE;
+	material 			=	MAT_METAL;
+
+	value 				=	550;
+
+	damageTotal			= 	99;
+	damagetype			=	DAM_EDGE;
+	range    			=  	130;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	85;
+
+	owner 				= 	SLD_737_TORLOF;
+	visual 				=	"ItMw_2H_Axe_Heavy_03.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//CORD
+//-----------------------------------------------------------
+INSTANCE Cords_Spalter (C_Item)
+{
+	name 				=	"Siekacz Corda";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_AXE;
+	material 			=	MAT_METAL;
+
+	value 				=	310;
+
+	damageTotal			=   60;
+	damagetype			=	DAM_EDGE;
+	range    			=  	100;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	50;
+
+	owner 				= 	SLD_709_CORD;
+	visual 				=	"ItMw_1H_Axe_02.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_OneHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//GORN
+//-----------------------------------------------------------
+INSTANCE Gorns_Rache (C_Item)
+{
+	name 				=	"Zemsta Gorna";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_AXE;
+	material 			=	MAT_METAL;
+
+	value 				=	560;
+
+	damageTotal			= 	100;
+	damagetype			=	DAM_EDGE;
+	range    			=  	130;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	80;
+
+	owner 				=    PC_FIGHTER;
+	visual 				=	"ItMw_2H_Axe_Heavy_03.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//LARES
+//-----------------------------------------------------------
+INSTANCE Lares_Axt (C_Item)
+{
+	name 				=	"Topór Laresa";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_AXE;
+	material 			=	MAT_METAL;
+
+	value 				=	340;
+
+	damageTotal			=   65;
+	damagetype			=	DAM_EDGE;
+	range    			=  	100;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	45;
+
+	owner 				= 	ORG_801_LARES;
+	visual 				=	"ItMw_1H_Axe_02.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_OneHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//WOLF
+//-----------------------------------------------------------
+INSTANCE Wolfs_Bogen (C_Item)
+{
+	name 				=	"£uk Wilka";
+
+	mainflag 			=	ITEM_KAT_FF;
+	flags 				=	ITEM_BOW;
+	material 			=	MAT_WOOD;
+
+	value 				=	200;
+
+	damageTotal			=	35;
+	damagetype			=	DAM_POINT;
+	munition			=	ItAmArrow;
+
+	cond_atr[2]   		= 	ATR_DEXTERITY;
+	cond_value[2]  		= 	35;
+
+	owner 				=   ORG_855_WOLF;
+	visual 				=	"ItRwLongbow.mms";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//SILAS
+//-----------------------------------------------------------
+INSTANCE Silas_Axt (C_Item)
+{
+	name 				=	"Topór Silasa";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_AXE;
+	material 			=	MAT_METAL;
+
+	value 				=	290;
+
+	damageTotal			=   55;
+	damagetype			=	DAM_EDGE;
+	range    			=  	100;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	40;
+
+	owner 				=   ORG_841_SILAS;
+	visual 				=	"ItMw_1H_Axe_03.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_OneHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+//RICELORD
+//-----------------------------------------------------------
+INSTANCE Heerscherstab (C_Item)
+{
+	name 				=	"Ber³o";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_AXE;
+	material 			=	MAT_WOOD;
+
+	value 				=	150;
+
+	damageTotal			= 	26;
+	damagetype 			=	DAM_EDGE;
+	range    			=  	150;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	20;
+
+	owner 				=   BAU_900_RICELORD;
+	visual 				=	"ItMw_2H_Staff_02.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
 };

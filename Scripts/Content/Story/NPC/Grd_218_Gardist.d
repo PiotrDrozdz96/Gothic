@@ -21,6 +21,7 @@ instance GRD_218_Gardist (Npc_Default)
 	// 			animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
+	Mdl_ApplyOverlayMds (self,"SHIELD_ST1.MDS");
 	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_FatBald", 15, 1, GRD_ARMOR_H);
         
@@ -34,11 +35,13 @@ instance GRD_218_Gardist (Npc_Default)
 	
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);		
+	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);
+	Npc_SetTalentSkill (self, NPC_TALENT_SHIELD,2);	
 			
 	//-------- inventory --------
 	
 	EquipItem	(self, ItMw_1H_Sword_03);
+	EquipItem	(self, ITSH_W2_E3_REDANIA);
 	EquipItem	(self, ItRw_Crossbow_01);
 	CreateInvItems	(self, ItAmBolt, 30);
 	CreateInvItem	(self, ItFoMutton);

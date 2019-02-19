@@ -295,7 +295,7 @@ INSTANCE DIA_Scatty_TRAIN (C_INFO)
 
 FUNC INT DIA_Scatty_TRAIN_Condition()
 {
-	if (Npc_KnowsInfo(hero,DIA_Scatty_WhatDoYouDo))
+	if (Npc_KnowsInfo(hero,DIA_Scatty_WhatDoYouDo) && log_scattytrain == FALSE)
 	{
 		return 1;
 	};
@@ -303,48 +303,56 @@ FUNC INT DIA_Scatty_TRAIN_Condition()
 
 FUNC VOID DIA_Scatty_TRAIN_Info()
 {
-	if( log_scattytrain == FALSE)
-	{
 	Log_CreateTopic   	(GE_TeacherOC,LOG_NOTE);
     B_LogEntry(GE_TeacherOC, "Scatty mo¿e mnie nauczyæ walki jednorêcznym orê¿em.");
     log_scattytrain = TRUE;
-    };
+    
 	AI_Output (other,self,"DIA_Scatty_TRAIN_15_00"); //Zajmujesz siê równie¿ szkoleniem wojowników?
 	AI_Output (self,other,"DIA_Scatty_TRAIN_01_01"); //Tak, ale nie za darmo. Jak chcesz, ¿ebym ciê czegoœ nauczy³, musisz zap³aciæ.
-
-
-	Info_ClearChoices	(DIA_Scatty_TRAIN );
-	Info_AddChoice		(DIA_Scatty_TRAIN,DIALOG_BACK		,DIA_Scatty_TRAIN_BACK);
-	if 	(Npc_GetTalentSkill(hero, NPC_TALENT_1H) == 1) 
-	{
-		Info_AddChoice		(DIA_Scatty_TRAIN,B_BuildLearnString(NAME_Learn1h_2, LPCOST_TALENT_1H_2,150)	,DIA_Scatty_TRAIN_2h);
-	};
-	if 	(Npc_GetTalentSkill(hero, NPC_TALENT_1H) == 0) 
-	{
-		Info_AddChoice		(DIA_Scatty_TRAIN,B_BuildLearnString(NAME_Learn1h_1, LPCOST_TALENT_1H_1,50)	,DIA_Scatty_TRAIN_1h);
-	};
 };
 
-func void DIA_Scatty_TRAIN_BACK()
+INSTANCE DIA_Scatty_TRAIN_1h (C_INFO)
 {
-	Info_ClearChoices	(DIA_Scatty_TRAIN );
+	npc			= Grd_210_Scatty;
+	nr			= 10;
+	condition	= DIA_Scatty_TRAIN_1h_Condition;
+	information	= DIA_Scatty_TRAIN_1h_Info;
+	permanent	= 1;
+	description = "Broñ jednorêczna +1% (50 bry³ek rudy, 10pkt. umiejêtnoœci)";
+};  
+
+FUNC INT DIA_Scatty_TRAIN_1h_Condition()
+{
+	if (Npc_GetTalentValue(hero, NPC_TALENT_1H) < 5 && log_scattytrain == TRUE)
+	{
+		return 1;
+	};
 };
 
-func void DIA_Scatty_TRAIN_1h()
+func void DIA_Scatty_TRAIN_1h_Info()
 {
 	AI_Output (other,self,"DIA_Scatty_TRAIN_1h_15_00"); //Chcia³bym nauczyæ siê walki jednorêcznym orê¿em.
 	
 	if (Npc_HasItems(other,itminugget) >= 50)
 	{
-		if (B_GiveSkill(other, NPC_TALENT_1H, 1, LPCOST_TALENT_1H_1))
+		if (B_GiveSkill(other, NPC_TALENT_1H, Npc_GetTalentSkill(hero, NPC_TALENT_1H)+1, LPCOST_TALENT_1H_1))
 		{
-			AI_Output (self,other,"DIA_Scatty_TRAIN_1h_01_01"); //M¹dra decyzja. Jednak zanim poznasz bardziej zaawansowane techniki, powinieneœ nauczyæ siê prawid³owo trzymaæ orê¿ w rêku.
-			AI_Output (self,other,"DIA_Scatty_TRAIN_1h_01_02"); //Pocz¹tkuj¹cy czêsto ³api¹ zwyk³y miecz obydwoma rêkami. Radzi³bym ci siê do tego nie przyzwyczajaæ, to fatalny nawyk.
-			AI_Output (self,other,"DIA_Scatty_TRAIN_1h_01_03"); //Trzymaj broñ jedn¹ rêk¹, ostrzem do góry, i zacznij ni¹ machaæ.
-			AI_Output (self,other,"DIA_Scatty_TRAIN_1h_01_04"); //Musisz siê nauczyæ, jak zgraæ twoje ruchy z bezw³adnoœci¹ orê¿a. Dziêki temu twoje ataki bêd¹ szybsze i bardziej zaskakuj¹ce.
-			AI_Output (self,other,"DIA_Scatty_TRAIN_1h_01_05"); //Zapamiêtaj sobie dobrze, co ci powiedzia³em, a twój styl walki stanie siê o wiele bardziej elegancki i skuteczny.
-			AI_Output (self,other,"DIA_Scatty_TRAIN_1h_01_06"); //A, i jeszcze coœ! Niektóre ciosy powoduj¹ wiêksze obra¿enia ni¿ zwykle. Oczywiœcie, jako pocz¹tkuj¹cy masz raczej niewielkie szanse na zadanie krytycznego uderzenia.
-			AI_Output (self,other,"DIA_Scatty_TRAIN_1h_01_07"); //Ale to siê zmieni w miarê czynienia przez ciebie postêpów.
+			if (Npc_GetTalentValue(hero, NPC_TALENT_1H) == 1){
+				AI_Output (self,other,"DIA_Scatty_TRAIN_1h_01_01"); //M¹dra decyzja. Jednak zanim poznasz bardziej zaawansowane techniki, powinieneœ nauczyæ siê prawid³owo trzymaæ orê¿ w rêku.
+				AI_Output (self,other,"DIA_Scatty_TRAIN_1h_01_02"); //Pocz¹tkuj¹cy czêsto ³api¹ zwyk³y miecz obydwoma rêkami. Radzi³bym ci siê do tego nie przyzwyczajaæ, to fatalny nawyk.
+				AI_Output (self,other,"DIA_Scatty_TRAIN_1h_01_03"); //Trzymaj broñ jedn¹ rêk¹, ostrzem do góry, i zacznij ni¹ machaæ.
+			}
+			else if (Npc_GetTalentValue(hero, NPC_TALENT_1H) == 3){
+				AI_Output (self,other,"DIA_Scatty_TRAIN_1h_01_04"); //Musisz siê nauczyæ, jak zgraæ twoje ruchy z bezw³adnoœci¹ orê¿a. Dziêki temu twoje ataki bêd¹ szybsze i bardziej zaskakuj¹ce.
+				AI_Output (self,other,"DIA_Scatty_TRAIN_1h_01_05"); //Zapamiêtaj sobie dobrze, co ci powiedzia³em, a twój styl walki stanie siê o wiele bardziej elegancki i skuteczny.
+			}
+			else if (Npc_GetTalentValue(hero, NPC_TALENT_1H) == 5){
+				AI_Output (self,other,"DIA_Scatty_TRAIN_1h_01_06"); //A, i jeszcze coœ! Niektóre ciosy powoduj¹ wiêksze obra¿enia ni¿ zwykle. Oczywiœcie, jako pocz¹tkuj¹cy masz raczej niewielkie szanse na zadanie krytycznego uderzenia.
+				AI_Output (self,other,"DIA_Scatty_TRAIN_1h_01_07"); //Ale to siê zmieni w miarê czynienia przez ciebie postêpów.
+			}
+			else{
+				AI_Output (self, other,"DIA_Scatty_TRAIN_2h_Info_01_05"); //I znowu do przodu. Pamiêtaj - trening czyni mistrza, wiêc najlepiej weŸ siê od razu do roboty!
+			};
 			B_GiveInvItems(other,self,itminugget,50);
 		};
 	}
@@ -354,19 +362,112 @@ func void DIA_Scatty_TRAIN_1h()
 	};
 };
 
-func void DIA_Scatty_TRAIN_2h()
+INSTANCE DIA_Scatty_TRAIN_2h (C_INFO)
+{
+	npc			= Grd_210_Scatty;
+	nr			= 10;
+	condition	= DIA_Scatty_TRAIN_2h_Condition;
+	information	= DIA_Scatty_TRAIN_2h_Info;
+	permanent	= 1;
+	description = "Broñ jednorêczna +1% (150 bry³ek rudy, 10pkt. umiejêtnoœci)";
+};  
+
+FUNC INT DIA_Scatty_TRAIN_2h_Condition()
+{
+	if ( Npc_GetTalentValue(hero, NPC_TALENT_1H) > 4 && Npc_GetTalentValue(hero, NPC_TALENT_1H) < 10 && log_scattytrain == TRUE)
+	{
+		return 1;
+	};
+};
+
+func void DIA_Scatty_TRAIN_2h_info()
 {
 	AI_Output (other,self,"DIA_Scatty_TRAIN_2h_15_01"); //Naucz mnie sprawniej pos³ugiwaæ siê jednorêczn¹ broni¹.
 	
 	if (Npc_HasItems(other,itminugget) >= 150)
 	{
-		if (B_GiveSkill(other, NPC_TALENT_1H, 2, LPCOST_TALENT_1H_2))
+		if (B_GiveSkill(other, NPC_TALENT_1H, Npc_GetTalentSkill(hero, NPC_TALENT_1H)+1, LPCOST_TALENT_1H_1))
 		{
-			AI_Output (self, other,"DIA_Scatty_TRAIN_2h_Info_01_02"); //Dobrze, podstawy ju¿ znasz. Nieznaczne opuszczenie broni zwiêkszy si³ê twojego pierwszego ciosu.
-			AI_Output (self, other,"DIA_Scatty_TRAIN_2h_Info_01_03"); //Musisz wykorzystaæ si³ê bezw³adnoœci, pamiêtasz? Œwietnie. Teraz nauczysz siê lepiej balansowaæ cia³em. Po zadaniu dwóch ciosów wykonaj obrót. To powinno zmyliæ twojego przeciwnika i pozwoliæ ci wyjœæ na dobr¹ pozycjê do nastêpnego ataku.
-			AI_Output (self, other,"DIA_Scatty_TRAIN_2h_Info_01_04"); //Wtedy wyprowadŸ nastêpne ciêcie z prawej strony...
-			AI_Output (self, other,"DIA_Scatty_TRAIN_2h_Info_01_05"); //I znowu do przodu. Pamiêtaj - trening czyni mistrza, wiêc najlepiej weŸ siê od razu do roboty!
+			if(Npc_GetTalentValue(hero, NPC_TALENT_1H) == 6){
+				AI_Output (self, other,"DIA_Scatty_TRAIN_2h_Info_01_02"); //Dobrze, podstawy ju¿ znasz. Nieznaczne opuszczenie broni zwiêkszy si³ê twojego pierwszego ciosu.
+				AI_Output (self, other,"DIA_Scatty_TRAIN_2h_Info_01_03"); //Musisz wykorzystaæ si³ê bezw³adnoœci, pamiêtasz? Œwietnie. Teraz nauczysz siê lepiej balansowaæ cia³em. Po zadaniu dwóch ciosów wykonaj obrót. To powinno zmyliæ twojego przeciwnika i pozwoliæ ci wyjœæ na dobr¹ pozycjê do nastêpnego ataku.
+				AI_Output (self, other,"DIA_Scatty_TRAIN_2h_Info_01_04"); //Wtedy wyprowadŸ nastêpne ciêcie z prawej strony...
+				AI_Output (self, other,"DIA_Scatty_TRAIN_2h_Info_01_05"); //I znowu do przodu. Pamiêtaj - trening czyni mistrza, wiêc najlepiej weŸ siê od razu do roboty!
+			}
+			else{
+				AI_Output (self, other,"DIA_Scatty_TRAIN_2h_Info_01_05"); //I znowu do przodu. Pamiêtaj - trening czyni mistrza, wiêc najlepiej weŸ siê od razu do roboty!
+			};
 			B_GiveInvItems(other,self,itminugget,150);
+		};
+	}
+	else
+	{
+		AI_Output (self,other,"DIA_Scatty_TRAIN_2h_NoOre_01_00"); //Wróæ, gdy bêdziesz mia³ wystarczaj¹co du¿o rudy.
+	};
+};
+
+INSTANCE DIA_Scatty_TRAIN_SHIELD_1 (C_INFO)
+{
+	npc			= Grd_210_Scatty;
+	nr			= 11;
+	condition	= DIA_Scatty_TRAIN_SHIELD_1_Condition;
+	information	= DIA_Scatty_TRAIN_SHIELD_1_Info;
+	permanent	= 1;
+	description = "Tarcza Poziom 1 (150 bry³ek rudy, 10pkt. umiejêtnoœci)";
+};  
+
+FUNC INT DIA_Scatty_TRAIN_SHIELD_1_Condition()
+{
+	if (Npc_GetTalentSkill(hero, NPC_TALENT_SHIELD) == 0 && log_scattytrain == TRUE)
+	{
+		return 1;
+	};
+};
+
+func void DIA_Scatty_TRAIN_SHIELD_1_info()
+{
+	AI_Output			(other, self,"Gorn_Teach_Info_15_00"); //Chcê trochê potrenowaæ.
+	
+	if (Npc_HasItems(other,itminugget) >= 150)
+	{
+		if (B_GiveSkill(other, NPC_TALENT_SHIELD, Npc_GetTalentSkill(hero, NPC_TALENT_SHIELD)+1, LPCOST_TALENT_SHIELD_1))
+		{
+			B_GiveInvItems(other,self,itminugget,150);
+		};
+	}
+	else
+	{
+		AI_Output (self,other,"DIA_Scatty_TRAIN_1h_NoOre_01_00"); //Nie masz wystarczaj¹cej iloœci rudy!
+	};
+};
+
+INSTANCE DIA_Scatty_TRAIN_SHIELD_2 (C_INFO)
+{
+	npc			= Grd_210_Scatty;
+	nr			= 11;
+	condition	= DIA_Scatty_TRAIN_SHIELD_2_Condition;
+	information	= DIA_Scatty_TRAIN_SHIELD_2_Info;
+	permanent	= 1;
+	description = "Tarcza Poziom 2 (300 bry³ek rudy, 20pkt. umiejêtnoœci)";
+};  
+
+FUNC INT DIA_Scatty_TRAIN_SHIELD_2_Condition()
+{
+	if (Npc_GetTalentSkill(hero, NPC_TALENT_SHIELD) == 1 && log_scattytrain == TRUE)
+	{
+		return 1;
+	};
+};
+
+func void DIA_Scatty_TRAIN_SHIELD_2_info()
+{
+	AI_Output			(other, self,"Gorn_Teach_Info_15_00"); //Chcê trochê potrenowaæ.
+	
+	if (Npc_HasItems(other,itminugget) >= 300)
+	{
+		if (B_GiveSkill(other, NPC_TALENT_SHIELD, Npc_GetTalentSkill(hero, NPC_TALENT_SHIELD)+1, LPCOST_TALENT_SHIELD_2))
+		{
+			B_GiveInvItems(other,self,itminugget,300);
 		};
 	}
 	else

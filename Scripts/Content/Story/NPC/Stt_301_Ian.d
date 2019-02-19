@@ -23,7 +23,7 @@ instance STT_301_Ian (Npc_Default)
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
 	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
-	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 2,"Hum_Head_Pony",  14,  1, STT_ARMOR_M);
+	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 2,"Hum_Head_Pony",  14,  1, STT_ARMOR_H);
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);

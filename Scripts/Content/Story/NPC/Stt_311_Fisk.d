@@ -22,7 +22,7 @@ instance STT_311_Fisk (Npc_Default)
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
 	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
-	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 3,"Hum_Head_Bald", 10,  2, STT_ARMOR_M);
+	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 3,"Hum_Head_Bald", 10,  2, STT_ARMOR_H);
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
@@ -51,4 +51,9 @@ FUNC VOID Rtn_start_311 () //Händler
 	TA_SitAround	(07,30,22,30,"OCR_OUTSIDE_HUT_49");
 };
 
+func void Rtn_out_311 ()
+{
+	TA_Stay	(07,00,20,00,"WP_INTRO_WI05");
+	TA_Stay	(20,00,07,00,"WP_INTRO_WI05");
+};
 

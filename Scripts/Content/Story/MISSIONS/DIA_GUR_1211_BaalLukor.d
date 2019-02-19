@@ -652,6 +652,7 @@ FUNC VOID Info_BaalLukor_ALTAR_Info()
 
 	AI_StandUp			(self);
 	B_WhirlAround		(self, hero);
+	CreateInvItem 		(self, ITSH_R_ROUND);
 	AI_Output			(self, hero,"Info_BaalLukor_ALTAR_13_07"); //To wszystko twoja wina. Twoja bluŸniercza obecnoœæ rozgniewa³a wszechmocnego Œni¹cego!
 	AI_Output			(self, hero,"Info_BaalLukor_ALTAR_13_08"); //Teraz ja bêdê musia³ ponieœæ karê za twoje grzeszne czyny!
 	AI_Output			(self, hero,"Info_BaalLukor_ALTAR_13_09"); //Muszê z³o¿yæ ofiarê, aby przeb³agaæ mego pana. OFIARÊ Z CZ£OWIEKA!!!

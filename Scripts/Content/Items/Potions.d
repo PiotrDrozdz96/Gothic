@@ -691,7 +691,7 @@ INSTANCE ItFo_Potion_Haste_02(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_Haste1;	
+	value 			=	Value_Haste2;	
 
 	visual 			=	"ItFo_Potion_Haste_01.3ds";
 	material 		=	MAT_GLAS;
@@ -718,7 +718,7 @@ INSTANCE ItFo_Potion_Haste_03(C_Item)
 	mainflag 		=	ITEM_KAT_POTIONS;
 	flags 			=	ITEM_MULTI;
 
-	value 			=	Value_Haste1;	
+	value 			=	Value_Haste3;	
 
 	visual 			=	"ItFo_Potion_Haste_01.3ds";
 	material 		=	MAT_GLAS;

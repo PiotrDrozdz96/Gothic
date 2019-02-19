@@ -99,6 +99,7 @@ CONST INT ITEM_KAT_DOCS									= 1 <<  6				;		//	Alle Dokumente
 CONST INT ITEM_KAT_POTIONS								= 1 <<  7				;		//	Traenke
 CONST INT ITEM_KAT_LIGHT								= 1 <<  8				;		//	Alle Lichtquellen
 CONST INT ITEM_KAT_RUNE									= 1 <<  9				;		//	Runen und Scrolls
+CONST INT ITEM_SHIELD									= 1 << 18				;		//  Shields
 CONST INT ITEM_KAT_MAGIC								= 1 << 31				;		//	Ringe und Amulette
 CONST INT ITEM_KAT_KEYS									= ITEM_KAT_NONE			;
 																				
@@ -195,6 +196,7 @@ const int NPC_TALENT_MAGE			= 7;
 const int NPC_TALENT_SNEAK			= 8;
 const int NPC_TALENT_REGENERATE		= 9;
 const int NPC_TALENT_FIREMASTER		= 10;
+const int NPC_TALENT_SHIELD			= 10;
 const int NPC_TALENT_ACROBAT		= 11;
 
 const int NPC_TALENT_MAX			= 12;

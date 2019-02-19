@@ -120,6 +120,17 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 		B_ChangeGuild    (GRD_205_Scorpio,GIL_NONE);  
 		B_SetPermAttitude	(GRD_205_Scorpio,	ATT_NEUTRAL);
 		
+		//out night of raven
+		B_ExchangeRoutine (EBR_105_Raven,"OUT");
+		B_ExchangeRoutine (GRD_200_Thorus,"OUT");
+		B_ExchangeRoutine (GRD_210_Scatty,"OUT");
+		B_ExchangeRoutine (STT_329_Dexter,"OUT");
+		B_ExchangeRoutine (STT_311_Fisk,"OUT");
+		B_ExchangeRoutine (VLK_538_Huno,"OUT");
+		B_ExchangeRoutine (VLK_581_Snaf,"OUT");
+		B_ExchangeRoutine (GRD_233_Bloodwyn,"OUT");
+		B_ExchangeRoutine (GRD_255_Fletcher,"OUT");
+		
 		
 		B_ChangeGuild    (STT_336_Cavalorn,GIL_NONE);
 
@@ -150,7 +161,8 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 		
 		//-------- Spielergilde ändern --------
 		oldHeroGuild = Npc_GetTrueGuild(hero);
-		if	C_NpcBelongsToOldCamp(hero)
+		if	C_NpcBelongsToOldCamp(hero) 
+		&& (Npc_GetTrueGuild (hero) != GIL_KDF)
 		{
 			Npc_SetTrueGuild(hero,	GIL_NONE);		// "Ausgestoßener" aus dem Alten Lager
 			hero.guild = GIL_NONE;
@@ -186,24 +198,27 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 		B_SetPermAttitude	(PC_Thief,	ATT_FRIENDLY);
 		B_SetPermAttitude	(PC_Mage,	ATT_FRIENDLY);
 		
+
+		//-------- Kampfgruppe vor Haupttor --------
+		//B_ExchangeRoutine	(GRD_255_Fletcher,	"FMTaken2");	// Verstärkung vor das Haupttor (Anführer)
+		B_ExchangeRoutine	(GRD_252_Gardist,	"FMTaken2");	// Verstärkung vor das Haupttor
+		B_ExchangeRoutine	(GRD_253_Gardist,	"FMTaken2");	// Verstärkung vor das Haupttor
+		B_ExchangeRoutine	(GRD_244_Gardist,	"FMTaken2");	// Verstärkung vor das Haupttor (Fernkämpfer)
+		B_ExchangeRoutine	(GRD_214_Torwache,	"FMTaken2");	// reguläre Wache am Haupttor
+		B_ExchangeRoutine	(GRD_215_Torwache,	"FMTaken2");	// reguläre Wache am Haupttor
+		
+
+		//-------- Kampfgruppe vor Hinterem Tor --------
+		//B_ExchangeRoutine	(GRD_233_Bloodwyn,	"FMTaken2");	// Verstärkung vor das Hinterem Tor (Anführer)
+		B_ExchangeRoutine	(GRD_232_Gardist,	"FMTaken2");	// Verstärkung vor das Hinterem Tor
+		B_ExchangeRoutine	(GRD_229_Gardist,	"FMTaken2");	// Verstärkung vor das Hinterem Tor (Fernkämpfer)
+		B_ExchangeRoutine	(GRD_216_Torwache,	"FMTaken2");	// reguläre Wache am Hinteren Tor
+		B_ExchangeRoutine	(GRD_217_Torwache,	"FMTaken2");	// reguläre Wache am Hinteren Tor
+		
+		
 		//-------- permanente Attitüden ändern --------
 		Wld_ExchangeGuildAttitudes	("GIL_ATTITUDES_FMTAKEN");
 		B_InitMonsterAttitudes		();
-
-		//-------- Kampfgruppe vor Haupttor --------
-		B_ExchangeRoutine	(GRD_255_Fletcher,	"FMTaken");	// Verstärkung vor das Haupttor (Anführer)
-		B_ExchangeRoutine	(GRD_252_Gardist,	"FMTaken");	// Verstärkung vor das Haupttor
-		B_ExchangeRoutine	(GRD_253_Gardist,	"FMTaken");	// Verstärkung vor das Haupttor
-		B_ExchangeRoutine	(GRD_244_Gardist,	"FMTaken");	// Verstärkung vor das Haupttor (Fernkämpfer)
-		B_ExchangeRoutine	(GRD_214_Torwache,	"FMTaken");	// reguläre Wache am Haupttor
-		B_ExchangeRoutine	(GRD_215_Torwache,	"FMTaken");	// reguläre Wache am Haupttor
-
-		//-------- Kampfgruppe vor Hinterem Tor --------
-		B_ExchangeRoutine	(GRD_233_Bloodwyn,	"FMTaken");	// Verstärkung vor das Hinterem Tor (Anführer)
-		B_ExchangeRoutine	(GRD_232_Gardist,	"FMTaken");	// Verstärkung vor das Hinterem Tor
-		B_ExchangeRoutine	(GRD_229_Gardist,	"FMTaken");	// Verstärkung vor das Hinterem Tor (Fernkämpfer)
-		B_ExchangeRoutine	(GRD_216_Torwache,	"FMTaken");	// reguläre Wache am Hinteren Tor
-		B_ExchangeRoutine	(GRD_217_Torwache,	"FMTaken");	// reguläre Wache am Hinteren Tor
 		
 		//------------ Die Templer gehen nicht mehr zur Alten Mine ---------------------
 		
@@ -240,7 +255,7 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 		B_GiveRiordianChapter6Potions ();
 		B_Give_CavalornChapter6Weapons ();
 		B_Give_WolfChapter6Weapons();		
-
+		
 		//-------- Tagebucheinträge --------
 		B_LogEntry		(CH4_EnterTemple,	"Gorn nie by³ przekonany co do skutecznoœci mojego amuletu ochronnego. Có¿... Wkrótce na w³asnej skórze przekonam siê, kto ma racjê!");
 
@@ -263,7 +278,12 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 
 		//-------- URIZIEL aufladen --------
 		PlayVideo		("OREHEAP.BIK");	// Schwert aufladen
-		CreateInvItem 	(hero, Mythrilklinge02);	
+		if (Uriziel_1H){
+			CreateInvItem 	(hero, ITMW_1H_URIZIEL_2);
+		}
+		else{
+			CreateInvItem 	(hero, Mythrilklinge02);
+		};
 		
 		introducechapter ("Rozdzia³ 6","Le¿e Œni¹cego","chapter6.tga","levelup.wav", 6000);
 		//introducechapter ("Chapter 6","The sleeper's halls","chapter6.tga","levelup.wav", 6000);

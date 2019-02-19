@@ -1,5 +1,5 @@
 /*******************************************************************************************
-**	Rüstungswert-Multiplikator	                                         				  **
+**	ArmorCosts                                         				  **
 *******************************************************************************************/
 const int	ARMOR_VALUE_MULTIPLIER	= 30;	// wird mit Schutzwert gegen EDGE-Schaden multipliziert
 
@@ -21,8 +21,8 @@ const int VALUE_KDW_ARMOR_L = 1950;
 const int VALUE_KDW_ARMOR_H = 2100;
 
 const int VALUE_ORG_ARMOR_L =  750;
-const int VALUE_ORG_ARMOR_M = 1050;
-const int VALUE_ORG_ARMOR_H = 1200;
+const int VALUE_ORG_ARMOR_M = 1200;
+const int VALUE_ORG_ARMOR_H = 1350;
 
 const int VALUE_SLD_ARMOR_L = 1350;
 const int VALUE_SLD_ARMOR_M = 1650;
@@ -37,7 +37,16 @@ const int VALUE_VLK_ARMOR_M = 500;
 
 const int VALUE_SFB_ARMOR_L = 250;
 
+/*******************************************************************************************
+**	ChangeBodySkin                                         				  **
+*******************************************************************************************/
 
+FUNC VOID default_skin()
+{
+	if(hero.id == 0){
+		Mdl_SetVisualBody (hero,"hum_body_Naked0",	4,			1,	"Hum_Head_Pony",		9, 			0,			-1);
+	};
+};
 
 /*******************************************************************************************
 **	OldCamp	                                         	  		 						  **
@@ -55,8 +64,8 @@ INSTANCE VLK_ARMOR_L(C_Item)
 
 	protection [PROT_EDGE]	=	10;
 	protection [PROT_BLUNT] = 	10;
-	protection [PROT_POINT] = 	0;
-	protection [PROT_FIRE] 	= 	5;
+	protection [PROT_POINT] = 	10;
+	protection [PROT_FIRE] 	= 	0;
 	protection [PROT_MAGIC] = 	0;
 
 	value 					=	VALUE_VLK_ARMOR_L;
@@ -87,8 +96,8 @@ INSTANCE VLK_ARMOR_M(C_Item)
 
 	protection [PROT_EDGE]	=	15;
 	protection [PROT_BLUNT] = 	15;
-	protection [PROT_POINT] =   0;
-	protection [PROT_FIRE] 	= 	5;
+	protection [PROT_POINT] =   15;
+	protection [PROT_FIRE] 	= 	0;
 	protection [PROT_MAGIC] = 	0;
 
 	value 					=	VALUE_VLK_ARMOR_M;
@@ -119,10 +128,10 @@ INSTANCE STT_ARMOR_M(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	30;
-	protection [PROT_BLUNT] = 	30;
-	protection [PROT_POINT] = 	5;
-	protection [PROT_FIRE] 	= 	15;
+	protection [PROT_EDGE]	=	20;
+	protection [PROT_BLUNT] = 	20;
+	protection [PROT_POINT] = 	20;
+	protection [PROT_FIRE] 	= 	0;
 	protection [PROT_MAGIC] = 	0;
 
 	value 					=	VALUE_STT_ARMOR_M;
@@ -133,6 +142,8 @@ INSTANCE STT_ARMOR_M(C_Item)
 	visual_change 			=	"Hum_STTM_ARMOR.asc";
 	visual_skin 			=	0;
 	material 				=	MAT_LEATHER;
+	on_equip				=	STT_ARMOR_M_equip;
+	on_unequip				=	default_skin;
 
 	description				=	name;
 	//TEXT[0]				=	"";
@@ -143,6 +154,13 @@ INSTANCE STT_ARMOR_M(C_Item)
 	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
 };
 
+FUNC VOID STT_ARMOR_M_equip()
+{
+	if(hero.id == 0){
+		Mdl_SetVisualBody (hero,"hum_body_Naked0",	0,			1,	"Hum_Head_Pony",		9, 			0,			-1);
+	};
+};
+
 /******************************************************************************************/
 INSTANCE STT_ARMOR_H(C_Item)
 {
@@ -151,10 +169,10 @@ INSTANCE STT_ARMOR_H(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	40;
-	protection [PROT_BLUNT] = 	40;
-	protection [PROT_POINT] = 	5;
-	protection [PROT_FIRE] 	= 	20;
+	protection [PROT_EDGE]	=	30;
+	protection [PROT_BLUNT] = 	30;
+	protection [PROT_POINT] = 	30;
+	protection [PROT_FIRE] 	= 	0;
 	protection [PROT_MAGIC] = 	0;
 
 	value 					=	VALUE_STT_ARMOR_H;
@@ -185,10 +203,10 @@ INSTANCE GRD_ARMOR_L(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	45;
-	protection [PROT_BLUNT] = 	45;
-	protection [PROT_POINT] = 	5;
-	protection [PROT_FIRE] 	= 	20;
+	protection [PROT_EDGE]	=	40;
+	protection [PROT_BLUNT] = 	40;
+	protection [PROT_POINT] = 	40;
+	protection [PROT_FIRE] 	= 	0;
 	protection [PROT_MAGIC] = 	0;
 
 	value 					=	VALUE_GRD_ARMOR_L;
@@ -199,6 +217,8 @@ INSTANCE GRD_ARMOR_L(C_Item)
 	visual_change 			=	"Hum_GRDL_ARMOR.asc";
 	visual_skin 			=	0;
 	material 				=	MAT_LEATHER;
+	on_equip				=	GRD_ARMOR_L_equip;
+	on_unequip				=	default_skin;
 
 	description				=	name;
 	//TEXT[0]				=	"";
@@ -209,6 +229,13 @@ INSTANCE GRD_ARMOR_L(C_Item)
 	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
 };
 
+FUNC VOID GRD_ARMOR_L_equip()
+{
+	if(hero.id == 0){
+		Mdl_SetVisualBody (hero,"hum_body_Naked0",	0,			1,	"Hum_Head_Pony",		9, 			0,			-1);
+	};
+};
+
 /******************************************************************************************/
 INSTANCE GRD_ARMOR_M(C_Item)
 {
@@ -217,10 +244,10 @@ INSTANCE GRD_ARMOR_M(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE] 	=	55;
-	protection [PROT_BLUNT] = 	55;
-	protection [PROT_POINT] = 	10;
-	protection [PROT_FIRE] 	= 	25;
+	protection [PROT_EDGE] 	=	50;
+	protection [PROT_BLUNT] = 	50;
+	protection [PROT_POINT] = 	50;
+	protection [PROT_FIRE] 	= 	0;
 	protection [PROT_MAGIC] = 	0;
 
 	value 					=	VALUE_GRD_ARMOR_M;
@@ -251,8 +278,8 @@ INSTANCE GRD_ARMOR_H(C_Item)
 
 	protection [PROT_EDGE] 	=	70;
 	protection [PROT_BLUNT] = 	70;
-	protection [PROT_POINT] = 	10;
-	protection [PROT_FIRE] 	= 	35;
+	protection [PROT_POINT] = 	70;
+	protection [PROT_FIRE] 	= 	0;
 	protection [PROT_MAGIC] = 	0;
 
 	value 					=	VALUE_GRD_ARMOR_H;
@@ -283,11 +310,11 @@ INSTANCE EBR_ARMOR_M(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	72;
-	protection [PROT_BLUNT] = 	72;
-	protection [PROT_POINT] = 	7;
-	protection [PROT_FIRE] 	= 	36;
-	protection [PROT_MAGIC] = 	3;
+	protection [PROT_EDGE]	=	40;
+	protection [PROT_BLUNT] = 	40;
+	protection [PROT_POINT] = 	40;
+	protection [PROT_FIRE] 	= 	0;
+	protection [PROT_MAGIC] = 	0;
 
 	value 					=	protection [PROT_EDGE] * ARMOR_VALUE_MULTIPLIER;
 
@@ -320,9 +347,9 @@ INSTANCE EBR_ARMOR_H(C_Item)
 
 	protection [PROT_EDGE]	=	85;
 	protection [PROT_BLUNT] = 	85;
-	protection [PROT_POINT] = 	9;
-	protection [PROT_FIRE] 	= 	42;
-	protection [PROT_MAGIC] = 	3;
+	protection [PROT_POINT] = 	85;
+	protection [PROT_FIRE] 	= 	30;
+	protection [PROT_MAGIC] = 	0;
 
 	value 					=	protection [PROT_EDGE] * ARMOR_VALUE_MULTIPLIER;
 
@@ -352,11 +379,11 @@ INSTANCE EBR_ARMOR_H2(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	80;
-	protection [PROT_BLUNT] = 	80;
-	protection [PROT_POINT] = 	8;
-	protection [PROT_FIRE] 	= 	40;
-	protection [PROT_MAGIC] = 	3;
+	protection [PROT_EDGE]	=	70;
+	protection [PROT_BLUNT] = 	70;
+	protection [PROT_POINT] = 	70;
+	protection [PROT_FIRE] 	= 	0;
+	protection [PROT_MAGIC] = 	0;
 
 	value 					=	protection [PROT_EDGE] * ARMOR_VALUE_MULTIPLIER;
 
@@ -387,15 +414,15 @@ INSTANCE EBR_ARMOR_H2(C_Item)
 
 instance SFB_ARMOR_L(C_Item)
 {
-	name 					=	"Strój Kopacza";
+	name 					=	"Spodnie Kreta";
 
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
 	protection [PROT_EDGE]	=	10;
 	protection [PROT_BLUNT] = 	10;
-	protection [PROT_POINT] = 	0;
-	protection [PROT_FIRE] 	= 	5;
+	protection [PROT_POINT] = 	10;
+	protection [PROT_FIRE] 	= 	0;
 	protection [PROT_MAGIC] = 	0;
 
 	value 					=	VALUE_SFB_ARMOR_L;
@@ -426,10 +453,10 @@ INSTANCE ORG_ARMOR_L(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	30;
-	protection [PROT_BLUNT] = 	30;
-	protection [PROT_POINT] = 	5;
-	protection [PROT_FIRE] 	= 	15;
+	protection [PROT_EDGE]	=	20;
+	protection [PROT_BLUNT] = 	20;
+	protection [PROT_POINT] = 	20;
+	protection [PROT_FIRE] 	= 	0;
 	protection [PROT_MAGIC] = 	0;
 
 	value 					=	VALUE_ORG_ARMOR_L;
@@ -453,15 +480,15 @@ INSTANCE ORG_ARMOR_L(C_Item)
 /******************************************************************************************/
 INSTANCE ORG_ARMOR_M(C_Item)
 {
-	name 					=	"Strój Szkodnika";
+	name 					=	"Cie¿ki Strój Szkodnika";
 
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	35;
-	protection [PROT_BLUNT] = 	35;
-	protection [PROT_POINT] = 	5;
-	protection [PROT_FIRE] 	= 	15;
+	protection [PROT_EDGE]	=	25;
+	protection [PROT_BLUNT] = 	25;
+	protection [PROT_POINT] = 	25;
+	protection [PROT_FIRE] 	= 	0;
 	protection [PROT_MAGIC] = 	0;
 
 	value 					=	VALUE_ORG_ARMOR_M;
@@ -485,15 +512,15 @@ INSTANCE ORG_ARMOR_M(C_Item)
 /******************************************************************************************/
 INSTANCE ORG_ARMOR_H(C_Item)
 {
-	name 					=	"Ciê¿ki strój Szkodnika";
+	name 					=	"Lekka zbroja Najemnika";
 
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	40;
-	protection [PROT_BLUNT] = 	40;
-	protection [PROT_POINT] = 	5;
-	protection [PROT_FIRE] 	= 	20;
+	protection [PROT_EDGE]	=	30;
+	protection [PROT_BLUNT] = 	30;
+	protection [PROT_POINT] = 	30;
+	protection [PROT_FIRE] 	= 	0;
 	protection [PROT_MAGIC] = 	0;
 
 	value 					=	VALUE_ORG_ARMOR_H;
@@ -517,15 +544,15 @@ INSTANCE ORG_ARMOR_H(C_Item)
 /******************************************************************************************/
 INSTANCE SLD_ARMOR_L(C_Item)
 {
-	name 					=	"Lekka zbroja Najemnika";
+	name 					=	" Stara Lekka zbroja Najemnika";
 
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	45;
-	protection [PROT_BLUNT]	= 	45;
-	protection [PROT_POINT] = 	5;
-	protection [PROT_FIRE] 	=	20;
+	protection [PROT_EDGE]	=	30;
+	protection [PROT_BLUNT]	= 	30;
+	protection [PROT_POINT] = 	30;
+	protection [PROT_FIRE] 	=	0;
 	protection [PROT_MAGIC] = 	0;
 
 	value 					=	VALUE_SLD_ARMOR_L;
@@ -554,11 +581,11 @@ instance SLD_ARMOR_M(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	55;
-	protection [PROT_BLUNT] = 	55;
-	protection [PROT_POINT] = 	10;
-	protection [PROT_FIRE] 	= 	25;
-	protection [PROT_MAGIC] = 	0;
+	protection [PROT_EDGE]	=	45;
+	protection [PROT_BLUNT] = 	45;
+	protection [PROT_POINT] = 	45;
+	protection [PROT_FIRE] 	= 	5;
+	protection [PROT_MAGIC] = 	5;
 
 	value 					=	VALUE_SLD_ARMOR_M;
 
@@ -586,11 +613,11 @@ INSTANCE SLD_ARMOR_H(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	70;
-	protection [PROT_BLUNT] = 	70;
-	protection [PROT_POINT] = 	10;
-	protection [PROT_FIRE] 	= 	35;
-	protection [PROT_MAGIC] = 	0;
+	protection [PROT_EDGE]	=	60;
+	protection [PROT_BLUNT] = 	60;
+	protection [PROT_POINT] = 	60;
+	protection [PROT_FIRE] 	= 	10;
+	protection [PROT_MAGIC] = 	10;
 
 	value 					=	VALUE_SLD_ARMOR_H;
 
@@ -625,10 +652,10 @@ INSTANCE NOV_ARMOR_L(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=   15;
-	protection [PROT_BLUNT] = 	15;
-	protection [PROT_POINT] = 	0;
-	protection [PROT_FIRE] 	= 	10;
+	protection [PROT_EDGE]	=   10;
+	protection [PROT_BLUNT] = 	10;
+	protection [PROT_POINT] = 	10;
+	protection [PROT_FIRE] 	= 	0;
 	protection [PROT_MAGIC] = 	0;
 
 	value 					=	VALUE_NOV_ARMOR_L;
@@ -639,6 +666,8 @@ INSTANCE NOV_ARMOR_L(C_Item)
 	visual_change 			=	"Hum_NOVL_ARMOR.asc";
 	visual_skin 			=	0;
 	material 				=	MAT_LEATHER;
+	on_equip				=	NOV_ARMOR_L_equip;
+	on_unequip				=	default_skin;
 
 	description				=	name;
 	//TEXT[0]				=	"";
@@ -647,6 +676,13 @@ INSTANCE NOV_ARMOR_L(C_Item)
 	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
 	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
 	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};
+
+FUNC VOID NOV_ARMOR_L_equip()
+{
+	if(hero.id == 0){
+		Mdl_SetVisualBody (hero,"hum_body_Naked0",	0,			1,	"Hum_Head_Bald",		118, 			0,			-1);
+	};
 };
 
 /******************************************************************************************/
@@ -657,10 +693,10 @@ INSTANCE NOV_ARMOR_M(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	30;
-	protection [PROT_BLUNT] = 	30;
-	protection [PROT_POINT] = 	0;
-	protection [PROT_FIRE] 	= 	15;
+	protection [PROT_EDGE]	=	20;
+	protection [PROT_BLUNT] = 	20;
+	protection [PROT_POINT] = 	20;
+	protection [PROT_FIRE] 	= 	0;
 	protection [PROT_MAGIC] = 	0;
 	wear 					=	WEAR_TORSO;
 
@@ -671,6 +707,8 @@ INSTANCE NOV_ARMOR_M(C_Item)
 	visual_change 			=	"Hum_NOVM_ARMOR.asc";
 	visual_skin 			=	0;
 	material 				=	MAT_LEATHER;
+	on_equip				=	NOV_ARMOR_M_equip;
+	on_unequip				=	default_skin;
 
 	description				=	name;
 	//TEXT[0]				=	"";
@@ -681,6 +719,14 @@ INSTANCE NOV_ARMOR_M(C_Item)
 	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
 };
 
+FUNC VOID NOV_ARMOR_M_equip()
+{
+	if(hero.id == 0){
+		Mdl_SetVisualBody (hero,"hum_body_Naked0",	1,			1,	"Hum_Head_Bald",		124, 			0,			-1);
+	};
+};
+
+
 /******************************************************************************************/
 INSTANCE NOV_ARMOR_H(C_Item)
 {
@@ -689,10 +735,10 @@ INSTANCE NOV_ARMOR_H(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	40;
-	protection [PROT_BLUNT] = 	40;
-	protection [PROT_POINT] = 	5;
-	protection [PROT_FIRE] 	= 	20;
+	protection [PROT_EDGE]	=	25;
+	protection [PROT_BLUNT] = 	25;
+	protection [PROT_POINT] = 	25;
+	protection [PROT_FIRE] 	= 	0;
 	protection [PROT_MAGIC] = 	0;
 
 	value 					=	VALUE_NOV_ARMOR_H;
@@ -703,6 +749,8 @@ INSTANCE NOV_ARMOR_H(C_Item)
 	visual_change 			=	"Hum_NOVS_ARMOR.asc";
 	visual_skin 			=	0;
 	material 				=	MAT_LEATHER;
+	on_equip				=	NOV_ARMOR_H_equip;
+	on_unequip				=	default_skin;
 
 	description				=	name;
 	//TEXT[0]				=	"";
@@ -712,6 +760,14 @@ INSTANCE NOV_ARMOR_H(C_Item)
 	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
 	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
 };
+
+FUNC VOID NOV_ARMOR_H_equip()
+{
+	if(hero.id == 0){
+		Mdl_SetVisualBody (hero,"hum_body_Naked0",	1,			1,	"Hum_Head_Bald",		124, 			0,			-1);
+	};
+};
+
 
 /******************************************************************************************/
 // Templer
@@ -723,10 +779,10 @@ INSTANCE TPL_ARMOR_L(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	45;
-	protection [PROT_BLUNT] = 	45;
-	protection [PROT_POINT] = 	5;
-	protection [PROT_FIRE] 	= 	20;
+	protection [PROT_EDGE]	=	30;
+	protection [PROT_BLUNT] = 	30;
+	protection [PROT_POINT] = 	30;
+	protection [PROT_FIRE] 	= 	15;
 	protection [PROT_MAGIC] = 	0;
 
 	value 					=	VALUE_TPL_ARMOR_L;
@@ -737,6 +793,8 @@ INSTANCE TPL_ARMOR_L(C_Item)
 	visual_change 			=	"Hum_TPLL_ARMOR.asc";
 	visual_skin 			=	0;
 	material 				=	MAT_LEATHER;
+	on_equip				=	TPL_ARMOR_L_equip;
+	on_unequip				=	default_skin;
 
 	description				=	name;
 	//TEXT[0]				=	"";
@@ -747,6 +805,13 @@ INSTANCE TPL_ARMOR_L(C_Item)
 	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
 };
 
+FUNC VOID TPL_ARMOR_L_equip()
+{
+	if(hero.id == 0){
+		Mdl_SetVisualBody (hero,"hum_body_Naked0",	1,			1,	"Hum_Head_Bald",		119, 			0,			-1);
+	};
+};
+
 /******************************************************************************************/
 INSTANCE TPL_ARMOR_M(C_Item)
 {
@@ -755,9 +820,9 @@ INSTANCE TPL_ARMOR_M(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	55;
-	protection [PROT_BLUNT] = 	55;
-	protection [PROT_POINT] = 	10;
+	protection [PROT_EDGE]	=	45;
+	protection [PROT_BLUNT] = 	45;
+	protection [PROT_POINT] = 	45;
 	protection [PROT_FIRE] 	= 	25;
 	protection [PROT_MAGIC] = 	0;
 
@@ -769,6 +834,8 @@ INSTANCE TPL_ARMOR_M(C_Item)
 	visual_change 			=	"Hum_TPLM_ARMOR.asc";
 	visual_skin 			=	0;
 	material 				=	MAT_LEATHER;
+	on_equip				=	TPL_ARMOR_M_equip;
+	on_unequip				=	default_skin;
 
 	description				=	name;
 	//TEXT[0]				=	"";
@@ -777,6 +844,13 @@ INSTANCE TPL_ARMOR_M(C_Item)
 	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
 	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
 	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};
+
+FUNC VOID TPL_ARMOR_M_equip()
+{
+	if(hero.id == 0){
+		Mdl_SetVisualBody (hero,"hum_body_Naked0",	1,			1,	"Hum_Head_Bald",		121, 			0,			-1);
+	};
 };
 
 /******************************************************************************************/
@@ -789,7 +863,7 @@ INSTANCE TPL_ARMOR_H(C_Item)
 
 	protection [PROT_EDGE]	=	70;
 	protection [PROT_BLUNT] = 	70;
-	protection [PROT_POINT] = 	10;
+	protection [PROT_POINT] = 	70;
 	protection [PROT_FIRE] 	= 	35;
 	protection [PROT_MAGIC] = 	0;
 
@@ -801,6 +875,8 @@ INSTANCE TPL_ARMOR_H(C_Item)
 	visual_change 			=	"Hum_TPLS_ARMOR.asc";
 	visual_skin 			=	0;
 	material 				=	MAT_LEATHER;
+	on_equip				=	TPL_ARMOR_H_equip;
+	on_unequip				=	default_skin;
 
 	description				=	name;
 	//TEXT[0]				=	"";
@@ -809,6 +885,13 @@ INSTANCE TPL_ARMOR_H(C_Item)
 	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
 	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
 	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};
+
+FUNC VOID TPL_ARMOR_H_equip()
+{
+	if(hero.id == 0){
+		Mdl_SetVisualBody (hero,"hum_body_Naked0",	1,			1,	"Hum_Head_Bald",		120, 			0,			-1);
+	};
 };
 
 /******************************************************************************************/
@@ -821,11 +904,11 @@ INSTANCE GUR_ARMOR_M(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE] 	=	71;
-	protection [PROT_BLUNT] = 	71;
-	protection [PROT_POINT] = 	7;
-	protection [PROT_FIRE] 	= 	35;
-	protection [PROT_MAGIC] = 	3;
+	protection [PROT_EDGE] 	=	35;
+	protection [PROT_BLUNT] = 	35;
+	protection [PROT_POINT] = 	35;
+	protection [PROT_FIRE] 	= 	25;
+	protection [PROT_MAGIC] = 	25;
 
 	value 					=	protection [PROT_EDGE] * ARMOR_VALUE_MULTIPLIER;
 
@@ -836,6 +919,8 @@ INSTANCE GUR_ARMOR_M(C_Item)
 	visual_change 			=	"Hum_GURM_ARMOR.asc";
 	visual_skin 			=	0;
 	material 				=	MAT_LEATHER;
+	on_equip				=	GUR_ARMOR_M_equip;
+	on_unequip				=	default_skin;
 
 	description				=	name;
 	//TEXT[0]				=	"";
@@ -846,6 +931,13 @@ INSTANCE GUR_ARMOR_M(C_Item)
 	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
 };
 
+FUNC VOID GUR_ARMOR_M_equip()
+{
+	if(hero.id == 0){
+		Mdl_SetVisualBody (hero,"hum_body_Naked0",	1,			1,	"Hum_Head_Bald",		122, 			0,			-1);
+	};
+};
+
 /******************************************************************************************/
 INSTANCE GUR_ARMOR_H(C_Item)
 {
@@ -854,11 +946,11 @@ INSTANCE GUR_ARMOR_H(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE] 	=	82;
-	protection [PROT_BLUNT] = 	82;
-	protection [PROT_POINT] = 	8;
-	protection [PROT_FIRE] 	= 	41;
-	protection [PROT_MAGIC] = 	4;
+	protection [PROT_EDGE] 	=	45;
+	protection [PROT_BLUNT] = 	45;
+	protection [PROT_POINT] = 	45;
+	protection [PROT_FIRE] 	= 	35;
+	protection [PROT_MAGIC] = 	35;
 	wear 					=	WEAR_TORSO;
 
  	value 					=	protection [PROT_EDGE] * ARMOR_VALUE_MULTIPLIER;
@@ -868,6 +960,8 @@ INSTANCE GUR_ARMOR_H(C_Item)
 	visual_change 			=	"Hum_GURS_ARMOR.asc";
 	visual_skin 			=	0;
 	material 				=	MAT_LEATHER;
+	on_equip				=	GUR_ARMOR_H_equip;
+	on_unequip				=	default_skin;
 
 	description				=	name;
 	//TEXT[0]				=	"";
@@ -876,6 +970,13 @@ INSTANCE GUR_ARMOR_H(C_Item)
 	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
 	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
 	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};
+
+FUNC VOID GUR_ARMOR_H_equip()
+{
+	if(hero.id == 0){
+		Mdl_SetVisualBody (hero,"hum_body_Naked0",	1,			1,	"Hum_Head_Bald",		123, 			0,			-1);
+	};
 };
 
 
@@ -895,9 +996,9 @@ INSTANCE KDF_ARMOR_L(C_Item)
 
 	protection [PROT_EDGE]	=	40;
 	protection [PROT_BLUNT] = 	40;
-	protection [PROT_POINT] = 	5;
-	protection [PROT_FIRE] 	= 	25;
-	protection [PROT_MAGIC] = 	5;
+	protection [PROT_POINT] = 	40;
+	protection [PROT_FIRE] 	= 	20;
+	protection [PROT_MAGIC] = 	20;
 	wear 					=	WEAR_TORSO;
 
  	value 					=	VALUE_KDF_ARMOR_L;
@@ -919,16 +1020,16 @@ INSTANCE KDF_ARMOR_L(C_Item)
 /******************************************************************************************/
 INSTANCE KDF_ARMOR_H(C_Item)
 {
-	name 					=	"Zdobiona szata Ognia";
+	name 					=	"Szata Arcymaga Ognia";
 
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	50;
-	protection [PROT_BLUNT] = 	50;
-	protection [PROT_POINT] = 	5;
-	protection [PROT_FIRE] 	= 	30;
-	protection [PROT_MAGIC] = 	10;
+	protection [PROT_EDGE]	=	65;
+	protection [PROT_BLUNT] = 	65;
+	protection [PROT_POINT] = 	65;
+	protection [PROT_FIRE] 	= 	35;
+	protection [PROT_MAGIC] = 	35;
 	wear 					=	WEAR_TORSO;
 
 	value 					=	VALUE_KDF_ARMOR_H;
@@ -957,19 +1058,20 @@ INSTANCE KDW_ARMOR_L(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	65;
-	protection [PROT_BLUNT] = 	65;
-	protection [PROT_POINT] = 	5;
-	protection [PROT_FIRE] 	= 	40;
-	protection [PROT_MAGIC] = 	15;
+	protection [PROT_EDGE]	=	50;
+	protection [PROT_BLUNT] = 	50;
+	protection [PROT_POINT] = 	50;
+	protection [PROT_FIRE] 	= 	25;
+	protection [PROT_MAGIC] = 	25;
 
-	value 					=	VALUE_KDW_ARMOR_L;
+	value 					=	VALUE_KDF_ARMOR_H;
 
 	wear 					=	WEAR_TORSO;
-
+	
 	visual 					=	"kdwl.3ds";
 	visual_change 			=	"Hum_KDWL_ARMOR.asc";
 	visual_skin 			=	0;
+	material 				=	MAT_LEATHER;
 	material 				=	MAT_LEATHER;
 
 	description				=	name;
@@ -989,11 +1091,11 @@ INSTANCE KDW_ARMOR_H(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE]	=	70;
-	protection [PROT_BLUNT] = 	70;
-	protection [PROT_POINT] = 	10;
-	protection [PROT_FIRE] 	= 	45;
-	protection [PROT_MAGIC] = 	20;
+	protection [PROT_EDGE]	=	80;
+	protection [PROT_BLUNT] = 	80;
+	protection [PROT_POINT] = 	80;
+	protection [PROT_FIRE] 	= 	40;
+	protection [PROT_MAGIC] = 	40;
 	wear 					=	WEAR_TORSO;
 
 	value 					=	VALUE_KDW_ARMOR_H;
@@ -1022,11 +1124,11 @@ INSTANCE DMB_ARMOR_M(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE] 	= 	90;
-	protection [PROT_BLUNT] = 	90;
-	protection [PROT_POINT] = 	20;
-	protection [PROT_FIRE] 	= 	60;
-	protection [PROT_MAGIC] = 	30;
+	protection [PROT_EDGE] 	= 	80;
+	protection [PROT_BLUNT] = 	80;
+	protection [PROT_POINT] = 	80;
+	protection [PROT_FIRE] 	= 	45;
+	protection [PROT_MAGIC] = 	45;
 
 	wear 					=	WEAR_TORSO;
 
@@ -1066,7 +1168,7 @@ INSTANCE CRW_ARMOR_H(C_Item)
 
 	protection [PROT_EDGE] 	= 	80;
 	protection [PROT_BLUNT] = 	80;
-	protection [PROT_POINT] = 	15;
+	protection [PROT_POINT] = 	80;
 	protection [PROT_FIRE] 	= 	30;
 	protection [PROT_MAGIC] = 	5;
 
@@ -1098,11 +1200,11 @@ INSTANCE ORE_ARMOR_M(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE] 	= 	95;
-	protection [PROT_BLUNT] = 	95;
-	protection [PROT_POINT] = 	25;
-	protection [PROT_FIRE] 	= 	40;
-	protection [PROT_MAGIC] = 	10;
+	protection [PROT_EDGE] 	= 	100;
+	protection [PROT_BLUNT] = 	100;
+	protection [PROT_POINT] = 	100;
+	protection [PROT_FIRE] 	= 	50;
+	protection [PROT_MAGIC] = 	50;
 
 	value 					=	protection [PROT_EDGE] * ARMOR_VALUE_MULTIPLIER * 2; // x2 weil einzigartig
 
@@ -1129,11 +1231,11 @@ INSTANCE ORE_ARMOR_H(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE] 	= 	100;
-	protection [PROT_BLUNT] = 	100;
-	protection [PROT_POINT] = 	30;
-	protection [PROT_FIRE] 	= 	45;
-	protection [PROT_MAGIC] = 	15;
+	protection [PROT_EDGE] 	= 	110;
+	protection [PROT_BLUNT] = 	110;
+	protection [PROT_POINT] = 	110;
+	protection [PROT_FIRE] 	= 	60;
+	protection [PROT_MAGIC] = 	60;
 
 	value 					=	protection [PROT_EDGE] * ARMOR_VALUE_MULTIPLIER * 2;	// x2 weil einzigartig
 
@@ -1168,8 +1270,8 @@ INSTANCE LAW_ARMOR (C_Item)
 
 	protection [PROT_EDGE] 	= 	20;
 	protection [PROT_BLUNT] = 	20;
-	protection [PROT_POINT] = 	2;
-	protection [PROT_FIRE] 	= 	10;
+	protection [PROT_POINT] = 	20;
+	protection [PROT_FIRE] 	= 	0;
 	protection [PROT_MAGIC] = 	0;
 
 	value 					=	protection [PROT_EDGE] * ARMOR_VALUE_MULTIPLIER;
@@ -1208,7 +1310,7 @@ INSTANCE GRD_ARMOR_I(C_Item)
 
 	protection [PROT_EDGE] 	=	50;
 	protection [PROT_BLUNT] = 	50;
-	protection [PROT_POINT] = 	5;
+	protection [PROT_POINT] = 	50;
 	protection [PROT_FIRE] 	= 	25;
 	protection [PROT_MAGIC] = 	1;
 
@@ -1279,3 +1381,140 @@ INSTANCE BAB_ARMOR_BIKINI (C_Item)
 	material 				=	MAT_LEATHER;
 };
 /******************************************************************************************/
+/**********************************Drops_Armor*********************************************/
+INSTANCE KDF_ARMOR_H2(C_Item)
+{
+	name 					=	"Stara Szata Xardasa";
+
+	mainflag 				=	ITEM_KAT_ARMOR;
+	flags 					=	0;
+
+	protection [PROT_EDGE] 	= 	90;
+	protection [PROT_BLUNT] = 	90;
+	protection [PROT_POINT] = 	90;
+	protection [PROT_FIRE] 	= 	45;
+	protection [PROT_MAGIC] = 	45;
+
+	wear 					=	WEAR_TORSO;
+
+ 	value 					=	protection [PROT_EDGE] * ARMOR_VALUE_MULTIPLIER;
+
+	ownerGuild 				= 	GIL_DMB;
+
+	visual 					=	"dmbm.3ds";
+	visual_change 			=	"Hum_DMBM_ARMOR.asc";
+	visual_skin 			=	1;
+	material 				=	MAT_LEATHER;
+
+	description				=	name;
+	//TEXT[0]				=	"";
+	TEXT[1]					=	NAME_Prot_Edge;			COUNT[1]	= protection	[PROT_EDGE];
+	TEXT[2]					=	NAME_Prot_Point;		COUNT[2]	= protection	[PROT_POINT];
+	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
+	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
+	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};
+
+INSTANCE DMB_ARMOR_GUR(C_Item)
+{
+	name 					=	"Szata Mrocznych Sztuk";
+
+	mainflag 				=	ITEM_KAT_ARMOR;
+	flags 					=	0;
+
+	protection [PROT_EDGE] 	= 	85;
+	protection [PROT_BLUNT] = 	85;
+	protection [PROT_POINT] = 	85;
+	protection [PROT_FIRE] 	= 	45;
+	protection [PROT_MAGIC] = 	45;
+
+	wear 					=	WEAR_TORSO;
+
+ 	value 					=	protection [PROT_EDGE] * ARMOR_VALUE_MULTIPLIER;
+
+	ownerGuild 				= 	GIL_DMB;
+
+	visual 					=	"dmbm.3ds";
+	visual_change 			=	"Hum_DMBM_ARMOR.asc";
+	visual_skin 			=	2;
+	material 				=	MAT_LEATHER;
+	on_equip				=	DMB_ARMOR_GUR_equip;
+	on_unequip				=	default_skin;
+
+	description				=	name;
+	//TEXT[0]				=	"";
+	TEXT[1]					=	NAME_Prot_Edge;			COUNT[1]	= protection	[PROT_EDGE];
+	TEXT[2]					=	NAME_Prot_Point;		COUNT[2]	= protection	[PROT_POINT];
+	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
+	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
+	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};
+
+FUNC VOID DMB_ARMOR_GUR_equip()
+{
+	if(hero.id == 0){
+		Mdl_SetVisualBody (hero,"hum_body_Naked0",	1,			1,	"Hum_Head_Bald",		125, 			0,			-1);
+	};
+};
+
+INSTANCE BDT_ARMOR_M(C_Item)
+{
+	name 					=	"Œredni pancerz bandyty";
+
+	mainflag 				=	ITEM_KAT_ARMOR;
+	flags 					=	0;
+
+	protection [PROT_EDGE]	=	35;
+	protection [PROT_BLUNT] = 	35;
+	protection [PROT_POINT] = 	35;
+	protection [PROT_FIRE] 	= 	0;
+	protection [PROT_MAGIC] = 	0;
+
+	value 					=	VALUE_ORG_ARMOR_L;
+
+	wear 					=	WEAR_TORSO;
+
+	visual 					=	"orgl.3ds";
+	visual_change 			=	"Hum_ORGL_ARMOR.asc";
+	visual_skin 			=	1;
+	material 				=	MAT_LEATHER;
+
+	description				=	name;
+	//TEXT[0]				=	"";
+	TEXT[1]					=	NAME_Prot_Edge;			COUNT[1]	= protection	[PROT_EDGE];
+	TEXT[2]					=	NAME_Prot_Point;		COUNT[2]	= protection	[PROT_POINT];
+	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
+	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
+	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};
+
+INSTANCE BDT_ARMOR_H(C_Item)
+{
+	name 					=	"Cie¿ki pancerz bandyty";
+
+	mainflag 				=	ITEM_KAT_ARMOR;
+	flags 					=	0;
+
+	protection [PROT_EDGE]	=	45;
+	protection [PROT_BLUNT] = 	45;
+	protection [PROT_POINT] = 	45;
+	protection [PROT_FIRE] 	= 	0;
+	protection [PROT_MAGIC] = 	0;
+
+	value 					=	VALUE_ORG_ARMOR_M;
+
+	wear 					=	WEAR_TORSO;
+
+	visual 					=	"orgm.3ds";
+	visual_change 			=	"Hum_ORGM_ARMOR.asc";
+	visual_skin 			=	1;
+	material 				=	MAT_LEATHER;
+
+	description				=	name;
+	//TEXT[0]				=	"";
+	TEXT[1]					=	NAME_Prot_Edge;			COUNT[1]	= protection	[PROT_EDGE];
+	TEXT[2]					=	NAME_Prot_Point;		COUNT[2]	= protection	[PROT_POINT];
+	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
+	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
+	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};

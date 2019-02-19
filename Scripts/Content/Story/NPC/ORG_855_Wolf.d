@@ -24,6 +24,7 @@ instance ORG_855_Wolf (Npc_Default)
 	// 				animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
+	Mdl_ApplyOverlayMds (self,"SHIELD_ST1.MDS");
 	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
 	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 1,"Hum_Head_Bald", 38,  1, ORG_ARMOR_H);
 	
@@ -36,7 +37,8 @@ instance ORG_855_Wolf (Npc_Default)
 
 	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);	
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
+	Npc_SetTalentSkill	(self, NPC_TALENT_SHIELD,1);	
 		
 	//-------- inventory --------
 	 B_Give_WolfChapter1Weapons ();                                   
@@ -50,7 +52,8 @@ instance ORG_855_Wolf (Npc_Default)
 	CreateInvItem (self, ItMi_Stuff_Barbknife_01);
 	CreateInvItem (self, ItFoMutton);
 	CreateInvItem (self, ItAt_Claws_01);	
-	EquipItem (self, ItMw_1H_Mace_War_01);		
+	EquipItem (self, ItMw_1H_Mace_War_01);
+	EquipItem (self, ITSH_WOLF_A);	
 	CreateInvItems (self, ItAmArrow, 20);
 	CreateInvItems (self, ItFo_wineberrys_01, 5);
 

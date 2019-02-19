@@ -44,7 +44,9 @@ instance DIA_CorAngar_LaterTrainer (C_INFO)
 
 FUNC int DIA_CorAngar_LaterTrainer_Condition()
 {
-	return 1;
+	if(Npc_GetTrueGuild(hero) != GIL_TPL && Npc_GetTrueGuild(hero) != GIL_GUR) {
+		return 1;
+	};
 };
 
 FUNC VOID DIA_CorAngar_LaterTrainer_Info()
@@ -52,7 +54,7 @@ FUNC VOID DIA_CorAngar_LaterTrainer_Info()
 	AI_Output(other,self,"GUR_1202_CorAngar_LaterTrainer_15_00"); //Mo¿esz mnie czegoœ nauczyæ?
 	AI_Output(self,other,"GUR_1202_CorAngar_LaterTrainer_08_01"); //Chcesz zostaæ silnym wojownikiem, wiêc szukasz mistrza, który wska¿e ci drogê.
 	AI_Output(self,other,"GUR_1202_CorAngar_LaterTrainer_08_02"); //To chwalebne, ale ja nie mogê ci pomóc.
-	AI_Output(self,other,"GUR_1202_CorAngar_LaterTrainer_08_03"); //Poœwiêcam mój czas tylko cz³onkom Wielkiego Krêgu Stra¿y Œwi¹tynnej.
+	AI_Output(self,other,"GUR_1202_CorAngar_LaterTrainer_08_03"); //Poœwiêcam mój czas tylko cz³onkom Wielkiego Krêgu Stra¿y Œwi¹tynnej. 
 };
 
 // ************************	
@@ -71,7 +73,7 @@ instance DIA_CorAngar_WieTempler (C_INFO)
 
 FUNC int DIA_CorAngar_WieTempler_Condition()
 {
-	if (Npc_KnowsInfo(hero,DIA_CorAngar_LaterTrainer) && (Npc_GetTrueGuild(other) != GIL_TPL) )
+	if (Npc_KnowsInfo(hero,DIA_CorAngar_LaterTrainer) && (Npc_GetTrueGuild(other) != GIL_TPL) && (Npc_GetTrueGuild(other) != GIL_GUR) )
 	{
 		return 1;
 	};
@@ -216,6 +218,7 @@ FUNC void  GUR_1202_CorAngar_WANNABETPL_Info()
 		GUR_1202_CorAngar_WANNABETPL.permanent = 0;
 		Npc_SetTrueGuild(hero, GIL_TPL);
 		hero.guild = GIL_TPL;
+		Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
 
 		Log_CreateTopic	(GE_BecomeTemplar,	LOG_NOTE);
 		B_LogEntry		(GE_BecomeTemplar,	"Dziœ Cor Angar przyj¹³ mnie w poczet Stra¿y Œwi¹tynnej. Gor Na Toth ma mi wrêczyæ moj¹ now¹ zbrojê. Znajdê go przy placu treningowym.");
@@ -235,14 +238,13 @@ instance  GUR_1202_CorAngar_ZWEIHAND1 (C_INFO)
 	information		= GUR_1202_CorAngar_ZWEIHAND1_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn2h_1,	LPCOST_TALENT_2H_1,0); 
+	description		= "Broñ dwurêczna +1% (10pkt. umiejêtnoœci)";
 };
 
 FUNC int  GUR_1202_CorAngar_ZWEIHAND1_Condition()
 {	
-	if (Npc_GetTalentSkill  (hero,NPC_TALENT_2H) < 1)
-	&& (Npc_GetTalentSkill  (hero,NPC_TALENT_1H) == 2)
-	&& (Npc_GetTrueGuild    (hero) == GIL_TPL)
+	if (Npc_GetTalentValue(hero, NPC_TALENT_2H) < 10)
+	&& (Npc_GetTrueGuild    (hero) == GIL_TPL || Npc_GetTrueGuild    (hero) == GIL_GUR)
 	{
 		return TRUE;
 	};
@@ -252,65 +254,41 @@ FUNC void  GUR_1202_CorAngar_ZWEIHAND1_Info()
 {
 	AI_Output			(other, self,"GUR_1202_CorAngar_ZWEIHAND1_Info_15_01"); //Chcia³bym potrafiæ pos³ugiwaæ siê dwurêcznym mieczem.
 	
-	if (B_GiveSkill(other,NPC_TALENT_2H , 1, LPCOST_TALENT_2H_1))
+	if (B_GiveSkill(other,NPC_TALENT_2H ,Npc_GetTalentSkill(hero, NPC_TALENT_2H)+1, LPCOST_TALENT_1H_1))
 	{
-		AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND1_Info_08_02"); //Walka dwurêcznym orê¿em stanowi powa¿ne wyzwanie dla twojej si³y i zrêcznoœci.
-		AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND1_Info_08_03"); //Aby móc sprawnie pos³ugiwaæ siê dwurêczna broni¹ musisz nie tylko rozwijaæ swoje cia³o, ale równie¿ i umys³.
-		AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND1_Info_08_04"); //Tylko pe³na kontrola nad cia³em i umys³em pozwoli ci rozwijaæ swoje umiejêtnoœci.
-		AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND1_Info_08_05"); //Koncentracja to podstawa. To ona jednoczy cia³o i umys³.
-
-		GUR_1202_CorAngar_ZWEIHAND1.permanent		= 0;
-
-		AI_StopProcessInfos	(self);
-		B_PracticeCombat	("PSI_PATH_6_7");
+		if (Npc_GetTalentValue(hero, NPC_TALENT_2H) == 1){
+			AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND1_Info_08_02"); //Walka dwurêcznym orê¿em stanowi powa¿ne wyzwanie dla twojej si³y i zrêcznoœci.
+			AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND1_Info_08_03"); //Aby móc sprawnie pos³ugiwaæ siê dwurêczna broni¹ musisz nie tylko rozwijaæ swoje cia³o, ale równie¿ i umys³.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_2H) == 2){
+			AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND1_Info_08_04"); //Tylko pe³na kontrola nad cia³em i umys³em pozwoli ci rozwijaæ swoje umiejêtnoœci.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_2H) == 3){
+			AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND1_Info_08_05"); //Koncentracja to podstawa. To ona jednoczy cia³o i umys³.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_2H) == 4){
+			AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND2_Info_08_02"); //Wiesz ju¿ jak zmusiæ ostrze swego miecza do tañca œmierci. Teraz poka¿ê ci jak wykorzystaæ twoje umiejêtnoœci w walce.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_2H) == 5){
+			AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND2_Info_08_03"); //Oczyma duszy spróbuj przewidzieæ nastêpny ruch twojego przeciwnika.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_2H) == 6){
+			AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND2_Info_08_04"); //Poznanie sposobu walki nieprzyjaciela to ju¿ po³owa sukcesu.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_2H) == 7){
+			AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND2_Info_08_05"); //B¹dŸ szybki, twoja ruchliwoœæ i p³ynnoœæ twoich ruchów powinny iœæ w parze z si³¹ i precyzj¹ twoich ciosów.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_2H) == 8){
+			AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND2_Info_08_06"); //Naucz siê ignorowaæ ból. To twoja si³a ducha zadecyduje o ostatecznym wyniku starcia.
+		}
+		else if (Npc_GetTalentValue(hero, NPC_TALENT_2H) == 9){
+			AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND2_Info_08_07"); //Zachowaj spokój. Zachowanie czystoœci umys³u i niezachwianej koncentracji przypieczêtuje twoje zwyciêstwo.
+		}
+		else{
+			AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND2_Info_08_08"); //Rozs¹dnie wykorzystuj swoje umiejêtnoœci, i pamiêtaj: kto prowokuje walkê - ginie w walce.
+		};
 	};
 };  
-//-------------------------------------------------------------------------
-//							ZWEIHANDKAMPF LERNEN STUFE 2
-//-------------------------------------------------------------------------
-instance  GUR_1202_CorAngar_ZWEIHAND2 (C_INFO)
-{
-	npc				= GUR_1202_CorAngar;
-	condition		= GUR_1202_CorAngar_ZWEIHAND2_Condition;
-	information		= GUR_1202_CorAngar_ZWEIHAND2_Info;
-	important		= 0;
-	permanent		= 1;
-	description		= B_BuildLearnString(NAME_Learn2h_2,	LPCOST_TALENT_2H_2,0); 
-};
-
-FUNC int  GUR_1202_CorAngar_ZWEIHAND2_Condition()
-{	
-	if (Npc_GetTalentSkill  (hero,NPC_TALENT_2H) == 1)
-	&& (Npc_GetTrueGuild    (hero) == GIL_TPL)
-	{
-		return TRUE;
-	};
-
-};
-FUNC void  GUR_1202_CorAngar_ZWEIHAND2_Info()
-{
-	AI_Output			(other, self,"GUR_1202_CorAngar_ZWEIHAND2_Info_15_01");		//Chcia³bym dowiedzieæ siê czegoœ wiêcej o walce dwurêcznym orê¿em.
-	
-	if (B_GiveSkill(other,NPC_TALENT_2H , 2, LPCOST_TALENT_2H_2))
-	{
-		AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND2_Info_08_02"); //Wiesz ju¿ jak zmusiæ ostrze swego miecza do tañca œmierci. Teraz poka¿ê ci jak wykorzystaæ twoje umiejêtnoœci w walce.
-		AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND2_Info_08_03"); //Oczyma duszy spróbuj przewidzieæ nastêpny ruch twojego przeciwnika.
-		AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND2_Info_08_04"); //Poznanie sposobu walki nieprzyjaciela to ju¿ po³owa sukcesu.
-		AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND2_Info_08_05"); //B¹dŸ szybki, twoja ruchliwoœæ i p³ynnoœæ twoich ruchów powinny iœæ w parze z si³¹ i precyzj¹ twoich ciosów.
-		AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND2_Info_08_06"); //Naucz siê ignorowaæ ból. To twoja si³a ducha zadecyduje o ostatecznym wyniku starcia.
-		AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND2_Info_08_07"); //Zachowaj spokój. Zachowanie czystoœci umys³u i niezachwianej koncentracji przypieczêtuje twoje zwyciêstwo.
-		AI_Output			(self, other,"GUR_1202_CorAngar_ZWEIHAND2_Info_08_08"); //Rozs¹dnie wykorzystuj swoje umiejêtnoœci, i pamiêtaj: kto prowokuje walkê - ginie w walce.
-
-		GUR_1202_CorAngar_ZWEIHAND2.permanent = 0;
-
-		AI_StopProcessInfos	(self);
-		B_PracticeCombat	("PSI_PATH_6_7");
-	};
-};  
-
-  
-  
-  
   
 //#####################################################################
 //##
@@ -682,4 +660,44 @@ FUNC VOID Info_CorAngar_TELEPORT_Info()
 	//-------- Spieler wird losgeschickt --------
 	B_Story_SentToNC	();
 };
+
+// ------DROPS-------------------GUR_ARMOR_H--------------------------------
  
+instance  GUR_1202_CorAngar_HEAVYROBE (C_INFO)
+{
+	npc				= GUR_1202_CorAngar;
+	nr				= 100;
+	condition		= GUR_1202_CorAngar_HEAVYROBE_Condition;
+	information		= GUR_1202_CorAngar_HEAVYROBE_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= "Chcia³bym nosiæ szatê Arcyguru."; 
+};
+
+FUNC int  GUR_1202_CorAngar_HEAVYROBE_Condition()
+{	
+	if (Npc_GetTrueGuild (hero) == GIL_GUR && Npc_KnowsInfo(hero,Info_CorAngar_FindHerb_Success) )
+	{
+		return TRUE;
+	};
+};
+
+FUNC void  GUR_1202_CorAngar_HEAVYROBE_Info()
+{
+	AI_Output				(other, self,"GUR_1202_CorAngar_HEAVYROBE_Info_15_01"); //Chcia³bym nosiæ szatê Arcyguru.
+	
+	if (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE ) < 4)
+	{
+		AI_Output		(self, other,"GUR_1202_CorAngar_HEAVYROBE_Info_08_02"); //Nie jesteœ jeszcze gotowy.
+		PrintScreen	("Wymagany 4 kr¹g Magii", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
+	}
+	else
+	{
+		AI_Output			(self, other,"GUR_1202_CorAngar_SENDS_Info_08_09"); //Odda³eœ Obozowi nieocenione us³ugi. Tylko na tobie mogê polegaæ.
+		GUR_1202_CorAngar_HEAVYROBE.permanent = 0;
+
+		CreateInvItem		(hero, GUR_ARMOR_H);
+		CreateInvItem		(hero, Stab_des_Lichts);
+		AI_EquipBestArmor	(hero);
+	};
+}; 

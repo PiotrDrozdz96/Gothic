@@ -1716,10 +1716,135 @@ func void Info_Diego_OCFAVOR_Info()
 	B_LogEntry			(CH4_4Friends,		"Wszyscy Magowie Ognia zginêli. Sytuacja wymyka siê spod kontroli. Diego kaza³ mi powiadomiæ Lestera i Gorna, ¿e maj¹ siê spotkaæ z nim i z Miltenem w tajemnym miejscu. Chyba nie robi¹ tego pierwszy raz!"); 
 };
 
+//***************************************************************************
+//	DROPS INFO_OLD_COINS
+//***************************************************************************
+instance Info_Diego_OldCoin (C_INFO)
+{
+	npc			= PC_Thief;
+	condition	= Info_Diego_OldCoin_Condition;
+	information	= Info_Diego_OldCoin_Info;
+	important	= 0;
+	permanent	= 0;
+	description = "Mam przy sobie pewn¹ star¹ monetê.";
+};
 
+FUNC int Info_Diego_OldCoin_Condition()
+{
+	if (KAPITEL<4 && Npc_HasItems (hero,ItMi_Stuff_OldCoin_01) )
+	{
+		return TRUE;
+	};	
+};
 
+func void Info_Diego_OldCoin_Info()
+{
+	AI_Output		(hero,self,"Info_Diego_OldCoin_15_01"); //Mam przy sobie pewn¹ star¹ monetê.
+	AI_Output		(self,hero,"Info_Diego_OldCoin_11_02"); //Nikogo nie obchodzi z³oto.
+	AI_Output		(hero,self,"Info_Diego_OldCoin_15_03"); //Dobra, zapomnijmy o ca³ej sprawie.
+	AI_Output		(self,hero,"Info_Diego_OldCoin_11_04"); //W ¿adnym wypadku.
+	AI_Output		(self,hero,"Info_Diego_OldCoin_11_05"); //Ktoœ musi mi je przynieœæ. Rozumiemy siê?
+	AI_Output		(hero,self,"Info_Diego_OldCoin_15_06"); //Dobrze, zobaczê co da siê zrobiæ.
+	
+	CreateInvItems(self, itminugget, 1);
+	B_GiveInvItems(self, other, itminugget, 1);
+	B_GiveInvItems	(hero, self, ItMi_Stuff_OldCoin_01,	1);
+				
+	Log_CreateTopic		(GE_TraderOC,LOG_NOTE);
+	B_LogEntry			(GE_TraderOC,"Diego zbiera z³ote monety, mimo i¿ nikogo one nie obchodz¹. Kaza³ mi przynieœæ wszystkie jakie znajdê."); 
+};
 
+//***************************************************************************
+//	DROPS BRING_OLD_COINS
+//***************************************************************************
 
+instance Diego_Bring_OldCoin (C_INFO)
+{
+	npc			= PC_Thief;
+	condition	= Diego_Bring_OldCoin_Condition;
+	information	= Diego_Bring_OldCoin_Info;
+	important	= 0;
+	permanent	= 1;
+	description = "Interesuj¹ ciê jeszcze stare monety?";
+};
+
+FUNC int Diego_Bring_OldCoin_Condition()
+{
+	if (KAPITEL<4 && Npc_HasItems (hero,ItMi_Stuff_OldCoin_01) && Npc_KnowsInfo(hero, Info_Diego_OldCoin) )
+	{
+		return TRUE;
+	};	
+};
+
+func void Diego_Bring_OldCoin_Info()
+{
+	AI_Output		(hero,self,"Diego_Bring_OldCoin_15_01"); //Interesuj¹ ciê jeszcze stare monety?
+	AI_Output (self, hero,"Info_Diego_BringList_Success_11_01"); //Dobra robota! Zaczynasz mi siê naprawdê podobaæ!
+	
+	
+	CreateInvItems(self, itminugget, Npc_HasItems (hero,ItMi_Stuff_OldCoin_01));
+	B_GiveInvItems(self, other, itminugget, Npc_HasItems (hero,ItMi_Stuff_OldCoin_01));
+	B_GiveInvItems	(hero, self, ItMi_Stuff_OldCoin_01,	Npc_HasItems (hero,ItMi_Stuff_OldCoin_01));
+	
+};
+
+//***************************************************************************
+//	DROPS DIEGO_IN_OCR_HUT_Z5
+//***************************************************************************
+
+instance Diego_MeetFriend (C_INFO)
+{
+	npc			= PC_Thief;
+	condition	= Diego_MeetFriend_Condition;
+	information	= Diego_MeetFriend_Info;
+	important	= 1;
+	permanent	= 0;
+};
+
+FUNC int Diego_MeetFriend_Condition()
+{
+	if (Npc_GetDistToWP(hero,"OCR_HUT_Z5_SIT2") < 1000)
+	{
+		return TRUE;
+	};	
+};
+
+func void Diego_MeetFriend_Info()
+{	
+	Log_CreateTopic		("Zawalona Wie¿a",		LOG_MISSION);
+	Log_SetTopicStatus	("Zawalona Wie¿a",		LOG_RUNNING);
+	B_LogEntry			("Zawalona Wie¿a","Spotka³em noc¹ Diega w zawalonej wie¿y w Starym Obozie. Chyba na kogoœ czeka³, ale jego mina wyraŸnie sugerowa³a ¿e nie chce mnie tam widzieæ. ");
+	AI_StopProcessInfos	(self);
+};
+
+//***************************************************************************
+//	DROPS DIEGO_MeetInEveryFriend
+//***************************************************************************
+
+instance Diego_MeetFriend_Complete (C_INFO)
+{
+	npc			= PC_Thief;
+	condition	= Diego_MeetFriend_Complete_Condition;
+	information	= Diego_MeetFriend_Complete_Info;
+	important	= 1;
+	permanent	= 0;
+};
+
+FUNC int Diego_MeetFriend_Complete_Condition()
+{
+	if ( Npc_KnowsInfo(hero, Diego_MeetFriend) && Npc_KnowsInfo(hero, Milten_MeetFriend) && Npc_KnowsInfo(hero, Gorn_MeetFriend) && Npc_KnowsInfo(hero, Lester_MeetFriend) && Npc_GetDistToWP(hero,"OCR_HUT_Z5_SIT2") < 1000)
+	{
+		return TRUE;
+	};	
+};
+
+func void Diego_MeetFriend_Complete_Info()
+{	
+	B_LogEntry			("Zawalona Wie¿a","Nakry³em Diega, Miltena, Gorna i Lestera na tajnym spotkaniu w zawalonej wie¿y. Lepiej bêdzie im chyba nie przeszkadzaæ.");
+	Log_SetTopicStatus	("Zawalona Wie¿a",		LOG_SUCCESS);
+	B_GiveXP(XP_TOWER_IN_OC);
+	AI_StopProcessInfos	(self);
+};
 
 
 
