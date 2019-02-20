@@ -117,6 +117,8 @@
 |	|	// Zmiany w nazwach poziomów dla broni dystansowych (Brak|Zielony|Strzelec|Mistrz)
 |	|	// Zmiany w B_BuildBuyArmorString
 |	|	// Dodanie stałej NAME_STR_GRAB = "Obciążenie Siły", używanej w tarczach
+|	+--| Gothic.src
+|   |   // Przeniesienie G_funcions wyżej w kolejce parsowania
 |/******************************************INNE END********************************************************
 +-- Items
 |	+--| Armor
@@ -136,7 +138,9 @@
 |	+--| Potions
 |	|	 // ItFo_Potion_Haste_(02/03) -> poprawione wartości
 |	+--| Ranged_weapons
-|	|	// Dodanie bow_condition i crossbow_condition. Wymagany min. 1 poziom posługiwania się łukiem/kuszą
+|   |   // Przeniesienie imiennych łuków z pliku weapons.d
+|	|	// Zmodyfikowanie wszystkich łuków/kusz pod nowy system liczenia obrażeń dystansowych obrażenia + wymagana zręczność
+|   |   // Kusze wymagają od teraz zarówno siły jak i zręczności
 |	+--| Weapons
 |	|	// Usunięcie imiennych broni
 |	|	// Funkcje obsługujące tarcze, Dodanie Tarcz
