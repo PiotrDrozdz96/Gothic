@@ -2,26 +2,26 @@
 **	OrcDog Prototype													**
 *************************************************************************/
 
-PROTOTYPE Mst_Default_OrcDog(C_Npc)			
+PROTOTYPE Mst_Default_OrcDog(C_Npc)	// DU¯E ZMIANY	
 {
 	name							=	"Orkowy pies";
 	guild							=	GIL_ORCDOG;
 	aivar[AIV_MM_REAL_ID]			= 	ID_BLACKWOLF;
-	level							=	12;		//SN 11.01.01.: geändert, da zu schwach
+	level							=	15;		//SN 11.01.01.: geändert, da zu schwach
 //---------------------------------------------------
-	attribute	[ATR_STRENGTH]		=	80;		//SN 11.01.01.: geändert, da zu schwach
-	attribute	[ATR_DEXTERITY]		=	80;
+	attribute	[ATR_STRENGTH]		=	75;		//SN 11.01.01.: geändert, da zu schwach
+	attribute	[ATR_DEXTERITY]		=	75;
 	
-	attribute	[ATR_HITPOINTS_MAX]	=	160;	//SN 11.01.01.: geändert, da zu schwach
-	attribute	[ATR_HITPOINTS]		=	160;
+	attribute	[ATR_HITPOINTS_MAX]	=	150;	//SN 11.01.01.: geändert, da zu schwach
+	attribute	[ATR_HITPOINTS]		=	150;
 
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 //---------------------------------------------------
-	protection	[PROT_BLUNT]		=	60;
-	protection	[PROT_EDGE]			=	60;
+	protection	[PROT_BLUNT]		=	30;
+	protection	[PROT_EDGE]			=	30;
 	protection	[PROT_POINT]		=	30;
-	protection	[PROT_FIRE]			=	30;
+	protection	[PROT_FIRE]			=	0;
 	protection	[PROT_FLY]			=	0;
 	protection	[PROT_MAGIC]		=	0;
 //---------------------------------------------------

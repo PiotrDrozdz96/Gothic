@@ -7,10 +7,10 @@ PROTOTYPE Mst_Default_Scavenger(C_Npc)
 	name							=	"Œcierwojad";
 	guild							=	GIL_SCAVENGER;
 	aivar[AIV_MM_REAL_ID]			= 	ID_SCAVENGER;
-	level							=	5;
+	level							=	7;
 //---------------------------------------------------------
-	attribute	[ATR_STRENGTH]		=	8;
-	attribute	[ATR_DEXTERITY]		=	8;
+	attribute	[ATR_STRENGTH]		=	20;
+	attribute	[ATR_DEXTERITY]		=	20;
 	
 	attribute	[ATR_HITPOINTS_MAX]	=	40;
 	attribute	[ATR_HITPOINTS]		=	40;
@@ -18,9 +18,9 @@ PROTOTYPE Mst_Default_Scavenger(C_Npc)
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 //---------------------------------------------------------
-	protection	[PROT_BLUNT]		=	9;
-	protection	[PROT_EDGE]			=	9;
-	protection	[PROT_POINT]		=	5;
+	protection	[PROT_BLUNT]		=	10;
+	protection	[PROT_EDGE]			=	10;
+	protection	[PROT_POINT]		=	10;
 	protection	[PROT_FIRE]			=	0;
 	protection	[PROT_FLY]			=	0;
 	protection	[PROT_MAGIC]		=	0;

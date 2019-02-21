@@ -21,7 +21,7 @@ PROTOTYPE Mst_Default_OrcScout(C_Npc)
 //----------------------------------------------------------	
 	protection	[PROT_BLUNT]		=	50;
 	protection	[PROT_EDGE]			=	50;
-	protection	[PROT_POINT]		=	25;
+	protection	[PROT_POINT]		=	50;
 	protection	[PROT_FIRE]			=	25;
 	protection	[PROT_FLY]			=	0;
 	protection	[PROT_MAGIC]		=	0;

@@ -12,7 +12,7 @@ instance EBR_101_Scar (Npc_Default)
 
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 75;
-	attribute[ATR_DEXTERITY] 	= 55;
+	attribute[ATR_DEXTERITY] 	= 75;
 	attribute[ATR_MANA_MAX] 	= 0;
 	attribute[ATR_MANA] 		= 0;
 	attribute[ATR_HITPOINTS_MAX]= 400;

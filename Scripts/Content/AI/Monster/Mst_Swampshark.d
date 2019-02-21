@@ -7,23 +7,23 @@ PROTOTYPE Mst_Default_Swampshark(C_Npc)
 	name							=	"W¹¿ b³otny";
 	guild							=	GIL_SWAMPSHARK;
 	aivar[AIV_MM_REAL_ID]			= 	ID_SWAMPSHARK;
-	level							=	40;
+	level							=	24;
 //---------------------------------------------------------------
-	attribute	[ATR_STRENGTH]		=	140;
-	attribute	[ATR_DEXTERITY]		=	140;
+	attribute	[ATR_STRENGTH]		=	160;
+	attribute	[ATR_DEXTERITY]		=	160;
 	
-	attribute	[ATR_HITPOINTS_MAX]	=	300;
-	attribute	[ATR_HITPOINTS]		=	300;
+	attribute	[ATR_HITPOINTS_MAX]	=	328;
+	attribute	[ATR_HITPOINTS]		=	328;
 
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 //---------------------------------------------------------------
-	protection	[PROT_BLUNT]		=	130;
-	protection	[PROT_EDGE]			=	130;
-	protection	[PROT_POINT]		=	70;
-	protection	[PROT_FIRE]			=	50;
+	protection	[PROT_BLUNT]		=	80;
+	protection	[PROT_EDGE]			=	80;
+	protection	[PROT_POINT]		=	80;
+	protection	[PROT_FIRE]			=	10;
 	protection	[PROT_FLY]			=	9999;
-	protection	[PROT_MAGIC]		=	40;
+	protection	[PROT_MAGIC]		=	10;
 //---------------------------------------------------------------
 	damagetype 						=	DAM_EDGE;
 //	damage		[DAM_INDEX_BLUNT]	=	0;

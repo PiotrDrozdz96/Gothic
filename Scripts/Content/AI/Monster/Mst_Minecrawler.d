@@ -7,21 +7,21 @@ PROTOTYPE Mst_Default_Minecrawler(C_Npc)
 	name							=	"Pe³zacz";
 	guild							=	GIL_MINECRAWLER;
 	aivar[AIV_MM_REAL_ID]			= 	ID_MINECRAWLER;
-	level							=	13;
+	level							=	12;
 //------------------------------------------------------
-	attribute	[ATR_STRENGTH]		=	65;
-	attribute	[ATR_DEXTERITY]		=	30;
+	attribute	[ATR_STRENGTH]		=	40;
+	attribute	[ATR_DEXTERITY]		=	40;
 	
-	attribute	[ATR_HITPOINTS_MAX]	=	90;
-	attribute	[ATR_HITPOINTS]		=	90;
+	attribute	[ATR_HITPOINTS_MAX]	=	80;
+	attribute	[ATR_HITPOINTS]		=	80;
 
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 //------------------------------------------------------
-	protection	[PROT_BLUNT]		=	55;
-	protection	[PROT_EDGE]			=	50;
-	protection	[PROT_POINT]		=	15;
-	protection	[PROT_FIRE]			=	25;
+	protection	[PROT_BLUNT]		=	60;
+	protection	[PROT_EDGE]			=	60;
+	protection	[PROT_POINT]		=	60;
+	protection	[PROT_FIRE]			=	0;
 	protection	[PROT_FLY]			=	0;
 	protection	[PROT_MAGIC]		=	0;
 //------------------------------------------------------

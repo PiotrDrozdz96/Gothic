@@ -7,7 +7,7 @@ PROTOTYPE Mst_Default_Waran(C_Npc)
 	name							=	"Jaszczur";
 	guild							=	GIL_WARAN;
 	aivar[AIV_MM_REAL_ID]			= 	ID_WARAN;
-	level							=	8;
+	level							=	12;
 //---------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	40;
 	attribute	[ATR_DEXTERITY]		=	40;
@@ -20,8 +20,8 @@ PROTOTYPE Mst_Default_Waran(C_Npc)
 //---------------------------------------------------
 	protection	[PROT_BLUNT]		=	20;
 	protection	[PROT_EDGE]			=	20;
-	protection	[PROT_POINT]		=	10;
-	protection	[PROT_FIRE]			=	10;
+	protection	[PROT_POINT]		=	20;
+	protection	[PROT_FIRE]			=	0;
 	protection	[PROT_FLY]			=	0;
 	protection	[PROT_MAGIC]		=	0;
 //---------------------------------------------------

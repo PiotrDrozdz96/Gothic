@@ -7,23 +7,23 @@ PROTOTYPE Mst_Default_Harpie(C_Npc)
 	name							=	"Harpia";
 	guild							=	GIL_DEMON;
 	aivar[AIV_MM_REAL_ID]			= 	ID_HARPIE;
-	level							=	20;
+	level							=	18;
 //---------------------------------------------------------------	
-	attribute	[ATR_STRENGTH]		=	85;
-	attribute	[ATR_DEXTERITY]		=	85;
+	attribute	[ATR_STRENGTH]		=	90;
+	attribute	[ATR_DEXTERITY]		=	90;
 	
-	attribute	[ATR_HITPOINTS_MAX]	=	200;
-	attribute	[ATR_HITPOINTS]		=	200;
+	attribute	[ATR_HITPOINTS_MAX]	=	180;
+	attribute	[ATR_HITPOINTS]		=	180;
 
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 //---------------------------------------------------------------	
-	protection	[PROT_BLUNT]		=	50;
+	protection	[PROT_BLUNT]		=	30;
 	protection	[PROT_EDGE]			=	30;
-	protection	[PROT_POINT]		=	10;
-	protection	[PROT_FIRE]			=	0;
+	protection	[PROT_POINT]		=	30;
+	protection	[PROT_FIRE]			=	30;
 	protection	[PROT_FLY]			=	0;
-	protection	[PROT_MAGIC]		=	50;
+	protection	[PROT_MAGIC]		=	30;
 //---------------------------------------------------------------	
 	damagetype 						=	DAM_EDGE;
 //	damage		[DAM_INDEX_BLUNT]	=	0;

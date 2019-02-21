@@ -7,21 +7,21 @@ PROTOTYPE Mst_Default_Lurker(C_Npc)
 	name							=	"Topielec";
 	guild							=	GIL_LURKER;
 	aivar[AIV_MM_REAL_ID]			= 	ID_LURKER;
-	level							=	17;
+	level							=	10;
 //-------------------------------------------------------------
-	attribute	[ATR_STRENGTH]		=	50;
-	attribute	[ATR_DEXTERITY]		=	50;
+	attribute	[ATR_STRENGTH]		=	40;
+	attribute	[ATR_DEXTERITY]		=	40;
 	
-	attribute	[ATR_HITPOINTS_MAX]	=	90;
-	attribute	[ATR_HITPOINTS]		=	90;
+	attribute	[ATR_HITPOINTS_MAX]	=	80;
+	attribute	[ATR_HITPOINTS]		=	80;
 
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 //-------------------------------------------------------------
-	protection	[PROT_BLUNT]		=	50;
-	protection	[PROT_EDGE]			=	50;
+	protection	[PROT_BLUNT]		=	20;
+	protection	[PROT_EDGE]			=	20;
 	protection	[PROT_POINT]		=	20;
-	protection	[PROT_FIRE]			=	50;
+	protection	[PROT_FIRE]			=	0;
 	protection	[PROT_FLY]			=	0;
 	protection	[PROT_MAGIC]		=	0;
 //-------------------------------------------------------------

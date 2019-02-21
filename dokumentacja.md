@@ -147,8 +147,8 @@
 |	|	// 3 wersje Uriziela 1H
 |/*******************************************ITEMS END*******************************************************
 +-- Monsters
-|	+--| Mst_Orc(Scout/Warrior)
-|	|	// Dopasowanie Orków do nowych parametrów broni
+|	+--| Mst_*
+|	|	// Zmiany parametrów potworów
 |/*******************************************MONSTERS END****************************************************
 +-- NPC
 |	+-- BDT_QUENTIN
@@ -182,6 +182,8 @@
 |	|	|	 // Zmiana wyglądu na ten z G2NK
 |	|/********************NPC NEW_CAMP END*********************************
 |	+-- OLD_CAMP
+|   |   +--| EBR_101_Scar
+|   |   |   // Zwiększenie zręczności
 |	|	+--| EBR_105_Raven / GRD_(200/210/233/255) / VLK_(538/581)
 |	|	|	 // Dodanie rutyny "out" - wywalenie za barierę
 |	|	+--| GRD_(205/222/223/238/279)

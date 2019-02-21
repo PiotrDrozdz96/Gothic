@@ -10,8 +10,8 @@ PROTOTYPE Mst_Default_Molerat(C_Npc)
 	level							=	5;
 
 //------------------------------------------------------------
-	attribute	[ATR_STRENGTH]		=	8;
-	attribute	[ATR_DEXTERITY]		=	8;
+	attribute	[ATR_STRENGTH]		=	20;
+	attribute	[ATR_DEXTERITY]		=	20;
 	
 	attribute	[ATR_HITPOINTS_MAX]	=	40;
 	attribute	[ATR_HITPOINTS]		=	40;
@@ -19,10 +19,10 @@ PROTOTYPE Mst_Default_Molerat(C_Npc)
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 //------------------------------------------------------------
-	protection	[PROT_BLUNT]		=	8;
-	protection	[PROT_EDGE]			=	8;
-	protection	[PROT_POINT]		=	5;
-	protection	[PROT_FIRE]			=	5;
+	protection	[PROT_BLUNT]		=	10;
+	protection	[PROT_EDGE]			=	10;
+	protection	[PROT_POINT]		=	10;
+	protection	[PROT_FIRE]			=	0;
 	protection	[PROT_FLY]			=	0;
 	protection	[PROT_MAGIC]		=	0;
 //------------------------------------------------------------
@@ -90,8 +90,8 @@ INSTANCE YMolerat	(Mst_Default_Molerat)
 	attribute	[ATR_HITPOINTS]		=	40;
 
 //------------------------------------------------------------
-	protection	[PROT_BLUNT]		=	8;
-	protection	[PROT_EDGE]			=	8;
+	protection	[PROT_BLUNT]		=	10;
+	protection	[PROT_EDGE]			=	10;
 
 	fight_tactic					= FAI_MONSTER_COWARD;
 

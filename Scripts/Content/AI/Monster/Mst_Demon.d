@@ -7,23 +7,23 @@ PROTOTYPE Mst_Default_Demon(C_Npc)
 	name							=	"Demon ognia";
 	guild							=	GIL_DEMON;
 	aivar[AIV_MM_REAL_ID]			= 	ID_DEMON;
-	level							=	50;
+	level							=	60;
 //--------------------------------------------------------	
-	attribute	[ATR_STRENGTH]		=	75;
-	attribute	[ATR_DEXTERITY]		=	75;
+	attribute	[ATR_STRENGTH]		=	200; //DU¯O WIÊCEJ
+	attribute	[ATR_DEXTERITY]		=	200; //DU¯O WIÊCEJ
 	
-	attribute	[ATR_HITPOINTS_MAX]	=	300;
-	attribute	[ATR_HITPOINTS]		=	300;
+	attribute	[ATR_HITPOINTS_MAX]	=	400;
+	attribute	[ATR_HITPOINTS]		=	400;
 
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 //--------------------------------------------------------
 	protection	[PROT_BLUNT]		=	100;
 	protection	[PROT_EDGE]			=	100;
-	protection	[PROT_POINT]		=	35;
-	protection	[PROT_FIRE]			=	500;
+	protection	[PROT_POINT]		=	100;
+	protection	[PROT_FIRE]			=	50;
 	protection	[PROT_FLY]			=	1000;
-	protection	[PROT_MAGIC]		=	35;
+	protection	[PROT_MAGIC]		=	50;
 //--------------------------------------------------------
 	damagetype 						=	DAM_FIRE;
 //	damage		[DAM_INDEX_BLUNT]	=	0;
@@ -128,11 +128,11 @@ INSTANCE OTDemon (Mst_Default_Demon)
 	guild							=	GIL_DEMON;
 	level							=	60;
 //--------------------------------------------------------	
-	attribute	[ATR_STRENGTH]		=	130;
-	attribute	[ATR_DEXTERITY]		=	130;
+	attribute	[ATR_STRENGTH]		=	150;
+	attribute	[ATR_DEXTERITY]		=	150;
 	
-	attribute	[ATR_HITPOINTS_MAX]	=	250;
-	attribute	[ATR_HITPOINTS]		=	250;
+	attribute	[ATR_HITPOINTS_MAX]	=	300;
+	attribute	[ATR_HITPOINTS]		=	300;
 
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;

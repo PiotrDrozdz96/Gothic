@@ -20,7 +20,7 @@ PROTOTYPE Mst_Default_Bloodhound(C_Npc)
 //----------------------------------------------------------------
 	protection	[PROT_BLUNT]		=	55;
 	protection	[PROT_EDGE]			=	55;
-	protection	[PROT_POINT]		=	0;
+	protection	[PROT_POINT]		=	55;
 	protection	[PROT_FIRE]			=	0;
 	protection	[PROT_FLY]			=	0;
 	protection	[PROT_MAGIC]		=	0;
