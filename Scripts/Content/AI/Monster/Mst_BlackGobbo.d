@@ -7,10 +7,10 @@ PROTOTYPE Mst_Default_BlackGobbo(C_NPC)
 	name							=	"Czarny Goblin";
 	guild							=	GIL_GOBBO;
 	aivar[AIV_MM_REAL_ID]			= 	ID_BLACKGOBBO;
-	level							=	12;
+	level							=	10;
 //------------------------------------------------------------------
-	attribute	[ATR_STRENGTH]		=	20;
-	attribute	[ATR_DEXTERITY]		=	20;
+	attribute	[ATR_STRENGTH]		=	40;
+	attribute	[ATR_DEXTERITY]		=	40;
 	
 	attribute	[ATR_HITPOINTS_MAX]	=	80;
 	attribute	[ATR_HITPOINTS]		=	80;
@@ -18,10 +18,10 @@ PROTOTYPE Mst_Default_BlackGobbo(C_NPC)
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 //------------------------------------------------------------------
-	protection	[PROT_BLUNT]		=	40;
-	protection	[PROT_EDGE]			=	40;
-	protection	[PROT_POINT]		=	10;
-	protection	[PROT_FIRE]			=	20;
+	protection	[PROT_BLUNT]		=	20;
+	protection	[PROT_EDGE]			=	20;
+	protection	[PROT_POINT]		=	20;
+	protection	[PROT_FIRE]			=	0;
 	protection	[PROT_FLY]			=	0;
 	protection	[PROT_MAGIC]		=	0;
 //------------------------------------------------------------------
@@ -80,13 +80,14 @@ INSTANCE BlackGobboWarrior	(Mst_Default_BlackGobbo)
 	Set_BlackGobbo_Visuals();
 	Npc_SetToFightMode (self, ItMw_1H_Mace_01);
 	
-	attribute	[ATR_STRENGTH]		=	 60+30; //da Gobbos technisch im Faustkampf
+	attribute	[ATR_STRENGTH]		=	 75;
 	
-	attribute	[ATR_HITPOINTS_MAX]	=	105;
-	attribute	[ATR_HITPOINTS]		=	105;
+	attribute	[ATR_HITPOINTS_MAX]	=	75;
+	attribute	[ATR_HITPOINTS]		=	75;
 	
-	protection	[PROT_BLUNT]		=	50;
-	protection	[PROT_EDGE]			=	50;
+	protection	[PROT_BLUNT]		=	75;
+	protection	[PROT_EDGE]			=	75;
+	protection	[PROT_POINT]		=	75;
 	
 	name							=	"Goblin-Wojownik";
 	

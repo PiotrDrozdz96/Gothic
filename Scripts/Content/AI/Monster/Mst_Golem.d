@@ -150,10 +150,10 @@ INSTANCE FireGolem	(Mst_Default_Golem)
 	Npc_SetToFistMode(self);
 
 	//-------- attributes --------
-	attribute	[ATR_STRENGTH]		=	50;	// da Feuerschaden
+	attribute	[ATR_STRENGTH]		=	100;	// da Feuerschaden
 	protection	[PROT_MAGIC]		=	0;	// betrifft im wesentlichen die Blitz- und Eiszauber
-	attribute	[ATR_HITPOINTS_MAX]	=	150;// da er nur durch Blitz- und Eiszauber verwundbar ist, muﬂ dieser Wert hier sehr viel niedriger sein 
-	attribute	[ATR_HITPOINTS]		=	150;
+	attribute	[ATR_HITPOINTS_MAX]	=	200;// da er nur durch Blitz- und Eiszauber verwundbar ist, muﬂ dieser Wert hier sehr viel niedriger sein 
+	attribute	[ATR_HITPOINTS]		=	200;
 	damagetype 						=	DAM_FIRE;
 
 	//-------- inventory --------
@@ -179,8 +179,8 @@ INSTANCE IceGolem	(Mst_Default_Golem)
 	//-------- attributes --------
 	attribute	[ATR_MANA_MAX] 		=	500;
 	attribute	[ATR_MANA] 			=	500;
-	attribute	[ATR_HITPOINTS_MAX]	=	150;	// da er nur durch Feuerschaden verwundbar
-	attribute	[ATR_HITPOINTS]		=	150;
+	attribute	[ATR_HITPOINTS_MAX]	=	200;	// da er nur durch Feuerschaden verwundbar
+	attribute	[ATR_HITPOINTS]		=	200;
 	protection	[PROT_FIRE]			=	0;
 	damagetype 						=	DAM_BLUNT;
 
@@ -209,11 +209,11 @@ INSTANCE BridgeGolem	(Mst_Default_Golem)
 	Npc_SetToFistMode(self);
 
 	//-------- attributes --------
-	attribute	[ATR_STRENGTH]		=	100;
-	attribute	[ATR_DEXTERITY]		=	100;
+	attribute	[ATR_STRENGTH]		=	120;
+	attribute	[ATR_DEXTERITY]		=	120;
 	
-	attribute	[ATR_HITPOINTS_MAX]	=	250;
-	attribute	[ATR_HITPOINTS]		=	250;
+	attribute	[ATR_HITPOINTS_MAX]	=	256;
+	attribute	[ATR_HITPOINTS]		=	256;
 
 	protection	[PROT_BLUNT]		=	50;
 };

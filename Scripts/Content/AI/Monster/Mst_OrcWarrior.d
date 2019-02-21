@@ -8,23 +8,23 @@ PROTOTYPE Mst_Default_OrcWarrior(C_Npc)
 	guild							=	GIL_ORCWARRIOR;
 	npctype							=	NPCTYPE_GUARD;
 	voice							=	17;
-	level							=	25;
+	level							=	35;
 //----------------------------------------------------------	
-	attribute	[ATR_STRENGTH]		=	80;
-	attribute	[ATR_DEXTERITY]		=	80;
+	attribute	[ATR_STRENGTH]		=	100;
+	attribute	[ATR_DEXTERITY]		=	100;
 	
-	attribute	[ATR_HITPOINTS_MAX]	=	250;
-	attribute	[ATR_HITPOINTS]		=	250;
+	attribute	[ATR_HITPOINTS_MAX]	=	300;
+	attribute	[ATR_HITPOINTS]		=	300;
 
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 //----------------------------------------------------------	
-	protection	[PROT_BLUNT]		=	100;
-	protection	[PROT_EDGE]			=	100;
-	protection	[PROT_POINT]		=	40;
-	protection	[PROT_FIRE]			=	55;
+	protection	[PROT_BLUNT]		=	80;
+	protection	[PROT_EDGE]			=	80;
+	protection	[PROT_POINT]		=	80;
+	protection	[PROT_FIRE]			=	40;
 	protection	[PROT_FLY]			=	30;
-	protection	[PROT_MAGIC]		=	30;
+	protection	[PROT_MAGIC]		=	40;
 //----------------------------------------------------------	
 	damagetype 						=	DAM_EDGE;
 //	damage		[DAM_INDEX_BLUNT]	=	0;
@@ -73,14 +73,14 @@ INSTANCE OrcWarrior1	(Mst_Default_OrcWarrior)
 	Set_OrcWarrior_Visuals();
 
 	//-------- attributes --------
-	attribute	[ATR_STRENGTH]		=	70;
-	attribute	[ATR_HITPOINTS_MAX]	=	210;
-	attribute	[ATR_HITPOINTS]		=	210;
+	attribute	[ATR_STRENGTH]		=	60;
+	attribute	[ATR_HITPOINTS_MAX]	=	200;
+	attribute	[ATR_HITPOINTS]		=	200;
 
 	//-------- protection --------
 	protection	[PROT_BLUNT]		=	60;
 	protection	[PROT_EDGE]			=	60;
-	protection	[PROT_POINT]		=	30;
+	protection	[PROT_POINT]		=	60;
 	protection	[PROT_FIRE]			=	30;
 
 	//-------- inventory --------
@@ -107,7 +107,7 @@ INSTANCE OrcWarrior2	(Mst_Default_OrcWarrior)
 	//-------- protection --------
 	protection	[PROT_BLUNT]		=	70;
 	protection	[PROT_EDGE]			=	70;
-	protection	[PROT_POINT]		=	35;
+	protection	[PROT_POINT]		=	70;
 	protection	[PROT_FIRE]			=	35;
 
 	//-------- inventory --------
@@ -134,7 +134,7 @@ INSTANCE OrcWarrior3	(Mst_Default_OrcWarrior)
 	//-------- protection --------
 	protection	[PROT_BLUNT]		=	80;
 	protection	[PROT_EDGE]			=	80;
-	protection	[PROT_POINT]		=	40;
+	protection	[PROT_POINT]		=	80;
 	protection	[PROT_FIRE]			=	40;
 
 	//-------- inventory --------
@@ -161,7 +161,7 @@ INSTANCE OrcWarrior4	(Mst_Default_OrcWarrior)
 	//-------- protection --------
 	protection	[PROT_BLUNT]		=	100;
 	protection	[PROT_EDGE]			=	100;
-	protection	[PROT_POINT]		=	45;
+	protection	[PROT_POINT]		=	100;
 	protection	[PROT_FIRE]			=	45;
 
 	//-------- inventory --------

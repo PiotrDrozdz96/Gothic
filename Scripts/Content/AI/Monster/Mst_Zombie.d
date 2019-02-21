@@ -7,23 +7,23 @@ PROTOTYPE Mst_Default_Zombie(C_Npc)
 	name							=	"Zombi";
 	guild							=	GIL_ZOMBIE;
 	aivar[AIV_MM_REAL_ID]			= 	ID_ZOMBIE;
-	level							=	20;
+	level							=	15;
 //-----------------------------------------------------------
-	attribute	[ATR_STRENGTH]		=	140;
-	attribute	[ATR_DEXTERITY]		=	140;
+	attribute	[ATR_STRENGTH]		=	75;
+	attribute	[ATR_DEXTERITY]		=	75;
 	
-	attribute	[ATR_HITPOINTS_MAX]	=	250;
-	attribute	[ATR_HITPOINTS]		=	250;
+	attribute	[ATR_HITPOINTS_MAX]	=	150;
+	attribute	[ATR_HITPOINTS]		=	150;
 
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 
-	protection	[PROT_BLUNT]		=	130;
-	protection	[PROT_EDGE]			=	130;
-	protection	[PROT_POINT]		=	9999;	// immun
-	protection	[PROT_FIRE]			=	100;
+	protection	[PROT_BLUNT]		=	50;
+	protection	[PROT_EDGE]			=	50;
+	protection	[PROT_POINT]		=	100;	// immun
+	protection	[PROT_FIRE]			=	50;
 	protection	[PROT_FLY]			=	30;
-	protection	[PROT_MAGIC]		=	100;
+	protection	[PROT_MAGIC]		=	50;
 //-----------------------------------------------------------
 	damagetype 						=	DAM_EDGE;
 //	damage		[DAM_INDEX_BLUNT]	=	0;

@@ -7,21 +7,21 @@ PROTOTYPE Mst_Default_GreenGobbo(C_NPC)
 	name							=	"Goblin";
 	guild							=	GIL_GOBBO;
 	aivar[AIV_MM_REAL_ID]			= 	ID_GOBBO;
-	level							=	6;
+	level							=	5;
 //------------------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	20;
-	attribute	[ATR_DEXTERITY]		=	20;
+	attribute	[ATR_DEXTERITY]		=	5;
 	
-	attribute	[ATR_HITPOINTS_MAX]	=	40;
-	attribute	[ATR_HITPOINTS]		=	40;
+	attribute	[ATR_HITPOINTS_MAX]	=	20;
+	attribute	[ATR_HITPOINTS]		=	20;
 
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 //------------------------------------------------------------------
-	protection	[PROT_BLUNT]		=	15;
-	protection	[PROT_EDGE]			=	15;
-	protection	[PROT_POINT]		=	8;
-	protection	[PROT_FIRE]			=	15;
+	protection	[PROT_BLUNT]		=	0;
+	protection	[PROT_EDGE]			=	0;
+	protection	[PROT_POINT]		=	0;
+	protection	[PROT_FIRE]			=	0;
 	protection	[PROT_FLY]			=	0;
 	protection	[PROT_MAGIC]		=	0;
 //------------------------------------------------------------------

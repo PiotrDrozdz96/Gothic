@@ -7,21 +7,21 @@ PROTOTYPE Mst_Default_Razor(C_Npc)
 	name							=	"Brzytwa";
 	guild							=	GIL_SNAPPER;
 	aivar[AIV_MM_REAL_ID]			= 	ID_RAZOR;
-	level							=	20;
+	level							=	22;
 //--------------------------------------------------------------
-	attribute	[ATR_STRENGTH]		=	110;
-	attribute	[ATR_DEXTERITY]		=	110;
+	attribute	[ATR_STRENGTH]		=	90;
+	attribute	[ATR_DEXTERITY]		=	90;
 	
-	attribute	[ATR_HITPOINTS_MAX]	=	200;
-	attribute	[ATR_HITPOINTS]		=	200;
+	attribute	[ATR_HITPOINTS_MAX]	=	180;
+	attribute	[ATR_HITPOINTS]		=	180;
 
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 //--------------------------------------------------------------
-	protection	[PROT_BLUNT]		=	100;
-	protection	[PROT_EDGE]			=	100;
-	protection	[PROT_POINT]		=	30;
-	protection	[PROT_FIRE]			=	80;
+	protection	[PROT_BLUNT]		=	90;
+	protection	[PROT_EDGE]			=	90;
+	protection	[PROT_POINT]		=	90;
+	protection	[PROT_FIRE]			=	0;
 	protection	[PROT_FLY]			=	0;
 	protection	[PROT_MAGIC]		=	0;
 //--------------------------------------------------------------

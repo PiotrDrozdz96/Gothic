@@ -7,20 +7,20 @@ PROTOTYPE Mst_Default_FireWaran(C_Npc)
 	name							=	"Ognisty Jaszczur";
 	guild							=	GIL_WARAN;
 	aivar[AIV_MM_REAL_ID]			= 	ID_FIREWARAN;
-	level							=	50;
+	level							=	21;
 //---------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	80;
-	attribute	[ATR_DEXTERITY]		=	80;
+	attribute	[ATR_DEXTERITY]		=	100;
 	
-	attribute	[ATR_HITPOINTS_MAX]	=	200;
-	attribute	[ATR_HITPOINTS]		=	200;
+	attribute	[ATR_HITPOINTS_MAX]	=	210;
+	attribute	[ATR_HITPOINTS]		=	210;
 
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 //---------------------------------------------------
 	protection	[PROT_BLUNT]		=	40;
 	protection	[PROT_EDGE]			=	40;
-	protection	[PROT_POINT]		=	20;
+	protection	[PROT_POINT]		=	40;
 	protection	[PROT_FIRE]			=	9999;
 	protection	[PROT_FLY]			=	0;
 	protection	[PROT_MAGIC]		=	0;

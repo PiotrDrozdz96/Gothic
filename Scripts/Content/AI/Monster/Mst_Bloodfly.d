@@ -7,20 +7,20 @@ PROTOTYPE Mst_Default_Bloodfly(C_Npc)
 	name							=	"Krwiopijca";
 	guild							=	GIL_BLOODFLY;
 	aivar[AIV_MM_REAL_ID]			= 	ID_BLOODFLY;
-	level							=	7;
+	level							=	6;
 //---------------------------------------------------------------	
-	attribute	[ATR_STRENGTH]		=	30;
-	attribute	[ATR_DEXTERITY]		=	30;
+	attribute	[ATR_STRENGTH]		=	20;
+	attribute	[ATR_DEXTERITY]		=	20;
 	
-	attribute	[ATR_HITPOINTS_MAX]	=	50;
-	attribute	[ATR_HITPOINTS]		=	50;
+	attribute	[ATR_HITPOINTS_MAX]	=	40;
+	attribute	[ATR_HITPOINTS]		=	40;
 
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 //---------------------------------------------------------------	
-	protection	[PROT_BLUNT]		=	15;
-	protection	[PROT_EDGE]			=	15;
-	protection	[PROT_POINT]		=	8;
+	protection	[PROT_BLUNT]		=	10;
+	protection	[PROT_EDGE]			=	10;
+	protection	[PROT_POINT]		=	10;
 	protection	[PROT_FIRE]			=	0;
 	protection	[PROT_FLY]			=	0;
 	protection	[PROT_MAGIC]		=	0;

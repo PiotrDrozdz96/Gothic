@@ -7,10 +7,10 @@ PROTOTYPE Mst_Default_MinecrawlerWarrior(C_Npc)
 	name							=	"Pe³zacz-Wojownik";
 	guild							=	GIL_MINECRAWLER;
 	aivar[AIV_MM_REAL_ID]			= 	ID_MINECRAWLERWARRIOR;
-	level							=	22;
+	level							=	20;
 //------------------------------------------------------
-	attribute	[ATR_STRENGTH]		=	130;
-	attribute	[ATR_DEXTERITY]		=	70;
+	attribute	[ATR_STRENGTH]		=	100;
+	attribute	[ATR_DEXTERITY]		=	100;
 	
 	attribute	[ATR_HITPOINTS_MAX]	=	200;
 	attribute	[ATR_HITPOINTS]		=	200;
@@ -20,10 +20,10 @@ PROTOTYPE Mst_Default_MinecrawlerWarrior(C_Npc)
 //------------------------------------------------------
 	protection	[PROT_BLUNT]		=	120;
 	protection	[PROT_EDGE]			=	120;
-	protection	[PROT_POINT]		=	35;
-	protection	[PROT_FIRE]			=	50;
+	protection	[PROT_POINT]		=	120;
+	protection	[PROT_FIRE]			=	0;
 	protection	[PROT_FLY]			=	30;
-	protection	[PROT_MAGIC]		=	50;
+	protection	[PROT_MAGIC]		=	0;
 //------------------------------------------------------
 	damagetype 						=	DAM_EDGE;
 //	damage		[DAM_INDEX_BLUNT]	=	0;

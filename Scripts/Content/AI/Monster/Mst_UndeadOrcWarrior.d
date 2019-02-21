@@ -7,23 +7,23 @@ PROTOTYPE Mst_Default_UndeadOrcWarrior (C_Npc)
 	name							=	"Opiekun œwi¹tyni";
 	guild							=	GIL_UNDEADORC;
 	aivar[AIV_MM_REAL_ID]			= 	ID_UNDEADORCWARRIOR;
-	level							=	25;
+	level							=	30;
 //----------------------------------------------------------	
-	attribute	[ATR_STRENGTH]		=	100;
-	attribute	[ATR_DEXTERITY]		=	100;
+	attribute	[ATR_STRENGTH]		=	150;
+	attribute	[ATR_DEXTERITY]		=	150;
 	
-	attribute	[ATR_HITPOINTS_MAX]	=	400;
-	attribute	[ATR_HITPOINTS]		=	400;
+	attribute	[ATR_HITPOINTS_MAX]	=	300;
+	attribute	[ATR_HITPOINTS]		=	300;
 
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 //----------------------------------------------------------	
-	protection	[PROT_BLUNT]		=	50; //9999;	//immun
-	protection	[PROT_EDGE]			=	50; //9999;	//immun
-	protection	[PROT_POINT]		=	25; //9999;	//immun
-	protection	[PROT_FIRE]			=	50; //9999;	//immun
-	protection	[PROT_FLY]			=	50; //9999;	//immun
-	protection	[PROT_MAGIC]		=	50; //120;
+	protection	[PROT_BLUNT]		=	60; //9999;	//immun
+	protection	[PROT_EDGE]			=	60; //9999;	//immun
+	protection	[PROT_POINT]		=	60; //9999;	//immun
+	protection	[PROT_FIRE]			=	60; //9999;	//immun
+	protection	[PROT_FLY]			=	60; //9999;	//immun
+	protection	[PROT_MAGIC]		=	60; //120;
 //----------------------------------------------------------	
 	damagetype 						=	DAM_EDGE;
 //	damage		[DAM_INDEX_BLUNT]	=	0;
@@ -78,11 +78,11 @@ INSTANCE UndeadOWH (Mst_Default_UndeadOrcWarrior)
 	name							=	"Starszy opiekun œwi¹tyni";
 	level							=	40;
 
-	attribute	[ATR_STRENGTH]		=	120;
+	attribute	[ATR_STRENGTH]		=	200;
 //----------------------------------------------------------	
 	protection	[PROT_BLUNT]		=	70; //9999;	//immun
 	protection	[PROT_EDGE]			=	70; //9999;	//immun
-	protection	[PROT_POINT]		=	35; //9999;	//immun
+	protection	[PROT_POINT]		=	70; //9999;	//immun
 	protection	[PROT_FIRE]			=	70; //9999;	//immun
 	protection	[PROT_FLY]			=	70; //9999;	//immun
 	protection	[PROT_MAGIC]		=	70; //120;

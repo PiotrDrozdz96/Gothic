@@ -7,7 +7,7 @@ PROTOTYPE Mst_Default_Troll(C_Npc)
 	name							=	"Troll";
 	guild							=	GIL_TROLL;
 	aivar[AIV_MM_REAL_ID]			= 	ID_TROLL;
-	level							=	200;
+	level							=	100;
 //------------------------------------------------------	
 	attribute	[ATR_STRENGTH]		=	160;
 	attribute	[ATR_DEXTERITY]		=	20;
@@ -80,7 +80,7 @@ INSTANCE YoungTroll	(Mst_Default_Troll)
 	name							=	"M³ody troll";
 	guild							=	GIL_TROLL;
 	aivar[AIV_MM_REAL_ID]			= 	ID_TROLL;
-	level							=	100;
+	level							=	50;
 	ID								=	MID_YOUNGTROLL;
 	
 	//-------- visuals --------
@@ -88,7 +88,7 @@ INSTANCE YoungTroll	(Mst_Default_Troll)
 	Mdl_SetModelScale(self, 0.7, 0.7, 0.7);
 
 	//-------- attributes --------
-	attribute	[ATR_STRENGTH]		=	120;
+	attribute	[ATR_STRENGTH]		=	100;
 	attribute	[ATR_DEXTERITY]		=	30;
 	
 	attribute	[ATR_HITPOINTS_MAX]	=	600;

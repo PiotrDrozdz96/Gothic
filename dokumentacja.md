@@ -117,6 +117,8 @@
 |	|	// Zmiany w nazwach poziomów dla broni dystansowych (Brak|Zielony|Strzelec|Mistrz)
 |	|	// Zmiany w B_BuildBuyArmorString
 |	|	// Dodanie stałej NAME_STR_GRAB = "Obciążenie Siły", używanej w tarczach
+|	+--| Gothic.src
+|   |   // Przeniesienie G_funcions wyżej w kolejce parsowania
 |/******************************************INNE END********************************************************
 +-- Items
 |	+--| Armor
@@ -136,15 +138,18 @@
 |	+--| Potions
 |	|	 // ItFo_Potion_Haste_(02/03) -> poprawione wartości
 |	+--| Ranged_weapons
-|	|	// Dodanie bow_condition i crossbow_condition. Wymagany min. 1 poziom posługiwania się łukiem/kuszą
+|   |   // Przeniesienie imiennych łuków z pliku weapons.d
+|	|	// Zmodyfikowanie wszystkich łuków/kusz pod nowy system liczenia obrażeń dystansowych obrażenia + wymagana zręczność
+|   |   // Kusze wymagają od teraz zarówno siły jak i zręczności
+|   |   // Dodanie nowej kuszy
 |	+--| Weapons
 |	|	// Usunięcie imiennych broni
 |	|	// Funkcje obsługujące tarcze, Dodanie Tarcz
 |	|	// 3 wersje Uriziela 1H
 |/*******************************************ITEMS END*******************************************************
 +-- Monsters
-|	+--| Mst_Orc(Scout/Warrior)
-|	|	// Dopasowanie Orków do nowych parametrów broni
+|	+--| Mst_*
+|	|	// Zmiany parametrów potworów
 |/*******************************************MONSTERS END****************************************************
 +-- NPC
 |	+-- BDT_QUENTIN
@@ -178,6 +183,8 @@
 |	|	|	 // Zmiana wyglądu na ten z G2NK
 |	|/********************NPC NEW_CAMP END*********************************
 |	+-- OLD_CAMP
+|   |   +--| EBR_101_Scar
+|   |   |   // Zwiększenie zręczności
 |	|	+--| EBR_105_Raven / GRD_(200/210/233/255) / VLK_(538/581)
 |	|	|	 // Dodanie rutyny "out" - wywalenie za barierę
 |	|	+--| GRD_(205/222/223/238/279)

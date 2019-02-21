@@ -7,10 +7,10 @@ PROTOTYPE Mst_Default_Shadowbeast(C_Npc)
 	name							=	"Cieniostwór";
 	guild							=	GIL_SHADOWBEAST;
 	aivar[AIV_MM_REAL_ID]			= 	ID_SHADOWBEAST;
-	level							=	40;
+	level							=	20;
 //---------------------------------------------------------
-	attribute	[ATR_STRENGTH]		=	110;
-	attribute	[ATR_DEXTERITY]		=	110;
+	attribute	[ATR_STRENGTH]		=	100;
+	attribute	[ATR_DEXTERITY]		=	100;
 	
 	attribute	[ATR_HITPOINTS_MAX]	=	200;
 	attribute	[ATR_HITPOINTS]		=	200;
@@ -20,7 +20,7 @@ PROTOTYPE Mst_Default_Shadowbeast(C_Npc)
 //---------------------------------------------------------
 	protection	[PROT_BLUNT]		=	100;
 	protection	[PROT_EDGE]			=	100;
-	protection	[PROT_POINT]		=	50;
+	protection	[PROT_POINT]		=	100;
 	protection	[PROT_FIRE]			=	50;
 	protection	[PROT_FLY]			=	100;
 	protection	[PROT_MAGIC]		=	50;
