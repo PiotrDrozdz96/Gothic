@@ -141,6 +141,7 @@
 |   |   // Przeniesienie imiennych łuków z pliku weapons.d
 |	|	// Zmodyfikowanie wszystkich łuków/kusz pod nowy system liczenia obrażeń dystansowych obrażenia + wymagana zręczność
 |   |   // Kusze wymagają od teraz zarówno siły jak i zręczności
+|   |   // Dodanie nowej kuszy
 |	+--| Weapons
 |	|	// Usunięcie imiennych broni
 |	|	// Funkcje obsługujące tarcze, Dodanie Tarcz

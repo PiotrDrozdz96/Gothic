@@ -598,6 +598,40 @@ FUNC VOID Condition_Crossbow_04()
 	};
 };
 
+/******************************************************************************************/
+INSTANCE ItRw_Crossbow_05(C_Item)
+{
+	name 				=	"Kusza £owcy Demonów";
+
+	mainflag 			=	ITEM_KAT_FF;
+	flags 				=	ITEM_CROSSBOW;
+	material 			=	MAT_WOOD;
+	on_equip			=	Condition_Crossbow_04;
+	
+	value 				=	2600;//1300;
+
+	damageTotal			= 	85 + 100;
+	damagetype			=	DAM_POINT;
+	munition			=	ItAmBolt;
+	cond_atr[2]   		= 	ATR_DEXTERITY;
+	cond_value[2]  		= 	100;
+	visual 				=	"ItRwCrossbow4.mms";
+
+	description			= name;
+	TEXT[1]				= NAME_Damage;					COUNT[1]	= 85;
+	TEXT[2] 			= NAME_Dex_needed;				COUNT[2]	= cond_value[2];
+	TEXT[3]				= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+FUNC VOID Condition_Crossbow_05()
+{
+	if(hero.attribute[ATR_STRENGTH]<100){
+		AI_UnequipWeapons	(hero);
+		G_CanNotUse	(1, ATR_STRENGTH, 100);
+	};
+};
+
 
 /******************************************************************************************/
 //MUNITION//
