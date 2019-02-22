@@ -288,7 +288,7 @@ INSTANCE ItArScrollTeleport1 (C_Item)
 	mainflag 			=	ITEM_KAT_RUNE;
 	flags 				=	ITEM_MULTI;
 
-	visual				=	"ItAr_Scroll_38.3DS";
+	visual				=	"ItAr_Scroll_14.3DS";
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_TELEPORT1;
@@ -328,7 +328,7 @@ INSTANCE ItArScrollTeleport2 (C_Item)
 	mainflag 			=	ITEM_KAT_RUNE;
 	flags 				=	ITEM_MULTI;
 
-	visual				=	"ItAr_Scroll_37.3DS";
+	visual				=	"ItAr_Scroll_14.3DS";
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_TELEPORT2;
@@ -368,7 +368,7 @@ INSTANCE ItArScrollTeleport3 (C_Item)
 	mainflag 			=	ITEM_KAT_RUNE;
 	flags 				=	ITEM_MULTI;
 
-	visual				=	"ItAr_Scroll_40.3DS";
+	visual				=	"ItAr_Scroll_14.3DS";
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_TELEPORT3;
@@ -391,7 +391,7 @@ INSTANCE ItArScrollTeleport4 (C_Item)
 	mainflag 			= ITEM_KAT_RUNE;
 	flags 				= ITEM_MULTI;
 
-	visual				= "ItAr_Scroll_39.3DS";	//lila Punkt + gelber Punkt
+	visual				= "ItAr_Scroll_14.3DS";	//lila Punkt + gelber Punkt
 	material			= MAT_STONE;
 
 	spell				=	SPL_TELEPORT4;
@@ -432,7 +432,7 @@ INSTANCE ItArScrollTeleport5 (C_Item)
 	mainflag 			=	ITEM_KAT_RUNE;
 	flags 				=	ITEM_MULTI;
 
-	visual				=	"ItAr_Scroll_39.3DS";
+	visual				=	"ItAr_Scroll_14.3DS";
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_TELEPORT5;
@@ -485,7 +485,7 @@ INSTANCE ItArScrollHeal (C_Item)
 
 	value 				=	50;
 
-	visual				=	"ItAr_Scroll_01.3DS";
+	visual				=	"ItAr_Scroll_24.3DS";
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_HEAL;
@@ -515,7 +515,7 @@ INSTANCE ItArScrollTrfBloodfly (C_Item)
 
 	value 				=	100;
 
-	visual				=	"ItAr_Scroll_01.3DS";
+	visual				=	"ItAr_Scroll_39.3DS";
 	material			=	MAT_STONE;
 
 	spell			    = 	SPL_TRF_BLOODFLY;
@@ -715,7 +715,7 @@ INSTANCE ItArScrollTrfSnapper (C_Item)
 
 	value 				=	150;
 
-	visual				=	"ItAr_Scroll_01.3DS";
+	visual				=	"ItAr_Scroll_38.3DS";
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_TRF_SNAPPER;
@@ -925,7 +925,7 @@ INSTANCE ItArScrollThunderball (C_Item)
 
 	value 				=	90;
 
-	visual				=	"ItAr_Scroll_01.3DS";
+	visual				=	"ItAr_Scroll_31.3DS";
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_THUNDERBALL;
@@ -1118,7 +1118,7 @@ INSTANCE ItArScrollSummonGolem (C_Item)
 
 	value 				=	450;
 
-	visual				=	"ItAr_Scroll_23.3DS";
+	visual				=	"ItAr_Scroll_37.3DS";
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_SUMMONGOLEM;
@@ -1652,7 +1652,7 @@ INSTANCE ItArRuneBreathOfDeath (C_Item)
 
 	value 				=	1500;
 
-	visual				=	"ItAr_Rune_21.3ds";
+	visual				=	"ItAr_Rune_28.3ds";
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_BREATHOFDEATH;
