@@ -7,9 +7,11 @@
 |	|	// Dodanie tarcz
 |	|	// Przebudowa nauki walki na 11 etapów
 |	+--|-- B_Kapitelwechsel
-|		// Kapitel 4 - Nie tracimy gildii Mag Ognia
-|		// Kapitel 4 - EBR_105_Raven,GRD_(200/210/233/255),STT_(311/329),VLK_(538,581) - Wywalenie za barierę
-|		// Kapitel 6 - Dostajemy naładowany Uriziel(1H/2H) w zależności od wcześniej posiadanego
+|	|	// Kapitel 4 - Nie tracimy gildii Mag Ognia
+|	|	// Kapitel 4 - EBR_105_Raven,GRD_(200/210/233/255),STT_(311/329),VLK_(538,581) - Wywalenie za barierę
+|	|	// Kapitel 6 - Dostajemy naładowany Uriziel(1H/2H) w zależności od wcześniej posiadanego
+|   +--|-- B_Story_AccesToXardas
+|   |   // Otrzymanie runy teleportacyjnej na parter Wieży Xardasa
 |/*******************************************B END***********************************************************
 +--Dialogs
 |	+--|-- DIA_EBR_100_Gomez
@@ -117,8 +119,11 @@
 |	|	// Zmiany w nazwach poziomów dla broni dystansowych (Brak|Zielony|Strzelec|Mistrz)
 |	|	// Zmiany w B_BuildBuyArmorString
 |	|	// Dodanie stałej NAME_STR_GRAB = "Obciążenie Siły", używanej w tarczach
+|   |   // Zmiana nazwy dla SPL_TELEPORT6, dawniej SPL_NEW2
 |	+--| Gothic.src
 |   |   // Przeniesienie G_funcions wyżej w kolejce parsowania
+|   +--| magic_intern
+|   |   // Zamiana stałej SPL_NEW2 na SPL_TELEPORT6
 |/******************************************INNE END********************************************************
 +-- Items
 |	+--| Armor
@@ -129,6 +134,8 @@
 |	|	// Dodano Starą Szate Xardasa(Ognia)
 |	|	// Dodano pancerze bandytów dla bandy Quentina
 |	|	// Zmodyfikowanie statystyk wszystkich pancerzy sugerując się wartościami z G2
+|   +--| Artifacts
+|   |   // Dodanie runy teleportującej na parter wieży Xardasa
 |	+--| Food
 |	|	 // ItAt_Meatbug_01 -> zmieniona kategoria przedmiotu na FOOD
 |	+--| Melee_weapons
@@ -147,6 +154,9 @@
 |	|	// Funkcje obsługujące tarcze, Dodanie Tarcz
 |	|	// 3 wersje Uriziela 1H
 |/*******************************************ITEMS END*******************************************************
+|   +--| Spell_params | Spells_process_mana | Spells_process_released
+|   |   // Dodanie zaklęcia SPL_TELEPORT6
+|/*******************************************MAGIC END*******************************************************
 +-- Monsters
 |	+--| Mst_*
 |	|	// Zmiany parametrów potworów
