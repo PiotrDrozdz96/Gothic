@@ -444,6 +444,27 @@ INSTANCE ItArScrollTeleport5 (C_Item)
 	TEXT	[1]			=	NAME_Manakosten;			COUNT	[1]		=	SPL_SENDCAST_TELEPORT;
 };
 
+/*******************************************************************************************/
+// Teleport6 (Runen)
+
+INSTANCE ItArRuneTeleport6 (C_Item)
+{
+	name 				=	NAME_Rune;
+
+	mainflag 			=	ITEM_KAT_RUNE;
+	flags 				=	0;
+
+	visual				=	"ItAr_Rune_41.3ds"; //lila Rune
+	material			=	MAT_STONE;
+
+	spell				= 	SPL_TELEPORT6;
+	//mag_circle 			= 	4;   //SN: Teleport-Spells müssen auch ohne Circle sprechbar sein!
+
+	description			=	"Teleportacja do Nekromanty, Parter";	//blaue Rune
+	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
+	TEXT	[1]			=	NAME_Manakosten;			COUNT	[1]		=	SPL_SENDCAST_TELEPORT;
+};
+
 
 /*******************************************************************************************
 **  Wassermagier	 (Runensteine  und Scrolls)											  **

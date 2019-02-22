@@ -71,6 +71,7 @@ func int Spell_ProcessMana_Release(var int manainvested)
 	if (Npc_GetActiveSpell(self) == SPL_TELEPORT3		)	{	return	SPL_SENDSTOP;	};
 	if (Npc_GetActiveSpell(self) == SPL_TELEPORT4		)	{	return	SPL_SENDSTOP;	};
 	if (Npc_GetActiveSpell(self) == SPL_TELEPORT5		)	{	return	SPL_SENDSTOP;	};
+	if (Npc_GetActiveSpell(self) == SPL_TELEPORT6		)	{	return	SPL_SENDSTOP;	};
 
 	if (Npc_GetActiveSpell(self) == SPL_TRF_BLOODFLY	) 	{	return	SPL_SENDSTOP;	};
 	if (Npc_GetActiveSpell(self) == SPL_TRF_CRAWLER	    ) 	{	return	SPL_SENDSTOP;	};

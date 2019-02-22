@@ -19,6 +19,7 @@ func INT Spell_ProcessMana(VAR INT manaInvested)
 	if (Npc_GetActiveSpell(self) == SPL_Teleport3		)	{	return	Spell_Logic_Teleport3		(manaInvested);	};
 	if (Npc_GetActiveSpell(self) == SPL_Teleport4		)	{	return	Spell_Logic_Teleport4		(manaInvested);	};
 	if (Npc_GetActiveSpell(self) == SPL_Teleport5		)	{	return	Spell_Logic_Teleport5		(manaInvested);	};
+	if (Npc_GetActiveSpell(self) == SPL_Teleport6		)	{	return	Spell_Logic_Teleport6		(manaInvested);	};
 
 	if (Npc_GetActiveSpell(self) == SPL_HEAL			)	{	return	Spell_Logic_Heal			(manaInvested);	};
 	if (Npc_GetActiveSpell(self) == SPL_TRF_BLOODFLY	) 	{	return	Spell_Logic_Trf_Bloodfly	(manaInvested);	};

@@ -176,7 +176,7 @@ const STRING spellFXInstanceNames[MAX_SPELL] =
 	"Dance",
 	"Berzerk",
 	"BreathOfDeath",
-	"New2",
+	"Teleport",
 	"New3",
 	"New4",
 	"New5"
@@ -240,7 +240,7 @@ const STRING spellFXAniLetters[MAX_SPELL] =
 	"XXX",  //  SPL_DANCE
 	"SLE",	//	SPL_BERZERK
 	"FIB",  //  SPL_NEW1
-	"NE2",  //  SPL_NEW2
+	"HEA",  //  SPL_TELEPORT6
 	"NE3",  //  SPL_NEW3
 	"NE4",  //  SPL_NEW4
 	"NE5"   //  SPL_NEW5

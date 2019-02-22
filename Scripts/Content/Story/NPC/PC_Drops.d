@@ -79,5 +79,8 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 	//Crossbow
 	CreateInvItem (self,ItRw_Crossbow_05);
 	CreateInvItems (self,ItAmBolt,1000);
+
+	//Runen
+	CreateInvItem (self,ItArRuneTeleport6);
 	
 };
