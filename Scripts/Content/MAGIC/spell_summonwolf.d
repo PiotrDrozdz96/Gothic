@@ -6,20 +6,19 @@
 // SPL_NEXTLEVEL		=	4;		// setze den Spruch auf den nächsten Level
 
 
-func int Spell_Logic_SummonSkeleton(var int manaInvested)
+func int Spell_Logic_SummonWolf(var int manaInvested)
 {
-	PrintDebugNpc		(PD_MAGIC,	"Spell_Logic_SummonSkeleton");
+	PrintDebugNpc		(PD_MAGIC,	"Spell_Logic_SummonWolf");
 	
-	if (manaInvested >= SPL_SENDCAST_SUMMONSKELETON) 	
+	if (manaInvested >= SPL_SENDCAST_SUMMONGOBBO) 	
 	{ 
 		if (Npc_IsPlayer(self))
 	    {
-			Wld_SpawnNpcRange	(self,	SummonedByPC_SkeletonWarrior,	1,	500);
+			Wld_SpawnNpcRange	(self,	SummonedByPC_Wolf,	1,	500);
 		}
 		else
 		{
-	    	Wld_SpawnNpcRange	(self,	SummonedByNPC_Skeleton,			2,	500);
-			Wld_SpawnNpcRange	(self,	SummonedByNPC_SkeletonWarrior,	1,	500);
+			Wld_SpawnNpcRange	(self,	SummonedByNPC_Wolf, 1,	500);
 		};
 		
 		return SPL_SENDCAST; 

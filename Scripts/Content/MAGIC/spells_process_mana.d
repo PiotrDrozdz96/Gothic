@@ -39,6 +39,8 @@ func INT Spell_ProcessMana(VAR INT manaInvested)
 	if (Npc_GetActiveSpell(self) == SPL_ICECUBE			)	{	return	Spell_Logic_IceCube			(manaInvested);	};
 	if (Npc_GetActiveSpell(self) == SPL_ICEWAVE			)	{	return	Spell_Logic_IceWave			(manaInvested);	};
 
+	if (Npc_GetActiveSpell(self) == SPL_SUMMONGOBBO		)	{	return	Spell_Logic_SummonGobbo		(manaInvested);	};
+	if (Npc_GetActiveSpell(self) == SPL_SUMMONWOLF		)	{	return	Spell_Logic_SummonWolf		(manaInvested);	};
 	if (Npc_GetActiveSpell(self) == SPL_SUMMONDEMON		)	{	return	Spell_Logic_SummonDemon		(manaInvested);	};
 	if (Npc_GetActiveSpell(self) == SPL_SUMMONSKELETON	)	{	return	Spell_Logic_SummonSkeleton	(manaInvested);	};
 	if (Npc_GetActiveSpell(self) == SPL_SUMMONGOLEM	    )	{	return	Spell_Logic_SummonGolem 	(manaInvested);	};

@@ -88,6 +88,7 @@ func int Spell_ProcessMana_Release(var int manainvested)
 	if (Npc_GetActiveSpell(self) == SPL_ICECUBE			)	{	return	SPL_SENDSTOP;	};
 	if (Npc_GetActiveSpell(self) == SPL_ICEWAVE			)	{	return	SPL_SENDSTOP;	};
 
+	if (Npc_GetActiveSpell(self) == SPL_SUMMONGOBBO		)	{	return	SPL_SENDSTOP;	};
 	if (Npc_GetActiveSpell(self) == SPL_SUMMONDEMON		)	{	return	SPL_SENDSTOP;	};
 	if (Npc_GetActiveSpell(self) == SPL_SUMMONSKELETON	)	{	return	SPL_SENDSTOP;	};
 	if (Npc_GetActiveSpell(self) == SPL_SUMMONGOLEM		)	{	return	SPL_SENDSTOP;	};

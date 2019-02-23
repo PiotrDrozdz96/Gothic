@@ -10,7 +10,13 @@ INSTANCE Info_HighPriest5 (C_INFO)
 
 FUNC INT Info_HighPriest5_Condition()
 {
-	return TRUE;
+	if (C_IsChapter(5)){
+		return TRUE;
+	}
+	else {
+		return FALSE;
+	};
+
 };
 
 FUNC VOID Info_HighPriest5_Info()
@@ -19,7 +25,7 @@ FUNC VOID Info_HighPriest5_Info()
 	AI_SetWalkmode		(self, NPC_WALK);
 	AI_GotoNpc			(self, other);
 	
-	if ( Npc_HasItems ( hero, Mythrilklinge02 )) || ( Npc_HasItems ( hero, UrizielRune ))
+	if ( Npc_HasItems ( hero, Mythrilklinge02 )) || ( Npc_HasItems ( hero, UrizielRune ) || (Npc_HasItems ( hero, ITMW_1H_URIZIEL_2)) )
 	{
 		AI_Output 			(self, other,"Info_HighPriest5_17_04"); //MASZ ZE SOB¥ POTÊ¯NY ORÊ¯!
 		AI_Output 			(self, other,"Info_HighPriest5_17_05"); //POWSTRZYMAM CIÊ!
@@ -58,6 +64,7 @@ FUNC INT Info_HighPriest5FAILED_Condition()
 	&&	(self.aivar[AIV_MISSION1] >= HighPriest_MaxHit)
 	&&	!Npc_HasItems(hero, Mythrilklinge02)
 	&&	!Npc_HasItems(hero, UrizielRune)
+	&&	!Npc_HasItems(hero, ITMW_1H_URIZIEL_2)
 	{
 		return TRUE;
 	};
@@ -69,7 +76,8 @@ FUNC VOID Info_HighPriest5FAILED_Info()
 	AI_Output			(self, other,"Info_HighPriest5FAILED_17_02"); //TERAZ ZGINIESZ!
 	AI_Output			(other, self,"Info_HighPriest5FAILED_15_03"); //Lepiej siê st¹d wynosiæ! I to zaraz!
 	AI_RemoveWeapon		(other);
-	AI_TurnAway			(other,	self);	
+	AI_TurnAway			(other,	self);
+	Mdl_ApplyOverlayMDSTimed	(hero, "HUMANS_SPRINT.MDS", 60000);
 	
 	self.npctype 		= NPCTYPE_MAIN;
 	Npc_SetAttitude 	(self, ATT_HOSTILE);

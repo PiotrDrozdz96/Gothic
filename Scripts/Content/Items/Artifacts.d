@@ -120,12 +120,12 @@ INSTANCE ItArRuneFireball (C_Item)
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_FIREBALL;
-	mag_circle 			=	3;
+	mag_circle 			=	2;
 
 	description			= 	"Kula ognia";
 	TEXT	[0]			=	NAME_Mag_Circle;							COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_ManakostenMax;							COUNT	[1]		=	SPL_SENDCAST_FIREBALL;
-	TEXT	[2]			=	ConcatStrings(NAME_Dam_Fire,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_FIREBALL;
+	TEXT	[2]			=	ConcatStrings(NAME_Dam_Fire,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_FIREBALL*4;
 	//TEXT	[3] 		=	"";											COUNT	[3]		=	;
 	TEXT	[4]			=	NAME_Spell_Load;
 	TEXT	[5]			=	NAME_Value;									COUNT	[5]		=	value;
@@ -150,7 +150,7 @@ INSTANCE ItArScrollFireball (C_Item)
 	description			= 	"Kula ognia";
 	//TEXT	[0]			=	NAME_Mag_Circle;							COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_ManakostenMax;							COUNT	[1]		=	SPL_SENDCAST_FIREBALL;
-	TEXT	[2]			=	ConcatStrings(NAME_Dam_Fire,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_FIREBALL;
+	TEXT	[2]			=	ConcatStrings(NAME_Dam_Fire,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_FIREBALL*4;
 	//TEXT	[3] 		=	"";											COUNT	[3]		=	;
 	TEXT	[4]			=	NAME_Spell_Load;
 	TEXT	[5]			=	NAME_Value;									COUNT	[5]		=	value;
@@ -172,12 +172,12 @@ INSTANCE ItArRuneFirestorm (C_Item)
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_FIRESTORM;
-	mag_circle 			=	4;
+	mag_circle 			=	3;
 
 	description			= 	"Ognista burza";
 	TEXT	[0]			=	NAME_Mag_Circle;							COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_ManakostenMax;							COUNT	[1]		=	SPL_SENDCAST_FIRESTORM;
-	TEXT	[2]			=	ConcatStrings(NAME_Dam_Fire,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_FIRESTORM;
+	TEXT	[2]			=	ConcatStrings(NAME_Dam_Fire,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_FIRESTORM*4;
 	//TEXT	[3] 		=	"";											COUNT	[3]		=	;
 	TEXT	[4]			=	NAME_Spell_Load;
 	TEXT	[5]			=	NAME_Value;									COUNT	[5]		=	value;
@@ -202,7 +202,7 @@ INSTANCE ItArScrollFirestorm (C_Item)
 	description			= 	"Ognista burza";
 	//TEXT	[0]			=	NAME_Mag_Circle;							COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_ManakostenMax;							COUNT	[1]		=	SPL_SENDCAST_FIRESTORM;
-	TEXT	[2]			=	ConcatStrings(NAME_Dam_Fire,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_FIRESTORM;
+	TEXT	[2]			=	ConcatStrings(NAME_Dam_Fire,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_FIRESTORM*4;
 	//TEXT	[3] 		=	"";											COUNT	[3]		=	;
 	TEXT	[4]			=	NAME_Spell_Load;
 	TEXT	[5]			=	NAME_Value;									COUNT	[5]		=	value;
@@ -224,7 +224,7 @@ INSTANCE ItArRuneFireRain (C_Item)
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_FIRERAIN;
-	mag_circle 			= 	5;
+	mag_circle 			= 	6;
 
 	description			=	"Deszcz ognia";
 	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
@@ -460,7 +460,7 @@ INSTANCE ItArRuneTeleport6 (C_Item)
 	spell				= 	SPL_TELEPORT6;
 	//mag_circle 			= 	4;   //SN: Teleport-Spells müssen auch ohne Circle sprechbar sein!
 
-	description			=	"Teleportacja do Nekromanty, Parter";	//blaue Rune
+	description			=	"Teleportacja do Nekromanty, parter";	//blaue Rune
 	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_Manakosten;			COUNT	[1]		=	SPL_SENDCAST_TELEPORT;
 };
@@ -485,7 +485,7 @@ INSTANCE ItArRuneHeal (C_Item)
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_HEAL;
-	mag_circle 			= 	2;
+	mag_circle 			= 	1;
 
 	description			=	"Uzdrowienie";
 	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
@@ -871,7 +871,7 @@ INSTANCE ItArRuneThunderbolt (C_Item)
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_THUNDERBOLT;
-	mag_circle 			=	1;
+	mag_circle 			=	2;
 
 // FIXME: kann man die DAMAGE_PER_LEVEL-Werte der Spells aus der Spells_Params hier für Manakosten einsetzen??
 	description			=	"Sopel lodu";
@@ -930,7 +930,7 @@ INSTANCE ItArRuneThunderball (C_Item)
 	description			=	"Piorun kulisty";
 	TEXT	[0]			=	NAME_Mag_Circle;							COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_ManakostenMax;							COUNT	[1]		=	SPL_SENDCAST_THUNDERBALL;
-	TEXT	[2]			=	ConcatStrings(NAME_Dam_Magic,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_THUNDERBALL;
+	TEXT	[2]			=	ConcatStrings(NAME_Dam_Magic,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_THUNDERBALL*4;
 	//TEXT	[3] 		=	"";											COUNT	[3]		=	;
 	TEXT	[4]			=	NAME_Spell_Load;
 	TEXT	[5]			=	NAME_Value;									COUNT	[5]		=	value;
@@ -956,7 +956,7 @@ INSTANCE ItArScrollThunderball (C_Item)
 	description			=	"Piorun kulisty";
 	//TEXT	[0]			=	NAME_Mag_Circle;							COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_ManakostenMax;							COUNT	[1]		=	SPL_SENDCAST_THUNDERBALL;
-	TEXT	[2]			=	ConcatStrings(NAME_Dam_Magic,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_THUNDERBALL;
+	TEXT	[2]			=	ConcatStrings(NAME_Dam_Magic,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_THUNDERBALL*4;
 	//TEXT	[3] 		=	"";											COUNT	[3]		=	;
 	TEXT	[4]			=	NAME_Spell_Load;
 	TEXT	[5]			=	NAME_Value;									COUNT	[5]		=	value;
@@ -1072,7 +1072,85 @@ INSTANCE ItArScrollIceWave (C_Item)
 **  Dämonenbeschwörer	 (Runensteine  und Scrolls)										  **
 *******************************************************************************************/
 
-// Summon Demon (Scrolls)
+// Summon Gobbo (Runen)
+
+INSTANCE ItArRuneSummonGobbo (C_Item)
+{
+	name 				=	NAME_Rune;
+
+	mainflag 			=	ITEM_KAT_RUNE;
+	flags 				=	0;
+
+	value 				=	1250;
+
+	visual				=	"ItAr_Rune_29.3DS";
+	material			=	MAT_STONE;
+
+	spell				= 	SPL_SUMMONGOBBO;
+	mag_circle			=	1;
+
+	description			=	"Przyzwanie szkieletu goblina";
+	//TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
+	TEXT	[1]			=	NAME_Manakosten;			COUNT	[1]		=	SPL_SENDCAST_SUMMONGOBBO;
+	//TEXT	[2]			=	"";							COUNT	[2]		=	;
+	//TEXT	[3] 		=	"";							COUNT	[3]		=	;
+	//TEXT	[4]			=	"";							COUNT	[4]		=	;
+	TEXT	[5]			=	NAME_Value;					COUNT	[5]		=	value;
+};
+
+/*******************************************************************************************/
+// Summon Wolf (Runen)
+
+INSTANCE ItArRuneSummonWolf (C_Item)
+{
+	name 				=	NAME_Rune;
+
+	mainflag 			=	ITEM_KAT_RUNE;
+	flags 				=	0;
+
+	value 				=	2500;
+
+	visual				=	"ItAr_Rune_32.3ds";
+	material			=	MAT_STONE;
+
+	spell				= 	SPL_SUMMONWOLF;
+	mag_circle			=	2;
+
+	description			=	"Przyzwanie wilka";
+	//TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
+	TEXT	[1]			=	NAME_Manakosten;			COUNT	[1]		=	SPL_SENDCAST_SUMMONWOLF;
+	//TEXT	[2]			=	"";							COUNT	[2]		=	;
+	//TEXT	[3] 		=	"";							COUNT	[3]		=	;
+	//TEXT	[4]			=	"";							COUNT	[4]		=	;
+	TEXT	[5]			=	NAME_Value;					COUNT	[5]		=	value;
+};
+
+/*******************************************************************************************/
+// Summon Demon (Scrolls und Runen)
+
+INSTANCE ItArRuneSummonDemon (C_Item)
+{
+	name 				=	NAME_Rune;
+
+	mainflag 			=	ITEM_KAT_RUNE;
+	flags 				=	0;
+
+	value 				=	5500;
+
+	visual				=	"ItAr_Rune_13.3DS";
+	material			=	MAT_STONE;
+
+	spell				= 	SPL_SUMMONDEMON;
+	mag_circle			=	5;
+
+	description			=	"Przyzwanie demona";
+	//TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
+	TEXT	[1]			=	NAME_Manakosten;			COUNT	[1]		=	SPL_SENDCAST_SUMMONDEMON;
+	//TEXT	[2]			=	"";							COUNT	[2]		=	;
+	//TEXT	[3] 		=	"";							COUNT	[3]		=	;
+	//TEXT	[4]			=	"";							COUNT	[4]		=	;
+	TEXT	[5]			=	NAME_Value;					COUNT	[5]		=	value;
+};
 
 INSTANCE ItArScrollSummonDemon (C_Item)
 {
@@ -1100,7 +1178,31 @@ INSTANCE ItArScrollSummonDemon (C_Item)
 };
 
 /*******************************************************************************************/
-// Summon Skeletons (Scrolls)
+// Summon Skeletons (Scrolls und Runen)
+
+INSTANCE ItArRuneSummonSkeletons (C_Item)
+{
+	name 				=	NAME_Spruchrolle;
+
+	mainflag 			=	ITEM_KAT_RUNE;
+	flags 				=	0;
+
+	value 				=	3500;
+
+	visual				=	"ItAr_Rune_16.3DS";
+	material			=	MAT_STONE;
+
+	spell				= 	SPL_SUMMONSKELETON;
+	mag_circle			=	3;
+
+	description			=	"Przyzwanie szkieleta";
+	//TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
+	TEXT	[1]			=	NAME_Manakosten;			COUNT	[1]		=	SPL_SENDCAST_SUMMONSKELETON;
+	//TEXT	[2]			=	"";							COUNT	[2]		=	;
+	//TEXT	[3] 		=	"";							COUNT	[3]		=	;
+	//TEXT	[4]			=	"";							COUNT	[4]		=	;
+	TEXT	[5]			=	NAME_Value;					COUNT	[5]		=	value;
+};
 
 INSTANCE ItArScrollSummonSkeletons (C_Item)
 {
@@ -1118,7 +1220,7 @@ INSTANCE ItArScrollSummonSkeletons (C_Item)
 	cond_atr[2]   		=	ATR_MANA_MAX;
 	cond_value[2]  		=	SPL_SENDCAST_SUMMONSKELETON;
 
-	description			=	"Przyzwanie szkieletów";
+	description			=	"Przyzwanie szkieleta";
 	//TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_Manakosten;			COUNT	[1]		=	SPL_SENDCAST_SUMMONSKELETON;
 	//TEXT	[2]			=	"";							COUNT	[2]		=	;
@@ -1128,7 +1230,31 @@ INSTANCE ItArScrollSummonSkeletons (C_Item)
 };
 
 /*******************************************************************************************/
-// Summon Golem (Scrolls)
+// Summon Golem (Scrolls und Runen)
+
+INSTANCE ItArRuneSummonGolem (C_Item)
+{
+	name 				=	NAME_Spruchrolle;
+
+	mainflag 			=	ITEM_KAT_RUNE;
+	flags 				=	0;
+
+	value 				=	4500;
+
+	visual				=	"ItAr_Rune_30.3ds";
+	material			=	MAT_STONE;
+
+	spell				= 	SPL_SUMMONGOLEM;
+	mag_circle			=	4;
+
+	description			=	"Przyzwanie golema";
+	//TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
+	TEXT	[1]			=	NAME_Manakosten;			COUNT	[1]		=	SPL_SENDCAST_SUMMONGOLEM;
+	//TEXT	[2]			=	"";							COUNT	[2]		=	;
+	//TEXT	[3] 		=	"";							COUNT	[3]		=	;
+	//TEXT	[4]			=	"";							COUNT	[4]		=	;
+	TEXT	[5]			=	NAME_Value;					COUNT	[5]		=	value;
+};
 
 INSTANCE ItArScrollSummonGolem (C_Item)
 {
@@ -1156,7 +1282,31 @@ INSTANCE ItArScrollSummonGolem (C_Item)
 };
 
 /*******************************************************************************************/
-// Army of Darkness (Scrolls)
+// Army of Darkness (Scrolls und Runen)
+
+INSTANCE ItArRuneArmyOfDarkness (C_Item)
+{
+	name 				=	NAME_Spruchrolle;
+
+	mainflag 			=	ITEM_KAT_RUNE;
+	flags 				=	0;
+
+	value 				=	6666;
+
+	visual				=	"ItAr_Rune_12.3DS";
+	material			=	MAT_STONE;
+
+	spell				= 	SPL_ARMYOFDARKNESS;
+	mag_circle			=	6;
+
+	description			=	"Armia Ciemnoœci";
+	//TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
+	TEXT	[1]			=	NAME_Manakosten;			COUNT	[1]		=	SPL_SENDCAST_ARMYOFDARKNESS;
+	//TEXT	[2]			=	"";							COUNT	[2]		=	;
+	//TEXT	[3] 		=	"";							COUNT	[3]		=	;
+	//TEXT	[4]			=	"";							COUNT	[4]		=	;
+	TEXT	[5]			=	NAME_Value;					COUNT	[5]		=	value;
+};
 
 INSTANCE ItArScrollArmyOfDarkness (C_Item)
 {
@@ -1260,7 +1410,7 @@ INSTANCE ItArRuneWindfist (C_Item)
 	description			=	"Uderzenie Wiatru";
 	TEXT	[0]			=	NAME_Mag_Circle;							COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_ManakostenMax;							COUNT	[1]		=	SPL_SENDCAST_WINDFIST;
-	TEXT	[2]			=	ConcatStrings(NAME_Dam_Fly,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_WINDFIST;
+	TEXT	[2]			=	ConcatStrings(NAME_Dam_Fly,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_WINDFIST*4;
 	//TEXT	[3] 		=	"";											COUNT	[3]		=	;
 	TEXT	[4]			=	NAME_Spell_Load;
 	TEXT	[5]			=	NAME_Value;									COUNT	[5]		=	value;
@@ -1285,7 +1435,7 @@ INSTANCE ItArScrollWindfist (C_Item)
 	description			=	"Uderzenie Wiatru";
 	//TEXT	[0]			=	NAME_Mag_Circle;							COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_ManakostenMax;							COUNT	[1]		=	SPL_SENDCAST_WINDFIST;
-	TEXT	[2]			=	ConcatStrings(NAME_Dam_Fly,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_WINDFIST;
+	TEXT	[2]			=	ConcatStrings(NAME_Dam_Fly,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_WINDFIST*4;
 	//TEXT	[3] 		=	"";											COUNT	[3]		=	;
 	TEXT	[4]			=	NAME_Spell_Load;
 	TEXT	[5]			=	NAME_Value;									COUNT	[5]		=	value;
@@ -1312,7 +1462,7 @@ INSTANCE ItArRuneStormfist (C_Item)
 	description			=	"Uderzenie Burzy";
 	TEXT	[0]			=	NAME_Mag_Circle;							COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_ManakostenMax;							COUNT	[1]		=	SPL_SENDCAST_STORMFIST;
-	TEXT	[2]			=	ConcatStrings(NAME_Dam_Fly,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_STORMFIST;
+	TEXT	[2]			=	ConcatStrings(NAME_Dam_Fly,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_STORMFIST*4;
 	//TEXT	[3] 		=	"";											COUNT	[3]		=	;
 	TEXT	[4]			=	NAME_Spell_Load;
 	TEXT	[5]			=	NAME_Value;									COUNT	[5]		=	value;
@@ -1337,7 +1487,7 @@ INSTANCE ItArScrollStormfist (C_Item)
 	description			=	"Uderzenie Burzy";
 	//TEXT	[0]			=	NAME_Mag_Circle;							COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_ManakostenMax;							COUNT	[1]		=	SPL_SENDCAST_STORMFIST;
-	TEXT	[2]			=	ConcatStrings(NAME_Dam_Fly,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_STORMFIST;
+	TEXT	[2]			=	ConcatStrings(NAME_Dam_Fly,NAME_PerMana);	COUNT	[2]		=	SPL_DAMAGE_STORMFIST*4;
 	//TEXT	[3] 		=	"";											COUNT	[3]		=	;
 	TEXT	[4]			=	NAME_Spell_Load;
 	TEXT	[5]			=	NAME_Value;									COUNT	[5]		=	value;
@@ -1517,7 +1667,7 @@ INSTANCE ItArRunePyrokinesis (C_Item)
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_PYROKINESIS;
-	mag_circle 			=	3;
+	mag_circle 			=	4;
 
 	description			=	"Pirokineza";
 	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;

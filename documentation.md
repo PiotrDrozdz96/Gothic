@@ -1,7 +1,8 @@
 +--B
 |   +--|-- B_BuyAtrributePoints
 |   |   //Uwzględnie tarcz przy nauce siły
-|	+--|-- B_Give(Darrion/Fisk/Scorpio/Sharky/Skip/Wolf)ChapterWeapons
+|   |   //Zwiększenie max many do 200
+|   +--|-- B_Give(Darrion/Fisk/Scorpio/Sharky/Skip/Wolf)ChapterWeapons
 |   |   //Zmiany w sprzedawanych broniach z powodu zmian parametrów, oraz dodanie tarcz
 |   +--|-- B_GiveSkill
 |   |   // Dodanie tarcz
@@ -10,6 +11,7 @@
 |   |   // Kapitel 4 - Nie tracimy gildii Mag Ognia
 |   |   // Kapitel 4 - EBR_105_Raven,GRD_(200/210/233/255),STT_(311/329),VLK_(538,581) - Wywalenie za barierę
 |   |   // Kapitel 6 - Dostajemy naładowany Uriziel(1H/2H) w zależności od wcześniej posiadanego
+|   |   // Kapitel 6 - Orc_Priest5 staje się wrażliwy na obrażenia
 |   +--|-- B_Story_AccesToXardas
 |   |   // Otrzymanie runy teleportacyjnej na parter Wieży Xardasa
 |/*******************************************B END***********************************************************
@@ -119,11 +121,11 @@
 |   |   // Zmiany w nazwach poziomów dla broni dystansowych (Brak|Zielony|Strzelec|Mistrz)
 |   |   // Zmiany w B_BuildBuyArmorString
 |   |   // Dodanie stałej NAME_STR_GRAB = "Obciążenie Siły", używanej w tarczach
-|   |   // Zmiana nazwy dla SPL_TELEPORT6, dawniej SPL_NEW2
+|   |   // Zmiana nazwy dla SPL_NEW(2-4)
 |   +--| Gothic.src
 |   |   // Przeniesienie G_funcions wyżej w kolejce parsowania
 |   +--| magic_intern
-|   |   // Zamiana stałej SPL_NEW2 na SPL_TELEPORT6
+|   |   // Zamiana stałej SPL_NEW(2-4)
 |/******************************************INNE END********************************************************
 +-- Items
 |   +--| Armor
@@ -135,7 +137,9 @@
 |   |   // Dodano pancerze bandytów dla bandy Quentina
 |   |   // Zmodyfikowanie statystyk wszystkich pancerzy sugerując się wartościami z G2
 |   +--| Artifacts
+|   |   // Zmodyfikowanie run
 |   |   // Dodanie runy teleportującej na parter wieży Xardasa
+|   |   // Dodanie nowych run przywołań
 |   +--| Food
 |   |    // ItAt_Meatbug_01 -> zmieniona kategoria przedmiotu na FOOD
 |   +--| Melee_weapons
@@ -156,10 +160,15 @@
 |/*******************************************ITEMS END*******************************************************
 |   +--| Spell_params | Spells_process_mana | Spells_process_released
 |   |   // Dodanie zaklęcia SPL_TELEPORT6
+|   |   // SummonsSkeleton przywołuje tylko jednego szkieleta
+|   |   // Nowe zaklęcia przywołań (SummonGobbo, SummonWolf)
 |/*******************************************MAGIC END*******************************************************
 +-- Monsters
 |   +--| Mst_*
 |   |   // Zmiany parametrów potworów
+|   +--| Mst_(Gobbo/Golem/Skeleton/Wolf)
+|   |   // Nowe przywołania
+|   |   // Lvl 0 dla przywołanych potworów przez gracza
 |/*******************************************MONSTERS END****************************************************
 +-- NPC
 |   +-- BDT_QUENTIN
@@ -220,5 +229,6 @@
 |   |    // fan4 - zmiana skinBody na skin bohatera z G2
 |   +--| ORC_Priests
 |   |    // ORC_PRIEST_5 - dodanie tarczy ITSH_STALHRIM_B_SM
+|   |    // ORC_PRIEST_5 - niewrażliwy na żadne obrażenia
 |   +--| PC_(Fighter/Mage/Psionic)
 |   |    // Dodanie rutyny "MeetFriend", związana z Questem Zawalona Wieża 

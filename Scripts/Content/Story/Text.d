@@ -140,7 +140,7 @@ CONST STRING TXT_SPELLS	[MAX_SPELL]	= {
 	"Uzdrowienie",				// SPL_HEAL			=	4;
 	"n/a",						// SPL_LIGHTNING	=	5;
 	"Przyzwanie demona",		// SPL_SUMMONDEMON	=	6;
-	"Przyzwanie szkieletów",	// SPL_SUMMONSKELETON=	7;
+	"Przyzwanie szkieleta",	// SPL_SUMMONSKELETON=	7;
 	"n/a",						// SPL_FORGET		=	8;
 	"Uderzenie wiatru",			// SPL_WINDFIST		=	9;
 	"Telekineza",				// SPL_TELEKINESIS	=	10;
@@ -189,8 +189,8 @@ CONST STRING TXT_SPELLS	[MAX_SPELL]	= {
 	"Sza³",						// SPL_BERZERK		=	53;
 	"Gniew Uriziela",			// SPL_NEW1			=	17;
 	"Teleport, Wie¿a",			// SPL_TELEPORT6	=	18;
-	"New3",						// SPL_NEW3			=	19;
-	"New4",						// SPL_NEW4			=	20;
+	"Przyzwanie goblina",		// SPL_SUMMONGOBBO	=	19;
+	"Przyzwanie wilka",			// SPL_SUMMONWOLF 	=	20;
 	"New5"						// SPL_NEW5			=	21;
  };
 
@@ -403,7 +403,7 @@ const string NAME_Dam_Magic		= "Obr. Magia";
 const string NAME_Dam_Fly		= "Obr. Burza";
 
 const string NAME_Damage		= "Obra¿enia:";
-const string NAME_PerMana		= "/mana:";
+const string NAME_PerMana		= "(maks.):";
 const string NAME_DamagePerSec	= "Obra¿enia/sek.:";
 
 const string NAME_Prot_Edge		= "Ochrona przed broni¹:";

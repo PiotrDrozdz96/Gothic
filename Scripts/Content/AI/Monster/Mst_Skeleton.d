@@ -221,6 +221,7 @@ INSTANCE SkeletonMage_fogtower		(Mst_Default_Skeleton)
 
 INSTANCE SummonedByPC_Skeleton	(Mst_Default_Skeleton)
 {
+	level							=	0;
 	aivar[AIV_MM_REAL_ID]			= 	ID_SKELETON;
 //-----------------------------------------
 	Set_Skeleton_Visuals();
@@ -254,7 +255,7 @@ INSTANCE SummonedByNPC_Skeleton	(Mst_Default_Skeleton)
 INSTANCE SummonedByPC_SkeletonWarrior (Mst_Default_Skeleton)
 {
 	name							=	"Szkielet wojownik";
-	level							=	30;
+	level							=	0;
 	attribute	[ATR_STRENGTH]		=	120;
 	senses						= SENSE_HEAR | SENSE_SEE;
 	aivar[AIV_MM_REAL_ID]			= 	ID_SKELETONWARRIOR;

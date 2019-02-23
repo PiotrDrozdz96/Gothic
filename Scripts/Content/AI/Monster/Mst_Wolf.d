@@ -69,3 +69,28 @@ INSTANCE Wolf	(Mst_Default_Wolf)
 	Set_Wolf_Visuals();
 	Npc_SetToFistMode(self);
 };
+
+INSTANCE SummonedByPC_Wolf (Mst_Default_Wolf)
+{
+	level	=	0;
+	guild					=	GIL_SKELETON;
+	aivar[AIV_MM_REAL_ID]	= 	ID_SKELETON;
+	Set_Wolf_Visuals();
+	Npc_SetToFistMode(self);
+	attribute[ATR_STRENGTH] = attribute	[ATR_STRENGTH] + 20;
+	senses						= SENSE_HEAR | SENSE_SEE;
+	start_aistate	=	ZS_MM_SummonedByPC;
+	self.aivar[AIV_MM_DistToMaster] = 300;
+	self.aivar[AIV_MM_TimeLooseHP] 	= 5;
+	self.aivar[AIV_MM_PARTYMEMBER] = TRUE;
+};
+
+INSTANCE SummonedByNPC_Wolf (Mst_Default_Wolf)
+{
+	guild					=	GIL_SKELETON;
+	aivar[AIV_MM_REAL_ID]	= 	ID_SKELETON;
+	Set_Wolf_Visuals();
+	Npc_SetToFistMode(self);
+	attribute[ATR_STRENGTH] = attribute	[ATR_STRENGTH] + 20;
+	start_aistate	=	ZS_MM_Summoned;
+};

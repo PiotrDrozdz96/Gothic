@@ -273,7 +273,7 @@ instance ORC_Priest_5 (Npc_Default)
 	protection	[PROT_POINT]		=	1000;
 	protection	[PROT_FIRE]			=	1000;
 	protection	[PROT_FLY]			=	1000;
-	protection	[PROT_MAGIC]		=	100;
+	protection	[PROT_MAGIC]		=	1000;
 		
 
 	//-------- talente --------

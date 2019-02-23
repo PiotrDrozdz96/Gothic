@@ -19,8 +19,8 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 	//--------- abilities --------
 	attribute[ATR_STRENGTH] 	=	100;     
 	attribute[ATR_DEXTERITY] 	=	100;     
-	attribute[ATR_MANA_MAX] 	=	100;
-	attribute[ATR_MANA] 		=	100;
+	attribute[ATR_MANA_MAX] 	=	200;
+	attribute[ATR_MANA] 		=	200;
 	attribute[ATR_HITPOINTS_MAX]=	40;    
 	attribute[ATR_HITPOINTS] 	=	40;    
 	
@@ -82,5 +82,11 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 
 	//Runen
 	CreateInvItem (self,ItArRuneTeleport6);
+	CreateInvItem (self,ItArRuneSummonDemon);
+	CreateInvItem (self,ItArRuneSummonSkeletons);
+	CreateInvItem (self,ItArRuneSummonGolem);
+	CreateInvItem (self,ItArRuneArmyOfDarkness);
+	CreateInvItem (self,ItArRuneSummonGobbo);
+	CreateInvItem (self,ItArRuneSummonWolf);
 	
 };

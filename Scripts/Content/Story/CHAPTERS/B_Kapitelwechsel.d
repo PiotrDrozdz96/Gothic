@@ -284,6 +284,9 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 		else{
 			CreateInvItem 	(hero, Mythrilklinge02);
 		};
+
+		var C_NPC orcPriest; orcPriest = Hlp_GetNpc(ORC_Priest_5);
+		orcPriest.protection[PROT_MAGIC] = 100;
 		
 		introducechapter ("Rozdzia³ 6","Le¿e Œni¹cego","chapter6.tga","levelup.wav", 6000);
 		//introducechapter ("Chapter 6","The sleeper's halls","chapter6.tga","levelup.wav", 6000);
