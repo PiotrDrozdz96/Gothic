@@ -59,6 +59,13 @@ func void Set_Wolf_Visuals()
 	Mdl_SetVisualBody		(self,	"Wol_Body",		DEFAULT,	DEFAULT,	"",			DEFAULT,  	DEFAULT,	-1);
 };
 
+func void Set_UndeadWolf_Visuals()
+{
+	Mdl_SetVisual			(self,"Wolf.mds");
+	//								Body-Mesh		Body-Tex	Skin-Color	Head-MMS	Head-Tex	Teeth-Tex	ARMOR
+	Mdl_SetVisualBody		(self,	"Wol_Body",		1,	DEFAULT,	"",			DEFAULT,  	DEFAULT,	-1);
+};
+
 
 /*************************************************************************
 **	Wolf    															**
@@ -75,7 +82,7 @@ INSTANCE SummonedByPC_Wolf (Mst_Default_Wolf)
 	level	=	0;
 	guild					=	GIL_SKELETON;
 	aivar[AIV_MM_REAL_ID]	= 	ID_SKELETON;
-	Set_Wolf_Visuals();
+	Set_UndeadWolf_Visuals();
 	Npc_SetToFistMode(self);
 	attribute[ATR_STRENGTH] = attribute	[ATR_STRENGTH] + 20;
 	senses						= SENSE_HEAR | SENSE_SEE;
@@ -89,7 +96,7 @@ INSTANCE SummonedByNPC_Wolf (Mst_Default_Wolf)
 {
 	guild					=	GIL_SKELETON;
 	aivar[AIV_MM_REAL_ID]	= 	ID_SKELETON;
-	Set_Wolf_Visuals();
+	Set_UndeadWolf_Visuals();
 	Npc_SetToFistMode(self);
 	attribute[ATR_STRENGTH] = attribute	[ATR_STRENGTH] + 20;
 	start_aistate	=	ZS_MM_Summoned;
