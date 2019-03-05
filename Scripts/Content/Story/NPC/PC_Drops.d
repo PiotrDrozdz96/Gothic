@@ -30,6 +30,9 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 	//						Body-Mesh			Body-Tex	Skin-Color	Head-MMS    		Head-Tex	Teeth-Tex 	Armor-Tex
 	Mdl_SetVisualBody (self,"hum_body_Naked0",	4,			1,			"Hum_Head_Pony",	9, 			0,			BDT_ARMOR_H);
 	
+	//-------- ai ----------
+	start_aistate = ZS_DROPS_Hangaround;
+
 	Npc_SetTalentSkill		( self, NPC_TALENT_PICKPOCKET,1);Npc_SetTalentValue(self,NPC_TALENT_PICKPOCKET,60); 
 	Npc_SetTalentSkill		( self, NPC_TALENT_SNEAK,	1);	
 	Npc_SetTalentSkill		( self, NPC_TALENT_PICKLOCK,	1);Npc_SetTalentValue(self,NPC_TALENT_PICKLOCK,60); 
@@ -89,4 +92,199 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 	CreateInvItem (self,ItArRuneSummonGobbo);
 	CreateInvItem (self,ItArRuneSummonWolf);
 	
+};
+
+func void ZS_DROPS_Hangaround ()
+{
+	PrintDebugNpc	(PD_ZS_FRAME,	"ZS_DROPS_Hangaround");
+
+	Npc_PercEnable  	(self,	PERC_ASSESSPLAYER		,	B_AssessSC			);
+	Npc_PercEnable  	(self,	PERC_ASSESSTALK			,	B_AssessTalk		);
+};
+
+/*------------------------------------------------------------------------
+						DIALOGS							
+------------------------------------------------------------------------*/
+
+instance  PC_Drops_Exit (C_INFO)
+{
+	npc			=  PC_DROPS;
+	nr			=  999;
+	condition	=  PC_Drops_Condition;
+	information	=  PC_Drops_Info;
+	important	=  0;	
+	permanent	=  1;
+	description = "KONIEC";
+};                       
+
+FUNC int  PC_Drops_Condition()
+{
+	return TRUE;
+};
+
+FUNC VOID  PC_Drops_Info()
+{
+	AI_StopProcessInfos	(self);
+};
+
+//***************************************************************************
+//	1H
+//***************************************************************************
+
+instance  PC_DROPS_1H (C_INFO)
+{
+	npc				= PC_Drops;
+	condition		= PC_DROPS_1H_Condition;
+	information		= PC_DROPS_1H_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= "Broñ jednorêczna +1% (10pkt. umiejêtnoœci)"; 
+};
+
+FUNC int PC_DROPS_1H_Condition()
+{	
+	if (Npc_GetTalentValue(hero, NPC_TALENT_1H) < 10)
+	{
+		return TRUE;
+	};
+};
+
+FUNC void PC_DROPS_1H_Info()
+{
+	B_GiveSkill(hero,NPC_TALENT_1H,Npc_GetTalentSkill(hero, NPC_TALENT_1H)+1,LPCOST_TALENT_1H_1);
+};
+
+//***************************************************************************
+//	Shield_1
+//***************************************************************************
+
+instance  PC_DROPS_Shield1 (C_INFO)
+{
+	npc				= PC_Drops;
+	condition		= PC_DROPS_Shield1_Condition;
+	information		= PC_DROPS_Shield1_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= "Tarcza Poziom 1 (10pkt. umiejêtnoœci)"; 
+};
+
+FUNC int PC_DROPS_Shield1_Condition()
+{	
+	if (Npc_GetTalentSkill(hero, NPC_TALENT_SHIELD) == 0 )
+	{
+		return TRUE;
+	};
+};
+
+FUNC void PC_DROPS_Shield1_Info()
+{
+	B_GiveSkill(hero,NPC_TALENT_SHIELD,Npc_GetTalentSkill(hero, NPC_TALENT_SHIELD)+1,LPCOST_TALENT_SHIELD_1);
+};
+
+//***************************************************************************
+//	Shield_2
+//***************************************************************************
+
+instance  PC_DROPS_Shield2 (C_INFO)
+{
+	npc				= PC_Drops;
+	condition		= PC_DROPS_Shield2_Condition;
+	information		= PC_DROPS_Shield2_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= "Tarcza Poziom 2 (20pkt. umiejêtnoœci)"; 
+};
+
+FUNC int PC_DROPS_Shield2_Condition()
+{	
+	if (Npc_GetTalentSkill(hero, NPC_TALENT_SHIELD) == 1 )
+	{
+		return TRUE;
+	};
+};
+
+FUNC void PC_DROPS_Shield2_Info()
+{
+	B_GiveSkill(hero,NPC_TALENT_SHIELD,Npc_GetTalentSkill(hero, NPC_TALENT_SHIELD)+1,LPCOST_TALENT_SHIELD_2);
+};
+
+//***************************************************************************
+//	2H
+//***************************************************************************
+
+instance  PC_DROPS_2H (C_INFO)
+{
+	npc				= PC_Drops;
+	condition		= PC_DROPS_2H_Condition;
+	information		= PC_DROPS_2H_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= "Broñ dwurêczna +1% (10pkt. umiejêtnoœci)"; 
+};
+
+FUNC int PC_DROPS_2H_Condition()
+{	
+	if (Npc_GetTalentValue(hero, NPC_TALENT_2H) < 10)
+	{
+		return TRUE;
+	};
+};
+
+FUNC void PC_DROPS_2H_Info()
+{
+	B_GiveSkill(hero,NPC_TALENT_2H,Npc_GetTalentSkill(hero, NPC_TALENT_2H)+1,LPCOST_TALENT_2H_1);
+};
+
+//***************************************************************************
+//	BOW
+//***************************************************************************
+
+instance  PC_DROPS_BOW (C_INFO)
+{
+	npc				= PC_Drops;
+	condition		= PC_DROPS_BOW_Condition;
+	information		= PC_DROPS_BOW_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= "£uk +3% (10pkt. umiejêtnoœci)"; 
+};
+
+FUNC int PC_DROPS_BOW_Condition()
+{	
+	if (Npc_GetTalentValue(hero, NPC_TALENT_BOW) < 30)
+	{
+		return TRUE;
+	};
+};
+
+FUNC void PC_DROPS_BOW_Info()
+{
+	B_GiveSkill(hero,NPC_TALENT_BOW,Npc_GetTalentSkill(hero, NPC_TALENT_BOW)+1,LPCOST_TALENT_BOW_1);
+};
+
+//***************************************************************************
+//	CROSSBOW
+//***************************************************************************
+
+instance  PC_DROPS_CROSSBOW (C_INFO)
+{
+	npc				= PC_Drops;
+	condition		= PC_DROPS_CROSSBOW_Condition;
+	information		= PC_DROPS_CROSSBOW_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= "Kusza +4% (10pkt. umiejêtnoœci)"; 
+};
+
+FUNC int PC_DROPS_CROSSBOW_Condition()
+{	
+	if (Npc_GetTalentValue(hero, NPC_TALENT_BOW) < 40)
+	{
+		return TRUE;
+	};
+};
+
+FUNC void PC_DROPS_CROSSBOW_Info()
+{
+	B_GiveSkill(hero,NPC_TALENT_CROSSBOW,Npc_GetTalentSkill(hero, NPC_TALENT_CROSSBOW)+1,LPCOST_TALENT_CROSSBOW_1);
 };

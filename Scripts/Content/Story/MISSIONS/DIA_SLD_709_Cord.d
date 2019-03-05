@@ -199,7 +199,7 @@ instance  SLD_709_Cord_TRAIN_SHIELD2 (C_INFO)
 	information		= SLD_709_Cord_TRAIN_SHIELD2_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Tarcza Poziom 1 (100 bry³ek rudy, 10pkt. umiejêtnoœci)"; 
+	description		= "Tarcza Poziom 2 (100 bry³ek rudy, 20pkt. umiejêtnoœci)"; 
 };
 
 FUNC int  SLD_709_Cord_TRAIN_SHIELD2_Condition()
