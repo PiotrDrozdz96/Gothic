@@ -97,6 +97,7 @@ INSTANCE Skeleton			(Mst_Default_Skeleton)
 	Set_Skeleton_Visuals();
 	Npc_SetToFightMode		(self, ItMw_1H_Sword_Old_01);
 	attribute[ATR_STRENGTH] = attribute[ATR_STRENGTH] + 10; //SN: da Waffe nicht zum Schaden addiert wird!
+	CreateInvItem(self, Itat_Skeletonbone);
 };
 
 /*************************************************************************
@@ -124,6 +125,7 @@ INSTANCE SkeletonSH			(Mst_Default_Skeleton)
 	aivar[AIV_MM_FollowTime]	= 5;
 	aivar[AIV_MM_FollowInWater] = FALSE;
 
+	CreateInvItem(self, Itat_Skeletonbone);
 };
 
 
@@ -139,6 +141,7 @@ INSTANCE SkeletonScout		(Mst_Default_Skeleton)
 	Npc_SetToFightMode		(self, ItMw_1H_Scythe_01);
 
 	attribute[ATR_STRENGTH] = attribute[ATR_STRENGTH] + 10; //SN: da Waffe nicht zum Schaden addiert wird!
+	CreateInvItem(self, Itat_Skeletonbone);
 };
 
 
@@ -156,6 +159,7 @@ INSTANCE SkeletonWarrior	(Mst_Default_Skeleton)
 
 	Npc_SetToFightMode		(self, ItMw_1H_Axe_Old_01);
 	attribute[ATR_STRENGTH] = attribute[ATR_STRENGTH] + 10; //SN: da Waffe nicht zum Schaden addiert wird!
+	CreateInvItem(self, Itat_Skeletonbone);
 };
 
 

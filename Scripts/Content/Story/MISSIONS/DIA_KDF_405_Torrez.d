@@ -278,6 +278,10 @@ FUNC int  KDF_405_Torrez_SELLBOOKS_Condition()
 	};
 FUNC void  KDF_405_Torrez_SELLBOOKS_Info()
 {
+	if( Npc_HasItems (self, ItArRuneFirebolt))
+	{
+		Npc_RemoveInvItem	(self, ItArRuneFirebolt);
+	};
 	AI_Output (other, self,"KDF_405_Torrez_SELLBOOKS_Info_15_01"); //Poszukujê magicznych ksi¹g.
 };  
 /*------------------------------------------------------------------------

@@ -216,4 +216,6 @@ INSTANCE BridgeGolem	(Mst_Default_Golem)
 	attribute	[ATR_HITPOINTS]		=	256;
 
 	protection	[PROT_BLUNT]		=	50;
+
+	CreateInvItem	(self, ItAt_StoneGolem_02);
 };

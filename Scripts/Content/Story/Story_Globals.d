@@ -27,6 +27,7 @@ var int Knows_GetTongue;
 var int Knows_GetMCMandibles;
 var int Knows_GetMCPlates;
 var int Knows_GetBFSting;
+var int Knows_GetDemonHeart;
 var int Knows_GetUluMulu;
 
 var int LesterGuide;

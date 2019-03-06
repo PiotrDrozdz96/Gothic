@@ -4,7 +4,8 @@ func void B_Give_XardasChapter4Runes ()
 	npc = Hlp_GetNpc(KDF_404_Xardas);
 	
 	//-------- Runen --------
-	CreateInvItem (npc,ItArRuneDestroyUndead);
+	// CreateInvItem (npc,ItArRuneDestroyUndead);
+	CreateInvItem(npc, Itmi_Runeblank);
 	
 	//-------- Scrolls --------
 	CreateInvItems (npc,ItArScrollSummonSkeletons,8);	
@@ -23,7 +24,8 @@ func void B_Give_XardasChapter5Runes ()
 	npc = Hlp_GetNpc(KDF_404_Xardas);
 	
 	//-------- Runen --------
-	CreateInvItem (npc,ItArRuneFireRain);
+	// CreateInvItem (npc,ItArRuneFireRain);
+	CreateInvItem(npc, Itmi_Runeblank);
 	
 	//-------- Scrolls --------
 	CreateInvItems (npc,ItArScrollSummonDemon,4);	

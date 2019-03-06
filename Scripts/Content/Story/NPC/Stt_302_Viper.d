@@ -41,6 +41,9 @@ instance STT_302_Viper (Npc_Default)
 	//-------- inventory --------
 	
 	CreateInvItems (self,ItMinugget,750);
+	CreateInvItems (self,ItMi_Coal,20);
+	CreateInvItems (self,ItMi_Alchemy_Sulphur_01,20);
+	CreateInvItems (self,ItMi_Pitch,20);
 	CreateInvItem  (self,ItMw_1H_Sword_Short_04);
 	
 	

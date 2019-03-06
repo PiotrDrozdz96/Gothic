@@ -1431,6 +1431,8 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc		(Waran,"SPAWN_OW_WARAN_OC_PSI_GOBBOCAVE_01");
 	Wld_InsertNpc		(Waran,"SPAWN_OW_WARAN_OC_PSI_GOBBOCAVE_01");
 	Wld_InsertNpc		(Waran,"SPAWN_OW_WARAN_OC_PSI_GOBBOCAVE_01");
+	// Drops
+	Wld_InsertItem				(ItAt_GoblinBone,"GOBBO_MASTERCAVE8");
 
 	// hinter der Brücke
 	Wld_InsertNpc		(BlackGobboMace,"SPAWN_GOBBO_LOCATION_29_03");

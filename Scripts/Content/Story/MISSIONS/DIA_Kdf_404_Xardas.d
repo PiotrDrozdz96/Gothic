@@ -421,6 +421,10 @@ FUNC int  Kdf_404_Xardas_SELLMAGICSTUFF_Condition()
 };
 FUNC void  Kdf_404_Xardas_SELLMAGICSTUFF_Info()
 {
+	if( Npc_HasItems (self, ItArRuneFirebolt))
+	{
+		Npc_RemoveInvItem	(self, ItArRuneFirebolt);
+	};
 	AI_Output (other, self,"Kdf_404_Xardas_SELLMAGICSTUFF_Info_15_01"); //Poszukujê wiedzy magicznej.
 };
 
@@ -464,6 +468,42 @@ FUNC void  Info_Xardas_RETURN_Info()
 
 	B_Story_ReturnedFromUrShak();
 }; 
+
+//---------------------------------------------------------------------
+//	GET DEMON HEART
+//---------------------------------------------------------------------
+instance  Info_Xardas_DEMON_HEART (C_INFO)
+{
+	npc			= Kdf_404_Xardas;
+	condition	= Info_Xardas_DEMON_HEART_Condition;
+	information	= Info_Xardas_DEMON_HEART_Info;
+	important	= 0;
+	permanent	= 1;
+	description = "Wycinanie serc demonów (koszt: 5 punkt umiejêtnoœci)";
+};
+
+FUNC int Info_Xardas_DEMON_HEART_Condition()
+{
+	if(Npc_KnowsInfo(hero, Info_Xardas_RETURN) && Knows_GetDemonHeart == FALSE)
+	{
+		return TRUE;
+	};
+};
+
+FUNC void Info_Xardas_DEMON_HEART_Info()
+{
+	if(other.lp >= 5){
+		other.lp = other.lp - 5;
+		PrintScreen("Nowa umiejêtnoœæ: Wycinanie serc demonów",-1,-1,"FONT_OLD_20_WHITE.TGA",2);
+		Knows_GetDemonHeart = TRUE;
+		Log_CreateTopic(GE_AnimalTrophies,LOG_NOTE);
+		B_LogEntry(GE_AnimalTrophies," Umiejêtnoœæ wycinania serc demonów");
+	}
+	else
+	{
+		PrintScreen("Za ma³o punktów umiejêtnoœci!",-1,-1,"FONT_OLD_20_WHITE.TGA",2);	
+	};
+};
 
 //#####################################################################
 //##

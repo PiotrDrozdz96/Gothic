@@ -120,9 +120,9 @@ func void Org_859_Aidan_Creatures_Zahn()
 	
 	if (Npc_HasItems(other,itminugget)>=50)
 	{
-		if (other.lp >= 1)
+		if (other.lp >= 5)
 		{
-			other.lp = other.lp - 1;
+			other.lp = other.lp - 5;
 			
 			B_GiveInvItems	(other, self,itminugget,50);
 			
@@ -153,9 +153,9 @@ func void Org_859_Aidan_Creatures_Fell()
 	
 	if (Npc_HasItems(other,itminugget)>=100)
 	{
-		if (other.lp >= 1)
+		if (other.lp >= 5)
 		{
-			other.lp = other.lp - 1;
+			other.lp = other.lp - 5;
 			
 			B_GiveInvItems	(other, self,itminugget,100);
 			
@@ -184,9 +184,9 @@ func void Org_859_Aidan_Creatures_Kralle()
 {
 	if (Npc_HasItems(other,itminugget)>=50)
 	{
-		if (other.lp >= 1)
+		if (other.lp >= 5)
 		{
-			other.lp = other.lp - 1;
+			other.lp = other.lp - 5;
 			
 			B_GiveInvItems	(other, self,itminugget,50);
 			
@@ -216,9 +216,9 @@ func void Org_859_Aidan_Creatures_Haut()
 {
 	if (Npc_HasItems(other,itminugget)>=100)
 	{
-		if (other.lp >= 1)
+		if (other.lp >= 5)
 		{
-			other.lp = other.lp - 1;
+			other.lp = other.lp - 5;
 						
 			B_GiveInvItems	(other, self,itminugget,100);
 			

@@ -4,6 +4,11 @@
 |   |   //Zwiększenie max many do 200
 |   +--|-- B_Give(Darrion/Fisk/Scorpio/Sharky/Skip/Wolf)ChapterWeapons
 |   |   //Zmiany w sprzedawanych broniach z powodu zmian parametrów, oraz dodanie tarcz
+|   +--|-- B_Give(BallCadar/Cronos/Torrez/Xardas)Chapterrune
+|   |   // Usunięcie ze sprzedarzy magicznych run
+|   |   // Dodanie przedmiotów do tworzenia run
+|   +--|-- B_GiveDeathInv
+|   |   // Demony posiadają serca jeśli mamy umiejętność wycinania serc
 |   +--|-- B_GiveSkill
 |   |   // Dodanie tarcz
 |   |   // Przebudowa nauki walki na 11 etapów
@@ -34,7 +39,9 @@
 |   +--|-- DIA_GUR_1202_CorAngar
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Uwzględnie guru w nauce walki broni 2H
-|   |   // Zdobycie szaty arcyguru 
+|   |   // Zdobycie szaty arcyguru
+|   +--|-- DIA_GUR_1208_BaalCadar
+|   |   // Usunięcie magicznych run przed handlem 
 |   +--|-- DIA_GUR_1211_BallLukor
 |   |   // Dodanie tarczy ITSH_R_ROUND
 |   +--|-- DIA_KDF_402_Corristo
@@ -45,15 +52,22 @@
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu nekromantą
 |   |   // Różne szaty gdy jesteśmy guru lub magiem Ognia
 |   |   // Zwraca Uriziel_1H gdy lepiej posługujemy się bronią jednoręczną
+|   |   // Usunięcie magicznych run przed handlem
+|   |   // Nauka wyciania serc demonom
+|   +--|-- DIA_KDF_405_Torrez
+|   |   // Usunięcie magicznych run przed handlem
 |   +--|-- DIA_KDW_600_Saturas
 |   |   // Zwiększenie restrykcji przy zostaniu arcymagiem
 |   |   // Zmiany w dialogach o Xardasie
 |   |   // Zmiany w zostaniu magiem wody, możemy zostać wcześniej
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu magiem wody
+|   +--|-- DIA_KDW_604_Cronos
+|   |   // Usunięcie magicznych run przed handlem
 |   +--|-- DIA_ORG_801_Lares
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu szkodnikiem
-|   +--|-- DIA_ORG_819_Drax -- by marev
-|   |   // Uczy polowania dopiero gdy otrzyma piwo
+|   +--|-- DIA_ORG_819_Drax
+|   |   // Uczy polowania dopiero gdy otrzyma piwo -- by marev
+|   |   // Zmiana kosztów zdobywania trofeów z 1pn na 5pn
 |   +--|-- DIA_ORG_826_Mordrag -- by marev
 |   |   // Nie zaprowadzi nas do obozu jeśli go pobiliśmy
 |   +--|-- DIA_ORG_833_Buster -- by marev
@@ -66,6 +80,8 @@
 |   |   // Zmiany w sprzedawanych pancerzach
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Odsprzedawanie skór po normalnych cenach
+|   +--|-- DIA_ORG_859_Aidan
+|   |   // Zmiana kosztów zdobywania trofeów z 1pn na 5pn
 |   +--|-- DIA_PC_Fighter
 |   |   // Nauka walki bronią 2H po zostaniu szkodnikiem w systemie 11 etapowym
 |   |   // Quest "Zawalona Wieża", zmiana rutyny na MeetFriend
@@ -97,6 +113,8 @@
 |   +--|-- DIA_TPL_1402_GorNaToth
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Nie zaczepia nas gdy jesteśmy Guru
+|   +--|-- DIA_TPL_1438_Templer
+|   |   // Zmiana kosztów zdobywania trofeów z 1pn na 5pn
 |   +--|-- DIA_VLK_572_Gravo -- by marev
 |   |   // Poprawnie daje informacje do dziennika
 |   +--|-- DIA_VLK_581_Snaf -- by marev
@@ -109,12 +127,14 @@
 |   +--| Startup
 |   |   // Dodanie tarczy ITSH_STALHRIM_S_SM w OrcTempel(TPL_254)
 |   |   // Dodanie tarczy ITSH_LONG_A w OldWorld (OW_PATH_ORCRUIN_GOLEM)
+|   |   // Dodanie kości goblina (GOBBO_MASTERCAVE8)
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Zmienna Shield_Equip która zapamiętuje czy mamy założoną tarcze
 |   |   // Stała XP_TOWER_IN_OC - doświadczenie za Quest "Zawalona Wieża"
 |   |   // Zmienna Uriziel_1H
 |   |   // Zmienne log_(bustertrain/gravoinfo/fingerscavalorn)
+|   |   // Zmienna Knows_GetDemonHeart - umiejętność wycinania serc demonów
 |   +--| Text
 |   |   // Zmianna nazwy umiejętności na Tarcza, oraz dodanie nazw poziomów (Brak|Adept|Mistrz)
 |   |   // Zmiany w nazwach poziomów dla broni białch (Brak|Zielony|Wojownik|Mistrz)
@@ -161,6 +181,8 @@
 |   |   // Usunięcie imiennych broni
 |   |   // Funkcje obsługujące tarcze, Dodanie Tarcz
 |   |   // 3 wersje Uriziela 1H
+|   +-- Written
+|   |   // książka o krwiopijcach uczy zarówno usuwanie żądła jak i skrzydeł
 |/*******************************************ITEMS END*******************************************************
 |   +--| Spell_params | Spells_process_mana | Spells_process_released
 |   |   // Dodanie zaklęcia SPL_TELEPORT6
@@ -173,6 +195,10 @@
 |   +--| Mst_(Gobbo/Golem/Skeleton/Wolf)
 |   |   // Nowe przywołania
 |   |   // Lvl 0 dla przywołanych potworów przez gracza
+|   |   // Golem Mostowy dodanie serca golema do stworzenia runy 'przywołanie golema'
+|   |   // Skeleton dodanie kości szkieleta do tworzenia run przywołań
+|   +--| Mst_Bloodfly
+|   |   // Usunięcie skrzydeł z ekwipunku
 |/*******************************************MONSTERS END****************************************************
 +-- NPC
 |   +-- BDT_QUENTIN
@@ -182,6 +208,8 @@
 |   |   |    // Zmiana pancerza na BDT_ARMOR_M
 |   |/********************NPC BDT_QUENTIN END********************************
 |   +-- NEW_CAMP
+|   |   +--| KDW_604_Cronos
+|   |   |    // Usunięcie magicznej runy
 |   |   +--| ORG_(800/804/834/837/892) / SLD_(707/738/762)_Soeldner
 |   |   |    //Zmiany twarzy(double koło siebie), czasem pancerz i gildia
 |   |   +--| ORG_875_Tuersteher / SLD_(700/701/709)
@@ -220,14 +248,22 @@
 |   |   |    // Dodanie tarczy ITSH_W2_E2_KEADWEN
 |   |   +--| GRD_282_Nek
 |   |   |    // Dodanie tarczy ITSH_G3_01_OLD
+|   |   +--| KDF_405_Torrez
+|   |   |    // Usunięcie magicznej runy
 |   |   +--| STT_(311/329)
 |   |   |    // Dodanie rutyny "out" - wywalenie za barierę
 |   |   |    // Zmiana pancerza na STT_ARMOR_H
 |   |   +--| STT_301_Ian
 |   |   |    // Zmiana pancerza na STT_ARMOR_H
+|   |   +--| STT_302_Viper
+|   |   |    // Dodanie przedmiotów do tworzenia run
 |   |   +--| VLK_555_Buddler
 |   |   |    // Zmiana twarzy
 |   |/********************NPC OLD_CAMP END*********************************
+|   +-- SEKTE_CAMP
+|   |   +--| GUR_1208_BaalCadar
+|   |   |    // Usunięcie magicznej runy
+|   |/*******************NPC SEKTE_CAMP END********************************
 |   +--| InExtremo
 |   |    // ie_397 - zmiana skinBody na skin bohatera z Gothic Sequel
 |   |    // fan4 - zmiana skinBody na skin bohatera z G2

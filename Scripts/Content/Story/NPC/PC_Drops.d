@@ -302,3 +302,41 @@ FUNC void PC_DROPS_CROSSBOW_Info()
 {
 	B_GiveSkill(hero,NPC_TALENT_CROSSBOW,Npc_GetTalentSkill(hero, NPC_TALENT_CROSSBOW)+1,LPCOST_TALENT_CROSSBOW_1);
 };
+
+//***************************************************************************
+//	GET DEMON HEART
+//***************************************************************************
+
+instance  PC_DROPS_DEMONHEART (C_INFO)
+{
+	npc				= PC_Drops;
+	condition		= PC_DROPS_DEMONHEART_Condition;
+	information		= PC_DROPS_DEMONHEART_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= "Wycinanie serc demonów (koszt: 5 punkt umiejêtnoœci)"; 
+};
+
+FUNC int PC_DROPS_DEMONHEART_Condition()
+{	
+	if(Knows_GetDemonHeart == FALSE)
+	{
+		return TRUE;
+	};
+};
+
+FUNC void PC_DROPS_DEMONHEART_Info()
+{
+	if(other.lp >= 5){
+		other.lp = other.lp - 5;
+		PrintScreen("Nowa umiejêtnoœæ: Wycinanie serc demonów",-1,-1,"FONT_OLD_20_WHITE.TGA",2);
+		Knows_GetDemonHeart = TRUE;
+		Log_CreateTopic(GE_AnimalTrophies, LOG_NOTE);
+		B_LogEntry(GE_AnimalTrophies, "Umiejêtnoœæ wycinania serc demonów");
+	}
+	else
+	{
+		PrintScreen("Za ma³o punktów umiejêtnoœci!",-1,-1,"FONT_OLD_20_WHITE.TGA",2);	
+	};
+	
+};

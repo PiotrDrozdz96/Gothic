@@ -1605,7 +1605,7 @@ INSTANCE ItWr_Bloodfly_01(C_Item)
 					{
 					Knows_GetBFSting = TRUE;
 					Log_CreateTopic (GE_AnimalTrophies,LOG_NOTE);
-					B_LogEntry (GE_AnimalTrophies,"Usuwanie ¿¹de³ krwiopijców");	
-					PrintScreen	("Nowa umiejêtnoœæ: Usuwanie ¿¹de³ krwiopijców", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
+					B_LogEntry (GE_AnimalTrophies,"Usuwanie ¿¹de³ i skrzyde³ krwiopijców");	
+					PrintScreen	("Nowa umiejêtnoœæ: Usuwanie ¿¹de³ i skrzyde³ krwiopijców", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
 					};
 	};

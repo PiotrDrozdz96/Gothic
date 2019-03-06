@@ -31,7 +31,7 @@ instance GUR_1208_BaalCadar (Npc_Default)
 	Npc_SetTalentSkill		( self, NPC_TALENT_MAGE,		6);
 
 	//-------- inventory --------
-	CreateInvItem(self, ItArRuneWindfist);
+	// CreateInvItem(self, ItArRuneWindfist);
 
 	B_Give_BaalCadarChapter1Runes ();
 	fight_tactic	=	FAI_HUMAN_MAGE;

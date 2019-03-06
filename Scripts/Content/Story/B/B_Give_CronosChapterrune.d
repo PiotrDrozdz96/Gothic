@@ -5,6 +5,9 @@ func void B_Give_CronosChapter1Runes ()
 	
 	//-------- Runen --------
 	CreateInvItem (npc,ItWrNCmap);
+	CreateInvItems(npc, Itmi_Quartz, 20);
+	CreateInvItems(npc, Itmi_Rockcrystal, 20);
+	CreateInvItems(npc, Itmi_Aquamarine, 20);
 		
 	//-------- Scrolls --------
 	CreateInvItems (npc,ItArScrollHeal,5);
@@ -37,7 +40,7 @@ func void B_Give_CronosChapter2Runes ()
 	//-------- Scrolls --------
 	CreateInvItems (npc,ItArScrollHeal,5);
 	CreateInvItems (npc,ItArScrollLight,7);
-	CreateInvItems (npc,ItArScrollFirebolt,8);
+	// CreateInvItems (npc,ItArScrollFirebolt,8);
 	CreateInvItems (npc,ItArScrollThunderbolt,6);
 	CreateInvItems (npc,ItArScrollIcecube,2);
 	
@@ -64,11 +67,12 @@ func void B_Give_CronosChapter3Runes ()
 	npc = Hlp_GetNpc(KDW_604_Cronos);
 	
 	//-------- Runen --------
-	CreateInvItem (npc,ItArRuneLight);	
-	CreateInvItem (npc,ItArRuneHeal);	
-	CreateInvItem (npc,ItArRuneThunderbolt);	
-	CreateInvItem (npc,ItArRuneIceCube);	
-	CreateInvItem (npc,ItArRuneThunderball);	
+	// CreateInvItem (npc,ItArRuneLight);	
+	// CreateInvItem (npc,ItArRuneHeal);	
+	// CreateInvItem (npc,ItArRuneThunderbolt);	
+	// CreateInvItem (npc,ItArRuneIceCube);	
+	// CreateInvItem (npc,ItArRuneThunderball);
+	CreateInvItem(npc, Itmi_Runeblank);
 	//-------- Scrolls --------
 	CreateInvItems (npc,ItArScrollHeal,5);
 	CreateInvItems (npc,ItArScrollLight,12);
@@ -96,8 +100,9 @@ func void B_Give_CronosChapter4Runes ()
 	npc = Hlp_GetNpc(KDW_604_Cronos);
 	
 	//-------- Runen --------
-	CreateInvItem (npc,ItArRuneIceWave);
-	CreateInvItem (npc,ItArRuneFirestorm);
+	// CreateInvItem (npc,ItArRuneIceWave);
+	// CreateInvItem (npc,ItArRuneFirestorm);
+	CreateInvItem(npc, Itmi_Runeblank);
 		
 	//-------- Scrolls --------
 	CreateInvItems (npc,ItArScrollHeal,8);
@@ -129,7 +134,8 @@ func void B_Give_CronosChapter5Runes ()
 	npc = Hlp_GetNpc(KDW_604_Cronos);
 	
 	//-------- Runen --------
-	CreateInvItem (npc,ItArRuneDestroyUndead);	
+	// CreateInvItem (npc,ItArRuneDestroyUndead);
+	CreateInvItem(npc, Itmi_Runeblank);
 	
 	//-------- Scrolls --------
 	CreateInvItems (npc,ItArScrollHeal,5);

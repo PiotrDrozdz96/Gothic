@@ -54,7 +54,7 @@ func void B_GiveDeathInv ()
 	
 	if (Knows_GetBFSting == TRUE)
 	{
-		if (self.aivar[AIV_MM_REAL_ID]==ID_BLOODFLY)			{	CreateInvItems(self,ItAt_Bloodfly_02,1);};
+		if (self.aivar[AIV_MM_REAL_ID]==ID_BLOODFLY)			{	CreateInvItems(self,ItAt_Bloodfly_02,1); CreateInvItems (self, ItAt_Bloodfly_01, 2); };
 	};
 	
 	if (Knows_GetUluMulu == TRUE)
@@ -63,6 +63,12 @@ func void B_GiveDeathInv ()
 		if (self.aivar[AIV_MM_REAL_ID]==ID_SHADOWBEAST)			{	CreateInvItems(self,ItAt_Shadow_02,		1); };	//Horn eines Shadowbeasts
 		if (self.aivar[AIV_MM_REAL_ID]==ID_SWAMPSHARK)			{	CreateInvItems(self,ItAt_Swampshark_02,	3); };	//Zähne eines Sumpfhais
 		if (self.aivar[AIV_MM_REAL_ID]==ID_TROLL)				{	CreateInvItems(self,ItAt_Troll_02,		2);	};	//Hauer eines Trolls
+	};
+
+	if (Knows_GetDemonHeart == TRUE)
+	{
+		if (self.aivar[AIV_MM_REAL_ID]==ID_DEMON	)			{	CreateInvItems(self,Itat_Demonheart,		1);	};	//Zunge eines Feuerwarans
+		if (self.aivar[AIV_MM_REAL_ID]==ID_DEMONLORD)			{	CreateInvItems(self,Itat_Demonheart,		1); };	//Horn eines Shadowbeasts
 	};
 	
 	//-------- Merken --------
