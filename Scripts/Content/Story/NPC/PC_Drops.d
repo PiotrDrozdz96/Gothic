@@ -91,6 +91,20 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 	CreateInvItem (self,ItArRuneArmyOfDarkness);
 	CreateInvItem (self,ItArRuneSummonGobbo);
 	CreateInvItem (self,ItArRuneSummonWolf);
+
+	//Runen ingredients
+	CreateInvItem(self, Itmi_Runeblank);
+	CreateInvItem(self, ItMi_Alchemy_Sulphur_01);
+	CreateInvItem(self, Itmi_Coal);
+	CreateInvItem(self, Itmi_DarkPearl);
+	CreateInvItem(self, Itmi_Quartz);
+	CreateInvItem(self, Itmi_Pitch);
+	CreateInvItem(self, Itmi_Rockcrystal);
+	CreateInvItem(self, Itmi_Aquamarine);
+	CreateInvItem(self, ItAt_Goblinbone);
+	CreateInvItem(self, Itat_Skeletonbone);
+	CreateInvItem(self, ItAt_StoneGolem_02);
+	CreateInvItem(self, Itat_Demonheart);
 	
 };
 

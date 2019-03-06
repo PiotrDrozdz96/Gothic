@@ -128,6 +128,8 @@
 |   |   // Zamiana stałej SPL_NEW(2-4)
 |/******************************************INNE END********************************************************
 +-- Items
+|   +--| Animaltrophy
+|   |   // Dodanie Kości goblina, Kości szkieleta, serca demona, serca golema (do tworzenia run)
 |   +--| Armor
 |   |   // Dodano funkcje zmieniające skinBody podczas zakładania i zdejmowania zbroi (Głównie dla panerzy bractwa ale nie tylko)
 |   |   // Strój Szkodnika został Ciężkim pancerzem Szkodnika
@@ -146,6 +148,8 @@
 |   |   // Przeniesienie imiennych broni z pliku weapons.d
 |   |   // ITMW_1H_SWORD_BASTARD_02 -> Naprawa wyświetlania ręczności broni
 |   |   // Zmodyfikowanie wszystkich broni sugerując się wartościami z G2
+|   +--| Misc
+|   |   // Dodanie składnikw potrzebnych do tworzenia run
 |   +--| Potions
 |   |    // ItFo_Potion_Haste_(02/03) -> poprawione wartości
 |   +--| Ranged_weapons
