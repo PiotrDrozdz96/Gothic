@@ -9,6 +9,7 @@
 |   |   // Dodanie przedmiotów do tworzenia run
 |   +--|-- B_GiveDeathInv
 |   |   // Demony posiadają serca jeśli mamy umiejętność wycinania serc
+|   |   // Krwiopijce posiadają skrzydła jeśli posiadamy odpowiednią umiejętność
 |   +--|-- B_GiveSkill
 |   |   // Dodanie tarcz
 |   |   // Przebudowa nauki walki na 11 etapów
