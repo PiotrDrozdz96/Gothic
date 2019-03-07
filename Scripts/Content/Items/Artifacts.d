@@ -70,7 +70,7 @@ INSTANCE ItArRuneFirebolt (C_Item)
 	spell				= 	SPL_FIREBOLT;
 	mag_circle 			=	1;
 
-	description			=	"Ognisty pocisk";
+	description			=	"Ognista strza³a";
 	TEXT	[0]			=	NAME_Mag_Circle;		COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_Manakosten;		COUNT	[1]		=	SPL_SENDCAST_FIREBOLT;
 	TEXT	[2]			=	NAME_Dam_Fire;			COUNT	[2]		=	SPL_DAMAGE_FIREBOLT;
@@ -95,7 +95,7 @@ INSTANCE ItArScrollFirebolt (C_Item)
 	cond_atr[2]   		= 	ATR_MANA_MAX;
 	cond_value[2]  		= 	SPL_SENDCAST_FIREBOLT;
 
-	description			=	"Ognisty pocisk";
+	description			=	"Ognista strza³a";
 	//TEXT	[0]			=	NAME_Mag_Circle;		COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_Manakosten;		COUNT	[1]		=	SPL_SENDCAST_FIREBOLT;
 	TEXT	[2]			=	NAME_Dam_Fire;			COUNT	[2]		=	SPL_DAMAGE_FIREBOLT;
@@ -1090,7 +1090,7 @@ INSTANCE ItArRuneSummonGobbo (C_Item)
 	mag_circle			=	1;
 
 	description			=	"Przyzwanie szkieletu goblina";
-	//TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
+	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_Manakosten;			COUNT	[1]		=	SPL_SENDCAST_SUMMONGOBBO;
 	//TEXT	[2]			=	"";							COUNT	[2]		=	;
 	//TEXT	[3] 		=	"";							COUNT	[3]		=	;
@@ -1117,7 +1117,7 @@ INSTANCE ItArRuneSummonWolf (C_Item)
 	mag_circle			=	2;
 
 	description			=	"Przyzwanie wilka";
-	//TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
+	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_Manakosten;			COUNT	[1]		=	SPL_SENDCAST_SUMMONWOLF;
 	//TEXT	[2]			=	"";							COUNT	[2]		=	;
 	//TEXT	[3] 		=	"";							COUNT	[3]		=	;
@@ -1144,7 +1144,7 @@ INSTANCE ItArRuneSummonDemon (C_Item)
 	mag_circle			=	5;
 
 	description			=	"Przyzwanie demona";
-	//TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
+	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_Manakosten;			COUNT	[1]		=	SPL_SENDCAST_SUMMONDEMON;
 	//TEXT	[2]			=	"";							COUNT	[2]		=	;
 	//TEXT	[3] 		=	"";							COUNT	[3]		=	;
@@ -1196,7 +1196,7 @@ INSTANCE ItArRuneSummonSkeletons (C_Item)
 	mag_circle			=	3;
 
 	description			=	"Przyzwanie szkieleta";
-	//TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
+	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_Manakosten;			COUNT	[1]		=	SPL_SENDCAST_SUMMONSKELETON;
 	//TEXT	[2]			=	"";							COUNT	[2]		=	;
 	//TEXT	[3] 		=	"";							COUNT	[3]		=	;
@@ -1248,7 +1248,7 @@ INSTANCE ItArRuneSummonGolem (C_Item)
 	mag_circle			=	4;
 
 	description			=	"Przyzwanie golema";
-	//TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
+	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_Manakosten;			COUNT	[1]		=	SPL_SENDCAST_SUMMONGOLEM;
 	//TEXT	[2]			=	"";							COUNT	[2]		=	;
 	//TEXT	[3] 		=	"";							COUNT	[3]		=	;
@@ -1300,7 +1300,7 @@ INSTANCE ItArRuneArmyOfDarkness (C_Item)
 	mag_circle			=	6;
 
 	description			=	"Armia Ciemnoœci";
-	//TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
+	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_Manakosten;			COUNT	[1]		=	SPL_SENDCAST_ARMYOFDARKNESS;
 	//TEXT	[2]			=	"";							COUNT	[2]		=	;
 	//TEXT	[3] 		=	"";							COUNT	[3]		=	;
@@ -1756,7 +1756,31 @@ INSTANCE ItArScrollControl (C_Item)
 };
 
 /*******************************************************************************************/
-// Fear (nur Scrolls )
+// Fear (nur Scrolls uns Runen )
+
+INSTANCE ItArRuneFear (C_Item)
+{
+	name 				=	NAME_Rune;
+
+	mainflag 			=	ITEM_KAT_RUNE;
+	flags 				=	0;
+
+	value 				=	1000;
+
+	visual				=	"ItAr_Rune_11.3ds";
+	material			=	MAT_STONE;
+
+	spell				= 	SPL_FEAR;
+	mag_circle 			=	3;
+
+	description			=	"Strach";
+	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
+	TEXT	[1]			=	NAME_Manakosten;			COUNT	[1]		=	SPL_SENDCAST_FEAR;
+	//TEXT	[2]			=	"";							COUNT	[2]		=	;
+	//TEXT	[3] 		=	"";							COUNT	[3]		=	;
+	//TEXT	[4]			=	"";							COUNT	[4]		=	;
+	TEXT	[5]			=	NAME_Value;					COUNT	[5]		=	value;
+};
 
 INSTANCE ItArScrollFear (C_Item)
 {
@@ -1765,7 +1789,7 @@ INSTANCE ItArScrollFear (C_Item)
 	mainflag 			=	ITEM_KAT_RUNE;
 	flags 				=	ITEM_MULTI;
 
-	value 				=	250;
+	value 				=	100;
 
 	visual				=	"ItAr_Scroll_34.3DS";
 	material			=	MAT_STONE;

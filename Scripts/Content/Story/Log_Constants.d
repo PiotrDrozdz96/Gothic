@@ -34,6 +34,7 @@ const string	GE_TeacherPSI			=	"Nauczyciel w Obozie Bractwa";
 const string	GE_TeacherOW			=	"Niezale¿ny nauczyciel";
 
 const string	GE_AnimalTrophies		=	"Oprawianie zwierzyny";
+const string    GE_TalentRunes          =   "Runy";
 
 //---------------------------------------------------------------------
 //	KAPITEL 1

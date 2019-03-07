@@ -833,7 +833,7 @@ INSTANCE ItMi_Alchemy_Sulphur_01 (C_Item)
 /******************************************************************************************/
 INSTANCE ItMi_Alchemy_Quicksilver_01 (C_Item)
 {
-	name 				=	"Rtêæ";
+	name 				=	"Woda Œwiêcona";
 
 	mainflag 			=	ITEM_KAT_NONE;
 	flags 				=	ITEM_MULTI;

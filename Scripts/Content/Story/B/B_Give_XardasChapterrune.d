@@ -30,7 +30,8 @@ func void B_Give_XardasChapter5Runes ()
 	//-------- Scrolls --------
 	CreateInvItems (npc,ItArScrollSummonDemon,4);	
 	CreateInvItems (npc,ItArScrollSummonSkeletons,8);	
-	CreateInvItems (npc,ItArScrollSummonGolem,4);	
+	CreateInvItems (npc,ItArScrollSummonGolem,4);
+	CreateInvItem  (npc, ItAt_StoneGolem_02);	
 	
 	//-------- Bücher --------
 };

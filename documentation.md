@@ -20,6 +20,8 @@
 |   |   // Kapitel 6 - Orc_Priest5 staje się wrażliwy na obrażenia
 |   +--|-- B_Story_AccesToXardas
 |   |   // Otrzymanie runy teleportacyjnej na parter Wieży Xardasa
+|   +--|-- B_TeachPlayerTelentRunes
+|   |   // Funkcja do nauki tworzenia run
 |/*******************************************B END***********************************************************
 +--Dialogs
 |   +--|-- DIA_EBR_100_Gomez
@@ -125,6 +127,8 @@
 |   +--| constans
 |   |   // Dodanie nowej kategorii przedmiotu ITEM_SHIELD = 1 << 1
 |   |   // Dodanie numeru nowego talentu NPC_TALENT_SHIELD = 10
+|   +--| Log_Constans
+|   |   // Dodanie stałej GE_TelentRunes do nauki tworzenia run
 |   +--| Startup
 |   |   // Dodanie tarczy ITSH_STALHRIM_S_SM w OrcTempel(TPL_254)
 |   |   // Dodanie tarczy ITSH_LONG_A w OldWorld (OW_PATH_ORCRUIN_GOLEM)
@@ -136,6 +140,9 @@
 |   |   // Zmienna Uriziel_1H
 |   |   // Zmienne log_(bustertrain/gravoinfo/fingerscavalorn)
 |   |   // Zmienna Knows_GetDemonHeart - umiejętność wycinania serc demonów
+|   |   // Zmienna tablica PLAYER_TALENT_RUNES - umiejętności tworzenia run
+|   |   // Zmiana punktów nauki przy nauce kregów magii
+|   |   // Dodanie kosztów nauki tworzenia run
 |   +--| Text
 |   |   // Zmianna nazwy umiejętności na Tarcza, oraz dodanie nazw poziomów (Brak|Adept|Mistrz)
 |   |   // Zmiany w nazwach poziomów dla broni białch (Brak|Zielony|Wojownik|Mistrz)
@@ -145,6 +152,7 @@
 |   |   // Zmiana nazwy dla SPL_NEW(2-4)
 |   +--| Gothic.src
 |   |   // Przeniesienie G_funcions wyżej w kolejce parsowania
+|   |   // Dodanie funkcji B_TeachPlayerRunes do parsowania
 |   +--| magic_intern
 |   |   // Zamiana stałej SPL_NEW(2-4)
 |/******************************************INNE END********************************************************
@@ -171,6 +179,7 @@
 |   |   // Zmodyfikowanie wszystkich broni sugerując się wartościami z G2
 |   +--| Misc
 |   |   // Dodanie składnikw potrzebnych do tworzenia run
+|   |   // Zamiana Rtęci na wodę święconą
 |   +--| Potions
 |   |    // ItFo_Potion_Haste_(02/03) -> poprawione wartości
 |   +--| Ranged_weapons
