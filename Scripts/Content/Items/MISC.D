@@ -938,6 +938,23 @@ INSTANCE Itmi_Runeblank (C_Item)
 	TEXT[4]				= NAME_Value;					COUNT[4]	= value;
 };
 
+INSTANCE ItMi_Pliers (C_Item)
+{
+	name 				=	"¯uwaczka";
+
+	mainflag 			=	ITEM_KAT_NONE;
+	flags				=	ITEM_MULTI;
+
+	value 				=	Value_Runeblank;
+
+	visual 				=	"ItMi_Pliers.3DS";
+	material 			=	MAT_METAL;
+
+	description			= 	name;
+	TEXT[5]				= 	NAME_Value;	
+	COUNT[5] 			= 	value;
+};
+
 INSTANCE ItMi_Coal (C_Item)
 {
 	name 				=	"Wêgiel";

@@ -85,6 +85,16 @@ const int NPCTYPE_OW_AMBIENT	= 6;
 const int NPCTYPE_OW_GUARD		= 7;
 const int NPCTYPE_ROGUE			= 8;	//Npcs im Banditenlager
 
+//****************************************************
+//		Produktions-Mobsis
+//****************************************************
+
+const int MOBSI_NONE			= 0;
+const int MOBSI_SleepAbit		= 1;
+const int MOBSI_MakeRune		= 2;
+
+var int PLAYER_MOBSI_PRODUCTION;
+
 /********************************************************************
 **					Fight AI-Constanten								*
 ********************************************************************/

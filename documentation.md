@@ -5,7 +5,7 @@
 |   +--|-- B_Give(Darrion/Fisk/Scorpio/Sharky/Skip/Wolf)ChapterWeapons
 |   |   //Zmiany w sprzedawanych broniach z powodu zmian parametrów, oraz dodanie tarcz
 |   +--|-- B_Give(BallCadar/Cronos/Torrez/Xardas)Chapterrune
-|   |   // Usunięcie ze sprzedarzy magicznych run
+|   |   // Usunięcie ze sprzedaży magicznych run
 |   |   // Dodanie przedmiotów do tworzenia run
 |   |   // Dodanie nowych książek o czarach
 |   +--|-- B_GiveDeathInv
@@ -132,7 +132,12 @@
 |   +--|-- DIA_VLK_581_Snaf -- by marev
 |   |   // Snaf może zostać zapytany o Neka również po zakończeniu zadania "Przepis Snafa"
 |/*******************************************DIALOGS END*****************************************************
++--Events
+|   //Sleepabit.d - Dopasowanie do systemu PLAYER_MOBSI_PRODUCTION
+|   //MakeRune.d - Obsługa stołu runicznego
 +--Inne
+|   +--| AI_Constants
+|   |   // Dodanie PLAYER_MOBSI_PRODUCTION do obsługi obietków interaktywnych
 |   +--| constans
 |   |   // Dodanie nowej kategorii przedmiotu ITEM_SHIELD = 1 << 1
 |   |   // Dodanie numeru nowego talentu NPC_TALENT_SHIELD = 10
@@ -191,7 +196,7 @@
 |   |   // ITMW_1H_SWORD_BASTARD_02 -> Naprawa wyświetlania ręczności broni
 |   |   // Zmodyfikowanie wszystkich broni sugerując się wartościami z G2
 |   +--| Misc
-|   |   // Dodanie składnikw potrzebnych do tworzenia run
+|   |   // Dodanie składników potrzebnych do tworzenia run
 |   |   // Zamiana Rtęci na wodę święconą
 |   +--| MissionItems
 |   |   // 1 - Listy do Magów Ognia mają podpis "Marszałek Rigaldo

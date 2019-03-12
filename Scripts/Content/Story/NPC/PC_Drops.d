@@ -95,6 +95,7 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 
 	//Runen ingredients
 	CreateInvItem(self, Itmi_Runeblank);
+	CreateInvItem(self, ItMi_Pliers);
 	CreateInvItem(self, ItMi_Alchemy_Sulphur_01);
 	CreateInvItem(self, Itmi_Coal);
 	CreateInvItem(self, Itmi_DarkPearl);
