@@ -610,7 +610,7 @@ instance  Info_Xardas_GIL_KDF (C_INFO)
 
 FUNC int  Info_Xardas_GIL_KDF_Condition()
 {	
-	if Npc_KnowsInfo(hero, Info_Xardas_RETURN)
+	if (Npc_KnowsInfo(hero, Info_Xardas_RETURN))
 	&& (Npc_GetTrueGuild (hero) == GIL_KDF )
 	{			
 		return TRUE;
@@ -1202,6 +1202,13 @@ FUNC void  KDF_404_Xardas_TEACH_Info()
 		Info_AddChoice(KDF_404_Xardas_TEACH,"Armia Ciemnoœci 20 pn", KDF_404_Xardas_TEACH_SPL_ARMYOFDARKNESS);
 	};
 
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=6)
+	&&(Npc_KnowsInfo(hero, Info_Xardas_GIL_KDF))
+	&&(PLAYER_TALENT_RUNES[SPL_FIRERAIN] == FALSE)
+	{
+		Info_AddChoice(KDF_404_Xardas_TEACH,"Deszcz Ognia 20 pn", KDF_404_Xardas_TEACH_SPL_FIRERAIN);
+	};
+
 };
 
 func void KDF_404_Xardas_TEACH_BACK()
@@ -1222,6 +1229,11 @@ func void KDF_404_Xardas_TEACH_SPL_SUMMONDEMON()
 func void KDF_404_Xardas_TEACH_SPL_ARMYOFDARKNESS()
 {
 	B_TeachPlayerTalentRunes(hero, SPL_ARMYOFDARKNESS, LPCOST_RUNEN_6);
+};
+
+func void KDF_404_Xardas_TEACH_SPL_FIRERAIN()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_FIRERAIN, LPCOST_RUNEN_6);
 };
 
 	

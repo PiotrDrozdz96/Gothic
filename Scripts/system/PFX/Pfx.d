@@ -3977,6 +3977,42 @@ INSTANCE PFX_MOBDESTROY (C_PARTICLEFX)
      visalphaend = 255.;
 };
 
+INSTANCE RUNEMAKER (C_PARTICLEFX)
+{
+     ppsvalue = 200;
+     ppsscalekeys_s = "1 3 1 3 1";
+     ppsislooping = 1;
+     ppsissmooth = 1;
+     ppsfps = 1;
+     shptype_s = "POINT";
+     shpfor_s = "object";
+     shpdistribtype_s = "RAND";
+     shpdistribwalkspeed = 0.000300000014;
+     shpdim_s = "20";
+     shpscalekeys_s = "1 2 1 2 1";
+     shpscaleissmooth = 1;
+     shpscalefps = 1;
+     dirmode_s = "RAND";
+     dirfor_s = "OBJECT";
+     dirmodetargetfor_s = "OBJECT";
+     velavg = 0.100000001;
+     velvar = 0.00999999978;
+     lsppartavg = 1000;
+     flygravity_s = "0";
+     visname_s = "MFX_SLEEP_STAR.TGA";
+     visorientation_s = "VELO3D";
+     vistexisquadpoly = 1;
+     vistexanifps = 10;
+     vistexaniislooping = 1;
+     vistexcolorstart_s = "200 0 0";
+     vistexcolorend_s = "0 0 200";
+     vissizestart_s = "10 100";
+     vissizeendscale = 1;
+     visalphafunc_s = "ADD";
+     visalphastart = 255;
+     trltexture_s = "JUSTWHITE.TGA";
+};
+
 INSTANCE MENU_CURSOR (C_PARTICLEFX)
 {
      ppsvalue = 150.;

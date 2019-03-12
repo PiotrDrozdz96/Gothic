@@ -1068,9 +1068,6 @@ FUNC VOID INIT_SUB_FREEMINECAMP ()
 //*******************************************************************************
 FUNC VOID STARTUP_SUB_SURFACE ()
 {
-	// Drops
-	Wld_InsertItem				(ITSH_LONG_A,"OW_PATH_ORCRUIN_GOLEM");
-	
 	//------------------
 	
 	Wld_InsertNpc				(GRD_254_Orry,"OC1");
@@ -1431,8 +1428,6 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc		(Waran,"SPAWN_OW_WARAN_OC_PSI_GOBBOCAVE_01");
 	Wld_InsertNpc		(Waran,"SPAWN_OW_WARAN_OC_PSI_GOBBOCAVE_01");
 	Wld_InsertNpc		(Waran,"SPAWN_OW_WARAN_OC_PSI_GOBBOCAVE_01");
-	// Drops
-	Wld_InsertItem				(ItAt_GoblinBone,"GOBBO_MASTERCAVE8");
 
 	// hinter der Brücke
 	Wld_InsertNpc		(BlackGobboMace,"SPAWN_GOBBO_LOCATION_29_03");

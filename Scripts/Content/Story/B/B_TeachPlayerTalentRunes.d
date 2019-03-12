@@ -47,7 +47,7 @@ func int B_TeachPlayerTalentRunes(var C_NPC typ, var int spell, var int LP_Cost)
         if (spell == SPL_ARMYOFDARKNESS )       {   PLAYER_TALENT_RUNES[SPL_ARMYOFDARKNESS]     =   TRUE; 
         B_LogEntry(GE_TalentRunes, "Runa ´ARMIA CIEMNOŒCI´: 1 koœæ szkieleta, 1 czarna per³a, 1 serce kamiennego golema i 1 serce demona.");};
         if (spell == SPL_DESTROYUNDEAD )       {   PLAYER_TALENT_RUNES[SPL_DESTROYUNDEAD]       =   TRUE; 
-        B_LogEntry(GE_TalentRunes, "Runa ´ZNISZCZENIE O¯YWIEÑCA´: 1 woda œwiêcona.");};
+        B_LogEntry(GE_TalentRunes, "Runa ´ŒMIERÆ O¯YWIEÑCOM´: 1 woda œwiêcona.");};
         if (spell == SPL_WINDFIST      )       {   PLAYER_TALENT_RUNES[SPL_WINDFIST]            =   TRUE; 
         B_LogEntry(GE_TalentRunes, "Runa ´UDERZENIE WIATRU´: 1 wêgiel i 1 Zielony Nowicjusz.");};
         if (spell == SPL_STORMFIST     )       {   PLAYER_TALENT_RUNES[SPL_STORMFIST]           =   TRUE; 

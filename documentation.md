@@ -146,8 +146,6 @@
 |   |   // Dodanie stałej CH2_KDF_Rune do zadania z pierwszą runą u magów ognia
 |   +--| Startup
 |   |   // Dodanie tarczy ITSH_STALHRIM_S_SM w OrcTempel(TPL_254)
-|   |   // Dodanie tarczy ITSH_LONG_A w OldWorld (OW_PATH_ORCRUIN_GOLEM)
-|   |   // Dodanie kości goblina (GOBBO_MASTERCAVE8)
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Zmienna Shield_Equip która zapamiętuje czy mamy założoną tarcze
@@ -168,11 +166,14 @@
 |   |   // Zmiany w B_BuildBuyArmorString
 |   |   // Dodanie stałej NAME_STR_GRAB = "Obciążenie Siły", używanej w tarczach
 |   |   // Zmiana nazwy dla SPL_NEW(2-4)
+|   |   // MOBNAME_RUNEMAKER i PRINT_(RuneSuccess/ProdItemsMissing) dla stołu runicznego
 |   +--| Gothic.src
 |   |   // Przeniesienie G_funcions wyżej w kolejce parsowania
 |   |   // Dodanie funkcji B_TeachPlayerRunes do parsowania
 |   +--| magic_intern
 |   |   // Zamiana stałej SPL_NEW(2-4)
+|   +--| PFX/SFX
+|   |   // Dzwięk i wizualizacja do stołu runicznego
 |/******************************************INNE END********************************************************
 +-- Items
 |   +--| Animaltrophy
@@ -308,4 +309,10 @@
 |   |    // ORC_PRIEST_5 - dodanie tarczy ITSH_STALHRIM_B_SM
 |   |    // ORC_PRIEST_5 - niewrażliwy na żadne obrażenia
 |   +--| PC_(Fighter/Mage/Psionic)
-|   |    // Dodanie rutyny "MeetFriend", związana z Questem Zawalona Wieża 
+|   |    // Dodanie rutyny "MeetFriend", związana z Questem Zawalona Wieża
+|/********************************NPC END***********************************
++-- Worlds
+|   +-- World.ZEN
+|   |   // Dodanie stołów runicznych
+|   |   // Dodanie tarczy ITSH_LONG_A w starej świątyni (bagienny smok)
+|   |   // Dodanie kości goblina w jaskini goblinów (almanach)

@@ -345,6 +345,9 @@
 				INSTANCE PICKLOCK_UNLOCK 				(C_SFX_DEF) {file= "picklock_unlock.wav";			vol = 80;			};
 				INSTANCE PICKLOCK_BROKEN 				(C_SFX_DEF) {file= "picklock_broken.wav";			vol = 50;			};
 
+/* Runemaker */				
+				INSTANCE MOB_Runemaker					(C_SFX_DEF) {file= "MOB_Runemaker_01.wav";			vol = 127;			};
+
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 // VOB-SFX ///////////////////////////////////////////////////////////////////

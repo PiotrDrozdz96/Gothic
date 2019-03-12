@@ -3,7 +3,8 @@
 /Music
 /Presets
 /Video
-/Worlds
+/Worlds/*
+!/Worlds/WORLD.zen
 
 # meshes
 /Meshes/*

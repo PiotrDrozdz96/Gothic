@@ -46,6 +46,7 @@ CONST STRING MOBNAME_ORCDRUM		= "";
 CONST STRING MOBNAME_TARGETSTONE	= "Cel";
 CONST STRING MOBNAME_SHRINE			= "Kaplica Serc";
 CONST STRING MOBNAME_SWORDSTONE		= "Tajemnicza kapliczka";
+CONST STRING MOBNAME_RUNEMAKER		= "Stó³ Runiczny";
 
 
 // *****************************************************************************************
@@ -620,3 +621,5 @@ const string STR_INFO_TRADE_EXIT						= "WSTECZ"				;
 
 // Drops text
 const string NAME_Str_grab = "Obci¹¿enie si³y:";
+const string PRINT_RuneSuccess = "Stworzy³eœ runê";
+const string PRINT_ProdItemsMissing = "Za ma³o sk³adników";
