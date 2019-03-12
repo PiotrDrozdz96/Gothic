@@ -83,8 +83,8 @@ const int	SPL_DAMAGE_MASSDEATH		=	400;
 const int	SPL_DAMAGE_BREATHOFDEATH	=	500;
 const int	SPL_DAMAGE_DESTROYUNDEAD	=	9999;	//soll halt wirklich killen!
 
-const int	SPL_DAMAGE_WINDFIST			=	10;
-const int	SPL_DAMAGE_STORMFIST		=	15;
+const int	SPL_DAMAGE_WINDFIST			=	20;
+const int	SPL_DAMAGE_STORMFIST		=	30;
 
 
 

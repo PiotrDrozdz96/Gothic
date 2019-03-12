@@ -1076,7 +1076,116 @@ FUNC void  KDW_600_Saturas_KREIS5_Info()
 		AI_Output		(self, other,"KDW_600_Saturas_KREIS5_Info_14_06"); //Poznaj granice swoich mo¿liwoœci, a poznasz samego siebie.
 		KDW_600_Saturas_KREIS5.permanent = 0;
 	};
-};  
+};
+/*------------------------------------------------------------------------
+							RUNEN LERNEN								
+------------------------------------------------------------------------*/
+instance  KDW_600_Saturas_TEACH (C_INFO)
+{
+	npc				= KDW_600_Saturas;
+	condition		= KDW_600_Saturas_TEACH_Condition;
+	information		= KDW_600_Saturas_TEACH_Info;
+	permanent		= 1;
+	description		= "Naucz mnie."; 
+};
+
+FUNC int  KDW_600_Saturas_TEACH_Condition()
+{	
+	if (other.guild == GIL_KDW)
+	{
+		return TRUE;
+	};
+
+};
+
+FUNC void  KDW_600_Saturas_TEACH_Info()
+{
+	AI_Output (other, self,"KDF_402_Corristo_TEACH_15_01"); //Zostañ moim nauczycielem.
+	Info_ClearChoices(KDW_600_Saturas_TEACH);
+	Info_AddChoice(KDW_600_Saturas_TEACH, DIALOG_BACK, KDW_600_Saturas_TEACH_BACK);
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=1)
+	&&(PLAYER_TALENT_RUNES[SPL_THUNDERBOLT] == FALSE)
+	{
+		Info_AddChoice(KDW_600_Saturas_TEACH,"Sopel Lodu 5 pn", KDW_600_Saturas_TEACH_SPL_THUNDERBOLT);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=2)
+	&&(PLAYER_TALENT_RUNES[SPL_ICECUBE] == FALSE)
+	{
+		Info_AddChoice(KDW_600_Saturas_TEACH,"Bry³a Lodu 5 pn", KDW_600_Saturas_TEACH_SPL_ICECUBE);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=2)
+	&&(PLAYER_TALENT_RUNES[SPL_HEAL] == FALSE)
+	{
+		Info_AddChoice(KDW_600_Saturas_TEACH,"Uzdrowienie 5 pn", KDW_600_Saturas_TEACH_SPL_HEAL);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=3)
+	&&(PLAYER_TALENT_RUNES[SPL_THUNDERBALL] == FALSE)
+	{
+		Info_AddChoice(KDW_600_Saturas_TEACH,"Piorun Kulisty 10 pn", KDW_600_Saturas_TEACH_SPL_THUNDERBALL);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=4)
+	&&(PLAYER_TALENT_RUNES[SPL_DESTROYUNDEAD] == FALSE)
+	{
+		Info_AddChoice(KDW_600_Saturas_TEACH,"Œmieræ o¿ywieñcom 10 pn", KDW_600_Saturas_TEACH_SPL_DESTROYUNDEAD);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=4)
+	&&(PLAYER_TALENT_RUNES[SPL_CHAINLIGHTNING] == FALSE)
+	{
+		Info_AddChoice(KDW_600_Saturas_TEACH,"Grom 10 pn", KDW_600_Saturas_TEACH_SPL_CHAINLIGHTNING);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=5)
+	&&(PLAYER_TALENT_RUNES[SPL_ICEWAVE] == FALSE)
+	{
+		Info_AddChoice(KDW_600_Saturas_TEACH,"Lodowa Fala 15 pn", KDW_600_Saturas_TEACH_SPL_ICEWAVE);
+	};
+};
+
+func void KDW_600_Saturas_TEACH_BACK()
+{
+	Info_ClearChoices	(KDW_600_Saturas_TEACH);
+};
+
+func void KDW_600_Saturas_TEACH_SPL_HEAL()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_HEAL, LPCOST_RUNEN_2);
+};
+
+func void KDW_600_Saturas_TEACH_SPL_CHAINLIGHTNING()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_CHAINLIGHTNING, LPCOST_RUNEN_4);
+};
+
+func void KDW_600_Saturas_TEACH_SPL_THUNDERBOLT()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_THUNDERBOLT, LPCOST_RUNEN_1);
+};
+
+func void KDW_600_Saturas_TEACH_SPL_THUNDERBALL()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_THUNDERBALL, LPCOST_RUNEN_3);
+};
+
+func void KDW_600_Saturas_TEACH_SPL_ICECUBE()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_ICECUBE, LPCOST_RUNEN_2);
+};
+
+func void KDW_600_Saturas_TEACH_SPL_ICEWAVE()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_ICEWAVE, LPCOST_RUNEN_5);
+};
+
+func void KDW_600_Saturas_TEACH_SPL_DESTROYUNDEAD()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_DESTROYUNDEAD, LPCOST_RUNEN_4);
+};
 /*------------------------------------------------------------------------
 							SCHWERE ROBE								
 ------------------------------------------------------------------------*/

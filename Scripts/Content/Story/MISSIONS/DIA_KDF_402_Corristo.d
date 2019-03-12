@@ -636,3 +636,199 @@ FUNC void  KDF_402_Corristo_HEAVYARMOR_Info()
 	};
 	
 };  
+
+/*------------------------------------------------------------------------
+							FIRST RUNE									
+------------------------------------------------------------------------*/
+
+instance  KDF_402_Corristo_CONTEST (C_INFO)
+{
+	npc				= KDF_402_Corristo;
+	condition		= KDF_402_Corristo_CONTEST_Condition;
+	information		= KDF_402_Corristo_CONTEST_Info;
+	permanent		= 0;
+	description		= "Naucz mnie, jak stworzyæ runê OGNISTEJ STRZA³Y."; 
+};
+
+FUNC int  KDF_402_Corristo_CONTEST_Condition()
+{	
+	if (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE ) == 1)
+	&& (Npc_GetTrueGuild (hero) == GIL_KDF)
+	{
+		return TRUE;
+	};
+
+};
+FUNC void  KDF_402_Corristo_CONTEST_Info()
+{
+	AI_Output (other, self,"KDF_402_Corristo_CONTEST_15_01"); //Naucz mnie, jak stworzyæ runê OGNISTEJ STRZA³Y.
+	AI_Output (self, other,"KDF_402_Corristo_CONTEST_14_01"); //Hmmm...
+	AI_Output (self, other,"KDF_402_Corristo_CONTEST_14_02"); //Dobrze, nauczê ciê tej formu³y. Ale najpierw musisz znaleŸæ niezbêdne sk³adniki.
+
+	Log_CreateTopic		(CH2_KDF_Rune,		LOG_MISSION);
+	Log_SetTopicStatus	(CH2_KDF_Rune,		LOG_RUNNING);
+	B_LogEntry(CH2_KDF_Rune, "Corristo ma mnie nauczyæ formu³y runy ognistej strza³y, kiedy tylko zdobêdê wszystkie sk³adniki.");
+};
+
+instance  KDF_402_Corristo_FIREBOLT (C_INFO)
+{
+	npc				= KDF_402_Corristo;
+	condition		= KDF_402_Corristo_FIREBOLT_Condition;
+	information		= KDF_402_Corristo_FIREBOLT_Info;
+	permanent		= 0;
+	description		= "Jakie sk³adniki potrzebne s¹ do stworzenia runy ognistej strza³y?"; 
+};
+
+FUNC int  KDF_402_Corristo_FIREBOLT_Condition()
+{	
+	if (Npc_KnowsInfo(hero, KDF_402_Corristo_CONTEST))
+	&& (Knows_Book_Circle_01 == FALSE)
+	{
+		return TRUE;
+	};
+
+};
+FUNC void  KDF_402_Corristo_FIREBOLT_Info()
+{
+	AI_Output (other, self,"KDF_402_Corristo_FIREBOLT_15_01"); //Jakie sk³adniki potrzebne s¹ do stworzenia runy ognistej strza³y?
+	AI_Output (self, other,"KDF_402_Corristo_FIREBOLT_14_01"); //Wszystkie odpowiedzi znajdziesz w ksiêgach.
+
+	B_LogEntry(CH2_KDF_Rune, "Informacji na temat sk³adników potrzebnych do stworzenia runy OGNISTA STRZA£A mam szukaæ w ksiêgach");
+};
+
+instance  KDF_402_Corristo_TALENT_FIREBOLT (C_INFO)
+{
+	npc				= KDF_402_Corristo;
+	condition		= KDF_402_Corristo_TALENT_FIREBOLT_Condition;
+	information		= KDF_402_Corristo_TALENT_FIREBOLT_Info;
+	permanent		= 1;
+	description		= "Naucz mnie, jak stworzyæ runê OGNISTEJ STRZA³Y."; 
+};
+
+FUNC int  KDF_402_Corristo_TALENT_FIREBOLT_Condition()
+{	
+	if (Npc_KnowsInfo(hero, KDF_402_Corristo_CONTEST))
+	&& (Knows_Book_Circle_01 == TRUE)
+	&& (Npc_HasItems(other, ItMi_Alchemy_Sulphur_01))
+	&& (PLAYER_TALENT_RUNES[SPL_FIREBOLT] == FALSE)
+	{
+		return TRUE;
+	};
+
+};
+FUNC void  KDF_402_Corristo_TALENT_FIREBOLT_Info()
+{
+	AI_Output (other, self,"KDF_402_Corristo_CONTEST_15_01"); //Naucz mnie, jak stworzyæ runê OGNISTEJ STRZA³Y.
+	
+	if(B_TeachPlayerTalentRunes(other,SPL_FIREBOLT,5))
+	{
+		AI_Output (self, other, "KDF_402_Corristo_TALENT_FIREBOLT_14_01"); //Aby stworzyæ runê ognistej strza³y, musisz po³¹czyæ na stole runicznym siarkê z kamieniem runicznym.
+		AI_Output (self, other, "KDF_402_Corristo_TALENT_FIREBOLT_14_02"); //Moc zaklêcia ognistej strza³y wniknie w runê, a ty dostaniesz narzêdzie Innosa.
+		AI_Output (self, other, "KDF_402_Corristo_TALENT_FIREBOLT_14_03"); //Skoro ju¿ masz wszystkie materia³y, mo¿esz przyst¹piæ do tworzenia runy.
+		
+		B_LogEntry(CH2_KDF_Rune, "Corristo wyjaœni³ mi w jaki sposób stworzyæ moj¹ pierwsz¹ runê. Mogê zabieraæ siê do pracy.");
+	};
+};
+
+instance  KDF_402_Corristo_GOTRUNE (C_INFO)
+{
+	npc				= KDF_402_Corristo;
+	condition		= KDF_402_Corristo_GOTRUNE_Condition;
+	information		= KDF_402_Corristo_GOTRUNE_Info;
+	permanent		= 0;
+	description		= "Stworzy³em runê."; 
+};
+
+FUNC int  KDF_402_Corristo_GOTRUNE_Condition()
+{	
+	if (other.guild == GIL_KDF)
+	&& Npc_HasItems(other, ItArRuneFirebolt)
+	{
+		return TRUE;
+	};
+
+};
+FUNC void  KDF_402_Corristo_GOTRUNE_Info()
+{
+	AI_Output (other, self,"KDF_402_Corristo_GOTRUNE_15_01"); //Stworzy³em runê.
+	AI_Output (self, other, "KDF_402_Corristo_GOTRUNE_14_01"); //No proszê. Nie by³o to chyba a¿ takie trudne.
+	
+	B_LogEntry(CH2_KDF_Rune, "Stworzy³em runê Ognistej Strza³y.");
+	Log_SetTopicStatus	(CH2_KDF_Rune,		LOG_SUCCESS);
+
+};
+
+instance  KDF_402_Corristo_TEACH (C_INFO)
+{
+	npc				= KDF_402_Corristo;
+	condition		= KDF_402_Corristo_TEACH_Condition;
+	information		= KDF_402_Corristo_TEACH_Info;
+	permanent		= 1;
+	description		= "Naucz mnie."; 
+};
+
+FUNC int  KDF_402_Corristo_TEACH_Condition()
+{	
+	if (Npc_KnowsInfo(hero, KDF_402_Corristo_GOTRUNE))
+	{
+		return TRUE;
+	};
+
+};
+FUNC void  KDF_402_Corristo_TEACH_Info()
+{
+	AI_Output (other, self,"KDF_402_Corristo_TEACH_15_01"); //Zostañ moim nauczycielem.
+	Info_ClearChoices(KDF_402_Corristo_TEACH);
+	Info_AddChoice(KDF_402_Corristo_TEACH, DIALOG_BACK, KDF_402_Corristo_TEACH_BACK);
+	
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=1)
+	&&(PLAYER_TALENT_RUNES[SPL_LIGHT] == FALSE)
+	{
+		Info_AddChoice(KDF_402_Corristo_TEACH,"Œwiat³o 1 pn", KDF_402_Corristo_TEACH_SPL_LIGHT);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=2)
+	&&(PLAYER_TALENT_RUNES[SPL_HEAL] == FALSE)
+	{
+		Info_AddChoice(KDF_402_Corristo_TEACH,"Uzdrowienie 5 pn", KDF_402_Corristo_TEACH_SPL_HEAL);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=2)
+	&&(PLAYER_TALENT_RUNES[SPL_FIREBALL] == FALSE)
+	{
+		Info_AddChoice(KDF_402_Corristo_TEACH,"Kula Ognia 5 pn", KDF_402_Corristo_TEACH_SPL_FIREBALL);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=3)
+	&&(PLAYER_TALENT_RUNES[SPL_FIRESTORM] == FALSE)
+	{
+		Info_AddChoice(KDF_402_Corristo_TEACH,"Ognista Burza 10 pn", KDF_402_Corristo_TEACH_SPL_FIRESTORM);
+	};
+	
+
+};
+
+FUNC VOID KDF_402_Corristo_TEACH_BACK ()
+{
+	Info_ClearChoices (KDF_402_Corristo_TEACH);
+};
+
+func void KDF_402_Corristo_TEACH_SPL_LIGHT()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_LIGHT, LPCOST_RUNEN_0);
+};
+
+func void KDF_402_Corristo_TEACH_SPL_HEAL()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_HEAL, LPCOST_RUNEN_2);
+};
+
+func void KDF_402_Corristo_TEACH_SPL_FIREBALL()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_FIREBALL, LPCOST_RUNEN_2);
+};
+
+func void KDF_402_Corristo_TEACH_SPL_FIRESTORM()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_FIRESTORM, LPCOST_RUNEN_3);
+};

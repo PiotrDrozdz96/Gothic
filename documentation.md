@@ -7,6 +7,7 @@
 |   +--|-- B_Give(BallCadar/Cronos/Torrez/Xardas)Chapterrune
 |   |   // Usunięcie ze sprzedarzy magicznych run
 |   |   // Dodanie przedmiotów do tworzenia run
+|   |   // Dodanie nowych książek o czarach
 |   +--|-- B_GiveDeathInv
 |   |   // Demony posiadają serca jeśli mamy umiejętność wycinania serc
 |   |   // Krwiopijce posiadają skrzydła jeśli posiadamy odpowiednią umiejętność
@@ -44,12 +45,17 @@
 |   |   // Uwzględnie guru w nauce walki broni 2H
 |   |   // Zdobycie szaty arcyguru
 |   +--|-- DIA_GUR_1208_BaalCadar
-|   |   // Usunięcie magicznych run przed handlem 
+|   |   // Usunięcie magicznych run przed handlem
+|   |   // Uczy tworzenia run 
 |   +--|-- DIA_GUR_1211_BallLukor
 |   |   // Dodanie tarczy ITSH_R_ROUND
 |   +--|-- DIA_KDF_402_Corristo
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu magiem Ognia
 |   |   // Zwiększenie restrykcji przy zostaniu arcymagiem
+|   |   // Zadanie "Moja pierwsza runa"
+|   |   // Uczy tworzenia run
+|   +--|-- DIA_KDF_403_Drago
+|   |   // Po zostaniu magiem ognia otrzymujemy pustą runę zamiast "ognistej strzały"
 |   +--|-- DIA_KDF_404_Xardas
 |   |   // Nauka 6 kręgu niezależnie czy jesteśmy KDF,KDW,GUR
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu nekromantą
@@ -57,13 +63,16 @@
 |   |   // Zwraca Uriziel_1H gdy lepiej posługujemy się bronią jednoręczną
 |   |   // Usunięcie magicznych run przed handlem
 |   |   // Nauka wyciania serc demonom
+|   |   // Uczy tworzenia run
 |   +--|-- DIA_KDF_405_Torrez
 |   |   // Usunięcie magicznych run przed handlem
+|   |   // Po zostaniu magiem ognia nie otrzymamy księgi "Pierwszy krąg magii" jeśli wcześniej ją kupiliśmy
 |   +--|-- DIA_KDW_600_Saturas
 |   |   // Zwiększenie restrykcji przy zostaniu arcymagiem
 |   |   // Zmiany w dialogach o Xardasie
 |   |   // Zmiany w zostaniu magiem wody, możemy zostać wcześniej
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu magiem wody
+|   |   // Uczy tworzenia run
 |   +--|-- DIA_KDW_604_Cronos
 |   |   // Usunięcie magicznych run przed handlem
 |   +--|-- DIA_ORG_801_Lares
@@ -129,6 +138,7 @@
 |   |   // Dodanie numeru nowego talentu NPC_TALENT_SHIELD = 10
 |   +--| Log_Constans
 |   |   // Dodanie stałej GE_TelentRunes do nauki tworzenia run
+|   |   // Dodanie stałej CH2_KDF_Rune do zadania z pierwszą runą u magów ognia
 |   +--| Startup
 |   |   // Dodanie tarczy ITSH_STALHRIM_S_SM w OrcTempel(TPL_254)
 |   |   // Dodanie tarczy ITSH_LONG_A w OldWorld (OW_PATH_ORCRUIN_GOLEM)
@@ -143,6 +153,9 @@
 |   |   // Zmienna tablica PLAYER_TALENT_RUNES - umiejętności tworzenia run
 |   |   // Zmiana punktów nauki przy nauce kregów magii
 |   |   // Dodanie kosztów nauki tworzenia run
+|   |   // Zmienna Knows_Book_Circle_01 - informacja czy przeczytaliśmy książkę "Pierwszy krąg magii"
+|   +--| svm
+|   |   // dodanie svm CantReadThis związanej z kartkami uczącymi
 |   +--| Text
 |   |   // Zmianna nazwy umiejętności na Tarcza, oraz dodanie nazw poziomów (Brak|Adept|Mistrz)
 |   |   // Zmiany w nazwach poziomów dla broni białch (Brak|Zielony|Wojownik|Mistrz)
@@ -180,6 +193,10 @@
 |   +--| Misc
 |   |   // Dodanie składnikw potrzebnych do tworzenia run
 |   |   // Zamiana Rtęci na wodę święconą
+|   +--| MissionItems
+|   |   // 1 - Listy do Magów Ognia mają podpis "Marszałek Rigaldo
+|   |   // 1 - Z Chromanimu 6 wypada kartka ucząca runy przywołania szkieleta
+|   |   // 2 - Z almanachu wypada list od Xardasa oraz kartki uczące przywołąnie goblina oraz wilka
 |   +--| Potions
 |   |    // ItFo_Potion_Haste_(02/03) -> poprawione wartości
 |   +--| Ranged_weapons
@@ -193,6 +210,11 @@
 |   |   // 3 wersje Uriziela 1H
 |   +-- Written
 |   |   // książka o krwiopijcach uczy zarówno usuwanie żądła jak i skrzydeł
+|   |   // Z "Pierwszy Krąg Magii wypada list od Xardasa
+|   |   // Zmiany treści w książkach o kręgach Magii
+|   |   // Dodanie książek Sekty oraz książki Przyzwania
+|   |   // Dodanie listów od Xardasa
+|   |   // Dodanie kartek uczących tworzenia run przyzwać(goblina, wilka, szkieleta)
 |/*******************************************ITEMS END*******************************************************
 |   +--| Spell_params | Spells_process_mana | Spells_process_released
 |   |   // Dodanie zaklęcia SPL_TELEPORT6

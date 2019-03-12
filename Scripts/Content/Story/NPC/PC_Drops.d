@@ -106,6 +106,17 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 	CreateInvItem(self, Itat_Skeletonbone);
 	CreateInvItem(self, ItAt_StoneGolem_02);
 	CreateInvItem(self, Itat_Demonheart);
+
+	//Written
+	CreateInvItem(self, ItWr_Necromancer_Letter_01);
+	CreateInvItem(self, ItWr_Necromancer_Letter_02);
+	CreateInvItem(self, ItWr_Book_Sekte_01);
+	CreateInvItem(self, ItWr_Book_Sekte_02);
+	CreateInvItem(self, ItWr_Book_Sekte_03);
+	CreateInvItem(self, ItWr_Book_Necromancer);
+	CreateInvItem(self, ItWr_SummonGobbo);
+	CreateInvItem(self, ItWr_SummonWolf);
+	CreateInvItem(self, ItWr_SummonSkeleton);
 	
 };
 
@@ -375,7 +386,7 @@ FUNC void PC_DROPS_TEACH_TALENT_RUNES_Info()
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Grom 10 pn", PC_DROPS_TEACH_SPL_CHAINLIGHTNING);
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Sopel Lodu 5 pn", PC_DROPS_TEACH_SPL_THUNDERBOLT);
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Piorun Kulisty 10 pn", PC_DROPS_TEACH_SPL_THUNDERBALL);
-	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Bry³a Lodu 10 pn", PC_DROPS_TEACH_SPL_ICECUBE);
+	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Bry³a Lodu 5 pn", PC_DROPS_TEACH_SPL_ICECUBE);
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Lodowa Fala 15 pn", PC_DROPS_TEACH_SPL_ICEWAVE);
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Przyzwanie Szkieletu Goblina 5 pn", PC_DROPS_TEACH_SPL_SUMMONGOBBO);
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Przyzwanie Wilka 5 pn", PC_DROPS_TEACH_SPL_SUMMONWOLF);
@@ -386,11 +397,11 @@ FUNC void PC_DROPS_TEACH_TALENT_RUNES_Info()
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Œmieræ o¿ywieñcom 10 pn", PC_DROPS_TEACH_SPL_DESTROYUNDEAD);
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Uderzenie Wiatru 5 pn", PC_DROPS_TEACH_SPL_WINDFIST);
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Uderzenie Burzy 10 pn", PC_DROPS_TEACH_SPL_STORMFIST);
-	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Telekineza 10 pn", PC_DROPS_TEACH_SPL_TELEKINESIS);
+	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Telekineza 5 pn", PC_DROPS_TEACH_SPL_TELEKINESIS);
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Urok 10 pn", PC_DROPS_TEACH_SPL_CHARM);
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Sen 5 pn", PC_DROPS_TEACH_SPL_SLEEP);
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Pirokineza 10 pn", PC_DROPS_TEACH_SPL_PYROKINESIS);
-	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Kontrola 10 pn", PC_DROPS_TEACH_SPL_CONTROL);
+	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Kontrola 15 pn", PC_DROPS_TEACH_SPL_CONTROL);
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Strach 10 pn", PC_DROPS_TEACH_SPL_FEAR);
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Tchnienie Œmierci 20 pn", PC_DROPS_TEACH_SPL_BREATHOFDEATH);
 };
@@ -427,7 +438,7 @@ func void PC_DROPS_TEACH_SPL_FIRERAIN()
 
 func void PC_DROPS_TEACH_SPL_HEAL()
 {
-	B_TeachPlayerTalentRunes(hero, SPL_HEAL, LPCOST_RUNEN_1);
+	B_TeachPlayerTalentRunes(hero, SPL_HEAL, LPCOST_RUNEN_2);
 };
 
 func void PC_DROPS_TEACH_SPL_CHAINLIGHTNING()
@@ -437,7 +448,7 @@ func void PC_DROPS_TEACH_SPL_CHAINLIGHTNING()
 
 func void PC_DROPS_TEACH_SPL_THUNDERBOLT()
 {
-	B_TeachPlayerTalentRunes(hero, SPL_THUNDERBOLT, LPCOST_RUNEN_2);
+	B_TeachPlayerTalentRunes(hero, SPL_THUNDERBOLT, LPCOST_RUNEN_1);
 };
 
 func void PC_DROPS_TEACH_SPL_THUNDERBALL()
@@ -447,7 +458,7 @@ func void PC_DROPS_TEACH_SPL_THUNDERBALL()
 
 func void PC_DROPS_TEACH_SPL_ICECUBE()
 {
-	B_TeachPlayerTalentRunes(hero, SPL_ICECUBE, LPCOST_RUNEN_3);
+	B_TeachPlayerTalentRunes(hero, SPL_ICECUBE, LPCOST_RUNEN_2);
 };
 
 func void PC_DROPS_TEACH_SPL_ICEWAVE()
@@ -497,22 +508,22 @@ func void PC_DROPS_TEACH_SPL_WINDFIST()
 
 func void PC_DROPS_TEACH_SPL_STORMFIST()
 {
-	B_TeachPlayerTalentRunes(hero, SPL_STORMFIST, LPCOST_RUNEN_4);
+	B_TeachPlayerTalentRunes(hero, SPL_STORMFIST, LPCOST_RUNEN_3);
 };
 
 func void PC_DROPS_TEACH_SPL_TELEKINESIS()
 {
-	B_TeachPlayerTalentRunes(hero, SPL_TELEKINESIS, LPCOST_RUNEN_3);
+	B_TeachPlayerTalentRunes(hero, SPL_TELEKINESIS, LPCOST_RUNEN_2);
 };
 
 func void PC_DROPS_TEACH_SPL_CHARM()
 {
-	B_TeachPlayerTalentRunes(hero, SPL_CHARM, LPCOST_RUNEN_3);
+	B_TeachPlayerTalentRunes(hero, SPL_CHARM, LPCOST_RUNEN_4);
 };
 
 func void PC_DROPS_TEACH_SPL_SLEEP()
 {
-	B_TeachPlayerTalentRunes(hero, SPL_SLEEP, LPCOST_RUNEN_2);
+	B_TeachPlayerTalentRunes(hero, SPL_SLEEP, LPCOST_RUNEN_1);
 };
 
 func void PC_DROPS_TEACH_SPL_PYROKINESIS()
@@ -522,7 +533,7 @@ func void PC_DROPS_TEACH_SPL_PYROKINESIS()
 
 func void PC_DROPS_TEACH_SPL_CONTROL()
 {
-	B_TeachPlayerTalentRunes(hero, SPL_CONTROL, LPCOST_RUNEN_4);
+	B_TeachPlayerTalentRunes(hero, SPL_CONTROL, LPCOST_RUNEN_5);
 };
 
 func void PC_DROPS_TEACH_SPL_FEAR()

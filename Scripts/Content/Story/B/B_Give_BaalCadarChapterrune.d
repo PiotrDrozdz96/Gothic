@@ -63,6 +63,9 @@ func void B_Give_BaalCadarChapter2Runes ()
    CreateInvItems (npc,ItFo_Potion_Water_01 ,20);
 	
    CreateInvItems (npc,ItFo_Potion_Haste_01 ,6);
+
+   //-----Bücher
+   CreateInvItem(npc, ItWr_Book_Sekte_01);
  };
 
 func void B_Give_BaalCadarChapter3Runes ()
@@ -111,6 +114,9 @@ func void B_Give_BaalCadarChapter3Runes ()
 	
    CreateInvItems (npc,ItFo_Potion_Haste_01 ,12);	
    CreateInvItems (npc,ItFo_Potion_Haste_02 ,6);
+
+   //-----Bücher
+   CreateInvItem(npc, ItWr_Book_Sekte_02);
 };
 func void B_Give_BaalCadarChapter4Runes ()
 {
@@ -161,6 +167,9 @@ func void B_Give_BaalCadarChapter4Runes ()
     CreateInvItems (npc,ItFo_Potion_Haste_01 ,24);	
     CreateInvItems (npc,ItFo_Potion_Haste_02 ,12); 
 	CreateInvItems (npc,ItFo_Potion_Haste_02 ,6);
+
+	//-----Bücher
+	CreateInvItem(npc, ItWr_Book_Sekte_03);
 };
 func void B_Give_BaalCadarChapter5Runes ()
 {

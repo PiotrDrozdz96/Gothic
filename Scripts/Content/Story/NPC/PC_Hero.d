@@ -3,7 +3,7 @@ INSTANCE PC_Hero(NPC_DEFAULT)
 
 {
 	//-------- primary data --------		
-	name 			= "Ich";
+	name 			= "Ja";
 	Npctype			= NPCTYPE_MAIN;
 	guild			= GIL_NONE;
 	level			= 0;

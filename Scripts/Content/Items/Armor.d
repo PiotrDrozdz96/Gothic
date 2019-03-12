@@ -946,9 +946,9 @@ INSTANCE GUR_ARMOR_H(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE] 	=	45;
-	protection [PROT_BLUNT] = 	45;
-	protection [PROT_POINT] = 	45;
+	protection [PROT_EDGE] 	=	55;
+	protection [PROT_BLUNT] = 	55;
+	protection [PROT_POINT] = 	55;
 	protection [PROT_FIRE] 	= 	35;
 	protection [PROT_MAGIC] = 	35;
 	wear 					=	WEAR_TORSO;

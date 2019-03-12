@@ -528,6 +528,7 @@ FUNC int  Info_Xardas_GIL_DMB_Condition()
 	&& (Npc_GetTrueGuild (hero) == GIL_KDW || Npc_GetTrueGuild (hero) == GIL_KDF || Npc_GetTrueGuild (hero) == GIL_GUR )
 	{			
 		if ( !Npc_KnowsInfo(hero, KDW_600_Saturas_HEAVYARMOR) )
+		&& PLAYER_TALENT_RUNES[SPL_SUMMONSKELETON] == TRUE
 		{
 			return TRUE;
 		};
@@ -1158,6 +1159,69 @@ func void  Info_Xardas_LOADSWORD09_Info()
 		
 		AI_StopProcessInfos	( self );
 	};
+};
+
+instance  KDF_404_Xardas_TEACH (C_INFO)
+{
+	npc				= KDF_404_Xardas;
+	condition		= KDF_404_Xardas_TEACH_Condition;
+	information		= KDF_404_Xardas_TEACH_Info;
+	permanent		= 1;
+	description		= "Naucz mnie."; 
+};
+
+FUNC int KDF_404_Xardas_TEACH_Condition()
+{	
+	if (Npc_GetTrueGuild (hero) == GIL_DMB)
+	{
+		return TRUE;
+	};
+
+};
+FUNC void  KDF_404_Xardas_TEACH_Info()
+{
+	AI_Output (other, self,"KDF_402_Corristo_TEACH_15_01"); //Zostañ moim nauczycielem.
+	Info_ClearChoices(KDF_404_Xardas_TEACH);
+	Info_AddChoice(KDF_404_Xardas_TEACH, DIALOG_BACK, KDF_404_Xardas_TEACH_BACK);
+	
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=4)
+	&&(PLAYER_TALENT_RUNES[SPL_SUMMONGOLEM] == FALSE)
+	{
+		Info_AddChoice(KDF_404_Xardas_TEACH,"Przyzwanie Golema 10 pn", KDF_404_Xardas_TEACH_SPL_SUMMONGOLEM);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=5)
+	&&(PLAYER_TALENT_RUNES[SPL_SUMMONDEMON] == FALSE)
+	{
+		Info_AddChoice(KDF_404_Xardas_TEACH,"Przyzwanie Demona 15 pn", KDF_404_Xardas_TEACH_SPL_SUMMONDEMON);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=6)
+	&&(PLAYER_TALENT_RUNES[SPL_ARMYOFDARKNESS] == FALSE)
+	{
+		Info_AddChoice(KDF_404_Xardas_TEACH,"Armia Ciemnoœci 20 pn", KDF_404_Xardas_TEACH_SPL_ARMYOFDARKNESS);
+	};
+
+};
+
+func void KDF_404_Xardas_TEACH_BACK()
+{
+	Info_ClearChoices	(KDF_404_Xardas_TEACH);
+};
+
+func void KDF_404_Xardas_TEACH_SPL_SUMMONGOLEM()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_SUMMONGOLEM, LPCOST_RUNEN_4);
+};
+
+func void KDF_404_Xardas_TEACH_SPL_SUMMONDEMON()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_SUMMONDEMON, LPCOST_RUNEN_5);
+};
+
+func void KDF_404_Xardas_TEACH_SPL_ARMYOFDARKNESS()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_ARMYOFDARKNESS, LPCOST_RUNEN_6);
 };
 
 	

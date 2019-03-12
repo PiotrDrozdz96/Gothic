@@ -92,7 +92,7 @@ func void B_Give_CronosChapter3Runes ()
 	CreateInvItem (npc,Amulett_der_Magie);
 	
 	CreateInvItem (npc,ItWr_Book_Circle_05);
-	CreateInvItem (npc,ItWr_Book_Circle_06);
+	// CreateInvItem (npc,ItWr_Book_Circle_06);
 };
 func void B_Give_CronosChapter4Runes ()
 {

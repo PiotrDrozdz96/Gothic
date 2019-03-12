@@ -19,7 +19,7 @@ func int B_TeachPlayerTalentRunes(var C_NPC typ, var int spell, var int LP_Cost)
         if (spell == SPL_FIREBALL       )       {   PLAYER_TALENT_RUNES[SPL_FIREBALL]           =   TRUE; 
         B_LogEntry(GE_TalentRunes, "Runa ´KULA OGNIA´: 1 smo³a");};
         if (spell == SPL_FIRESTORM      )       {   PLAYER_TALENT_RUNES[SPL_FIRESTORM]          =   TRUE; 
-        B_LogEntry(GE_TalentRunes, "Runa ´MA£A BURZA OGNISTA´: 1 smo³a i 1 siarka.");};
+        B_LogEntry(GE_TalentRunes, "Runa ´OGNISTA BURZA´: 1 smo³a i 1 siarka.");};
         if (spell == SPL_FIRERAIN       )       {   PLAYER_TALENT_RUNES[SPL_FIRERAIN]           =   TRUE; 
         B_LogEntry(GE_TalentRunes, "Runa ´DESZCZ OGNIA´: 1 siarka i 1 jêzyk ognistego jaszczura.");};
         if (spell == SPL_HEAL           )       {   PLAYER_TALENT_RUNES[SPL_HEAL]               =   TRUE; 
@@ -45,7 +45,7 @@ func int B_TeachPlayerTalentRunes(var C_NPC typ, var int spell, var int LP_Cost)
         if (spell == SPL_SUMMONGOLEM    )       {   PLAYER_TALENT_RUNES[SPL_SUMMONGOLEM]        =   TRUE; 
         B_LogEntry(GE_TalentRunes, "Runa `PRZYZWANIE GOLEMA`: 1 serce kamiennego golema.");};
         if (spell == SPL_ARMYOFDARKNESS )       {   PLAYER_TALENT_RUNES[SPL_ARMYOFDARKNESS]     =   TRUE; 
-        B_LogEntry(GE_TalentRunes, "Runa ´ARMIA CIEMNOŒCI´: 1 koœæ szkieletu, 1 czarna per³a, 1 serce kamiennego golema i 1 serce demona.");};
+        B_LogEntry(GE_TalentRunes, "Runa ´ARMIA CIEMNOŒCI´: 1 koœæ szkieleta, 1 czarna per³a, 1 serce kamiennego golema i 1 serce demona.");};
         if (spell == SPL_DESTROYUNDEAD )       {   PLAYER_TALENT_RUNES[SPL_DESTROYUNDEAD]       =   TRUE; 
         B_LogEntry(GE_TalentRunes, "Runa ´ZNISZCZENIE O¯YWIEÑCA´: 1 woda œwiêcona.");};
         if (spell == SPL_WINDFIST      )       {   PLAYER_TALENT_RUNES[SPL_WINDFIST]            =   TRUE; 

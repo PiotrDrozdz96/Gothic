@@ -136,6 +136,10 @@ INSTANCE ItWrFokusbuch(C_Item)
 					&& Npc_IsPlayer (self)
 					{
 						B_GiveXP (50);
+						G_PrintScreen("Z ksi¹¿ki wypad³ stos kartek");
+						CreateInvItem(self, ItWr_Necromancer_Letter_02);
+						CreateInvItem(self, ItWr_SummonGobbo);
+						CreateInvItem(self, ItWr_SummonWolf);
 						Wissen_Almanach = TRUE;
 					};
 				

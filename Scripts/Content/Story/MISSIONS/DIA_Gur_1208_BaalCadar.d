@@ -367,7 +367,7 @@ instance  Gur_1208_BaalCadar_KREIS4 (C_INFO)
 FUNC int  Gur_1208_BaalCadar_KREIS4_Condition()
 {	
 	if (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE) == 3)
-	&&	C_NpcBelongsToPsiCamp(hero)
+	&& (Npc_GetTrueGuild (hero) == GIL_GUR)
 	{
 		return TRUE;
 	};
@@ -382,8 +382,40 @@ FUNC void  Gur_1208_BaalCadar_KREIS4_Info()
 		AI_Output (self, other,"Gur_1208_BaalCadar_KREIS4_Info_02_03"); //Nasza wiara umocni³a siê i rozprzestrzeni³a.
 		AI_Output (self, other,"Gur_1208_BaalCadar_KREIS4_Info_02_04"); //I nie zapomnieliœmy o naszym celu. Nie ustaliœmy w naszych wysi³kach, by przyzwaæ Œni¹cego do tego œwiata.
 		AI_Output (self, other,"Gur_1208_BaalCadar_KREIS4_Info_02_05"); //Trwa³oœæ i niezmiennoœæ naszej wiary symbolizuje Czwarty Kr¹g.
-		AI_Output (self, other,"Gur_1208_BaalCadar_KREIS4_Info_02_06"); //Teraz wiesz ju¿ wszystko, co cz³onek Bractwa powinien wiedzieæ o magii. By³eœ pojêtnym uczniem.
 		Gur_1208_BaalCadar_KREIS4.permanent = 0;
+	};
+
+};
+/*------------------------------------------------------------------------
+						DER FUNF KREIS								
+------------------------------------------------------------------------*/
+
+instance  Gur_1208_BaalCadar_KREIS5 (C_INFO)
+{
+	npc				= Gur_1208_BaalCadar;
+	condition		= Gur_1208_BaalCadar_KREIS5_Condition;
+	information		= Gur_1208_BaalCadar_KREIS5_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= "Jestem gotów, by przyst¹piæ do Czwartego Krêgu."; 
+};
+
+FUNC int  Gur_1208_BaalCadar_KREIS5_Condition()
+{	
+	if (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE) == 4)
+	&& (Npc_GetTrueGuild (hero) == GIL_GUR)
+	{
+		return TRUE;
+	};
+
+};
+FUNC void  Gur_1208_BaalCadar_KREIS5_Info()
+{
+	AI_Output			(other, self,"KDW_600_Saturas_KREIS5_Info_15_01"); //Jestem gotów do przyst¹pienia do Pi¹tego Krêgu.
+	if (B_GiveSkill(other,NPC_TALENT_MAGE , 5, LPCOST_TALENT_MAGE_5))
+	{
+		AI_Output (self, other,"Gur_1208_BaalCadar_KREIS4_Info_02_06"); //Teraz wiesz ju¿ wszystko, co cz³onek Bractwa powinien wiedzieæ o magii. By³eœ pojêtnym uczniem.
+		Gur_1208_BaalCadar_KREIS5.permanent = 0;
 	};
 
 };
@@ -423,7 +455,126 @@ FUNC void  Gur_1208_BaalCadar_SELLSTUFF_Info()
 	};
 	AI_Output (other, self,"Gur_1208_BaalCadar_SELLSTUFF_Info_15_01"); //Chcia³bym zdobyæ ksiêgi traktuj¹ce o magii.
 
-};  
+};
+
+instance  Gur_1208_BaalCadar_TEACH_RUNEN (C_INFO)
+{
+	npc				= Gur_1208_BaalCadar;
+	condition		= Gur_1208_BaalCadar_TEACH_RUNEN_Condition;
+	information		= Gur_1208_BaalCadar_TEACH_RUNEN_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= "Naucz mnie wykorzystywaæ magiê runiczn¹."; 
+};
+
+FUNC int  Gur_1208_BaalCadar_TEACH_RUNEN_Condition()
+{	
+	if	C_NpcBelongsToPsiCamp(hero)
+	{
+		return TRUE;
+	};
+
+};
+FUNC void  Gur_1208_BaalCadar_TEACH_RUNEN_Info()
+{
+	AI_Output (other, self,"Gur_1208_BaalCadar_FIRSTTEST_Info_15_01"); //Naucz mnie wykorzystywaæ magiê runiczn¹.
+	Info_ClearChoices(Gur_1208_BaalCadar_TEACH_RUNEN);
+	Info_AddChoice(Gur_1208_BaalCadar_TEACH_RUNEN, DIALOG_BACK, Gur_1208_BaalCadar_TEACH_RUNEN_BACK);
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=1)
+	&&(PLAYER_TALENT_RUNES[SPL_SLEEP] == FALSE)
+	{
+		Info_AddChoice(Gur_1208_BaalCadar_TEACH_RUNEN,"Sen 5 pn", Gur_1208_BaalCadar_TEACH_RUNEN_SPL_SLEEP);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=2)
+	&&(PLAYER_TALENT_RUNES[SPL_WINDFIST] == FALSE)
+	{
+		Info_AddChoice(Gur_1208_BaalCadar_TEACH_RUNEN,"Uderzenie Wiatru 5 pn", Gur_1208_BaalCadar_TEACH_RUNEN_SPL_WINDFIST);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=2)
+	&&(PLAYER_TALENT_RUNES[SPL_TELEKINESIS] == FALSE)
+	{
+		Info_AddChoice(Gur_1208_BaalCadar_TEACH_RUNEN,"Telekineza 5 pn", Gur_1208_BaalCadar_TEACH_RUNEN_SPL_TELEKINESIS);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=3)
+	&&(PLAYER_TALENT_RUNES[SPL_STORMFIST] == FALSE)
+	{
+		Info_AddChoice(Gur_1208_BaalCadar_TEACH_RUNEN,"Uderzenie Burzy 10 pn", Gur_1208_BaalCadar_TEACH_RUNEN_SPL_STORMFIST);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=3)
+	&&(PLAYER_TALENT_RUNES[SPL_FEAR] == FALSE)
+	{
+		Info_AddChoice(Gur_1208_BaalCadar_TEACH_RUNEN,"Strach 10 pn", Gur_1208_BaalCadar_TEACH_RUNEN_SPL_FEAR);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=4)
+	&&(PLAYER_TALENT_RUNES[SPL_PYROKINESIS] == FALSE)
+	{
+		Info_AddChoice(Gur_1208_BaalCadar_TEACH_RUNEN,"Pirokineza 10 pn", Gur_1208_BaalCadar_TEACH_RUNEN_SPL_PYROKINESIS);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=4)
+	&&(PLAYER_TALENT_RUNES[SPL_CHARM] == FALSE)
+	{
+		Info_AddChoice(Gur_1208_BaalCadar_TEACH_RUNEN,"Urok 10 pn", Gur_1208_BaalCadar_TEACH_RUNEN_SPL_CHARM);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=5)
+	&&(PLAYER_TALENT_RUNES[SPL_CONTROL] == FALSE)
+	{
+		Info_AddChoice(Gur_1208_BaalCadar_TEACH_RUNEN,"Kontrola 15 pn", Gur_1208_BaalCadar_TEACH_RUNEN_SPL_CONTROL);
+	};
+
+};
+
+FUNC VOID Gur_1208_BaalCadar_TEACH_RUNEN_BACK ()
+{
+	Info_ClearChoices (KDF_402_Corristo_TEACH);
+};
+
+func void Gur_1208_BaalCadar_TEACH_RUNEN_SPL_WINDFIST()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_WINDFIST, LPCOST_RUNEN_2);
+};
+
+func void Gur_1208_BaalCadar_TEACH_RUNEN_SPL_STORMFIST()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_STORMFIST, LPCOST_RUNEN_3);
+};
+
+func void Gur_1208_BaalCadar_TEACH_RUNEN_SPL_TELEKINESIS()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_TELEKINESIS, LPCOST_RUNEN_2);
+};
+
+func void Gur_1208_BaalCadar_TEACH_RUNEN_SPL_CHARM()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_CHARM, LPCOST_RUNEN_4);
+};
+
+func void Gur_1208_BaalCadar_TEACH_RUNEN_SPL_SLEEP()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_SLEEP, LPCOST_RUNEN_1);
+};
+
+func void Gur_1208_BaalCadar_TEACH_RUNEN_SPL_PYROKINESIS()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_PYROKINESIS, LPCOST_RUNEN_4);
+};
+
+func void Gur_1208_BaalCadar_TEACH_RUNEN_SPL_CONTROL()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_CONTROL, LPCOST_RUNEN_5);
+};
+
+func void Gur_1208_BaalCadar_TEACH_RUNEN_SPL_FEAR()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_FEAR, LPCOST_RUNEN_3);
+};
 
 
 

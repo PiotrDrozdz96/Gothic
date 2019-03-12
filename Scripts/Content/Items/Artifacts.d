@@ -485,7 +485,7 @@ INSTANCE ItArRuneHeal (C_Item)
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_HEAL;
-	mag_circle 			= 	1;
+	mag_circle 			= 	2;
 
 	description			=	"Uzdrowienie";
 	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
@@ -871,7 +871,7 @@ INSTANCE ItArRuneThunderbolt (C_Item)
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_THUNDERBOLT;
-	mag_circle 			=	2;
+	mag_circle 			=	1;
 
 // FIXME: kann man die DAMAGE_PER_LEVEL-Werte der Spells aus der Spells_Params hier für Manakosten einsetzen??
 	description			=	"Sopel lodu";
@@ -978,7 +978,7 @@ INSTANCE ItArRuneIceCube (C_Item)
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_ICECUBE;
-	mag_circle 			=	3;
+	mag_circle 			=	2;
 
 	description			=	"Bry³a lodu";
 	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
@@ -1457,7 +1457,7 @@ INSTANCE ItArRuneStormfist (C_Item)
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_STORMFIST;
-	mag_circle 			=	4;
+	mag_circle 			=	3;
 
 	description			=	"Uderzenie Burzy";
 	TEXT	[0]			=	NAME_Mag_Circle;							COUNT	[0]		=	mag_circle;
@@ -1510,7 +1510,7 @@ INSTANCE ItArRuneTelekinesis (C_Item)
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_TELEKINESIS;
-	mag_circle 			=	3;
+	mag_circle 			=	2;
 
 	description			=	"Telekineza";
 	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
@@ -1563,7 +1563,7 @@ INSTANCE ItArRuneCharm (C_Item)
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_CHARM;
-	mag_circle 			=	3;
+	mag_circle 			=	4;
 
 	description			=	"Urok";
 	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
@@ -1615,7 +1615,7 @@ INSTANCE ItArRuneSleep (C_Item)
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_SLEEP;
-	mag_circle 			=	2;
+	mag_circle 			=	1;
 
 	description			=	"Sen";
 	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
@@ -1719,7 +1719,7 @@ INSTANCE ItArRuneControl (C_Item)
 	material			=	MAT_STONE;
 
 	spell				= 	SPL_CONTROL;
-	mag_circle 			=	4;
+	mag_circle 			=	5;
 
 	description			=	"Kontrola";
 	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
