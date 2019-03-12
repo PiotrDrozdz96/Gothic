@@ -12,7 +12,9 @@
 
 # scripts
 /Scripts/_Compiled
-/Scripts/system
+/Scripts/system/*
+!/Scripts/system/PFX
+!/Scripts/system/SFX
 
 # vscode
 /.vscode
