@@ -67,14 +67,6 @@ FUNC VOID Rtn_Start_3 () //Vor Gorns Hütte
 	TA_Sleep		(01,00,08,00,"NC_HUT06_IN");
 };
 
-FUNC VOID Rtn_MeetFriend_3 () //Vor Gorns Hütte
-{	
-	TA_StandAround	(08,00,01,00,"NC_PLACE03_MOVEMENT2"); 	
-	TA_Sleep		(01,00,03,00,"NC_HUT06_IN");
-	TA_SitAround	(03,00,05,30,"OCR_HUT_Z5_SIT4");
-	TA_Sleep		(05,30,08,00,"NC_HUT06_IN");
-};
-
 //##################################################################
 //	Kapitel 3
 //##################################################################

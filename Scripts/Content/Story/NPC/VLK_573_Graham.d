@@ -45,6 +45,7 @@ instance VLK_573_Graham (Npc_Default)
 	
 	CreateInvItem	(self, ItWrOMmap);
 	CreateInvItem	(self, ItWrWorldmap);
+	CreateInvItem	(self, ItWrWorldmap);
 	CreateInvItem	(self, ItWrOCmap);
 	CreateInvItem	(self, ItWrPinup);
 	

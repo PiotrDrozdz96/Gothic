@@ -1645,33 +1645,4 @@ func VOID Gorn_Teach_Info()
 	};
 };
 
-//***************************************************************************
-//	DROPS Gorn_IN_OCR_HUT_Z5
-//***************************************************************************
-
-instance Gorn_MeetFriend (C_INFO)
-{
-	npc			= PC_Fighter;
-	condition	= Gorn_MeetFriend_Condition;
-	information	= Gorn_MeetFriend_Info;
-	important	= 1;
-	permanent	= 0;
-};
-
-FUNC int Gorn_MeetFriend_Condition()
-{
-	if ( Npc_KnowsInfo(hero, Diego_MeetFriend) && Npc_GetDistToWP(hero,"OCR_HUT_Z5_SIT4") < 1000 )
-	{
-		return TRUE;
-	};	
-};
-
-func void Gorn_MeetFriend_Info()
-{	
-	Log_CreateTopic		("Zawalona Wie¿a",		LOG_MISSION);
-	Log_SetTopicStatus	("Zawalona Wie¿a",		LOG_RUNNING);
-	B_LogEntry			("Zawalona Wie¿a","Gorn wiele ryzykuje przychodz¹c do starego obozu na co nocne spotkania.");
-	AI_StopProcessInfos	(self);
-};
-
 

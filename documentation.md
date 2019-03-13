@@ -75,8 +75,12 @@
 |   |   // Uczy tworzenia run
 |   +--|-- DIA_KDW_604_Cronos
 |   |   // Usunięcie magicznych run przed handlem
+|   +--|-- DIA_Nov_1372_Bukano
+|   |   // Dialogi nowej postaci
 |   +--|-- DIA_ORG_801_Lares
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu szkodnikiem
+|   +--|-- DIA_ORG_818_Ratford
+|   |   // Zadanie ze zdobyciem mapy
 |   +--|-- DIA_ORG_819_Drax
 |   |   // Uczy polowania dopiero gdy otrzyma piwo -- by marev
 |   |   // Zmiana kosztów zdobywania trofeów z 1pn na 5pn
@@ -96,13 +100,7 @@
 |   |   // Zmiana kosztów zdobywania trofeów z 1pn na 5pn
 |   +--|-- DIA_PC_Fighter
 |   |   // Nauka walki bronią 2H po zostaniu szkodnikiem w systemie 11 etapowym
-|   |   // Quest "Zawalona Wieża", zmiana rutyny na MeetFriend
-|   +--|-- DIA_PC_Mage
-|   |   // Quest "Zawalona Wieża", zmiana rutyny na MeetFriend
-|   +--|-- DIA_PC_Psionic
-|   |   // Quest "Zawalona Wieża", zmiana rutyny na MeetFriend
 |   +--|-- DIA_PC_Thief
-|   |   // Quest "Zawalona Wieża", zmiana rutyny na MeetFriend
 |   |   // Odsprzedawanie starych monet
 |   +--|-- DIA_SLD_700_Lee
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu najemnikiem
@@ -144,14 +142,15 @@
 |   +--| Log_Constans
 |   |   // Dodanie stałej GE_TelentRunes do nauki tworzenia run
 |   |   // Dodanie stałej CH2_KDF_Rune do zadania z pierwszą runą u magów ognia
+|   |   // CH1_RatfordMap - Quest z mapą dla Ratforda
 |   +--| Startup
 |   |   // Dodanie tarczy ITSH_STALHRIM_S_SM w OrcTempel(TPL_254)
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Zmienna Shield_Equip która zapamiętuje czy mamy założoną tarcze
-|   |   // Stała XP_TOWER_IN_OC - doświadczenie za Quest "Zawalona Wieża"
+|   |   // XP_Ratford_Map - doświadczenie za Quest "Mapa dla Ratforda"
 |   |   // Zmienna Uriziel_1H
-|   |   // Zmienne log_(bustertrain/gravoinfo/fingerscavalorn)
+|   |   // Zmienne log_(bustertrain/gravoinfo/fingerscavalorn) --by marev
 |   |   // Zmienna Knows_GetDemonHeart - umiejętność wycinania serc demonów
 |   |   // Zmienna tablica PLAYER_TALENT_RUNES - umiejętności tworzenia run
 |   |   // Zmiana punktów nauki przy nauce kregów magii
@@ -297,10 +296,14 @@
 |   |   |    // Dodanie przedmiotów do tworzenia run
 |   |   +--| VLK_555_Buddler
 |   |   |    // Zmiana twarzy
+|   |   +--| VLK_573_Graham
+|   |   |    // Posiada dodatkową mapę świata dla Ratforda
 |   |/********************NPC OLD_CAMP END*********************************
 |   +-- SEKTE_CAMP
 |   |   +--| GUR_1208_BaalCadar
 |   |   |    // Usunięcie magicznej runy
+|   |   +--| NOV_1372_Bukano
+|   |   |    // Nowa postać
 |   |/*******************NPC SEKTE_CAMP END********************************
 |   +--| InExtremo
 |   |    // ie_397 - zmiana skinBody na skin bohatera z Gothic Sequel
@@ -308,8 +311,6 @@
 |   +--| ORC_Priests
 |   |    // ORC_PRIEST_5 - dodanie tarczy ITSH_STALHRIM_B_SM
 |   |    // ORC_PRIEST_5 - niewrażliwy na żadne obrażenia
-|   +--| PC_(Fighter/Mage/Psionic)
-|   |    // Dodanie rutyny "MeetFriend", związana z Questem Zawalona Wieża
 |/********************************NPC END***********************************
 +-- Worlds
 |   +-- World.ZEN

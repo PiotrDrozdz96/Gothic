@@ -78,6 +78,7 @@ func VOID STARTUP_SUB_PSICAMP ()
 	Wld_InsertNpc				(Nov_1335_Novize,"PSI_START"); //Krautsammler
 	
 	Wld_InsertNpc				(Nov_1371_BaalNetbek,"PSI_START"); //Sumpfpromi
+	Wld_InsertNpc				(Nov_1372_Bukano,"PSI_START"); //Sumpfpromi
 	//--------------Sumpfhütte----------------------------------------------
 	Wld_InsertNpc				(Nov_1356_Shrat,"PSI_START"); //ST-Verpisser
 	//---------------Templer-------------------------------------------------

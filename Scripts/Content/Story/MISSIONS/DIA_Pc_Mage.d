@@ -1626,32 +1626,3 @@ func void Info_Milten_LSDONE_Info()
 	
 	AI_StopProcessInfos	(self);
 };
-
-//***************************************************************************
-//	DROPS Milten_IN_OCR_HUT_Z5
-//***************************************************************************
-
-instance Milten_MeetFriend (C_INFO)
-{
-	npc			= PC_Mage;
-	condition	= Milten_MeetFriend_Condition;
-	information	= Milten_MeetFriend_Info;
-	important	= 1;
-	permanent	= 0;
-};
-
-FUNC int Milten_MeetFriend_Condition()
-{
-	if ( Npc_KnowsInfo(hero, Diego_MeetFriend) && Npc_GetDistToWP(hero,"OCR_HUT_Z5_SIT2") < 1000 )
-	{
-		return TRUE;
-	};	
-};
-
-func void Milten_MeetFriend_Info()
-{	
-	Log_CreateTopic		("Zawalona Wie¿a",		LOG_MISSION);
-	Log_SetTopicStatus	("Zawalona Wie¿a",		LOG_RUNNING);
-	B_LogEntry			("Zawalona Wie¿a","Okazuje siê ¿e Milten noc¹ wymyka siê ze œwi¹tyni by spotkaæ siê z Diegiem.");
-	AI_StopProcessInfos	(self);
-};

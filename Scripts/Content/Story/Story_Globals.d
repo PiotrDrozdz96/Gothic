@@ -195,7 +195,7 @@ const int	XP_fiskdealer		=  300;
 const int	XP_BecomeShadow		= 1000;
 const int	XP_DexterKalom		=  350;
 
-const int	XP_TOWER_IN_OC	= 1000;
+const int	XP_Ratford_Map		= 150;
 const int  	XP_GilbertFound		= 100;
 const int 	XP_XardasLetter		= 200;
 const int 	XP_XardasLetterOPEN = 100;

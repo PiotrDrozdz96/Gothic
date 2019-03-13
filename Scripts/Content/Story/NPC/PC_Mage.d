@@ -52,15 +52,6 @@ FUNC VOID Rtn_Start_2 ()
 	TA_Stand		(08,00,00,00,"OCC_CHAPEL_ENTRANCE");
 };
 
-FUNC VOID Rtn_MeetFriend_2 ()
-{	
-	TA_Sleep		(00,00,03,00,"OCC_CHAPEL_LEFT_ROOM");  
-	TA_SitAround	(03,00,05,30,"OCR_HUT_Z5_SIT2");
-	TA_Sleep		(05,30,08,00,"OCC_CHAPEL_LEFT_ROOM");
-	TA_Stand		(08,00,00,00,"OCC_CHAPEL_ENTRANCE");
-	
-};
-
 //##################################################################
 //	Kapitel 3
 //##################################################################

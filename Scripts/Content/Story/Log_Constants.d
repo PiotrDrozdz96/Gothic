@@ -40,6 +40,7 @@ const string    GE_TalentRunes          =   "Runy";
 //	KAPITEL 1
 //---------------------------------------------------------------------
 // Aufnahme Altes Lager
+const string    CH1_RatfordMap          =   "Mapa dla Ratforda";
 const string	CH1_MordragKO			=	"Zadanie od Thorusa";
 const string	CH1_JoinOC			    =	"Przyjêcie do Starego Obozu";
 const string	CH1_SnafsRecipe			=	"Przepis Snafa";

@@ -1788,64 +1788,6 @@ func void Diego_Bring_OldCoin_Info()
 	
 };
 
-//***************************************************************************
-//	DROPS DIEGO_IN_OCR_HUT_Z5
-//***************************************************************************
-
-instance Diego_MeetFriend (C_INFO)
-{
-	npc			= PC_Thief;
-	condition	= Diego_MeetFriend_Condition;
-	information	= Diego_MeetFriend_Info;
-	important	= 1;
-	permanent	= 0;
-};
-
-FUNC int Diego_MeetFriend_Condition()
-{
-	if (Npc_GetDistToWP(hero,"OCR_HUT_Z5_SIT2") < 1000)
-	{
-		return TRUE;
-	};	
-};
-
-func void Diego_MeetFriend_Info()
-{	
-	Log_CreateTopic		("Zawalona Wie¿a",		LOG_MISSION);
-	Log_SetTopicStatus	("Zawalona Wie¿a",		LOG_RUNNING);
-	B_LogEntry			("Zawalona Wie¿a","Spotka³em noc¹ Diega w zawalonej wie¿y w Starym Obozie. Chyba na kogoœ czeka³, ale jego mina wyraŸnie sugerowa³a ¿e nie chce mnie tam widzieæ. ");
-	AI_StopProcessInfos	(self);
-};
-
-//***************************************************************************
-//	DROPS DIEGO_MeetInEveryFriend
-//***************************************************************************
-
-instance Diego_MeetFriend_Complete (C_INFO)
-{
-	npc			= PC_Thief;
-	condition	= Diego_MeetFriend_Complete_Condition;
-	information	= Diego_MeetFriend_Complete_Info;
-	important	= 1;
-	permanent	= 0;
-};
-
-FUNC int Diego_MeetFriend_Complete_Condition()
-{
-	if ( Npc_KnowsInfo(hero, Diego_MeetFriend) && Npc_KnowsInfo(hero, Milten_MeetFriend) && Npc_KnowsInfo(hero, Gorn_MeetFriend) && Npc_KnowsInfo(hero, Lester_MeetFriend) && Npc_GetDistToWP(hero,"OCR_HUT_Z5_SIT2") < 1000)
-	{
-		return TRUE;
-	};	
-};
-
-func void Diego_MeetFriend_Complete_Info()
-{	
-	B_LogEntry			("Zawalona Wie¿a","Nakry³em Diega, Miltena, Gorna i Lestera na tajnym spotkaniu w zawalonej wie¿y. Lepiej bêdzie im chyba nie przeszkadzaæ.");
-	Log_SetTopicStatus	("Zawalona Wie¿a",		LOG_SUCCESS);
-	B_GiveXP(XP_TOWER_IN_OC);
-	AI_StopProcessInfos	(self);
-};
-
 
 
 

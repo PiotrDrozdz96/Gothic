@@ -170,6 +170,8 @@ FUNC VOID  Org_818_Ratford_MoreLocations_Info()
 // **************************************************
 //					Wo Karte?
 // **************************************************
+var int LOG_RatfordMap;
+// **************************************************
 
 instance Org_818_Ratford_WoKarte (C_INFO)
 {
@@ -203,10 +205,12 @@ FUNC void Org_818_Ratford_WoKarte_Info()
 func void Org_818_Ratford_WoKarte_Stehlen()
 {
 	AI_Output (other, self,"Org_818_Ratford_WoKarte_Stehlen_15_00"); //Jeœli uda mi siê zdobyæ je bez p³acenia, wezmê ile tylko dam radê udŸwign¹æ!
-	AI_Output (self, other,"Org_818_Ratford_WoKarte_Stehlen_07_01"); //Równy z ciebie goœæ! Powinieneœ pomyœleæ o do³¹czeniu do Nowego Obozu. Gdybyœ kiedyœ tam trafi³, pytaj o Laresa. To on zajmuje siê nowymi. Na pewno znajdzie dla ciebie jakieœ zajêcie!
-	
-	VAR C_NPC Lares; Lares = Hlp_GetNpc(ORG_801_LARES);
-	Lares.aivar[AIV_FINDABLE]=TRUE;
+	AI_Output (self, other,"Org_818_Ratford_WoKarte_Stehlen_07_02"); //Równy z ciebie goœæ!
+
+	Log_CreateTopic		(CH1_RatfordMap,		LOG_MISSION);
+	Log_SetTopicStatus	(CH1_RatfordMap,		LOG_RUNNING);
+	LOG_RatfordMap 		= LOG_RUNNING;
+	B_LogEntry			(CH1_RatfordMap,"Ratford myœliwy znajduj¹cy siê pomiêdzy Starym Obozem, a placem wymian podzieli³ siê ze mn¹ informacj¹ ¿e w Starym Obozie mieszka pewien kartograf. Zasugerowa³ ¿e mo¿na by gwizdn¹æ mu parê map. Poprosi³ by podrzuciæ mu jedn¹ jeœli uda mi siê je zdobyæ.");
 	
 	Info_ClearChoices(Org_818_Ratford_WoKarte);
 };
@@ -215,6 +219,7 @@ func void Org_818_Ratford_WoKarte_Kaufen()
 {
 	AI_Output (other, self,"Org_818_Ratford_WoKarte_Kaufen_15_00"); //Dlaczego? Jego mapy nie s¹ na sprzeda¿?
 	AI_Output (self, other,"Org_818_Ratford_WoKarte_Kaufen_07_01"); //Jeœli staæ ciê na tak ogromny wydatek...
+
 	Info_ClearChoices(Org_818_Ratford_WoKarte);
 };
 
@@ -243,6 +248,43 @@ FUNC VOID  Org_818_Ratford_Thanks_Info()
 	AI_Output (self, other,"Org_818_Ratford_Thanks_07_01"); //Tylko nie myœl, ¿e wszyscy tutaj s¹ tacy mili!
 	AI_Output (self, other,"Org_818_Ratford_Thanks_07_02"); //Niewiele mo¿na znaleŸæ w kieszeniach Nowego, ale w kolonii s¹ ludzie, którzy roz³upaliby ci czaszkê za stary kilof.
 	AI_Output (other, self,"Org_818_Ratford_Thanks_15_04"); //Bêdê o tym pamiêta³.
+};
+
+// **************************************************
+//						MAP MISSION
+// **************************************************
+
+instance  Org_818_Ratford_WoKarte_Get (C_INFO)
+{
+	npc			= Org_818_Ratford;
+	condition	= Org_818_Ratford_WoKarte_Get_Condition;
+	information	= Org_818_Ratford_WoKarte_Get_Info;
+	permanent	= 0;
+	description = "Mam dla ciebie mapê.";
+};                       
+
+FUNC int  Org_818_Ratford_WoKarte_Get_Condition()
+{
+	if (LOG_RatfordMap == LOG_RUNNING)
+	&& (Npc_HasItems(hero, ItWrWorldmap))
+	{
+		return 1;
+	};
+};
+
+FUNC VOID  Org_818_Ratford_WoKarte_Get_Info()
+{
+	AI_Output (other, self,"ORG_818_RATFORD_WOKARTE_GET_15_01"); //Mam dla ciebie mapê.
+	B_GiveInvItems(other,self,ItWrWorldmap,1);
+	AI_Output (self, other,"Org_818_Ratford_WoKarte_Stehlen_07_01"); //Równy z ciebie goœæ! Powinieneœ pomyœleæ o do³¹czeniu do Nowego Obozu. Gdybyœ kiedyœ tam trafi³, pytaj o Laresa. To on zajmuje siê nowymi. Na pewno znajdzie dla ciebie jakieœ zajêcie!
+
+	VAR C_NPC Lares; Lares = Hlp_GetNpc(ORG_801_LARES);
+	Lares.aivar[AIV_FINDABLE]=TRUE;
+
+	B_GiveXP (XP_Ratford_Map);
+	B_LogEntry			(CH1_RatfordMap,	"Ratford bardzo siê ucieszy³ z otrzymanej mapy. Powiedzia³ ¿e powinienem rozwa¿yæ do³¹czenie do Nowego Obozu. Jeœli tam trafiê mam pytaæ o Laresa.");
+	Log_SetTopicStatus	(CH1_RatfordMap,	LOG_SUCCESS);
+	LOG_RatfordMap = LOG_SUCCESS;
 };
 
 
