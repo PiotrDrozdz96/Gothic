@@ -1,0 +1,15 @@
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Last Changes:
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Model ("Rmaker_1")
+{
+	meshAndTree ("RMAKER_1.ASC")
+	aniEnum
+	{
+		ani ("S_S0"      1 "S_S0" 0.0 0.0 M. "RMAKER_USE.ASC"  F 0  0)  
+		ani ("T_S0_2_S1" 1 "S_S1" 0.0 0.0 M. "RMAKER_USE2.ASC" F 0  50) 
+		ani ("S_S1"      1 "S_S1" 0.0 0.0 M. "RMAKER_USE2.ASC" F 50 180)
+		ani ("T_S1_2_S0" 1 "S_S0" 0.0 0.0 M. "RMAKER_USE2.ASC" R 0  50) 
+	}
+}

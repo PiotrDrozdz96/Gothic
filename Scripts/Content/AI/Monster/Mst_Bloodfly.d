@@ -69,7 +69,6 @@ INSTANCE Bloodfly	(Mst_Default_Bloodfly)
 	Set_Bloodfly_Visuals();
 	Npc_SetToFistMode(self);
 	
-	CreateInvItems (self, ItAt_Bloodfly_01, 2);	// 2 Flügel
 };
 
 
@@ -81,8 +80,6 @@ INSTANCE HelpBrothers_Bloodfly (Mst_Default_Bloodfly)
 {
 	Set_Bloodfly_Visuals();
 	Npc_SetToFistMode(self);
-
-	CreateInvItems (self, ItAt_Bloodfly_01, 2);	// 2 Flügel
 		
 	name							=	"Agresywny krwiopijca";
 };

@@ -4,6 +4,7 @@ func void B_Give_BaalCadarChapter1Runes ()
 	npc = Hlp_GetNpc(GUR_1208_BaalCadar);
 	
 	//-------- Runen --------
+	CreateInvItems(npc, Itmi_DarkPearl, 20);
 	//-------- Scrolls --------
 	CreateInvItems (npc,ItArScrollHeal,8);
 	CreateInvItems (npc,ItArScrollLight,10);
@@ -28,9 +29,10 @@ func void B_Give_BaalCadarChapter2Runes ()
 	npc = Hlp_GetNpc(GUR_1208_BaalCadar);
 	
 	//-------- Runen --------
-	CreateInvItem (npc,ItArRuneLight);
-	CreateInvItem (npc,ItArRuneWindfist);
-	CreateInvItem (npc,ItArRuneHeal);
+	// CreateInvItem (npc,ItArRuneLight);
+	// CreateInvItem (npc,ItArRuneWindfist);
+	// CreateInvItem (npc,ItArRuneHeal);
+	CreateInvItem(npc, Itmi_Runeblank);
 	
 	//-------- Scrolls --------
 	CreateInvItems (npc,ItArScrollHeal,8);
@@ -61,6 +63,9 @@ func void B_Give_BaalCadarChapter2Runes ()
    CreateInvItems (npc,ItFo_Potion_Water_01 ,20);
 	
    CreateInvItems (npc,ItFo_Potion_Haste_01 ,6);
+
+   //-----Bücher
+   CreateInvItem(npc, ItWr_Book_Sekte_01);
  };
 
 func void B_Give_BaalCadarChapter3Runes ()
@@ -69,9 +74,10 @@ func void B_Give_BaalCadarChapter3Runes ()
 	npc = Hlp_GetNpc(GUR_1208_BaalCadar);
 	
 	//-------- Runen --------
-	CreateInvItem (npc,ItArRuneSleep);
-	CreateInvItem (npc,ItArRuneTelekinesis);
-	CreateInvItem (npc,ItArRuneCharm);
+	// CreateInvItem (npc,ItArRuneSleep);
+	// CreateInvItem (npc,ItArRuneTelekinesis);
+	// CreateInvItem (npc,ItArRuneCharm);
+	CreateInvItem(npc, Itmi_Runeblank);
 
 	//-------- Scrolls --------
 	CreateInvItems (npc,ItArScrollHeal,8);
@@ -98,7 +104,7 @@ func void B_Give_BaalCadarChapter3Runes ()
 	CreateInvItem (npc,Schutzring_Magie1_Fire1);
 	
   	//-------- Tränke --------
-	CreateInvItems (npc,ItFo_Potion_Mana_01 ,24);
+   CreateInvItems (npc,ItFo_Potion_Mana_01 ,24);
    CreateInvItems (npc,ItFo_Potion_Mana_02 ,16);
    CreateInvItems (npc,ItFo_Potion_Mana_03 ,10);
     
@@ -108,6 +114,9 @@ func void B_Give_BaalCadarChapter3Runes ()
 	
    CreateInvItems (npc,ItFo_Potion_Haste_01 ,12);	
    CreateInvItems (npc,ItFo_Potion_Haste_02 ,6);
+
+   //-----Bücher
+   CreateInvItem(npc, ItWr_Book_Sekte_02);
 };
 func void B_Give_BaalCadarChapter4Runes ()
 {
@@ -115,9 +124,10 @@ func void B_Give_BaalCadarChapter4Runes ()
 	npc = Hlp_GetNpc(GUR_1208_BaalCadar);
 	
 	//-------- Runen --------
-	CreateInvItem (npc,ItArRuneControl);
-	CreateInvItem (npc,ItArRunePyrokinesis);
-	CreateInvItem (npc,ItArRuneStormfist);
+	// CreateInvItem (npc,ItArRuneControl);
+	// CreateInvItem (npc,ItArRunePyrokinesis);
+	// CreateInvItem (npc,ItArRuneStormfist);
+	CreateInvItem(npc, Itmi_Runeblank);
 
 	//-------- Scrolls --------
 	CreateInvItems (npc,ItArScrollHeal,8);
@@ -157,6 +167,9 @@ func void B_Give_BaalCadarChapter4Runes ()
     CreateInvItems (npc,ItFo_Potion_Haste_01 ,24);	
     CreateInvItems (npc,ItFo_Potion_Haste_02 ,12); 
 	CreateInvItems (npc,ItFo_Potion_Haste_02 ,6);
+
+	//-----Bücher
+	CreateInvItem(npc, ItWr_Book_Sekte_03);
 };
 func void B_Give_BaalCadarChapter5Runes ()
 {

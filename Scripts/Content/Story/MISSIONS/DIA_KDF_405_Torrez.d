@@ -249,9 +249,12 @@ func void  KDF_405_Torrez_BOOK_Info()
 {
 	
 	AI_Output (self, other,"KDF_405_Torrez_BOOK_Info_04_01"); //Dla ka¿dego magicznego Krêgu powsta³a ksiêga, opisuj¹ca jego zasady. Powinieneœ je uwa¿nie przestudiowaæ. Wiedza to potêga!
-	AI_Output (self, other,"KDF_405_Torrez_BOOK_Info_04_02"); //WeŸ ksiêgê Pierwszego Krêgu i przeczytaj j¹ uwa¿nie. Zrozumiesz naturê Ognia.
-	CreateInvItem (self,ItWr_Book_Circle_01);
-	B_GiveInvItems(self,hero,ItWr_Book_Circle_01, 1);
+	if(Npc_HasItems(self, ItWr_Book_Circle_01))
+	{
+		AI_Output (self, other,"KDF_405_Torrez_BOOK_Info_04_02"); //WeŸ ksiêgê Pierwszego Krêgu i przeczytaj j¹ uwa¿nie. Zrozumiesz naturê Ognia.
+		B_GiveInvItems(self,hero,ItWr_Book_Circle_01, 1);
+	};
+	
 	AI_StopProcessInfos	( self );
 };
 //---------------------------------------------------------
@@ -278,6 +281,10 @@ FUNC int  KDF_405_Torrez_SELLBOOKS_Condition()
 	};
 FUNC void  KDF_405_Torrez_SELLBOOKS_Info()
 {
+	if( Npc_HasItems (self, ItArRuneFirebolt))
+	{
+		Npc_RemoveInvItem	(self, ItArRuneFirebolt);
+	};
 	AI_Output (other, self,"KDF_405_Torrez_SELLBOOKS_Info_15_01"); //Poszukujê magicznych ksi¹g.
 };  
 /*------------------------------------------------------------------------

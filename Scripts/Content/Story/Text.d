@@ -46,6 +46,7 @@ CONST STRING MOBNAME_ORCDRUM		= "";
 CONST STRING MOBNAME_TARGETSTONE	= "Cel";
 CONST STRING MOBNAME_SHRINE			= "Kaplica Serc";
 CONST STRING MOBNAME_SWORDSTONE		= "Tajemnicza kapliczka";
+CONST STRING MOBNAME_RUNEMAKER		= "Stó³ Runiczny";
 
 
 // *****************************************************************************************
@@ -140,7 +141,7 @@ CONST STRING TXT_SPELLS	[MAX_SPELL]	= {
 	"Uzdrowienie",				// SPL_HEAL			=	4;
 	"n/a",						// SPL_LIGHTNING	=	5;
 	"Przyzwanie demona",		// SPL_SUMMONDEMON	=	6;
-	"Przyzwanie szkieletów",	// SPL_SUMMONSKELETON=	7;
+	"Przyzwanie szkieleta",	// SPL_SUMMONSKELETON=	7;
 	"n/a",						// SPL_FORGET		=	8;
 	"Uderzenie wiatru",			// SPL_WINDFIST		=	9;
 	"Telekineza",				// SPL_TELEKINESIS	=	10;
@@ -171,7 +172,7 @@ CONST STRING TXT_SPELLS	[MAX_SPELL]	= {
 	"n/a",						// SPL_TRF_SCAVENGER2=	35;
 	"Przemiana w cieniostwora",	// SPL_TRF_SHADOWBEAST=	36;
 	"Przemiana w zêbacza",		// SPL_TRF_SNAPPER	=	37;
-	"VPrzemiana w jaszczura",	// SPL_TRF_WARAN	=	38;
+	"Przemiana w jaszczura",	// SPL_TRF_WARAN	=	38;
 	"Przemiana w wilka",		// SPL_TRF_WOLF		=	39;
 	"Grom",						// SPL_CHAINLIGHTNING=	40;
 	"Sopel lodu",				// SPL_THUNDERBOLT	=	41;
@@ -188,9 +189,9 @@ CONST STRING TXT_SPELLS	[MAX_SPELL]	= {
 	"n/a",						// SPL_DANCE		=	52;
 	"Sza³",						// SPL_BERZERK		=	53;
 	"Gniew Uriziela",			// SPL_NEW1			=	17;
-	"New2",						// SPL_NEW2			=	18;
-	"New3",						// SPL_NEW3			=	19;
-	"New4",						// SPL_NEW4			=	20;
+	"Teleport, Wie¿a",			// SPL_TELEPORT6	=	18;
+	"Przyzwanie goblina",		// SPL_SUMMONGOBBO	=	19;
+	"Przyzwanie wilka",			// SPL_SUMMONWOLF 	=	20;
 	"New5"						// SPL_NEW5			=	21;
  };
 
@@ -403,7 +404,7 @@ const string NAME_Dam_Magic		= "Obr. Magia";
 const string NAME_Dam_Fly		= "Obr. Burza";
 
 const string NAME_Damage		= "Obra¿enia:";
-const string NAME_PerMana		= "/mana:";
+const string NAME_PerMana		= "(maks.):";
 const string NAME_DamagePerSec	= "Obra¿enia/sek.:";
 
 const string NAME_Prot_Edge		= "Ochrona przed broni¹:";
@@ -620,3 +621,5 @@ const string STR_INFO_TRADE_EXIT						= "WSTECZ"				;
 
 // Drops text
 const string NAME_Str_grab = "Obci¹¿enie si³y:";
+const string PRINT_RuneSuccess = "Stworzy³eœ runê";
+const string PRINT_ProdItemsMissing = "Za ma³o sk³adników";

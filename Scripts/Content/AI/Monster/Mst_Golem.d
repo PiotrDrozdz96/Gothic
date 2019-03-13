@@ -100,6 +100,7 @@ INSTANCE SummonedByPC_StoneGolem (Mst_Default_Golem)
 {
 	//-------- general --------
 	name	=	"Golem";
+	level	=	0;
 	aivar[AIV_MM_REAL_ID]			= 	ID_STONEGOLEM;
 
 	//-------- visual --------
@@ -186,7 +187,6 @@ INSTANCE IceGolem	(Mst_Default_Golem)
 
 	//-------- inventory --------
 	CreateInvItem	(self, ItAt_IceGolem_01);
-	CreateInvItem	(self, ItAt_IceGolem_02);
 
 	//-------- ai --------
 	fight_tactic					=	FAI_HUMAN_MAGE;		// damit der Golem eine "Icecube"-Attack einsetzen kann
@@ -216,4 +216,6 @@ INSTANCE BridgeGolem	(Mst_Default_Golem)
 	attribute	[ATR_HITPOINTS]		=	256;
 
 	protection	[PROT_BLUNT]		=	50;
+
+	CreateInvItem	(self, ItAt_StoneGolem_02);
 };

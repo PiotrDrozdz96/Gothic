@@ -71,6 +71,7 @@ func int Spell_ProcessMana_Release(var int manainvested)
 	if (Npc_GetActiveSpell(self) == SPL_TELEPORT3		)	{	return	SPL_SENDSTOP;	};
 	if (Npc_GetActiveSpell(self) == SPL_TELEPORT4		)	{	return	SPL_SENDSTOP;	};
 	if (Npc_GetActiveSpell(self) == SPL_TELEPORT5		)	{	return	SPL_SENDSTOP;	};
+	if (Npc_GetActiveSpell(self) == SPL_TELEPORT6		)	{	return	SPL_SENDSTOP;	};
 
 	if (Npc_GetActiveSpell(self) == SPL_TRF_BLOODFLY	) 	{	return	SPL_SENDSTOP;	};
 	if (Npc_GetActiveSpell(self) == SPL_TRF_CRAWLER	    ) 	{	return	SPL_SENDSTOP;	};
@@ -87,6 +88,7 @@ func int Spell_ProcessMana_Release(var int manainvested)
 	if (Npc_GetActiveSpell(self) == SPL_ICECUBE			)	{	return	SPL_SENDSTOP;	};
 	if (Npc_GetActiveSpell(self) == SPL_ICEWAVE			)	{	return	SPL_SENDSTOP;	};
 
+	if (Npc_GetActiveSpell(self) == SPL_SUMMONGOBBO		)	{	return	SPL_SENDSTOP;	};
 	if (Npc_GetActiveSpell(self) == SPL_SUMMONDEMON		)	{	return	SPL_SENDSTOP;	};
 	if (Npc_GetActiveSpell(self) == SPL_SUMMONSKELETON	)	{	return	SPL_SENDSTOP;	};
 	if (Npc_GetActiveSpell(self) == SPL_SUMMONGOLEM		)	{	return	SPL_SENDSTOP;	};

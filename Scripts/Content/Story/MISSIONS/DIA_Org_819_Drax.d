@@ -132,19 +132,19 @@ func void Org_819_Drax_Creatures_Info()
 		Info_AddChoice(Org_819_Drax_Creatures,"Du¿o ¿¹dasz za swoje us³ugi.",Org_819_Drax_Creatures_PrettyMuch);
 		if(Knows_GetTeeth == FALSE)
 		{
-			Info_AddChoice(Org_819_Drax_Creatures,"Usuwanie k³ów (koszt: 1 punkt umiejêtnoœci, 50 bry³ek rudy)",Org_819_Drax_Creatures_Zahn);
+			Info_AddChoice(Org_819_Drax_Creatures,"Usuwanie k³ów (koszt: 5 punkt umiejêtnoœci, 50 bry³ek rudy)",Org_819_Drax_Creatures_Zahn);
 		};
 		if(Knows_GetFur == FALSE)
 		{
-			Info_AddChoice(Org_819_Drax_Creatures,"Œci¹ganie futer (koszt: 1 punkt umiejêtnoœci, 100 bry³ek rudy)",Org_819_Drax_Creatures_Fell);
+			Info_AddChoice(Org_819_Drax_Creatures,"Œci¹ganie futer (koszt: 5 punkt umiejêtnoœci, 100 bry³ek rudy)",Org_819_Drax_Creatures_Fell);
 		};
 		if(Knows_GetClaws == FALSE)
 		{
-			Info_AddChoice(Org_819_Drax_Creatures,"Usuwanie pazurów (koszt: 1 punkt umiejêtnoœci, 50 bry³ek rudy)",Org_819_Drax_Creatures_Kralle);
+			Info_AddChoice(Org_819_Drax_Creatures,"Usuwanie pazurów (koszt: 5 punkt umiejêtnoœci, 50 bry³ek rudy)",Org_819_Drax_Creatures_Kralle);
 		};
 		if(Knows_GetHide == FALSE)
 		{
-			Info_AddChoice(Org_819_Drax_Creatures,"Skórowanie gadów (koszt: 1 punkt umiejêtnoœci, 100 bry³ek rudy)",Org_819_Drax_Creatures_Haut);
+			Info_AddChoice(Org_819_Drax_Creatures,"Skórowanie gadów (koszt: 5 punkt umiejêtnoœci, 100 bry³ek rudy)",Org_819_Drax_Creatures_Haut);
 		};
 	}
 	else
@@ -172,9 +172,9 @@ func void Org_819_Drax_Creatures_Zahn()
 	AI_Output(other,self,"Org_819_Drax_Creatures_Zahn_15_00");	//Jak mogê zdobyæ k³y upolowanej zwierzyny?
 	if(Npc_HasItems(other,ItMiNugget) >= 50)
 	{
-		if(other.lp >= 1)
+		if(other.lp >= 5)
 		{
-			other.lp = other.lp - 1;
+			other.lp = other.lp - 5;
 			B_GiveInvItems(other,self,ItMiNugget,50);
 			PrintScreen("Nowa umiejêtnoœæ: Zdobywanie k³ów",-1,-1,"FONT_OLD_20_WHITE.TGA",2);
 			AI_Output(self,other,"Org_819_Drax_Creatures_Zahn_06_01");	//Przede wszystkim musisz uwa¿aæ, ¿eby k³y nie popêka³y podczas wyci¹gania. W tym celu wbij nó¿ w pobli¿u œrodka zêba i delikatnie go podwa¿aj.
@@ -200,9 +200,9 @@ func void Org_819_Drax_Creatures_Fell()
 	AI_Output(other,self,"Org_819_Drax_Creatures_Fell_15_00");	//Jak mogê zdobyæ skóry upolowanej zwierzyny?
 	if(Npc_HasItems(other,ItMiNugget) >= 100)
 	{
-		if(other.lp >= 1)
+		if(other.lp >= 5)
 		{
-			other.lp = other.lp - 1;
+			other.lp = other.lp - 5;
 			B_GiveInvItems(other,self,ItMiNugget,100);
 			PrintScreen("Nowa umiejêtnoœæ: Œci¹ganie futer",-1,-1,"FONT_OLD_20_WHITE.TGA",2);
 			AI_Output(self,other,"Org_819_Drax_Creatures_Fell_06_01");	//Zaczynaj skórowanie od zadu, przesuwaj¹c siê stopniowo ku g³owie. Spróbuj kilka razy. To nie jest takie trudne, a futra potrafi¹ byæ bardzo cenne!
@@ -227,9 +227,9 @@ func void Org_819_Drax_Creatures_Kralle()
 {
 	if(Npc_HasItems(other,ItMiNugget) >= 50)
 	{
-		if(other.lp >= 1)
+		if(other.lp >= 5)
 		{
-			other.lp = other.lp - 1;
+			other.lp = other.lp - 5;
 			B_GiveInvItems(other,self,ItMiNugget,50);
 			PrintScreen("Nowa umiejêtnoœæ: Zdobywanie pazurów",-1,-1,"FONT_OLD_20_WHITE.TGA",2);
 			AI_Output(other,self,"Org_819_Drax_Creatures_Kralle_15_00");	//Poka¿ mi jak zdobyæ pazury upolowanej zwierzyny.
@@ -255,9 +255,9 @@ func void Org_819_Drax_Creatures_Haut()
 {
 	if(Npc_HasItems(other,ItMiNugget) >= 100)
 	{
-		if(other.lp >= 1)
+		if(other.lp >= 5)
 		{
-			other.lp = other.lp - 1;
+			other.lp = other.lp - 5;
 			B_GiveInvItems(other,self,ItMiNugget,100);
 			PrintScreen("Nowa umiejêtnoœæ: Skórowanie jaszczurów",-1,-1,"FONT_OLD_20_WHITE.TGA",2);
 			AI_Output(other,self,"Org_819_Drax_Creatures_Haut_15_00");	//Na co powinienem zwracaæ uwagê zdzieraj¹c skórê z gadów?

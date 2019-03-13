@@ -946,9 +946,9 @@ INSTANCE GUR_ARMOR_H(C_Item)
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE] 	=	45;
-	protection [PROT_BLUNT] = 	45;
-	protection [PROT_POINT] = 	45;
+	protection [PROT_EDGE] 	=	55;
+	protection [PROT_BLUNT] = 	55;
+	protection [PROT_POINT] = 	55;
 	protection [PROT_FIRE] 	= 	35;
 	protection [PROT_MAGIC] = 	35;
 	wear 					=	WEAR_TORSO;
@@ -1203,8 +1203,8 @@ INSTANCE ORE_ARMOR_M(C_Item)
 	protection [PROT_EDGE] 	= 	100;
 	protection [PROT_BLUNT] = 	100;
 	protection [PROT_POINT] = 	100;
-	protection [PROT_FIRE] 	= 	50;
-	protection [PROT_MAGIC] = 	50;
+	protection [PROT_FIRE] 	= 	100;
+	protection [PROT_MAGIC] = 	100;
 
 	value 					=	protection [PROT_EDGE] * ARMOR_VALUE_MULTIPLIER * 2; // x2 weil einzigartig
 
@@ -1234,8 +1234,8 @@ INSTANCE ORE_ARMOR_H(C_Item)
 	protection [PROT_EDGE] 	= 	110;
 	protection [PROT_BLUNT] = 	110;
 	protection [PROT_POINT] = 	110;
-	protection [PROT_FIRE] 	= 	60;
-	protection [PROT_MAGIC] = 	60;
+	protection [PROT_FIRE] 	= 	110;
+	protection [PROT_MAGIC] = 	110;
 
 	value 					=	protection [PROT_EDGE] * ARMOR_VALUE_MULTIPLIER * 2;	// x2 weil einzigartig
 

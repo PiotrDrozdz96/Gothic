@@ -27,7 +27,10 @@ var int Knows_GetTongue;
 var int Knows_GetMCMandibles;
 var int Knows_GetMCPlates;
 var int Knows_GetBFSting;
+var int Knows_GetDemonHeart;
 var int Knows_GetUluMulu;
+var int PLAYER_TALENT_RUNES [MAX_SPELL];
+var int Knows_Book_Circle_01;
 
 var int LesterGuide;
 
@@ -162,6 +165,7 @@ var int ExploreSunkenTower;				//TRUE oder FALSE
 var int LoadSword;						//TRUE oder FALSE
 var int	StartChaptersSix;				//TRUE oder FALSE
 var int KnowStone;						//TRUE oder FALSE
+var int Uriziel_1H;
 
 
 
@@ -191,6 +195,7 @@ const int	XP_fiskdealer		=  300;
 const int	XP_BecomeShadow		= 1000;
 const int	XP_DexterKalom		=  350;
 
+const int	XP_TOWER_IN_OC	= 1000;
 const int  	XP_GilbertFound		= 100;
 const int 	XP_XardasLetter		= 200;
 const int 	XP_XardasLetterOPEN = 100;
@@ -324,17 +329,28 @@ const int	LPCOST_ATTRIBUTE_STRENGTH	=	1;
 const int	LPCOST_ATTRIBUTE_DEXTERITY	=	1;	
 const int	LPCOST_ATTRIBUTE_MANA		=	1;	
 
-const int	LPCOST_TALENT_MAGE_1		=	10;	
-const int	LPCOST_TALENT_MAGE_2		=	15;	
-const int	LPCOST_TALENT_MAGE_3		=	20;	
-const int	LPCOST_TALENT_MAGE_4		=	25;	
-const int	LPCOST_TALENT_MAGE_5		=	30;	
-const int	LPCOST_TALENT_MAGE_6		=	40;	
+const int	LPCOST_TALENT_MAGE_1		=	5; //10;	
+const int	LPCOST_TALENT_MAGE_2		=	5; //15;	
+const int	LPCOST_TALENT_MAGE_3		=	10; //20;	
+const int	LPCOST_TALENT_MAGE_4		=	10; //25;	
+const int	LPCOST_TALENT_MAGE_5		=	15; //30;	
+const int	LPCOST_TALENT_MAGE_6		=	20; //40;
+
+const int	LPCOST_RUNEN_0				=	1;
+const int	LPCOST_RUNEN_1				=	5;
+const int	LPCOST_RUNEN_2				=	5;
+const int	LPCOST_RUNEN_3				=	10;
+const int	LPCOST_RUNEN_4				=	10;
+const int	LPCOST_RUNEN_5				=	15;
+const int	LPCOST_RUNEN_6				=	20;
 
 const int	LPCOST_TALENT_1H_1			=	10;	
 const int	LPCOST_TALENT_1H_2			=	20;	
 const int	LPCOST_TALENT_2H_1			=	30;	
-const int	LPCOST_TALENT_2H_2			=	40;	
+const int	LPCOST_TALENT_2H_2			=	40;
+
+const int	LPCOST_TALENT_SHIELD_1		=	10;	
+const int	LPCOST_TALENT_SHIELD_2		=	20;	
 
 const int	LPCOST_TALENT_BOW_1			=	10;	
 const int	LPCOST_TALENT_BOW_2			=	20;	
@@ -383,9 +399,4 @@ var int LeftyDead;
 //------------------------------------------------------------------------
 //	Drops Shield
 //------------------------------------------------------------------------
-
-const int	LPCOST_TALENT_SHIELD_1		=	10;	
-const int	LPCOST_TALENT_SHIELD_2		=	20;	
 var int Shield_Equip;
-const int	XP_TOWER_IN_OC	= 1000;
-var int Uriziel_1H;

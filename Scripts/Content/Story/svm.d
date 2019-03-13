@@ -226,7 +226,10 @@ CLASS C_SVM
 	var string PickBroke;				
 	var string NeedKey;					
 	var string NoMorePicks;				
-	var string InvFull;					
+	var string InvFull;	
+	
+// Drops SVM
+	var string CantReadThis;
 
 };
 
@@ -2237,13 +2240,18 @@ INSTANCE SVM_17	(C_SVM)							//Ork-Stimme (alle SVMs werden auf wenige guturale
 
 };
 
+// Drops SVM
+INSTANCE SVM_18	(C_SVM)
+{
+	CantReadThis = "SVM_18_CantReadThis"; // Nie potrafiê tego przeczytaæ.
+};
 
 
 // ***********************
 // 		Maximale SVMs
 // ***********************
 
-CONST INT SVM_MODULES =	18;
+CONST INT SVM_MODULES =	19;
 
 
 

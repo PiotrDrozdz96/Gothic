@@ -86,10 +86,27 @@ INSTANCE GreenGobboSword (Mst_Default_GreenGobbo)
 	attribute[ATR_STRENGTH] = attribute	[ATR_STRENGTH] + 10; // da technisch im Faustkampf
 };
 
+INSTANCE SummonedByPC_Gobbo (Mst_Default_GreenGobbo)
+{
+	level	=	0;
+	guild					=	GIL_SKELETON;
+	aivar[AIV_MM_REAL_ID]	= 	ID_SKELETON;
+	Set_GreenGobbo_Visuals();
+	Npc_SetToFightMode (self, ItMw_1H_Sword_Old_01);
+	attribute[ATR_STRENGTH] = attribute	[ATR_STRENGTH] + 10; // da technisch im Faustkampf
+	senses						= SENSE_HEAR | SENSE_SEE;
+	start_aistate	=	ZS_MM_SummonedByPC;
+	self.aivar[AIV_MM_DistToMaster] = 300;
+	self.aivar[AIV_MM_TimeLooseHP] 	= 5;
+	self.aivar[AIV_MM_PARTYMEMBER] = TRUE;
+};
 
-
-
-
-
-
-
+INSTANCE SummonedByNPC_Gobbo (Mst_Default_GreenGobbo)
+{
+	guild					=	GIL_SKELETON;
+	aivar[AIV_MM_REAL_ID]	= 	ID_SKELETON;
+	Set_GreenGobbo_Visuals();
+	Npc_SetToFightMode (self, ItMw_1H_Sword_Old_01);
+	attribute[ATR_STRENGTH] = attribute	[ATR_STRENGTH] + 10; // da technisch im Faustkampf
+	start_aistate	=	ZS_MM_Summoned;
+};

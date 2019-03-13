@@ -84,9 +84,9 @@ const int SPL_UNDRESS		=	51;
 const int SPL_DANCE			=	52;
 const int SPL_BERZERK		= 	53;
 const int SPL_NEW1			=	54;
-const int SPL_NEW2			=	55;
-const int SPL_NEW3			=	56;
-const int SPL_NEW4			=	57;
+const int SPL_TELEPORT6		=	55;
+const int SPL_SUMMONGOBBO	=	56;
+const int SPL_SUMMONWOLF	=	57;
 const int SPL_NEW5			=	58;
 
 
@@ -106,7 +106,7 @@ CLASS C_Spell {
 };
 
 PROTOTYPE C_Spell_Proto(C_Spell) {
-	time_per_mana		=	500;			// Zeit pro investierten Manapunkt (ms)
+	time_per_mana		=	0;			// Zeit pro investierten Manapunkt (ms)
 	damage_per_level	=	1;				// Schaden pro Level
 	damageType			=	DAM_BLUNT;		// CAN BE ONLY ONE DAMAGE TYPE
 	spellType			=	SPELL_BAD;				// Good, Neutral or Bad

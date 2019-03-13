@@ -14,7 +14,6 @@ func int Spell_Logic_SummonSkeleton(var int manaInvested)
 	{ 
 		if (Npc_IsPlayer(self))
 	    {
-	    	Wld_SpawnNpcRange	(self,	SummonedByPC_Skeleton,			2,	500);
 			Wld_SpawnNpcRange	(self,	SummonedByPC_SkeletonWarrior,	1,	500);
 		}
 		else

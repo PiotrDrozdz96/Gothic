@@ -34,8 +34,8 @@ instance KDW_604_Cronos (Npc_Default)
 	Npc_SetTalentSkill	( self, NPC_TALENT_MAGE,		6);
 			
 	//-------- Spells --------        
-	CreateInvItem 		(self, ItArRuneIceCube);
-	CreateInvItem 		(self, ItArRuneThunderbolt);
+	// CreateInvItem 		(self, ItArRuneIceCube);
+	// CreateInvItem 		(self, ItArRuneThunderbolt);
 
 	//-------- inventory --------                                    
 	B_Give_CronosChapter1Runes ();

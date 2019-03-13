@@ -81,6 +81,7 @@ INSTANCE SummonedByPC_Demon (Mst_Default_Demon)
 {
 	Set_Demon_Visuals();
 
+	level							=	0;
 	Npc_SetToFistMode(self);
 	senses							= SENSE_HEAR | SENSE_SEE;
 	start_aistate					= ZS_MM_SummonedByPC;

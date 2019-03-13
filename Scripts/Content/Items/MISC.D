@@ -46,6 +46,14 @@ const int	Value_Öl				=	15;
 const int	Value_Moleratfett		=	5;
 const int	Value_Alcohol			=	18;
 
+// Runen-Ingredienzien
+const int Value_Runeblank			=	100;
+const int Value_Coal				=	15;
+const int Value_DarkPearl			=	40;
+const int Value_Quartz				=	25;
+const int Value_Pitch				=	18;
+const int Value_Rockcrystal			=	20;
+const int Value_Aquamarine			=	25;
 
 
 /*******************************************************************************************
@@ -825,7 +833,7 @@ INSTANCE ItMi_Alchemy_Sulphur_01 (C_Item)
 /******************************************************************************************/
 INSTANCE ItMi_Alchemy_Quicksilver_01 (C_Item)
 {
-	name 				=	"Rtêæ";
+	name 				=	"Woda Œwiêcona";
 
 	mainflag 			=	ITEM_KAT_NONE;
 	flags 				=	ITEM_MULTI;
@@ -910,130 +918,147 @@ INSTANCE ItMi_Alchemy_Alcohol_01 (C_Item)
 
 
 
-/*******************************************************************************************
-**	Musikinstrumente InExtremo    					  		  							  **
-*******************************************************************************************/
+/******************************************************************************************/
+//RUNEN INGREDIENTS//
+/******************************************************************************************/
 
-// Werden nicht gebraucht, wenn den Jungs die Instrumente in der Hand "kleben"!
-/*
-INSTANCE ItMiLuteIE (C_Item)
+INSTANCE Itmi_Runeblank (C_Item)
 {
-	name 				=	"Laute";
+	name 				=	"Pusty kamieñ runiczny";
 
 	mainflag 			=	ITEM_KAT_NONE;
+	flags 				=	ITEM_MULTI;
 
-	value 				=	1;
+	value 				=	Value_Runeblank;
 
-	visual 				=	"ItMi_Lute_01.3DS";
-	material 			=	MAT_WOOD;
+	visual				=	"ItAr_Rune_31.3ds";
+	material			=	MAT_STONE;
 
 	description			= name;
-	TEXT[4]				= NAME_Value;					COUNT[4]	= Value_Schlüssel;
+	TEXT[4]				= NAME_Value;					COUNT[4]	= value;
 };
 
-INSTANCE ItMiBluepipe(C_Item)
+INSTANCE ItMi_Pliers (C_Item)
 {
-	name 				=	"Dudelsack";
+	name 				=	"¯uwaczka";
 
 	mainflag 			=	ITEM_KAT_NONE;
+	flags				=	ITEM_MULTI;
 
-	value 				=	1;
+	value 				=	Value_Runeblank;
 
-	visual 				=	"ItMi_Bagpipe_Blue_01.3DS";
-	material 			=	MAT_WOOD;
+	visual 				=	"ItMi_Pliers.3DS";
+	material 			=	MAT_METAL;
 
-	description			= name;
-	TEXT[4]				= NAME_Value;					COUNT[4]	= Value_Schlüssel;
+	description			= 	name;
+	TEXT[5]				= 	NAME_Value;	
+	COUNT[5] 			= 	value;
 };
 
-INSTANCE ItMiYellowpipe (C_Item)
+INSTANCE ItMi_Coal (C_Item)
 {
-	name 				=	"Dudelsack";
+	name 				=	"Wêgiel";
 
 	mainflag 			=	ITEM_KAT_NONE;
+	flags 				=	ITEM_MULTI;
 
-	value 				=	1;
+	value 				=	Value_Coal;
 
-	visual 				=	"ItMi_Bagpipe_Yellow_01.3DS";
-	material 			=	MAT_WOOD;
+	visual 				=	"ItMi_Coal.3ds";
+	material 			=	MAT_STONE;
 
 	description			= name;
-	TEXT[4]				= NAME_Value;					COUNT[4]	= Value_Schlüssel;
+	TEXT[4]				= NAME_Value;					COUNT[4]	= value;
+	
 };
 
-INSTANCE ItMiDrumscheit (C_Item)
+INSTANCE ItMi_DarkPearl (C_Item)
 {
-	name 				=	"Drumscheit";
+	name 				=	"Czarna per³a";
 
 	mainflag 			=	ITEM_KAT_NONE;
+	flags 				=	ITEM_MULTI;
 
-	value 				=	1;
+	value 				=	Value_DarkPearl;
 
-	visual 				=	"ItMi_Drumscheit_01.3DS";
-	material 			=	MAT_WOOD;
+	visual 				=	"ItMi_DarkPearl.3ds";
+	material 			=	MAT_STONE;
 
-	description			= name;
-	TEXT[4]				= NAME_Value;					COUNT[4]	= Value_Schlüssel;
+	description			= 	name;
+	TEXT[4]				= 	NAME_Value;	
+	COUNT[4]			= 	value;
+	
 };
 
-INSTANCE ItMiDrumstick (C_Item)
+INSTANCE ItMi_Quartz (C_Item)
 {
-	name 				=	"Trommelstöcke";
+	name 				=	"Kwarcyt";
 
 	mainflag 			=	ITEM_KAT_NONE;
+	flags 				=	ITEM_MULTI;
 
-	value 				=	1;
+	value 				=	Value_Quartz;
 
-	visual 				=	"ItMi_Drumstick_01.3DS";
-	material 			=	MAT_WOOD;
+	visual 				=	"ItMi_Quartz.3ds";
+	material 			=	MAT_STONE ;
 
-	description			= name;
-	TEXT[4]				= NAME_Value;					COUNT[4]	= Value_Schlüssel;
+	description			= 	name;
+	TEXT[4]				= 	NAME_Value;	
+	COUNT[4]			= 	value;
+	
 };
 
-INSTANCE ItMiCello (C_Item)
+
+INSTANCE ItMi_Pitch (C_Item)
 {
-	name 				=	"Cello";
+	name 				=	"Smo³a";
 
 	mainflag 			=	ITEM_KAT_NONE;
+	flags 				=	ITEM_MULTI;
 
-	value 				=	1;
+	value 				=	Value_Pitch;
 
-	visual 				=	"ItMi_Cello_01.3DS";
-	material 			=	MAT_WOOD;
+	visual 				=	"ItMi_Pitch.3DS";
+	material 			=	MAT_GLAS ;
 
-	description			= name;
-	TEXT[4]				= NAME_Value;					COUNT[4]	= Value_Schlüssel;
+	description			= 	name;
+	TEXT[4]				= 	NAME_Value;	
+	COUNT[4]			= 	value;
 };
 
-INSTANCE ItMiCellobow (C_Item)
+
+INSTANCE ItMi_Rockcrystal (C_Item)
 {
-	name 				=	"Cello Bogen";
+	name 				=	"Ska³a krystaliczna";
 
 	mainflag 			=	ITEM_KAT_NONE;
+	flags 				=	ITEM_MULTI;
 
-	value 				=	1;
+	value 				=	Value_Rockcrystal;
 
-	visual 				=	"ItMi_Cellobow_01.3DS";
-	material 			=	MAT_WOOD;
+	visual 				=	"ItMi_Rockcrystal.3ds";
+	material 			=	MAT_STONE;
 
-	description			= name;
-	TEXT[4]				= NAME_Value;					COUNT[4]	= Value_Schlüssel;
+	description			= 	name;
+	TEXT[4]				= 	NAME_Value;	
+	COUNT[4]			= 	value;
 };
 
-INSTANCE ItMiHarp (C_Item)
+
+INSTANCE ItMi_Aquamarine (C_Item)
 {
-	name 				=	"Harfe";
+	name 				=	"Akwamaryn";
 
 	mainflag 			=	ITEM_KAT_NONE;
+	flags 				=	ITEM_MULTI;
 
-	value 				=	1;
+	value 				=	Value_Aquamarine;
 
-	visual 				=	"ItMi_Harp_01.3DS";
-	material 			=	MAT_WOOD;
+	visual 				=	"ItMi_Aquamarine.3ds";
+	material 			=	MAT_STONE;
 
-	description			= name;
-	TEXT[4]				= NAME_Value;					COUNT[4]	= Value_Schlüssel;
+	description			= 	name;
+	TEXT[4]				= 	NAME_Value;	
+	COUNT[4]			= 	value;
+	
 };
-
-*/

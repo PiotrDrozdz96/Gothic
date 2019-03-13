@@ -1019,11 +1019,10 @@ func void Usefireletter ()
 					Doc_PrintLine	( nDocID,  0, ""					);
 					Doc_PrintLine	( nDocID,  0, "Niech Innos ma w opiece nas wszystkich."					);
 					Doc_PrintLine	( nDocID,  0, ""					);
-					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLine	( nDocID,  0, "                   Rigaldo Królewski Marsza³ek");
 					Doc_PrintLine	( nDocID,  0, ""					);
 					Doc_PrintLine	( nDocID,  0, ""					);
 					Doc_SetMargins	( nDocID, -1, 200, 50, 50, 50, 1   		);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus
-					//Doc_PrintLine	( nDocID,  0, "Rigaldo Marschall des Königs"					);
 					Doc_Show		( nDocID );
 		
 		
@@ -1074,7 +1073,7 @@ func void Usefireletter2 ()
 					Doc_PrintLine	( nDocID,  0, ""					);
 					Doc_PrintLine	( nDocID,  0, "Niech Innos ma w opiece nas wszystkich."					);
 					Doc_PrintLine	( nDocID,  0, ""					);
-					//Doc_PrintLine	( nDocID,  0, "            Rigaldo, Marschall des Königs");
+					Doc_PrintLine	( nDocID,  0, "                   Rigaldo Królewski Marsza³ek");
 					Doc_PrintLine	( nDocID,  0, ""					);
 					Doc_PrintLine	( nDocID,  0, ""					);
 					Doc_SetMargins	( nDocID, -1, 200, 50, 50, 50, 1   		);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus
@@ -1720,6 +1719,8 @@ INSTANCE theriddle6(C_Item)
 					if (riddle6 == FALSE)
 					{
 
+						G_PrintScreen("Z ksi¹¿ki wypad³a jakaœ kartka");
+						CreateInvItem(self, ItWr_SummonSkeleton);
 						B_GiveXP (1000);
 						B_LogEntry			(theriddle_log,		"Tajemniczy nieznajomy nie ¿yje. Demony go zabi³y! Pomiêdzy nim, a tymi istotami z piek³a rodem musia³a istnieæ jakaœ wiêŸ. Inaczej nie by³by w stanie tutaj wróciæ. NajwyraŸniej chcia³ zabraæ ten sekret do grobu."); 
 						Log_SetTopicStatus	(theriddle_log,		LOG_SUCCESS);

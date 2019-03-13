@@ -36,6 +36,7 @@ func void SLEEPABIT_S1 ()
 	if ( (Hlp_GetInstanceID(self)==Hlp_GetInstanceID(her))||(Hlp_GetInstanceID(self)==Hlp_GetInstanceID(rock)) ) 
 	{	
 		self.aivar[AIV_INVINCIBLE]=TRUE;
+		PLAYER_MOBSI_PRODUCTION = MOBSI_SleepAbit;
 		Ai_ProcessInfos (her);
 	};
 };
@@ -61,7 +62,10 @@ INSTANCE PC_NoSleep (c_Info)
 
 FUNC INT PC_NoSleep_Condition()
 {		
+	if(PLAYER_MOBSI_PRODUCTION == MOBSI_SleepAbit)
+	{
 		return 1;
+	};	
 };
 
 func VOID PC_NoSleep_Info()
@@ -85,7 +89,10 @@ INSTANCE PC_SleepTime_Morning (C_INFO)
 
 FUNC INT PC_SleepTime_Morning_Condition()
 {		
+	if(PLAYER_MOBSI_PRODUCTION == MOBSI_SleepAbit)
+	{
 		return 1;
+	};	
 };
 
 func void PC_SleepTime_Morning_Info ()
@@ -107,7 +114,10 @@ INSTANCE PC_SleepTime_Noon (C_INFO)
 
 FUNC INT PC_SleepTime_Noon_Condition()
 {		
+	if(PLAYER_MOBSI_PRODUCTION == MOBSI_SleepAbit)
+	{
 		return 1;
+	};	
 };
 
 func void PC_SleepTime_Noon_Info ()
@@ -129,7 +139,10 @@ INSTANCE PC_SleepTime_Evening (C_INFO)
 
 FUNC INT PC_SleepTime_Evening_Condition()
 {		
+	if(PLAYER_MOBSI_PRODUCTION == MOBSI_SleepAbit)
+	{
 		return 1;
+	};	
 };
 
 func void PC_SleepTime_Evening_Info ()
@@ -151,7 +164,10 @@ instance PC_SleepTime_Midnight (C_INFO)
 
 FUNC INT PC_SleepTime_Midnight_Condition()
 {		
+	if(PLAYER_MOBSI_PRODUCTION == MOBSI_SleepAbit)
+	{
 		return 1;
+	};	
 };
 
 func VOID PC_SleepTime_Midnight_Info()

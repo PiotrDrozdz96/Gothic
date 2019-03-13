@@ -168,7 +168,7 @@ instance  Tpl_1438_Templer_TEACHZANGEN (C_INFO)
 	information		= Tpl_1438_Templer_TEACHZANGEN_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= "Naucz siê usuwaæ wnêtrznoœci pe³zaczy (1 punkt umiejêtnoœci)"; 
+	description		= "Naucz siê usuwaæ wnêtrznoœci pe³zaczy (5 punkt umiejêtnoœci)"; 
 };
 
 FUNC int  Tpl_1438_Templer_TEACHZANGEN_Condition()
@@ -185,9 +185,9 @@ FUNC void  Tpl_1438_Templer_TEACHZANGEN_Info()
 	
 	AI_Output			(other, self,"Tpl_1438_Templer_TEACHZANGEN_Info_15_01"); //Naucz mnie pozyskiwaæ wydzielinê z wnêtrznoœci pe³zaczy.
 	
-	if (hero.lp >= 1)
+	if (hero.lp >= 5)
 	{
-		hero.lp = hero.lp - 1;
+		hero.lp = hero.lp - 5;
 		AI_Output		(self, other,"Tpl_1438_Templer_TEACHZANGEN_Info_13_01"); //Najpierw musisz wykonaæ g³êbokie ciêcie. Tylko uwa¿aj, ¿eby nie przeci¹æ gruczo³u jadowego, bo trucizna mo¿e trysn¹æ ci na rêce.
 		AI_Output		(other, self,"Tpl_1438_Templer_TEACHZANGEN_Info_15_02"); //To musi byæ bardzo bolesne.
 		AI_Output		(self, other,"Tpl_1438_Templer_TEACHZANGEN_Info_13_03"); //Jeszcze jak! Pozna³eœ kiedyœ Korgura Trzy Palce, tego ³owcê pe³zaczy? A, nie - to by³o przed twoim przybyciem. Có¿, kontynuujmy...

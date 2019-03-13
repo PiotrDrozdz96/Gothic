@@ -38,59 +38,11 @@ const int	Value_Feuerherz			=	1000;
 const int	Value_Eisherz			=	1000;
 const int	Value_Eistueck			=	100;
 
+// Runen ingredients
+const int Value_GoblinBone			=	5;
+const int Value_SkeletonBone		=	5;
+const int Value_DemonHeart			=	300;
 
-/*
-So in der Tasche
-----------------
-ItAt_Meatbug_01 	//Meatbug			Körper (Essen)		(Item-Instanz in Food.d)
-ItFoMuttonRaw		//Scavenger			2 Bollen			OK
-					//Molerats			2 Bollen			OK
-					//Shadowbeast		4 Bollen			OK
-
-ItAt_Bloodfly_01 	//Bloodfly			Flügel				OK
-
-Durch Jäger freigeschaltet (noch nicht verteilt)
---------------------------
-ItAt_Teeth_01 		//Wolf				2 Zähne				OK
-					//Schwarzer Wolf	2 Zähne				OK
-					//Snapper			10 Zähne			OK
-					//Orcbiter			2 Zähne				OK
-					//Shadowbeast		4 Zähne				OK
-					//Bloodhound		4 Zähne				OK
-//--------------------------------------------------------------
-ItAt_Claws_01 		//Waran				4 Klauen			OK
-					//Feuerechse		4 Klauen			OK
-					//Snapper			3 Klauen			OK
-					//Razor				3 Klauen			OK
-					//Beisser			2 Klauen			OK
-ItAt_Lurker_01 		//Lurker 			2 Klauen			OK
-//--------------------------------------------------------------
-ItAt_Wolf_01 		//Wolf	 			Wolfsfell			OK
-ItAt_Wolf_02 		//Orkhund	 		Orkhundfell			OK
-ItAt_Shadow_01 		//Shadowbeast		Shadowbeast-Fell	OK
-ItAt_Troll_01 		//Troll				Trollfell			OK
-//--------------------------------------------------------------
-ItAt_Swampshark_01 	//Sumpfhai			Haut des Sumpfhais	OK
-ItAt_Lurker_02 		//Lurker			Haut des Lurkers	OK
-
-Durch Templer / Kalom freigeschaltet (noch nicht verteilt)
-------------------------------------
-ItAt_Crawler_01 	//Crawler		 	Zangen				OK
-ItAt_Bloodfly_02 	//Bloodfly			Stachel				OK
-
-Durch ORG_855_Wolf freigeschaltet
-------------------------
-ItAt_Crawler_02 	//Crawler			Panzerplatten		OK
-
-Durch Ulu-Mulu freigeschaltet
------------------------------
-ItAt_Waran_01 		//Feuerechse		Flammenzunge		OK
-ItAt_Swampshark_02 	//Sumpfhai			Zähne des Sumpfhais	OK
-ItAt_Shadow_02 		//Shadowbeast		Horn				OK
-ItAt_Troll_02 		//Troll				Hauer				OK
-*/
-
-/******************************************************************************************/
 INSTANCE ItAt_Teeth_01 (C_Item)
 {
 	name 				=	"K³y";
@@ -459,4 +411,87 @@ INSTANCE ItAt_IceGolem_02 (C_Item)
 	TEXT[0]				= "Ten fragment pochodzi ze szcz¹tków";
 	TEXT[1]				= "pokonanego lodowego Golema.";
 	TEXT[4]				= NAME_Value;					COUNT[4]	= Value_Eistueck;
+};
+
+/******************************RUNEN INDREDIENTS********************************************/
+
+INSTANCE ItAt_GoblinBone (C_Item)
+{
+	name 				=	"Koœæ goblina";
+
+	mainflag 			=	ITEM_KAT_NONE;
+	flags 				=	ITEM_MULTI;
+
+	value 				=	Value_GoblinBone;
+
+	visual 				=	"ItAt_GoblinBone.3DS";
+	material 			=	MAT_WOOD;
+
+	description			= 	name;
+	TEXT[0]				= 	"";
+	TEXT[1]				= 	"";
+	TEXT[2]				= 	"";
+	TEXT[3]				= 	"";
+	TEXT[4]				= 	NAME_Value;	COUNT[4]	= value;
+};
+/******************************************************************************************/
+INSTANCE ItAt_SkeletonBone (C_Item)
+{
+	name 				=	"Koœæ szkieletu";
+
+	mainflag 			=	ITEM_KAT_NONE;
+	flags 				=	ITEM_MULTI;
+
+	value 				=	Value_SkeletonBone;
+
+	visual 				=	"ItAt_SkeletonBone.3DS";
+	material 			=	MAT_WOOD;
+
+	description			= 	name;
+	TEXT[0]				= 	"";
+	TEXT[1]				= 	"";
+	TEXT[2]				= 	"";
+	TEXT[3]				= 	"";
+	TEXT[4]				= 	NAME_Value;	COUNT[4]	= value;
+};
+/******************************************************************************************/
+INSTANCE ItAt_DemonHeart (C_Item)
+{
+	name 				=	"Serce demona";
+
+	mainflag 			=	ITEM_KAT_NONE;
+	flags 				=	ITEM_MULTI;
+
+	value 				=	Value_DemonHeart;
+
+	visual 				=	"ItAt_DemonHeart.3DS";
+	material 			=	MAT_LEATHER;
+
+	description			= 	name;
+	TEXT[0]				= 	"";
+	TEXT[1]				= 	"";
+	TEXT[2]				= 	"";
+	TEXT[3]				= 	"";
+	TEXT[4]				= 	NAME_Value;	COUNT[4]	= value;
+};
+
+/******************************************************************************************/
+INSTANCE ItAt_StoneGolem_02 (C_Item)
+{
+	name 				=	"Serce Kamiennego Golema";
+
+	mainflag 			=	ITEM_KAT_NONE;
+	flags 				=	ITEM_MULTI;
+
+	value 				=	Value_Steinherz;
+
+	visual 				=	"ItAt_StoneGolem_01.3DS";
+	material 			=	MAT_STONE;
+
+	description			= name;
+	TEXT[0]				= "";
+	TEXT[1]				= "";
+	TEXT[2]				= ""; 
+	TEXT[3]				= "";
+	TEXT[4]				= NAME_Value;					COUNT[4]	= Value_Steinherz;
 };

@@ -1068,9 +1068,6 @@ FUNC VOID INIT_SUB_FREEMINECAMP ()
 //*******************************************************************************
 FUNC VOID STARTUP_SUB_SURFACE ()
 {
-	// Drops
-	Wld_InsertItem				(ITSH_LONG_A,"OW_PATH_ORCRUIN_GOLEM");
-	
 	//------------------
 	
 	Wld_InsertNpc				(GRD_254_Orry,"OC1");

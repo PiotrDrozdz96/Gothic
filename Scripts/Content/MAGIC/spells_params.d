@@ -24,65 +24,67 @@ CONST INT SPL_NEXTLEVEL		=	4;		// setze den Spruch auf den nächsten Level
 // zum Casten benötigtes, bzw. bei aufladbaren Spells maximal investierbares Mana
 // ************************************************************************************************
 
-const int	SPL_SENDCAST_LIGHT			=	1;
-const int	SPL_SENDCAST_FIREBOLT		=	1;
-const int	SPL_SENDCAST_FIREBALL		=	5;
-const int	SPL_SENDCAST_FIRESTORM		=	10;
-const int	SPL_SENDCAST_FIRERAIN		=	15;
-const int	SPL_SENDCAST_TELEPORT		=	5;
+const int	SPL_SENDCAST_LIGHT			=	5; //
+const int	SPL_SENDCAST_FIREBOLT		=	5; //
+const int	SPL_SENDCAST_FIREBALL		=	10; //
+const int	SPL_SENDCAST_FIRESTORM		=	20; //
+const int	SPL_SENDCAST_FIRERAIN		=	60; //
+const int	SPL_SENDCAST_TELEPORT		=	5; //
 
-const int	SPL_SENDCAST_TRF_MEATBUG	=	5;
-const int	SPL_SENDCAST_TRF_MOLERAT	=	5;
-const int	SPL_SENDCAST_TRF_SCAVENGER	=	5;
-const int	SPL_SENDCAST_TRF_BLOODFLY	=	10;
-const int	SPL_SENDCAST_TRF_WOLF		=	10;
-const int	SPL_SENDCAST_TRF_LURKER		=	15;
-const int	SPL_SENDCAST_TRF_WARAN		=	15;
-const int	SPL_SENDCAST_TRF_ORCDOG		=	20;
-const int	SPL_SENDCAST_TRF_CRAWLER	=	20;
-const int	SPL_SENDCAST_TRF_SNAPPER	=	25;
-const int	SPL_SENDCAST_TRF_SHADOWBEAST=	25;
+const int	SPL_SENDCAST_TRF_MEATBUG	=	5; //
+const int	SPL_SENDCAST_TRF_MOLERAT	=	5; //
+const int	SPL_SENDCAST_TRF_SCAVENGER	=	5; //
+const int	SPL_SENDCAST_TRF_BLOODFLY	=	10; //
+const int	SPL_SENDCAST_TRF_WOLF		=	10; //
+const int	SPL_SENDCAST_TRF_LURKER		=	5; //
+const int	SPL_SENDCAST_TRF_WARAN		=	10; //
+const int	SPL_SENDCAST_TRF_ORCDOG		=	15; //
+const int	SPL_SENDCAST_TRF_CRAWLER	=	10; //
+const int	SPL_SENDCAST_TRF_SNAPPER	=	10; //
+const int	SPL_SENDCAST_TRF_SHADOWBEAST=	15; //
 
-const int	SPL_SENDCAST_THUNDERBOLT	=	1;
-const int	SPL_SENDCAST_THUNDERBALL	=	5;
-const int	SPL_SENDCAST_ICECUBE		=	3;
-const int	SPL_SENDCAST_ICEWAVE		=	8;
+const int	SPL_SENDCAST_THUNDERBOLT	=	7; //
+const int	SPL_SENDCAST_THUNDERBALL	=	50; //
+const int	SPL_SENDCAST_ICECUBE		=	30; //
+const int	SPL_SENDCAST_ICEWAVE		=	60; //
 
-const int	SPL_SENDCAST_SUMMONDEMON	=	20;
-const int	SPL_SENDCAST_SUMMONSKELETON	=	10;
-const int	SPL_SENDCAST_SUMMONGOLEM	=	15;
-const int	SPL_SENDCAST_ARMYOFDARKNESS	=	25;
+const int	SPL_SENDCAST_SUMMONGOBBO	=	15; //
+const int	SPL_SENDCAST_SUMMONWOLF		=	30; //
+const int	SPL_SENDCAST_SUMMONDEMON	=	75; //
+const int	SPL_SENDCAST_SUMMONSKELETON	=	45; //
+const int	SPL_SENDCAST_SUMMONGOLEM	=	60; //
+const int	SPL_SENDCAST_ARMYOFDARKNESS	=	100; //
 
-const int	SPL_SENDCAST_MASSDEATH		=	10;
-const int	SPL_SENDCAST_DESTROYUNDEAD	=	5;
-const int	SPL_SENDCAST_WINDFIST		=	3;
-const int	SPL_SENDCAST_STORMFIST		=	8;
-const int	SPL_SENDCAST_CHARM			=	5;
-const int	SPL_SENDCAST_SLEEP			=	3;
-const int	SPL_SENDCAST_FEAR			=	5;
-const int	SPL_SENDCAST_BERZERK		=	10;
-const int	SPL_SENDCAST_BREATHOFDEATH	=	5;
+const int	SPL_SENDCAST_MASSDEATH		=	150; //Runa Uriziela ??
+const int	SPL_SENDCAST_DESTROYUNDEAD	=	5; //Przez quest nie mogê zwiêkszyæ ??
+const int	SPL_SENDCAST_WINDFIST		=	50; //
+const int	SPL_SENDCAST_STORMFIST		=	50; //
+const int	SPL_SENDCAST_CHARM			=	10; // 
+const int	SPL_SENDCAST_SLEEP			=	5; // przez quest nie mogê zwiêkszyæ ??
+const int	SPL_SENDCAST_FEAR			=	20; //
+const int	SPL_SENDCAST_BERZERK		=	20; //
+const int	SPL_SENDCAST_BREATHOFDEATH	=	75; //
 const int	SPL_SENDCAST_NEW1			=	5;		// Spell SPL_NEW1 (URIZIEL-Rune mit speziellen Spieler-BreathOfDeath)
-const int	SPL_SENDCAST_SHRINK			=	5;
+const int	SPL_SENDCAST_SHRINK			=	5; // przez quest nie mogê zwiêkszyæ ??
 
 
 // ************************************************************************************************
 // Schaden der direkten Kampfsprüche
 // ************************************************************************************************
 const int	SPL_DAMAGE_FIREBOLT			=	30;
-const int	SPL_DAMAGE_FIREBALL			=	30;		//pro Level
-const int	SPL_DAMAGE_FIRESTORM		=	50;
-const int	SPL_DAMAGE_FIRERAIN			=	100;
+const int	SPL_DAMAGE_FIREBALL			=	15;		//pro Level
+const int	SPL_DAMAGE_FIRESTORM		=	15;
+const int	SPL_DAMAGE_FIRERAIN			=	300;
 
-const int	SPL_DAMAGE_THUNDERBOLT		=	20;
-const int	SPL_DAMAGE_THUNDERBALL		=	20;		//pro Level
+const int	SPL_DAMAGE_THUNDERBOLT		=	40;
+const int	SPL_DAMAGE_THUNDERBALL		=	25;		//pro Level
 
-const int	SPL_DAMAGE_MASSDEATH		=	200;
-const int	SPL_DAMAGE_BREATHOFDEATH	=	100;
+const int	SPL_DAMAGE_MASSDEATH		=	400;
+const int	SPL_DAMAGE_BREATHOFDEATH	=	500;
 const int	SPL_DAMAGE_DESTROYUNDEAD	=	9999;	//soll halt wirklich killen!
 
-const int	SPL_DAMAGE_WINDFIST			=	10;
-const int	SPL_DAMAGE_STORMFIST		=	15;
+const int	SPL_DAMAGE_WINDFIST			=	20;
+const int	SPL_DAMAGE_STORMFIST		=	30;
 
 
 
@@ -90,9 +92,9 @@ const int	SPL_DAMAGE_STORMFIST		=	15;
 // HPs, die den Opfern in den Opferzuständen abgezogen werden:
 // ************************************************************************************************
 
-const int   SPL_FREEZE_DAMAGE		 	=	50;	// IceCube, IceWave
+const int   SPL_FREEZE_DAMAGE		 	=	60;	// IceCube, IceWave
 const int   SPL_ZAPPED_DAMAGE_PER_SEC 	=	25;	// ChainLightning
-const int   SPL_PYRO_DAMAGE_PER_SEC		=	20;	// Pyrokinesis
+const int   SPL_PYRO_DAMAGE_PER_SEC		=	40;	// Pyrokinesis
 
 const int	SPL_HEALING_HP_PER_MP		=	10;	// Heal (HP pro Mana)
 
@@ -176,9 +178,9 @@ const STRING spellFXInstanceNames[MAX_SPELL] =
 	"Dance",
 	"Berzerk",
 	"BreathOfDeath",
-	"New2",
-	"New3",
-	"New4",
+	"Teleport",
+	"Skeleton",
+	"Skeleton",
 	"New5"
 };
 
@@ -240,9 +242,9 @@ const STRING spellFXAniLetters[MAX_SPELL] =
 	"XXX",  //  SPL_DANCE
 	"SLE",	//	SPL_BERZERK
 	"FIB",  //  SPL_NEW1
-	"NE2",  //  SPL_NEW2
-	"NE3",  //  SPL_NEW3
-	"NE4",  //  SPL_NEW4
+	"HEA",  //  SPL_TELEPORT6
+	"SUM",  //  SPL_SUMMONGOBBO
+	"SUM",  //  SPL_NEW4
 	"NE5"   //  SPL_NEW5
 };
 
@@ -259,7 +261,6 @@ const STRING spellFXAniLetters[MAX_SPELL] =
 
 INSTANCE Spell_Light (C_Spell_Proto)
 {
-	time_per_mana			= 500;
 	spelltype 				= SPELL_NEUTRAL;
 	targetCollectAlgo		= TARGET_COLLECT_NONE;
 	targetCollectRange		= 0;
@@ -270,7 +271,6 @@ INSTANCE Spell_Light (C_Spell_Proto)
 
 INSTANCE Spell_Firebolt (C_Spell_Proto)		// heißt jetzt "Magic Missile"
 {
-	time_per_mana			= 500;
 	damage_per_level		= SPL_DAMAGE_FIREBOLT;
 	spelltype 				= SPELL_BAD;
 	damageType				= DAM_FIRE;
@@ -281,7 +281,6 @@ INSTANCE Spell_Firebolt (C_Spell_Proto)		// heißt jetzt "Magic Missile"
 
 INSTANCE Spell_Fireball (C_Spell_Proto)
 {
-	time_per_mana			= 750;
 	damage_per_level		= SPL_DAMAGE_FIREBALL;
 	spelltype 				= SPELL_BAD;
 	damageType				= DAM_FIRE;
@@ -293,7 +292,6 @@ INSTANCE Spell_Fireball (C_Spell_Proto)
 
 INSTANCE Spell_Firestorm (C_Spell_Proto)
 {
-	time_per_mana			= 250;
 	damage_per_level		= SPL_DAMAGE_FIRESTORM;
 	spelltype 				= SPELL_BAD;
 	damageType				= DAM_FIRE;
@@ -304,7 +302,6 @@ INSTANCE Spell_Firestorm (C_Spell_Proto)
 
 INSTANCE Spell_FireRain (C_Spell_Proto)
 {
-	time_per_mana			= 250;
 	damage_per_level		= SPL_DAMAGE_FIRERAIN; // 2 Level nötig für PFX = 200 Feuerschaden!
 	spelltype 				= SPELL_BAD;
 	damageType				= DAM_FIRE;
@@ -373,7 +370,6 @@ INSTANCE Spell_ChainLightning (C_Spell_Proto)
 
 INSTANCE Spell_Thunderbolt (C_Spell_Proto)
 {
-	time_per_mana			= 100;
 	spelltype 				= SPELL_BAD;
 	damage_per_level 		= SPL_DAMAGE_THUNDERBOLT;
 	damageType				= DAM_MAGIC;
@@ -384,7 +380,6 @@ INSTANCE Spell_Thunderbolt (C_Spell_Proto)
 
 INSTANCE Spell_Thunderball (C_Spell_Proto)
 {
-	time_per_mana			= 250;
 	spelltype 				= SPELL_BAD;
 	damage_per_level 		= SPL_DAMAGE_THUNDERBALL;
 	damageType				= DAM_MAGIC;
@@ -395,7 +390,6 @@ INSTANCE Spell_Thunderball (C_Spell_Proto)
 
 INSTANCE Spell_IceCube (C_Spell_Proto)
 {
-	time_per_mana			= 250;
 	spelltype 				= SPELL_BAD;
 	damage_per_level 		= 0;					// Schaden wird im zs_MagicFreeze angegeben!
 	damageType				= DAM_MAGIC;
@@ -407,7 +401,6 @@ INSTANCE Spell_IceCube (C_Spell_Proto)
 
 INSTANCE Spell_IceWave (C_Spell_Proto)
 {
-	time_per_mana			= 125;
 	spelltype 				= SPELL_BAD;
 	damage_per_level 		= 0;					// Relativer Schaden je nach Opfer wird im zs_MagicFreeze angegeben!
 	damageType				= DAM_MAGIC;
@@ -426,7 +419,7 @@ INSTANCE Spell_IceWave (C_Spell_Proto)
 
 INSTANCE Spell_Demon	(C_Spell_Proto)
 {
-	time_per_mana			= 500;
+	time_per_mana			= 20;
 	spelltype 				= SPELL_BAD;
 	targetCollectAlgo		= TARGET_COLLECT_NONE;
 	targetCollectRange		= 0;
@@ -437,7 +430,7 @@ INSTANCE Spell_Demon	(C_Spell_Proto)
 
 INSTANCE Spell_Skeleton (C_Spell_Proto)
 {
-	time_per_mana			= 500;
+	time_per_mana			= 30;
 	spelltype 				= SPELL_BAD;
 	targetCollectAlgo		= TARGET_COLLECT_NONE;
 	targetCollectRange		= 0;
@@ -448,7 +441,7 @@ INSTANCE Spell_Skeleton (C_Spell_Proto)
 
 INSTANCE Spell_Golem (C_Spell_Proto)
 {
-	time_per_mana			= 500;
+	time_per_mana			= 25;
 	spelltype 				= SPELL_BAD;
 	targetCollectAlgo		= TARGET_COLLECT_NONE;
 	targetCollectRange		= 0;
@@ -459,7 +452,7 @@ INSTANCE Spell_Golem (C_Spell_Proto)
 
 INSTANCE Spell_ArmyOfDarkness (C_Spell_Proto)
 {
-	time_per_mana			= 500;
+	time_per_mana			= 20;
 	spelltype 				= SPELL_BAD;
 	targetCollectAlgo		= TARGET_COLLECT_NONE;
 	targetCollectRange		= 0;
@@ -470,7 +463,6 @@ INSTANCE Spell_ArmyOfDarkness (C_Spell_Proto)
 
 INSTANCE Spell_MassDeath(C_Spell_Proto)
 {
-	time_per_mana			= 250;
 	damage_per_level		= SPL_DAMAGE_MASSDEATH;	
 	spelltype 				= SPELL_BAD;
 	damageType				= DAM_MAGIC;
@@ -483,7 +475,6 @@ INSTANCE Spell_MassDeath(C_Spell_Proto)
 
 INSTANCE Spell_DestroyUndead(C_Spell_Proto)
 {
-	time_per_mana			= 250;
 	damage_per_level 		= SPL_DAMAGE_DESTROYUNDEAD;
 	spelltype				= SPELL_NEUTRAL;
 	damageType				= DAM_MAGIC;
@@ -500,7 +491,6 @@ INSTANCE Spell_DestroyUndead(C_Spell_Proto)
 
 INSTANCE Spell_WindFist (C_Spell_Proto)
 {
-	time_per_mana			= 250;
 	damage_per_level		= SPL_DAMAGE_WINDFIST;
 	spelltype 				= SPELL_BAD;
 	damageType				= DAM_FLY;
@@ -512,7 +502,6 @@ INSTANCE Spell_WindFist (C_Spell_Proto)
 
 INSTANCE Spell_StormFist (C_Spell_Proto)
 {
-	time_per_mana			= 125;
 	damage_per_level		= SPL_DAMAGE_STORMFIST;
 	spelltype 				= SPELL_BAD;
 	damageType				= DAM_FLY;
@@ -537,7 +526,6 @@ INSTANCE Spell_Telekinesis (C_Spell_Proto)
 
 INSTANCE Spell_Charm (C_Spell_Proto)
 {
-	time_per_mana			= 250;
 	spelltype 				= SPELL_BAD;
 	targetCollectAlgo		= TARGET_COLLECT_FOCUS;
 	targetCollectRange		= 1000;					// 10m
@@ -547,7 +535,6 @@ INSTANCE Spell_Charm (C_Spell_Proto)
 
 INSTANCE Spell_Sleep(C_Spell_Proto)
 {
-	time_per_mana			= 250;
 	spelltype 				= SPELL_NEUTRAL;
 	targetCollectAlgo		= TARGET_COLLECT_FOCUS;
 	targetCollectRange		= 1000;					// 10m
@@ -569,7 +556,6 @@ INSTANCE Spell_Pyrokinesis(C_Spell_Proto)
 
 INSTANCE Spell_Control(C_Spell_Proto)
 {
-	time_per_mana			= 500;
 	spelltype 				= SPELL_BAD;
 	targetCollectAlgo		= TARGET_COLLECT_FOCUS;
 	targetCollectRange		= 1000;					// 10m
@@ -579,7 +565,6 @@ INSTANCE Spell_Control(C_Spell_Proto)
 
 INSTANCE Spell_Fear (C_Spell_Proto)
 {
-	time_per_mana			= 250;
 	damage_per_level		= 0;
 	spelltype 				= SPELL_BAD;
 	targetCollectAlgo		= TARGET_COLLECT_NONE;	// Opfer werden in der "spell_fear.d" per "AI_SetNpcsToState(self,ZS_Flee, 1000);" bestimmt
@@ -591,7 +576,6 @@ INSTANCE Spell_Fear (C_Spell_Proto)
 
 INSTANCE Spell_Berzerk (C_Spell_Proto)
 {
-	time_per_mana			= 125;
 	spelltype				= SPELL_BAD;
 	targetCollectAlgo		= TARGET_COLLECT_FOCUS;
 	targetCollectRange		= 1000;					// 10m
@@ -601,7 +585,6 @@ INSTANCE Spell_Berzerk (C_Spell_Proto)
 
 INSTANCE Spell_BreathOfDeath(C_Spell_Proto)
 {
-	time_per_mana			= 100;
 	damage_per_level		= SPL_DAMAGE_BREATHOFDEATH;
 	spelltype 				= SPELL_BAD;
 	damageType				= DAM_MAGIC;

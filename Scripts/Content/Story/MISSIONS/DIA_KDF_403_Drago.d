@@ -17,8 +17,8 @@ FUNC int  KDF_403_Drago_RUNE_Condition()
 func void  KDF_403_Drago_RUNE_Info()
 {
 	AI_Output (self, other,"KDF_403_Drago_RUNE_Info_13_01"); //Przyjmij tê runê jako znak przychylnoœci Innosa. Oby ciê chroni³a podczas marszu przez tw¹ œcie¿kê ¿ycia.
-	CreateInvItem (self,ItArRuneFirebolt);
-	B_GiveInvItems (self, other, ItArRuneFirebolt, 1);
+	CreateInvItem (self,Itmi_Runeblank);
+	B_GiveInvItems (self, other, Itmi_Runeblank, 1);
 	AI_StopProcessInfos	( self );
 };
 //------------------------------------------------------------------

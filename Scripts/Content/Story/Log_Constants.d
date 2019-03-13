@@ -34,6 +34,7 @@ const string	GE_TeacherPSI			=	"Nauczyciel w Obozie Bractwa";
 const string	GE_TeacherOW			=	"Niezale¿ny nauczyciel";
 
 const string	GE_AnimalTrophies		=	"Oprawianie zwierzyny";
+const string    GE_TalentRunes          =   "Runy";
 
 //---------------------------------------------------------------------
 //	KAPITEL 1
@@ -70,6 +71,7 @@ const string	CH1_DrugMonopol			=	"Wytwórnia ziela";
 //---------------------------------------------------------------------
 const string	CH2_Focus				=	"Kamieñ ogniskuj¹cy dla Guru";
 const string	CH2_MCEggs				=	"Wydzielina pe³zaczy";
+const string    CH2_KDF_Rune            =   "Moja pierwsza Runa";
 const string	CH2_Book				=	"Almanach";
 const string	CH2_SnipesDeal			=	"Skrzynia Aarona";
 const string	CH2_StorageShed			=	"Szopa Ulberta";

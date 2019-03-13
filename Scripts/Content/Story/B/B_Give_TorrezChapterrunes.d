@@ -17,6 +17,7 @@ func void B_Give_TorrezChapter1Runes ()
 	CreateInvItems (npc,ItFo_Potion_Health_01 ,8);
 	CreateInvItems (npc,ItFo_Potion_Water_01 ,10);
 
+	CreateInvItem (npc,ItWr_Book_Circle_01);
 	CreateInvItem (npc,ItWr_Book_Circle_02);
 	CreateInvItem (npc,ItWr_Book_Circle_03);
 	
@@ -31,10 +32,11 @@ func void B_Give_TorrezChapter2Runes ()
 	npc = Hlp_GetNpc(KDF_405_Torrez);
 	
 	//-------- Runen --------
-	CreateInvItem (npc,ItArRuneLight);
-	CreateInvItem (npc,ItArRuneFirebolt);
-	CreateInvItem (npc,ItArRuneHeal);
-	CreateInvItem (npc,ItArRuneFireball);
+	// CreateInvItem (npc,ItArRuneLight);
+	// CreateInvItem (npc,ItArRuneFirebolt);
+	// CreateInvItem (npc,ItArRuneHeal);
+	// CreateInvItem (npc,ItArRuneFireball);
+	CreateInvItem(npc, Itmi_Runeblank);
 
 	//-------- Scrolls --------
 	CreateInvItems (npc,ItArScrollFirebolt,12);
@@ -51,9 +53,9 @@ func void B_Give_TorrezChapter2Runes ()
 	CreateInvItems (npc,ItArScrollTrfCrawler,3);
 	CreateInvItems (npc,ItArScrollTrfBloodfly,3);
 	//-------- Bücher --------
-  	CreateInvItem (npc,ItWr_Book_Circle_04);
-	CreateInvItem (npc,ItWr_Book_Circle_05);
-	CreateInvItem (npc,ItWr_Book_Circle_06);
+  	// CreateInvItem (npc,ItWr_Book_Circle_04);
+	// CreateInvItem (npc,ItWr_Book_Circle_05);
+	// CreateInvItem (npc,ItWr_Book_Circle_06);
   	//-------- Tränke --------
 	CreateInvItems (npc,ItFo_Potion_Mana_01 ,12);
    CreateInvItems (npc,ItFo_Potion_Mana_02 ,8);
@@ -72,7 +74,8 @@ func void B_Give_TorrezChapter3Runes ()
 	npc = Hlp_GetNpc(KDF_405_Torrez);
 	
 	//-------- Runen --------
-	CreateInvItem (npc,ItArRuneFirestorm);
+	// CreateInvItem (npc,ItArRuneFirestorm);
+	CreateInvItem(npc, Itmi_Runeblank);
 
 	//-------- Scrolls --------
 	CreateInvItems (npc,ItArScrollFirebolt,16);

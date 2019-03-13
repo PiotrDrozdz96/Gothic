@@ -22,6 +22,13 @@ INSTANCE ItWr_Book_Circle_01(C_Item)
 
 	FUNC VOID UseItWr_Book_Circle_01()
 	{   
+		if(Knows_Book_Circle_01 == FALSE)
+		{
+			G_PrintScreen("Z ksi¹¿ki wypad³a jakaœ kartka");
+			CreateInvItem(self, ItWr_Necromancer_Letter_01);
+			Knows_Book_Circle_01 = TRUE;
+		};
+		
 		var int nDocID;
 		var string Text;
 		Text = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_LIGHT));
@@ -53,16 +60,19 @@ INSTANCE ItWr_Book_Circle_01(C_Item)
 					Doc_PrintLine	( nDocID,  1,  "Œwiat³o" );
 					Doc_PrintLine	( nDocID,  1, "---------------");
 					Doc_PrintLines	( nDocID,  1, "Pierwszy dar Innosa dla ludzkoœci. Lœni¹ca kula rozœwietla bezpoœrednie otoczenie maga. ");
+					Doc_PrintLine	( nDocID,  1,  "1 z³ota moneta");
 					Doc_PrintLine	( nDocID,  1,  Text);
 					Doc_PrintLine	( nDocID,  1,  "" );
 					Doc_PrintLine	( nDocID,  1, "Sopel lodu");
 					Doc_PrintLine	( nDocID,  1, "---------------");
 					Doc_PrintLines	( nDocID,  1, "Pocisk magicznej energii.");
+					Doc_PrintLine	( nDocID,  1,  "1 kwarcyt");
 					Doc_PrintLine	( nDocID,  1,  Text_1);
 					Doc_PrintLine	( nDocID,  1, "");
-					Doc_PrintLine	( nDocID,  1, "Ognisty pocisk");
+					Doc_PrintLine	( nDocID,  1, "Ognista Strza³a");
 					Doc_PrintLine	( nDocID,  1, "---------------");
 					Doc_PrintLines	( nDocID,  1, "Pocisk magicznego Ognia.");
+					Doc_PrintLine	( nDocID,  1, "1 siarka");
 					Doc_PrintLine	( nDocID,  1,  Text_2);
 					Doc_Show		( nDocID );
 	};
@@ -93,8 +103,12 @@ INSTANCE ItWr_Book_Circle_02(C_Item)
 	{   
 		var int nDocID;
 		
+		var string Text;
+		Text = ConcatStrings (NAME_Manakosten,IntToString (SPL_HEALING_HP_PER_MP));
 		var string Text_1;
-		Text_1 = ConcatStrings (NAME_Manakosten,IntToString (SPL_HEALING_HP_PER_MP));
+		Text_1 = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_FIREBALL));
+		var string Text_2;
+		Text_2 = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_ICECUBE));
 		
 	
 		nDocID = 	Doc_Create		()			  ;								// DocManager 
@@ -110,29 +124,36 @@ INSTANCE ItWr_Book_Circle_02(C_Item)
 					Doc_PrintLine	( nDocID,  0, "Drugi Kr¹g"			);
 					Doc_PrintLine	( nDocID,  0, "---------------"			);
 					Doc_SetFont 	( nDocID, -1, "font_10_book.TGA"	   			); 	// -1 -> all pages 
-					Doc_PrintLine	( nDocID,  0, "");
-					Doc_PrintLine	( nDocID,  0, "");
 					Doc_PrintLines	( nDocID,  0, "Wszelka magia czerpie z magicznych zdolnoœci jej u¿ytkownika, zwanego odpowiednio MAGIEM.");
-					Doc_PrintLine	( nDocID,  0, "");
 					Doc_PrintLine	( nDocID,  0, "");
 					Doc_PrintLines	( nDocID,  0, "Ka¿de wykorzystanie magicznego zaklêcia kosztuje maga czêœæ jego mocy. Ich zapas nazywany bywa czasem iloœci¹ mana.");
 					Doc_PrintLine	( nDocID,  0, "");
+					Doc_PrintLines	( nDocID,  0, "Niektóre zaklêcia mo¿na na³adowaæ pewn¹ dawk¹ energii magicznej. Nazywamy je zaklêciami odnawialnymi.");
 					Doc_PrintLine	( nDocID,  0, "");
+					Doc_PrintLines	( nDocID,  0, "Inne zaklêcia dzia³aj¹ tak d³ugo, jak mag udziela im swojej energii mana. Te z kolei nazywane s¹ zaklêciami inwestycyjnymi.");
 					
 					
 					//2.Seite
-					Doc_SetMargins	( nDocID, -1, 30, 20, 275, 20, 1   		);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+					Doc_SetMargins	( nDocID, -1, 25, 20, 275, 20, 1   		);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
 					Doc_PrintLine	( nDocID,  1, "");
 					Doc_PrintLine	( nDocID,  1, "Uzdrowienie");
 					Doc_PrintLine	( nDocID,  1, "---------------");
 					Doc_PrintLines	( nDocID,  1, "Adanos ujrza³, ¿e ludzie s¹ œmiertelni i wiedzia³, ¿e jest to wol¹ Beliara. I rzek³: Nie sprzeciwiê siê woli Beliara, ale dam za to ludziom dar uzdrawiania." ); 
 					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "1 roœlina lecznicza");
+					Doc_PrintLine	( nDocID,  1,  Text);
 					Doc_PrintLine	( nDocID,  1, "");
-					Doc_PrintLines	( nDocID,  1, "To zaklêcie uzdrawia maga.");
-					Doc_PrintLine	( nDocID,  1, "Zaklêcia czerpi¹ce");
-					Doc_PrintLine	( nDocID,  1,  Text_1);
+					Doc_PrintLine	( nDocID,  1, "Kula ognia");
+					Doc_PrintLine	( nDocID,  1, "---------------");
+					Doc_PrintLines	( nDocID,  1, "Potê¿ny, magiczny pocisk, spopielaj¹cy ofiary.");
+					Doc_PrintLine	( nDocID,  1, "1 smo³a");
+					Doc_PrintLine	( nDocID,  1, Text_1);
 					Doc_PrintLine	( nDocID,  1, "");
-					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "Bry³a lodu");
+					Doc_PrintLine	( nDocID,  1, "---------------");
+					Doc_PrintLines	( nDocID,  1, "Ofiara otoczona zostaje bry³¹ lodu. Zaklêcie pochodzi z Krêgu Magów Wody.");
+					Doc_PrintLine	( nDocID,  1, "1 kwarcyt, 1 akwamaryn");
+					Doc_PrintLine	( nDocID,  1, Text_2);
 					
 					Doc_Show		( nDocID );
 	};
@@ -164,11 +185,9 @@ INSTANCE ItWr_Book_Circle_03 (C_Item)
 		
 		var int nDocID;
 		var string Text;
-		Text = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_FIREBALL));
+		Text = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_FIRESTORM));
 		var string Text_1;
-		Text_1 = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_ICECUBE));
-		var string Text_2;
-		Text_2 = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_THUNDERBALL));
+		Text_1 = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_THUNDERBALL));
 		nDocID = 	Doc_Create		()			  ;								// DocManager 
 					Doc_SetPages	( nDocID,  2 );                         //wieviel Pages
 
@@ -192,22 +211,21 @@ INSTANCE ItWr_Book_Circle_03 (C_Item)
 					//2.Seite
 					Doc_SetMargins	( nDocID, -1, 30, 20, 275, 20, 1   		);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
 					Doc_PrintLine	( nDocID,  1, "");
-					Doc_PrintLine	( nDocID,  1, "Kula ognia");
+					Doc_PrintLine	( nDocID,  1, "Ognista burza");
 					Doc_PrintLine	( nDocID,  1, "---------------");
-					Doc_PrintLines	( nDocID,  1, "Drugi dar Innosa dla dzieci Ognia. Potê¿ny, magiczny pocisk, spopielaj¹cy ofiary.");
+					Doc_PrintLines	( nDocID,  1, "Podobnie jak w Kuli ognia, energia tego zaklêcia kierowana jest przeciwko kolejnym ofiarom.");
 					Doc_PrintLine	( nDocID,  1, "Zaklêcie odnawialne");
+					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "1 smo³a, 1 siarka");
 					Doc_PrintLine	( nDocID,  1, Text);
-					Doc_PrintLine	( nDocID,  1, "");
-					Doc_PrintLine	( nDocID,  1, "Bry³a lodu");
-					Doc_PrintLine	( nDocID,  1, "---------------");
-					Doc_PrintLines	( nDocID,  1, "Ofiara otoczona zostaje bry³¹ lodu. Zaklêcie pochodzi z Krêgu Magów Wody.");
-					Doc_PrintLine	( nDocID,  1, "");
-					Doc_PrintLine	( nDocID,  1, Text_1);
 					Doc_PrintLine	( nDocID,  1, "");
 					Doc_PrintLine	( nDocID,  1, "Piorun kulisty");
 					Doc_PrintLine	( nDocID,  1, "---------------");
 					Doc_PrintLines	( nDocID,  1, "Potê¿ny pocisk magiczny.");
-					Doc_PrintLine	( nDocID,  1,  Text_2);
+					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "1 siarka,");
+					Doc_PrintLine	( nDocID,  1, "1 ska³a krystaliczna");
+					Doc_PrintLine	( nDocID,  1,  Text_1);
 					Doc_Show		( nDocID );
 	};
 		
@@ -223,7 +241,7 @@ INSTANCE ItWr_Book_Circle_04 (C_Item)
 
 	value 					=	200;
 
-	visual 					=	"ItWr_Book_02_03.3ds";
+	visual 					=	"ItWr_Book_02_04.3ds";
 	material 				=	MAT_LEATHER;
 
 	scemeName				=	"MAP";
@@ -238,8 +256,6 @@ INSTANCE ItWr_Book_Circle_04 (C_Item)
 	FUNC VOID UseItWr_Book_Circle_04()
 	{   
 		var int nDocID;
-		var string Text;
-		Text = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_FIRESTORM));
 		var string Text_1;
 		Text_1 = ConcatStrings (NAME_Manakosten,IntToString (SPL_ZAPPED_DAMAGE_PER_SEC));
 		var string Text_2;
@@ -268,22 +284,17 @@ INSTANCE ItWr_Book_Circle_04 (C_Item)
 
 					//2.Seite
 					Doc_SetMargins	( nDocID, -1, 30, 20, 275, 20, 1   		);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
-					
-					
-					Doc_PrintLine	( nDocID,  1, "Ognista burza	");
-					Doc_PrintLine	( nDocID,  1, "---------------");
-					Doc_PrintLines	( nDocID,  1, "Podobnie jak w Kuli ognia, energia tego zaklêcia kierowana jest przeciwko kolejnym ofiarom.");
-					Doc_PrintLine	( nDocID,  1, "Zaklêcie odnawialne");
-					Doc_PrintLine	( nDocID,  1, "");
-					Doc_PrintLine	( nDocID,  1, Text);
 					Doc_PrintLine	( nDocID,  1, "Grom");
 					Doc_PrintLine	( nDocID,  1, "---------------");
 					Doc_PrintLines	( nDocID,  1, "Magiczna energia przeskakuje od jednej ofiary do drugiej. Zdarza siê, ¿e nawet mag mo¿e paœæ ofiar¹ tego zaklêcia!");
+					Doc_PrintLine	( nDocID,  1, "1 ska³a krystaliczna,");
+					Doc_PrintLine	( nDocID,  1, "1 kwarcyt");
 					Doc_PrintLine	( nDocID,  1,  Text_1);
 					Doc_PrintLine	( nDocID,  1, "");	
 					Doc_PrintLine	( nDocID,  1, "Œmieræ o¿ywieñcom");
 					Doc_PrintLine	( nDocID,  1, "---------------");
 					Doc_PrintLines	( nDocID,  1, "To zaklêcie przeznaczone jest do walki z piekielnymi zastêpami o¿ywieñców.");	
+					Doc_PrintLine	( nDocID,  1, "1 woda œwiêcona");
 					Doc_PrintLine	( nDocID,  1, Text_2);
 					
 					Doc_Show		( nDocID );
@@ -299,7 +310,7 @@ INSTANCE  ItWr_Book_Circle_05(C_Item)
 
 	value 					=	250;
 
-	visual 					=	"ItWr_Book_02_03.3ds";
+	visual 					=	"ItWr_Book_02_04.3ds";
 	material 				=	MAT_LEATHER;
 
 	scemeName				=	"MAP";
@@ -315,9 +326,7 @@ INSTANCE  ItWr_Book_Circle_05(C_Item)
 	{   
 		var int nDocID;
 		var string Text_1;
-		Text_1 = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_FIRERAIN));
-		var string Text_2;
-		Text_2 = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_ICEWAVE));
+		Text_1 = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_ICEWAVE));
 		nDocID = 	Doc_Create		()			  ;								// DocManager 
 					Doc_SetPages	( nDocID,  2 );                         //wieviel Pages
 
@@ -332,21 +341,12 @@ INSTANCE  ItWr_Book_Circle_05(C_Item)
 					Doc_PrintLine	( nDocID,  0, "---------------");
 					Doc_SetFont 	( nDocID, -1, "font_10_book.TGA"	   			); 	// -1 -> all pages 
 					Doc_PrintLine	( nDocID,  0, "");
-					Doc_PrintLine	( nDocID,  0, "");
-					Doc_PrintLine	( nDocID,  0, "Deszcz ognia");
+					Doc_PrintLine	( nDocID,  0, "Lodowa fala ");
 					Doc_PrintLine	( nDocID,  0, "---------------");
-					Doc_PrintLines	( nDocID,  0, "Œwiêty Ogieñ niesie zag³adê wszystkim istotom znajduj¹cym siê w pobli¿u maga.");
-					Doc_PrintLine	( nDocID,  0, Text_1);					
-					
-					
-					//2.Seite
-					Doc_SetMargins	( nDocID, -1, 30, 20, 275, 20, 1   		);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
-					Doc_PrintLine	( nDocID,  1, "");
-					Doc_PrintLine	( nDocID,  1, "Lodowa fala ");
-					Doc_PrintLine	( nDocID,  1, "---------------");
-					Doc_PrintLines	( nDocID,  1, "Magiczna fala lodu zamra¿a grupê nieprzyjació³ na krótki okres czasu, uniemo¿liwiaj¹c im ruch i zadaj¹c obra¿enia. ");
-					Doc_PrintLines	( nDocID,  1, "Zaklêcie z Krêgu Magów Wody.");
-					Doc_PrintLine	( nDocID,  1, Text_2);
+					Doc_PrintLines	( nDocID,  0, "Magiczna fala lodu zamra¿a grupê nieprzyjació³ na krótki okres czasu, uniemo¿liwiaj¹c im ruch i zadaj¹c obra¿enia. ");
+					Doc_PrintLines	( nDocID,  0, "Zaklêcie z Krêgu Magów Wody.");
+					Doc_PrintLine	( nDocID,  0, "1 kwarcyt, 1 akwamaryn");
+					Doc_PrintLine	( nDocID,  0, Text_1);
 					Doc_Show		( nDocID );
 };
 
@@ -359,7 +359,7 @@ INSTANCE  ItWr_Book_Circle_06(C_Item)
 
 	value 					=	300;
 
-	visual 					=	"ItWr_Book_02_03.3ds";
+	visual 					=	"ItWr_Book_02_05.3ds";
 	material 				=	MAT_LEATHER;
 
 	scemeName				=	"MAP";
@@ -376,6 +376,10 @@ INSTANCE  ItWr_Book_Circle_06(C_Item)
 		var int nDocID;
 		var string Text;
 		Text = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_BREATHOFDEATH));
+		var string Text_1;
+		Text_1 = ConcatStrings(NAME_Manakosten, IntToString (SPL_SENDCAST_FIRERAIN));
+		var string Text_2;
+		Text_2 = ConcatStrings(NAME_Manakosten, IntToString (SPL_SENDCAST_ARMYOFDARKNESS));
 	
 		
 		nDocID = 	Doc_Create		()			  ;								// DocManager 
@@ -391,19 +395,33 @@ INSTANCE  ItWr_Book_Circle_06(C_Item)
 					Doc_PrintLine	( nDocID,  0, "Szósty Kr¹g"			);
 					Doc_SetFont 	( nDocID, -1, "font_10_book.TGA"	   			); 	// -1 -> all pages 
 					Doc_PrintLine	( nDocID,  0, "");
-					Doc_PrintLine	( nDocID,  0, "");
-					Doc_PrintLine	( nDocID,  0, "");
+					Doc_PrintLine	( nDocID,  0, "Deszcz ognia");
+					Doc_PrintLine	( nDocID,  0, "---------------");
+					Doc_PrintLines	( nDocID,  0, "Œwiêty Ogieñ niesie zag³adê wszystkim istotom znajduj¹cym siê w pobli¿u maga.");
+					Doc_PrintLine	( nDocID,  0, "1 siarka,");
+					Doc_PrintLine	( nDocID,  0, "1 jêzyk ognistego jaszczura");
+					Doc_PrintLine	( nDocID,  0, Text_1);	
 					Doc_PrintLine	( nDocID,  0, "");
 					Doc_PrintLine	( nDocID,  0, "Tchnienie œmierci");
 					Doc_PrintLine	( nDocID,  0, "---------------");
 					Doc_PrintLines	( nDocID,  0, "Oddech Beliara. Zaklêcie to potrafi natychmiast powaliæ nawet najpotê¿niejsze istoty.");
-					Doc_PrintLine	( nDocID,  0, "");
-					Doc_PrintLine	( nDocID,  0, Text);					
+					Doc_PrintLine	( nDocID,  0, "1 czarna per³a, 1 wêgiel");
+					Doc_PrintLine	( nDocID,  0, Text);
+									
 					
 					
 					//2.Seite
 					Doc_SetMargins	( nDocID, -1, 30, 20, 275, 20, 1   		);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
 					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "Armia Ciemnoœci");
+					Doc_PrintLine	( nDocID,  1, "---------------");
+					Doc_PrintLines	( nDocID,  1, "Potê¿ne zaklêcie przyzwania, tworz¹ce Armiê Ciemnoœci prosto z otch³ani Beliara.");	
+					Doc_PrintLine	( nDocID,  1, "1 koœæ szkieletu, ");
+					Doc_PrintLine	( nDocID,  1, "1 czarna per³a,");
+					Doc_PrintLine	( nDocID,  1, "1 serce golema,");
+					Doc_PrintLine	( nDocID,  1, "1 serce demona");
+					Doc_PrintLines	( nDocID,  1, Text_2);
 					Doc_PrintLine	( nDocID,  1, "");
 					Doc_PrintLine	( nDocID,  1, "Pierœcieñ œmierci");
 					Doc_PrintLine	( nDocID,  1, "---------------");
@@ -415,6 +433,335 @@ INSTANCE  ItWr_Book_Circle_06(C_Item)
 					Doc_Show		( nDocID );
 };
 
+INSTANCE ItWr_Book_Sekte_01(C_Item)
+{	
+	name 					=	"Magia Œni¹cego";
+	
+	mainflag 				=	ITEM_KAT_DOCS;
+	flags 					=	0;
+
+	value 					=	100;
+
+	visual 					=	"ItWr_Book_02_02.3ds";
+	material 				=	MAT_LEATHER;
+
+	scemeName				=	"MAP";	
+	description			= "Magia Œni¹cego - Tom 1";
+	
+	TEXT[5]				= NAME_Value;
+	COUNT[5]			= value;
+	on_state[0]			=	UseItWr_Book_Sekte_01;
+};
+
+	FUNC VOID UseItWr_Book_Sekte_01()
+	{   
+		var int nDocID;
+		
+		var string Text;
+		Text = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_SLEEP));
+		var string Text_1;
+		Text_1 = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_WINDFIST));
+	
+		nDocID = 	Doc_Create		()			  ;								// DocManager 
+					Doc_SetPages	( nDocID,  2 );                         //wieviel Pages
+
+					Doc_SetPage 	( nDocID,  0, "Book_Mage_L.tga", 	0 		); 
+					Doc_SetPage 	( nDocID,  1, "Book_Mage_R.tga",	0		);
+					
+					//1.Seite
+  					
+  					Doc_SetFont 	( nDocID, -1, "font_15_book.tga"	   			); 	// -1 -> all pages 
+  					Doc_SetMargins	( nDocID,  0,  275, 20, 30, 20, 1   		);  //  0 -> margins are in pixels
+					Doc_PrintLine	( nDocID,  0, "Magia Œni¹cego"			);
+					Doc_PrintLine	( nDocID,  0, "---------------"			);
+					Doc_SetFont 	( nDocID, -1, "font_10_book.TGA"	   			); 	// -1 -> all pages 
+					Doc_PrintLines	( nDocID,  0, "Dawno temu Œni¹cy przyby³ tutaj i zes³a³ ludziom prorocz¹ wizjê.");
+					Doc_PrintLine	( nDocID,  0, "");
+					Doc_PrintLines	( nDocID,  0, "Jednak wielu z nich nie chcia³o zobaczyæ jego potêgi. Nie chcia³o uwierzyæ. Zaœlepia³a ich chciwoœæ rudy.");
+					Doc_PrintLine	( nDocID,  0, "");
+					Doc_PrintLines	( nDocID,  0, "Tylko Y'Berion, wraz z garstk¹ towarzyszy us³ucha³ g³osu Œni¹cego. Tak powsta³o Bractwo.");
+					Doc_PrintLine	( nDocID,  0, "");
+					Doc_PrintLines	( nDocID,  0, "W chwili, w której po raz pierwszy wst¹pili na œcie¿kê zbawienia, magia runiczna sta³a siê zrozumia³a dla ka¿dego, kto pod¹¿a³ œladem Œni¹cego.");
+					
+					
+					//2.Seite
+					Doc_SetMargins	( nDocID, -1, 25, 20, 275, 20, 1   		);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "Sen - Kr¹g 1");
+					Doc_PrintLine	( nDocID,  1, "---------------");
+					Doc_PrintLines	( nDocID,  1, "Œniacy zsy³a ukojenie, które chroni nieœwiadomych," ); 
+					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "1 bagienne ziele");
+					Doc_PrintLine	( nDocID,  1,  Text);
+					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "Uderzenie Wiatru - Kr¹g 2");
+					Doc_PrintLine	( nDocID,  1, "---------------");
+					Doc_PrintLines	( nDocID,  1, "jednak opieraj¹cy siê zostan¹ zrzuceni w otch³añ.");
+					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "1 wêgiel,");
+					Doc_PrintLine	( nDocID,  1, "1 Zielony Nowicjusz");
+					Doc_PrintLine	( nDocID,  1, Text_1);
+					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "Telekineza - Kr¹g 2");
+					Doc_PrintLine	( nDocID,  1, "---------------");
+					Doc_PrintLines	( nDocID,  1, "Uczeñ próbuje przesuwaæ przedmioty rêkami i nogami. Mistrz porusza je si³¹ swego ducha.");
+					Doc_PrintLine	( nDocID,  1, "1 Zielony Nowicjusz");
+					
+					Doc_Show		( nDocID );
+	};
+
+INSTANCE ItWr_Book_Sekte_02(C_Item)
+{	
+	name 					=	"Magia Œni¹cego";
+	
+	mainflag 				=	ITEM_KAT_DOCS;
+	flags 					=	0;
+
+	value 					=	150;
+
+	visual 					=	"ItWr_Book_02_02.3ds";
+	material 				=	MAT_LEATHER;
+
+	scemeName				=	"MAP";	
+	description			= "Magia Œni¹cego - Tom 2";
+	
+	TEXT[5]				= NAME_Value;
+	COUNT[5]			= value;
+	on_state[0]			=	UseItWr_Book_Sekte_02;
+};
+
+	FUNC VOID UseItWr_Book_Sekte_02()
+	{   
+		var int nDocID;
+		
+		var string Text;
+		Text = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_STORMFIST));
+		var string Text_1;
+		Text_1 = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_FEAR));
+		
+	
+		nDocID = 	Doc_Create		()			  ;								// DocManager 
+					Doc_SetPages	( nDocID,  2 );                         //wieviel Pages
+
+					Doc_SetPage 	( nDocID,  0, "Book_Mage_L.tga", 	0 		); 
+					Doc_SetPage 	( nDocID,  1, "Book_Mage_R.tga",	0		);
+					
+					//1.Seite
+  					
+  					Doc_SetFont 	( nDocID, -1, "font_15_book.tga"	   			); 	// -1 -> all pages 
+  					Doc_SetMargins	( nDocID,  0,  275, 20, 30, 20, 1   		);  //  0 -> margins are in pixels
+					Doc_PrintLine	( nDocID,  0, "Magia Œni¹cego"			);
+					Doc_PrintLine	( nDocID,  0, "---------------"			);
+					Doc_SetFont 	( nDocID, -1, "font_10_book.TGA"	   			); 	// -1 -> all pages 
+					Doc_PrintLines	( nDocID,  0, "Œni¹cy wskaza³ Y'Berionowi i jego uczniom miejsce, w którym mieli siê osiedliæ. Wspólnie spróbowali przez modlitwê zjednoczyæ siê duchowo ze Œni¹cym.");
+					Doc_PrintLine	( nDocID,  0, "");
+					Doc_PrintLines	( nDocID,  0, "Zsy³ane przez Œni¹cego wizje by³y co raz wyraŸniejsze.");
+					Doc_PrintLine	( nDocID,  0, "");
+					Doc_PrintLines	( nDocID,  0, "Wyznawcy wyruszyli do innych obozów, by g³osiæ tam nauki Œni¹cego i wyprowadziæ niewiernych z b³êdów pogañstwa.");
+					Doc_PrintLine	( nDocID,  0, "");
+					
+					
+					//2.Seite
+					Doc_SetFont 	( nDocID, -1, "font_15_book.tga"	   			); 	// -1 -> all pages 
+					Doc_SetMargins	( nDocID, -1, 25, 20, 275, 20, 1   		);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+				  	Doc_PrintLine	( nDocID,  1, "Trzeci Kr¹g"			);
+				  	Doc_PrintLine	( nDocID,  1, "---------------");
+				  	Doc_SetFont 	( nDocID, -1, "font_10_book.TGA"	   			); 	// -1 -> all pages 
+					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "Uderzenie Burzy");
+					Doc_PrintLine	( nDocID,  1, "---------------");
+					Doc_PrintLines	( nDocID,  1, "Potêga Œni¹cego pochodzi bezpoœrednio od natur." ); 
+					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "1 wêgiel,");
+					Doc_PrintLine	( nDocID,  1, "1 Mrok Pó³nocy");
+					Doc_PrintLine	( nDocID,  1,  Text);
+					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "Strach");
+					Doc_PrintLine	( nDocID,  1, "---------------");
+					Doc_PrintLines	( nDocID,  1, "Wrogowie dr¿¹, przed Potêg¹ Œni¹cego.");
+					Doc_PrintLine	( nDocID,  1, "1 czarna per³a");
+					Doc_PrintLine	( nDocID,  1, Text_1);
+					Doc_PrintLine	( nDocID,  1, "");
+					
+					Doc_Show		( nDocID );
+	};
+
+INSTANCE ItWr_Book_Sekte_03(C_Item)
+{	
+	name 					=	"Magia Œni¹cego";
+	
+	mainflag 				=	ITEM_KAT_DOCS;
+	flags 					=	0;
+
+	value 					=	250;
+
+	visual 					=	"ItWr_Book_02_02.3ds";
+	material 				=	MAT_LEATHER;
+
+	scemeName				=	"MAP";	
+	description			= "Magia Œni¹cego - Tom 3";
+	
+	TEXT[5]				= NAME_Value;
+	COUNT[5]			= value;
+	on_state[0]			=	UseItWr_Book_Sekte_03;
+};
+
+	FUNC VOID UseItWr_Book_Sekte_03()
+	{   
+		var int nDocID;
+		
+		var string Text;
+		Text = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_CHARM));
+		
+	
+		nDocID = 	Doc_Create		()			  ;								// DocManager 
+					Doc_SetPages	( nDocID,  2 );                         //wieviel Pages
+
+					Doc_SetPage 	( nDocID,  0, "Book_Mage_L.tga", 	0 		); 
+					Doc_SetPage 	( nDocID,  1, "Book_Mage_R.tga",	0		);
+					
+					//1.Seite
+  					
+  					Doc_SetFont 	( nDocID, -1, "font_15_book.tga"	   			); 	// -1 -> all pages 
+  					Doc_SetMargins	( nDocID,  0,  275, 20, 30, 20, 1   		);  //  0 -> margins are in pixels
+					Doc_PrintLine	( nDocID,  0, "Magia Œni¹cego"			);
+					Doc_PrintLine	( nDocID,  0, "---------------"			);
+					Doc_SetFont 	( nDocID, -1, "font_10_book.TGA"	   			); 	// -1 -> all pages 
+					Doc_PrintLines	( nDocID,  0, "Nasza wiara umocni³a siê i rozprzestrzeni³a.");
+					Doc_PrintLines	( nDocID,  0, "I nie zapomnieliœmy o naszym celu. Nie ustaliœmy w naszych wysi³kach, by przyzwaæ Œni¹cego do tego œwiata.");
+					Doc_PrintLine	( nDocID,  0, "");
+					Doc_PrintLines	( nDocID,  0, "Nasza wytrwa³oœæ i niezmiennoœæ naszej wiary symbolizuje Potêgê Œni¹cego.");
+					Doc_PrintLine	( nDocID,  0, "");
+					Doc_PrintLine	( nDocID,  0, "Pirokineza - Kr¹g 4");
+					Doc_PrintLine	( nDocID,  0, "---------------");
+					Doc_PrintLines	( nDocID,  0, "Niewiernych spali wewnêtrzy ¿ar.");
+					Doc_PrintLine	( nDocID,  0, "1 smo³a, 1 siarka,");
+					Doc_PrintLine	( nDocID,  0, "1 czarna per³a,");
+					Doc_PrintLine	( nDocID,  0, "1 Zew Mocy");
+					
+					
+					//2.Seite
+					Doc_SetMargins	( nDocID, -1, 25, 20, 275, 20, 1   		);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "Urok - Kr¹g 4");
+					Doc_PrintLine	( nDocID,  1, "---------------");
+					Doc_PrintLines	( nDocID,  1, "Poganie w koñcu zrozumi¹ Moc Œni¹cego" ); 
+					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "1 Mrok Pó³nocy");
+					Doc_PrintLine	( nDocID,  1,  Text);
+					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "Kontrola - Kr¹g 5");
+					Doc_PrintLine	( nDocID,  1, "---------------");
+					Doc_PrintLines	( nDocID,  1, "i ulegn¹ jego woli.");
+					Doc_PrintLine	( nDocID,  1, "1 Zew Mocy");
+					Doc_PrintLine	( nDocID,  1, "");
+					
+					Doc_Show		( nDocID );
+	};
+
+INSTANCE ItWr_Book_Necromancer(C_Item)
+{	
+	name 					=	"Magia Przywo³añ";
+	
+	mainflag 				=	ITEM_KAT_DOCS;
+	flags 					=	0;
+
+	value 					=	300;
+
+	visual 					=	"ItWr_Book_02_05.3ds";
+	material 				=	MAT_LEATHER;
+
+	scemeName				=	"MAP";	
+	description			= "Magia Przywo³añ";
+	
+	TEXT[5]				= NAME_Value;
+	COUNT[5]			= value;
+	on_state[0]			=	UseItWr_Book_Necromancer;
+};
+
+	FUNC VOID UseItWr_Book_Necromancer()
+	{   
+		var int nDocID;
+		
+		var string Text;
+		Text = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_SUMMONGOBBO));
+		var string Text_1;
+		Text_1 = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_SUMMONWOLF));
+		var string Text_2;
+		Text_2 = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_SUMMONSKELETON));
+		var string Text_3;
+		Text_3 = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_SUMMONGOLEM));
+		var string Text_4;
+		Text_4 = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_SUMMONDEMON));
+		var string Text_5;
+		Text_5 = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_ARMYOFDARKNESS));
+	
+		nDocID = 	Doc_Create		()			  ;								// DocManager 
+					Doc_SetPages	( nDocID,  2 );                         //wieviel Pages
+
+					Doc_SetPage 	( nDocID,  0, "Book_Mage_L.tga", 	0 		); 
+					Doc_SetPage 	( nDocID,  1, "Book_Mage_R.tga",	0		);
+					
+					//1.Seite
+  					
+  					Doc_SetFont 	( nDocID, -1, "font_15_book.tga"	   			); 	// -1 -> all pages 
+  					Doc_SetMargins	( nDocID,  0,  275, 20, 30, 20, 1   		);  //  0 -> margins are in pixels
+					Doc_PrintLine	( nDocID,  0, "Przywo³ania"			);
+					Doc_PrintLine	( nDocID,  0, "---------------"			);
+					Doc_SetFont 	( nDocID, -1, "font_10_book.TGA"	   			); 	// -1 -> all pages 
+					Doc_PrintLine	( nDocID,  0, "");
+					Doc_PrintLine	( nDocID,  0, "Przyzwanie");
+					Doc_PrintLine	( nDocID,  0, "szkieletu-goblina");
+					Doc_PrintLine	( nDocID,  0, "Kr¹g 1");
+					Doc_PrintLine	( nDocID,  0, "---------------");
+					Doc_PrintLine	( nDocID,  0, "1 koœæ goblina");
+					Doc_PrintLine	( nDocID,  0, Text);
+					Doc_PrintLine	( nDocID,  0, "");
+					Doc_PrintLine	( nDocID,  0, "Przyzwanie Wilka");
+					Doc_PrintLine	( nDocID,  0, "Kr¹g 2");
+					Doc_PrintLine	( nDocID,  0, "---------------");
+					Doc_PrintLine	( nDocID,  0, "1 skóra wilka");
+					Doc_PrintLine	( nDocID,  0, Text_1);
+					Doc_PrintLine	( nDocID,  0, "");
+					Doc_PrintLine	( nDocID,  0, "Przyzwanie Szkieleta");
+					Doc_PrintLine	( nDocID,  0, "Kr¹g 3");
+					Doc_PrintLine	( nDocID,  0, "---------------");
+					Doc_PrintLine	( nDocID,  0, "1 koœæ szkieletu");
+					Doc_PrintLine	( nDocID,  0, Text_2);
+					Doc_PrintLine	( nDocID,  0, "");
+					
+					
+					//2.Seite
+					Doc_SetFont 	( nDocID, -1, "font_15_book.tga"	   			); 	// -1 -> all pages 
+					Doc_SetMargins	( nDocID, -1, 25, 20, 275, 20, 1   		);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+				  	Doc_PrintLine	( nDocID,  1, "Przywo³ania"			);
+				  	Doc_PrintLine	( nDocID,  1, "---------------");
+				  	Doc_SetFont 	( nDocID, -1, "font_10_book.TGA"	   			); 	// -1 -> all pages 
+					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "Przyzwanie Golema");
+					Doc_PrintLine	( nDocID,  1, "Kr¹g 4");
+					Doc_PrintLine	( nDocID,  1, "---------------");
+					Doc_PrintLine	( nDocID,  1, "1 serce kamiennego golema");
+					Doc_PrintLine	( nDocID,  1, Text_3);
+					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "Przyzwanie Demona");
+					Doc_PrintLine	( nDocID,  1, "Kr¹g 5");
+					Doc_PrintLine	( nDocID,  1, "---------------");
+					Doc_PrintLine	( nDocID,  1, "1 serce Demona");
+					Doc_PrintLine	( nDocID,  1, Text_4);
+					Doc_PrintLine	( nDocID,  1, "");
+					Doc_PrintLine	( nDocID,  1, "Armia Ciemnoœci");
+					Doc_PrintLine	( nDocID,  1, "Kr¹g 6");
+					Doc_PrintLine	( nDocID,  1, "---------------");
+					Doc_PrintLine	( nDocID,  1, "1 koœæ szkieletu,");
+					Doc_PrintLine	( nDocID,  1, "1 czarna per³a,");
+					Doc_PrintLine	( nDocID,  1, "1 serce golema,");
+					Doc_PrintLine	( nDocID,  1, "1 serce demona");
+					Doc_PrintLine	( nDocID,  1, Text_4);
+					Doc_PrintLine	( nDocID,  1, "");
+					
+					Doc_Show		( nDocID );
+	};
  
 
 
@@ -1605,7 +1952,263 @@ INSTANCE ItWr_Bloodfly_01(C_Item)
 					{
 					Knows_GetBFSting = TRUE;
 					Log_CreateTopic (GE_AnimalTrophies,LOG_NOTE);
-					B_LogEntry (GE_AnimalTrophies,"Usuwanie ¿¹de³ krwiopijców");	
-					PrintScreen	("Nowa umiejêtnoœæ: Usuwanie ¿¹de³ krwiopijców", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
+					B_LogEntry (GE_AnimalTrophies,"Usuwanie ¿¹de³ i skrzyde³ krwiopijców");	
+					PrintScreen	("Nowa umiejêtnoœæ: Usuwanie ¿¹de³ i skrzyde³ krwiopijców", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
 					};
 	};
+
+INSTANCE ItWr_Necromancer_Letter_01 (C_Item)
+{	
+	name 				=	"Kartka";
+
+	mainflag 			=	ITEM_KAT_DOCS;
+
+	value 				=	0;
+
+	visual 				=	"ItWr_Scroll_01.3DS";
+	material 			=	MAT_LEATHER;
+	on_state[0]			=   UseNecromancerLetter_01;
+	scemeName			=	"MAP";
+	description			= "Notatka z ksi¹¿ki Pierwszy Kr¹g Magii";
+	TEXT[5]				= NAME_Value;
+	COUNT[5]			= value;
+	
+};
+func void UseNecromancerLetter_01 ()
+{   
+		var int nDocID;
+		
+		nDocID = 	Doc_Create		()			  ;								// DocManager 
+					Doc_SetPages	( nDocID,  1 );                         //wieviel Pages
+					Doc_SetPage 	( nDocID,  0, "letters.TGA"  , 0 		); 
+					Doc_SetFont 	( nDocID, -1, "font_10_book.tga"	   			); 	// -1 -> all pages 
+					Doc_SetMargins	( nDocID, -1, 50, 50, 50, 50, 1   		);  //  0 -> margins are in pixels
+					Doc_PrintLine	( nDocID,  0, " "					);
+					Doc_PrintLine	( nDocID,  0, "Magia przywo³añ,");
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_SetFont 	( nDocID, -1, "font_10_book.TGA"	   			); 	// -1 -> all pages 
+					Doc_PrintLines	( nDocID,  0, "Ksiêgi magów wody i ognia nie ujawniaj¹ ca³ej prawdy na temat struktury magii. W swoich badaniach odkry³em istnienie magii o wiele potê¿niejszej ni¿ obejmuje to ludzkie pojêcie. Bierze siê ona z potêgi Beliara. Magus korzystaj¹c ze swojej energii magicznej, mo¿e otwrzyæ portal do królestwa Beliara, aby przywo³aæ stamt¹d s³ugi z³a.");
+					Doc_PrintLines	( nDocID,  0, "Przywo³añców mo¿na kontrolowaæ, jednak wymaga to odpowiedniego doœwiadczenia. Czym potê¿niejsze stworzenie, tym trudniej go kontrolowaæ.");				
+					Doc_PrintLines	( nDocID,  0, "Szczegó³y opisa³em w osobnej notatce, skrzêtnie ukrytej miêdzy stronicami Almanachu. ");
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLine	( nDocID,  0, "                                      Xardas");
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_SetMargins	( nDocID, -1, 200, 50, 50, 50, 1   		);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus
+				
+					Doc_Show		( nDocID );
+		
+};
+
+INSTANCE ItWr_Necromancer_Letter_02 (C_Item)
+{	
+	name 				=	"Kartka";
+
+	mainflag 			=	ITEM_KAT_DOCS;
+
+	value 				=	0;
+
+	visual 				=	"ItWr_Scroll_01.3DS";
+	material 			=	MAT_LEATHER;
+	on_state[0]			=   UseNecromancerLetter_02;
+	scemeName			=	"MAP";
+	description			= "Notatka z Almanachu";
+	TEXT[5]				= NAME_Value;
+	COUNT[5]			= value;
+	
+};
+func void UseNecromancerLetter_02 ()
+{   
+		var int nDocID;
+		
+		nDocID = 	Doc_Create		()			  ;								// DocManager 
+					Doc_SetPages	( nDocID,  1 );                         //wieviel Pages
+					Doc_SetPage 	( nDocID,  0, "letters.TGA"  , 0 		); 
+					Doc_SetFont 	( nDocID, -1, "font_10_book.tga"	   			); 	// -1 -> all pages 
+					Doc_SetMargins	( nDocID, -1, 50, 50, 50, 50, 1   		);  //  0 -> margins are in pixels
+					Doc_PrintLine	( nDocID,  0, " "					);
+					Doc_PrintLine	( nDocID,  0, "Magia przywo³añ,");
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_SetFont 	( nDocID, -1, "font_10_book.TGA"	   			); 	// -1 -> all pages 
+					Doc_PrintLines	( nDocID,  0, "Sporz¹dzi³em receptury dwóch drobnych przywo³añ krêgu pierwszego i drugiego. Przywo³anie szkieletu goblina i wilka. Zrozumienie ich wymaga pewnego intelektu, ale nawet œrednio rozgarniêty mag powinien sobie z nimi poradziæ.");
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLines	( nDocID,  0, "W poszukiwaniu odpowiedzi na moje pytania uda³em siê do tajemniczej wie¿y na wschodzie. Wie¿a zamieszka³a jest przez armiê nieumar³ch. Zg³ebienie tej wiedzy pozwoli³o mi posun¹æ moje badania naprzód.");
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLine	( nDocID,  0, "                                      Xardas");
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_SetMargins	( nDocID, -1, 200, 50, 50, 50, 1   		);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus
+				
+					Doc_Show		( nDocID );
+		
+};
+
+INSTANCE ItWr_SummonGobbo (C_Item)
+{	
+	name 				=	"Kartka";
+
+	mainflag 			=	ITEM_KAT_DOCS;
+
+	value 				=	0;
+
+	visual 				=	"ItAr_Scroll_39.3DS";
+	material 			=	MAT_LEATHER;
+	on_state[0]			=   UseSummonGobbo;
+	scemeName			=	"MAP";
+	description			= "Przyzwanie szkieletu-goblina";
+	TEXT	[1]			=	NAME_Mag_Circle;			COUNT	[1]		=	1;
+	TEXT	[2]			=	"Punkty nauki";				COUNT	[2]		=	5;
+	TEXT	[3]			=	NAME_Manakosten;			COUNT	[3]		=	SPL_SENDCAST_SUMMONGOBBO;
+	TEXT[5]				= NAME_Value;
+	COUNT[5]			= value;
+	
+};
+func void UseSummonGobbo ()
+{   
+	if(Npc_GetTalentSkill (self,NPC_TALENT_MAGE ) > 0 && self.lp > 4 && PLAYER_TALENT_RUNES[SPL_SUMMONGOBBO] == FALSE)
+	{
+		B_TeachPlayerTalentRunes(self, SPL_SUMMONGOBBO, 5);
+	};
+	if(PLAYER_TALENT_RUNES[SPL_SUMMONGOBBO] == TRUE)
+	{
+		var int nDocID;
+		var string Text;
+		Text = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_SUMMONGOBBO));
+		
+		nDocID = 	Doc_Create		()			  ;								// DocManager 
+					Doc_SetPages	( nDocID,  1 );                         //wieviel Pages
+					Doc_SetPage 	( nDocID,  0, "letters.TGA"  , 0 		); 
+					Doc_SetFont 	( nDocID, -1, "font_15_book.tga"	   			); 	// -1 -> all pages 
+					Doc_SetMargins	( nDocID, -1, 50, 50, 50, 50, 1   		);  //  0 -> margins are in pixels
+					Doc_PrintLine	( nDocID,  0, " "					);
+					Doc_PrintLine	( nDocID,  0, "Przyzwanie szkieletu-goblina");
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLines	( nDocID,  0, "Kr¹g 1");
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLines	( nDocID,  0, "1 koœæ goblina");
+					Doc_PrintLine	( nDocID,  0, Text					);
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_Show		( nDocID );
+	}
+	else
+	{
+		B_say(self,self, "SVM_18_CantReadThis"); // Nie potrafiê tego przeczytaæ.
+	};
+		
+};
+
+INSTANCE ItWr_SummonWolf (C_Item)
+{	
+	name 				=	"Kartka";
+
+	mainflag 			=	ITEM_KAT_DOCS;
+
+	value 				=	0;
+
+	visual 				=	"ItAr_Scroll_09.3DS";
+	material 			=	MAT_LEATHER;
+	on_state[0]			=   UseSummonWolf;
+	scemeName			=	"MAP";
+	description			= "Przyzwanie wilka";
+	TEXT	[1]			=	NAME_Mag_Circle;			COUNT	[1]		=	2;
+	TEXT	[2]			=	"Punkty nauki";				COUNT	[2]		=	5;
+	TEXT	[3]			=	NAME_Manakosten;			COUNT	[3]		=	SPL_SENDCAST_SUMMONWOLF;
+	TEXT[5]				= NAME_Value;
+	COUNT[5]			= value;
+	
+};
+func void UseSummonWolf ()
+{   
+	if(Npc_GetTalentSkill (self,NPC_TALENT_MAGE ) > 1 && self.lp > 4 && PLAYER_TALENT_RUNES[SPL_SUMMONWOLF] == FALSE)
+	{
+		B_TeachPlayerTalentRunes(self, SPL_SUMMONWOLF, 5);
+	};
+	if(PLAYER_TALENT_RUNES[SPL_SUMMONWOLF] == TRUE)
+	{
+		var int nDocID;
+		var string Text;
+		Text = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_SUMMONWOLF));
+		
+		nDocID = 	Doc_Create		()			  ;								// DocManager 
+					Doc_SetPages	( nDocID,  1 );                         //wieviel Pages
+					Doc_SetPage 	( nDocID,  0, "letters.TGA"  , 0 		); 
+					Doc_SetFont 	( nDocID, -1, "font_15_book.tga"	   			); 	// -1 -> all pages 
+					Doc_SetMargins	( nDocID, -1, 50, 50, 50, 50, 1   		);  //  0 -> margins are in pixels
+					Doc_PrintLine	( nDocID,  0, " "					);
+					Doc_PrintLine	( nDocID,  0, "Przyzwanie wilka");
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLines	( nDocID,  0, "Kr¹g 2");
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLines	( nDocID,  0, "1 skóra wilka");
+					Doc_PrintLine	( nDocID,  0, Text					);
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_Show		( nDocID );
+	}
+	else
+	{
+		B_say(self,self, "SVM_18_CantReadThis"); // Nie potrafiê tego przeczytaæ.
+	};
+		
+};
+
+INSTANCE ItWr_SummonSkeleton (C_Item)
+{	
+	name 				=	"Kartka";
+
+	mainflag 			=	ITEM_KAT_DOCS;
+
+	value 				=	0;
+
+	visual 				=	"ItAr_Scroll_23.3DS";
+	material 			=	MAT_LEATHER;
+	on_state[0]			=   UseSummonSkeleton;
+	scemeName			=	"MAP";
+	description			= "Przyzwanie szkieleta";
+	TEXT	[1]			=	NAME_Mag_Circle;			COUNT	[1]		=	3;
+	TEXT	[2]			=	"Punkty nauki";				COUNT	[2]		=	10;
+	TEXT	[3]			=	NAME_Manakosten;			COUNT	[3]		=	SPL_SENDCAST_SUMMONSKELETON;
+	TEXT[5]				= NAME_Value;
+	COUNT[5]			= value;
+	
+};
+func void UseSummonSkeleton ()
+{   
+	if(Npc_GetTalentSkill (self,NPC_TALENT_MAGE ) > 2 && self.lp > 9 && PLAYER_TALENT_RUNES[SPL_SUMMONSKELETON] == FALSE)
+	{
+		B_TeachPlayerTalentRunes(self, SPL_SUMMONSKELETON, 10);
+	};
+	if(PLAYER_TALENT_RUNES[SPL_SUMMONSKELETON] == TRUE)
+	{
+		var int nDocID;
+		var string Text;
+		Text = ConcatStrings (NAME_Manakosten,IntToString (SPL_SENDCAST_SUMMONSKELETON));
+		
+		nDocID = 	Doc_Create		()			  ;								// DocManager 
+					Doc_SetPages	( nDocID,  1 );                         //wieviel Pages
+					Doc_SetPage 	( nDocID,  0, "letters.TGA"  , 0 		); 
+					Doc_SetFont 	( nDocID, -1, "font_15_book.tga"	   			); 	// -1 -> all pages 
+					Doc_SetMargins	( nDocID, -1, 50, 50, 50, 50, 1   		);  //  0 -> margins are in pixels
+					Doc_PrintLine	( nDocID,  0, " "					);
+					Doc_PrintLine	( nDocID,  0, "Przyzwanie szkieleta");
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLines	( nDocID,  0, "Kr¹g 3");
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLines	( nDocID,  0, "1 koœæ szkieletu");
+					Doc_PrintLine	( nDocID,  0, Text					);
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_PrintLine	( nDocID,  0, ""					);
+					Doc_Show		( nDocID );
+	}
+	else
+	{
+		B_say(self,self, "SVM_18_CantReadThis"); // Nie potrafiê tego przeczytaæ.
+	};
+		
+};

@@ -421,6 +421,10 @@ FUNC int  Kdf_404_Xardas_SELLMAGICSTUFF_Condition()
 };
 FUNC void  Kdf_404_Xardas_SELLMAGICSTUFF_Info()
 {
+	if( Npc_HasItems (self, ItArRuneFirebolt))
+	{
+		Npc_RemoveInvItem	(self, ItArRuneFirebolt);
+	};
 	AI_Output (other, self,"Kdf_404_Xardas_SELLMAGICSTUFF_Info_15_01"); //Poszukujê wiedzy magicznej.
 };
 
@@ -465,6 +469,42 @@ FUNC void  Info_Xardas_RETURN_Info()
 	B_Story_ReturnedFromUrShak();
 }; 
 
+//---------------------------------------------------------------------
+//	GET DEMON HEART
+//---------------------------------------------------------------------
+instance  Info_Xardas_DEMON_HEART (C_INFO)
+{
+	npc			= Kdf_404_Xardas;
+	condition	= Info_Xardas_DEMON_HEART_Condition;
+	information	= Info_Xardas_DEMON_HEART_Info;
+	important	= 0;
+	permanent	= 1;
+	description = "Wycinanie serc demonów (koszt: 5 punkt umiejêtnoœci)";
+};
+
+FUNC int Info_Xardas_DEMON_HEART_Condition()
+{
+	if(Npc_KnowsInfo(hero, Info_Xardas_RETURN) && Knows_GetDemonHeart == FALSE)
+	{
+		return TRUE;
+	};
+};
+
+FUNC void Info_Xardas_DEMON_HEART_Info()
+{
+	if(other.lp >= 5){
+		other.lp = other.lp - 5;
+		PrintScreen("Nowa umiejêtnoœæ: Wycinanie serc demonów",-1,-1,"FONT_OLD_20_WHITE.TGA",2);
+		Knows_GetDemonHeart = TRUE;
+		Log_CreateTopic(GE_AnimalTrophies,LOG_NOTE);
+		B_LogEntry(GE_AnimalTrophies," Umiejêtnoœæ wycinania serc demonów");
+	}
+	else
+	{
+		PrintScreen("Za ma³o punktów umiejêtnoœci!",-1,-1,"FONT_OLD_20_WHITE.TGA",2);	
+	};
+};
+
 //#####################################################################
 //##
 //##							DROPS
@@ -488,6 +528,7 @@ FUNC int  Info_Xardas_GIL_DMB_Condition()
 	&& (Npc_GetTrueGuild (hero) == GIL_KDW || Npc_GetTrueGuild (hero) == GIL_KDF || Npc_GetTrueGuild (hero) == GIL_GUR )
 	{			
 		if ( !Npc_KnowsInfo(hero, KDW_600_Saturas_HEAVYARMOR) )
+		&& PLAYER_TALENT_RUNES[SPL_SUMMONSKELETON] == TRUE
 		{
 			return TRUE;
 		};
@@ -569,7 +610,7 @@ instance  Info_Xardas_GIL_KDF (C_INFO)
 
 FUNC int  Info_Xardas_GIL_KDF_Condition()
 {	
-	if Npc_KnowsInfo(hero, Info_Xardas_RETURN)
+	if (Npc_KnowsInfo(hero, Info_Xardas_RETURN))
 	&& (Npc_GetTrueGuild (hero) == GIL_KDF )
 	{			
 		return TRUE;
@@ -1118,6 +1159,81 @@ func void  Info_Xardas_LOADSWORD09_Info()
 		
 		AI_StopProcessInfos	( self );
 	};
+};
+
+instance  KDF_404_Xardas_TEACH (C_INFO)
+{
+	npc				= KDF_404_Xardas;
+	condition		= KDF_404_Xardas_TEACH_Condition;
+	information		= KDF_404_Xardas_TEACH_Info;
+	permanent		= 1;
+	description		= "Naucz mnie."; 
+};
+
+FUNC int KDF_404_Xardas_TEACH_Condition()
+{	
+	if (Npc_GetTrueGuild (hero) == GIL_DMB)
+	{
+		return TRUE;
+	};
+
+};
+FUNC void  KDF_404_Xardas_TEACH_Info()
+{
+	AI_Output (other, self,"KDF_402_Corristo_TEACH_15_01"); //Zostañ moim nauczycielem.
+	Info_ClearChoices(KDF_404_Xardas_TEACH);
+	Info_AddChoice(KDF_404_Xardas_TEACH, DIALOG_BACK, KDF_404_Xardas_TEACH_BACK);
+	
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=4)
+	&&(PLAYER_TALENT_RUNES[SPL_SUMMONGOLEM] == FALSE)
+	{
+		Info_AddChoice(KDF_404_Xardas_TEACH,"Przyzwanie Golema 10 pn", KDF_404_Xardas_TEACH_SPL_SUMMONGOLEM);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=5)
+	&&(PLAYER_TALENT_RUNES[SPL_SUMMONDEMON] == FALSE)
+	{
+		Info_AddChoice(KDF_404_Xardas_TEACH,"Przyzwanie Demona 15 pn", KDF_404_Xardas_TEACH_SPL_SUMMONDEMON);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=6)
+	&&(PLAYER_TALENT_RUNES[SPL_ARMYOFDARKNESS] == FALSE)
+	{
+		Info_AddChoice(KDF_404_Xardas_TEACH,"Armia Ciemnoœci 20 pn", KDF_404_Xardas_TEACH_SPL_ARMYOFDARKNESS);
+	};
+
+	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=6)
+	&&(Npc_KnowsInfo(hero, Info_Xardas_GIL_KDF))
+	&&(PLAYER_TALENT_RUNES[SPL_FIRERAIN] == FALSE)
+	{
+		Info_AddChoice(KDF_404_Xardas_TEACH,"Deszcz Ognia 20 pn", KDF_404_Xardas_TEACH_SPL_FIRERAIN);
+	};
+
+};
+
+func void KDF_404_Xardas_TEACH_BACK()
+{
+	Info_ClearChoices	(KDF_404_Xardas_TEACH);
+};
+
+func void KDF_404_Xardas_TEACH_SPL_SUMMONGOLEM()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_SUMMONGOLEM, LPCOST_RUNEN_4);
+};
+
+func void KDF_404_Xardas_TEACH_SPL_SUMMONDEMON()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_SUMMONDEMON, LPCOST_RUNEN_5);
+};
+
+func void KDF_404_Xardas_TEACH_SPL_ARMYOFDARKNESS()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_ARMYOFDARKNESS, LPCOST_RUNEN_6);
+};
+
+func void KDF_404_Xardas_TEACH_SPL_FIRERAIN()
+{
+	B_TeachPlayerTalentRunes(hero, SPL_FIRERAIN, LPCOST_RUNEN_6);
 };
 
 	
