@@ -4,8 +4,8 @@ func int B_GiveSkill(var C_NPC typ, var int TAL, var int NEW_Wert, var int LP_Co
 	var int TAL_Wert; 
 	if 		(TAL == NPC_TALENT_1H)			{	if(NEW_Wert==4){NEW_Wert=1;TAL_Wert=0;} else{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_1H);	};	}
 	else if (TAL == NPC_TALENT_2H)			{	if(NEW_Wert==4){NEW_Wert=1;TAL_Wert=0;} else{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_2H);	};	}
-	else if (TAL == NPC_TALENT_BOW)			{	if(NEW_Wert==4){NEW_Wert=1;TAL_Wert=0;} else{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_BOW);	};	}
-	else if (TAL == NPC_TALENT_CROSSBOW)	{	if(NEW_Wert==4){NEW_Wert=1;TAL_Wert=0;} else{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_CROSSBOW);};}
+	else if (TAL == NPC_TALENT_BOW)			{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_BOW		);	}
+	else if (TAL == NPC_TALENT_CROSSBOW)	{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_CROSSBOW	);	}
 	else if (TAL == NPC_TALENT_PICKLOCK)	{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_PICKLOCK	);	}
 	else if (TAL == NPC_TALENT_PICKPOCKET)	{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_PICKPOCKET);	}
 	else if (TAL == NPC_TALENT_MAGE)		{	TAL_Wert = Npc_GetTalentSkill(typ, NPC_TALENT_MAGE		);	}
@@ -55,9 +55,6 @@ func int B_GiveSkill(var C_NPC typ, var int TAL, var int NEW_Wert, var int LP_Co
 				if (Npc_GetTalentValue(typ, NPC_TALENT_BOW) == 6 || Npc_GetTalentValue(typ, NPC_TALENT_BOW) == 15){
 					Npc_SetTalentSkill(typ, NPC_TALENT_BOW, 0);
 					Npc_SetTalentSkill(typ, NPC_TALENT_BOW, NEW_Wert);
-				}
-				else if (Npc_GetTalentValue(typ, NPC_TALENT_BOW) == 0){
-					Npc_SetTalentSkill(typ, NPC_TALENT_BOW, 3);
 				};
 				Npc_SetTalentValue(typ, NPC_TALENT_BOW, Npc_GetTalentValue(typ, NPC_TALENT_BOW)+3);
 				PrintScreen	("Nowa umiejêtnoœæ: Strzelanie z ³uku", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
@@ -68,9 +65,6 @@ func int B_GiveSkill(var C_NPC typ, var int TAL, var int NEW_Wert, var int LP_Co
 				if (Npc_GetTalentValue(typ, NPC_TALENT_CROSSBOW) == 8 || Npc_GetTalentValue(typ, NPC_TALENT_CROSSBOW) == 20){
 					Npc_SetTalentSkill(typ, NPC_TALENT_CROSSBOW, 0);
 					Npc_SetTalentSkill(typ, NPC_TALENT_CROSSBOW, NEW_Wert);
-				}
-				else if (Npc_GetTalentValue(typ, NPC_TALENT_CROSSBOW) == 0){
-					Npc_SetTalentSkill(typ, NPC_TALENT_CROSSBOW, 3);
 				};
 				Npc_SetTalentValue(typ, NPC_TALENT_CROSSBOW, Npc_GetTalentValue(typ, NPC_TALENT_CROSSBOW)+4);
 				PrintScreen	("Nowa umiejêtnoœæ: Strzelanie z kuszy", -1,-1,"FONT_OLD_20_WHITE.TGA",2);

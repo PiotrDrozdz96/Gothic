@@ -303,10 +303,10 @@ CONST STRING TXT_TALENTS_DESC [NPC_TALENT_MAX] =
 CONST STRING TXT_TALENTS_SKILLS [NPC_TALENT_MAX] = 
 {
 	"",	
-	"Brak|Wojownik|Mistrz|Zielony",								//NPC_TALENT_1H          
-	"Brak|Wojownik|Mistrz|Zielony",								//NPC_TALENT_2H           
-	"Brak|Strzelec|Mistrz|Zielony",								//NPC_TALENT_BOW         
-	"Brak|Strzelec|Mistrz|Zielony",								//NPC_TALENT_CROSSBOW    
+	"Brak|Wojownik|Mistrz|Zielony",						//NPC_TALENT_1H          
+	"Brak|Wojownik|Mistrz|Zielony",						//NPC_TALENT_2H           
+	"Zielony|Strzelec|Mistrz",							//NPC_TALENT_BOW         
+	"Zielony|Strzelec|Mistrz",							//NPC_TALENT_CROSSBOW    
 	"Brak|Adept|Mistrz",								//NPC_TALENT_PICKLOCK   
 	"Brak|Adept|Mistrz",								//NPC_TALENT_PICKPOCKET
 	"Brak|Kr퉓 1|Kr퉓 2|Kr퉓 3|Kr퉓 4|Kr퉓 5|Kr퉓 6",	//NPC_TALENT_MAGE         

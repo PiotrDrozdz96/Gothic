@@ -161,7 +161,7 @@
 |   +--| Text
 |   |   // Zmianna nazwy umiejętności na Tarcza, oraz dodanie nazw poziomów (Brak|Adept|Mistrz)
 |   |   // Zmiany w nazwach poziomów dla broni białch (Brak|Zielony|Wojownik|Mistrz)
-|   |   // Zmiany w nazwach poziomów dla broni dystansowych (Brak|Zielony|Strzelec|Mistrz)
+|   |   // Zmiany w nazwach poziomów dla broni dystansowych (Zielony|Strzelec|Mistrz)
 |   |   // Zmiany w B_BuildBuyArmorString
 |   |   // Dodanie stałej NAME_STR_GRAB = "Obciążenie Siły", używanej w tarczach
 |   |   // Zmiana nazwy dla SPL_NEW(2-4)
