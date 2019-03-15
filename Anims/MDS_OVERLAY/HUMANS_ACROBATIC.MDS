@@ -1,0 +1,90 @@
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Last Changes:
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Model ("Humans_Acrobatic")
+{
+	meshAndTree ("HUM_BODY_NAKED0.ASC" DONT_USE_MESH)
+	aniEnum
+	{
+		ani      ("T_STAND_2_JUMP"    1 "S_JUMP"           0.1 0.0 MF "HUM_ACROBATIC_M02.ASC"   F  1   16)         
+		ani      ("T_RUNL_2_JUMP"     1 "S_JUMP"           0.1 0.1 MF "HUM_ACROBATIC_M02.ASC"   F  180 195)        
+		aniAlias ("T_RUNR_2_JUMP"     1 "S_JUMP"           0.1 0.1 MF "T_RUNL_2_JUMP"           F)                 
+		ani      ("S_JUMP"            1 "S_JUMP"           0.0 0.0 MF "HUM_ACROBATIC_M02.ASC"   F  17  17)         
+		ani      ("T_JUMP_2_STAND"    1 ""                 0.0 0.4 M. "HUM_ACROBATIC_M02.ASC"   F  18  35   FPS:10)
+		ani      ("T_JUMP_2_RUNL"     1 "S_RUNL"           0.0 0.1 M. "HUM_ACROBATIC_M02.ASC"   F  198 213)        
+		ani      ("T_JUMP_2_FALLDN"   1 "S_FALLDN"         0.0 0.0 MF "HUM_ACROBATIC_M02.ASC"   F  81  86)         
+		ani      ("S_FALLDN"          1 "S_FALLDN"         0.0 0.0 MF "HUM_ACROBATIC_M02.ASC"   F  36  36)         
+		ani      ("T_FALLDN_2_STAND"  1 ""                 0.0 0.2 M. "HUM_ACROBATIC_M02.ASC"   F  112 129)        
+		ani      ("T_FALLDN_2_RUNL"   1 "S_RUNL"           0.0 0.1 M. "HUM_ACROBATIC_M02.ASC"   F  37  60)         
+		ani      ("T_FALLDN_2_FALL"   1 "S_FALL"           0.0 0.0 MF "HUM_ACROBATIC_M02.ASC"   F  71  75)         
+		ani      ("S_FALL"            1 "S_FALL"           0.0 0.0 MF "HUM_ACROBATIC_M02.ASC"   F  75  75)         
+		ani      ("T_FALL_2_FALLEN"   1 "S_FALLEN"         0.0 0.0 MF "HUM_ACROBATIC_M02.ASC"   F  75  80)         
+		ani      ("T_FALLDN_2_FALLB"  1 "S_FALL"           0.0 0.0 MF "HUM_ACROBATIC_M02.ASC"   F  61  65)         
+		ani      ("S_FALLB"           1 "S_FALLB"          0.1 0.0 MF "HUM_AMB_FALLB_M01.ASC"   F  0   30   FPS:10)
+		ani      ("T_FALLB_2_FALLENB" 1 "S_FALLENB"        0.0 0.0 MF "HUM_FALLB_M01.ASC"       F  6   21)         
+		{
+			*eventMMStartAni (10 "T_HURT")   
+			*eventMMStartAni (20 "S_NEUTRAL")
+		}
+		ani      ("S_FALLENB"         1 "S_FALLENB"        0.0 0.0 M. "HUM_AMB_FALLENB_M01.ASC" F  0   100  FPS:5) 
+		ani      ("T_FALLENB_2_STAND" 1 ""                 0.0 0.2 M. "HUM_FALLENB_A_M01.ASC"   F  1   45)         
+		{
+			*eventSFXGrnd (26 "RUN")
+			*eventSFXGrnd (27 "RUN")
+			*eventSFXGrnd (39 "RUN")
+			*eventSFXGrnd (44 "RUN")
+		}
+		ani      ("T_FALLDN_2_DIVE"   1 "S_DIVE"           0.0 0.0 MF "HUM_ACROBATIC_M01.ASC"   F  88  109)        
+		ani      ("T_FALL_2_DIVE"     1 "S_DIVE"           0.0 0.0 MF "HUM_ACROBATIC_M01.ASC"   F  156 177)        
+		ani      ("T_FALLB_2_DIVE"    1 "S_DIVE"           0.0 0.0 MF "HUM_ACROBATIC_M01.ASC"   F  132 153)
+		
+		ani      ("T_RUNSTRAFEL"      1 "T_RUNSTRAFEL"     0.1 0.2 M. "HUM_ACROSTRAFEL.ASC"     F  0   20   FPS:10)
+		{
+			*eventTag     (1  "DEF_WINDOW" "0 20")
+			*eventSFXGrnd (10 "RUN")              
+		}
+		ani      ("T_RUNSTRAFER"      1 "T_RUNSTRAFER"     0.1 0.2 M. "HUM_ACROSTRAFER.ASC"     F  0   20   FPS:10)
+		{
+			*eventTag     (1  "DEF_WINDOW" "0 20")
+			*eventSFXGrnd (10 "RUN")              
+		}  
+
+		aniAlias	("T_WALKSTRAFEL"			1	"T_WALKSTRAFEL"			0.1	0.1	M.	"T_RUNSTRAFEL"		F)
+		aniAlias	("T_WALKSTRAFER"			1	"T_WALKSTRAFER"			0.1	0.1	M.	"T_RUNSTRAFER"		F)
+
+		aniAlias	("T_2HRUNSTRAFEL"			1	"T_2HRUNSTRAFEL"		0.1	0.1	M.	"T_RUNSTRAFEL"		F)
+		aniAlias	("T_2HRUNSTRAFER"			1	"T_2HRUNSTRAFER"		0.1	0.1	M.	"T_RUNSTRAFER"		F)
+		aniAlias	("T_2HWALKSTRAFEL"			1	"T_2HWALKSTRAFEL"		0.1	0.1	M.	"T_RUNSTRAFEL"		F)
+		aniAlias	("T_2HWALKSTRAFER"			1	"T_2HWALKSTRAFER"		0.1	0.1	M.	"T_RUNSTRAFER"		F)
+		
+		aniAlias	("T_1HRUNSTRAFEL"			1	"T_1HRUNSTRAFEL"		0.1	0.1	M.	"T_RUNSTRAFEL"		F)
+		aniAlias	("T_1HRUNSTRAFER"			1	"T_1HRUNSTRAFER"		0.1	0.1	M.	"T_RUNSTRAFER"		F)
+		aniAlias	("T_1HWALKSTRAFEL"			1	"T_1HWALKSTRAFEL"		0.1	0.1	M.	"T_RUNSTRAFEL"		F)
+		aniAlias	("T_1HWALKSTRAFER"			1	"T_1HWALKSTRAFER"		0.1	0.1	M.	"T_RUNSTRAFER"		F)
+		
+		aniAlias	("T_FISTRUNSTRAFEL"			1	"T_FISTRUNSTRAFEL"		0.1	0.1	M.	"T_RUNSTRAFEL"		F)
+		aniAlias	("T_FISTRUNSTRAFER"			1	"T_FISTRUNSTRAFER"		0.1	0.1	M.	"T_RUNSTRAFER"		F)
+		aniAlias	("T_FISTWALKSTRAFEL"		1	"T_FISTWALKSTRAFEL"		0.1	0.1	M.	"T_RUNSTRAFEL"		F)
+		aniAlias	("T_FISTWALKSTRAFER"		1	"T_FISTWALKSTRAFER"		0.1	0.1	M.	"T_RUNSTRAFER"		F)
+		
+		
+		aniAlias	("T_BOWRUNSTRAFEL"			1	"T_BOWRUNSTRAFEL"		0.1	0.1	M.	"T_RUNSTRAFEL"		F)
+		aniAlias	("T_BOWRUNSTRAFER"			1	"T_BOWRUNSTRAFER"		0.1	0.1	M.	"T_RUNSTRAFER"		F)
+		aniAlias	("T_BOWWALKSTRAFEL"			1	"T_BOWWALKSTRAFEL"		0.1	0.1	M.	"T_RUNSTRAFEL"		F)
+		aniAlias	("T_BOWWALKSTRAFER"			1	"T_BOWWALKSTRAFER"		0.1	0.1	M.	"T_RUNSTRAFER"		F)
+		
+		aniAlias	("T_CBOWRUNSTRAFEL"			1	"T_CBOWRUNSTRAFEL"		0.1	0.1	M.	"T_RUNSTRAFEL"		F)
+		aniAlias	("T_CBOWRUNSTRAFER"			1	"T_CBOWRUNSTRAFER"		0.1	0.1	M.	"T_RUNSTRAFER"		F)
+		aniAlias	("T_CBOWWALKSTRAFEL"		1	"T_CBOWWALKSTRAFEL"		0.1	0.1	M.	"T_RUNSTRAFEL"		F)
+		aniAlias	("T_CBOWWALKSTRAFER"		1	"T_CBOWWALKSTRAFER"		0.1	0.1	M.	"T_RUNSTRAFER"		F)
+	
+		aniAlias	("T_MAGRUNSTRAFEL"			1	"T_MAGRUNSTRAFEL"		0.1	0.1	M.	"T_RUNSTRAFEL"		F)
+		aniAlias	("T_MAGRUNSTRAFER"			1	"T_MAGRUNSTRAFER"		0.1	0.1	M.	"T_RUNSTRAFER"		F)
+		aniAlias	("T_MAGWALKSTRAFEL"			1	"T_MAGWALKSTRAFEL"		0.1	0.1	M.	"T_RUNSTRAFEL"		F)
+		aniAlias	("T_MAGWALKSTRAFER"			1	"T_MAGWALKSTRAFER"		0.1	0.1	M.	"T_RUNSTRAFER"		F)
+		
+		
+		
+	}
+}

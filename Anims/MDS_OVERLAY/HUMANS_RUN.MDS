@@ -1,0 +1,81 @@
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Last Changes:
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Model ("Humans_Run")
+{
+	meshAndTree ("HUM_BODY_NAKED0.ASC" DONT_USE_MESH)
+	aniEnum
+	{
+		modelTag ("DEF_HIT_LIMB"         "ZS_RIGHTHAND")                                                         
+		ani      ("T_WALK_2_WALKL"         1               "S_WALKL"     0.0 0.0  M. "HUM_FASTRUN.ASC"      F 0  1) 
+		ani      ("S_WALKL"               1               "S_WALKL"     0.0 0.1  M. "HUM_FASTRUN.ASC"      F 2  18)
+		{
+			*eventSFXGrnd (8  "RUN")
+			*eventSFXGrnd (18 "RUN")
+		}
+		ani      ("T_WALKL_2_WALK"         1               "S_WALK"      0.0 0.0  M. "HUM_FASTRUN.ASC"      F 19 20)
+		{
+			*eventSFXGrnd (19 "RUN")
+		}
+		aniBlend ("T_WALKR_2_WALK"                         "S_WALK"      0.2 0.2)                                   
+		ani      ("T_BOWWALK_2_BOWWALKL"   1               "S_BOWWALKL"  0.0 0.0  M. "HUM_BOW_FASTRUN.ASC"  F 0  1) 
+		ani      ("S_BOWWALKL"            1               "S_BOWWALKL"  0.0 0.0  M. "HUM_BOW_FASTRUN.ASC"  F 2  18)
+		{
+			*eventSFXGrnd (8  "RUN")
+			*eventSFXGrnd (18 "RUN")
+		}
+		ani      ("T_BOWWALKL_2_BOWWALK"   1               "S_BOWWALK"   0.0 0.0  M. "HUM_BOW_FASTRUN.ASC"  F 19 20)
+		{
+			*eventSFXGrnd (19 "RUN")
+		}
+		aniBlend ("T_BOWWALKR_2_BOWWALK"                   "S_BOWWALK"   0.2 0.2)                                   
+		ani      ("T_CBOWWALK_2_CBOWWALKL" 1               "S_CBOWWALKL" 0.0 0.0  M. "HUM_CBOW_FASTRUN.ASC" F 0  1) 
+		ani      ("S_CBOWWALKL"           1               "S_CBOWWALKL" 0.0 0.0  M. "HUM_CBOW_FASTRUN.ASC" F 2  18)
+		{
+			*eventSFXGrnd (8  "RUN")
+			*eventSFXGrnd (18 "RUN")
+		}
+		ani      ("T_CBOWWALKL_2_CBOWWALK" 1               "S_CBOWWALK"  0.0 0.0  M. "HUM_CBOW_FASTRUN.ASC" F 19 20)
+		{
+			*eventSFXGrnd (19 "RUN")
+		}
+		aniBlend ("T_CBOWWALKR_2_CBOWWALK"                 "S_CBOWWALK"  0.2 0.2)                                   
+		ani      ("T_MAGWALK_2_MAGWALKL"   1               "S_MAGWALKL"  0.0 0.0  M. "HUM_MAG_FASTRUN.ASC"  F 0  1) 
+		ani      ("S_MAGWALKL"            1               "S_MAGWALKL"  0.0 0.0  M. "HUM_MAG_FASTRUN.ASC"  F 2  18)
+		{
+			*eventSFXGrnd (8  "RUN")
+			*eventSFXGrnd (18 "RUN")
+		}
+		ani      ("T_MAGWALKL_2_MAGWALK"   1               "S_MAGWALK"   0.0 0.0  M. "HUM_MAG_FASTRUN.ASC"  F 19 20)
+		{
+			*eventSFXGrnd (19 "RUN")
+		}
+		aniBlend ("T_MAGWALKR_2_MAGWALK"                   "S_MAGWALK"   0.2 0.2)                                   
+		ani      ("T_1HWALK_2_1HWALKL"     1               "S_1HWALKL"   0.0 0.0  M. "HUM_1H_FASTRUN.ASC"   F 0  1) 
+		ani      ("S_1HWALKL"             1               "S_1HWALKL"   0.0 0.0  M. "HUM_1H_FASTRUN.ASC"   F 2  18)
+		{
+			*eventSFXGrnd (8  "RUN")
+			*eventSFXGrnd (18 "RUN")
+		}
+		ani      ("T_1HWALKL_2_1HWALK"     1               "S_1HWALK"    0.0 0.0  M. "HUM_1H_FASTRUN.ASC"   F 19 20)
+		{
+			*eventSFXGrnd (19 "RUN")
+		}
+		aniBlend ("T_1HWALKR_2_1HWALK"                     "S_1HWALK"    0.2 0.2)                                   
+		ani      ("T_2HWALK_2_2HWALKL"     1               "S_2HWALKL"   0.0 0.0  M. "HUM_2H_FASTRUN.ASC"   F 0  1) 
+		ani      ("S_2HWALKL"             1               "S_2HWALKL"   0.0 0.0  M. "HUM_2H_FASTRUN.ASC"   F 2  18)
+		{
+			*eventSFXGrnd (8  "RUN")
+			*eventSFXGrnd (18 "RUN")
+		}
+		ani      ("T_2HWALKL_2_2HWALK"     1               "S_2HWALK"    0.0 0.0  M. "HUM_2H_FASTRUN.ASC"   F 19 20)
+		{
+			*eventSFXGrnd (19 "RUN")
+		}
+		aniBlend ("T_2HWALKR_2_2HWALK"                     "S_2HWALK"    0.2 0.2)
+		
+		ani			("t_WalkStrafeL"			1	"s_Walk"		0.1	0.1	M.	"Hum_MagStrafeL_A01.asc"	F	1	18)
+		ani			("t_WalkStrafeR"			1	"s_Walk"		0.1	0.1	M.	"Hum_MagStrafeR_A01.asc"	F	1	18)                             
+	}
+}

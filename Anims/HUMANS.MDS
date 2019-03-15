@@ -219,20 +219,16 @@ Model ("HuS")
 // ---------------------------------------------------------------------------------------------------------------
 // JUMP
 
-			ani			("t_Stand_2_Jump"		1	"s_Jump"		0.2	0.0	MF	"Hum_Jump_M01.asc"			F	6	29)
-
-			ani			("s_Jump"				1	"s_Jump"		0.0	0.0 MF	"Hum_Jump_M01.asc"			F	30	30)
-			ani			("t_Jump_2_Stand"		1	""				0.0 0.5	M.	"Hum_Jump_M01.asc"			F	31	36)
+			ani        ("T_STAND_2_JUMP"             1               "S_JUMP"                0.2 0.1  MF "HUM_JUMP_M01.ASC"                             F  6   29)                    
+			ani        ("S_JUMP"                     1               "S_JUMP"                0.1 0.1  MF "HUM_JUMP_M01.ASC"                             F  30  30)                    
+			ani        ("T_JUMP_2_STAND"             1               ""                      0.1 0.2  M. "HUM_JUMP_M01.ASC"                             F  31  45)                    
 			{
-				*eventSFXGrnd	(31	"Run")
-				*eventSFXGrnd	(34	"Run")
+				*eventSFXGrnd (31 "RUN")
+				*eventSFXGrnd (34 "RUN")
 			}
-
-//	aus dem Rennen direkt Springen
-			ani			("t_RunL_2_Jump"		1	"s_Jump"		0.1	0.1	MF	"Hum_RunLJump_M01.asc"		F	1	19)
-			ani			("t_RunR_2_Jump"		1	"s_Jump"		0.1	0.1	MF	"Hum_RunLJump_M01.asc"		F	22	40)
-//	nach dem Sprung direkt weiterrennen, wenn CursorUp weiterhin gedrückt
-			aniBlend	("t_Jump_2_RunL"			"s_RunL"		0.2	0.2)
+			ani        ("T_RUNL_2_JUMP"              1               "S_JUMP"                0.1 0.1  MF "HUM_RUNLJUMP_M01.ASC"                         F  0   20)                    
+			aniAlias   ("T_RUNR_2_JUMP"              1               "S_JUMP"                0.1 0.1  MF "T_RUNL_2_JUMP"                                F)                            
+			aniBlend   ("T_JUMP_2_RUNL"                              "S_RUNL"                0.2 0.2) 
 
 
 
@@ -1195,8 +1191,8 @@ Model ("HuS")
 //	MAGIC STRAFING
 /////////////////////
 
-			ani			("t_MagRunStrafeL"			1	"t_MagRunStrafeL"		0.1	0.1	M.	"Hum_MagStrafe_A01.asc"	F	1	24)
-			ani			("t_MagRunStrafeR"			1	"t_MagRunStrafeR"		0.1	0.1	M.	"Hum_MagStrafe_A01.asc"	F	26	49)
+			ani			("t_MagRunStrafeL"			1	"t_MagRunStrafeL"		0.1	0.1	M.	"Hum_MagStrafeL_A01.asc"	F	1	18)
+			ani			("t_MagRunStrafeR"			1	"t_MagRunStrafeR"		0.1	0.1	M.	"Hum_MagStrafeR_A01.asc"	F	1	18)
 
 			aniAlias	("t_MagWalkStrafeL"			1	"t_MagWalkStrafeL"		0.1	0.1	M.	"t_MagRunStrafeL"		F)
 			aniAlias	("t_MagWalkStrafeR"			1	"t_MagWalkStrafeR"		0.1	0.1	M.	"t_MagRunStrafeR"		F)
@@ -1493,7 +1489,7 @@ Model ("HuS")
 				*eventSFXGrnd	(9	"Run")
 			}
 
-			aniAlias	("t_1hWalkStrafeL"			1	"t_1hWalkStrafeL"	0.1	0.1	M.	"t_1hRunStrafeR"		R)
+			aniAlias	("t_1hWalkStrafeL"			1	"t_1hWalkStrafeL"	0.1	0.1	M.	"t_1hRunStrafeL"		F)
 			aniAlias	("t_1hWalkStrafeR"			1	"t_1hWalkStrafeR"	0.1	0.1	M.	"t_1hRunStrafeR"		F)
 
 			ani			("t_1hSneakStrafeL"			1	"t_1hSneakStrafeL"	0.1	0.1	M.	"Hum_1hSneakStrafeLR_A01.asc"	F	1	20)
@@ -1721,7 +1717,7 @@ Model ("HuS")
 			}
 
 			aniAlias	("t_2hWalkStrafeL"			1	"t_2hWalkStrafeL"	0.1	0.1	M.	"t_2hRunStrafeL"		F)
-			aniAlias	("t_2hWalkStrafeR"			1	"t_2hWalkStrafeR"	0.1	0.1	M.	"t_2hRunStrafeL"		R)
+			aniAlias	("t_2hWalkStrafeR"			1	"t_2hWalkStrafeR"	0.1	0.1	M.	"t_2hRunStrafeR"		F)
 
 			ani			("t_2hSneakStrafeL"			1	"t_2hSneakStrafeL"	0.1	0.1	M.	"Hum_2hSneakStrafe_A01.asc"	F	1	20)
 			aniAlias	("t_2hSneakStrafeR"			1	"t_2hSneakStrafeR"	0.0	0.0	M.	"t_2hSneakStrafeL"		R)
@@ -1758,14 +1754,14 @@ Model ("HuS")
 // Kampf ohne Talent
 
 //	Attacks
-			ani			("s_2hAttack"				1	"s_2hAttack"	0.0 0.2 M.	"Hum_2hAttackComboT0_M01.asc"	F	1	41)
+			ani			("s_2hAttack"				1	"s_2hAttack"	0.0 0.2 M.	"Hum_2hAttackComboT0_A01.asc"	F	1	50)
 			{
 				*eventTag		(0 "DEF_HIT_LIMB"	"ZS_RIGHTHAND")
-				*eventTag		(0 "DEF_OPT_FRAME"	"8")
-				*eventTag		(0 "DEF_HIT_END"	"21")
-				*eventTag		(0 "DEF_WINDOW"		"21 40")
-//				*eventTag		(0 "DEF_DIR"		"O")
+				*eventTag		(0 "DEF_OPT_FRAME"	"8 37")
+				*eventTag		(0 "DEF_HIT_END"	"25 45")
+				*eventTag		(0 "DEF_WINDOW"		"14 31")
 				*eventSFX		(8	"Whoosh"	EMPTY_SLOT	)
+				*eventSFX		(37	"Whoosh"	EMPTY_SLOT	)
 			}
 
 	// Drehschläge
@@ -1786,6 +1782,13 @@ Model ("HuS")
 				*eventTag		(0 "DEF_WINDOW"		"18 35")
 
 				*eventSFX		(42	"Whoosh"	EMPTY_SLOT	)
+			}
+	// während des Laufens zuschlagen
+			ani			("t_2hAttackMove"			2	""		0.1	0.2	M.	"HUM_2HATTACKMOVE_A01.ASC"	F	1	23)
+			{
+				*eventTag	(0 "DEF_HIT_LIMB"	"ZS_RIGHTHAND")
+				*eventTag	(0 "DEF_OPT_FRAME"	"16")
+				*eventSFX	(12	"Whoosh"	EMPTY_SLOT	)
 			}
 
 

@@ -190,7 +190,7 @@ instance DIA_Gravo_Influence(C_Info)
 	nr = 2;
 	condition = DIA_Gravo_Influence_Condition;
 	information = DIA_Gravo_Influence_Info;
-	permanent = 1;
+	permanent = 0;
 	description = "Mo¿esz mi powiedzieæ, które Cienie nale¿¹ do najbardziej wp³ywowych?";
 };
 
@@ -210,11 +210,7 @@ func void DIA_Gravo_Influence_Info()
 	AI_Output(self,other,"DIA_Gravo_Influence_04_02");	//Najpotê¿niejszym z Cieni jest Diego. Do jego zaufanych ludzi nale¿¹ R¹czka, Œwistak i Z³y.
 	AI_Output(self,other,"DIA_Gravo_Influence_04_03");	//Dexter i Fisk handluj¹ na targowisku. Maj¹ szerok¹ klientelê, w tym nawet Stra¿ników, wiêc s¹ doœæ wp³ywowi.
 	AI_Output(self,other,"DIA_Gravo_Influence_04_04");	//No i jest jeszcze Scatty. On rz¹dzi na arenie, organizuje walki i takie tam. Wielu ludzi jest mu winnych pieni¹dze, wiêc on równie¿ jest spor¹ szych¹.
-	if(log_gravoinfo == FALSE)
-	{
-		Log_CreateTopic(GE_TraderOC,LOG_NOTE);
-		B_LogEntry(GE_TraderOC,"Dexter i Fisk handluj¹ ró¿nymi dobrami na targowisku.");
-		log_gravoinfo = TRUE;
-	};
+	Log_CreateTopic(GE_TraderOC,LOG_NOTE);
+	B_LogEntry(GE_TraderOC,"Dexter i Fisk handluj¹ ró¿nymi dobrami na targowisku.");
 };
 

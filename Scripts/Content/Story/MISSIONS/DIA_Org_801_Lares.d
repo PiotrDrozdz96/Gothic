@@ -421,7 +421,10 @@ FUNC VOID  ORG_801_Lares_Reicht_Info()
 	
 		hero.guild = GIL_ORG;
 		Npc_SetTrueGuild	(hero,GIL_ORG );
-		Mdl_ApplyOverlayMds(hero,"Humans_Relaxed.mds");
+		if(Npc_GetTalentSkill(hero, NPC_TALENT_RUN) == 0)
+		{
+			Mdl_ApplyOverlayMds(hero,"Humans_Relaxed.mds");
+		};
 		CreateInvItem		(hero,ORG_ARMOR_L);
 		
 		CreateInvItem		(self, ItAmArrow);

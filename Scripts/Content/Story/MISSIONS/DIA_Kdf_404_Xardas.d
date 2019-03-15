@@ -550,7 +550,6 @@ func void  Info_Xardas_GIL_DMB_Info()
 		
 		hero.guild 	= GIL_DMB;	
 		Npc_SetTrueGuild	( hero, GIL_DMB );
-		Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
 		B_GiveSkill(hero, NPC_TALENT_MAGE, 5, 0);
 		Info_Xardas_GIL_DMB.permanent = 0;
 		hero.attribute[ATR_HITPOINTS] = 1;
@@ -579,7 +578,6 @@ func void  Info_Xardas_GIL_DMB_Info()
 
 		hero.guild 	= GIL_DMB;	
 		Npc_SetTrueGuild	( hero, GIL_DMB );
-		Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
 		Info_Xardas_GIL_DMB.permanent = 0;
 		AI_StopProcessInfos	( self );
 		

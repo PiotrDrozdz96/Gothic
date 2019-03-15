@@ -196,7 +196,8 @@ const int NPC_TALENT_MAGE			= 7;
 const int NPC_TALENT_SNEAK			= 8;
 const int NPC_TALENT_REGENERATE		= 9;
 const int NPC_TALENT_FIREMASTER		= 10;
-const int NPC_TALENT_SHIELD			= 10;
+const int NPC_TALENT_SHIELD			= 9;
+const int NPC_TALENT_RUN			= 10;
 const int NPC_TALENT_ACROBAT		= 11;
 
 const int NPC_TALENT_MAX			= 12;

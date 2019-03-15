@@ -333,7 +333,10 @@ func void  KDF_402_Corristo_ROBE_Info()
 	AI_UnequipWeapons	(hero);
 	Npc_SetTrueGuild	(hero,GIL_KDF);
 	hero.guild = GIL_KDF;
-	Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
+	if(Npc_GetTalentSkill(hero, NPC_TALENT_RUN) == 0)
+	{
+		Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
+	};
 	
 	hero.attribute [ATR_HITPOINTS] = hero.attribute [ATR_HITPOINTS_MAX];
 

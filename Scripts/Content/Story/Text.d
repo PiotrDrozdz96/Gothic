@@ -276,8 +276,8 @@ CONST STRING TXT_TALENTS [NPC_TALENT_MAX] =
 	"Kradzie¿",
 	"Magia",
 	"Skradanie siê",
-	"Regeneracja",
 	"Tarcza",
+	"Bieg",
 	"Akrobatyka"
 };
 
@@ -303,16 +303,16 @@ CONST STRING TXT_TALENTS_DESC [NPC_TALENT_MAX] =
 CONST STRING TXT_TALENTS_SKILLS [NPC_TALENT_MAX] = 
 {
 	"",	
-	"Brak|Wojownik|Mistrz|Zielony",						//NPC_TALENT_1H          
-	"Brak|Wojownik|Mistrz|Zielony",						//NPC_TALENT_2H           
+	"Zielony|Zielony|Wojownik|Mistrz",					//NPC_TALENT_1H          
+	"Zielony|Wojownik|Mistrz",							//NPC_TALENT_2H           
 	"Zielony|Strzelec|Mistrz",							//NPC_TALENT_BOW         
 	"Zielony|Strzelec|Mistrz",							//NPC_TALENT_CROSSBOW    
 	"Brak|Adept|Mistrz",								//NPC_TALENT_PICKLOCK   
 	"Brak|Adept|Mistrz",								//NPC_TALENT_PICKPOCKET
 	"Brak|Kr¹g 1|Kr¹g 2|Kr¹g 3|Kr¹g 4|Kr¹g 5|Kr¹g 6",	//NPC_TALENT_MAGE         
 	"Nie|Tak",                                          //NPC_TALENT_SNEAK       
-	"|",                                      		    //NPC_TALENT_REGENERATE 
-	"Brak|Adept|Mistrz",                                //NPC_TALENT_SHIELD   
+	"Brak|Adept|Mistrz",                                //NPC_TALENT_SHIELD
+	"Nie|Tak",                                			//NPC_TALENT_RUN   
 	"Nie|Tak"                                        	//NPC_TALENT_ACROBAT 
 };
 

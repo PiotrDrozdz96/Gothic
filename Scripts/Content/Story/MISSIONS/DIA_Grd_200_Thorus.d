@@ -787,7 +787,10 @@ FUNC void  GRD_200_Thorus_AUFNAHME_Info()
 
 	Npc_SetTrueGuild (hero,GIL_GRD);
 	hero.guild = GIL_GRD;
-	Mdl_ApplyOverlayMds(hero,"Humans_Militia.mds");
+	if(Npc_GetTalentSkill(hero, NPC_TALENT_RUN) == 0)
+	{
+		Mdl_ApplyOverlayMds(hero,"Humans_Militia.mds");
+	};
 };  
 //---------------------------------------------------------------
 // GARDIST WERDEN TEIL 2

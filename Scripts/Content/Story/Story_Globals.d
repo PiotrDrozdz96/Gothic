@@ -357,6 +357,7 @@ const int	LPCOST_TALENT_BOW_2			=	20;
 const int	LPCOST_TALENT_CROSSBOW_1	=	10;	
 const int	LPCOST_TALENT_CROSSBOW_2	=	20;	
 
+const int 	LPCOST_TALENT_RUN			=	10;
 const int	LPCOST_TALENT_ACROBAT		=	10;	
 const int	LPCOST_TALENT_SNEAK			=	10;	
 const int	LPCOST_TALENT_PICKLOCK_1	=	10;	
@@ -381,11 +382,6 @@ var int log_thorusfight;
 var int log_wedgelearn;
 var int log_scattytrain;
 var int log_cavalorntrain;
-
-// marev LOG
-var int log_bustertrain;
-var int log_gravoinfo;
-var int log_fingerscavalorn;
 
 var int Dexter_Traded;
 var int Scorpio_Exile;

@@ -218,7 +218,6 @@ FUNC void  GUR_1202_CorAngar_WANNABETPL_Info()
 		GUR_1202_CorAngar_WANNABETPL.permanent = 0;
 		Npc_SetTrueGuild(hero, GIL_TPL);
 		hero.guild = GIL_TPL;
-		Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
 
 		Log_CreateTopic	(GE_BecomeTemplar,	LOG_NOTE);
 		B_LogEntry		(GE_BecomeTemplar,	"Dziœ Cor Angar przyj¹³ mnie w poczet Stra¿y Œwi¹tynnej. Gor Na Toth ma mi wrêczyæ moj¹ now¹ zbrojê. Znajdê go przy placu treningowym.");

@@ -192,6 +192,18 @@ FUNC int  Sld_700_Lee_BECOMESLDNOW_Condition()
 	};
 };
 
+FUNC void becomeSLD()
+{
+	CreateInvItem		(hero,ORG_ARMOR_H);
+	AI_EquipBestArmor	(hero);
+	Npc_SetTrueGuild	(hero,GIL_SLD);
+	hero.guild = GIL_SLD;
+	if(Npc_GetTalentSkill(hero, NPC_TALENT_RUN) == 0)
+	{
+		Mdl_ApplyOverlayMds(hero,"Humans_Militia.mds");
+	};
+};
+
 FUNC void  Sld_700_Lee_BECOMESLDNOW_Info()
 {
 	AI_Output			(other, self,"Sld_700_Lee_BECOMESLDNOW_Info_15_01"); //Chcê zostaæ Najemnikiem.
@@ -211,12 +223,7 @@ FUNC void  Sld_700_Lee_BECOMESLDNOW_NOOTHER()
 {
 	AI_Output			(other, self,"Sld_700_Lee_BECOMESLDNOW_NOOTHER_15_01"); //W tamtych obozach tylko traci³bym czas.
 	AI_Output			(self, other,"Sld_700_Lee_BECOMESLDNOW_NOOTHER_08_02"); //Jedyna rzecz, która ma tutaj jak¹œ prawdziw¹ wartoœæ to pragnienie wolnoœci. Witaj wœród nas, NAJEMNIKU!
-	CreateInvItem		(self,ORG_ARMOR_H);
-	B_GiveInvItems      (self, hero, ORG_ARMOR_H, 1);
-	AI_EquipBestArmor	(hero);
-	Npc_SetTrueGuild	(hero,GIL_SLD);
-	hero.guild = GIL_SLD;
-	Mdl_ApplyOverlayMds(hero,"Humans_Militia.mds");
+	becomeSLD();
 	AI_StopProcessInfos	(self);
 };
 
@@ -224,12 +231,7 @@ FUNC void  Sld_700_Lee_BECOMESLDNOW_FREEDOM()
 {
 	AI_Output			(other, self,"Sld_700_Lee_BECOMESLDNOW_FREEDOM_15_01"); //Od pocz¹tku myœla³em tylko o odzyskaniu wolnoœci.
 	AI_Output			(self, other,"Sld_700_Lee_BECOMESLDNOW_FREEDOM_08_02"); //I dziêki nam wkrótce j¹ odzyskasz. Witaj wœród nas, NAJEMNIKU!
-	CreateInvItem		(self,ORG_ARMOR_H);
-	B_GiveInvItems      (self, hero, ORG_ARMOR_H, 1);
-	AI_EquipBestArmor	(hero);
-	Npc_SetTrueGuild	(hero,GIL_SLD);
-	hero.guild = GIL_SLD;
-	Mdl_ApplyOverlayMds(hero,"Humans_Militia.mds");
+	becomeSLD();
 	AI_StopProcessInfos	(self);
 };
 
@@ -237,12 +239,7 @@ FUNC void  Sld_700_Lee_BECOMESLDNOW_JUSTBECAUSE()
 {
 	AI_Output			(other, self,"Sld_700_Lee_BECOMESLDNOW_JUSTBECAUSE_15_01"); //Tak siê jakoœ z³o¿y³o.
 	AI_Output			(self, other,"Sld_700_Lee_BECOMESLDNOW_JUSTBECAUSE_08_02"); //¯eby siê tylko nie z³o¿y³o, ¿e kiedyœ nagle zmienisz zdanie. Witaj wœród nas, NAJEMNIKU!
-	CreateInvItem		(self,ORG_ARMOR_H);
-	B_GiveInvItems      (self, hero, ORG_ARMOR_H, 1);
-	AI_EquipBestArmor	(hero);
-	Npc_SetTrueGuild	(hero,GIL_SLD);
-	hero.guild = GIL_SLD;
-	Mdl_ApplyOverlayMds(hero,"Humans_Militia.mds");
+	becomeSLD();
 	AI_StopProcessInfos	(self);
 };
 

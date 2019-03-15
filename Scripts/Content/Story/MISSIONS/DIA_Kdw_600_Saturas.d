@@ -829,7 +829,10 @@ func void  KDW_600_Saturas_KDWAUFNAHME_Info()
 	Snd_Play  			("MFX_Heal_Cast"); 
 	Npc_SetTrueGuild	(hero,GIL_KDW);
 	hero.guild = GIL_KDW;
-	Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
+	if(Npc_GetTalentSkill(hero, NPC_TALENT_RUN) == 0)
+	{
+		Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
+	};
 
 	B_LogEntry			(CH4_BannedFromOC,	"Do³¹czy³em do Magów Wody. Od tej chwili uzyska³em dostêp do obydwu szkó³ magii."); 
 	Log_SetTopicStatus	(CH4_BannedFromOC,	LOG_SUCCESS);
@@ -1636,7 +1639,10 @@ func void  KDW_600_Saturas_HogeAUFNAHMETeil2_Info()
 	Snd_Play  			("MFX_Heal_Cast"); 
 	Npc_SetTrueGuild	(hero,GIL_KDW);
 	hero.guild = GIL_KDW;
-	Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
+	if(Npc_GetTalentSkill(hero, NPC_TALENT_RUN) == 0)
+	{
+		Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
+	};
 
 	Log_CreateTopic		(CH4_SldToKdW,	LOG_NOTE);
 	B_LogEntry			(CH4_SldToKdW,	"Saturas przyj¹³ mnie w poczet Magów Wody.");

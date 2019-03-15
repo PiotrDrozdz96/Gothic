@@ -203,7 +203,7 @@ instance DIA_Fingers_WhereCavalorn(C_Info)
 	nr = 2;
 	condition = DIA_Fingers_WhereCavalorn_Condition;
 	information = DIA_Fingers_WhereCavalorn_Info;
-	permanent = 1;
+	permanent = 0;
 	description = "Gdzie znajdê Cavalorna?";
 };
 
@@ -221,11 +221,7 @@ func void DIA_Fingers_WhereCavalorn_Info()
 	AI_Output(other,self,"DIA_Fingers_WhereCavalorn_15_00");	//Gdzie znajdê Cavalorna?
 	AI_Output(self,other,"DIA_Fingers_WhereCavalorn_05_01");	//Poluje gdzieœ poza Obozem. Pewnie znajdziesz go na drodze do Nowego Obozu. Na zachód st¹d jest taki kanion.
 	AI_Output(self,other,"DIA_Fingers_WhereCavalorn_05_02");	//Tam znajdziesz opuszczon¹ chatê drwala. Cavalorn powinien krêciæ siê w jej pobli¿u.
-	if (log_fingerscavalorn == FALSE)
-	{
-		B_LogEntry(GE_TeacherOW,"Cavalorn mo¿e mi pokazaæ, jak nale¿y siê skradaæ. Jego chata znajduje siê w kanionie, na zachód od Starego Obozu.");
-		log_fingerscavalorn = TRUE;
-	};
+	B_LogEntry(GE_TeacherOW,"Cavalorn mo¿e mi pokazaæ, jak nale¿y siê skradaæ. Jego chata znajduje siê w kanionie, na zachód od Starego Obozu.");
 };
 
 

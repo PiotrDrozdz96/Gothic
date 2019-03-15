@@ -239,7 +239,10 @@ FUNC VOID DIA_Gomez_Dabei_Info()
 	
 	Npc_SetTrueGuild (hero,GIL_STT );
 	hero.guild = GIL_STT;
-	Mdl_ApplyOverlayMds(hero,"Humans_Relaxed.mds");
+	if(Npc_GetTalentSkill(hero, NPC_TALENT_RUN) == 0)
+	{
+		Mdl_ApplyOverlayMds(hero,"Humans_Relaxed.mds");
+	};
 	B_GiveXP (XP_BecomeShadow);
 	B_LogEntry			(CH1_JoinOC,	"Od dziœ pracujê dla Gomeza w Starym Obozie. Kruk ma mi udzieliæ wszystkich potrzebnych informacji!");
 	Log_SetTopicStatus	(CH1_JoinOC,	LOG_SUCCESS);

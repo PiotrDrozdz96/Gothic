@@ -14,6 +14,8 @@
 |   +--|-- B_GiveSkill
 |   |   // Dodanie tarcz
 |   |   // Przebudowa nauki walki na 11 etapów
+|   |   // Uwzględnienie akrobatyki przy nauce walki
+|   |   // Dodanie nauki biegu
 |   +--|-- B_Kapitelwechsel
 |   |   // Kapitel 4 - Nie tracimy gildii Mag Ognia
 |   |   // Kapitel 4 - EBR_105_Raven,GRD_(200/210/233/255),STT_(311/329),VLK_(538,581) - Wywalenie za barierę
@@ -39,7 +41,7 @@
 |   |   // Nauka walki tarczą
 |	+--|-- DIA_GUR_1201_CorKalom
 |   |   // Możliwość zostania guru
-|   |   // Zmiana sposobu chodzenia bohatera po zostaniu nowicjuszem/guru
+|   |   // Zmiana sposobu chodzenia bohatera po zostaniu nowicjuszem
 |   +--|-- DIA_GUR_1202_CorAngar
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Uwzględnie guru w nauce walki broni 2H
@@ -86,8 +88,10 @@
 |   |   // Zmiana kosztów zdobywania trofeów z 1pn na 5pn
 |   +--|-- DIA_ORG_826_Mordrag -- by marev
 |   |   // Nie zaprowadzi nas do obozu jeśli go pobiliśmy
-|   +--|-- DIA_ORG_833_Buster -- by marev
+|   +--|-- DIA_ORG_833_Buster
 |   |   // Uczy akrobatyki tylko raz
+|   |   // Dodanie dialogu bezimiennemu
+|   |   // Uczy "Biegu"
 |   +--|-- DIA_ORG_841_Silas
 |   |   // Naprawa handlu, był jednorazowy
 |   +--|-- DIA_ORG_842_Shrike
@@ -115,7 +119,7 @@
 |   +--|-- DIA_STT_311_Fisk -- by marev
 |   |   // Zadanie "Nowy paser dla Fiska" jest aktywowane niezależnie od sposobu pozbycia się Mordraga
 |   |   // Fisk nie sprzedaje spodni kopacza, jeśli je posiadamy
-|   +--|-- DIA_STT_331_Fingers -- by marev
+|   +--|-- DIA_STT_331_Fingers
 |   |   // można prosić o nauke poziomu 2, dopiero gdy poznamy poziom 1
 |   |   // rozmowa o Cavalornie i Diego nie daję w nieskończoność wpisu do dziennika
 |   +--|-- DIA_STT_336_Cavalorn
@@ -125,7 +129,7 @@
 |   |   // Nie zaczepia nas gdy jesteśmy Guru
 |   +--|-- DIA_TPL_1438_Templer
 |   |   // Zmiana kosztów zdobywania trofeów z 1pn na 5pn
-|   +--|-- DIA_VLK_572_Gravo -- by marev
+|   +--|-- DIA_VLK_572_Gravo
 |   |   // Poprawnie daje informacje do dziennika
 |   +--|-- DIA_VLK_581_Snaf -- by marev
 |   |   // Snaf może zostać zapytany o Neka również po zakończeniu zadania "Przepis Snafa"
@@ -138,7 +142,8 @@
 |   |   // Dodanie PLAYER_MOBSI_PRODUCTION do obsługi obietków interaktywnych
 |   +--| constans
 |   |   // Dodanie nowej kategorii przedmiotu ITEM_SHIELD = 1 << 1
-|   |   // Dodanie numeru nowego talentu NPC_TALENT_SHIELD = 10
+|   |   // Dodanie numeru nowego talentu NPC_TALENT_SHIELD = 9
+|   |   // Dodanie numeru nowego talentu NPC_TALENT_RUN = 10
 |   +--| Log_Constans
 |   |   // Dodanie stałej GE_TelentRunes do nauki tworzenia run
 |   |   // Dodanie stałej CH2_KDF_Rune do zadania z pierwszą runą u magów ognia
@@ -147,10 +152,10 @@
 |   |   // Dodanie tarczy ITSH_STALHRIM_S_SM w OrcTempel(TPL_254)
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
+|   |   // Stała LPCOST_TALENT_RUN
 |   |   // Zmienna Shield_Equip która zapamiętuje czy mamy założoną tarcze
 |   |   // XP_Ratford_Map - doświadczenie za Quest "Mapa dla Ratforda"
 |   |   // Zmienna Uriziel_1H
-|   |   // Zmienne log_(bustertrain/gravoinfo/fingerscavalorn) --by marev
 |   |   // Zmienna Knows_GetDemonHeart - umiejętność wycinania serc demonów
 |   |   // Zmienna tablica PLAYER_TALENT_RUNES - umiejętności tworzenia run
 |   |   // Zmiana punktów nauki przy nauce kregów magii
@@ -160,6 +165,7 @@
 |   |   // dodanie svm CantReadThis związanej z kartkami uczącymi
 |   +--| Text
 |   |   // Zmianna nazwy umiejętności na Tarcza, oraz dodanie nazw poziomów (Brak|Adept|Mistrz)
+|   |   // Zmianna nazwy umiejętności na Bieg, oraz dodanie nazw poziomów (Nie|Tak)
 |   |   // Zmiany w nazwach poziomów dla broni białch (Brak|Zielony|Wojownik|Mistrz)
 |   |   // Zmiany w nazwach poziomów dla broni dystansowych (Zielony|Strzelec|Mistrz)
 |   |   // Zmiany w B_BuildBuyArmorString

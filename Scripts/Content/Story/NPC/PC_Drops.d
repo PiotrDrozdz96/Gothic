@@ -38,11 +38,11 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 	Npc_SetTalentSkill		( self, NPC_TALENT_PICKLOCK,	1);Npc_SetTalentValue(self,NPC_TALENT_PICKLOCK,60); 
 	Npc_SetTalentSkill		( self, NPC_TALENT_MAGE,		6);
 	
-	Npc_SetTalentSkill    (self, NPC_TALENT_1H,2);
+	Npc_SetTalentSkill    (self, NPC_TALENT_1H,3);
 	Npc_SetTalentSkill	(self, NPC_TALENT_2H,2);
 	Npc_SetTalentSkill	(self, NPC_TALENT_BOW,1);
 	Npc_SetTalentSkill	(self, NPC_TALENT_CROSSBOW,1);
-	Npc_SetTalentSkill	(self, NPC_TALENT_SHIELD,1);
+	Npc_SetTalentSkill	(self, NPC_TALENT_SHIELD,2);
 	
 	//-------------------------
 	CreateInvItem(self,ITMW_1H_URIZIEL_1);
@@ -314,6 +314,33 @@ FUNC int PC_DROPS_CROSSBOW_Condition()
 FUNC void PC_DROPS_CROSSBOW_Info()
 {
 	B_GiveSkill(hero,NPC_TALENT_CROSSBOW,Npc_GetTalentSkill(hero, NPC_TALENT_CROSSBOW)+1,LPCOST_TALENT_CROSSBOW_1);
+};
+
+//***************************************************************************
+//	RUN
+//***************************************************************************
+
+instance  PC_DROPS_RUN (C_INFO)
+{
+	npc				= PC_Drops;
+	condition		= PC_DROPS_RUN_Condition;
+	information		= PC_DROPS_RUN_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= "Bieg (10pkt. umiejêtnoœci)"; 
+};
+
+FUNC int PC_DROPS_RUN_Condition()
+{	
+	if (Npc_GetTalentSkill(hero, NPC_TALENT_RUN) == 0)
+	{
+		return TRUE;
+	};
+};
+
+FUNC void PC_DROPS_RUN_Info()
+{
+	B_GiveSkill(hero,NPC_TALENT_RUN,Npc_GetTalentSkill(hero, NPC_TALENT_RUN)+1,LPCOST_TALENT_RUN);
 };
 
 //***************************************************************************

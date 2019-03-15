@@ -293,7 +293,10 @@ func void  GUR_1201_CorKalom_JoinPSI_Info()
 			AI_EquipBestArmor	(other);
 			Npc_SetTrueGuild	(hero,GIL_NOV);
 			hero.guild = GIL_NOV;
-			Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
+			if(Npc_GetTalentSkill(hero, NPC_TALENT_RUN) == 0)
+			{
+				Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
+			};
 			B_LogEntry			(CH1_JoinPsi,	"Dziœ Cor Kalom przyj¹³ mnie w poczet Nowicjuszy. By³ jak zwykle wredny, ale teraz jestem przynajmniej pe³noprawnym cz³onkiem Bractwa Œni¹cego.");
 			B_LogEntry			(GE_TraderPSI,	"Powinienem odebraæ szatê Nowicjusza u Baal Namiba.");
 			Log_SetTopicStatus	(CH1_JoinPsi,	LOG_SUCCESS);
@@ -1171,7 +1174,6 @@ FUNC void  GUR_1201_CorKalom_WANNABEGUR_Info()
 		CreateInvItem		(hero,GUR_ARMOR_M);
 		CreateInvItem		(hero,ItMw_2H_Staff_03);
 		AI_EquipBestArmor	(hero);
-		Mdl_ApplyOverlayMds(hero,"Humans_Mage.mds");
 	};
 
 };
