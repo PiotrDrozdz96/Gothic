@@ -65,7 +65,7 @@ INSTANCE DIA_Guy_AdOC (C_INFO)
 	nr				= 2;
 	condition		= DIA_Guy_AdOC_Condition;
 	information		= DIA_Guy_AdOC_Info;
-	permanent		= 1;
+	permanent		= 0;
 	description 	= "Jakie s¹ zalety Starego Obozu?";
 };
 

@@ -100,7 +100,10 @@ FUNC VOID  Info_Nefarius_WannaMage_Info()
 	AI_Output (self, other,"Info_Nefarius_WannaMage_04_01"); //Nie tak szybko, mój ch³opcze!
 	AI_Output (self, other,"Info_Nefarius_WannaMage_04_02"); //Nie przyjmujemy do naszego grona byle kogo. Najpierw musisz siê wykazaæ czymœ niezwyk³ym.
 	AI_Output (self, other,"Info_Nefarius_WannaMage_04_03"); //Potem czeka ciê okres próbny.
-	AI_Output (self, other,"Info_Nefarius_WannaMage_04_04"); //Je¿eli powa¿nie myœlisz o zostaniu Magiem Wody, do³¹cz najpierw do Najemników. W ten sposób bêdziesz móg³ nam udowodniæ swoj¹ wartoœæ.
+	if(Npc_GetTrueGuild(hero) != GIL_SLD)
+	{
+		AI_Output(self,other,"Info_Nefarius_WannaMage_04_04");	//Je¿eli powa¿nie myœlisz o zostaniu Magiem Wody, do³¹cz najpierw do Najemników. W ten sposób bêdziesz móg³ nam udowodniæ swoj¹ wartoœæ.
+	};
 	AI_Output (self, other,"Info_Nefarius_WannaMage_04_05"); //Kto wie, mo¿e pewnego dnia uda ci siê nas przekonaæ...
 };
 

@@ -296,7 +296,7 @@ FUNC VOID DIA_Dexter_KalomsRecipeSuccess_Info()
 	AI_Output (self,other,"DIA_Dexter_KalomsRecipeSuccess_10_04"); //WeŸ to. To w nagrodê...
 	
 	CreateInvItems (other,itminugget,50);
-	
+	B_GiveInvItems (self, other, ItMiNugget,50);
 	B_GiveInvItems (other, self, KalomsRecipe, 1);
 	
 	Dexter_GetKalomsRecipe = LOG_SUCCESS;

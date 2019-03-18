@@ -110,7 +110,7 @@ instance DIA_Scorpio_REFUSETRAIN (C_INFO)
 
 FUNC int DIA_Scorpio_REFUSETRAIN_Condition()
 {
-	if (Npc_KnowsInfo(hero,DIA_Scorpio_Hello) && (Npc_GetTrueGuild (hero) != GIL_GRD) )
+	if (Npc_KnowsInfo(hero,DIA_Scorpio_Hello) && (Npc_GetTrueGuild (hero) != GIL_GRD) && (Kapitel <= 3) )
 	{
 		return 1;
 	};

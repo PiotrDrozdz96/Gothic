@@ -4,7 +4,7 @@ instance SLD_753_Baloro (Npc_Default)
 	
 	name =							"Baloro";
 	Npctype =					    Npctype_Main;
-	guild =							GIL_SLD;       
+	guild =							GIL_NONE;       
 	level =							16;
 	
 	voice =							8;

@@ -145,9 +145,12 @@ func void  DIA_Fletcher_WoNek_Info()
 	AI_Output (self, other,"DIA_Fletcher_WoNek_06_02"); //Jeœli komuœ coœ o tym wiadomo, to pewnie tutejszym Kopaczom. Ale oni nie rozmawiaj¹ ze Stra¿nikami.
 	AI_Output (self, other,"DIA_Fletcher_WoNek_06_03"); //A zw³aszcza ze mn¹, bo wiedz¹, ¿e brzydzê siê ich robot¹. Za³o¿ê siê, ¿e podœmiewaj¹ siê ze mnie za moimi plecami.
 	
-	Log_CreateTopic		(CH1_LostNek,	LOG_MISSION);
-	Log_SetTopicStatus	(CH1_LostNek,	LOG_RUNNING);
-	B_LogEntry			(CH1_LostNek,	"Mo¿e Kopacze mieszkaj¹cy w pobli¿u areny wiedz¹ gdzie siê podzia³ Nek.");
+	if (Sly_LostNek != LOG_SUCCESS)
+	{
+		Log_CreateTopic		(CH1_LostNek,	LOG_MISSION);
+		Log_SetTopicStatus	(CH1_LostNek,	LOG_RUNNING);
+		B_LogEntry			(CH1_LostNek,	"Mo¿e Kopacze mieszkaj¹cy w pobli¿u areny wiedz¹ gdzie siê podzia³ Nek.");
+	};
 };
 
 // ************************************************************

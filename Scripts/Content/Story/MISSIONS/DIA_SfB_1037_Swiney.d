@@ -88,8 +88,8 @@ func void Info_Swiney_Schuerfer_Ja()
 {
 	AI_Output (other, self,"Info_Swiney_Schuerfer_Ja_15_00"); //Tak.
 	AI_Output (self, other,"Info_Swiney_Schuerfer_Ja_09_01"); //To œwietnie! Zatem wiesz, na co nale¿y uwa¿aæ. Masz tu swój strój roboczy. Kilof musisz znaleŸæ sobie sam. Mi³ej zabawy.
-	CreateInvItem (self, SFB_ARMOR_L);
 	B_GiveInvItems(self, hero, SFB_ARMOR_L, 1);
+	Mdl_SetVisualBody(self, "hum_body_Naked0", 3, 1, "Hum_Head_Psionic", 41, 2, SFB_ARMOR_L);
 	
 	Info_ClearChoices(Info_Swiney_Schuerfer);
 };

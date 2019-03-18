@@ -368,7 +368,7 @@ instance DIA_Milten_WannaMage (C_INFO)
 	nr			= 2;
 	condition	= DIA_Milten_WannaMage_Condition;
 	information	= DIA_Milten_WannaMage_Info;
-	permanent	= 1;
+	permanent	= 0;
 	description = "Chcia³bym zostaæ uczniem maga, tak jak ty.";
 };                       
 
@@ -376,7 +376,10 @@ FUNC INT DIA_Milten_WannaMage_Condition()
 {
 	if ( Npc_KnowsInfo(hero,DIA_Milten_PERM) && (CorKalom_BringMCQBalls != LOG_SUCCESS) )
 	{
-		return 1;
+		if ( Npc_GetTrueGuild(hero) == GIL_NONE || Npc_GetTrueGuild(hero) == GIL_STT)
+		{
+			return 1;
+		};
 	};
 };
 
@@ -385,7 +388,10 @@ func VOID DIA_Milten_WannaMage_Info()
 	AI_Output (other, self,"DIA_Milten_WannaMage_15_00"); //Chcia³bym zostaæ uczniem maga, tak jak ty.
 	AI_Output (self, other,"DIA_Milten_WannaMage_02_01"); //Corristo wybra³ mnie, bo odda³em szczególne us³ugi potê¿nym Magnatom.
 	AI_Output (self, other,"DIA_Milten_WannaMage_02_02"); //Jeœli naprawdê chcesz zostaæ jego uczniem, musisz wykazaæ siê czymœ niezwyk³ym.
-	AI_Output (self, other,"DIA_Milten_WannaMage_02_03"); //No i oczywiœcie musisz najpierw zostaæ przyjêty do Starego Obozu. Corristo niechêtnie patrzy na ludzi z innych osiedli.
+	if(Npc_GetTrueGuild(hero) == GIL_NONE)
+	{
+		AI_Output (self, other,"DIA_Milten_WannaMage_02_03"); //No i oczywiœcie musisz najpierw zostaæ przyjêty do Starego Obozu. Corristo niechêtnie patrzy na ludzi z innych osiedli.
+	};
 };
 
 

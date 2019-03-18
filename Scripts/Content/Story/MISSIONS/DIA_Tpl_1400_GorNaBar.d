@@ -112,6 +112,9 @@ FUNC void  Tpl_1400_GorNaBar_VICTORY_Info()
 	AI_Output			(other, self,"Tpl_1400_GorNaBar_VICTORY_Info_15_01"); //Znalaz³em gniazdo królowej!
 	AI_Output			(self, other,"Tpl_1400_GorNaBar_VICTORY_Info_09_02"); //Wykaza³eœ siê odwag¹ i hartem ducha. Potrzebujemy ludzi takich jak ty!
 	
-	Log_CreateTopic (GE_BecomeTemplar,LOG_NOTE);
-	B_LogEntry (GE_BecomeTemplar,"Po dostarczeniu jaj powinienem porozmawiaæ z Cor Angarem. Mo¿e pozwoli mi do³¹czyæ do Stra¿y Œwi¹tynnej...");
+	if(Npc_GetTrueGuild(hero) == GIL_NOV)
+	{
+		Log_CreateTopic (GE_BecomeTemplar,LOG_NOTE);
+		B_LogEntry (GE_BecomeTemplar,"Po dostarczeniu jaj powinienem porozmawiaæ z Cor Angarem. Mo¿e pozwoli mi do³¹czyæ do Stra¿y Œwi¹tynnej...");
+	};
 };  

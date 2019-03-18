@@ -71,12 +71,13 @@ instance  KDW_604_Cronos_Brief (C_INFO)
 
 FUNC int  KDW_604_Cronos_Brief_Condition()
 {
-	if	Npc_KnowsInfo(hero, KDW_604_Cronos_Greet)
-	&&	(Npc_GetTrueGuild(hero) != GIL_STT)
-	&&	(Npc_GetTrueGuild(hero) != GIL_KDF)
-	&&	(hero.level < 10)
+	if	(Npc_KnowsInfo(hero, KDW_604_Cronos_Greet))
+	&&	(Npc_GetTrueGuild(hero) == GIL_NONE)
 	{
-		return 1;
+		if (Npc_HasItems(hero, ItWr_Fire_Letter_01) || Npc_HasItems(hero, ItWr_Fire_Letter_02))
+		{
+			return 1;
+		};
 	};
 };
 
@@ -136,7 +137,7 @@ instance  KDW_604_Cronos_WannaJoin (C_INFO)
 
 FUNC int  KDW_604_Cronos_WannaJoin_Condition()
 {
-	if (Npc_KnowsInfo(hero, KDW_604_Cronos_Greet))
+	if(Npc_KnowsInfo(hero,KDW_604_Cronos_Greet) && (Npc_GetTrueGuild(hero) == GIL_None))
 	{
 		return 1;
 	};
@@ -164,7 +165,7 @@ instance  KDW_604_Cronos_WannaMage (C_INFO)
 
 FUNC int  KDW_604_Cronos_WannaMage_Condition()
 {
-	if (Npc_KnowsInfo(hero, KDW_604_Cronos_WannaJoin))
+	if(Npc_KnowsInfo(hero,KDW_604_Cronos_WannaJoin) && (Npc_GetTrueGuild(hero) == GIL_None))
 	{
 		return 1;
 	};
@@ -201,7 +202,10 @@ FUNC int  KDW_604_Cronos_Bandit_Condition()
 {
 	if ( (Npc_GetTrueGuild(hero)==GIL_ORG) || (Npc_GetTrueGuild(hero)==GIL_SLD) )
 	{
-		return 1;
+		if (Kapitel < 4)
+		{
+			return 1;
+		};
 	};
 };
 

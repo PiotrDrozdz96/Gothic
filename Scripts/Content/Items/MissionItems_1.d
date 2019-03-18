@@ -684,35 +684,22 @@ INSTANCE KalomsRecipe(C_Item)
 func VOID Use_KalomsRecipe()
 {   
 	var int nDocID;
-	
-	nDocID = 	Doc_Create		()			  ;								// DocManager 
-				Doc_SetPages	( nDocID,  2 );                         //wieviel Pages
-
-				Doc_SetPage 	( nDocID,  0, "Book_Brown_L.tga"  , 0 		); 
-				Doc_SetPage 	( nDocID,  1, "Book_Brown_R.tga" , 0		);
-				
-				//1.Seite
-
-				Doc_SetMargins	( nDocID,  0,  275, 20, 30, 20, 1   		);  //  0 -> margins are in pixels
-				Doc_SetFont 	( nDocID, -1, "font_10_book.tga"	   			); 	// -1 -> all pages 
-				Doc_PrintLine	( nDocID,  0, ""									);
-				Doc_PrintLine	( nDocID,  0, "Lifrun ak Gharak."					); 		
-				Doc_PrintLine	( nDocID,  0, ""									); 			
-				Doc_PrintLines	( nDocID,  0, "Gharak Or Nach bin thu. Lifrun mar Orag chtah. Shrunk esp Horinth.");
-				
-				//2.Seite
-
-				Doc_SetMargins	( nDocID, -1, 30, 20, 275, 20, 1   		);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
-				Doc_PrintLine	( nDocID,  1, ""					);	
-				Doc_PrintLine	( nDocID,  1, ""					);					
-				Doc_PrintLines	( nDocID,  1, "To zdaje siê mieæ sens, kiedy czytaæ to od koñca.");
-				Doc_PrintLine	( nDocID,  1, ""					);	
-				Doc_PrintLine	( nDocID,  1, "          - Kalom"	);	
-				
-				
-				
-				
-				Doc_Show		( nDocID );
+	nDocID = Doc_Create();
+	Doc_SetPages(nDocID,1);
+	Doc_SetPage(nDocID,0,"letters.TGA",0);
+	Doc_SetFont(nDocID,-1,"font_10_book.tga");
+	Doc_SetMargins(nDocID,-1,50,50,50,50,1);
+	Doc_SetFont(nDocID,-1,"font_10_book.tga");
+	Doc_PrintLine(nDocID,0,"");
+	Doc_PrintLine(nDocID,0,"Lifrun ak Gharak");
+	Doc_PrintLine(nDocID,0,"");
+	Doc_PrintLines(nDocID,0,"Gharak Or Nach bin thu. Lifrun mar Orag chtah. Shrunk esp Horinth.");
+	Doc_PrintLine(nDocID,0,"");
+	Doc_PrintLine(nDocID,0,"");
+	Doc_PrintLines(nDocID,0,"To zdaje siê mieæ sens, kiedy czytaæ to od koñca.");
+	Doc_PrintLine(nDocID,0,"");
+	Doc_PrintLine(nDocID,0,"          - Kalom");
+	Doc_Show(nDocID);
 };
 
 

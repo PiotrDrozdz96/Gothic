@@ -1304,7 +1304,7 @@ FUNC VOID Info_Saturas_XARDAS_Info()
 	AI_Output			(hero,self,"Info_Saturas_XARDAS_15_06"); //Wola³bym wersjê skrócon¹, jeœli ³aska!
 	AI_Output			(self,hero,"Info_Saturas_XARDAS_14_07"); //B¹dŸ cierpliwy. Có¿, kiedy tworzyliœmy magiczn¹ Barierê, nadzorowa³ nas jeszcze jeden.
 	/*AI_Output			(hero,self,"Info_Saturas_XARDAS_15_08"); //Trzynasty mag? Wed³ug legendy mia³o was byæ tylko dwunastu!*/
-	/*AI_Output			(self,hero,"Info_Saturas_XARDAS_14_09"); //Niewielu z ¿yj¹cych pamiêta dok³adnie wydarzenia tamtych dni, a my - magowie - woleliœmy nie odœwie¿aæ im niepotrzebnie pamiêci.*/
+	AI_Output			(self,hero,"Info_Saturas_XARDAS_14_09"); //Niewielu z ¿yj¹cych pamiêta dok³adnie wydarzenia tamtych dni, a my - magowie - woleliœmy nie odœwie¿aæ im niepotrzebnie pamiêci.
 	AI_Output			(self,hero,"Info_Saturas_XARDAS_14_10"); //Ten mag by³ naszym przywódc¹.
 	AI_Output			(self,hero,"Info_Saturas_XARDAS_14_11"); //Tu¿ po za³o¿eniu Starego Obozu - a wtedy by³ to jeszcze jedyny obóz w kolonii - ów mag postanowi³ wieœæ ¿ycie samotnika.
 };

@@ -46,8 +46,8 @@ func void Info_TPL_1455_GorBoba1_Info()
 
 	AI_StopProcessInfos	( self );
 	
-	Log_CreateTopic        ( "Orktempel", LOG_NOTE );
-	B_LogEntry            ( "Orktempel", "GorBoba próbowa³ mnie powstrzymaæ. Mówi³ mi, ¿e Kalom i jego poplecznicy otrzymali od arcykap³ana dar odpornoœci na zwyk³¹ broñ." ); 
+	Log_CreateTopic        ( "Œwi¹tynia orków", LOG_NOTE );
+	B_LogEntry            ( "Œwi¹tynia orków", "GorBoba próbowa³ mnie powstrzymaæ. Mówi³ mi, ¿e Kalom i jego poplecznicy otrzymali od arcykap³ana dar odpornoœci na zwyk³¹ broñ." ); 
 
 	Npc_SetAttitude 		( self, ATT_HOSTILE );
 	Npc_SetTempAttitude 	( self, ATT_HOSTILE );	

@@ -73,7 +73,7 @@ instance DIA_CorAngar_WieTempler (C_INFO)
 
 FUNC int DIA_CorAngar_WieTempler_Condition()
 {
-	if (Npc_KnowsInfo(hero,DIA_CorAngar_LaterTrainer) && (Npc_GetTrueGuild(other) != GIL_TPL) && (Npc_GetTrueGuild(other) != GIL_GUR) )
+	if (Npc_KnowsInfo(hero,DIA_CorAngar_LaterTrainer) && (Npc_GetTrueGuild(other) == GIL_NOV) )
 	{
 		return 1;
 	};

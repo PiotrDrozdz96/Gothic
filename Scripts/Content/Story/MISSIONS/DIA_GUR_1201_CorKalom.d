@@ -890,8 +890,14 @@ FUNC VOID Info_CorKalom_BringMCQBalls_Success_Info()
 	B_LogEntry		(CH2_MCEggs,	"Da³em Cor Kalomowi trzy jaja pe³zaczy. By³ wyj¹tkowo nieprzyjemny. Musia³em siê domagaæ nale¿nej mi nagrody!");
 	Log_SetTopicStatus	(CH2_MCEggs,	LOG_SUCCESS);
 	
-	B_LogEntry	(CH1_GotoPsiCamp, "Chyba wiem ju¿ wystarczaj¹co wiele o wydarzeniach w obozie Bractwa. Powinienem skontaktowaæ siê z Mordragiem.");
-	B_LogEntry	(CH1_GotoPsi, "Chyba wiem ju¿ wystarczaj¹co wiele o wydarzeniach w obozie Bractwa. Powinienem skontaktowaæ siê z Krukiem.");
+	if (Npc_GetTrueGuild(hero) == GIL_ORG || Npc_GetTrueGuild(hero) == GIL_SLD)
+	{
+		B_LogEntry(CH1_GotoPsiCamp,"Chyba wiem ju¿ wystarczaj¹co wiele o wydarzeniach w obozie Bractwa. Powinienem skontaktowaæ siê z Mordragiem.");
+	}
+	else
+	{
+		B_LogEntry(CH1_GoToPsi,"Chyba wiem ju¿ wystarczaj¹co wiele o wydarzeniach w obozie Bractwa. Powinienem skontaktowaæ siê z Krukiem.");
+	};
 	
 	Info_ClearChoices (Info_CorKalom_BringMCQBalls_Success);
 	Info_Addchoice(Info_CorKalom_BringMCQBalls_Success,"Daj mi jak¹œ runê."	,Info_CorKalom_BringMCQBalls_Success_RUNE);

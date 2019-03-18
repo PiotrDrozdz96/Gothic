@@ -101,7 +101,7 @@ INSTANCE DIA_Jesse_Mission (C_INFO)
 
 FUNC INT DIA_Jesse_Mission_Condition()
 {	
-	if (Npc_KnowsInfo(hero,DIA_Jesse_Mission))
+	if (Npc_KnowsInfo(hero,DIA_Jesse_Warn))
 	{
 		return 1;
 	};
@@ -194,11 +194,13 @@ func void DIA_Jesse_MisSuccess_Waaas()
 {
 	AI_Output (other, self,"DIA_Jesse_MisSuccess_Waaas_15_00"); //COOO??? Wyda³em 10 bry³ek na cynk o którym i tak ju¿ wiedzia³em?
 	AI_Output (self, other,"DIA_Jesse_MisSuccess_Waaas_03_01"); //Na to wygl¹da.
+	AI_StopProcessInfos(self);
 };
 
 func void DIA_Jesse_MisSuccess_Ok()
 {
 	AI_Output (other, self,"DIA_Jesse_MisSuccess_Ok_15_00"); //Dok³adnie. Rêka rêkê myje.
+	AI_StopProcessInfos(self);
 };
 
 //a) <Herek tot>

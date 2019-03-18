@@ -330,17 +330,14 @@ FUNC VOID  Sld_700_Lee_FMTaken_Info()
 	else
 	{
 		AI_Output			(hero, self,"Info_Lee_now_freeminefree_15_01"); 	//Myœlê, ¿e zagro¿enie ju¿ minê³o.
-		AI_Output			(self, hero,"Sld_700_Lee_CHANGESIDE_Info_08_02"); 	//Nasz obóz wiele ci zawdziêcza. Przyda³by mi siê ktoœ taki jak ty.
+		AI_Output			(self, hero,"Info_Lee_now_freeminefree_08_02"); 	//Nareszcie!
+		AI_Output			(self, hero,"Info_Lee_now_freeminefree_08_03"); 	//Zas³u¿y³eœ na sowite wynagrodzenie. Proszê oto twoja nagroda.
 		AI_Output			(hero, self,"Info_FreemineOrc_EXIT_15_03"); 		//Dziêkujê. Muszê ju¿ ruszaæ w dalsz¹ drogê.
-		AI_Output			(self, hero,"Info_CorAngar_TELEPORT_08_01"); 		//Jeszcze coœ!
-		AI_Output			(self, hero,"Info_CorAngar_TELEPORT_08_03"); 		//WeŸ tê magiczn¹ runê jako symbol naszej wdziêcznoœci za twoje dokonania.
-		AI_Output			(hero, self,"Info_CorAngar_TELEPORT_15_05"); 		//Dziêkujê!
-		AI_Output			(hero,	self,"Info_Exit_Info_15_01"); 				//Do zobaczenia!
 
-
-		B_LogEntry			(CH4_BannedFromOC,	"Poinformowa³em Lee o wynikach akcji, któr¹ przeprowadzi³em wraz z Gornem w Wolnej Kopalni. By³ bardzo zadowolony.");
+		// B_LogEntry			(CH4_BannedFromOC,	"Poinformowa³em Lee o wynikach akcji, któr¹ przeprowadzi³em wraz z Gornem w Wolnej Kopalni. By³ bardzo zadowolony.");
 		
- 	   	B_GiveInvItems (self,other, ItArRuneFirestorm, 1);
+		CreateInvItems		(self,ItMiNugget,500);
+		B_GiveInvItems      (self, hero, ItMiNugget,500);
 		B_GiveXP (500);		
 		Lee_freeminereport = 0;
 	};

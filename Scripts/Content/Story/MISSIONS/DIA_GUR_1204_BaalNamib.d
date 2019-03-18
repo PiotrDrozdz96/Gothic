@@ -154,11 +154,7 @@ FUNC void  GUR_1204_BaalNamib_ARMOR_Info()
 {
 	AI_Output (hero,self,"GUR_1204_BaalNamib_ARMOR_Info_15_01");//Chcia³bym otrzymaæ lepsz¹ zbrojê.
 	
-	if (Kapitel < 3)
-	{
-		AI_Output (self,other,"GUR_1204_BaalNamib_ARMOR_Info_02_02");//Minie jeszcze trochê czasu, zanim dane ci bêdzie nosiæ ciê¿k¹ zbrojê Nowicjusza.
-	}
-	else if (Npc_HasItems (hero, ItMinugget) < VALUE_NOV_ARMOR_H )
+	if (Npc_HasItems (hero, ItMinugget) < VALUE_NOV_ARMOR_H )
 	{
 		AI_Output (self,other,"GUR_1204_BaalNamib_ARMOR_Info_02_03");//Wróæ, gdy uzbierasz trochê wiêcej rudy.
 	}

@@ -22,7 +22,7 @@ instance GRD_260_Drake (Npc_Default)
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
 	//			body mesh     ,bdytex,skin,head mesh     ,1headtex,teethtex,ruestung	
-	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 3,"Hum_Head_Fighter",110 ,  1, GRD_ARMOR_M);
+	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_Fighter",110 ,  1, GRD_ARMOR_M);
 
 	B_Scale (self);
     	Mdl_SetModelFatness(self,0);

@@ -312,7 +312,10 @@ INSTANCE DIA_Grim_Aufnahme (C_INFO)
 
 FUNC INT DIA_Grim_Aufnahme_Condition()
 {	
-	return 1;
+	if (Npc_GetTrueGuild(hero) == GIL_NONE)
+	{
+		return 1;
+	};
 };
 
 FUNC VOID DIA_Grim_Aufnahme_Info()

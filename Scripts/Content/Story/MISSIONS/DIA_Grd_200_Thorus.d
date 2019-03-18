@@ -442,7 +442,10 @@ INSTANCE Info_Thorus_Give1000Ore (C_INFO)
 
 FUNC INT Info_Thorus_Give1000Ore_Condition()
 {	
+	var C_NPC wache212; wache212 = Hlp_GetNpc(Grd_212_Torwache);
+	
 	if (Npc_KnowsInfo(hero,Info_Thorus_BribeGuard))
+	&& (wache212.aivar[AIV_PASSGATE] == FALSE)
 	{
 		return 1;
 	};

@@ -130,7 +130,7 @@ func void Info_Kirgo_Charge_Beer()
 	AI_Output (self, other,"Info_Kirgo_Charge_Beer_05_09"); //Jeœli nadal chcesz ze mn¹ walczyæ, daj mi znaæ! Chocia¿ nie chcia³bym ci robiæ krzywdy.
 	
 	CreateInvItem (other, ItFoBeer);
-	B_GiveInvItems (other, self, ItFoBeer, 1);
+	B_GiveInvItems (self, other, ItFoBeer, 1);
 	
 	self.npctype = npctype_FRIEND;
 	

@@ -446,11 +446,11 @@ FUNC VOID  ORG_801_Lares_Reicht_Info()
 		Log_SetTopicStatus	(CH1_JoinPsi,	LOG_FAILED);
 		B_LogEntry			(CH1_JoinPsi,	"Bractwo bêdzie musia³o radziæ sobie beze mnie. Od dziœ moim domem jest Nowy Obóz!");
 		
-		Log_SetTopicStatus	(CH1_LostNek,	LOG_FAILED);
-		Log_SetTopicStatus	(CH1_FiskNewDealer,	LOG_FAILED);
-		Log_SetTopicStatus	(CH1_KalomsRecipe,	LOG_FAILED);
-		Log_SetTopicStatus	(CH1_BringList,	LOG_FAILED);
-		Log_SetTopicStatus	(CH1_MordragKO,	LOG_FAILED);
+		// Log_SetTopicStatus	(CH1_LostNek,	LOG_FAILED);
+		// Log_SetTopicStatus	(CH1_FiskNewDealer,	LOG_FAILED);
+		// Log_SetTopicStatus	(CH1_KalomsRecipe,	LOG_FAILED);
+		// Log_SetTopicStatus	(CH1_BringList,	LOG_FAILED);
+		// Log_SetTopicStatus	(CH1_MordragKO,	LOG_FAILED);
 	}
 	else
 	{

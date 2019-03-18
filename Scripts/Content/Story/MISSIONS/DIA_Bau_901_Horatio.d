@@ -349,6 +349,10 @@ func void DIA_Horatio_HelpSTR_LEARN_NOW()
 		other.attribute[ATR_STRENGTH] = other.attribute[ATR_STRENGTH] + 5;
 		PrintScreen	("Si³a + 5", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
 	}
+	else if (other.attribute[ATR_STRENGTH] > 100)
+	{
+		PrintScreen	("Maksymalna si³a ju¿ osi¹gniêta", -1,-1,"FONT_OLD_20_WHITE.TGA",2);
+	}
 	else
 	{
 		other.attribute[ATR_STRENGTH] = 100; 

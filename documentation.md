@@ -27,25 +27,46 @@
 |   |   // Funkcja do nauki tworzenia run
 |/*******************************************B END***********************************************************
 +--Dialogs
+|   +--|-- DIA_BAU_900_Ricelord -- by marev
+|   |   // Ryżowy Książę nie daje butelek wody po pobiciu Lewusa
+|   |   // nie można już w nieskończoność brać wody
+|   +--|-- DIA_BAU_901_Horatio
+|   |   // Horacy nie zabiera już siły, jeśli gracz ma jej więcej niż 100 -- by marev
 |   +--|-- DIA_EBR_100_Gomez
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu cieniem
 |   +--|-- DIA_GRD_200_Thorus
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu strażnikiem
 |   |   // Przebudowa nauki walki na 11 etapów
-|   |   // Poprawa informacji w dzienniku po zostaniu strażnikiem z "Smitha" na "Kowala" /*Nieoficjalny Patch by Marev*/
+|   |   // Poprawa informacji w dzienniku po zostaniu strażnikiem z "Smitha" na "Kowala" -- by marev
+|   |   // Thorus nie może zostać przekupiony, jeśli gracz ma już dostęp do zamku -- by marev
 |   |   // Nauka broni 2H po zabiciu Mordraga
+|   +--|-- DIA_GRD_(201_Jackal/233_Bloodwyn) -- by marev
+|   |   // nie domaga się rudy, jeśli gracz został przyjęty do jakiegoś obozu
+|   |   // Poprawnie zbierają opłaty
 |   +--|-- DIA_GRD_205_Scorpio
 |   |   // Przebudowa nauki walki na 11 etapów
+|   |   // Skorpion nie może zostać zapytany o naukę walki, po tym jak przeniesie się do chatki Cavalorna -- by marev
 |   +--|-- DIA_GRD_210_Scatty
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Nauka walki tarczą
+|   +--|-- DIA_216_Torwache -- by marev
+|   |   // strażnik przy południowej bramie Starego Obozu wchodzi w interakcję z graczem już przy pierwszym spotkaniu
+|   |   // w zadaniu "Nowi wyznawcy dla Bractwa" nie można już w nieskończoność przekupywać strażnika poprzez zapisywanie i wczytywanie gry
+|   +--|-- DIA_GRD_251_Kirgo
+|   |   // Kirgo poprawnie daje piwo podczas rozmowy (a nie zabiera) -- by marev
+|   +--|-- DIA_GRD_255_Fletcher
+|   |   // Fletcher nie zaczyna zadania "Zaginiony Strażnik", jeśli zostało ono już ukończone -- by marev
 |	+--|-- DIA_GUR_1201_CorKalom
 |   |   // Możliwość zostania guru
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu nowicjuszem
+|   |   // Poprawny wpis do dziennika w zadaniu "Co się dzieje na bagnach?" -- by marev
 |   +--|-- DIA_GUR_1202_CorAngar
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Uwzględnie guru w nauce walki broni 2H
 |   |   // Zdobycie szaty arcyguru
+|   |   // z Cor Angarem można rozmawiać o zostaniu Strażnikiem Świątynnym tylko po zostaniu Nowicjuszem -- by marev
+|   +--|-- DIA_GUR_1204_BaalNamib
+|   |   // Baal Namib poprawnie sprzedaje Szatę Nowicjusza -- by marev
 |   +--|-- DIA_GUR_1208_BaalCadar
 |   |   // Usunięcie magicznych run przed handlem
 |   |   // Uczy tworzenia run 
@@ -75,12 +96,18 @@
 |   |   // Zmiany w zostaniu magiem wody, możemy zostać wcześniej
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu magiem wody
 |   |   // Uczy tworzenia run
+|   +--|-- DIA_KDW_603_Nefarius
+|   |   // Nefarius nie zachęca do zostania Najemnikiem, jeśli gracz już nim jest -- by marev
 |   +--|-- DIA_KDW_604_Cronos
 |   |   // Usunięcie magicznych run przed handlem
+|   |   // Nie powiemy o liście do magów ognia, jeśli go nie posiadamy
+|   |   // Cronos nie wysyła już gracza z listem do Magów Ognia, jeśli oni zostali już zabici -- by marev
+|   |   // rozmowa z Cronosem o dołączeniu do obozu i zostaniu Magiem Wody jest dostępna tylko, jeśli gracz nie należy do żadnego obozu -- by marev 
 |   +--|-- DIA_Nov_1372_Bukano
 |   |   // Dialogi nowej postaci
 |   +--|-- DIA_ORG_801_Lares
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu szkodnikiem
+|   |   // Nie przenosi wszystkich zadań do niezaliczonych po zostaniu szkodnikiem -- by marev
 |   +--|-- DIA_ORG_818_Ratford
 |   |   // Zadanie ze zdobyciem mapy
 |   +--|-- DIA_ORG_819_Drax
@@ -104,13 +131,18 @@
 |   |   // Zmiana kosztów zdobywania trofeów z 1pn na 5pn
 |   +--|-- DIA_PC_Fighter
 |   |   // Nauka walki bronią 2H po zostaniu szkodnikiem w systemie 11 etapowym
+|   +--|-- DIA_PC_Mage
+|   |   // zmiany w dialogu o zostaniu magiem ognia
 |   +--|-- DIA_PC_Thief
 |   |   // Odsprzedawanie starych monet
+|   +--|-- DIA_Sfb_1037_Swiney
+|   |   // Swiney nie oddaje już swojego stroju po rozmowie z graczem -- by marev
 |   +--|-- DIA_SLD_700_Lee
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu najemnikiem
 |   |   // Inny pancerz po zostaniu najemnikiem
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Informowanie Lee o przełomie w bractwie
+|   |   // Poprawienie dialogu z Lee o odbiciu wolnej kopalni, zmieniona nagroda
 |   +--|-- DIA_SLD_709_Cord
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Nauka walki tarczą
@@ -119,18 +151,32 @@
 |   +--|-- DIA_STT_311_Fisk -- by marev
 |   |   // Zadanie "Nowy paser dla Fiska" jest aktywowane niezależnie od sposobu pozbycia się Mordraga
 |   |   // Fisk nie sprzedaje spodni kopacza, jeśli je posiadamy
+|   +--|-- DIA_STT_329_Dexter
+|   |   // Dexter poprawnie daje nagrodę za wykonanie zadania -- by marev
 |   +--|-- DIA_STT_331_Fingers
 |   |   // można prosić o nauke poziomu 2, dopiero gdy poznamy poziom 1
 |   |   // rozmowa o Cavalornie i Diego nie daję w nieskończoność wpisu do dziennika
 |   +--|-- DIA_STT_336_Cavalorn
 |   |   // Przebudowa nauki walki na 11 etapów
+|   +--|-- DIA_TPL_1400_GorNaBar
+|   |   // Nie daje wpisu do dziennika o możliwości zostania strażnikiem świątynnym jeśli nie jesteśmy nowicjuszem -- by marev
 |   +--|-- DIA_TPL_1402_GorNaToth
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Nie zaczepia nas gdy jesteśmy Guru
 |   +--|-- DIA_TPL_1438_Templer
 |   |   // Zmiana kosztów zdobywania trofeów z 1pn na 5pn
+|   +--|-- DIA_TPL_1455_GorBoba
+|   |   // zamiana nieprzetłumaczonego tytułu wpisu w dzienniku z "Orktempel" na "Świątynia orków" -- by marev
+|   +--|-- DIA_VLK_530_Guy
+|   |   // nie można już w nieskończoność pytać Guya o zalety dołączenia do Starego Obozu -- by marev
+|   +--|-- DIA_VLK_587_Garp
+|   |   // Dialog "Koniec" przenesiony na koniec listy opcji dialogowych -- by marev
+|   +--|-- DIA_VLK_564_Jesse
+|   |   // przywrócono mini-zadanie Jesse'ego -- by marev
 |   +--|-- DIA_VLK_572_Gravo
 |   |   // Poprawnie daje informacje do dziennika
+|   +--|-- DIA_VLK_580_Grim
+|   |   // Grima nie można już pytać o zostanie członkiem Obozu po dołączeniu do jakiegoś -- by marev
 |   +--|-- DIA_VLK_581_Snaf -- by marev
 |   |   // Snaf może zostać zapytany o Neka również po zakończeniu zadania "Przepis Snafa"
 |/*******************************************DIALOGS END*****************************************************
@@ -207,6 +253,7 @@
 |   +--| MissionItems
 |   |   // 1 - Listy do Magów Ognia mają podpis "Marszałek Rigaldo
 |   |   // 1 - Z Chromanimu 6 wypada kartka ucząca runy przywołania szkieleta
+|   |   // 1 - "Receptura Cor Kaloma" wyświetla się jako kartka, a nie książka -- by marev
 |   |   // 2 - Z almanachu wypada list od Xardasa oraz kartki uczące przywołąnie goblina oraz wilka
 |   +--| Potions
 |   |    // ItFo_Potion_Haste_(02/03) -> poprawione wartości
@@ -275,6 +322,8 @@
 |   |   |    // Usunięcie łuku, Dodanie Tarczy IT_SHIELD_SKULL
 |   |   +--| SLD_729_Kharim
 |   |   |    // Zmiana pancerza na SLD_ARMOR_L, dodanie Tarczy ITSH_W2_EXECUTIONER
+|   |   +--| SLD_753_Baloro
+|   |   |    // Usunięcie gildi, aby inni nie reagowali na walkę z nim -- by marev
 |   |   +--| SFB_1000_Senyan
 |   |   |    // Zmiana wyglądu na ten z G2NK
 |   |/********************NPC NEW_CAMP END*********************************
@@ -291,6 +340,8 @@
 |   |   |    // Dodanie Tarczy ITSH_W2_E3_REDANIA
 |   |   +--| GRD_(231/275/276)
 |   |   |    // Dodanie tarczy ITSH_W2_E2_KEADWEN
+|   |   +--| GRD_260_Drake
+|   |   |   // Drake ma już tylko jeden kolor skóry -- by marev
 |   |   +--| GRD_282_Nek
 |   |   |    // Dodanie tarczy ITSH_G3_01_OLD
 |   |   +--| KDF_405_Torrez

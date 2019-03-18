@@ -4,6 +4,7 @@
 instance  Vlk_587_Garp_Exit (C_INFO)
 {
 	npc			=  Vlk_587_Garp;
+	nr			=  999;
 	condition	=  Vlk_587_Garp_Exit_Condition;
 	information	=  Vlk_587_Garp_Exit_Info;
 	important	=  0;	
