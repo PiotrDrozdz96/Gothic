@@ -34,12 +34,17 @@
 |   |   // Horacy nie zabiera już siły, jeśli gracz ma jej więcej niż 100 -- by marev
 |   +--|-- DIA_EBR_100_Gomez
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu cieniem
+|   +--|-- DIA_EBR_105_Raven
+|   |   // Przerobienie dialogów z informowaniem o bractwie
+|   |   // Po queście z informowaniem o bractwie dostajemy 1pkt. reputacji u straży, potrzebnej przy kupowaniu lepszej zbroi
 |   +--|-- DIA_GRD_200_Thorus
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu strażnikiem
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Poprawa informacji w dzienniku po zostaniu strażnikiem z "Smitha" na "Kowala" -- by marev
 |   |   // Thorus nie może zostać przekupiony, jeśli gracz ma już dostęp do zamku -- by marev
 |   |   // Nauka broni 2H po zabiciu Mordraga
+|   |   // Po queście z mordragiem dostajemy 1 lub 2 pkt. reputacji u straży, potrzebnej przy kupowaniu lepszej zbroi
+|   |   // Nowy Quest związany z przyprowadzniem trzech kopaczy, za który możemy otrzymać 1 pkt. reputacji u straży
 |   +--|-- DIA_GRD_(201_Jackal/233_Bloodwyn) -- by marev
 |   |   // nie domaga się rudy, jeśli gracz został przyjęty do jakiegoś obozu
 |   |   // Poprawnie zbierają opłaty
@@ -49,9 +54,12 @@
 |   +--|-- DIA_GRD_210_Scatty
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Nauka walki tarczą
+|   |   // Po pokonaniu Kharima dostajemy 1pkt. reputacji u straży, potrzebnej przy kupowaniu lepszej zbroi
 |   +--|-- DIA_216_Torwache -- by marev
 |   |   // strażnik przy południowej bramie Starego Obozu wchodzi w interakcję z graczem już przy pierwszym spotkaniu
 |   |   // w zadaniu "Nowi wyznawcy dla Bractwa" nie można już w nieskończoność przekupywać strażnika poprzez zapisywanie i wczytywanie gry
+|   +--|-- DIA_GRD_219_Stone
+|   |   // Zmienione warunki otrzymania nowych zbroi, są głównie zależne od naszej reputacji u strażników
 |   +--|-- DIA_GRD_251_Kirgo
 |   |   // Kirgo poprawnie daje piwo podczas rozmowy (a nie zabiera) -- by marev
 |   +--|-- DIA_GRD_255_Fletcher
@@ -163,10 +171,13 @@
 |   +--|-- DIA_TPL_1402_GorNaToth
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Nie zaczepia nas gdy jesteśmy Guru
+|   |   // Zmienione warunki otrzymania ciężkiej zbroi świątynnej. Można zaraz po wysłaniu do nowego obozu żeby nie latać tu bez potrzeby.
 |   +--|-- DIA_TPL_1438_Templer
 |   |   // Zmiana kosztów zdobywania trofeów z 1pn na 5pn
 |   +--|-- DIA_TPL_1455_GorBoba
 |   |   // zamiana nieprzetłumaczonego tytułu wpisu w dzienniku z "Orktempel" na "Świątynia orków" -- by marev
+|   +--|-- DIA_VLK_Buddlers
+|   |   // Dialogi dla kopaczy z przywróconymi imionami (502/504/517) związane z Questem "Kopacze do kopalni"
 |   +--|-- DIA_VLK_530_Guy
 |   |   // nie można już w nieskończoność pytać Guya o zalety dołączenia do Starego Obozu -- by marev
 |   +--|-- DIA_VLK_587_Garp
@@ -192,8 +203,9 @@
 |   |   // Dodanie numeru nowego talentu NPC_TALENT_RUN = 10
 |   +--| Log_Constans
 |   |   // Dodanie stałej GE_TelentRunes do nauki tworzenia run
-|   |   // Dodanie stałej CH2_KDF_Rune do zadania z pierwszą runą u magów ognia
 |   |   // CH1_RatfordMap - Quest z mapą dla Ratforda
+|   |   // CH2_KDF_Rune - Quest z pierwszą runą u magów ognia
+|   |   // CH2_Buddler - Quest dla strażnika ze znalezieniem kopaczy do kopalni
 |   +--| Startup
 |   |   // Dodanie tarczy ITSH_STALHRIM_S_SM w OrcTempel(TPL_254)
 |   +--| Story_Globals
@@ -207,6 +219,9 @@
 |   |   // Zmiana punktów nauki przy nauce kregów magii
 |   |   // Dodanie kosztów nauki tworzenia run
 |   |   // Zmienna Knows_Book_Circle_01 - informacja czy przeczytaliśmy książkę "Pierwszy krąg magii"
+|   |   // Zmienna GRD_Reputation licząca naszą reputację u strażników
+|   |   // Zmienna Player_SentBuddler licząca ilu wysłaliśmy kopaczy do pracy w kopalni
+|   |   // Stała XP_Buddlers - doświadczenie za Quest "Kopacze do kopalni"
 |   +--| svm
 |   |   // dodanie svm CantReadThis związanej z kartkami uczącymi
 |   +--| Text
@@ -353,6 +368,9 @@
 |   |   |    // Zmiana pancerza na STT_ARMOR_H
 |   |   +--| STT_302_Viper
 |   |   |    // Dodanie przedmiotów do tworzenia run
+|   |   +--| VLK_(502/504/517)_Buddler
+|   |   |    // Przywrócenie imion z Gothic alpha
+|   |   |    // Dodanie nowych rutyn związanych z Questem CH2_Buddler
 |   |   +--| VLK_555_Buddler
 |   |   |    // Zmiana twarzy
 |   |   +--| VLK_573_Graham

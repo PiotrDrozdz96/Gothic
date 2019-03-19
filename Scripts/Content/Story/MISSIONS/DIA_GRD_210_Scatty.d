@@ -183,7 +183,7 @@ FUNC VOID DIA_Scatty_KHARIMSuccess_Info()
 		AI_Output (self,other,"DIA_Scatty_KHARIMSuccess_01_04"); //I pokona³eœ go! Muszê przyznaæ, ¿e œwietnie sobie poradzi³eœ. Kharim od dawna uchodzi³ za jednego z najlepszych wojowników w kolonii.
 		AI_Output (self,other,"DIA_Scatty_KHARIMSuccess_01_05"); //Jestem pod wra¿eniem!
 		Scatty_ChargeKHARIM = LOG_SUCCESS;
-		
+		GRD_Reputation = (GRD_Reputation + 1);
 		B_LogEntry( CH1_JoinOC, "Pokaza³em Kharimowi, gdzie raki zimuj¹. Scatty by³ pod wra¿eniem.");
 		B_GiveXP(XP_kharimvictory);
 	};

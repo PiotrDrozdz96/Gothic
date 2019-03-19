@@ -217,7 +217,7 @@ func void TPL_1402_GorNaToth_ARMOR_H ()
 {
 	AI_Output				(hero, self,"Info_GorNaToth_ARMOR_H_15_01"); //Chcia³bym otrzymaæ ciê¿k¹ zbrojê Stra¿y Œwi¹tynnej.
 
-	if (Kapitel < 4)
+	if (CorAngar_SendToNC==FALSE)
 	{
 		AI_Output			(self, hero,"Info_GorNaToth_ARMOR_H_11_02"); //Nie jesteœ jeszcze wystarczaj¹co doœwiadczony. Udowodnij swoj¹ przydatnoœæ dla naszej spo³ecznoœci, a dost¹pisz zaszczytu noszenia tak wspania³ego pancerza.
 	}

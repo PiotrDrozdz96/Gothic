@@ -347,32 +347,29 @@ FUNC VOID DIA_Raven_SpyBericht_Info()
 	AI_Output (other, self,"DIA_Raven_SpyBericht_15_00"); //Pomyœla³em, ¿e zdam ci raport...
 	AI_Output (self, other,"DIA_Raven_SpyBericht_10_01"); //To dobrze. Lubiê byæ informowany na bie¿¹co.
 	if (Npc_HasItems (other, itat_Crawlerqueen)>=1)
-	|| (CorKalom_BringMCQBalls == LOG_SUCCESS)
+	|| (Kapitel >= 3)
 	{
-		if (Kapitel >= 3)
+		if (CorAngar_SendToNC==TRUE)
 		{
-			AI_Output (other, self,"Org_826_Mordrag_RUNNING_15_04"); //Odby³o siê wielkie przywo³anie.
+			AI_Output (other, self,"Info_Saturas_YBERION_15_01"); //Y'Berion nie ¿yje! Zgin¹³ podczas rytua³u przyzwania Œni¹cego.
+			AI_Output (other, self,"Info_Saturas_YBERION_15_06"); //Pewne wydarzenia uœwiadomi³y wszystkim Guru, ¿e droga, któr¹ pod¹¿ali by³a b³êdna. Ich rzekomy bóg okaza³ siê niszczycielskim demonem.
+			AI_Output (other, self,"Info_Saturas_YBERION_15_08"); //Cor Kalom by³ jedynym Guru, który nie chcia³ uznaæ prawdziwej natury Œni¹cego. W³aœnie dlatego opuœci³ obóz na bagnie.
 			AI_Output (self, other,"DIA_Raven_SpyBericht_10_04"); //Dobrze siê spisa³eœ.
 			Raven_SpySect=LOG_SUCCESS;
 			B_GiveXP (XP_ReportToRaven);
 			Log_SetTopicStatus (CH1_GoToPsi,	LOG_SUCCESS);
+			GRD_Reputation = (GRD_Reputation + 1);
 			B_LogEntry (CH1_GoToPsi,"Kruk sp³awi³ mnie byle gadk¹. Nie potrzeba mi takich przyjació³. Od tej pory dzia³am na w³asny rachunek.");
+		}
+		else if (Kapitel >= 3)
+		{
+			AI_Output (other, self,"Org_826_Mordrag_RUNNING_15_04"); //Odby³o siê wielkie przywo³anie.
+			AI_Output (self, other,"DIA_Raven_SpyBericht_10_07"); //Hmm, interesuj¹ce.
 		}
 		else
 		{
 			AI_Output (other, self,"DIA_Raven_SpyBericht_15_02"); //Teraz Bractwo potrzebuje jaj królowej pe³zaczy. Przygotuj¹ z nich napój, który umo¿liwi im nawi¹zanie kontaktu ze Œni¹cym. Mam te jaja przy sobie.
-			if (CorKalom_BringMCQBalls != LOG_SUCCESS)
-			{
-				AI_Output (self, other,"DIA_Raven_SpyBericht_10_03"); //Hmm, interesuj¹ce. Ciekawe czy to zadzia³a. Zanieœ jaja do œwi¹tyni.
-			}
-			else
-			{
-				AI_Output (self, other,"DIA_Raven_SpyBericht_10_04"); //Dobrze siê spisa³eœ.
-				Raven_SpySect=LOG_SUCCESS;
-				B_GiveXP (XP_ReportToRaven);
-				Log_SetTopicStatus (CH1_GoToPsi,	LOG_SUCCESS);
-				B_LogEntry (CH1_GoToPsi,"Kruk sp³awi³ mnie byle gadk¹. Nie potrzeba mi takich przyjació³. Od tej pory dzia³am na w³asny rachunek.");
-			};
+			AI_Output (self, other,"DIA_Raven_SpyBericht_10_03"); //Hmm, interesuj¹ce. Ciekawe czy to zadzia³a. Zanieœ jaja do œwi¹tyni.
 		};
 	}
 	else

@@ -339,6 +339,7 @@ FUNC VOID Info_Thorus_MordragKo_MordragDead()
 {
 	AI_Output (other, self,"Info_Thorus_MordragKo_MordragDead_15_00"); //Mordrag ju¿ nigdy nikogo nie okradnie!
 	AI_Output (self, other,"Info_Thorus_MordragKo_MordragDead_09_01"); //Chcesz powiedzieæ, ¿e go pokona³eœ? NieŸle, ch³opcze.
+	GRD_Reputation = (GRD_Reputation + 2);
 	Thorus_MordragKo = LOG_SUCCESS;
 	Log_SetTopicStatus(CH1_MordragKO, LOG_SUCCESS);	
 	B_LogEntry (CH1_MordragKO, "Thorus jest mi wdziêczny za usuniêcie Mordraga. Zyska³em wp³ywowego przyjaciela.");
@@ -351,6 +352,7 @@ FUNC VOID Info_Thorus_MordragKo_MordragGone()
 {
 	AI_Output (other, self,"Info_Thorus_MordragKo_MordragGone_15_00"); //Facet ju¿ nigdy siê tu nie poka¿e!
 	AI_Output (self, other,"Info_Thorus_MordragKo_MordragGone_09_01"); //Wola³bym, ¿ebyœ go zabi³.
+	GRD_Reputation = (GRD_Reputation + 1);
 	Thorus_MordragKo = LOG_SUCCESS;
 	Log_SetTopicStatus(CH1_MordragKO, LOG_SUCCESS);
 	B_LogEntry (CH1_MordragKO, "Thorus ucieszy³ siê, ¿e Mordraga nie ma ju¿ w obozie.");
@@ -794,6 +796,7 @@ FUNC void  GRD_200_Thorus_AUFNAHME_Info()
 	{
 		Mdl_ApplyOverlayMds(hero,"Humans_Militia.mds");
 	};
+	AI_StopProcessInfos	(self);
 };  
 //---------------------------------------------------------------
 // GARDIST WERDEN TEIL 2
@@ -819,7 +822,6 @@ func void  GRD_200_Thorus_NOCHWAS_Info()
 {
 	AI_Output			(self, other,"GRD_200_Thorus_NOCHWAS_Info_09_01"); //A, i jeszcze coœ...
 	AI_Output			(self, other,"GRD_200_Thorus_NOCHWAS_Info_09_02"); //Witamy w Stra¿y...
-	AI_StopProcessInfos	(self);
 
 	Log_CreateTopic		(GE_BecomeGuard,	LOG_NOTE);
 	B_LogEntry			(GE_BecomeGuard,	"Dziœ Thorus przyj¹³ mnie w poczet Stra¿ników. Mogê teraz odebraæ nale¿ny mi pancerz. Dostanê go od Kowala, w zamku.");
@@ -1008,3 +1010,75 @@ FUNC void  GRD_200_Thorus_ZWEIHAND1_Info()
 		};
 	};
 };
+
+//---------------------------------------------------------------
+// BUDDLER QUEST
+//---------------------------------------------------------------
+instance GRD_200_Thorus_Buddler (C_INFO)
+{
+	npc				= GRD_200_Thorus;
+	condition		= GRD_200_Thorus_Buddler_Condition;
+	information		= GRD_200_Thorus_Buddler_Info;
+	important		= 0;
+	permanent		= 0;
+	description		= "Znajdzie siê dla mnie jakieœ zajêcie?";
+};
+
+FUNC int  GRD_200_Thorus_Buddler_Condition()
+{	
+	if (Npc_GetTrueGuild  (hero) == GIL_GRD ) 
+	{
+		return TRUE;
+	};
+};
+func void  GRD_200_Thorus_Buddler_Info()
+{
+	AI_Output			(other, self,"DIA_Ricelord_Arbeit_15_00");	//Znajdzie siê dla mnie jakieœ zajêcie?
+	AI_Output			(self, other,"GRD_200_Thorus_Buddler_09_01"); //Zniknê³o ju¿ trzech kopaczy. Twoim zadaniem jest zdobyæ nowych.
+	AI_Output			(self, other,"GRD_200_Thorus_Buddler_09_02"); //Wykonaj swoje zadanie - potem rób, co tylko zechcesz.
+	AI_StopProcessInfos	(self);
+
+	Log_CreateTopic		(CH2_Buddler, LOG_MISSION);
+	Log_SetTopicStatus	(CH2_Buddler, LOG_RUNNING);
+	B_LogEntry			(CH2_Buddler,"Thorus poprosi³ mnie, bym znalaz³ trzech kopaczy zdolnych do pracy w kopalni. Bêdê siê musia³ rozejrzeæ po starym obozie.");
+	
+};
+
+instance GRD_200_Thorus_Sent (C_INFO)
+{
+	npc				= GRD_200_Thorus;
+	condition		= GRD_200_Thorus_Sent_Condition;
+	information		= GRD_200_Thorus_Sent_Info;
+	important		= 0;
+	permanent		= 0;
+	description		= "Przys³a³em trzech ludzi.";
+};
+
+FUNC int  GRD_200_Thorus_Sent_Condition()
+{	
+	if (Player_SentBuddler == 3 ) 
+	{
+		return TRUE;
+	};
+};
+func void  GRD_200_Thorus_Sent_Info()
+{
+	var C_Npc Marus;	Marus = Hlp_GetNpc(Vlk_502_Buddler);
+	var C_Npc Ryan;		Ryan = Hlp_GetNpc(Vlk_504_Buddler);
+	var C_Npc Canthar;	Canthar = Hlp_GetNpc(Vlk_517_Buddler);
+	
+	AI_Output			(other, self,"GRD_200_Thorus_Sent_15_00");	//Przys³a³em trzech ludzi.
+	AI_Output			(self, other,"GRD_200_Thorus_Sent_09_01");	//W porz¹dku.
+	AI_StopProcessInfos	(self);
+
+	B_ExchangeRoutine(Marus, "pick");
+	B_ExchangeRoutine(Ryan, "pick");
+	B_ExchangeRoutine(Canthar, "pick");
+
+	GRD_Reputation = (GRD_Reputation + 1);
+	Log_SetTopicStatus	(CH2_Buddler, LOG_SUCCESS);
+	B_LogEntry			(CH2_Buddler,"Zadanie wykonane. Trójka nowych ludzi ju¿ wyrusza do starej kopalni.");
+	B_GiveXP			(XP_Buddlers);
+	
+};
+

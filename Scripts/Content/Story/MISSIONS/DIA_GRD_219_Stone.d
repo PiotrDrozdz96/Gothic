@@ -147,7 +147,7 @@ func void GRD_219_Stone_BETTERARMOR_M ()
 {
 	AI_Output				(hero, self,"GRD_219_Stone_BETTERARMOR_Info_M_15_01"); //Chcia³bym dostaæ zwyk³y pancerz stra¿nika.
 
-	if (Kapitel < 3)
+	if (GRD_Reputation < 2)
 	{
 		AI_Output			(self, hero,"GRD_219_Stone_BETTERARMOR_Info_M_06_02"); //Thorus powiedzia³, ¿e musisz siê sprawdziæ jako Stra¿nik zanim dostaniesz lepszy pancerz!
 	}
@@ -169,7 +169,22 @@ func void GRD_219_Stone_BETTERARMOR_M ()
 func void GRD_219_Stone_BETTERARMOR_H ()
 {
 	AI_Output				(hero, self,"GRD_219_Stone_BETTERARMOR_Info_H_15_01"); //Chcia³bym dostaæ ciê¿k¹ zbrojê Stra¿nika.
-	AI_Output				(self, hero,"GRD_219_Stone_BETTERARMOR_Info_H_06_02"); //Tylko najlepsi Stra¿nicy mog¹ je nosiæ, a obawiam siê, ¿e minie jeszcze trochê czasu zanim zostaniesz jednym z nich.
+
+	if (Kapitel < 3 || GRD_Reputation < 4)
+	{
+		AI_Output				(self, hero,"GRD_219_Stone_BETTERARMOR_Info_H_06_02"); //Tylko najlepsi Stra¿nicy mog¹ je nosiæ, a obawiam siê, ¿e minie jeszcze trochê czasu zanim zostaniesz jednym z nich.
+	}
+	else if (Npc_HasItems(hero, ItMiNugget)<VALUE_GRD_ARMOR_H)
+	{
+		AI_Output			(self, hero,"GRD_219_Stone_BETTERARMOR_Info_M_06_03"); //Mam na sk³adzie odpowiedni¹ zbrojê, ale nie masz doœæ rudy. Wróæ, kiedy bêdzie ciê na ni¹ staæ!
+	}
+	else
+	{
+		AI_Output			(self, hero,"GRD_219_Stone_BETTERARMOR_Info_M_06_04"); //Dobra, masz tu swoj¹ now¹ zbrojê. Tylko nie pozwól, ¿eby Najemnicy j¹ porysowali. Ha ha ha!
+		B_GiveInvItems	    (hero, self, ItMiNugget, VALUE_GRD_ARMOR_H);
+		B_GiveInvItems		(self, hero, GRD_ARMOR_H, 1);
+		AI_EquipBestArmor	(hero);
+	};
 	Info_ClearChoices		(GRD_219_Stone_BETTERARMOR);
 };
 

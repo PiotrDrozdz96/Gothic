@@ -65,7 +65,7 @@ func int DIA_Ricelord_Arbeit_Condition()
 
 func void DIA_Ricelord_Arbeit_Info()
 {
-	AI_Output(other,self,"DIA_Ricelord_Arbeit_15_00");	//A masz dla mnie jakieœ zajêcie?
+	AI_Output(other,self,"DIA_Ricelord_Arbeit_15_00");	//Znajdzie siê dla mnie jakieœ zajêcie?
 	AI_Output(self,other,"DIA_Ricelord_Arbeit_12_01");	//Porozmawiaj z Lewusem. Krêci siê zwykle na prawo od szopy.
 };
 

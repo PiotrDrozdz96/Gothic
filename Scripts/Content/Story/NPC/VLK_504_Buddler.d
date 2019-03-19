@@ -2,7 +2,7 @@ instance VLK_504_Buddler (Npc_Default)
 {
 	//-------- primary data --------
 	
-	name =							NAME_Buddler;
+	name =							"Ryan";
 	npctype =						NPCTYPE_AMBIENT;
 	guild =							GIL_VLK;      
 	level =							2;
@@ -53,6 +53,18 @@ FUNC VOID Rtn_start_504 ()
 	TA_SitAround	(06,30,10,30,"OCR_HUT_12");
 	TA_RepairHut	(10,30,17,30,"OCR_OUTSIDE_HUT_12");
 	TA_SitAround	(17,30,22,00,"OCR_HUT_12");
+};
+
+FUNC VOID Rtn_wait_504 ()
+{
+	TA_StandAround	(08,00,23,00,"OCR_CAMPFIRE_A_MOVEMENT2");
+	TA_StandAround	(23,00,08,00,"OCR_CAMPFIRE_A_MOVEMENT2");
+};
+
+FUNC VOID Rtn_pick_504 ()
+{
+	TA_PickOre  	 (08,00,18,00,"OW_OM_ENTRANCE03");
+	TA_PickOre  	 (18,00,08,00,"OW_OM_ENTRANCE03");
 };
 
 

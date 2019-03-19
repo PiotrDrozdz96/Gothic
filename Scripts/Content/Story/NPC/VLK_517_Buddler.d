@@ -2,7 +2,7 @@ instance VLK_517_Buddler (Npc_Default)
 {
 	//-------- primary data --------
 	
-	name =							NAME_Buddler;
+	name =							"Canthar";
 	npctype =						NPCTYPE_AMBIENT;
 	guild =							GIL_VLK;      
 	level =							2;
@@ -55,6 +55,18 @@ FUNC VOID Rtn_start_517 () //Marktplatz Bank
 	TA_SitAround	(11,00,13,00,"OCR_OUTSIDE_MCAMP_01");
 	TA_Smalltalk	(13,00,16,00,"OCR_OUTSIDE_HUT_47_SMALT2");
 	TA_SitAround	(16,00,23,30,"OCR_OUTSIDE_MCAMP_01");
+};
+
+FUNC VOID Rtn_wait_517 ()
+{
+	TA_StandAround	(08,00,23,00,"OCR_CAMPFIRE_A_MOVEMENT3");
+	TA_StandAround	(23,00,08,00,"OCR_CAMPFIRE_A_MOVEMENT3");
+};
+
+FUNC VOID Rtn_pick_517 ()
+{
+	TA_PickOre  	 (08,00,18,00,"OW_OM_ENTRANCE03");
+	TA_PickOre  	 (18,00,08,00,"OW_OM_ENTRANCE03");
 };
 
 

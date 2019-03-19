@@ -2,7 +2,7 @@ instance VLK_502_Buddler (Npc_Default)
 {
 	//-------- primary data --------
 	
-	name =							Name_Buddler;
+	name =							"Marus";
 	npctype =						npctype_Ambient;
 	guild =							GIL_VLK;      
 	level =							2;
@@ -52,6 +52,18 @@ FUNC VOID Rtn_start_502 ()
 	TA_Sleep		(22,00,07,00,"OCR_HUT_10");
 	TA_Cook			(07,00,17,00,"OCR_COOK_AT_HUT_10");
 	TA_PlayTune		(17,00,22,00,"OCR_OUTSIDE_HUT_10");
+};
+
+FUNC VOID Rtn_wait_502 ()
+{
+	TA_StandAround	(08,00,23,00,"OCR_CAMPFIRE_A_MOVEMENT1");
+	TA_StandAround	(23,00,08,00,"OCR_CAMPFIRE_A_MOVEMENT1");
+};
+
+FUNC VOID Rtn_pick_502 ()
+{
+	TA_PickOre  	 (08,00,18,00,"OW_OM_ENTRANCE03");
+	TA_PickOre  	 (18,00,08,00,"OW_OM_ENTRANCE03");
 };
 
 

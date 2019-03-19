@@ -39,6 +39,7 @@ var int Bloodwyn_PayDay;
 var int Herek_ProtectionBully;
 var int Grim_ProtectionBully;
 var int Jesse_PayForMe;
+var int GRD_Reputation;
 
 
 
@@ -96,6 +97,7 @@ var int YBerion_BringFocus;
 var int PresseTourJanuar2001; 
 var int Corristo_KDFAufnahme;
 var int Saturas_KDWAufnahme;
+var int Player_SentBuddler;
 
 //---------------------------------------------------------------------
 //	KAPITEL 3
@@ -265,6 +267,8 @@ const int	XP_BringBook				=	2500;
 
 const int	XP_ReportToMordrag			= 500;
 const int 	XP_ReportToRaven			= 500;
+
+const int	XP_Buddlers					= 250;
 
 //---------------------------------------------------------------------
 //	KAPITEL 3
