@@ -824,7 +824,7 @@ INSTANCE ItArRuneChainLightning (C_Item)
 	description			=	"Grom";
 	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_DamagePerSec;			COUNT	[1]		=	SPL_ZAPPED_DAMAGE_PER_SEC;
-	//TEXT	[2]			=	"";							COUNT	[2]		=	;
+	TEXT	[2]			=	NAME_ManaPerSec;			COUNT	[2]		=	SPL_SENDCAST_CHAINLIGHTING;
 	//TEXT	[3] 		=	"";							COUNT	[3]		=	;
 	TEXT	[4]			=	NAME_Spell_Invest;
 	TEXT	[5]			=	NAME_Value;					COUNT	[5]		=	value;
@@ -1672,7 +1672,7 @@ INSTANCE ItArRunePyrokinesis (C_Item)
 	description			=	"Pirokineza";
 	TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_DamagePerSec;			COUNT	[1]		=	SPL_PYRO_DAMAGE_PER_SEC;
-	//TEXT	[2]			=	"";							COUNT	[2]		=	;
+	TEXT	[2]			=	NAME_ManaPerSec;			COUNT	[2]		=	SPL_SENDCAST_PYROKINESIS*2;
 	//TEXT	[3] 		=	"";							COUNT	[3]		=	;
 	TEXT	[4]			=	NAME_Spell_Invest;
 	TEXT	[5]			=	NAME_Value;					COUNT	[5]		=	value;
@@ -1697,7 +1697,7 @@ INSTANCE ItArScrollPyrokinesis (C_Item)
 	description			=	"Pirokineza";
 	//TEXT	[0]			=	NAME_Mag_Circle;			COUNT	[0]		=	mag_circle;
 	TEXT	[1]			=	NAME_DamagePerSec;			COUNT	[1]		=	SPL_PYRO_DAMAGE_PER_SEC;
-	//TEXT	[2]			=	"";							COUNT	[2]		=	;
+	TEXT	[2]			=	NAME_ManaPerSec;			COUNT	[2]		=	SPL_SENDCAST_PYROKINESIS*2;
 	//TEXT	[3] 		=	"";							COUNT	[3]		=	;
 	TEXT	[4]			=	NAME_Spell_Invest;
 	TEXT	[5]			=	NAME_Value;					COUNT	[5]		=	value;

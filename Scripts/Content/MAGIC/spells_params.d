@@ -67,6 +67,8 @@ const int	SPL_SENDCAST_BREATHOFDEATH	=	75; //
 const int	SPL_SENDCAST_NEW1			=	5;		// Spell SPL_NEW1 (URIZIEL-Rune mit speziellen Spieler-BreathOfDeath)
 const int	SPL_SENDCAST_SHRINK			=	5; // przez quest nie mogê zwiêkszyæ ??
 
+const int	SPL_SENDCAST_PYROKINESIS	=	10;
+const int	SPL_SENDCAST_CHAINLIGHTING	=	20;
 
 // ************************************************************************************************
 // Schaden der direkten Kampfsprüche
@@ -93,8 +95,8 @@ const int	SPL_DAMAGE_STORMFIST		=	30;
 // ************************************************************************************************
 
 const int   SPL_FREEZE_DAMAGE		 	=	60;	// IceCube, IceWave
-const int   SPL_ZAPPED_DAMAGE_PER_SEC 	=	25;	// ChainLightning
-const int   SPL_PYRO_DAMAGE_PER_SEC		=	40;	// Pyrokinesis
+const int   SPL_ZAPPED_DAMAGE_PER_SEC 	=	100;// ChainLightning
+const int   SPL_PYRO_DAMAGE_PER_SEC		=	100;// Pyrokinesis
 
 const int	SPL_HEALING_HP_PER_MP		=	10;	// Heal (HP pro Mana)
 

@@ -293,8 +293,9 @@
 |   |   // Dodanie zaklęcia SPL_TELEPORT6
 |   |   // SummonsSkeleton przywołuje tylko jednego szkieleta
 |   |   // Nowe zaklęcia przywołań (SummonGobbo, SummonWolf)
-|   +--| spell_pyrokinesis
+|   +--| spell_pyrokinesis | spell_chainlightning
 |   |   // Postać zabita czarem pirokineza rozpada się jak szkielet
+|   |   // zmienione działanie czarów pirokineza i grom
 |/*******************************************MAGIC END*******************************************************
 +-- Monsters
 |   +--| Mst_*

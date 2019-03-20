@@ -20,10 +20,8 @@ func int Spell_Logic_Pyrokinesis	(var int manaInvested)
 	{
 		return SPL_SENDSTOP;
 	};
-	if(other.attribute[ATR_HITPOINTS]<50)
-	{
-		Mdl_ApplyOverlayMds(other, "Humans_Skeleton.mds");
-	};
+	Mdl_ApplyOverlayMds(other, "Humans_Skeleton.mds");
+	self.attribute[ATR_MANA] = (self.attribute[ATR_MANA] - SPL_SENDCAST_PYROKINESIS);
 	return SPL_NEXTLEVEL;
 	
 };
