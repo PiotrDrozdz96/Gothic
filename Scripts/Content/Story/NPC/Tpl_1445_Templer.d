@@ -16,7 +16,7 @@ instance TPL_1445_Templer (Npc_Default)
 	attribute[ATR_MANA_MAX] =		0;
 	attribute[ATR_MANA] =			0;
 	attribute[ATR_HITPOINTS_MAX] =	5;
-	attribute[ATR_HITPOINTS] =		5;
+	attribute[ATR_HITPOINTS] =		0;
 
 
 	//-------- visuals --------
@@ -39,7 +39,7 @@ instance TPL_1445_Templer (Npc_Default)
 	EquipItem 		(self, ItMw_1H_Sword_04);
 	CreateInvItem	(self, ItFoSoup);
 	CreateInvItem	(self, ItMiJoint_1);
-	CreateInvItem	(self,ItMi_Stuff_OldCoin_02);	
+	CreateInvItem	(self, ItMi_Stuff_OldCoin_02);	
 	
 	
 	//-------------Daily Routine-------------

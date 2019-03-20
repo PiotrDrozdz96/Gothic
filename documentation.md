@@ -400,6 +400,8 @@
 |   |   |    // Usunięcie magicznej runy
 |   |   +--| NOV_1372_Bukano
 |   |   |    // Nowa postać
+|   |   +--| TPL_(1443-1446)_Templer
+|   |   |    // Uśmiercenie strażników światynnych na cmentarzysku orków
 |   |/*******************NPC SEKTE_CAMP END********************************
 |   +--| InExtremo
 |   |    // ie_397 - zmiana skinBody na skin bohatera z Gothic Sequel

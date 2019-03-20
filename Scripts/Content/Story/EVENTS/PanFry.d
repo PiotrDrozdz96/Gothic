@@ -67,7 +67,7 @@ func void PC_PanFry1_Info ()
 	CreateInvItems		(hero, ItfoMutton, 1);
 };
 
-*******************************************************
+//*******************************************************
 
 INSTANCE PC_PanFry5 (C_INFO)
 {
