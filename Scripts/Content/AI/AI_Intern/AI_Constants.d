@@ -92,6 +92,7 @@ const int NPCTYPE_ROGUE			= 8;	//Npcs im Banditenlager
 const int MOBSI_NONE			= 0;
 const int MOBSI_SleepAbit		= 1;
 const int MOBSI_MakeRune		= 2;
+const int MOBSI_PanFry			= 3;
 
 var int PLAYER_MOBSI_PRODUCTION;
 

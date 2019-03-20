@@ -3149,7 +3149,7 @@ Model ("HuS")
 			ani			("t_Pan_S1_2_S0"			1	"s_Pan_S0"		0.0	0.0	M.	"Hum_CookForMe_M01.asc"		R	26	34)
 			{
 				*eventTag	(33	"DEF_EXCHANGE_ITEM"	"ZS_LEFTHAND"	"ItFoMutton")
-				*eventTag	(26	"DEF_REMOVE_ITEM")
+				*eventTag	(26	"DEF_DESTROY_ITEM")
 			}
 
 

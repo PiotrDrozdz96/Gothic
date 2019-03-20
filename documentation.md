@@ -1,3 +1,20 @@
++--Anims
+|   +--|-- HUMANS.MDS
+|   |    // Dodanie Rmaker do obsługi stołu runicznego
+|   |    // Zmiany w animacjach strafingu
+|   |    // 2H - Możliwość ataku w biegu z g2
+|   |    // zmiana skoku na ten z G2
+|   |    // Zmiana w TA_CookForMe aby nie tworzyła pieczonego mięsa
+|   +--|-- MDS_MOBSI
+|   |    // RMAKER_1.MDS - Animacja stołu runicznego
+|   +--|-- MDS_OVERLAY
+|   |    // HUMANS_1HST1.MDS - Animacja Zielony z G2
+|   |    // HUMANS_1HST2.MDS - Animacja 1HST1 z G1
+|   |    // HUMANS_1HST3.MDS - Animacja 1HST2 z G2
+|   |    // HUMANS_ACROBATIC.MDS - Zmieniona akrobatyka na tą z returninga 2.0
+|   |    // HUMANS_(RUN/SPRINT).MDS - Bieg z returning 2.0
+|   |    // SHIELD_ST(1/2).MDS - Animacje walki tarczą z L`Hivier
+|/****************************************ANIMS END**********************************************************
 +--B
 |   +--|-- B_BuyAtrributePoints
 |   |   //Uwzględnie tarcz przy nauce siły
@@ -193,6 +210,7 @@
 |/*******************************************DIALOGS END*****************************************************
 +--Events
 |   //Sleepabit.d - Dopasowanie do systemu PLAYER_MOBSI_PRODUCTION
+|   //PanFry.d - Obsługa patelni
 |   //MakeRune.d - Obsługa stołu runicznego
 +--Inne
 |   +--| AI_Constants
@@ -395,3 +413,4 @@
 |   |   // Dodanie stołów runicznych
 |   |   // Dodanie tarczy ITSH_LONG_A w starej świątyni (bagienny smok)
 |   |   // Dodanie kości goblina w jaskini goblinów (almanach)
+|   |   // Obiekty OC_MOB_PAN mają dodane OnStateFunc = PanFry
