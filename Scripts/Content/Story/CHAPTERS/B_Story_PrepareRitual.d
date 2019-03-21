@@ -91,6 +91,14 @@ func void B_Story_PrepareRitual()
 	Novize_11 = Hlp_GetNpc (NOV_1337_Novize);
 	Npc_ExchangeRoutine    (Novize_11,"RITUAL");
 	AI_ContinueRoutine	   (Novize_11);
+
+	var C_NPC Mud;
+	Mud = Hlp_GetNpc (VLK_574_Mud);
+	if(Mud.guild == GIL_NOV)
+	{
+		Npc_ExchangeRoutine    (Mud,"RITUAL");
+		AI_ContinueRoutine	   (Mud);
+	};
 	
 	var C_NPC Templer;	
 	Templer	= Hlp_GetNpc   (TPL_1431_Templer);

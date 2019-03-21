@@ -59,6 +59,18 @@ func void Rtn_Follow_574 ()
 	TA_FollowPC	(16,00,23,00,"OCR_HUT_13");
 };
 
+FUNC VOID Rtn_Sekte_574 ()
+{
+    TA_Sleep	(23,00,07,45,"PSI_25_HUT_IN");
+    TA_Listen	(07,45,23,00,"PSI_PLATFORM_1");	
+};
+
+FUNC VOID Rtn_Ritual_574 ()
+{
+    TA_Stay	(23,00,07,45,"PSI_TEMPLE_STAIRS_1");
+    TA_Stay	(07,45,23,00,"PSI_TEMPLE_STAIRS_1");	
+};
+
 
 
 

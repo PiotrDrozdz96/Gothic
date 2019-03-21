@@ -101,6 +101,14 @@ func void B_Story_GotoOrcGraveyard()
 	Npc_ExchangeRoutine    (Novize_11,"START");
 	AI_ContinueRoutine	   (Novize_11);
 
+	var C_NPC Mud;
+	Mud = Hlp_GetNpc (VLK_574_Mud);
+	if(Mud.guild == GIL_NOV)
+	{
+		Npc_ExchangeRoutine    (Mud,"Sekte");
+		AI_ContinueRoutine	   (Mud);
+	};
+
 
 
 };

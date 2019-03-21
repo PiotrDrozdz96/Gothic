@@ -709,3 +709,69 @@ FUNC VOID DIA_Mud_Nerve_19_Info()
 	Mud_Nerve = 0;
 	AI_StopProcessInfos	( self );
 };
+
+// **************************************************
+// 						 Sekte 1
+// **************************************************
+
+INSTANCE DIA_Mud_Sekte_1 (C_INFO)
+{
+	npc			= Vlk_574_Mud;
+	nr 			= 999;
+	condition	= DIA_Mud_Sekte_1_Condition;
+	information	= DIA_Mud_Sekte_1_Info;
+	permanent	= 0;
+	important 	= 1;
+};                       
+
+FUNC INT DIA_Mud_Sekte_1_Condition()
+{
+	if( Npc_KnowsInfo(hero, DIA_BaalTondral_DustySuccess))
+	{
+		return 1;
+	};
+};
+
+FUNC VOID DIA_Mud_Sekte_1_Info()
+{
+	AI_Output (self, other,"DIA_Mud_ShutUp_07_01"); //Jasne.
+
+	self.aivar[AIV_PARTYMEMBER] = FALSE;
+	self.guild = GIL_NOV;
+	Npc_SetTrueGuild	(self, GIL_NOV);
+	Npc_ExchangeRoutine (self, "sekte");
+
+	BaalTondral_GetNewGuy = LOG_FAILED;
+	B_LogEntry			(CH1_RecruitDusty,	"Wrzód zosta³ uczniem Baal Tondrala. Baal Tondralowi chyba nie o takiego ucznia chodzi³o. Przynajmniej Wrzód zdawa³ siê byæ zadowolony. Wydaje mi siê ¿e idealnie pasuje do reszty tych œwirów.");
+	Log_SetTopicStatus	(CH1_RecruitDusty,	LOG_FAILED);
+	AI_StopProcessInfos	( self );
+};
+
+// **************************************************
+// 						 Sekte 2
+// **************************************************
+
+INSTANCE DIA_Mud_Sekte_2 (C_INFO)
+{
+	npc			= Vlk_574_Mud;
+	nr 			= 999;
+	condition	= DIA_Mud_Sekte_2_Condition;
+	information	= DIA_Mud_Sekte_2_Info;
+	permanent	= 0;
+	important 	= 1;
+};                       
+
+FUNC INT DIA_Mud_Sekte_2_Condition()
+{
+	if (self.guild == GIL_NOV)
+	&& (Kapitel == 3)
+	{
+		return 1;
+	};
+};
+
+FUNC VOID DIA_Mud_Sekte_2_Info()
+{
+	AI_Output (self, other,"DIA_Mud_Nerve_5_07_00"); //Ale fajnie! Dziêki, ¿e zabra³eœ mnie ze sob¹! Moglibyœmy robiæ to czêœciej. Nie mam nic do roboty przez wiêkszoœæ dnia!
+	AI_StopProcessInfos	( self );
+};

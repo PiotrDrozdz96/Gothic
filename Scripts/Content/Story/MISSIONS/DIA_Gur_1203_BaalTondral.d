@@ -225,7 +225,9 @@ INSTANCE DIA_BaalTondral_DustySuccess (C_INFO)
 FUNC INT DIA_BaalTondral_DustySuccess_Condition()
 {
 	var C_NPC dusty; dusty = Hlp_GetNpc(Vlk_524_Dusty);
+	var C_NPC mud; mud = Hlp_GetNpc(Vlk_574_Mud);
 	if ( (BaalTondral_GetNewGuy == LOG_RUNNING) && (Npc_GetDistToNpc(self,dusty)<1000) )
+	|| ( (BaalTondral_GetNewGuy == LOG_RUNNING) && (Npc_GetDistToNpc(self,mud)<1000) )
 	{
 		return 1;
 	};
@@ -234,31 +236,36 @@ FUNC INT DIA_BaalTondral_DustySuccess_Condition()
 FUNC VOID DIA_BaalTondral_DustySuccess_Info()
 {
 	var C_NPC dusty; dusty = Hlp_GetNpc(Vlk_524_Dusty);
+	var C_NPC mud; mud = Hlp_GetNpc(Vlk_574_Mud);
 	
 	AI_Output			(other, self,"DIA_BaalTondral_DustySuccess_15_00"); //Mistrzu, oto ktoœ, kto chcia³by ciê poznaæ!
 	AI_Output			(self, other,"DIA_BaalTondral_DustySuccess_13_01"); //Kogó¿ mi tu przyprowadzi³eœ? Czy jest godzien?
-	AI_Output			(other, self,"DIA_BaalTondral_DustySuccess_15_02"); //Có¿, bez twojego duchowego wsparcia zapewne siê nie obêdzie, Mistrzu.
-	AI_Output			(self, other,"DIA_BaalTondral_DustySuccess_13_03"); //Dobrze. Od dzisiaj ten cz³owiek bêdzie moim uczniem.
-	//------------------------------------------------------------------	
-	AI_TurnToNpc		(self, dusty);
-	AI_TurnToNpc		(dusty,other);
-	AI_Output			(self, NULL,"DIA_BaalTondral_DustySuccess_13_04"); //Ka¿dego dnia bêdziesz przychodzi³ do mojej chaty po nauki. Dla twojej duszy jeszcze nie jest zbyt póŸno.
+	if(Npc_GetDistToNpc(self,dusty)<1000)
+	{
+		AI_Output			(other, self,"DIA_BaalTondral_DustySuccess_15_02"); //Có¿, bez twojego duchowego wsparcia zapewne siê nie obêdzie, Mistrzu.
+		AI_Output			(self, other,"DIA_BaalTondral_DustySuccess_13_03"); //Dobrze. Od dzisiaj ten cz³owiek bêdzie moim uczniem.
+		//------------------------------------------------------------------	
+		AI_TurnToNpc		(self, dusty);
+		AI_TurnToNpc		(dusty,other);
+		AI_Output			(self, NULL,"DIA_BaalTondral_DustySuccess_13_04"); //Ka¿dego dnia bêdziesz przychodzi³ do mojej chaty po nauki. Dla twojej duszy jeszcze nie jest zbyt póŸno.
 
-	//AI_Output			(dusty,other,"DIA_BaalTondral_DustySuccess_03_05"); //Heißt das, ich bin dabei - einfach so?
-	//AI_TurnToNpc		(other,dusty);
-	//AI_Output			(other,NULL,"DIA_BaalTondral_DustySuccess_15_06"); //Sieht so aus. Tu einfach, was der Meister dir sagt.
-
-	//---- Dusty vom SC lösen ----
-	dusty.aivar[AIV_PARTYMEMBER] = FALSE;
-	dusty.flags = 0;	// Immortal löschen
-	dusty.guild = GIL_NOV;
-	Npc_SetTrueGuild	(dusty, GIL_NOV);
-	B_ExchangeRoutine	(Vlk_524_Dusty,"PREPARERITUAL");
+		//---- Dusty vom SC lösen ----
+		dusty.aivar[AIV_PARTYMEMBER] = FALSE;
+		dusty.flags = 0;	// Immortal löschen
+		dusty.guild = GIL_NOV;
+		Npc_SetTrueGuild	(dusty, GIL_NOV);
+		B_ExchangeRoutine	(Vlk_524_Dusty,"PREPARERITUAL");
+		
+		BaalTondral_GetNewGuy = LOG_SUCCESS;
+		B_LogEntry			(CH1_RecruitDusty,	"Dusty zosta³ uczniem Baal Tondrala. Moje zadanie skoñczone.");
+		Log_SetTopicStatus	(CH1_RecruitDusty,	LOG_SUCCESS);
+		B_GiveXP			(XP_DeliveredDusty);
+	}
+	else
+	{
+		AI_StopProcessInfos (self);
+	};
 	
-	BaalTondral_GetNewGuy = LOG_SUCCESS;
-	B_LogEntry			(CH1_RecruitDusty,	"Dusty zosta³ uczniem Baal Tondrala. Moje zadanie skoñczone.");
-	Log_SetTopicStatus	(CH1_RecruitDusty,	LOG_SUCCESS);
-	B_GiveXP			(XP_DeliveredDusty);
 };
 
 // **************************************************

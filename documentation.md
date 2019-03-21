@@ -38,6 +38,10 @@
 |   |   // Kapitel 4 - EBR_105_Raven,GRD_(200/210/233/255),STT_(311/329),VLK_(538,581) - Wywalenie za barierę
 |   |   // Kapitel 6 - Dostajemy naładowany Uriziel(1H/2H) w zależności od wcześniej posiadanego
 |   |   // Kapitel 6 - Orc_Priest5 staje się wrażliwy na obrażenia
+|   +--|-- B_Story_PrepareRitual
+|   |   // Wrzód jeśli jest nowicjuszem idzie oglądać przebudzenie śniącego
+|   +--|-- B_Story_GotoOrcGraveyard
+|   |   // Wrzód jeśli jest nowicjuszem wraca z placa świątynnego
 |   +--|-- B_Story_AccesToXardas
 |   |   // Otrzymanie runy teleportacyjnej na parter Wieży Xardasa
 |   +--|-- B_TeachPlayerTelentRunes
@@ -92,6 +96,8 @@
 |   |   // Uwzględnie guru w nauce walki broni 2H
 |   |   // Zdobycie szaty arcyguru
 |   |   // z Cor Angarem można rozmawiać o zostaniu Strażnikiem Świątynnym tylko po zostaniu Nowicjuszem -- by marev
+|   +--|-- DIA_GUR_1203_BaalTondral
+|   |   // Można przyprowadzić wrzoda zamiast dustego
 |   +--|-- DIA_GUR_1204_BaalNamib
 |   |   // Baal Namib poprawnie sprzedaje Szatę Nowicjusza -- by marev
 |   +--|-- DIA_GUR_1208_BaalCadar
@@ -199,6 +205,8 @@
 |   |   // Dialogi dla kopaczy z przywróconymi imionami (502/504/517) związane z Questem "Kopacze do kopalni"
 |   +--|-- DIA_VLK_530_Guy
 |   |   // nie można już w nieskończoność pytać Guya o zalety dołączenia do Starego Obozu -- by marev
+|   +--|-- DIA_VLK_574_Mud
+|   |   // Dialogi związane z wrzodem w obozie sekty
 |   +--|-- DIA_VLK_587_Garp
 |   |   // Dialog "Koniec" przenesiony na koniec listy opcji dialogowych -- by marev
 |   +--|-- DIA_VLK_564_Jesse
@@ -401,6 +409,8 @@
 |   |   |    // Zmiana twarzy
 |   |   +--| VLK_573_Graham
 |   |   |    // Posiada dodatkową mapę świata dla Ratforda
+|   |   +--| VLK_574_Mud
+|   |   |    // Dodanie rutyn związanych z przebywaniem wrzoda w sekcie
 |   |/********************NPC OLD_CAMP END*********************************
 |   +-- SEKTE_CAMP
 |   |   +--| GUR_1208_BaalCadar
