@@ -1071,6 +1071,9 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 {
 	//------------------
 	
+	Wld_InsertNpc				(GRD_207_Gardist,"OC1");
+	Wld_InsertNpc				(GRD_202_Gardist,"OC1");
+	Wld_InsertNpc				(STT_321_Schatten,"OC1");
 	Wld_InsertNpc				(GRD_254_Orry,"OC1");
 	Wld_InsertNpc				(GRD_281_Gardist,"OC1");//Orry-Wache
 

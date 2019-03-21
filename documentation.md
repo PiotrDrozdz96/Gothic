@@ -10,7 +10,7 @@
 |   +--|-- MDS_OVERLAY
 |   |    // HUMANS_1HST1.MDS - Animacja Zielony z G2
 |   |    // HUMANS_1HST2.MDS - Animacja 1HST1 z G1
-|   |    // HUMANS_1HST3.MDS - Animacja 1HST2 z G2
+|   |    // HUMANS_1HST3.MDS - Animacja 1HST2 z G1
 |   |    // HUMANS_ACROBATIC.MDS - Zmieniona akrobatyka na tą z returninga 2.0
 |   |    // HUMANS_(RUN/SPRINT).MDS - Bieg z returning 2.0
 |   |    // SHIELD_ST(1/2).MDS - Animacje walki tarczą z L`Hivier
@@ -65,6 +65,8 @@
 |   +--|-- DIA_GRD_(201_Jackal/233_Bloodwyn) -- by marev
 |   |   // nie domaga się rudy, jeśli gracz został przyjęty do jakiegoś obozu
 |   |   // Poprawnie zbierają opłaty
+|   +--|-- DIA_GRD_(202/207)_Gardist
+|   |   // Dialogi dla nowych strażników na placu wymian, związane z jego pilnowaniem
 |   +--|-- DIA_GRD_205_Scorpio
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Skorpion nie może zostać zapytany o naukę walki, po tym jak przeniesie się do chatki Cavalorna -- by marev
@@ -226,6 +228,7 @@
 |   |   // CH2_Buddler - Quest dla strażnika ze znalezieniem kopaczy do kopalni
 |   +--| Startup
 |   |   // Dodanie tarczy ITSH_STALHRIM_S_SM w OrcTempel(TPL_254)
+|   |   // Dodanie Npc na placu wymian GRD_(202/207) i STT_321
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Stała LPCOST_TALENT_RUN
@@ -366,6 +369,8 @@
 |   |   |   // Zwiększenie zręczności
 |   |   +--| EBR_105_Raven / GRD_(200/210/233/255) / VLK_(538/581)
 |   |   |    // Dodanie rutyny "out" - wywalenie za barierę
+|   |   +--| GRD_(202/207)_Gardist
+|   |   |    // Nowi strażnicy na placu wymian
 |   |   +--| GRD_(205/222/223/238/279)
 |   |   |    // Dodanie tarczy ITSH_G3_03
 |   |   +--| GRD_(214/215/216/217)_Torwache
@@ -387,6 +392,8 @@
 |   |   |    // Zmiana pancerza na STT_ARMOR_H
 |   |   +--| STT_302_Viper
 |   |   |    // Dodanie przedmiotów do tworzenia run
+|   |   +--| STT_321_Schatten
+|   |   |    // Nowy cień na placu wymian
 |   |   +--| VLK_(502/504/517)_Buddler
 |   |   |    // Przywrócenie imion z Gothic alpha
 |   |   |    // Dodanie nowych rutyn związanych z Questem CH2_Buddler
@@ -416,3 +423,5 @@
 |   |   // Dodanie tarczy ITSH_LONG_A w starej świątyni (bagienny smok)
 |   |   // Dodanie kości goblina w jaskini goblinów (almanach)
 |   |   // Obiekty OC_MOB_PAN mają dodane OnStateFunc = PanFry
+|   |   // Osiatkowanie placu wymian, dodanie punktu zbierania ryżu
+|   |   // połączenie waypointów na ścieżce do starej kopalni
