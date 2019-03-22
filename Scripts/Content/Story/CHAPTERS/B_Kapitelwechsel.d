@@ -43,6 +43,12 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 		//-------- InExtremo vorbereiten --------
 		B_InsertInExtremo();
 		
+		//------------------ Evolve ---------------
+		B_Evolve_OC();
+		B_Evolve_Sekte ();
+		B_Evolve_SekteSpy();
+		B_Evolve_Cipher();
+
 		introducechapter ("Rozdzia³ 2","Gniazdo pe³zaczy","chapter2.tga","levelup.wav", 6000);
 		//introducechapter ("Chapter 2","The Minecrawler's nest","chapter2.tga","levelup.wav", 6000);
 	}
@@ -103,6 +109,10 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 		
 		var C_NPC Novize_1;		Novize_1	 	 = Hlp_GetNpc	(NOV_1319_Novize);
 		Novize_1.senses =		hero.senses;
+
+		//------------------ Evolve ---------------
+		B_Story_OMFull();
+		B_Evolve_Cipher();
 		
 		introducechapter ("Rozdzia³ 3","Staro¿ytna magia","chapter3.tga","levelup.wav", 6000);
 		//introducechapter ("Chapter 3","Artifacts of ancient power","chapter3.tga","levelup.wav", 6000);
@@ -224,6 +234,10 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 		
 		B_ExchangeRoutine	(TPL_1439_GorNaDrak,	"FMTaken");
 		B_ExchangeRoutine	(TPL_1440_Templer,	"FMTaken");
+
+		//------------------ Evolve ---------------
+		B_Evolve_NC ();
+		B_Evolve_Cipher();
 		
 		//--------------- Kapitel 4 wird angezeigt -------------------------------
 		
@@ -261,6 +275,9 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 
 		//-------- Oberwelt-Monster nochmal "nachfüllen" --------	
 		B_Story_RespawnOW();
+
+		//------------------ Evolve ---------------
+		B_Evolve_Cipher();
 		
 		introducechapter ("Rozdzia³ 5","Stra¿nicy portalu","chapter5.tga","levelup.wav", 6000);
 		//introducechapter ("Chapter 5","The custodians of the portal","chapter5.tga","levelup.wav", 6000);

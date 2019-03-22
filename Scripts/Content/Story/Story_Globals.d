@@ -40,6 +40,7 @@ var int Herek_ProtectionBully;
 var int Grim_ProtectionBully;
 var int Jesse_PayForMe;
 var int GRD_Reputation;
+var int CipherJoints;
 
 
 

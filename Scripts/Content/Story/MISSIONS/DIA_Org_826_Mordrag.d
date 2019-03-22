@@ -507,3 +507,30 @@ func void Org_826_Mordrag_RUNNING_Info()
 	};
 };
 
+instance Org_826_Mordrag_SekteSpy(C_Info)
+{
+	npc = ORG_826_Mordrag;
+	nr = 2;
+	condition = Org_826_Mordrag_SekteSpy_Condition;
+	information = Org_826_Mordrag_SekteSpy_Info;
+	permanent = 1;
+	description = "Czym siê tutaj zajmujesz?";
+};
+
+
+func int Org_826_Mordrag_SekteSpy_Condition()
+{
+	if	(Kapitel == 2)
+	&&	(Npc_HasItems(self, ORG_ARMOR_M))
+	{
+		return 1;
+	};
+};
+
+func void Org_826_Mordrag_SekteSpy_Info()
+{
+	AI_Output (other, self,"DIA_ARTO_What_15_00"); //Czym siê tutaj zajmujesz?
+	AI_Output(self,other,"Org_826_Mordrag_GotoKalomNOW_11_04");	//Wiem, ¿e te œwiry z sekty przygotowuj¹ siê do wielkiego przywo³ania, i choæ sam nie wierzê w Œni¹cego powiem ci jedno:
+	AI_Output(self,other,"Org_826_Mordrag_GotoKalomNOW_11_05");	//Guru dysponuj¹ potê¿n¹ magi¹, dlatego tak uwa¿nie musimy im patrzeæ na palce. Nad¹¿asz?
+};
+

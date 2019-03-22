@@ -416,7 +416,8 @@ instance  DIA_Grim_INEXTREMO(C_INFO)
 
 FUNC int  DIA_Grim_INEXTREMO_Condition()
 {
-	if	(Kapitel == 2) 
+	if	(Kapitel == 2)
+	&&	(Npc_GetTrueGuild(hero) == GIL_STT)
 	{
 		return TRUE;
 	};
@@ -431,6 +432,35 @@ FUNC VOID  DIA_Grim_INEXTREMO_Info()
 	Npc_ExchangeRoutine	(self,	"InExtremo");
 
 	AI_StopProcessInfos(self);
+};
+
+//---------------------------------------------------------------------
+//	Sekte Spy
+//---------------------------------------------------------------------
+instance  DIA_Grim_SekteSpy(C_INFO)
+{
+	npc			= Vlk_580_Grim;
+	nr			= 1;
+	condition	= DIA_Grim_SekteSpy_Condition;
+	information	= DIA_Grim_SekteSpy_Info;
+	permanent	= 0;
+	important 	= 0;
+	description = "Czym siê tutaj zajmujesz?";
+};                       
+
+FUNC int  DIA_Grim_SekteSpy_Condition()
+{
+	if	(Kapitel == 2)
+	&&	(Npc_HasItems(self, STT_ARMOR_H))
+	{
+		return TRUE;
+	};
+};
+
+FUNC VOID  DIA_Grim_SekteSpy_Info()
+{
+	AI_Output (other, self,"DIA_ARTO_What_15_00"); //Czym siê tutaj zajmujesz?
+	AI_Output (self, other,"DIA_Grim_YourPDV_06_01"); //Tego nie mogê ci powiedzieæ. O takich rzeczach lepiej nie mówiæ g³oœno!
 };
 
 //#####################################################################

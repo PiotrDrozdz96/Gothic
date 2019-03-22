@@ -34,8 +34,8 @@ instance ORG_826_Mordrag (Npc_Default)
 	
 	//-------- Talente ----------
 
-	////Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
-	////Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
+	Npc_SetTalentSkill (self, NPC_TALENT_BOW,1);
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,1);
 	
 
 	//-------- inventory --------   
@@ -75,11 +75,13 @@ FUNC VOID Rtn_Start_826 ()
 {
 	TA_Stand (08,00,23,00,"NC_TAVERN_BAR");
 	TA_Stand (23,00,08,00,"NC_TAVERN_BAR");
-	//TA_Sleep (23,00,08,00,"NC_HUT21_IN"); 
 };
 
-
-
+FUNC VOID Rtn_Sekte_826 ()
+{
+	TA_Smalltalk (08,00,23,00,"PSI_PATH_TEMPLE_9");
+	TA_Smalltalk (23,00,08,00,"PSI_PATH_TEMPLE_9");
+};
 
 
 

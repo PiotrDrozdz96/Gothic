@@ -67,8 +67,8 @@ FUNC VOID Rtn_Sekte_574 ()
 
 FUNC VOID Rtn_Ritual_574 ()
 {
-    TA_Stay	(23,00,07,45,"PSI_TEMPLE_STAIRS_1");
-    TA_Stay	(07,45,23,00,"PSI_TEMPLE_STAIRS_1");	
+    TA_Smoke	(23,00,07,45,"PSI_TEMPLE_STAIRS_1");
+    TA_Smoke	(07,45,23,00,"PSI_TEMPLE_STAIRS_1");	
 };
 
 

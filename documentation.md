@@ -17,8 +17,10 @@
 |/****************************************ANIMS END**********************************************************
 +--B
 |   +--|-- B_BuyAtrributePoints
-|   |   //Uwzględnie tarcz przy nauce siły
-|   |   //Zwiększenie max many do 200
+|   |   // Uwzględnie tarcz przy nauce siły
+|   |   // Zwiększenie max many do 200
+|   +--|-- B_Evolve
+|   |   // Funkcje obsługujące rozwój postaci niezależnych
 |   +--|-- B_Give(Darrion/Fisk/Scorpio/Sharky/Skip/Wolf)ChapterWeapons
 |   |   //Zmiany w sprzedawanych broniach z powodu zmian parametrów, oraz dodanie tarcz
 |   +--|-- B_Give(BallCadar/Cronos/Torrez/Xardas)Chapterrune
@@ -34,6 +36,7 @@
 |   |   // Uwzględnienie akrobatyki przy nauce walki
 |   |   // Dodanie nauki biegu
 |   +--|-- B_Kapitelwechsel
+|   |   // Dodanie funkcji B_Evolve_* i B_Story_OMFull w odpowiednich rozdziałach
 |   |   // Kapitel 4 - Nie tracimy gildii Mag Ognia
 |   |   // Kapitel 4 - EBR_105_Raven,GRD_(200/210/233/255),STT_(311/329),VLK_(538,581) - Wywalenie za barierę
 |   |   // Kapitel 6 - Dostajemy naładowany Uriziel(1H/2H) w zależności od wcześniej posiadanego
@@ -42,6 +45,9 @@
 |   |   // Wrzód jeśli jest nowicjuszem idzie oglądać przebudzenie śniącego
 |   +--|-- B_Story_GotoOrcGraveyard
 |   |   // Wrzód jeśli jest nowicjuszem wraca z placa świątynnego
+|   +--|-- B_Story_OMFull
+|   |   // Mordrag i Grim wracają na swoje miejsca
+|   |   // Odpalenie rutyn OMFull strażnikom którzy je posiadali
 |   +--|-- B_Story_AccesToXardas
 |   |   // Otrzymanie runy teleportacyjnej na parter Wieży Xardasa
 |   +--|-- B_TeachPlayerTelentRunes
@@ -136,6 +142,8 @@
 |   |   // Nie powiemy o liście do magów ognia, jeśli go nie posiadamy
 |   |   // Cronos nie wysyła już gracza z listem do Magów Ognia, jeśli oni zostali już zabici -- by marev
 |   |   // rozmowa z Cronosem o dołączeniu do obozu i zostaniu Magiem Wody jest dostępna tylko, jeśli gracz nie należy do żadnego obozu -- by marev 
+|   +--|-- DIA_Nov_1304_Balor -- by marev
+|   |   // gracz może poprawnie odebrać bagienne ziele od Balora po raz drugi
 |   +--|-- DIA_Nov_1372_Bukano
 |   |   // Dialogi nowej postaci
 |   +--|-- DIA_ORG_801_Lares
@@ -146,8 +154,9 @@
 |   +--|-- DIA_ORG_819_Drax
 |   |   // Uczy polowania dopiero gdy otrzyma piwo -- by marev
 |   |   // Zmiana kosztów zdobywania trofeów z 1pn na 5pn
-|   +--|-- DIA_ORG_826_Mordrag -- by marev
-|   |   // Nie zaprowadzi nas do obozu jeśli go pobiliśmy
+|   +--|-- DIA_ORG_826_Mordrag 
+|   |   // Nie zaprowadzi nas do obozu jeśli go pobiliśmy -- by marev
+|   |   // Dodanie dialogu, gdy mordrag znajduje się w obozie sekty
 |   +--|-- DIA_ORG_833_Buster
 |   |   // Uczy akrobatyki tylko raz
 |   |   // Dodanie dialogu bezimiennemu
@@ -162,6 +171,8 @@
 |   |   // Odsprzedawanie skór po normalnych cenach
 |   +--|-- DIA_ORG_859_Aidan
 |   |   // Zmiana kosztów zdobywania trofeów z 1pn na 5pn
+|   +--|-- DIA_ORG_873_Cipher
+|   |   // Usprawniono system sprzedaży ziela
 |   +--|-- DIA_PC_Fighter
 |   |   // Nauka walki bronią 2H po zostaniu szkodnikiem w systemie 11 etapowym
 |   +--|-- DIA_PC_Mage
@@ -215,6 +226,7 @@
 |   |   // Poprawnie daje informacje do dziennika
 |   +--|-- DIA_VLK_580_Grim
 |   |   // Grima nie można już pytać o zostanie członkiem Obozu po dołączeniu do jakiegoś -- by marev
+|   |   // Dodanie dialogu, gdy grim znajduje się w obozie sekty
 |   +--|-- DIA_VLK_581_Snaf -- by marev
 |   |   // Snaf może zostać zapytany o Neka również po zakończeniu zadania "Przepis Snafa"
 |/*******************************************DIALOGS END*****************************************************
@@ -251,20 +263,22 @@
 |   |   // Zmienna GRD_Reputation licząca naszą reputację u strażników
 |   |   // Zmienna Player_SentBuddler licząca ilu wysłaliśmy kopaczy do pracy w kopalni
 |   |   // Stała XP_Buddlers - doświadczenie za Quest "Kopacze do kopalni"
+|   |   // Zmienna CipherJoints licząca ile razy dostarczyliśmy dostawę ziela, potrzebne do ewolucji Ciphera
 |   +--| svm
 |   |   // dodanie svm CantReadThis związanej z kartkami uczącymi
 |   +--| Text
-|   |   // Zmianna nazwy umiejętności na Tarcza, oraz dodanie nazw poziomów (Brak|Adept|Mistrz)
-|   |   // Zmianna nazwy umiejętności na Bieg, oraz dodanie nazw poziomów (Nie|Tak)
-|   |   // Zmiany w nazwach poziomów dla broni białch (Brak|Zielony|Wojownik|Mistrz)
+|   |   // Zmiana nazwy umiejętności na Tarcza, oraz dodanie nazw poziomów (Brak|Adept|Mistrz)
+|   |   // Zmiana nazwy umiejętności na Bieg, oraz dodanie nazw poziomów (Nie|Tak)
+|   |   // Zmiany w nazwach poziomów dla broni białch (Zielony|Wojownik|Mistrz)
 |   |   // Zmiany w nazwach poziomów dla broni dystansowych (Zielony|Strzelec|Mistrz)
 |   |   // Zmiany w B_BuildBuyArmorString
 |   |   // Dodanie stałej NAME_STR_GRAB = "Obciążenie Siły", używanej w tarczach
-|   |   // Zmiana nazwy dla SPL_NEW(2-4)
+|   |   // Zmiana nazw dla SPL_NEW(2-4)
 |   |   // MOBNAME_RUNEMAKER i PRINT_(RuneSuccess/ProdItemsMissing) dla stołu runicznego
 |   +--| Gothic.src
 |   |   // Przeniesienie G_funcions wyżej w kolejce parsowania
 |   |   // Dodanie funkcji B_TeachPlayerRunes do parsowania
+|   |   // Dodanie funkcji B_Evolve do parsowania
 |   +--| magic_intern
 |   |   // Zamiana stałej SPL_NEW(2-4)
 |   +--| PFX/SFX
@@ -351,6 +365,9 @@
 |   |   |    //Zmiany twarzy(double koło siebie), czasem pancerz i gildia
 |   |   +--| ORG_875_Tuersteher / SLD_(700/701/709)
 |   |   |    // Usunięcie Łuku
+|   |   +--| ORG_826_Mordrag
+|   |   |    // Przywrócenie umiejętności walki 1H i łuku
+|   |   |    // Dodanie rutyny przebywanie w sekcie
 |   |   +--| ORG_(830/833)
 |   |   |    // Zwiększenie Siły, dodanie tarczy ITSH_REINFORCED_A
 |   |   +--| ORG_831_Organizator
@@ -395,7 +412,6 @@
 |   |   |    // Usunięcie magicznej runy
 |   |   +--| STT_(311/329)
 |   |   |    // Dodanie rutyny "out" - wywalenie za barierę
-|   |   |    // Zmiana pancerza na STT_ARMOR_H
 |   |   +--| STT_301_Ian
 |   |   |    // Zmiana pancerza na STT_ARMOR_H
 |   |   +--| STT_302_Viper
@@ -411,6 +427,8 @@
 |   |   |    // Posiada dodatkową mapę świata dla Ratforda
 |   |   +--| VLK_574_Mud
 |   |   |    // Dodanie rutyn związanych z przebywaniem wrzoda w sekcie
+|   |   +--| VLK_580_Grim
+|   |   |    // Dodanie rutyny przebywanie w sekcie
 |   |/********************NPC OLD_CAMP END*********************************
 |   +-- SEKTE_CAMP
 |   |   +--| GUR_1208_BaalCadar
@@ -423,6 +441,8 @@
 |   +--| InExtremo
 |   |    // ie_397 - zmiana skinBody na skin bohatera z Gothic Sequel
 |   |    // fan4 - zmiana skinBody na skin bohatera z G2
+|   +--| PC_Fighter
+|   |    // PC_FighterFM posiada ciężką zbroje najemnika
 |   +--| ORC_Priests
 |   |    // ORC_PRIEST_5 - dodanie tarczy ITSH_STALHRIM_B_SM
 |   |    // ORC_PRIEST_5 - niewrażliwy na żadne obrażenia

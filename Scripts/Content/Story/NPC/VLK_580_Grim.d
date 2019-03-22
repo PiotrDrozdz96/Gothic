@@ -74,6 +74,12 @@ func void Rtn_InExtremo_580 ()
 	TA_WatchInextremo (22,00,10,00,"OCR_AUDIENCE_01");
 };
 
+FUNC VOID Rtn_Sekte_580 ()
+{
+	TA_Smalltalk (08,00,23,00,"PSI_PATH_TEMPLE_9");
+	TA_Smalltalk (23,00,08,00,"PSI_PATH_TEMPLE_9");
+};
+
 
 
 

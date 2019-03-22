@@ -136,7 +136,6 @@ instance  Org_873_Cipher_TRADE (C_INFO)
 	information	=  Org_873_Cipher_TRADE_Info;
 	permanent	=  1;
 	description = "Dobijmy targu.";
-	trade		= 1;
 };                       
 
 FUNC int  Org_873_Cipher_TRADE_Condition()
@@ -151,4 +150,98 @@ FUNC VOID  Org_873_Cipher_TRADE_Info()
 {
 	AI_Output (other, self,"DIA_Cipher_TRADE_15_00"); //Dobijmy targu.
 	AI_Output (self, other,"DIA_Cipher_TRADE_12_01"); //Czego chcesz?
+	Info_ClearChoices(Org_873_Cipher_TRADE);
+	Info_AddChoice(Org_873_Cipher_TRADE, DIALOG_BACK, Org_873_Cipher_TRADE_BACK);
+	if(Npc_HasItems(hero, ItMi_Plants_Swampherb_01))
+	{
+		Info_AddChoice(Org_873_Cipher_TRADE,"Mam dla ciebie bagienne ziele.", Org_873_Cipher_TRADE_Joint0);
+	};
+	if(Npc_HasItems(hero, ItMiJoint_1))
+	{
+		Info_AddChoice(Org_873_Cipher_TRADE,"Mam dla ciebie Zielonego Nowicjusza.", Org_873_Cipher_TRADE_Joint1);
+	};
+	if(Npc_HasItems(hero, ItMiJoint_2))
+	{
+		Info_AddChoice(Org_873_Cipher_TRADE,"Mam dla ciebie Mrok Pó³nocy.", Org_873_Cipher_TRADE_Joint2);
+	};
+	if(Npc_HasItems(hero, ItMiJoint_3))
+	{
+		Info_AddChoice(Org_873_Cipher_TRADE,"Mam dla ciebie Zew Mocy.", Org_873_Cipher_TRADE_Joint3);
+	};
+};
+
+func void Org_873_Cipher_TRADE_BACK ()
+{
+	AI_Output (self, other,"DIA_Cipher_FromBalor_12_03"); //Mhm. Masz coœ na sprzeda¿?
+	AI_Output (other, self,"DIA_Cipher_FromBalor_15_04"); //Niestety nie.
+	AI_Output (self, other,"DIA_Cipher_FromBalor_12_05"); //Wiêc wróæ do mnie, jak bêdziesz mia³ coœ co mnie zainteresuje.
+	Info_ClearChoices (Org_873_Cipher_TRADE);
+};
+
+func void Org_873_Cipher_TRADE_Joint0 ()
+{
+	AI_Output (other, self,"DIA_CIPHER_JOINTS_SUCCESS_15_01"); //Masz, weŸ to bagienne ziele.
+	if(Npc_HasItems(hero, ItMi_Plants_Swampherb_01) >= 50)
+	{
+		AI_Output (self, other, "DIA_Cipher_Joints_Success_07_01"); //Ach! Mój cz³owiek!
+		Npc_RemoveInvItems(hero,ItMi_Plants_Swampherb_01,50);
+		CreateInvItems(self, ItMiNugget, Value_Sumpfkraut*50);
+		B_GiveInvItems(self, other, ItMiNugget, Value_Sumpfkraut*50);
+		CipherJoints = (CipherJoints + 1);
+	}
+	else
+	{
+		AI_Output (self, other, "DIA_Cipher_Joints_Success_07_02"); //To wszystko?
+	};
+};
+
+func void Org_873_Cipher_TRADE_Joint1 ()
+{
+	AI_Output (other, self,"DIA_CIPHER_JOINTS_SUCCESS_15_02"); //Dobrze, spróbuj tego zielonego nowicjusza.
+	if(Npc_HasItems(hero, ItMiJoint_1) >= 10)
+	{
+		AI_Output (self, other, "DIA_Cipher_Joints_Success_07_01"); //Ach! Mój cz³owiek!
+		CreateInvItems(self, ItMiNugget, Value_Joint1*Npc_HasItems(hero, ItMiJoint_1));
+		B_GiveInvItems(self, other, ItMiNugget, Value_Joint1*Npc_HasItems(hero, ItMiJoint_1));
+		Npc_RemoveInvItems(hero, ItMiJoint_1, Npc_HasItems(hero, ItMiJoint_1));
+	}
+	else
+	{
+		AI_Output (self, other, "DIA_Cipher_Joints_Success_07_03"); //To wszystko? Tyle wypalê na jedno posiedzenie!
+		AI_Output (self, other, "DIA_Cipher_Joints_Success_07_04"); //To musi byæ przynajmniej 10 skrêtów.
+	};
+};
+
+func void Org_873_Cipher_TRADE_Joint2 ()
+{
+	AI_Output (other, self, "DIA_Cipher_Joints_Success_15_00"); //Mam dla ciebie kilka ³odyg...
+	if(Npc_HasItems(hero, ItMiJoint_2) >= 10)
+	{
+		AI_Output (self, other, "DIA_Cipher_Joints_Success_07_01"); //Ach! Mój cz³owiek!
+		CreateInvItems(self, ItMiNugget, Value_Joint2*Npc_HasItems(hero, ItMiJoint_2));
+		B_GiveInvItems(self, other, ItMiNugget, Value_Joint2*Npc_HasItems(hero, ItMiJoint_2));
+		Npc_RemoveInvItems(hero, ItMiJoint_2, Npc_HasItems(hero, ItMiJoint_2));
+	}
+	else
+	{
+		AI_Output (self, other, "DIA_Cipher_Joints_Success_07_03"); //To wszystko? Tyle wypalê na jedno posiedzenie!
+		AI_Output (self, other, "DIA_Cipher_Joints_Success_07_04"); //To musi byæ przynajmniej 10 skrêtów.
+	};
+};
+
+func void Org_873_Cipher_TRADE_Joint3 ()
+{
+	AI_Output (other, self, "DIA_Cipher_Joints_Success_15_00"); //Mam dla ciebie kilka ³odyg...
+	if(Npc_HasItems(hero, ItMiJoint_3) >= 10)
+	{
+		AI_Output (self, other, "DIA_Cipher_Joints_Success_07_01"); //Ach! Mój cz³owiek!
+		CreateInvItems(self, ItMiNugget, Value_Joint3*Npc_HasItems(hero, ItMiJoint_3));
+		B_GiveInvItems(self, other, ItMiNugget, Value_Joint3*Npc_HasItems(hero, ItMiJoint_3));
+		Npc_RemoveInvItems(hero, ItMiJoint_3, Npc_HasItems(hero, ItMiJoint_3));
+	}
+	else
+	{
+		AI_Output (self, other, "DIA_Cipher_Joints_Success_07_03"); //To wszystko? Tyle wypalê na jedno posiedzenie!
+		AI_Output (self, other, "DIA_Cipher_Joints_Success_07_04"); //To musi byæ przynajmniej 10 skrêtów.
+	};
 };

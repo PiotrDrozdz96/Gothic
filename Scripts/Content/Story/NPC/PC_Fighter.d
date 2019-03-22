@@ -202,7 +202,7 @@ INSTANCE PC_FighterFM(NPC_DEFAULT)
 	// 						animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	//							Body-Mesh			Body-Tex	Skin-Color	Head-MMS				Head-Tex	Teeth-Tex	Armor
-	Mdl_SetVisualBody (self,	"hum_body_Naked0", 	0,			3,			"Hum_Head_Fighter", 	13,			0,			SLD_ARMOR_M);
+	Mdl_SetVisualBody (self,	"hum_body_Naked0", 	0,			3,			"Hum_Head_Fighter", 	13,			0,			SLD_ARMOR_H);
 
 	Mdl_ApplyOverlayMds (self, "Humans_Relaxed.mds"); 
 
