@@ -1,12 +1,12 @@
 instance TPL_1454_Templer (Npc_Default)
 {
 	//-------- primary data --------
-	name 	=	NAME_MadTemplar2;
-	npctype	=	NPCTYPE_GUARD;
+	name 	=	"Gor Na Ran";
+	npctype	=	npctype_Main;
 	guild 	=	GIL_GUR;
 	level 	=	100;
 	
-	voice 	=	8;
+	voice 	=	13;
 	id 		=	1454;
 		
 	//-------- abilities --------
@@ -30,7 +30,7 @@ instance TPL_1454_Templer (Npc_Default)
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.mds");
 	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
-	Mdl_SetVisualBody (self,"hum_body_Naked0", 1, 1 ,"Hum_Head_Bald", 117,  2, TPL_ARMOR_M);
+	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 3,"Hum_Head_FatBald", 0, 1, TPL_ARMOR_H);
 
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);
@@ -44,6 +44,8 @@ instance TPL_1454_Templer (Npc_Default)
 	//-------- inventory --------
 	
 	CreateInvItem (self, ItMw_2H_Sword_Light_02);
+	EquipItem	(self, ItRw_Crossbow_01);//### Palisadenwache
+	CreateInvItems	(self, ItAmBolt, 30);
 	CreateInvItem (self, ItFoSoup);
 	CreateInvItem (self, ItMiJoint_1);
 	CreateInvItem (self, ItFo_Potion_Health_02 );
@@ -55,12 +57,12 @@ instance TPL_1454_Templer (Npc_Default)
 
 FUNC VOID Rtn_start_1454 ()
 {
-    	TA_HostileGuard	(09,00,21,00,"TPL_408");
-    	TA_HostileGuard	(21,00,09,00,"TPL_408");	
+		TA_Guard	(09,00,21,00,"TPL_408");
+		TA_Guard	(21,00,09,00,"TPL_408");	
 };
 
 FUNC VOID Rtn_OT_1454 ()
 {
-    	TA_HostileGuard	(09,00,21,00,"TPL_327");
-    	TA_HostileGuard	(21,00,09,00,"TPL_327");	
+		TA_AlignGuard	(09,00,21,00,"TPL_327");
+    	TA_AlignGuard	(21,00,09,00,"TPL_327");	
 };

@@ -94,8 +94,6 @@ func void DIA_Gorn_Leben_Info()
 //*************************************
 //			Hütte (Shrike)
 //*************************************
-	var int Gorn_ShrikesHut;
-//*************************************
 
 instance DIA_Gorn_Hut (C_INFO)
 {
@@ -110,6 +108,7 @@ instance DIA_Gorn_Hut (C_INFO)
 FUNC int DIA_Gorn_Hut_Condition()
 {
 	if (Npc_KnowsInfo(hero, DIA_Gorn_First))
+	&& (Kapitel < 3)
 	{
 		return 1;
 	};

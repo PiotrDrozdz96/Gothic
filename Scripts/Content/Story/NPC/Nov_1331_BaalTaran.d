@@ -54,3 +54,9 @@ FUNC VOID Rtn_start_1331 ()
 	TA_Smalltalk	(00,00,08,00,"OCR_TO_HUT_6");
 	TA_StandAround	(08,00,00,00,"OCR_OUTSIDE_HUT_77_INSERT");
 };
+
+FUNC VOID Rtn_Back_1331 ()
+{
+	TA_Smalltalk	(00,00,08,00,"PSI_MEETINGPOINT");
+	TA_Smalltalk	(08,00,00,00,"PSI_MEETINGPOINT");
+};

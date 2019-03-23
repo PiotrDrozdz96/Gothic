@@ -72,7 +72,7 @@ instance DIA_Shrike_GetLost (C_INFO)
 
 FUNC int  DIA_Shrike_GetLost_Condition()
 {	
-	if	(self.aivar[AIV_WASDEFEATEDBYSC] && Npc_KnowsInfo(hero, DIA_Gorn_First) )
+	if	(self.aivar[AIV_WASDEFEATEDBYSC] && Npc_KnowsInfo(hero, DIA_Gorn_First) && Kapitel < 3 )
 	{
 		return 1;
 	};

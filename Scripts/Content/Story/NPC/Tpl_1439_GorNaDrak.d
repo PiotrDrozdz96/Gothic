@@ -54,3 +54,9 @@ func void Rtn_FMTaken_1439 () //OM ist vollgelaufen
 	TA_Smalltalk	(06,00,14,00,"PSI_WALK_05");
     TA_Smalltalk	(14,00,06,00,"PSI_WALK_05");
 };
+
+FUNC VOID Rtn_Flee_1439 () //DAMIT IST ER NACHHER NUR NOCH IM ALTEN TEMPEL ZU FINDEN!!!
+{
+	TA_Stay 	(00,00,12,00,"");
+	TA_Stay 	(12,00,24,00,"");
+};

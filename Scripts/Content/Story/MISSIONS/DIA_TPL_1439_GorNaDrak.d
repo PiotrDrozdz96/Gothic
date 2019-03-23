@@ -167,6 +167,47 @@ FUNC VOID  DIA_GorNaDrak_Permanent_Info()
 	AI_Output (self, other,"DIA_GorNaDrak_Permanent_09_01"); //Niestety! Nasi myœliwi poluj¹ na pe³zacze dniem i noc¹, ale wci¹¿ nie mamy doœæ wydzieliny.
 };
 
+// **************************************
+//				IN SLEEPER TEMPLE
+// **************************************
+instance  DIA_GorNaDrakOT_START (C_INFO)
+{
+	npc			= TPL_1449_Templer;
+	condition	= DIA_GorNaDrakOT_START_Condition;
+	information	= DIA_GorNaDrakOT_START_Info;
+	permanent	= 0;
+	important	= 1;
+};                       
 
+FUNC int  DIA_GorNaDrakOT_START_Condition()
+{
+	return 1;
+};
 
+FUNC VOID  DIA_GorNaDrakOT_START_Info()
+{	
+};
 
+instance  DIA_GorNaDrakOT_Hallo (C_INFO)
+{
+	npc			= TPL_1449_Templer;
+	nr			= 1;
+	condition	= DIA_GorNaDrakOT_Hallo_Condition;
+	information	= DIA_GorNaDrakOT_Hallo_Info;
+	permanent	= 1;
+	description = "Muszê siê dostaæ do tej podziemnej œwi¹tyni.";
+};                       
+
+FUNC int  DIA_GorNaDrakOT_Hallo_Condition()
+{
+	return 1;
+};
+
+FUNC VOID  DIA_GorNaDrakOT_Hallo_Info()
+{
+	AI_Output (other, self,"DIA_GorNaDrakOT_Hallo_15_01"); //Muszê siê dostaæ do tej podziemnej œwi¹tyni.
+	AI_Output (self, other,"DIA_GorNaDrakOT_Hallo_09_01"); //I myœlisz, ¿e wpuszczê ciê tak po prostu do œrodka.
+	AI_Output (other, self,"Info_Thorus_LetterForMages_15_02"); //Tak.
+	AI_Output (self, other,"DIA_GorNaDrakOT_Hallo_09_02"); //W porz¹dku.
+	AI_StopProcessInfos	( self );
+};

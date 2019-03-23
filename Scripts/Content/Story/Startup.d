@@ -2473,6 +2473,7 @@ FUNC VOID STARTUP_ORCTEMPEL ()
 	Wld_InsertNpc				( TPL_1458_Templer, "TPL_408" ); 
 	Wld_InsertNpc				( TPL_1459_Templer, "TPL_408" ); 
 	Wld_InsertNpc				( TPL_1460_Templer, "TPL_408" ); 
+	Wld_InsertNpc				( TPL_1464_GorHanisOT,"TPL_408");
 	
 	// TPL - Endstufe (Rüstung 1000)
 	Wld_InsertNpc				( TPL_1449_Templer, "TPL_408" ); 

@@ -60,7 +60,7 @@ FUNC VOID  DIA_GorNaRan_Wache_Info()
 
 instance Info_TPL_1405_GorNaRan (C_INFO)
 {
-	npc			= TPL_1405_GorNaRan;
+	npc			= TPL_1454_Templer;
 	condition	= Info_TPL_1405_GorNaRan_Condition;
 	information	= Info_TPL_1405_GorNaRan_Info;
 	permanent	= 0;
@@ -85,7 +85,7 @@ FUNC VOID Info_TPL_1405_GorNaRan_Info()
 
 INSTANCE Info_TPL_1405_GorNaRan2 (C_INFO)
 {
-	npc			= TPL_1405_GorNaRan;
+	npc			= TPL_1454_Templer;
 	nr			= 1;
 	condition	= Info_TPL_1405_GorNaRan2_Condition;
 	information	= Info_TPL_1405_GorNaRan2_Info;
@@ -111,7 +111,7 @@ FUNC VOID Info_TPL_1405_GorNaRan2_Info()
 
 INSTANCE Info_TPL_1405_GorNaRan3 (C_INFO)
 {
-	npc			= TPL_1405_GorNaRan;
+	npc			= TPL_1454_Templer;
 	nr			= 1;
 	condition	= Info_TPL_1405_GorNaRan3_Condition;
 	information	= Info_TPL_1405_GorNaRan3_Info;
@@ -141,7 +141,7 @@ FUNC VOID Info_TPL_1405_GorNaRan3_Info()
 
 INSTANCE Info_TPL_1405_GorNaRan4 (C_INFO)
 {
-	npc			= TPL_1405_GorNaRan;
+	npc			= TPL_1454_Templer;
 	nr			= 1;
 	condition	= Info_TPL_1405_GorNaRan4_Condition;
 	information	= Info_TPL_1405_GorNaRan4_Info;

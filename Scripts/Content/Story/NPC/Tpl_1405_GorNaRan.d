@@ -77,3 +77,9 @@ FUNC VOID Rtn_OrcAssault_1405 ()
 	TA_GuardPalisade	(00,00,12,00,"PSI_GUARD3");
     TA_GuardPalisade	(12,00,24,00,"PSI_GUARD3");
 };
+
+FUNC VOID Rtn_Flee_1405 () //DAMIT IST ER NACHHER NUR NOCH IM ALTEN TEMPEL ZU FINDEN!!!
+{
+	TA_Stay 	(00,00,12,00,"");
+	TA_Stay 	(12,00,24,00,"");
+};

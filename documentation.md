@@ -39,12 +39,17 @@
 |   |   // Dodanie funkcji B_Evolve_* i B_Story_OMFull w odpowiednich rozdziałach
 |   |   // Kapitel 4 - Nie tracimy gildii Mag Ognia
 |   |   // Kapitel 4 - EBR_105_Raven,GRD_(200/210/233/255),STT_(311/329),VLK_(538,581) - Wywalenie za barierę
+|   |   // Kapitel 4 - Postacie które znajdowały się w starym obozie, ale nie były jego członkami, nie giną ponieważ się wcześniej wyprowadziły
+|   |   // Kapitel 4 - GorNaDrak nie zmienia rutyny, ponieważ wcześniej wyruszył z Cor Kalomem
 |   |   // Kapitel 6 - Dostajemy naładowany Uriziel(1H/2H) w zależności od wcześniej posiadanego
 |   |   // Kapitel 6 - Orc_Priest5 staje się wrażliwy na obrażenia
 |   +--|-- B_Story_PrepareRitual
 |   |   // Wrzód jeśli jest nowicjuszem idzie oglądać przebudzenie śniącego
 |   +--|-- B_Story_GotoOrcGraveyard
 |   |   // Wrzód jeśli jest nowicjuszem wraca z placa świątynnego
+|   |   // Strażnicy Hanis, GorNaRan, GorNaDrak idą razem z Cor Kalomem
+|   |   // Parvez, Taran wracają do obozu sekty
+|   |   // Krzykacz wyprowadza się z chaty, ponieważ wprowadza się tam Kharim
 |   +--|-- B_Story_OMFull
 |   |   // Mordrag i Grim wracają na swoje miejsca
 |   |   // Odpalenie rutyn OMFull strażnikom którzy je posiadali
@@ -164,7 +169,7 @@
 |   +--|-- DIA_ORG_841_Silas
 |   |   // Naprawa handlu, był jednorazowy
 |   +--|-- DIA_ORG_842_Shrike
-|   |   // Poprawiona quest "Chata Krzykacza"
+|   |   // Poprawiony quest "Chata Krzykacza"
 |   +--|-- DIA_ORG_855_Wolf
 |   |   // Zmiany w sprzedawanych pancerzach
 |   |   // Przebudowa nauki walki na 11 etapów
@@ -175,6 +180,7 @@
 |   |   // Usprawniono system sprzedaży ziela
 |   +--|-- DIA_PC_Fighter
 |   |   // Nauka walki bronią 2H po zostaniu szkodnikiem w systemie 11 etapowym
+|   |   // Żeby zapytać Gorna o wolną chatę, musimy być przed 3 rozdziałem
 |   +--|-- DIA_PC_Mage
 |   |   // zmiany w dialogu o zostaniu magiem ognia
 |   +--|-- DIA_PC_Thief
@@ -208,8 +214,15 @@
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Nie zaczepia nas gdy jesteśmy Guru
 |   |   // Zmienione warunki otrzymania ciężkiej zbroi świątynnej. Można zaraz po wysłaniu do nowego obozu żeby nie latać tu bez potrzeby.
+|   +--|-- DIA_TPL_1405_GorNaRan
+|   |   // Zmiana npc(Wersja OT GorNaRana) dla dialogów w świątyni
+|   +--|-- DIA_TPL_1422_GorHanis
+|   |   // Możliwość walki z Hanisem na arenie
+|   |   // Dodanie dialogów w świątyni śniącego
 |   +--|-- DIA_TPL_1438_Templer
 |   |   // Zmiana kosztów zdobywania trofeów z 1pn na 5pn
+|   +--|-- DIA_TPL_1439_GorNaDrak
+|   |   // Dodanie dialogów w świątyni śniącego
 |   +--|-- DIA_TPL_1455_GorBoba
 |   |   // zamiana nieprzetłumaczonego tytułu wpisu w dzienniku z "Orktempel" na "Świątynia orków" -- by marev
 |   +--|-- DIA_VLK_Buddlers
@@ -236,7 +249,7 @@
 |   //MakeRune.d - Obsługa stołu runicznego
 +--Inne
 |   +--| AI_Constants
-|   |   // Dodanie PLAYER_MOBSI_PRODUCTION do obsługi obietków interaktywnych
+|   |   // Dodanie PLAYER_MOBSI_PRODUCTION do obsługi obiektów interaktywnych
 |   +--| constans
 |   |   // Dodanie nowej kategorii przedmiotu ITEM_SHIELD = 1 << 1
 |   |   // Dodanie numeru nowego talentu NPC_TALENT_SHIELD = 9
@@ -249,6 +262,7 @@
 |   +--| Startup
 |   |   // Dodanie tarczy ITSH_STALHRIM_S_SM w OrcTempel(TPL_254)
 |   |   // Dodanie Npc na placu wymian GRD_(202/207) i STT_321
+|   |   // Dodanie TPL_1464_GorHanisOT w świątyni śniącego
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Stała LPCOST_TALENT_RUN
@@ -264,6 +278,7 @@
 |   |   // Zmienna Player_SentBuddler licząca ilu wysłaliśmy kopaczy do pracy w kopalni
 |   |   // Stała XP_Buddlers - doświadczenie za Quest "Kopacze do kopalni"
 |   |   // Zmienna CipherJoints licząca ile razy dostarczyliśmy dostawę ziela, potrzebne do ewolucji Ciphera
+|   |   // Przeniesienie zmiennej Gorn_ShrikesHut z DIA_PC_Fighter, ponieważ jest potrzebna również w B_Story_GotoOrcGraveyard
 |   +--| svm
 |   |   // dodanie svm CantReadThis związanej z kartkami uczącymi
 |   +--| Text
@@ -384,6 +399,8 @@
 |   |   |    // Usunięcie łuku, Dodanie Tarczy IT_SHIELD_SKULL
 |   |   +--| SLD_729_Kharim
 |   |   |    // Zmiana pancerza na SLD_ARMOR_L, dodanie Tarczy ITSH_W2_EXECUTIONER
+|   |   |    // Usunięcie z rutyny trenowania walki mieczem, ponieważ może zbugować tarcze
+|   |   |    // Dodanie rutyny "back", gdzie wraca do nowego obozu 
 |   |   +--| SLD_753_Baloro
 |   |   |    // Usunięcie gildi, aby inni nie reagowali na walkę z nim -- by marev
 |   |   +--| SFB_1000_Senyan
@@ -433,10 +450,19 @@
 |   +-- SEKTE_CAMP
 |   |   +--| GUR_1208_BaalCadar
 |   |   |    // Usunięcie magicznej runy
+|   |   +--| NOV_(1330_BaalParvez/1331_BaalTaran)
+|   |   |    // Dodanie rutyny "back", gdzie wracają do obozu sekty
 |   |   +--| NOV_1372_Bukano
 |   |   |    // Nowa postać
+|   |   +--| TPL_(1405_GorNaRan/1422_GorHanis/1439_GorNaDrak)
+|   |   |    // Dodanie rutyn "flee" związanej z pójściem do świątyni śniącego
+|   |   |    // TPL_1464_GorHanisOT - Wersja GorHanisa występująca w świątyni śniącego
 |   |   +--| TPL_(1443-1446)_Templer
 |   |   |    // Uśmiercenie strażników światynnych na cmentarzysku orków
+|   |   +--| TPL_1449_Templer
+|   |   |    // Wersja GorNaDraka wysępująca w świątyni śniącego
+|   |   +--| TPL_1454_Templer
+|   |   |    // Wersja GorNaRana występująca w świątyni śniącego
 |   |/*******************NPC SEKTE_CAMP END********************************
 |   +--| InExtremo
 |   |    // ie_397 - zmiana skinBody na skin bohatera z Gothic Sequel

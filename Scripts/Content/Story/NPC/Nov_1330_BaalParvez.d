@@ -63,3 +63,9 @@ FUNC VOID Rtn_Guide_1330 ()
 	TA_GuidePC (08,00,20,00,"PATH_OC_PSI_18");
 	TA_GuidePC (20,00,08,00,"PATH_OC_PSI_18"); 
 };
+
+FUNC VOID Rtn_Back_1330 ()
+{
+	TA_Smalltalk	(00,00,08,00,"PSI_MEETINGPOINT");
+	TA_Smalltalk	(08,00,00,00,"PSI_MEETINGPOINT");
+};

@@ -195,12 +195,6 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 		B_KillNpc			(Kdf_403_Drago);	
 		B_KillNpc			(Kdf_405_Torrez);
 
-		//-------- Gäste im Alten Lager töten --------
-		B_KillNpc			(Nov_1330_BaalParvez);
-		B_KillNpc			(Nov_1331_BaalTaran);
-		B_KillNpc			(Tpl_1422_GorHanis);
-		B_KillNpc			(Sld_729_Kharim);
-
 		//-------- TAs von Diego und Milten ändern --------
 		B_ExchangeRoutine	(PC_Thief,	"OCWait");
 		B_ExchangeRoutine	(PC_Mage,	"OCWait");
@@ -232,7 +226,6 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 		
 		//------------ Die Templer gehen nicht mehr zur Alten Mine ---------------------
 		
-		B_ExchangeRoutine	(TPL_1439_GorNaDrak,	"FMTaken");
 		B_ExchangeRoutine	(TPL_1440_Templer,	"FMTaken");
 
 		//------------------ Evolve ---------------

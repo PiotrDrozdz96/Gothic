@@ -34,6 +34,44 @@ func void B_Story_GotoOrcGraveyard()
 	Kalom = Hlp_GetNpc (GUR_1201_CORKALOM); 
 	Npc_ExchangeRoutine (Kalom, "FLEE");
 
+	var C_NPC Hanis;
+	Hanis = Hlp_GetNpc (TPL_1422_GorHanis);
+	Npc_ExchangeRoutine (Hanis, "FLEE");
+
+	var C_NPC GorNaRan;
+	GorNaRan = Hlp_GetNpc (TPL_1405_GorNaRan);
+	Npc_ExchangeRoutine (GorNaRan, "FLEE");
+
+	var C_NPC GorNaDrak;
+	GorNaDrak = Hlp_GetNpc (TPL_1439_GorNaDrak);
+	Npc_ExchangeRoutine (GorNaDrak, "FLEE");
+
+	var C_NPC Parvez;
+	Parvez = Hlp_GetNpc (NOV_1330_BaalParvez);
+	Npc_ExchangeRoutine (Parvez, "BACK");
+
+	var C_NPC Taran;
+	Taran = Hlp_GetNpc (NOV_1331_BaalTaran);
+	Npc_ExchangeRoutine (Taran, "BACK");
+
+	var C_NPC Shrike;
+	Shrike = Hlp_GetNpc (ORG_842_Shrike);
+	Npc_ExchangeRoutine (Shrike, "START");
+
+	var C_NPC Kharim;
+	Kharim = Hlp_GetNpc (SLD_729_Kharim);
+	Mdl_SetVisualBody (Kharim,"hum_body_Naked0",0, 3,"Hum_Head_FatBald", 9, 1, SLD_ARMOR_M);
+	CreateInvItem (Kharim, ItMw_1H_Mace_War_02);
+	Npc_ExchangeRoutine (Kharim, "BACK");
+
+	if(Gorn_ShrikesHut == LOG_RUNNING)
+	{
+		Log_SetTopicStatus	(CH1_ShrikesHut,	LOG_FAILED);
+		B_LogEntry			(CH1_ShrikesHut,	"Nie bêdê mia³ ju¿ okazji wygoniæ Krzykacza z chaty najemników. Kharim wróci³ ze starego obozu i sam zaj¹³ siê t¹ spraw¹.");
+		Gorn_ShrikesHut = LOG_FAILED;
+	};
+
+
 	//-------- globale Missionsvariable --------
 	CorAngar_GotoOGY = TRUE;
 

@@ -66,9 +66,8 @@ FUNC VOID Rtn_start_729 ()
 {
 	TA_Sleep 		(00,00,07,30,"OCR_HUT_31");
 	TA_StandAround	(07,30,11,00,"OCR_CAMPFIRE_I_2");
-	TA_Smith_Sharp	(11,00,14,00,"OCR_OUTSIDE_HUT_31");
-	TA_PracticeSword(14,00,15,00,"OCR_ARENABATTLE");
-	TA_StandAround	(15,00,17,00,"OCR_ARENABATTLE_OUTSIDE");
+	TA_Smith_Sharp	(11,00,14,30,"OCR_OUTSIDE_HUT_31");
+	TA_StandAround	(14,30,17,00,"OCR_ARENABATTLE_OUTSIDE");
 	TA_SitCampfire	(17,00,00,00,"OCR_CAMPFIRE_I_2");
 };
 
@@ -76,6 +75,12 @@ func VOID Rtn_Guide_729 ()
 {
 	TA_GuidePC (08,00,20,00,"OCR_ARENABATTLE_TRAIN");
 	TA_GuidePC (20,00,08,00,"OCR_ARENABATTLE_TRAIN");
+};
+
+func VOID Rtn_Back_729 ()
+{
+	TA_Sleep 		(00,00,07,30,"NC_HUT01_IN");
+	TA_StandAround	(07,30,00,00,"NC_PLACE03_MOVEMENT2");
 };
 
 
