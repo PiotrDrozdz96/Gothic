@@ -293,7 +293,7 @@ FUNC VOID  Org_873_Cipher_Book_Info()
 
 	Log_CreateTopic		(CH3_CipherBussines,	LOG_MISSION);
 	Log_SetTopicStatus	(CH3_CipherBussines,	LOG_RUNNING);
-	B_LogEntry			(CH3_CipherBussines,"Cipher niezwykle siê ucieszy³ gdy przynios³em mu ksi¹¿kê na temat Bagienne ziela któr¹ znalaz³em w kufrze Cor Kaloma. Tak bardzo ¿e od razu razem z Cipherem gdzieœ pognaliœmy.");
+	B_LogEntry			(CH3_CipherBussines,"Cipher niezwykle siê ucieszy³ gdy przynios³em mu ksi¹¿kê na temat bagiennego ziela któr¹ znalaz³em w kufrze Cor Kaloma. Tak bardzo ¿e od razu razem gdzieœ pognaliœmy.");
 	
 	AI_StopProcessInfos(self);
 };
