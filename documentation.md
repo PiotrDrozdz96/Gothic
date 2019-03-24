@@ -475,6 +475,8 @@
 |   |   |    // Wersja GorNaDraka wysępująca w świątyni śniącego
 |   |   +--| TPL_1454_Templer
 |   |   |    // Wersja GorNaRana występująca w świątyni śniącego
+|   |   +--| TPL_1465_Salm
+|   |   |    // Nowy strażnik świątynny do questa "Cipher - Najlepszy Diler"
 |   |/*******************NPC SEKTE_CAMP END********************************
 |   +--| InExtremo
 |   |    // ie_397 - zmiana skinBody na skin bohatera z Gothic Sequel
