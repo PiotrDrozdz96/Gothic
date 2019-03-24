@@ -422,3 +422,76 @@ INSTANCE Focus_5(C_Item)
 	TEXT[2]				=	"przy tworzeniu Bariery.";
 };
 
+
+//---------------------------------------------------------------------
+INSTANCE Joint_Book(C_Item)
+{
+	name 					=	"Ksiêga";
+	
+	mainflag 				=	ITEM_KAT_DOCS;
+	flags 					=	ITEM_MISSION;
+
+	value 					=	250;
+
+	visual 					=	"ItWr_Book_02_02.3ds";
+	material 				=	MAT_LEATHER;
+
+	scemeName				=	"MAP";	
+	description				= 	"Bagienne Ziele";
+	
+	TEXT[5]				= NAME_Value;
+	COUNT[5]			= value;
+	on_state[0]			= Use_Joint_Book;
+};
+
+FUNC VOID Use_Joint_Book()
+{   
+	var int nDocID;	
+
+	nDocID = 	Doc_Create		()			  ;								// DocManager 
+				Doc_SetPages	( nDocID,  2 );                         //wieviel Pages
+
+				Doc_SetPage 	( nDocID,  0, "Book_Mage_L.tga", 	0 		); 
+				Doc_SetPage 	( nDocID,  1, "Book_Mage_R.tga",	0		);
+				
+				//1.Seite
+				
+				Doc_SetFont 	( nDocID, -1, "font_15_book.tga"	   			); 	// -1 -> all pages 
+				Doc_SetMargins	( nDocID,  0,  275, 20, 30, 20, 1   		);  //  0 -> margins are in pixels
+				Doc_PrintLine	( nDocID,  0, "Bagienne Ziele"			);
+				Doc_PrintLine	( nDocID,  0, "---------------"			);
+				Doc_SetFont 	( nDocID, -1, "font_10_book.TGA"	   			); 	// -1 -> all pages 
+				Doc_PrintLines	( nDocID,  0, "W bagiennym zielu zaklêta jest potêga.");
+				Doc_PrintLines	( nDocID,  0, "Ziele ma w³aœciwoœci uspokajaj¹ce i odprê¿aj¹ce.");
+				Doc_PrintLines	( nDocID,  0, "Jest to idealny œrodek do praktyk medytacyjnych, ale co najwa¿niejsze jest niezbêdny do otworzenia umys³u na Œni¹cego.");
+				Doc_PrintLine	( nDocID,  0, "");
+				Doc_PrintLine	( nDocID,  0, "");
+				Doc_PrintLines	( nDocID,  0, "Te receptury nie mog¹ wpaœæ w niepowo³ane rêce. Nie mo¿na pozwoliæ aby niegodni zajmowali siê darem od Œni¹cego");
+				Doc_PrintLine	( nDocID,  0, ""					);
+				Doc_PrintLine	( nDocID,  0, ""					);
+				
+				
+				//2.Seite
+				Doc_SetMargins	( nDocID, -1, 25, 20, 275, 20, 1   		);  //  0 -> margins are in pixels (Position des Textes von den Ränder des TGAs aus, links,oben,rechts,unten)
+				Doc_PrintLine	( nDocID,  1, "");
+				Doc_PrintLine	( nDocID,  1, "");
+				Doc_PrintLine	( nDocID,  1, "Zielony Nowicjusz");
+				Doc_PrintLine	( nDocID,  1, "---------------");
+				Doc_PrintLine	( nDocID,  1, "2 ³odyki bagienne ziela");
+				Doc_PrintLine	( nDocID,  1, "");
+				Doc_PrintLine	( nDocID,  1, "");
+				Doc_PrintLine	( nDocID,  1, "Mrok Pó³nocy");
+				Doc_PrintLine	( nDocID,  1, "---------------");
+				Doc_PrintLine	( nDocID,  1, "2 ³odyki bagienne ziela");
+				Doc_PrintLine	( nDocID,  1, "2 skrzyd³a krwiopijcy");
+				Doc_PrintLine	( nDocID,  1, "");
+				Doc_PrintLine	( nDocID,  1, "");
+				Doc_PrintLine	( nDocID,  1, "Zew Mocy");
+				Doc_PrintLine	( nDocID,  1, "---------------");
+				Doc_PrintLine	( nDocID,  1, "2 ³odyki bagienne ziela");
+				Doc_PrintLine	( nDocID,  1, "2 skrzyd³a krwiopijcy");
+				Doc_PrintLine	( nDocID,  1, "1 czarna per³a");
+				Doc_PrintLine	( nDocID,  1, "");
+				
+				Doc_Show		( nDocID );
+};

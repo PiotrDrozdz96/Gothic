@@ -245,3 +245,126 @@ func void Org_873_Cipher_TRADE_Joint3 ()
 		AI_Output (self, other, "DIA_Cipher_Joints_Success_07_04"); //To musi byæ przynajmniej 10 skrêtów.
 	};
 };
+
+// ******************************
+// 			BUSSINES
+// ******************************
+
+instance  Org_873_Cipher_Book (C_INFO)
+{
+	npc			=  Org_873_Cipher;
+	nr			=  1;
+	condition	=  Org_873_Cipher_Book_Condition;
+	information	=  Org_873_Cipher_Book_Info;
+	permanent	=  0;
+	description = "Znalaz³em pewien tajemniczy almanach.";
+};                       
+
+FUNC int  Org_873_Cipher_Book_Condition()
+{
+	if ( Npc_HasItems(self, ORG_ARMOR_H) )
+	&& ( Npc_HasItems(other, Joint_Book) )
+	{
+		return 1;
+	};
+};
+
+FUNC VOID  Org_873_Cipher_Book_Info()
+{
+	AI_Output (other, self,"DIA_Cipher_Book_15_00"); //Znalaz³em pewien tajemniczy almanach.
+	B_UseFakeScroll();
+	AI_Output (self, other,"DIA_Cipher_Book_07_01"); //A niech mnie! Sk¹d to masz?
+	AI_Output (other, self,"DIA_Cipher_Book_15_02"); //To d³uga historia...
+	AI_Output (self, other, "DIA_Cipher_Book_07_03"); //Zreszt¹ niewa¿ne, porz¹dny z ciebie goœæ.
+	AI_Output (self, other, "DIA_Cipher_Book_07_04"); //ChodŸmy wiêc!
+
+	B_GiveInvItems(other,self,Joint_Book,1);
+
+	Npc_SetPermAttitude(self,ATT_FRIENDLY);
+	self.aivar[AIV_PARTYMEMBER] = TRUE;
+	Npc_ExchangeRoutine(self,"GUIDE");
+
+	if	(Kalom_DrugMonopol != LOG_SUCCESS)
+	{
+		B_KillNpc	(ORG_862_Jacko);
+		B_KillNpc	(ORG_861_Killian);
+		B_KillNpc	(ORG_860_Renyu);
+	};
+
+	Log_CreateTopic		(CH3_CipherBussines,	LOG_MISSION);
+	Log_SetTopicStatus	(CH3_CipherBussines,	LOG_RUNNING);
+	B_LogEntry			(CH3_CipherBussines,"Cipher niezwykle siê ucieszy³ gdy przynios³em mu ksi¹¿kê na temat Bagienne ziela któr¹ znalaz³em w kufrze Cor Kaloma. Tak bardzo ¿e od razu razem z Cipherem gdzieœ pognaliœmy.");
+	
+	AI_StopProcessInfos(self);
+};
+
+instance  Org_873_Cipher_Fight (C_INFO)
+{
+	npc			=  Org_873_Cipher;
+	nr			=  1;
+	condition	=  Org_873_Cipher_Fight_Condition;
+	information	=  Org_873_Cipher_Fight_Info;
+	permanent	=  0;
+	important	=  1;
+};                       
+
+FUNC int  Org_873_Cipher_Fight_Condition()
+{
+	if(Npc_KnowsInfo(hero,Org_873_Cipher_Book) && Hlp_StrCmp(Npc_GetNearestWP(self),"LOCATION_23_CAVE_1_OUT"))
+	{
+		return 1;
+	};
+};
+
+FUNC VOID  Org_873_Cipher_Fight_Info()
+{
+	AI_Output (self, other, "DIA_Cipher_Fight_07_00"); //SKASUJÊ GNOJKA!
+
+	Log_SetTopicStatus	(CH3_CipherBussines,	LOG_RUNNING);
+	B_LogEntry			(CH3_CipherBussines,"Okaza³o siê ¿e Cipher prowadzi³ mnie do wytwórni ziela. Niestety na miejscu czeka³ na nas uzbrojony stra¿nik œwi¹tynny.");
+	Npc_ExchangeRoutine(self,"FIGHT");
+	AI_DrawWeapon		(self);
+	AI_StopProcessInfos(self);
+	Wld_InsertNpc(TPL_1465_Salm, "LOCATION_23_CAVE_1_IN");
+
+	
+};
+
+instance  Org_873_Cipher_AfterFight (C_INFO)
+{
+	npc			=  Org_873_Cipher;
+	nr			=  1;
+	condition	=  Org_873_Cipher_AfterFight_Condition;
+	information	=  Org_873_Cipher_AfterFight_Info;
+	permanent	=  0;
+	important	=  1;
+};                       
+
+FUNC int  Org_873_Cipher_AfterFight_Condition()
+{
+	if(Npc_KnowsInfo(hero,Org_873_Cipher_Fight) && Hlp_StrCmp(Npc_GetNearestWP(self),"LOCATION_23_CAVE_1_IN"))
+	{
+		return 1;
+	};
+};
+
+FUNC VOID  Org_873_Cipher_AfterFight_Info()
+{
+	AI_Output			(self, other, "DIA_Cipher_AfterFight_07_00"); //Cholera, nie ¿yje?
+	AI_Output			(other, self, "DIA_Cipher_AfterFight_15_01"); //Uspokój siê. To ju¿ koniec!
+	AI_Output			(self, other, "DIA_Cipher_AfterFight_07_02"); //O rany, ale w dechê koleœ!
+	AI_Output			(other, self, "DIA_Cipher_AfterFight_15_03"); //Co teraz zrobisz?
+	AI_Output			(self, other, "DIA_Cipher_AfterFight_07_04"); //Za³o¿ê siê, ¿e mo¿na na tym zarobiæ. Zastanów siê.
+	AI_Output 			(self, other, "DIA_Cipher_AfterFight_07_05"); //Masz, weŸ to jako nagrodê. Dobrej zabawy!
+
+	Log_SetTopicStatus	(CH3_CipherBussines,	LOG_SUCCESS);
+	B_LogEntry			(CH3_CipherBussines,"Pokonaliœmy nieprzyjaciela, a Cipher mo¿e siê zaj¹æ produkcj¹ najlepszego bagiennego ziela.");
+	
+	CreateInvItems(self, ItMiNugget, 1000);
+	B_GiveInvItems(self, other, ItMiNugget, 1000);
+	B_GiveXP(XP_CipherBussines);
+	self.aivar[AIV_PARTYMEMBER] = FALSE;
+	AI_StopProcessInfos(self);
+	Npc_ExchangeRoutine(self,"BUSSINES");
+
+};

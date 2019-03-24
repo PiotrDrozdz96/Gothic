@@ -91,6 +91,7 @@ const string	CH3_Fortress			=	"Kamieñ z górskiej fortecy";
 const string	CH3_MonasteryRuin		=	"Kamieñ ze starego klasztoru";
 const string	CH3_TrollCanyon			=	"Kamieñ z kanionu trolli";
 
+const string    CH3_CipherBussines      =   "Cipher - Najlepszy diler";
 
 //---------------------------------------------------------------------
 //	KAPITEL 4

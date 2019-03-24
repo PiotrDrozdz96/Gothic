@@ -66,8 +66,24 @@ FUNC VOID Rtn_start_873 ()
     TA_StandAround	(08,00,03,05,"NC_TAVERN_BAR");
 };
 
+FUNC VOID Rtn_Guide_873 ()
+{
+	TA_GuidePC (08,00,20,00,"LOCATION_23_CAVE_1_OUT");
+	TA_GuidePC (20,00,08,00,"LOCATION_23_CAVE_1_OUT"); 
+};
 
+FUNC VOID Rtn_Fight_873 ()
+{
+	TA_GuidePC (08,00,20,00,"LOCATION_23_CAVE_1_IN");
+	TA_GuidePC (20,00,08,00,"LOCATION_23_CAVE_1_IN"); 
+};
 
+FUNC VOID Rtn_Bussines_873 ()
+{
+	TA_Sleep		(03,05,08,00,"NC_HUT24_IN");
+	TA_PotionAlchemy(08,00,18,00,"LOCATION_23_CAVE_1_02");
+    TA_StandAround	(18,00,03,05,"NC_TAVERN_BAR");
+};
 
 
 

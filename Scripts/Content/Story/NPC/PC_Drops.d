@@ -118,6 +118,7 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 	CreateInvItem(self, ItWr_SummonGobbo);
 	CreateInvItem(self, ItWr_SummonWolf);
 	CreateInvItem(self, ItWr_SummonSkeleton);
+	CreateInvItem(self, Joint_Book);
 	
 };
 

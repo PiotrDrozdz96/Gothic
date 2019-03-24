@@ -287,6 +287,8 @@ const int	XP_DeliverThirdFocus		=	3500;
 const int	XP_DeliverFourthFocus		=	3500;
 const int	XP_DeliverFifthFocus		=	4000;
 
+const int	XP_CipherBussines			= 500;
+
 
 //---------------------------------------------------------------------
 //	KAPITEL 4

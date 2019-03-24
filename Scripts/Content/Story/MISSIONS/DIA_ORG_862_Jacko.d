@@ -82,7 +82,7 @@ FUNC void  ORG_862_Jacko_GUARD_Info()
 	AI_Output			(other, self,"ORG_862_Jacko_GUARD_Info_15_01"); //Cor Kalom wie o waszym ma³ym przedsiêwziêciu.
 	AI_Output			(self, other,"ORG_862_Jacko_GUARD_Info_06_02"); //Co? Dlaczego tu jesteœ?
 	
-	B_LogEntry			(CH1_DrugMonopol,	"Ich habe die geheime Sumpfkrautproduktion gefunden. Jacko und zwei andere Banditen stellen hier Krautstengel her.");
+	B_LogEntry			(CH1_DrugMonopol,	"Znalaz³em tajn¹ wytwórniê ziele. Jacko i dwaj inni bandyci wytwarzaj¹ tu bagienne ziele.");
 
 	Info_Clearchoices	(ORG_862_Jacko_GUARD);
 	Info_Addchoice		(ORG_862_Jacko_GUARD,"Jestem tu, ¿eby was ostrzec."	,ORG_862_Jacko_GUARD_Templer);
@@ -99,7 +99,7 @@ func void ORG_862_Jacko_GUARD_Templer()
 
 	Info_Clearchoices	(ORG_862_Jacko_GUARD);
 
-	B_LogEntry			(CH1_DrugMonopol,	"Eine kleine List mit Templern die es gar nicht gibt, hat die Angsthasen in die Flucht geschlagen. Dieses Problem dürfte vorerst erledigt sein.");
+	B_LogEntry			(CH1_DrugMonopol,	"Dziêki ma³emu k³amstwu na temat zmierzaj¹cych tu stra¿ników œwi¹tynnych, bandyci wystraszyli siê i uciekli. Chyba mogê uznaæ problem za rozwi¹zany.");
 	B_GiveXP			(XP_JackoRetired);
 
 	Npc_ExchangeRoutine (self,				"ARBEITSLOS");
@@ -124,7 +124,7 @@ func void ORG_862_Jacko_GUARD_InfoWert()
 	B_ExchangeRoutine	(ORG_860_Renyu,		"ARBEITSLOS");
 
 	Stooges_Fled = TRUE;
-	B_LogEntry			(CH1_DrugMonopol,	"Durch geschicktes Reden, habe ich dieses Problem gelöst. Jacko wurde die Sache hier zu heiß und ist abgehauen.");
+	B_LogEntry			(CH1_DrugMonopol,	"Dziêki sprytnej rozmowie rozwi¹za³êm ten problem. Dla Jacko i jego kolegów zrobi³o siê tu zbyt gor¹co i opuœcili wytwórnie ziela.");
 	B_GiveXP			(XP_JackoRetired);
 
 	Info_Clearchoices	(ORG_862_Jacko_GUARD);

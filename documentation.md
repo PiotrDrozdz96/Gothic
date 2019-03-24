@@ -176,8 +176,11 @@
 |   |   // Odsprzedawanie skór po normalnych cenach
 |   +--|-- DIA_ORG_859_Aidan
 |   |   // Zmiana kosztów zdobywania trofeów z 1pn na 5pn
+|   +--|-- DIA_ORG_862_Jacko
+|   |   // Przetłumaczenie wpisów do dziennika - były po niemiecku
 |   +--|-- DIA_ORG_873_Cipher
 |   |   // Usprawniono system sprzedaży ziela
+|   |   // Dodanie nowego zadania "Cipher - Najlepszy Diler"
 |   +--|-- DIA_PC_Fighter
 |   |   // Nauka walki bronią 2H po zostaniu szkodnikiem w systemie 11 etapowym
 |   |   // Żeby zapytać Gorna o wolną chatę, musimy być przed 3 rozdziałem
@@ -259,6 +262,7 @@
 |   |   // CH1_RatfordMap - Quest z mapą dla Ratforda
 |   |   // CH2_KDF_Rune - Quest z pierwszą runą u magów ognia
 |   |   // CH2_Buddler - Quest dla strażnika ze znalezieniem kopaczy do kopalni
+|   |   // CH3_CipherBussines - Quest z wytwótrnią ziela dla Ciphera
 |   +--| Startup
 |   |   // Dodanie tarczy ITSH_STALHRIM_S_SM w OrcTempel(TPL_254)
 |   |   // Dodanie Npc na placu wymian GRD_(202/207) i STT_321
@@ -277,6 +281,7 @@
 |   |   // Zmienna GRD_Reputation licząca naszą reputację u strażników
 |   |   // Zmienna Player_SentBuddler licząca ilu wysłaliśmy kopaczy do pracy w kopalni
 |   |   // Stała XP_Buddlers - doświadczenie za Quest "Kopacze do kopalni"
+|   |   // Stała XP_CipherBussines - doświadczenie za Quest "Cipher - Najlepszy Diler"
 |   |   // Zmienna CipherJoints licząca ile razy dostarczyliśmy dostawę ziela, potrzebne do ewolucji Ciphera
 |   |   // Przeniesienie zmiennej Gorn_ShrikesHut z DIA_PC_Fighter, ponieważ jest potrzebna również w B_Story_GotoOrcGraveyard
 |   +--| svm
@@ -328,6 +333,9 @@
 |   |   // 1 - Z Chromanimu 6 wypada kartka ucząca runy przywołania szkieleta
 |   |   // 1 - "Receptura Cor Kaloma" wyświetla się jako kartka, a nie książka -- by marev
 |   |   // 2 - Z almanachu wypada list od Xardasa oraz kartki uczące przywołąnie goblina oraz wilka
+|   |   // 2 - Dodanie listów od Xardasa
+|   |   // 2 - Dodanie kartek uczących tworzenia run przyzwać(goblina, wilka, szkieleta)
+|   |   // 3 - Dodanie książki o bagiennym zielu, potrzebnej do wątku z Cipherem
 |   +--| Potions
 |   |    // ItFo_Potion_Haste_(02/03) -> poprawione wartości
 |   +--| Ranged_weapons
@@ -344,8 +352,6 @@
 |   |   // Z "Pierwszy Krąg Magii wypada list od Xardasa
 |   |   // Zmiany treści w książkach o kręgach Magii
 |   |   // Dodanie książek Sekty oraz książki Przyzwania
-|   |   // Dodanie listów od Xardasa
-|   |   // Dodanie kartek uczących tworzenia run przyzwać(goblina, wilka, szkieleta)
 |/*******************************************ITEMS END*******************************************************
 |   +--| Spell_params | Spells_process_mana | Spells_process_released
 |   |   // Dodanie zaklęcia SPL_TELEPORT6
@@ -370,6 +376,9 @@
 |   +-- BDT_QUENTIN
 |   |   +--| ORG_858_Quentin
 |   |   |    // Zmiana pancerza na BDT_ARMOR_H
+|   |   +--| ORG(860_Renyu/861_Killian/862_Jacko)
+|   |   |    // Zmiana pancerza na BDT_ARMOR_M
+|   |   |    // Przywrócenie imion
 |   |   +--| ORG_(863-871/874)_Rauber
 |   |   |    // Zmiana pancerza na BDT_ARMOR_M
 |   |/********************NPC BDT_QUENTIN END********************************
@@ -391,6 +400,9 @@
 |   |   |    // Dodanie Tarczy ITSH_WOLF_A
 |   |   +--| ORG_(840/876)
 |   |   |    // Usunięcie łuku, Dodanie Tarczy IT_SHIELD_SKULL
+|   |   +--| ORG_873_Cipher
+|   |   |    // Zmiana twarzy na tą z G2
+|   |   |    // Dodanie rutyn związanych z questem "Cipher - Najlepszy Diler"
 |   |   +--| SLD_703_Soeldner
 |   |   |    // Zmiana twarzy, dodanie tarczy ITSH_KORSHAN_A
 |   |   +--| SLD_(704,723)
@@ -481,3 +493,4 @@
 |   |   // Obiekty OC_MOB_PAN mają dodane OnStateFunc = PanFry
 |   |   // Osiatkowanie placu wymian, dodanie punktu zbierania ryżu
 |   |   // połączenie waypointów na ścieżce do starej kopalni
+|   |   // Dodanie księgi o bagiennym zielu do kufra Kaloma (tego z almanachem i kamieniem ogniskującym)
