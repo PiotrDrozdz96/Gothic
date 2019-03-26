@@ -165,23 +165,6 @@ func int C_NpcIsMonster(var C_NPC slf)
 	};
 };
 
-func int C_NpcIsDangerousMonster(var C_NPC slf, var C_NPC oth)
-{
-	PrintDebugNpc		(PD_ZS_DETAIL,"C_NpcIsDangerousMonster");
-
-	if	(C_NpcIsMonster(oth))
-	&& 	(Wld_GetGuildAttitude(oth.guild,slf.guild) == ATT_HOSTILE)
-	&&	(!oth.aivar[AIV_MM_PARTYMEMBER])
-	&&	!C_NpcIsDown(oth)
-	{
-		PrintDebugNpc	(PD_ZS_DETAIL,"...true");
-		return 			TRUE;
-	};
-
-	PrintDebugNpc		(PD_ZS_DETAIL,"...false");
-	return 				FALSE;
-};
-
 func int C_NpcIsOrc(var C_NPC slf)
 {
 	PrintDebugNpc		(PD_ZS_DETAIL,"C_NpcIsOrc");
@@ -196,6 +179,23 @@ func int C_NpcIsOrc(var C_NPC slf)
 		PrintDebugNpc	(PD_ZS_DETAIL,"...false");
 		return FALSE;
 	};
+};
+
+func int C_NpcIsDangerousMonster(var C_NPC slf, var C_NPC oth)
+{
+	PrintDebugNpc		(PD_ZS_DETAIL,"C_NpcIsDangerousMonster");
+
+	if	(C_NpcIsMonster(oth) || C_NpcIsOrc(oth))
+	&& 	(Wld_GetGuildAttitude(oth.guild,slf.guild) == ATT_HOSTILE)
+	&&	(!oth.aivar[AIV_MM_PARTYMEMBER])
+	&&	!C_NpcIsDown(oth)
+	{
+		PrintDebugNpc	(PD_ZS_DETAIL,"...true");
+		return 			TRUE;
+	};
+
+	PrintDebugNpc		(PD_ZS_DETAIL,"...false");
+	return 				FALSE;
 };
 
 func int C_NpcIsMonsterMage(var C_NPC slf)

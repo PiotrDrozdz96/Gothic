@@ -43,6 +43,7 @@ instance EBR_101_Scar (Npc_Default)
 	EquipItem(self,Scars_Schwert);
 	CreateInvItem(self,ItFo_Potion_Health_03);
 	CreateInvItem(self,ItRw_Crossbow_04);
+	CreateInvItems(self, ItAmBolt, 30);
 
 	//-------------Daily Routine-------------
 	daily_routine = Rtn_start_101;

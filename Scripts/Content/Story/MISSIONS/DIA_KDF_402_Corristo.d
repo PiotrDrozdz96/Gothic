@@ -273,7 +273,7 @@ instance KDF_402_Corristo_AUFNAHME (C_INFO)
 
 FUNC int  KDF_402_Corristo_AUFNAHME_Condition()
 {	
-	if ( Npc_GetDistToWp (hero,"OCC_CHAPEL_UPSTAIRS") < 500)
+	if ( Npc_GetDistToWp (hero,"OCC_CHAPEL_UPSTAIRS") < 100)
 	&& (Corristo_KDFAufnahme == 4)
 	{
 		return TRUE;

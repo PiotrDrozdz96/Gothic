@@ -218,6 +218,15 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 		B_ExchangeRoutine	(GRD_229_Gardist,	"FMTaken2");	// Verstärkung vor das Hinterem Tor (Fernkämpfer)
 		B_ExchangeRoutine	(GRD_216_Torwache,	"FMTaken2");	// reguläre Wache am Hinteren Tor
 		B_ExchangeRoutine	(GRD_217_Torwache,	"FMTaken2");	// reguläre Wache am Hinteren Tor
+
+		//-------- Kampfgruppe vor exchange platz -------
+		B_ExchangeRoutine	(GRD_275_Brueckenwache,	"FMTaken2");
+		B_ExchangeRoutine	(GRD_276_Brueckenwache,	"FMTaken2");
+		B_ExchangeRoutine	(GRD_237_Gardist,		"FMTaken2");
+		B_ExchangeRoutine	(GRD_238_Gardist,		"FMTaken2");
+		B_ExchangeRoutine	(GRD_224_Pacho,			"FMTaken2");
+		B_KillNpc			(VLK_520_Buddler);
+		B_KillNpc			(VLK_534_Buddler);
 		
 		
 		//-------- permanente Attitüden ändern --------

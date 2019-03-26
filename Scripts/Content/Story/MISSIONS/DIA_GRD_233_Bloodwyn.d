@@ -218,7 +218,8 @@ instance Info_Bloodwyn_Doch(C_Info)
 
 func int Info_Bloodwyn_Doch_Condition()
 {
-	if(Bloodwyn_ProtectionPaid == FALSE)
+	if (Bloodwyn_ProtectionPaid == FALSE)
+	&& (Npc_GetTrueGuild(other) == GIL_None)
 	{
 		return 1;
 	};

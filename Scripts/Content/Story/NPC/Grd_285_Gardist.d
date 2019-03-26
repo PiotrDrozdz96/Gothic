@@ -30,10 +30,12 @@ instance GRD_285_Gardist (Npc_Default)
    	fight_tactic	=	FAI_HUMAN_STRONG;
 
 	//-------- Talente -------- 
-	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);		
+	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
+	Npc_SetTalentSkill (self, NPC_TALENT_SHIELD,1);	
 			
 	//-------- inventory --------
 	EquipItem		(self, ItMw_1H_Sword_Broad_04);
+	EquipItem	(self, ITSH_G3_04);
 	CreateInvItem	(self, ItFoApple);
 	CreateInvItems	(self, ItMiNugget, 10);		        
 	

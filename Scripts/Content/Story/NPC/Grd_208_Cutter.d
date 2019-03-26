@@ -35,12 +35,14 @@ instance GRD_208_Cutter (Npc_Default)
 				
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);		
+	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);	
+	Npc_SetTalentSkill (self, NPC_TALENT_SHIELD,2);	
 			
 	//-------- inventory --------
 	
 	EquipItem	(self, ItMw_1H_Sword_03);
 	EquipItem	(self, ItRw_Crossbow_01);
+	EquipItem	(self, ITSH_PALADIN_A);
 	CreateInvItems	(self, ItAmBolt, 30);
 	CreateInvItem	(self, ItFoMutton);
 	CreateInvItems	(self, ItMiNugget,20);

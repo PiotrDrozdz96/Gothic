@@ -32,11 +32,13 @@ instance GRD_286_Gardist (Npc_Default)
 				
 	Npc_SetTalentSkill (self, NPC_TALENT_1H,2);
 	Npc_SetTalentSkill (self, NPC_TALENT_2H,1);
-	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);		
+	Npc_SetTalentSkill (self, NPC_TALENT_CROSSBOW,1);
+	Npc_SetTalentSkill (self, NPC_TALENT_SHIELD,1);		
 			
 	//-------- inventory --------
 	
 	EquipItem	(self, ItMw_1H_Sword_02);
+	EquipItem	(self, ITSH_G3_04);
 	CreateInvItem	(self, ItFoCheese);
 	CreateInvItem	(self, ItFoApple);
 	CreateInvItems	(self, ItMiNugget, 10);

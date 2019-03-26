@@ -1,3 +1,6 @@
++--AI
+|   +--|-- AI_Intern/C_Functions
+|   |    // C_NpcIsDangerousMonster - Ludzie poprawnie atakują orków
 +--Anims
 |   +--|-- HUMANS.MDS
 |   |    // Dodanie Rmaker do obsługi stołu runicznego
@@ -41,6 +44,7 @@
 |   |   // Kapitel 4 - EBR_105_Raven,GRD_(200/210/233/255),STT_(311/329),VLK_(538,581) - Wywalenie za barierę
 |   |   // Kapitel 4 - Postacie które znajdowały się w starym obozie, ale nie były jego członkami, nie giną ponieważ się wcześniej wyprowadziły
 |   |   // Kapitel 4 - GorNaDrak nie zmienia rutyny, ponieważ wcześniej wyruszył z Cor Kalomem
+|   |   // Kapitel 4 - Strażnicy rozsiani po kolonii udają się na plac wymian. Dwóch kopaczy przed OC umiera
 |   |   // Kapitel 6 - Dostajemy naładowany Uriziel(1H/2H) w zależności od wcześniej posiadanego
 |   |   // Kapitel 6 - Orc_Priest5 staje się wrażliwy na obrażenia
 |   +--|-- B_Story_PrepareRitual
@@ -117,6 +121,7 @@
 |   +--|-- DIA_GUR_1211_BallLukor
 |   |   // Dodanie tarczy ITSH_R_ROUND
 |   +--|-- DIA_KDF_402_Corristo
+|   |   // Poprawa rozpoczęcia dialogu przy zostaniu magiem, musimy być na środku okręgu
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu magiem Ognia
 |   |   // Zwiększenie restrykcji przy zostaniu arcymagiem
 |   |   // Zadanie "Moja pierwsza runa"
@@ -421,18 +426,26 @@
 |   +-- OLD_CAMP
 |   |   +--| EBR_101_Scar
 |   |   |   // Zwiększenie zręczności
+|   |   |   // Dodanie bełtów
 |   |   +--| EBR_105_Raven / GRD_(200/210/233/255) / VLK_(538/581)
 |   |   |    // Dodanie rutyny "out" - wywalenie za barierę
 |   |   +--| GRD_(202/207)_Gardist
 |   |   |    // Nowi strażnicy na placu wymian
+|   |   +--| GRD_208_Cutter
+|   |   |    // dodanie tarczy ITSH_PALADIN_A
 |   |   +--| GRD_(205/222/223/238/279)
 |   |   |    // Dodanie tarczy ITSH_G3_03
-|   |   +--| GRD_(214/215/216/217)_Torwache
+|   |   +--| GRD_(214/215/216/217)_Torwache / GRD_(285/286)_Gardist
 |   |   |    // Dodanie tarczy ITSH_G3_04
-|   |   +--| GRD_(218/237/245)_Gardist
+|   |   +--| GRD_(218/237/245/292)_Gardist
 |   |   |    // Dodanie Tarczy ITSH_W2_E3_REDANIA
-|   |   +--| GRD_(231/275/276)
+|   |   +--| GRD_(231/287/289/299)_Gardist
 |   |   |    // Dodanie tarczy ITSH_W2_E2_KEADWEN
+|   |   +--| GRD_224_Pacho/GRD_(237/238)_Gardist
+|   |   |    // Dodanie rutyn FMTaken2 przenoszący na plac wymian
+|   |   +--| GRD_(275/276)
+|   |   |    // Dodanie tarczy ITSH_W2_E2_KEADWEN
+|   |   |    // Dodanie rutyn FMTaken2 przenoszący na plac wymian
 |   |   +--| GRD_260_Drake
 |   |   |   // Drake ma już tylko jeden kolor skóry -- by marev
 |   |   +--| GRD_282_Nek

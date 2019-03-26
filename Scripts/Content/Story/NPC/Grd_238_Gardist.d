@@ -59,3 +59,9 @@ FUNC VOID Rtn_start_238 ()
 	TA_Guard	(00,00,06,00,"SPAWN_PATH_GUARD1");
 	TA_Guard	(06,00,24,00,"SPAWN_PATH_GUARD1");
 };
+
+FUNC VOID Rtn_FMTaken2_238 ()
+{
+	TA_Guard	(00,00,06,00,"OW_PATH_1_15");
+	TA_Guard	(06,00,24,00,"OW_PATH_1_15");
+};

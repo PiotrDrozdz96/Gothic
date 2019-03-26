@@ -52,3 +52,9 @@ FUNC VOID Rtn_start_224 ()
 	TA_SitAround	(00,00,12,00,"OW_PATH_018");	// FP "SIT"
 	TA_SitAround	(12,00,24,00,"OW_PATH_018");
 };
+
+FUNC VOID Rtn_FMTaken2_224 ()
+{
+	TA_Guard	(06,00,21,00,"OW_VM_ENTRANCE"); 
+	TA_Guard	(21,00,06,00,"OW_VM_ENTRANCE"); 
+};

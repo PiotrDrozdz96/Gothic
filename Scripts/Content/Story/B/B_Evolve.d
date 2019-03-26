@@ -101,11 +101,11 @@ func void B_Evolve_Cipher()
         cipher.attribute[ATR_STRENGTH] = 50;
         Npc_SetTalentSkill (cipher, NPC_TALENT_2H,1);
         CreateInvItem (cipher, ItMw2hOrcAxe01);
-        Mdl_SetVisualBody (cipher,"hum_body_Naked0",0, 1, "Hum_Head_FatBald", 90, 2, ORG_ARMOR_H);
+        Mdl_SetVisualBody (cipher,"hum_body_Naked0",0, 1, "Hum_Head_Bald", 50, 2, ORG_ARMOR_H);
     }
     else if (!Npc_HasItems(cipher, ORG_ARMOR_M))
     && (CipherJoints == 1)
     {
-        Mdl_SetVisualBody (cipher,"hum_body_Naked0",0, 1, "Hum_Head_FatBald", 90, 2, ORG_ARMOR_M);
+        Mdl_SetVisualBody (cipher,"hum_body_Naked0",0, 1, "Hum_Head_Bald", 50, 2, ORG_ARMOR_M);
     };
 };
