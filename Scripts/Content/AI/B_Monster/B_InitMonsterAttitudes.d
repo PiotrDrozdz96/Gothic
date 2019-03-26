@@ -31,6 +31,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_WARAN,			ATT_NEUTRAL,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_WARAN,			ATT_NEUTRAL,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_WARAN,			ATT_NEUTRAL,	GIL_LURKER			);
+	B_SetGuildAttitude	(GIL_WARAN,			ATT_NEUTRAL,	GIL_SEPERATOR_ORC	);
                                         	 	
 	//-------- GOBBO --------
 	B_SetGuildAttitude	(GIL_GOBBO,			ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
@@ -54,6 +55,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_GOBBO,			ATT_NEUTRAL,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_GOBBO,			ATT_NEUTRAL,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_GOBBO,			ATT_NEUTRAL,	GIL_LURKER			);
+	B_SetGuildAttitude	(GIL_GOBBO,			ATT_NEUTRAL,	GIL_SEPERATOR_ORC	);
 
 	//-------- TROLL --------
 	B_SetGuildAttitude	(GIL_TROLL,			ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
@@ -77,7 +79,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_TROLL,			ATT_NEUTRAL,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_TROLL,			ATT_NEUTRAL,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_TROLL,			ATT_NEUTRAL,	GIL_LURKER			);
-
+	B_SetGuildAttitude	(GIL_TROLL,			ATT_NEUTRAL,	GIL_SEPERATOR_ORC	);
 
 	//-------- SNAPPER --------
 	B_SetGuildAttitude	(GIL_SNAPPER,		ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
@@ -101,6 +103,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_SNAPPER,		ATT_NEUTRAL,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_SNAPPER,		ATT_NEUTRAL,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_SNAPPER,		ATT_NEUTRAL,	GIL_LURKER			);
+	B_SetGuildAttitude	(GIL_SNAPPER,		ATT_NEUTRAL,	GIL_SEPERATOR_ORC	);
 
 	//-------- MINECRAWLER --------
 	B_SetGuildAttitude	(GIL_MINECRAWLER,	ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
@@ -124,6 +127,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_MINECRAWLER,	ATT_HOSTILE,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_MINECRAWLER,	ATT_HOSTILE,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_MINECRAWLER,	ATT_HOSTILE,	GIL_LURKER			);
+	B_SetGuildAttitude	(GIL_MINECRAWLER,	ATT_HOSTILE,	GIL_SEPERATOR_ORC	);
 
 	//-------- MEATBUG --------
 	B_SetGuildAttitude	(GIL_MEATBUG,		ATT_NEUTRAL,	GIL_SEPERATOR_HUM	);
@@ -147,7 +151,8 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_MEATBUG,		ATT_NEUTRAL,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_MEATBUG,		ATT_NEUTRAL,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_MEATBUG,		ATT_NEUTRAL,	GIL_LURKER			);
-                                                	
+	B_SetGuildAttitude	(GIL_MEATBUG,		ATT_NEUTRAL,	GIL_SEPERATOR_ORC	);
+	
 	//-------- SCAVENGER --------
 	B_SetGuildAttitude	(GIL_SCAVENGER,		ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
 	B_SetGuildAttitude	(GIL_SCAVENGER,		ATT_NEUTRAL,	GIL_WARAN			);
@@ -170,6 +175,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_SCAVENGER,		ATT_NEUTRAL,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_SCAVENGER,		ATT_NEUTRAL,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_SCAVENGER,		ATT_NEUTRAL,	GIL_LURKER			);
+	B_SetGuildAttitude	(GIL_SCAVENGER,		ATT_HOSTILE,	GIL_SEPERATOR_ORC	);
 
 	//-------- DEMON --------
 	B_SetGuildAttitude	(GIL_DEMON,			ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
@@ -193,6 +199,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_DEMON,			ATT_HOSTILE,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_DEMON,			ATT_NEUTRAL,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_DEMON,			ATT_HOSTILE,	GIL_LURKER			);
+	B_SetGuildAttitude	(GIL_DEMON,			ATT_HOSTILE,	GIL_SEPERATOR_ORC	);
 
 	//-------- WOLF --------
 	B_SetGuildAttitude	(GIL_WOLF,			ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
@@ -216,6 +223,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_WOLF,			ATT_HOSTILE,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_WOLF,			ATT_NEUTRAL,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_WOLF,			ATT_NEUTRAL,	GIL_LURKER			);
+	B_SetGuildAttitude	(GIL_WOLF,			ATT_NEUTRAL,	GIL_SEPERATOR_ORC	);
 
 	//-------- SHADOWBEAST --------
 	B_SetGuildAttitude	(GIL_SHADOWBEAST,	ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
@@ -239,6 +247,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_SHADOWBEAST,	ATT_HOSTILE,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_SHADOWBEAST,	ATT_HOSTILE,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_SHADOWBEAST,	ATT_NEUTRAL,	GIL_LURKER			);
+	B_SetGuildAttitude	(GIL_SHADOWBEAST,	ATT_HOSTILE,	GIL_SEPERATOR_ORC	);
 
 	//-------- BLOODFLY --------
 	B_SetGuildAttitude	(GIL_BLOODFLY,		ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
@@ -262,6 +271,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_BLOODFLY,		ATT_NEUTRAL,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_BLOODFLY,		ATT_NEUTRAL,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_BLOODFLY,		ATT_NEUTRAL,	GIL_LURKER			);
+	B_SetGuildAttitude	(GIL_BLOODFLY,		ATT_NEUTRAL,	GIL_SEPERATOR_ORC	);
 
 	//-------- SWAMPSHARK --------
 	B_SetGuildAttitude	(GIL_SWAMPSHARK,	ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
@@ -285,6 +295,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_SWAMPSHARK,	ATT_HOSTILE,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_SWAMPSHARK,	ATT_NEUTRAL,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_SWAMPSHARK,	ATT_HOSTILE,	GIL_LURKER			);
+	B_SetGuildAttitude	(GIL_SWAMPSHARK,	ATT_HOSTILE,	GIL_SEPERATOR_ORC	);
 
 	//-------- ZOMBIE --------
 	B_SetGuildAttitude	(GIL_ZOMBIE,		ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
@@ -308,6 +319,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_ZOMBIE,		ATT_HOSTILE,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_ZOMBIE,		ATT_NEUTRAL,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_ZOMBIE,		ATT_HOSTILE,	GIL_LURKER			);
+	B_SetGuildAttitude	(GIL_ZOMBIE,	ATT_HOSTILE,	GIL_SEPERATOR_ORC	);
 
 	//-------- UNDEADORC --------
 	B_SetGuildAttitude	(GIL_UNDEADORC,		ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
@@ -331,6 +343,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_UNDEADORC,		ATT_HOSTILE,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_UNDEADORC,		ATT_NEUTRAL,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_UNDEADORC,		ATT_HOSTILE,	GIL_LURKER			);
+	B_SetGuildAttitude	(GIL_UNDEADORC,		ATT_NEUTRAL,	GIL_SEPERATOR_ORC	);
 
 	//-------- ORCDOG --------
 	B_SetGuildAttitude	(GIL_ORCDOG,		ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
@@ -357,6 +370,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_ORCDOG,		ATT_NEUTRAL,	GIL_ORCSCOUT		);
 	B_SetGuildAttitude	(GIL_ORCDOG,		ATT_NEUTRAL,	GIL_ORCWARRIOR		);
 	B_SetGuildAttitude	(GIL_ORCDOG,		ATT_NEUTRAL,	GIL_ORCSHAMAN		);
+	B_SetGuildAttitude	(GIL_ORCDOG,		ATT_FRIENDLY,	GIL_SEPERATOR_ORC	);
 
 	//-------- MOLERAT --------
 	B_SetGuildAttitude	(GIL_MOLERAT,		ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
@@ -380,6 +394,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_MOLERAT,		ATT_FRIENDLY,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_MOLERAT,		ATT_NEUTRAL,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_MOLERAT,		ATT_NEUTRAL,	GIL_LURKER			);
+	B_SetGuildAttitude	(GIL_MOLERAT,	ATT_HOSTILE,	GIL_SEPERATOR_ORC	);
 
 	//-------- GOLEM --------
 	B_SetGuildAttitude	(GIL_GOLEM,			ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
@@ -406,6 +421,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_GOLEM,			ATT_HOSTILE,	GIL_ORCSHAMAN		);
 	B_SetGuildAttitude	(GIL_GOLEM,			ATT_HOSTILE,	GIL_ORCWARRIOR		);
 	B_SetGuildAttitude	(GIL_GOLEM,			ATT_HOSTILE,	GIL_ORCSCOUT		);
+	B_SetGuildAttitude	(GIL_GOLEM,	ATT_HOSTILE,	GIL_SEPERATOR_ORC	);
 
 	//-------- LURKER --------
 	B_SetGuildAttitude	(GIL_LURKER,		ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
@@ -429,6 +445,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_LURKER,		ATT_NEUTRAL,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_LURKER,		ATT_NEUTRAL,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_LURKER,		ATT_NEUTRAL,	GIL_LURKER			);
+	B_SetGuildAttitude	(GIL_LURKER,		ATT_NEUTRAL,	GIL_SEPERATOR_ORC	);
 
 	//-------- SKELETON --------
 	B_SetGuildAttitude	(GIL_SKELETON,		ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
@@ -452,9 +469,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_SKELETON,		ATT_HOSTILE,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_SKELETON,		ATT_NEUTRAL,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_SKELETON,		ATT_HOSTILE,	GIL_LURKER			);
-	B_SetGuildAttitude	(GIL_SKELETON,		ATT_HOSTILE,	GIL_ORCSHAMAN		);
-	B_SetGuildAttitude	(GIL_SKELETON,		ATT_HOSTILE,	GIL_ORCWARRIOR		);
-	B_SetGuildAttitude	(GIL_SKELETON,		ATT_HOSTILE,	GIL_ORCSCOUT		);
+	B_SetGuildAttitude	(GIL_SKELETON,		ATT_HOSTILE,	GIL_SEPERATOR_ORC	);
 
 	//-------- HUMAN --------
 	// SN:	alle Menschen auf ATT_HOSTILE gegenüber allen Monstern gesetzt, um die Reaktionszeit
@@ -481,9 +496,7 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_SEPERATOR_HUM,	ATT_HOSTILE,	GIL_MOLERAT			);
 	B_SetGuildAttitude	(GIL_SEPERATOR_HUM,	ATT_HOSTILE,	GIL_GOLEM			);
 	B_SetGuildAttitude	(GIL_SEPERATOR_HUM,	ATT_HOSTILE,	GIL_LURKER			);
-	B_SetGuildAttitude	(GIL_SEPERATOR_HUM,	ATT_HOSTILE,	GIL_ORCSHAMAN		);
-	B_SetGuildAttitude	(GIL_SEPERATOR_HUM,	ATT_HOSTILE,	GIL_ORCWARRIOR		);
-	B_SetGuildAttitude	(GIL_SEPERATOR_HUM,	ATT_HOSTILE,	GIL_ORCSCOUT		);
+	B_SetGuildAttitude	(GIL_SEPERATOR_HUM,	ATT_HOSTILE,	GIL_SEPERATOR_ORC	);
 	B_SetGuildAttitude	(GIL_SEPERATOR_HUM,	ATT_FRIENDLY,	GIL_ORCSLAVE		);
 
 	//-------- GIL_GUR wird den Gegnern im Alten Tempel verpasst --------
@@ -513,23 +526,34 @@ func void B_InitMonsterAttitudes ()
 	B_SetGuildAttitude	(GIL_TPL		,	ATT_FRIENDLY,	GIL_ORCSLAVE		);
 
 	//-------- Orks untereinander --------
-	B_SetGuildAttitude	(GIL_ORCSHAMAN	,	ATT_FRIENDLY,	GIL_ORCSHAMAN		);
-	B_SetGuildAttitude	(GIL_ORCSHAMAN  ,	ATT_FRIENDLY,	GIL_ORCWARRIOR  	);
-	B_SetGuildAttitude	(GIL_ORCSHAMAN	,	ATT_FRIENDLY,	GIL_ORCSCOUT		);
-	B_SetGuildAttitude	(GIL_ORCSHAMAN	,	ATT_FRIENDLY,	GIL_ORCSLAVE		);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_WARAN			);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_SLF				);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_GOBBO			);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_TROLL			);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_SNAPPER			);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_MINECRAWLER		);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_MEATBUG			);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_SCAVENGER		);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_DEMON			);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_WOLF			);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_SHADOWBEAST		);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_BLOODFLY		);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_SWAMPSHARK		);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_ZOMBIE			);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_UNDEADORC		);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_SKELETON		);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_ORCDOG			);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_MOLERAT			);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_GOLEM			);
+	B_SetGuildAttitude	(GIL_SEPERATOR_ORC,	ATT_NEUTRAL,	GIL_LURKER			);
 
-	B_SetGuildAttitude	(GIL_ORCWARRIOR	,	ATT_FRIENDLY,	GIL_ORCSHAMAN		);
-	B_SetGuildAttitude	(GIL_ORCWARRIOR ,	ATT_FRIENDLY,	GIL_ORCWARRIOR  	);
-	B_SetGuildAttitude	(GIL_ORCWARRIOR	,	ATT_FRIENDLY,	GIL_ORCSCOUT		);
-	B_SetGuildAttitude	(GIL_ORCWARRIOR	,	ATT_FRIENDLY,	GIL_ORCSLAVE		);
+	B_SetGuildAttitude	(GIL_ORCSHAMAN	,	ATT_FRIENDLY,	GIL_SEPERATOR_ORC	);
+	B_SetGuildAttitude	(GIL_ORCWARRIOR	,	ATT_FRIENDLY,	GIL_SEPERATOR_ORC	);
+	B_SetGuildAttitude	(GIL_ORCSCOUT	,	ATT_FRIENDLY,	GIL_SEPERATOR_ORC	);
+	B_SetGuildAttitude	(GIL_ORCSLAVE	,	ATT_FRIENDLY,	GIL_SEPERATOR_ORC	);
 
-	B_SetGuildAttitude	(GIL_ORCSCOUT	,	ATT_FRIENDLY,	GIL_ORCSHAMAN		);
-	B_SetGuildAttitude	(GIL_ORCSCOUT 	,	ATT_FRIENDLY,	GIL_ORCWARRIOR  	);
-	B_SetGuildAttitude	(GIL_ORCSCOUT	,	ATT_FRIENDLY,	GIL_ORCSCOUT		);
-	B_SetGuildAttitude	(GIL_ORCSCOUT	,	ATT_FRIENDLY,	GIL_ORCSLAVE		);
-
-	B_SetGuildAttitude	(GIL_ORCSLAVE	,	ATT_FRIENDLY,	GIL_ORCSHAMAN		);
-	B_SetGuildAttitude	(GIL_ORCSLAVE 	,	ATT_FRIENDLY,	GIL_ORCWARRIOR  	);
-	B_SetGuildAttitude	(GIL_ORCSLAVE	,	ATT_FRIENDLY,	GIL_ORCSCOUT		);
-	B_SetGuildAttitude	(GIL_ORCSLAVE	,	ATT_FRIENDLY,	GIL_ORCSLAVE		);
+	B_SetGuildAttitude	(GIL_ORCSHAMAN	,	ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
+	B_SetGuildAttitude	(GIL_ORCWARRIOR	,	ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
+	B_SetGuildAttitude	(GIL_ORCSCOUT	,	ATT_HOSTILE,	GIL_SEPERATOR_HUM	);
+	B_SetGuildAttitude	(GIL_ORCSLAVE	,	ATT_NEUTRAL,	GIL_SEPERATOR_HUM	);
 }; 
