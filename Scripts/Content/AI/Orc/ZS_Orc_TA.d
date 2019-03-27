@@ -523,66 +523,42 @@ func void ZS_Orc_Dance_End()
 
 func void ZS_Orc_EatAndDrink()
 {
-	b_orc_removeweapon(self);
-	OrcDefaultPerc();
-	if(Npc_GetDistToWP(self,self.wp) > 300)
+	PrintDebugNpc(PD_ZS_FRAME,"ZS_Orc_EatAndDrink");
+	
+	//gehe zum WP	
+	AI_SetWalkmode( self, NPC_WALK );	// Walkmode f˜r den Zustand
+	if ( !Npc_IsOnFP( self, "STAND" ) )
 	{
-		AI_SetWalkMode(self,NPC_WALK);
-		AI_GotoWP(self,self.wp);
+		AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
 	};
-	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+	
+	OrcDefaultPerc();
 };
 
 func void ZS_Orc_EatAndDrink_Loop()
 {
-	if(self.aivar[AIV_LOCATION] == AIV_L_ISINPOS)
+	PrintDebugNpc(PD_ZS_FRAME,"ZS_Orc_EatAndDrink_Loop");
+	
+	B_GotoFP		(self, "STAND");
+
+	//Essen oder Trinken?
+	if ( Hlp_Random( 10 ) < 5 )
 	{
-		if(Npc_GetStateTime(self) >= self.aivar[AIV_GUARDPASSAGE_STATUS])
-		{
-			if(self.aivar[AIV_GUARDPASSAGE_STATUS] == 5)
-			{
-				AI_StopLookAt(self);
-				B_Orc_ItemPotion();
-			}
-			else if(self.aivar[AIV_GUARDPASSAGE_STATUS] == 6)
-			{
-				AI_StopLookAt(self);
-				B_Orc_ItemEat();
-			};
-			self.aivar[AIV_GUARDPASSAGE_STATUS] = (Hlp_Random(100) % 4) + 4;
-			Npc_SetStateTime(self,0);
-		};
-	}
-	else if(Npc_GetDistToWP(self,self.wp) > 300)
-	{
-		AI_SetWalkMode(self,NPC_WALK);
-		AI_GotoWP(self,self.wp);
+		B_Orc_ItemEat();
 	}
 	else
 	{
-		if(Wld_IsFPAvailable(self,"STAND"))
-		{
-			AI_SetWalkMode(self,NPC_WALK);
-			AI_GotoFP(self,"STAND");
-			AI_AlignToFP(self);
-		}
-		else
-		{
-			AI_AlignToWP(self);
-		};
-		self.aivar[AIV_LOCATION] = AIV_L_ISINPOS;
-		self.aivar[AIV_GUARDPASSAGE_STATUS] = (Hlp_Random(100) % 4) + 3;
-		Npc_SetStateTime(self,0);
+		B_Orc_ItemPotion();
 	};
-	AI_Wait(self,1);
+	var float pause;
+	pause = intToFloat( Hlp_Random( 5 ) + 2 );
+	AI_Wait( self, pause );
 };
 
 func void ZS_Orc_EatAndDrink_End()
 {
-	Npc_ClearAIQueue(self);
-	AI_Standup(self);
-	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
-	self.aivar[AIV_GUARDPASSAGE_STATUS] = 0;
+	PrintDebugNpc(PD_ZS_FRAME,"ZS_Orc_EatAndDrink_End");
+	Npc_ClearAIQueue( self );
 };
 
 func void ZS_Orc_Guard()

@@ -36,7 +36,7 @@
 |   |    // dodanie ZS_Orc_FollowPC.d
 |   |    // dodanie ZS_Orc_ObservePC.d
 |   |    // Usuniêcie ZS_Orc_ObserveItruder
-|   |    // Zmiana ZS_Orc_TA z fixmoda z pliku b_orc_removeweapon
+|   |    // Zmiana ZS_Orc_TA z fixmoda z pliku b_orc_removeweapon, bez zmiany funkcji ZS_Orc_EatAndDrink
 |   |    // dodanie ZS_Orc_Upset.d
 |   |    // Zmiana ZS_Orc_WatchFight z fixmoda
 |   |    // Usuniêcie ZS_OrcSlave_AssessDamage
@@ -55,7 +55,5 @@
 |    // Wywalenie testowych orków z parsowania
 |    // Zmiany kolejnoœci AI\Orc i Story\ZS, drobne wykasowania
 +-- Zauwa¿one b³êdy
-|    // Orkowie nie jedz¹ i nie pij¹ choæ nie by³o to zmienianie problem z "POTION/0/1" i "FOODHUGE/0/1"
 |    // Orkowi Szamani nie atakuj¹ magi¹ tylko tym swoim kijaszkiem, jeœli w nich wbiegamy. Przy ostrym wkuriwe jest ok.
-|    // Trzeba chyba odwróciæ model orkowej laski bo przy czarowaniu trzyma j¹ chyba na odwrót
 |    // Ludzie atakuj¹ orka, jednak bo zabiciu orka atakuj¹ bohatera
