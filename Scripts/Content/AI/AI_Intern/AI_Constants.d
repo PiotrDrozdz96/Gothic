@@ -52,12 +52,17 @@ const int 	AIV_DIDWAITTOCLEARROOM			= 30;
 const int	AIV_FOUNDPERSON					= 31;	// In einigen TAs wird mit Npc_PerceiveAll nach bestimmten Personen gesucht. Damit dies nicht ständig gemacht werden muß, wird hier gemerkt, ob diese Person schon gefunden wurde
 
 const int   AIV_LOCATION					= 32; // MH: für Aufenthaltsort - wichtig für Dialoge (kann LOC_OLDCAMP, LOC_NEWCAMP, etc. sein)
+const int		AIV_L_NOTINPOS 				= 0;
+const int		AIV_L_ISINPOS 				= 1;
 const int   AIV_INVINCIBLE					= 33; // MH: ist TRUE für beide Teilnehmer eines Dialogs (s. ZS_Talk)
 const int 	AIV_DONTUSEMOB					= 34; // Sonst wird immer wieder der komplette StartBlock durchlaufen
 
 const int	AIV_ATTACKREASON				= 35;	// SN: Grund des Angriffs
 const int		AIV_AR_NONE				= 0;
 const int		AIV_AR_INTRUDER			= 1;
+const int 		AIV_AR_THEFT 			= 10;
+const int 		AIV_AR_ATTACK 			= 11;
+const int 		AIV_AR_MURDER 			= 12;
 
 const int	AIV_PARTYMEMBER					= 36;	//SN: (begleitet den Spieler - für XP-Vergabe)
 const int	AIV_SPECIALCOMBATDAMAGEREACTION	= 37;	//SN: verzweigt bei erlittenen Treffern in ein spezielles Reaktionsmodul

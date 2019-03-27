@@ -15,8 +15,8 @@ PROTOTYPE Mst_Default_OrcShaman(C_Npc)
 	attribute	[ATR_HITPOINTS_MAX]	=	200;
 	attribute	[ATR_HITPOINTS]		=	200;
 
-	attribute	[ATR_MANA_MAX] 		=	50;
-	attribute	[ATR_MANA] 			=	50;
+	attribute	[ATR_MANA_MAX] 		=	200;
+	attribute	[ATR_MANA] 			=	200;
 //----------------------------------------------------------	
 	protection	[PROT_BLUNT]		=	50;
 	protection	[PROT_EDGE]			=	50;
@@ -69,6 +69,7 @@ func void Set_OrcShaman_Visuals()
 INSTANCE OrcShaman (Mst_Default_OrcShaman)
 {
 	Set_OrcShaman_Visuals();
+	Npc_SetTalentSkill		(self, NPC_TALENT_MAGE,	6);
 	CreateInvItem			(self,	ItArRuneFireball);
 	EquipItem				(self,	ItRwOrcstaff);		// für Magiemodus
 

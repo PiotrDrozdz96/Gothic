@@ -1,11 +1,18 @@
-func void B_Orc_SmartTurn ()
+func void B_Orc_SmartTurn(var C_Npc slf,var C_Npc oth)
 {
-	PrintDebugNpc( PD_ORC_FRAME, "B_Orc_SmartTurn" );
-	
-	AI_LookAtNpc( self, other );
-
-	if ( Npc_GetBodyState( self ) != BS_SIT  &&  !Npc_CanSeeNpc( self, other ) )
+	if(C_BodyStateContains(slf,BS_SIT) && Npc_CanSeeNpc(slf,oth))
 	{
-		AI_TurnToNpc( self, other);
+		AI_LookAtNpc(slf,oth);
+	}
+	else if(!C_BodyStateContains(slf,BS_ITEMINTERACT) && !C_BodyStateContains(slf,BS_MOBINTERACT_INTERRUPT))
+	{
+		if(!Npc_CanSeeNpc(slf,oth))
+		{
+			AI_TurnToNPC(slf,oth);
+		}
+		else
+		{
+			AI_LookAtNpc(slf,oth);
+		};
 	};
 };

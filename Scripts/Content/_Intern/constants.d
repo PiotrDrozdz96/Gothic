@@ -123,6 +123,7 @@ CONST INT ITEM_BOW										= 1 << 19				;		//	Waffe wird wie ein Bogen behandel
 CONST INT ITEM_CROSSBOW									= 1 << 20				;		//	Waffe wird wie eine Armbrust behandelt
 CONST INT ITEM_AMULET									= 1 << 22				;
 CONST INT ITEM_RING										= 1 << 11				;
+CONST INT ITEM_DROPPED									= 1 << 24				; 		// Russian Fix-mod
 
 //																				 
 //	DAMAGE TYPES v2.0															 

@@ -1,801 +1,839 @@
-//	######################################################################
-//
-//		ZS_Orc-TA-Funktionen
-//
-//		Diese Datei enthält ca. 1 Millionen lustiger Orc-Ta Zustände	
-//		von Orc_DrinkAlcohol bis Orc_Drum.
-//
-//	######################################################################
-
-
-//#######################################################
-//		B_Orc_Idle_Ani
-//#######################################################
-// spielt Anis ab, wenn der Ork nur dumm herumSTEHT
-func void B_Orc_Idle_Ani()
+func void b_orc_removeweapon(var C_Npc slf)
 {
-	var int ani;
-	ani = Hlp_Random( 130 );
-	if ( ani < 10 )
+	AI_StopLookAt(self);
+	if(slf.weapon)
 	{
-		AI_PlayAni( self, "T_PERCEPTION" );
-	}
-	else if ( ani < 20 )
-	{
-		AI_PlayAni( self, "T_WARN" );
-	}
-	else if ( ani < 30 )
-	{
-		AI_PlayAni( self, "T_ANGRY" );
-	}
-	else if ( ani < 40 )
-	{
-		AI_PlayAni( self, "T_FRIGHTEND" );
-	}
-	else if ( ani < 50 )
-	{
-		AI_PlayAni( self, "T_HAPPY" );
-	}
-	else if ( ani < 60 )
-	{
-		AI_PlayAni( self, "T_DIALOGGESTURE_01" );
-	}
-	else if ( ani < 70 )
-	{
-		AI_PlayAni( self, "T_DIALOGGESTURE_02" );
-	}
-	else if ( ani < 80 )
-	{
-		AI_PlayAni( self, "T_DIALOGGESTURE_03" );
-	}
-	else if ( ani < 90 )
-	{
-		AI_PlayAni( self, "T_DIALOGGESTURE_04" );
-	}
-	else if ( ani < 100 )
-	{
-		AI_PlayAni( self, "T_DIALOGGESTURE_05" );
-	}
-	else if ( ani < 110 )
-	{
-		AI_PlayAni( self, "T_DIALOGGESTURE_06" );
-	}
-	else if ( ani < 120 )
-	{
-		AI_PlayAni( self, "T_DIALOGGESTURE_07" );
-	}
-	else if ( ani < 130 )
-	{
-		AI_PlayAni( self, "T_DIALOGGESTURE_08" );
+		AI_StartState(slf,zs_orc_removeweapon,0,"");
 	};
-	
-	AI_Wait( self, 1 );
 };
 
+func void zs_orc_removeweapon()
+{
+	self.aivar[AIV_INVINCIBLE] = TRUE;
+	Npc_SetTrueGuild(self,GIL_None);
+};
 
+func int zs_orc_removeweapon_loop()
+{
+	AI_RemoveWeapon(self);
+	return LOOP_END;
+};
 
-//#####################################################
-//		MOBSI: STONEMILL
-//#####################################################
+func void zs_orc_removeweapon_end()
+{
+	self.aivar[AIV_INVINCIBLE] = FALSE;
+	Npc_SetTrueGuild(self,self.guild);
+	AI_ContinueRoutine(self);
+};
+
 func void ZS_Orc_Stonemill()
 {
-	PrintDebugNpc( PD_ZS_FRAME,"ZS_Orc_Stonemill" );
-	
-	if ( Npc_GetBodyState( self ) != BS_MOBINTERACT )
+	b_orc_removeweapon(self);
+	OrcSlavePerc();
+	AI_SetWalkMode(self,NPC_WALK);
+	if(Npc_GetDistToWP(self,self.wp) > 450)
 	{
-		AI_SetWalkmode( self, NPC_WALK );		// Walkmode für den Zustand
-		if ( Hlp_StrCmp( Npc_GetNearestWp(self), self.wp) == 0 )
-		{
-			AI_GotoWP( self, self.wp );
-		};
+		AI_GotoWP(self,self.wp);
 	};
-	
-	OrcDefaultPercDoing();
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
 };
 
 func void ZS_Orc_Stonemill_Loop()
 {
-	PrintDebugNpc( PD_ZS_FRAME,"ZS_Orc_Stonemill_Loop" );
-
-	AI_UseMob( self, "STONEMILL", 1 );
-	AI_UseMob( self, "STONEMILL", 0 );
-	
-	//CS: Orc muss sich jede Runde einmal ab- und wieder anmelden, damit er mit dem Mobsi synchronisiert bleibt
-	AI_UseMob( self, "STONEMILL", -1 ); 
+	if(self.aivar[AIV_LOCATION] == AIV_L_ISINPOS)
+	{
+		if(Wld_IsMobAvailable(self,"STONEMILL"))
+		{
+			AI_UseMob(self,"STONEMILL",1);
+			AI_UseMob(self,"STONEMILL",0);
+			AI_UseMob(self,"STONEMILL",-1);
+		};
+	}
+	else if(Npc_GetDistToWP(self,self.wp) > 450)
+	{
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_GotoWP(self,self.wp);
+	}
+	else
+	{
+		self.aivar[AIV_LOCATION] = AIV_L_ISINPOS;
+	};
 };
 
 func void ZS_Orc_Stonemill_End()
 {
-	PrintDebugNpc( PD_ZS_FRAME,"ZS_Orc_Stonemill_End" );
-	Npc_ClearAIQueue( self );
-	AI_UseMob( self, "STONEMILL", -1 );
+	Npc_ClearAIQueue(self);
+	if(C_BodyStateContains(self,BS_MOBINTERACT_INTERRUPT))
+	{
+		AI_UseMob(self,"STONEMILL",-1);
+	};
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
 };
 
-
-
-//#####################################################
-//		MOBSI: STOMPER
-//#####################################################
 func void ZS_Orc_Stomper()
 {
-	PrintDebugNpc( PD_TA_FRAME,"ZS_Orc_Stomper" );
-	
-	if ( Npc_GetBodyState( self) != BS_MOBINTERACT )
+	b_orc_removeweapon(self);
+	OrcSlavePerc();
+	AI_SetWalkMode(self,NPC_WALK);
+	if(Npc_GetDistToWP(self,self.wp) > 450)
 	{
-		AI_SetWalkmode( self, NPC_WALK );		// Walkmode für den Zustand
-		if ( Hlp_StrCmp( Npc_GetNearestWp(self), self.wp) == 0 )
-		{
-			AI_GotoWP( self, self.wp );
-		};
+		AI_GotoWP(self,self.wp);
 	};
-
-	OrcDefaultPercDoing();
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
 };
 
 func void ZS_Orc_Stomper_Loop()
 {
-	PrintDebugNpc( PD_TA_FRAME,"ZS_Orc_Stomper_Loop" );
-	AI_UseMob( self, "STOMPER", 1 );		//Ani anwerfen
-	AI_UseMob( self, "STOMPER", 0 );		//Ani anwerfen
-	
-    //CS: Orc muss sich jede Runde einmal ab- und wieder anmelden, damit er mit dem Mobsi synchronisiert bleibt
-	AI_UseMob( self, "STOMPER", -1 ); 	
+	if(self.aivar[AIV_LOCATION] == AIV_L_ISINPOS)
+	{
+		if(Wld_IsMobAvailable(self,"STOMPER"))
+		{
+			AI_UseMob(self,"STOMPER",1);
+			AI_UseMob(self,"STOMPER",0);
+			AI_UseMob(self,"STOMPER",-1);
+		};
+	}
+	else if(Npc_GetDistToWP(self,self.wp) > 450)
+	{
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_GotoWP(self,self.wp);
+	}
+	else
+	{
+		self.aivar[AIV_LOCATION] = AIV_L_ISINPOS;
+	};
 };
 
 func void ZS_Orc_Stomper_End()
 {
-	PrintDebugNpc( PD_TA_FRAME,"ZS_Orc_Stomper_End" );
-	Npc_ClearAIQueue( self );
-	AI_UseMob( self, "STOMPER", -1 );						//Schluss jetzt mit dem Quatsch
+	Npc_ClearAIQueue(self);
+	if(C_BodyStateContains(self,BS_MOBINTERACT_INTERRUPT))
+	{
+		AI_UseMob(self,"STOMPER",-1);
+	};
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
 };
 
-
-
-//#######################################################
-//		ZS_Orc_Eat
-//#######################################################
-func void ZS_Orc_Eat ()
+func void ZS_Orc_Sleep()
 {
-	PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_Eat" );
-	
-	AI_SetWalkmode (self,NPC_WALK);	// Walkmode für den Zustand
-	if ( !Npc_IsOnFP( self, "STAND" ) )
-	{
-		AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
-	};
-	
+	b_orc_removeweapon(self);
 	OrcDefaultPerc();
-};
-
-
-func int ZS_Orc_Eat_Loop()
-{
-	PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_Eat_Loop" );
-	
-	B_GotoFP	(self, "STAND");
-	
-	B_Orc_ItemEat();
-	var float pause;
-	pause = intToFloat( Hlp_Random( 5 ) + 2 );
-	AI_Wait( self, pause );
-	
-	return 0;	// bleibe in Loop
-};
-
-
-func void ZS_Orc_Eat_End ()
-{
-	PrintDebugNpc (PD_ZS_FRAME,"ZS_Eat_End");
-	Npc_ClearAIQueue( self );
-};
-
-
-//#######################################################
-//		ZS_Orc_Sleep
-//#######################################################
-
-func void ZS_Orc_Sleep ()
-{
-	PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_Sleep" );
-
-	if ( !C_BodyStateContains( self, BS_MOBINTERACT ) )
+	Npc_PercEnable(self,PERC_ASSESSENEMY,b_orc_assessenemy);
+	if(Npc_GetDistToWP(self,self.wp) > 300)
 	{
-		if ( Hlp_StrCmp( Npc_GetNearestWP( self ), self.wp ) == 0 )
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_GotoWP(self,self.wp);
+	};
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+	self.aivar[AIV_PASSGATE] = 0;
+};
+
+func int ZS_Orc_Sleep_Loop()
+{
+	if(self.aivar[AIV_LOCATION] == AIV_L_ISINPOS)
+	{
+		if(C_BodyStateContains(self,BS_SIT))
 		{
-			AI_GotoWP	(self, self.wp);
+			if(Npc_GetStateTime(self) >= self.aivar[AIV_GUARDPASSAGE_STATUS])
+			{
+				if(self.aivar[AIV_PASSGATE] == 0)
+				{
+					AI_StopLookAt(self);
+					AI_PlayAniBS(self,"T_GUARDSIT_2_GUARDSLEEP",BS_SIT);
+					self.aivar[AIV_PASSGATE] = 1;
+					self.aivar[AIV_GUARDPASSAGE_STATUS] = (Hlp_Random(1000) % 10) + 10;
+					Npc_PercDisable(self,PERC_ASSESSENEMY);
+					Npc_PercDisable(self,PERC_ASSESSCASTER);
+					Npc_PercDisable(self,PERC_ASSESSTHEFT);
+					Npc_PercDisable(self,PERC_ASSESSUSEMOB);
+					Npc_PercEnable(self,PERC_ASSESSQUIETSOUND,b_orc_assessquietsound);
+				}
+				else if(self.aivar[AIV_PASSGATE] == 1)
+				{
+					if((Hlp_Random(100) % 12) == 0)
+					{
+						AI_PlayAniBS(self,"T_GUARDSLEEPSLOWWAKEUP",BS_SIT);
+						self.aivar[AIV_PASSGATE] = 0;
+						Npc_PercEnable(self,PERC_ASSESSENEMY,b_orc_assessenemy);
+						Npc_PercEnable(self,PERC_ASSESSCASTER,b_orc_assesscaster);
+						Npc_PercEnable(self,PERC_ASSESSTHEFT,b_orc_assesstheft);
+						Npc_PercEnable(self,PERC_ASSESSUSEMOB,b_orc_assessusemob);
+						Npc_PercDisable(self,PERC_ASSESSQUIETSOUND);
+					};
+					self.aivar[AIV_GUARDPASSAGE_STATUS] = (Hlp_Random(100) % 3) + 3;
+				};
+				Npc_SetStateTime(self,0);
+			};
 		};
-		AI_UnequipWeapons( self );
-		AI_UseMob( self, "BEDLOW", 1 );
-	};
-	
-	OrcLightSleepPerc();
-};
-
-
-func int ZS_Orc_Sleep_Loop ()
-{
-	PrintDebugNpc( PD_ZS_LOOP, "ZS_ORC_Sleep_Loop" );
-	
-	//	Wir dürfen an dieser Stelle weder davon ausgehen, das der NPC seinen wegpunkt schon erreicht 
-	//	hat und im Bett liegt. Deshalb warten wir bis er den BodyState BS_MOBINTERACT erreicht hat!
-	if ( C_BodyStateContains( self, BS_MOBINTERACT ) ) 
+	}
+	else if(Npc_GetDistToWP(self,self.wp) > 300)
 	{
-		//	Hier könnte man Zufallsanimationen abspielen wenn sie existieren würden.
-		
-	};
-	return 0;
-};
-
-func void ZS_Orc_Sleep_End ()
-{
-	PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_Sleep_End" );	
-	Npc_ClearAIQueue( self );
-	
-	//	Mobbenutzung beenden
-	AI_UseMob( self, "BEDLOW", -1 );
-	
-	//	Aufwachgeräusche von sich geben			
-	B_Say( self, NULL, "$AWAKE" );
-	
-	//	Waffen anlegen
-	AI_EquipBestMeleeWeapon( self );
-	AI_EquipBestRangedWeapon( self );
-};
-
-
-//#######################################################
-//	ZS_Orc_Pray
-//#######################################################
-func void ZS_Orc_Pray ()
-{
-    PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_Pray" );
-	
-	OrcDefaultPercDoing();
-
-	AI_SetWalkmode( self, NPC_WALK );		// Walkmode für den Zustand
-	if ( !Npc_IsOnFP( self, "PREY" ) )
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_GotoWP(self,self.wp);
+	}
+	else
 	{
-		AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
-	};
-};
-
-func void ZS_Orc_Pray_Loop ()
-{
-    PrintDebugNpc( PD_ZS_LOOP, "ZS_Orc_Pray_Loop" );
-
- 	B_GotoFP	(self, "PREY");
- 
-   	if ( Npc_GetBodyState( self ) != BS_SIT )
-   	{
-   		AI_PlayAniBS( self, "T_STAND_2_PRAY", BS_SIT );
-   	}
-   	else
-   	{
-   		AI_PlayAniBS( self, "T_PRAY_RANDOM", BS_SIT );
-   	};
-
-	AI_Wait( self, 1 );    
-};
-
-func void ZS_Orc_Pray_End ()
-{
-	PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_Pray_End" );
-	Npc_ClearAIQueue( self );
-	AI_PlayAniBS( self, "T_PRAY_2_STAND", BS_STAND );
-};
-
-
-//#######################################################
-//		ZS_Orc_Drum
-//#######################################################
-func void ZS_Orc_Drum ()
-{
-	PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_Drum" );
-	
-	//	Zum angegebenen Wegpunkt gehen und mit trommeln anfangen
-	if ( Npc_GetBodyState( self) != BS_MOBINTERACT )
-	{
-		AI_SetWalkmode( self, NPC_WALK );
-		if ( Hlp_StrCmp( Npc_GetNearestWp(self), self.wp) == 0 )
+		if(Wld_IsMobAvailable(self,"BEDLOW"))
 		{
-			AI_GotoWP( self, self.wp );
-		};
-		AI_UseMob( self, "DRUM", 1 );		//Ani anwerfen
-	};
-	
-	OrcDefaultPercDoing();
-};
-
-func int ZS_Orc_Drum_Loop ()
-{
-	PrintDebugNpc( PD_ZS_LOOP, "ZS_Orc_Drum_Loop" );
-	
-	if ( Npc_GetBodyState(self) == BS_MOBINTERACT_INTERRUPT )
-	{
-		var int random;
-		random = Hlp_Random( 15 );
-		if ( random < 5 )
-		{
-			AI_PlayAniBS( self, "T_ORCDRUM_RANDOM_1", BS_MOBINTERACT_INTERRUPT );
+			AI_UseMob(self,"BEDLOW",1);
+			self.aivar[AIV_LOCATION] = AIV_L_ISINPOS;
+			return LOOP_CONTINUE;
 		}
-		else if ( random < 10 )
+		else if(Wld_IsFPAvailable(self,"ORC_SLEEP"))
 		{
-			AI_PlayAniBS( self, "T_ORCDRUM_RANDOM_2", BS_MOBINTERACT_INTERRUPT );
+			AI_SetWalkMode(self,NPC_WALK);
+			AI_GotoFP(self,"ORC_SLEEP");
+			AI_AlignToFP(self);
 		}
 		else
 		{
-			AI_PlayAniBS( self, "T_ORCDRUM_RANDOM_3", BS_MOBINTERACT_INTERRUPT );
+			AI_AlignToWP(self);
 		};
+		AI_PlayAniBS(self,"T_STAND_2_GUARDSIT",BS_SIT);
+		self.aivar[AIV_GUARDPASSAGE_STATUS] = (Hlp_Random(100) % 3) + 3;
+		Npc_SetStateTime(self,0);
+		self.aivar[AIV_LOCATION] = AIV_L_ISINPOS;
 	};
-	
+	AI_Wait(self,1);
 	return LOOP_CONTINUE;
 };
 
-func int ZS_Orc_Drum_End ()
+func void ZS_Orc_Sleep_End()
 {
-	PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_Drum_End" );
-	Npc_ClearAIQueue( self );
-
-	//nicht mehr Trommeln
-	AI_UseMob( self, "DRUM", -1 );	
-};
-
-//#######################################################
-//		ZS_Orc_Speech
-//#######################################################
-func void ZS_Orc_Speech ()
-{
-    PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_Speech" );
-    
-	AI_SetWalkmode (self,NPC_WALK);		// Walkmode für den Zustand
-	if ( !Npc_IsOnFP( self, "STAND" ) )
+	Npc_ClearAIQueue(self);
+	if(C_BodyStateContains(self,BS_MOBINTERACT_INTERRUPT))
 	{
-		AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
-	};
-	
-	OrcDefaultPerc();
-};
-
-func int ZS_Orc_Speech_Loop ()
-{
-    PrintDebugNpc	(PD_ZS_LOOP, "ZS_Orc_Speech_Loop" );
-    
- 	B_GotoFP		(self, "STAND");
- 	
-    // Random-Anis abspielen
-    var int ani;
-    ani = Hlp_Random( 30 );
-    if ( ani == 1 )
-    {
-    	AI_PlayAni( self, "T_DIALOGGESTURE_01" );
-    }
-    else if ( ani == 2 )
-    {
-    	AI_PlayAni( self, "T_DIALOGGESTURE_02" );
-    }
-    else if ( ani == 3 )
-    {
-    	AI_PlayAni( self, "T_DIALOGGESTURE_03" );
-    }
-    else if ( ani == 4 )
-    {
-    	AI_PlayAni( self, "T_DIALOGGESTURE_04" );
-    }
-    else if ( ani == 5 )
-    {
-    	AI_PlayAni( self, "T_DIALOGGESTURE_05" );
-    }
-    else if ( ani == 6 )
-    {
-    	AI_PlayAni( self, "T_DIALOGGESTURE_06" );
-    }
-    else if ( ani == 7 )
-    {
-    	AI_PlayAni( self, "T_DIALOGGESTURE_07" );
-    }
-    else if ( ani == 8 )
-    {
-    	AI_PlayAni( self, "T_DIALOGGESTURE_08" );
-    };
-    
-    AI_Wait( self, 1 );
-};
-
-func void ZS_Orc_Speech_End ()
-{
-    PrintDebugNpc( PD_TA_FRAME, "ZS_Orc_Speech_End" );
-   	Npc_ClearAIQueue( self );
-};
-
-
-
-//#######################################################
-//		ZS_Orc_GotoWP
-//#######################################################
-func void ZS_Orc_GotoWP()
-{	
-	PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_GotoWP" );				
-	
-	AI_SetWalkmode( self, NPC_WALK );
-	AI_GotoWP( self, self.wp);
-	AI_AlignToWP( self );				//Richte Dich aus
-	
-	OrcDefaultPerc();
-};
-
-func void ZS_Orc_GotoWp_Loop()
-{
-	PrintDebugNpc( PD_ZS_LOOP, "ZS_Orc_GotoWP_Loop" );
-	
-	//irgendwelche Anis
-	if ( Hlp_Random( 250 ) < 10 )
+		AI_UseMob(self,"BEDLOW",-1);
+	}
+	else if(C_BodyStateContains(self,BS_SIT))
 	{
-		B_Orc_Idle_Ani();
+		if(self.aivar[AIV_PASSGATE] == 1)
+		{
+			AI_PlayAniBS(self,"T_GUARDSLEEPSLOWWAKEUP",BS_SIT);
+		};
+		AI_PlayAniBS(self,"T_GUARDSIT_2_STAND",BS_STAND);
 	};
-
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+	self.aivar[AIV_PASSGATE] = 0;
+	self.aivar[AIV_GUARDPASSAGE_STATUS] = 0;
 };
 
-func void ZS_Orc_GotoWP_End()
-{	
-	PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_GotoWP_End" );				
-	Npc_ClearAIQueue( self );
+func void ZS_Orc_Pray()
+{
+	b_orc_removeweapon(self);
+	OrcDefaultPerc();
+	AI_SetWalkMode(self,NPC_WALK);
+	if((Npc_GetDistToWP(self,self.wp) < 500) && Wld_IsFPAvailable(self,"PREY"))
+	{
+		AI_GotoFP(self,"PREY");
+		AI_AlignToFP(self);
+		self.aivar[AIV_LOCATION] = AIV_L_ISINPOS;
+	}
+	else
+	{
+		AI_GotoWP(self,self.wp);
+		self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+	};
+	self.aivar[AIV_GUARDPASSAGE_STATUS] = Hlp_Random(100) % 4;
 };
 
+func void ZS_Orc_Pray_Loop()
+{
+	if(self.aivar[AIV_LOCATION] == AIV_L_ISINPOS)
+	{
+		if(Npc_GetBodyState(self) != BS_SIT)
+		{
+			AI_PlayAniBS(self,"T_STAND_2_PRAY",BS_SIT);
+		}
+		else
+		{
+			AI_PlayAniBS(self,"T_PRAY_RANDOM",BS_SIT);
+		};
+		if(self.aivar[AIV_GUARDPASSAGE_STATUS] == 1)
+		{
+			AI_Wait(self,0.3);
+		}
+		else if(self.aivar[AIV_GUARDPASSAGE_STATUS] == 2)
+		{
+			AI_Wait(self,0.6);
+		}
+		else if(self.aivar[AIV_GUARDPASSAGE_STATUS] == 3)
+		{
+			AI_Wait(self,1);
+		};
+	}
+	else if(Npc_GetDistToWP(self,self.wp) > 500)
+	{
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_GotoWP(self,self.wp);
+	}
+	else
+	{
+		if(Wld_IsFPAvailable(self,"PREY"))
+		{
+			AI_SetWalkMode(self,NPC_WALK);
+			AI_GotoFP(self,"PREY");
+			AI_AlignToFP(self);
+		};
+		self.aivar[AIV_LOCATION] = AIV_L_ISINPOS;
+	};
+	AI_Wait(self,1);
+};
 
-//#######################################################
-//		ZS_Orc_WalkAround
-//########################################################
+func void ZS_Orc_Pray_End()
+{
+	Npc_ClearAIQueue(self);
+	if(Npc_GetBodyState(self) == BS_SIT)
+	{
+		AI_PlayAniBS(self,"T_PRAY_2_STAND",BS_STAND);
+	};
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+	self.aivar[AIV_GUARDPASSAGE_STATUS] = 0;
+};
+
+func void ZS_Orc_Drum()
+{
+	b_orc_removeweapon(self);
+	OrcDefaultPerc();
+	if(Npc_GetDistToWP(self,self.wp) > 300)
+	{
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_GotoWP(self,self.wp);
+	};
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+};
+
+func int ZS_Orc_Drum_Loop()
+{
+	if(self.aivar[AIV_LOCATION] == AIV_L_ISINPOS)
+	{
+		if(C_BodyStateContains(self,BS_MOBINTERACT_INTERRUPT))
+		{
+			self.aivar[AIV_GUARDPASSAGE_STATUS] = Hlp_Random(15);
+			if(self.aivar[AIV_GUARDPASSAGE_STATUS] < 5)
+			{
+				AI_PlayAniBS(self,"T_ORCDRUM_RANDOM_1",BS_MOBINTERACT_INTERRUPT);
+			}
+			else if(self.aivar[AIV_GUARDPASSAGE_STATUS] < 10)
+			{
+				AI_PlayAniBS(self,"T_ORCDRUM_RANDOM_2",BS_MOBINTERACT_INTERRUPT);
+			}
+			else
+			{
+				AI_PlayAniBS(self,"T_ORCDRUM_RANDOM_3",BS_MOBINTERACT_INTERRUPT);
+			};
+		}
+		else
+		{
+			self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+			AI_Wait(self,1);
+		};
+	}
+	else if(Npc_GetDistToWP(self,self.wp) > 300)
+	{
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_GotoWP(self,self.wp);
+	}
+	else if(Wld_IsMobAvailable(self,"DRUM"))
+	{
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_UseMob(self,"DRUM",1);
+		self.aivar[AIV_LOCATION] = AIV_L_ISINPOS;
+	};
+	return LOOP_CONTINUE;
+};
+
+func void ZS_Orc_Drum_End()
+{
+	Npc_ClearAIQueue(self);
+	if(C_BodyStateContains(self,BS_MOBINTERACT_INTERRUPT))
+	{
+		AI_Wait(self,1);
+		AI_UseMob(self,"DRUM",-1);
+	};
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+	self.aivar[AIV_GUARDPASSAGE_STATUS] = 0;
+};
+
 func void ZS_Orc_WalkAround()
 {
-    PrintDebugNpc (PD_ZS_FRAME,"ZS_Orc_WalkAround");
-
+	b_orc_removeweapon(self);
 	OrcDefaultPerc();
-    
-	AI_SetWalkmode( self, NPC_WALK );	// Walkmode für den Zustand
-	if ( !Npc_IsOnFP( self, "FP_ORC_STAND" ) )
+	B_MM_DeSynchronize(self);
+	AI_SetWalkMode(self,NPC_WALK);
+	if(Npc_GetDistToWP(self,self.wp) > 500)
 	{
-		AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
+		AI_GotoWP(self,self.wp);
 	};
-	if ( Wld_IsFPAvailable( self, "FP_ORC_STAND_A" ) )
-	{
-		AI_GotoFP( self, "FP_ORC_STAND_A" );
-	} 
-	else if ( Wld_IsFPAvailable( self, "FP_ORC_STAND_B" ) )
-	{
-		AI_GotoFP( self, "FP_ORC_STAND_B" );
-	} 
-	else if ( Wld_IsFPAvailable( self, "FP_ORC_STAND_C" ) )
-	{
-		AI_GotoFP( self, "FP_ORC_STAND_C" );
-	};
-	AI_AlignToFP( self );				//Richte Dich aus
-	
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
 };
- 
-func void ZS_Orc_WalkAround_Loop()
-{
-    PrintDebugNpc(PD_TA_LOOP,"ZS_Orc_WalkAround_Loop");
 
-	var string wp1;
-	var string wp2;
-	wp1 = Npc_GetNearestWP( self );
-	wp2 = Npc_GetNextWP( self );
-	
-	if ( !Hlp_StrCmp( wp1, self.wp )  &&  Hlp_Random( 10 ) < 5 )
+func int ZS_Orc_WalkAround_Loop()
+{
+	if(self.aivar[AIV_LOCATION] == AIV_L_NOTINPOS)
 	{
-    	PrintDebugNpc(PD_ZS_FRAME,"ZS_Orc_WalkAround: Goto Nearest");
-		AI_GotoWP( self, wp1 );
-		self.wp = wp1;
+		self.aivar[AIV_PASSGATE] = Hlp_Random(100) % 4;
+		Npc_ClearAIQueue(self);
+		AI_SetWalkMode(self,NPC_WALK);
+		if((self.aivar[AIV_PASSGATE] == 1) || (self.aivar[AIV_PASSGATE] == 3))
+		{
+			if(Wld_IsNextFPAvailable(self,"FP_ROAM"))
+			{
+				AI_GotoNextFP(self,"FP_ROAM");
+			}
+			else if(Wld_IsFPAvailable(self,"FP_ROAM"))
+			{
+				AI_GotoFP(self,"FP_ROAM");
+			}
+			else
+			{
+				AI_Wait(self,1);
+			};
+		}
+		else if(Hlp_StrCmp(Npc_GetNearestWP(self),self.wp))
+		{
+			AI_GotoWP(self,Npc_GetNextWP(self));
+		}
+		else
+		{
+			AI_GotoWP(self,self.wp);
+		};
+		self.aivar[AIV_LOCATION] = AIV_L_ISINPOS;
 	}
-	else if ( !Hlp_StrCmp( wp2, self.wp ) )
+	else
 	{
-    	PrintDebugNpc(PD_ZS_FRAME,"ZS_Orc_WalkAround: Goto Next");
-		AI_GotoWP( self, wp2 );
-		self.wp = wp2;
+		self.aivar[AIV_PASSGATE] = Hlp_Random(100) % 10;
+		if(self.aivar[AIV_PASSGATE] == 0)
+		{
+			b_playrandomani(self,1);
+			AI_Wait(self,1);
+			self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+		}
+		else if(self.aivar[AIV_PASSGATE] == 1)
+		{
+			AI_Wait(self,1.5);
+		}
+		else if(self.aivar[AIV_PASSGATE] == 2)
+		{
+			AI_Wait(self,2);
+			self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+		}
+		else if(self.aivar[AIV_PASSGATE] == 3)
+		{
+			b_playrandomani(self,2);
+			AI_Wait(self,1);
+			self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+		}
+		else if(self.aivar[AIV_PASSGATE] == 4)
+		{
+			AI_Wait(self,1.5);
+		}
+		else if(self.aivar[AIV_PASSGATE] == 5)
+		{
+			AI_Wait(self,2);
+			self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+		}
+		else if(self.aivar[AIV_PASSGATE] == 6)
+		{
+			b_playrandomani(self,3);
+			AI_Wait(self,1);
+			self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+		}
+		else if(self.aivar[AIV_PASSGATE] == 7)
+		{
+			AI_Wait(self,2);
+			self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+		}
+		else if(self.aivar[AIV_PASSGATE] == 8)
+		{
+			b_playrandomani(self,3);
+			AI_Wait(self,1);
+		}
+		else if(self.aivar[AIV_PASSGATE] == 9)
+		{
+			AI_Wait(self,1.5);
+		};
 	};
-	
-	if ( Hlp_Random( 80 ) < 10 )
-	{
-		PrintDebugNpc(PD_ZS_FRAME,"ZS_Orc_WalkAround: Idle Ani");
-		B_Orc_Idle_Ani();
-		AI_Wait( self, 2 );
-		return;
-	};
-	
-	if ( Hlp_Random( 50 ) < 5 )
-	{
-		PrintDebugNpc(PD_ZS_FRAME,"ZS_Orc_WalkAround: Wait");
-		var float f;
-		f = intToFloat( Hlp_Random( 4 ) );
-		AI_Wait( self, f );
-	};
-		
+	return LOOP_CONTINUE;
 };
 
 func void ZS_Orc_WalkAround_End()
 {
-    PrintDebugNpc (PD_TA_FRAME,"ZS_Orc_WalkAround_End");
-	Npc_ClearAIQueue( self );
+	Npc_ClearAIQueue(self);
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+	self.aivar[AIV_PASSGATE] = 0;
 };
 
-
-//#########################################################
-//		ZS_Orc_DrinkAlcohol
-//#########################################################
-func void ZS_Orc_DrinkAlcohol ()
-{
-	PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_DrinkAlcohol" );
-	
-	OrcDefaultPerc();
-
-	AI_SetWalkmode (self,NPC_WALK);	// Walkmode für den Zustand
-	if ( !Npc_IsOnFP( self, "STAND" ) )
-	{
-		AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
-	};
-};
-
-
-func int ZS_Orc_DrinkAlcohol_Loop()
-{
-	PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_DrinkAlcohol_Loop" );
-	
-	B_GotoFP		(self, "STAND");
-	
-	B_Orc_ItemPotion();
-	var float pause;
-	pause = intToFloat( Hlp_Random( 5 ) + 2 );
-	AI_Wait( self, pause );
-	
-	return 0;	// bleibe in Loop
-};
-
-
-func void ZS_Orc_DrinkAlcohol_End ()
-{
-	PrintDebugNpc (PD_ZS_FRAME,"ZS_DrinkAlcohol_End");
-	Npc_ClearAIQueue( self );
-};
-
-
-
-//#######################################################
-//		ZS_Orc_Dance
-//#######################################################
 func void ZS_Orc_Dance()
 {
-	PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_Dance" );
-	
-	//	Zum angegebenen Wegpunkt gehen
-	AI_SetWalkmode( self, NPC_WALK );
-	if ( !Npc_IsOnFP( self, "DANCE" ) )
+	b_orc_removeweapon(self);
+	OrcDefaultPerc();
+	if(Npc_GetDistToWP(self,self.wp) > 500)
 	{
-		AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_GotoWP(self,self.wp);
 	};
-
-	OrcDefaultPercDoing();
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
 };
 
 func void ZS_Orc_Dance_Loop()
 {
-	PrintDebugNpc( PD_ZS_LOOP, "ZS_Orc_Dance_Loop" );
-	
-	B_GotoFP		(self, "DANCE");
-
-	if ( Hlp_Random( 10 ) < 5 )
+	if(self.aivar[AIV_LOCATION] == AIV_L_ISINPOS)
 	{
-		PrintDebugNpc( PD_ZS_FRAME,"ZS_Orc_Dance_Loop: T_DANCE" );
-		AI_PlayAni( self, "T_DANCE" );
+		Npc_PerceiveAll(self);
+		if(Wld_DetectNpc(self,-1,ZS_Orc_Drum,-1))
+		{
+			if(Hlp_Random(10) < 5)
+			{
+				AI_PlayAni(self,"T_DANCE");
+			}
+			else
+			{
+				AI_PlayAni(self,"T_DANCE_RANDOM_1");
+			};
+		}
+		else
+		{
+			AI_Wait(self,1);
+		};
+	}
+	else if(Npc_GetDistToWP(self,self.wp) > 500)
+	{
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_GotoWP(self,self.wp);
 	}
 	else
 	{
-		PrintDebugNpc( PD_ZS_FRAME,"ZS_Orc_Dance_Loop: T_DANCE_RANDOM_1" );
-		AI_PlayAni( self, "T_DANCE_RANDOM_1" );
+		if(Wld_IsFPAvailable(self,"DANCE"))
+		{
+			AI_SetWalkMode(self,NPC_WALK);
+			AI_GotoFP(self,"DANCE");
+			AI_AlignToFP(self);
+		};
+		self.aivar[AIV_LOCATION] = AIV_L_ISINPOS;
 	};
-
 };
 
 func void ZS_Orc_Dance_End()
 {
-	PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_Dance_End" );
-	Npc_ClearAIQueue( self );
-	AI_StandUp( self );
+	Npc_ClearAIQueue(self);
+	AI_Standup(self);
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
 };
 
-
-
-//#######################################################
-//		ZS_Orc_EatAndDrink
-//#######################################################
 func void ZS_Orc_EatAndDrink()
 {
-	PrintDebugNpc(PD_ZS_FRAME,"ZS_Orc_EatAndDrink");
-	
-	//gehe zum WP	
-	AI_SetWalkmode( self, NPC_WALK );	// Walkmode für den Zustand
-	if ( !Npc_IsOnFP( self, "STAND" ) )
-	{
-		AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
-	};
-	
+	b_orc_removeweapon(self);
 	OrcDefaultPerc();
+	if(Npc_GetDistToWP(self,self.wp) > 300)
+	{
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_GotoWP(self,self.wp);
+	};
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
 };
 
 func void ZS_Orc_EatAndDrink_Loop()
 {
-	PrintDebugNpc(PD_ZS_FRAME,"ZS_Orc_EatAndDrink_Loop");
-	
-	B_GotoFP		(self, "STAND");
-
-	//Essen oder Trinken?
-	if ( Hlp_Random( 10 ) < 5 )
+	if(self.aivar[AIV_LOCATION] == AIV_L_ISINPOS)
 	{
-		B_Orc_ItemEat();
+		if(Npc_GetStateTime(self) >= self.aivar[AIV_GUARDPASSAGE_STATUS])
+		{
+			if(self.aivar[AIV_GUARDPASSAGE_STATUS] == 5)
+			{
+				AI_StopLookAt(self);
+				B_Orc_ItemPotion();
+			}
+			else if(self.aivar[AIV_GUARDPASSAGE_STATUS] == 6)
+			{
+				AI_StopLookAt(self);
+				B_Orc_ItemEat();
+			};
+			self.aivar[AIV_GUARDPASSAGE_STATUS] = (Hlp_Random(100) % 4) + 4;
+			Npc_SetStateTime(self,0);
+		};
+	}
+	else if(Npc_GetDistToWP(self,self.wp) > 300)
+	{
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_GotoWP(self,self.wp);
 	}
 	else
 	{
-		B_Orc_ItemPotion();
+		if(Wld_IsFPAvailable(self,"STAND"))
+		{
+			AI_SetWalkMode(self,NPC_WALK);
+			AI_GotoFP(self,"STAND");
+			AI_AlignToFP(self);
+		}
+		else
+		{
+			AI_AlignToWP(self);
+		};
+		self.aivar[AIV_LOCATION] = AIV_L_ISINPOS;
+		self.aivar[AIV_GUARDPASSAGE_STATUS] = (Hlp_Random(100) % 4) + 3;
+		Npc_SetStateTime(self,0);
 	};
-	var float pause;
-	pause = intToFloat( Hlp_Random( 5 ) + 2 );
-	AI_Wait( self, pause );
+	AI_Wait(self,1);
 };
 
 func void ZS_Orc_EatAndDrink_End()
 {
-	PrintDebugNpc(PD_ZS_FRAME,"ZS_Orc_EatAndDrink_End");
-	Npc_ClearAIQueue( self );
+	Npc_ClearAIQueue(self);
+	AI_Standup(self);
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+	self.aivar[AIV_GUARDPASSAGE_STATUS] = 0;
 };
 
-
-//#######################################################
-//		ZS_Orc_GuardSleepy
-//#######################################################
-func void ZS_Orc_GuardSleepy()
-{
-    PrintDebugNpc( PD_TA_FRAME, "ZS_Orc_GuardSleepy" );
-	AI_SetWalkmode( self, NPC_WALK );	// Walkmode für den Zustand
-	if ( !Npc_IsOnFP( self, "SIT" ) )
-	{
-		AI_GotoWP(self, self.wp);               // Gehe zum Tagesablaufstart
-	};
-	
-	OrcDefaultPerc();
-};
-
-func void ZS_Orc_GuardSleepy_Loop()
-{
-    PrintDebugNpc	(PD_ZS_FRAME, "ZS_Orc_GuardSleepy_Loop" );
-
-	B_GotoFP		(self, "SIT");
-
-    //evtl. Ani
-    if ( !C_BodyStateContains( self, BS_SIT )  &&  Hlp_Random( 500 ) < 10 )
-    {
-    	PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_GuardSleepy_Loop: stehende Ani" );
-    	B_Orc_Idle_Ani();
-    	return;
-    };
-   
-    //evtl. hinsetzen
-    if ( !C_BodyStateContains( self, BS_SIT )  &&  Hlp_Random( 600 ) < 10 )
-    {
-    	PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_GuardSleepy_Loop: hinsetzen" );
-    	AI_PlayAniBS( self, "T_STAND_2_GUARDSIT", BS_SIT );
-    	AI_Wait( self, 2 );
-    	return;
-    };
-
-    //evtl. einschlafen beim Sitzen
-	if ( C_BodyStateContains( self, BS_SIT )  &&  Hlp_Random( 700 ) < 10 )
-	{
-		PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_GuardSleepy_Loop: einschlafen im Sitzen" );
-		AI_PlayAniBS( self, "T_GUARDSIT_2_GUARDSLEEP",BS_SIT );
-		var float sleep;
-		sleep = intToFloat( Hlp_Random( 5 ) + 15 );
-		AI_Wait( self, sleep );
-		AI_PlayAniBS( self, "T_GUARDSLEEP_2_GUARDSIT",BS_SIT );
-		return;
-    };
-};
-
-func void ZS_Orc_GuardSleepy_End()
-{
-	PrintDebugNpc( PD_TA_FRAME, "ZS_Orc_GuardSleepy_End" );
-};
-
-
-//#######################################################
-//		ZS_Orc_Guard
-//#######################################################
 func void ZS_Orc_Guard()
 {
-    PrintDebugNpc	(PD_TA_FRAME, "ZS_Orc_Guard" );
-
-	OrcDefaultPerc	();
-
-    B_FullStop		(self);
-    
-	AI_SetWalkmode	(self, NPC_WALK);
-
-	if ( !Npc_IsOnFP(self, "FP_ORC_GUARD") )
+	b_orc_removeweapon(self);
+	OrcDefaultPerc();
+	if(Npc_GetDistToWP(self,self.wp) > 700)
 	{
-		AI_GotoWP	(self, self.wp); 
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_GotoWP(self,self.wp);
 	};
-	
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+	self.aivar[AIV_PASSGATE] = 0;
 };
 
 func void ZS_Orc_Guard_Loop()
 {
-    PrintDebugNpc	(PD_ZS_FRAME, "ZS_Orc_Guard_Loop" );
-
-	B_GotoFP		(self, "FP_ORC_GUARD");
-	AI_AlignToFP	(self);
-
-	AI_Wait			(self, 1);
+	if(self.aivar[AIV_LOCATION] == AIV_L_ISINPOS)
+	{
+		if((Npc_GetDistToNpc(self,hero) < 800) && Npc_CanSeeNpcFreeLOS(self,hero) && !Npc_IsDead(hero))
+		{
+			if((Npc_CanSeeNpc(self,hero) || (Npc_GetDistToNpc(self,hero) < 500)) && (hero.guild != GIL_MEATBUG))
+			{
+				AI_TurnToNPC(self,hero);
+				self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+				self.aivar[AIV_PASSGATE] = 1;
+				self.aivar[AIV_GUARDPASSAGE_STATUS] = (Hlp_Random(100) % 4) + 4;
+				Npc_SetStateTime(self,0);
+			};
+			AI_Wait(self,0.5);
+		}
+		else
+		{
+			if(Npc_GetStateTime(self) >= self.aivar[AIV_GUARDPASSAGE_STATUS])
+			{
+				self.aivar[AIV_LASTDISTTOWP] = Hlp_Random(100) % 12;
+				if(self.aivar[AIV_LASTDISTTOWP] == 3)
+				{
+					b_playrandomani(self,1);
+				}
+				else if(self.aivar[AIV_LASTDISTTOWP] == 6)
+				{
+					b_playrandomani(self,3);
+				};
+				self.aivar[AIV_GUARDPASSAGE_STATUS] = (Hlp_Random(100) % 4) + 4;
+				Npc_SetStateTime(self,0);
+			};
+			AI_Wait(self,1);
+		};
+	}
+	else if(self.aivar[AIV_PASSGATE])
+	{
+		if((Npc_GetDistToNpc(self,hero) < 1000) && (hero.guild != GIL_MEATBUG))
+		{
+			if(Npc_GetStateTime(self) >= self.aivar[AIV_GUARDPASSAGE_STATUS])
+			{
+				AI_TurnToNPC(self,hero);
+				self.aivar[AIV_GUARDPASSAGE_STATUS] = (Hlp_Random(100) % 4) + 4;
+				Npc_SetStateTime(self,0);
+			}
+			else
+			{
+				B_SmartTurnToNpc(self,hero);
+			};
+			AI_Wait(self,0.5);
+		}
+		else
+		{
+			AI_Wait(self,1);
+			AI_StopLookAt(self);
+			self.aivar[AIV_PASSGATE] = 0;
+		};
+	}
+	else if(Npc_GetDistToWP(self,self.wp) > 700)
+	{
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_GotoWP(self,self.wp);
+	}
+	else
+	{
+		if(Wld_IsFPAvailable(self,"GUARD"))
+		{
+			AI_SetWalkMode(self,NPC_WALK);
+			AI_GotoFP(self,"GUARD");
+		}
+		else
+		{
+			AI_AlignToWP(self);
+		};
+		self.aivar[AIV_LOCATION] = AIV_L_ISINPOS;
+	};
 };
 
 func void ZS_Orc_Guard_End()
 {
-	PrintDebugNpc	(PD_TA_FRAME, "ZS_Orc_Guard_End" );
-
 	Npc_ClearAIQueue(self);
+	AI_StopLookAt(self);
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+	self.aivar[AIV_PASSGATE] = 0;
+	self.aivar[AIV_GUARDPASSAGE_STATUS] = 0;
 };
 
-//#######################################################
-//		ZS_Orc_SitOnFloor
-//#######################################################
 func void ZS_Orc_SitOnFloor()
 {
-	PrintDebugNpc(PD_ZS_FRAME,"ZS_Orc_SitOnFloor");
-
-
-	Npc_ClearAIQueue( self );
-
-	//wenn Ork nicht sitzt, gehe zu TA-Start	
-	if ( Npc_GetBodyState( self ) != BS_SIT )
-	{
-		PrintDebugNpc(PD_ZS_FRAME,"ZS_Orc_SitOnFloor: sitzt nicht....");
-		AI_SetWalkmode( self, NPC_WALK);		// Walkmode für den Zustand
-		if ( !Npc_IsOnFP( self, "FP_ORC_SIT" ) )
-		{
-			AI_GotoWP( self, self.wp );		// Gehe zum Tagesablaufstart
-		};
-
-		if ( Wld_IsFPAvailable( self, "FP_ORC_SIT_A_") )
-		{
-			AI_GotoFP( self, "FP_ORC_SIT_A_" );
-		}
-		else if ( Wld_IsFPAvailable( self, "FP_ORC_SIT_B_" ) )
-		{
-			AI_GotoFP( self, "FP_ORC_SIT_B_" );
-		}
-		else if ( Wld_IsFPAvailable( self, "FP_ORC_SIT" ) )
-		{
-			AI_GotoFP( self, "FP_ORC_SIT" );
-		};
-		
-		//wenn angekommen, hinsetzen!
-		AI_PlayAniBS( self, "T_STAND_2_GUARDSIT", BS_SIT );
-	};
-	
+	b_orc_removeweapon(self);
 	OrcDefaultPerc();
+	if(Npc_GetDistToWP(self,self.wp) > 500)
+	{
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_GotoWP(self,self.wp);
+	};
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
 };
 
 func void ZS_Orc_SitOnFloor_Loop()
 {
-    PrintDebugNpc( PD_ZS_FRAME, "ZS_Orc_SitOnFloor_Loop" );
-    
-	if ( Npc_GetBodyState( self ) == BS_SIT )
+	PrintDebugNpc(PD_ZS_FRAME,"ZS_Orc_SitOnFloor_Loop");
+	if(self.aivar[AIV_LOCATION] == AIV_L_ISINPOS)
 	{
-		// hier koennten Anis eingesetzt werden.....
+		if(!C_BodyStateContains(self,BS_SIT))
+		{
+			AI_PlayAniBS(self,"T_STAND_2_GUARDSIT",BS_SIT);
+		};
+		AI_Wait(self,1);
+	}
+	else if(Npc_GetDistToWP(self,self.wp) > 500)
+	{
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_GotoWP(self,self.wp);
+	}
+	else
+	{
+		if(Wld_IsFPAvailable(self,"ORC_SIT"))
+		{
+			AI_SetWalkMode(self,NPC_WALK);
+			AI_GotoFP(self,"ORC_SIT");
+			AI_AlignToFP(self);
+		};
+		self.aivar[AIV_LOCATION] = AIV_L_ISINPOS;
 	};
 };
 
-func void ZS_Orc_SitOnFloor_End ()
+func void ZS_Orc_SitOnFloor_End()
 {
-	PrintDebugNpc(PD_ZS_FRAME,"ZS_Orc_SitOnFloor_End");	
-	Npc_ClearAIQueue( self );
-	AI_PlayAniBS ( self, "T_GUARDSIT_2_STAND", BS_STAND );
+	Npc_ClearAIQueue(self);
+	if(C_BodyStateContains(self,BS_SIT))
+	{
+		AI_PlayAniBS(self,"T_GUARDSIT_2_STAND",BS_STAND);
+	};
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
 };
 
+func void zs_orc_sitcampfire()
+{
+	b_orc_removeweapon(self);
+	OrcDefaultPerc();
+	if(Npc_GetDistToWP(self,self.wp) > 400)
+	{
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_GotoWP(self,self.wp);
+	};
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+	self.aivar[AIV_PASSGATE] = 0;
+};
+
+func int zs_orc_sitcampfire_loop()
+{
+	if(self.aivar[AIV_LOCATION] == AIV_L_ISINPOS)
+	{
+		if(C_BodyStateContains(self,BS_SIT))
+		{
+			if(Npc_GetStateTime(self) >= self.aivar[AIV_GUARDPASSAGE_STATUS])
+			{
+				if(self.aivar[AIV_PASSGATE] == 0)
+				{
+					if(Wld_IsTime(23,0,7,0))
+					{
+						if(Hlp_Random(3) == 1)
+						{
+							AI_StopLookAt(self);
+							AI_PlayAniBS(self,"T_GUARDSIT_2_GUARDSLEEP",BS_SIT);
+							self.aivar[AIV_PASSGATE] = 1;
+							Npc_PercDisable(self,PERC_ASSESSENEMY);
+							Npc_PercDisable(self,PERC_ASSESSCASTER);
+							Npc_PercDisable(self,PERC_ASSESSTHEFT);
+							Npc_PercDisable(self,PERC_ASSESSUSEMOB);
+							Npc_PercEnable(self,PERC_ASSESSQUIETSOUND,b_orc_assessquietsound);
+						};
+					};
+					self.aivar[AIV_GUARDPASSAGE_STATUS] = (Hlp_Random(1000) % 20) + 20;
+				}
+				else if(self.aivar[AIV_PASSGATE] == 1)
+				{
+					if(Hlp_Random(3) == 1)
+					{
+						AI_PlayAniBS(self,"T_GUARDSLEEPSLOWWAKEUP",BS_SIT);
+						self.aivar[AIV_PASSGATE] = 0;
+						Npc_PercEnable(self,PERC_ASSESSENEMY,b_orc_assessenemy);
+						Npc_PercEnable(self,PERC_ASSESSCASTER,b_orc_assesscaster);
+						Npc_PercEnable(self,PERC_ASSESSTHEFT,b_orc_assesstheft);
+						Npc_PercEnable(self,PERC_ASSESSUSEMOB,b_orc_assessusemob);
+						Npc_PercDisable(self,PERC_ASSESSQUIETSOUND);
+					};
+					self.aivar[AIV_GUARDPASSAGE_STATUS] = (Hlp_Random(1000) % 20) + 20;
+				};
+				Npc_SetStateTime(self,0);
+			};
+		}
+		else
+		{
+			return LOOP_END;
+		};
+	}
+	else if(Npc_GetDistToWP(self,self.wp) > 400)
+	{
+		AI_SetWalkMode(self,NPC_WALK);
+		AI_GotoWP(self,self.wp);
+	}
+	else
+	{
+		if(Wld_IsFPAvailable(self,"CAMPFIRE"))
+		{
+			AI_SetWalkMode(self,NPC_WALK);
+			AI_GotoFP(self,"CAMPFIRE");
+			AI_AlignToFP(self);
+		}
+		else
+		{
+			AI_AlignToWP(self);
+		};
+		AI_PlayAniBS(self,"T_STAND_2_GUARDSIT",BS_SIT);
+		self.aivar[AIV_GUARDPASSAGE_STATUS] = (Hlp_Random(1000) % 20) + 10;
+		self.aivar[AIV_LOCATION] = AIV_L_ISINPOS;
+		Npc_SetStateTime(self,0);
+	};
+	AI_Wait(self,1);
+	return LOOP_CONTINUE;
+};
+
+func void zs_orc_sitcampfire_end()
+{
+	Npc_ClearAIQueue(self);
+	if(C_BodyStateContains(self,BS_SIT))
+	{
+		if(self.aivar[AIV_PASSGATE] == 1)
+		{
+			AI_PlayAniBS(self,"T_GUARDSLEEPSLOWWAKEUP",BS_SIT);
+		};
+		AI_PlayAniBS(self,"T_GUARDSIT_2_STAND",BS_STAND);
+	};
+	self.aivar[AIV_LOCATION] = AIV_L_NOTINPOS;
+	self.aivar[AIV_PASSGATE] = 0;
+	self.aivar[AIV_GUARDPASSAGE_STATUS] = 0;
+};

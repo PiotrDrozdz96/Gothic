@@ -71,6 +71,16 @@ const int	ID_FIREGOLEM		= 32;
 const int	ID_ICEGOLEM			= 33;
 const int	ID_MEATBUG			= 34;
 const int	ID_ZOMBIE			= 35;
+const int   ID_ORCRUINGOLEM     = 40;
+const int   ID_ORCCITIZEN       = 50;
+const int   ID_ORCWARRIOR1      = 51;
+const int   ID_ORCWARRIOR2      = 52;
+const int   ID_ORCWARRIOR3      = 53;
+const int   ID_ORCWARRIOR4      = 54;
+const int   ID_ORCSHAMAN        = 55;
+const int   ID_ORCSCOUT         = 56;
+const int   ID_ORCSCOUT_OD      = 57;
+const int   ID_ORCDOG           = 58;
 // ----------------------------------------
 const int AIV_MM_PARTYMEMBER		= 23;	// SN:  (begleitet den Spieler - für XP-Vergabe)
 const int AIV_MM_DEATHINVGIVEN		= 24;	// SN:  da ZS_Dead auch nach jedem Load Game ausgeführt wird!
