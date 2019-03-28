@@ -12,8 +12,8 @@ instance KDF_405_Torrez (Npc_Default)
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 40;
 	attribute[ATR_DEXTERITY] 	= 40;
-	attribute[ATR_MANA_MAX] 	= 85;
-	attribute[ATR_MANA] 		= 85;
+	attribute[ATR_MANA_MAX] 	= 200;
+	attribute[ATR_MANA] 		= 200;
 	attribute[ATR_HITPOINTS_MAX]= 352;
 	attribute[ATR_HITPOINTS] 	= 352;
 

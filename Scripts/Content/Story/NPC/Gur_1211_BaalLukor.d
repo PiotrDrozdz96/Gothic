@@ -13,8 +13,8 @@ instance GUR_1211_BaalLukor (Npc_Default)
 	///-------- abilities --------
 	attribute[ATR_STRENGTH]	 		=	20;
 	attribute[ATR_DEXTERITY] 		=	40;
-	attribute[ATR_MANA_MAX] 		=	100;
-	attribute[ATR_MANA] 			=	100;
+	attribute[ATR_MANA_MAX] 		=	200;
+	attribute[ATR_MANA] 			=	200;
 	attribute[ATR_HITPOINTS_MAX] 	=	388;
 	attribute[ATR_HITPOINTS] 		=	388;
 

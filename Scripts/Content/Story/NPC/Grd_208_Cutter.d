@@ -21,6 +21,7 @@ instance GRD_208_Cutter (Npc_Default)
 	// 			animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
+	Mdl_ApplyOverlayMds (self,"SHIELD_ST2.MDS");
 	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0 , 0,"Hum_Head_Bald", 3, 1, GRD_ARMOR_H);
         

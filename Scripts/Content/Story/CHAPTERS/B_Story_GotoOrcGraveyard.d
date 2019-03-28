@@ -60,6 +60,9 @@ func void B_Story_GotoOrcGraveyard()
 
 	var C_NPC Kharim;
 	Kharim = Hlp_GetNpc (SLD_729_Kharim);
+	Kharim.level = 16;
+	Kharim.attribute[ATR_HITPOINTS_MAX] =	232;
+	Kharim.attribute[ATR_HITPOINTS] 	=	232;
 	Mdl_SetVisualBody (Kharim,"hum_body_Naked0",0, 3,"Hum_Head_FatBald", 9, 1, SLD_ARMOR_M);
 	CreateInvItem (Kharim, ItMw_1H_Mace_War_02);
 	Npc_ExchangeRoutine (Kharim, "BACK");

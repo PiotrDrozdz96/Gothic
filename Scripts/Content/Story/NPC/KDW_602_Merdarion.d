@@ -12,8 +12,8 @@ instance KDW_602_Merdarion (Npc_Default)
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 45;
 	attribute[ATR_DEXTERITY] 	= 35;
-	attribute[ATR_MANA_MAX] 	= 90;
-	attribute[ATR_MANA] 		= 90;
+	attribute[ATR_MANA_MAX] 	= 200;
+	attribute[ATR_MANA] 		= 200;
 	attribute[ATR_HITPOINTS_MAX]= 352;
 	attribute[ATR_HITPOINTS] 	= 352;
 

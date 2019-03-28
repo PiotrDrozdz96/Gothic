@@ -13,8 +13,8 @@ instance GUR_1203_BaalTondral (Npc_Default)
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	60;
 	attribute[ATR_DEXTERITY] 		=	40;
-	attribute[ATR_MANA_MAX] 		=	50;
-	attribute[ATR_MANA] 			=	50;
+	attribute[ATR_MANA_MAX] 		=	200;
+	attribute[ATR_MANA] 			=	200;
 	attribute[ATR_HITPOINTS_MAX] 	=	388;
 	attribute[ATR_HITPOINTS] 		=	388;
 

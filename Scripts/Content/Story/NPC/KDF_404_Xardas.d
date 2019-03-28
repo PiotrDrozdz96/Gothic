@@ -13,8 +13,8 @@ instance KDF_404_Xardas (Npc_Default)
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 55;
 	attribute[ATR_DEXTERITY] 	= 65;
-	attribute[ATR_MANA_MAX] 	= 100;
-	attribute[ATR_MANA] 		= 100;
+	attribute[ATR_MANA_MAX] 	= 200;
+	attribute[ATR_MANA] 		= 200;
 	attribute[ATR_HITPOINTS_MAX]= 400;
 	attribute[ATR_HITPOINTS] 	= 400;
 

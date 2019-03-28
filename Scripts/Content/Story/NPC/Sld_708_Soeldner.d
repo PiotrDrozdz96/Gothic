@@ -5,20 +5,20 @@ instance SLD_708_Soeldner (Npc_Default)
 	name =					NAME_Soeldner;
 	Npctype =				NPCTYPE_AMBIENT;
 	guild =					GIL_SLD;      
-	level =					8;
+	level =					16;
 	
 	voice =					11;
-	id =					856;
+	id =					708;
 
 
 	//-------- abilities --------
 
-	attribute[ATR_STRENGTH] =		30;
-	attribute[ATR_DEXTERITY] =		20;
+	attribute[ATR_STRENGTH] =		75;
+	attribute[ATR_DEXTERITY] =		55;
 	attribute[ATR_MANA_MAX] =		0;
 	attribute[ATR_MANA] =			0;
-	attribute[ATR_HITPOINTS_MAX] =	136;
-	attribute[ATR_HITPOINTS] =		136;
+	attribute[ATR_HITPOINTS_MAX] =	232;
+	attribute[ATR_HITPOINTS] =		232;
 
 	//-------- visuals --------
 	// 				animations

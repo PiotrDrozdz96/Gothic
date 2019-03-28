@@ -12,8 +12,8 @@ instance GUR_1208_BaalCadar (Npc_Default)
 	///-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	70;
 	attribute[ATR_DEXTERITY] 		=	55;
-	attribute[ATR_MANA_MAX] 		=	50;
-	attribute[ATR_MANA] 			=	50;
+	attribute[ATR_MANA_MAX] 		=	200;
+	attribute[ATR_MANA] 			=	200;
 	attribute[ATR_HITPOINTS_MAX] 	=	376;
 	attribute[ATR_HITPOINTS] 		=	376;
 

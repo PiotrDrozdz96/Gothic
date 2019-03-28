@@ -13,8 +13,8 @@ instance GUR_1210_BaalTyon (Npc_Default)
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 		=	70;
 	attribute[ATR_DEXTERITY] 		=	35;
-	attribute[ATR_MANA_MAX] 		=	50;
-	attribute[ATR_MANA] 			=	50;
+	attribute[ATR_MANA_MAX] 		=	200;
+	attribute[ATR_MANA] 			=	200;
 	attribute[ATR_HITPOINTS_MAX] 	=	376;
 	attribute[ATR_HITPOINTS] 		=	376;
 

@@ -21,6 +21,7 @@ instance GRD_292_Gardist (Npc_Default)
 	// 			animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Militia.mds");
+	Mdl_ApplyOverlayMds (self,"SHIELD_ST2.MDS");
 	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
 	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 0,"Hum_Head_Psionic", 2,  1, GRD_ARMOR_H);
         

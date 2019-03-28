@@ -12,8 +12,8 @@ instance KDF_403_Drago (Npc_Default)
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 40;
 	attribute[ATR_DEXTERITY] 	= 35;
-	attribute[ATR_MANA_MAX] 	= 90;
-	attribute[ATR_MANA] 		= 90;
+	attribute[ATR_MANA_MAX] 	= 200;
+	attribute[ATR_MANA] 		= 200;
 	attribute[ATR_HITPOINTS_MAX]= 376;
 	attribute[ATR_HITPOINTS] 	= 376;
 	

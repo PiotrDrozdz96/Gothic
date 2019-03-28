@@ -397,6 +397,8 @@
 |   |   |    // Zmiana pancerza na BDT_ARMOR_M
 |   |/********************NPC BDT_QUENTIN END********************************
 |   +-- NEW_CAMP
+|   |   +--| KDW_(600-605)
+|   |   |    // Zwiększenie many do 200
 |   |   +--| KDW_604_Cronos
 |   |   |    // Usunięcie magicznej runy
 |   |   +--| ORG_(800/804/834/837/892) / SLD_(707/738/762)_Soeldner
@@ -419,6 +421,9 @@
 |   |   |    // Dodanie rutyn związanych z questem "Cipher - Najlepszy Diler"
 |   |   +--| SLD_703_Soeldner
 |   |   |    // Zmiana twarzy, dodanie tarczy ITSH_KORSHAN_A
+|   |   +--| SLD_708_Soeldner
+|   |   |    // Zmiana statystyk na takie które przystoją najemnikowi
+|   |   |    // Zmiana realnego id, było 856 
 |   |   +--| SLD_(704,723)
 |   |   |    // Dodanie tarczy ITSH_KORSHAN_A
 |   |   +--| SLD_727_Soeldner
@@ -459,6 +464,8 @@
 |   |   |   // Drake ma już tylko jeden kolor skóry -- by marev
 |   |   +--| GRD_282_Nek
 |   |   |    // Dodanie tarczy ITSH_G3_01_OLD
+|   |   +--| KDF_(400-406)
+|   |   |    // Zwiększenie many do 200
 |   |   +--| KDF_405_Torrez
 |   |   |    // Usunięcie magicznej runy
 |   |   +--| STT_(311/329)
@@ -482,8 +489,11 @@
 |   |   |    // Dodanie rutyny przebywanie w sekcie
 |   |/********************NPC OLD_CAMP END*********************************
 |   +-- SEKTE_CAMP
+|   |   +--| GUR(1200/1201/1203/1204/1209/1210/1211)
+|   |   |    // Zwiększenie many do 200
 |   |   +--| GUR_1208_BaalCadar
 |   |   |    // Usunięcie magicznej runy
+|   |   |    // Zwiększenie many do 200
 |   |   +--| NOV_(1330_BaalParvez/1331_BaalTaran)
 |   |   |    // Dodanie rutyny "back", gdzie wracają do obozu sekty
 |   |   +--| NOV_1372_Bukano

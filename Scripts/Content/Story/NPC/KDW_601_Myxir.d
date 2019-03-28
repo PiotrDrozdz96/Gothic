@@ -12,8 +12,8 @@ instance KDW_601_Myxir (Npc_Default)
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 55;
 	attribute[ATR_DEXTERITY] 	= 35;
-	attribute[ATR_MANA_MAX] 	= 96;
-	attribute[ATR_MANA] 		= 96;
+	attribute[ATR_MANA_MAX] 	= 200;
+	attribute[ATR_MANA] 		= 200;
 	attribute[ATR_HITPOINTS_MAX]= 328;
 	attribute[ATR_HITPOINTS] 	= 328;
 

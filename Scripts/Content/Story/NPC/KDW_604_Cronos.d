@@ -13,8 +13,8 @@ instance KDW_604_Cronos (Npc_Default)
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 45;
 	attribute[ATR_DEXTERITY] 	= 35;
-	attribute[ATR_MANA_MAX] 	= 100;
-	attribute[ATR_MANA] 		= 100;
+	attribute[ATR_MANA_MAX] 	= 200;
+	attribute[ATR_MANA] 		= 200;
 	attribute[ATR_HITPOINTS_MAX]= 376;
 	attribute[ATR_HITPOINTS] 	= 376;
 

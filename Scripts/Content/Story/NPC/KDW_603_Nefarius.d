@@ -12,8 +12,8 @@ instance KDW_603_Nefarius (Npc_Default)
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 35;
 	attribute[ATR_DEXTERITY] 	= 35;
-	attribute[ATR_MANA_MAX] 	= 85;
-	attribute[ATR_MANA] 		= 85;
+	attribute[ATR_MANA_MAX] 	= 200;
+	attribute[ATR_MANA] 		= 200;
 	attribute[ATR_HITPOINTS_MAX]= 340;
 	attribute[ATR_HITPOINTS] 	= 340;
 
