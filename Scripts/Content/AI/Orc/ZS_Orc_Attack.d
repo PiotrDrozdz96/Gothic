@@ -16,7 +16,7 @@ func void ZS_Orc_Attack()
 	};
 	B_WhirlAround(self,other);
 	AI_StopLookAt(self);
-	AI_DrawWeapon(self);
+	B_SelectWeapon(self, other);
 	AI_SetWalkMode(self,NPC_RUN);
 	self.aivar[AIV_PASSGATE] = 0;
 	self.aivar[AIV_GUARDPASSAGE_STATUS] = 0;

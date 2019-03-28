@@ -8,10 +8,16 @@
 * [TexturesPack](https://github.com/PiotrDrozdz96/Gothic/wiki/TexturesPack)
 * [Nowy koncert In Extremo](https://github.com/PiotrDrozdz96/Gothic/wiki/In-Extremo)
 
+# Wykorzystane modyfikacje
+* [Nieoficjalny Patch by Marev](https://themodders.org/index.php?topic=26604.0) - Poprawki błędów
+* [Mod Fix](https://rpgrussia.com/threads/gothic-mod-fix.6520/) - AI orków
+* [L'Hiver Edition](https://themodders.org/index.php?topic=27984.0) - Animacja walki tarczą / modele tarcz
+* [Returning 2.0](http://bractwospolszczenia.pl/showthread.php?tid=468) - Animacje akrobatyki i biegu
+
 # Główne zmiany
 
 * Dodanie Tarcz
-* Przebudowa nauki walki na 11 etapów (4 poziomy)
+* Przebudowa nauki walki na 11 etapów (3/4 poziomy)
 * Jednoręczny Uriziel
 * Zmiany parametrów wszystkich broni i czarów
 * Tworzenie run na stołach runicznych zamiast kupowanie
@@ -21,5 +27,7 @@
 * Bieg i akrobatyka z moda Returning 2.0
 * Ścieżka nekromanty od samego początku, wraz z runami przywołań
 * Możlwiość zostania guru, pozostanie magiem Ognia/Wody do końca gry
-* Drobne poprawki, szczegóły opisane w pliku documentation.md
+* Rozwój postaci niezależnych
+* Poprawiona inteligencja orków (nie atakują się nawzajem, ludzie poprawnie atakują orków) z Gothic Mod Fix
+* Drobne poprawki, szczegóły opisane w pliku documentation.md, oraz w AI_documentation.md (otwierać jako RAW w celu poprawnego wyświetlenia)
 
