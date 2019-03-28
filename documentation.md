@@ -1,6 +1,5 @@
 +--AI
-|   +--|-- AI_Intern/C_Functions
-|   |    // C_NpcIsDangerousMonster - Ludzie poprawnie atakują orków
+|   // Szczegóły na temat zmian w AI są opisane w AI_documentation, z racji że podstawą zmian w AI była rosyjska modyfikacja Fix mod
 +--Anims
 |   +--|-- HUMANS.MDS
 |   |    // Dodanie Rmaker do obsługi stołu runicznego
@@ -38,6 +37,8 @@
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Uwzględnienie akrobatyki przy nauce walki
 |   |   // Dodanie nauki biegu
+|   +--|-- B_IamInWater
+|   |   // Nowa funkcja potrzebda do rosyjskiego fix moda
 |   +--|-- B_Kapitelwechsel
 |   |   // Dodanie funkcji B_Evolve_* i B_Story_OMFull w odpowiednich rozdziałach
 |   |   // Kapitel 4 - Nie tracimy gildii Mag Ognia
@@ -258,8 +259,11 @@
 +--Inne
 |   +--| AI_Constants
 |   |   // Dodanie PLAYER_MOBSI_PRODUCTION do obsługi obiektów interaktywnych
+|   |   // Dodanie dodatkowych AIV_AR(AttackReason) -- rosyjski fix mod
+|   |   // Dodanie dodatkowych AIV_L(LOCATION) -- rosyjski fix mod
 |   +--| constans
 |   |   // Dodanie nowej kategorii przedmiotu ITEM_SHIELD = 1 << 1
+|   |   // Dodanie nowej kategorii przedmiotu ITEM_DROPPED = 1 << 24 (nie jest nigdzie użyta) -- rosyjski fix mod
 |   |   // Dodanie numeru nowego talentu NPC_TALENT_SHIELD = 9
 |   |   // Dodanie numeru nowego talentu NPC_TALENT_RUN = 10
 |   +--| Log_Constans
@@ -289,6 +293,7 @@
 |   |   // Stała XP_CipherBussines - doświadczenie za Quest "Cipher - Najlepszy Diler"
 |   |   // Zmienna CipherJoints licząca ile razy dostarczyliśmy dostawę ziela, potrzebne do ewolucji Ciphera
 |   |   // Przeniesienie zmiennej Gorn_ShrikesHut z DIA_PC_Fighter, ponieważ jest potrzebna również w B_Story_GotoOrcGraveyard
+|   |   // Dodanie zmiennym potrzebynch do rosyjskiego fix moda
 |   +--| svm
 |   |   // dodanie svm CantReadThis związanej z kartkami uczącymi
 |   +--| Text
@@ -304,6 +309,7 @@
 |   |   // Przeniesienie G_funcions wyżej w kolejce parsowania
 |   |   // Dodanie funkcji B_TeachPlayerRunes do parsowania
 |   |   // Dodanie funkcji B_Evolve do parsowania
+|   |   // Przeniesienie AI\ORC nad Story\ZS
 |   +--| magic_intern
 |   |   // Zamiana stałej SPL_NEW(2-4)
 |   +--| PFX/SFX
@@ -366,7 +372,7 @@
 |   |   // Postać zabita czarem pirokineza rozpada się jak szkielet
 |   |   // zmienione działanie czarów pirokineza i grom
 |/*******************************************MAGIC END*******************************************************
-+-- Monsters
++-- Monster
 |   +--| Mst_*
 |   |   // Zmiany parametrów potworów
 |   +--| Mst_(Gobbo/Golem/Skeleton/Wolf)
@@ -376,6 +382,9 @@
 |   |   // Skeleton dodanie kości szkieleta do tworzenia run przywołań
 |   +--| Mst_Bloodfly
 |   |   // Usunięcie skrzydeł z ekwipunku
+|   +--| Mst_OrcScout/Mst_OrcWarrior -- związane z rosyjskim fix modem
+|   |   // Dodanie aivar[AIV_IMPORTANT]
+|   |   // czasami zmiana start_aistate
 |/*******************************************MONSTERS END****************************************************
 +-- NPC
 |   +-- BDT_QUENTIN

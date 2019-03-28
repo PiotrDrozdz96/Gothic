@@ -45,6 +45,20 @@ func void B_SetGuildAttitude (var int fromGuild, var int attitude, var int toGui
 		Wld_SetGuildAttitude	(GIL_DMB		,	attitude,	toGuild		);
 		Wld_SetGuildAttitude	(GIL_BAB		,	attitude,	toGuild		);
 	}
+	else if(toGuild == GIL_SEPERATOR_ORC)
+	{
+		Wld_SetGuildAttitude	(fromGuild,attitude,GIL_ORCSHAMAN);
+		Wld_SetGuildAttitude	(fromGuild,attitude,GIL_ORCWARRIOR);
+		Wld_SetGuildAttitude	(fromGuild,attitude,GIL_ORCSCOUT);
+		Wld_SetGuildAttitude	(fromGuild,attitude,GIL_ORCSLAVE);
+	}
+	else if(fromGuild == GIL_SEPERATOR_ORC)
+	{
+		Wld_SetGuildAttitude	(GIL_ORCSHAMAN,attitude,toGuild);
+		Wld_SetGuildAttitude	(GIL_ORCWARRIOR,attitude,toGuild);
+		Wld_SetGuildAttitude	(GIL_ORCSCOUT,attitude,toGuild);
+		Wld_SetGuildAttitude	(GIL_ORCSLAVE,attitude,toGuild);
+	}
 	else
 	{
 		Wld_SetGuildAttitude	(fromGuild		,	attitude,	toGuild		);

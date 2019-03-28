@@ -43,7 +43,11 @@ var int GRD_Reputation;
 var int CipherJoints;
 var int Gorn_ShrikesHut;
 
-
+/*Russian fix-mod variable*/
+var int crimelevel_orccity;
+var int punishday_orccity;
+var int startmonsterhunt;
+/**************************/
 
 var int NC_Joints_verteilt;
 

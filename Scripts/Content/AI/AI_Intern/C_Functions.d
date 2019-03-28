@@ -185,7 +185,7 @@ func int C_NpcIsDangerousMonster(var C_NPC slf, var C_NPC oth)
 {
 	PrintDebugNpc		(PD_ZS_DETAIL,"C_NpcIsDangerousMonster");
 
-	if	(C_NpcIsMonster(oth) || C_NpcIsOrc(oth))
+	if	(C_NpcIsMonster(oth))
 	&& 	(Wld_GetGuildAttitude(oth.guild,slf.guild) == ATT_HOSTILE)
 	&&	(!oth.aivar[AIV_MM_PARTYMEMBER])
 	&&	!C_NpcIsDown(oth)

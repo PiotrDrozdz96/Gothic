@@ -1,40 +1,59 @@
 func void B_Orc_AssessMurder()
 {
-	PrintDebugNpc( PD_ORC_FRAME, "B_Orc_AssesMurder" );
-	
-	//wenn ein Ork vom Player umgebracht wurde, Attitude auf HOSTILE
-	if ( victim.guild > GIL_SEPERATOR_ORC  &&  Npc_IsPlayer( other ) )
+	if(!Npc_CanSeeNpcFreeLOS(self,other) && !Npc_CanSeeNpcFreeLOS(self,victim))
 	{
-		PrintDebugNpc( PD_ORC_FRAME, "B_Orc_AssesMurder: Spieler hat Ork gekillt -> RAAAAAAAAAACHE!" );
-		AI_TurnToNpc( self, other );
-		if ( Hlp_Random( 10 ) < 5 )
+		if((Npc_GetDistToNpc(self,other) > 800) && (Npc_GetDistToNpc(self,victim) > 800))
 		{
-			AI_PlayAni( self, "T_ANGRY");
+			return;
 		};
-		Npc_SetAttitude( self, ATT_HOSTILE );
-		Npc_SetTempAttitude( self, ATT_HOSTILE );
-		return;
-	}
-	//wenn Opfer ein Ork oder OrkHund, greife den Killer an
-	else if ( victim.guild > GIL_SEPERATOR_ORC  ||  victim.guild == GIL_ORCDOG )
+	};
+	if((victim.guild > GIL_SEPERATOR_ORC) && Npc_IsPlayer(other))
 	{
-		PrintDebugNpc( PD_ORC_FRAME, "B_Orc_AssesMurder: ein Ork(Hund) ist tot -> RAAAAAAAAAACHE!" );
-		AI_TurnToNpc( self, other );
-		if ( Hlp_Random( 10 ) < 5 )
+		b_orc_assessandmemorize(NEWS_MURDER,NEWS_SOURCE_WITNESS,self,other,self);
+		B_MM_DeSynchronize(self);
+		if(C_BodyStateContains(self,BS_STAND))
 		{
-			AI_PlayAni( self, "T_ANGRY");
-		}
-		else if ( Hlp_Random( 10 ) < 5 )
-		{
-			B_Say( self, other, "$NEVERTRYTHATAGAIN" );
+			AI_TurnToNPC(self,other);
+			if(Hlp_Random(100) % 2)
+			{
+				AI_PlayAni(self,"T_ANGRY");
+			};
 		};
-		AI_StartState( self, ZS_Orc_Attack, 1, "" );		
+		Npc_SetAttitude(self,ATT_HOSTILE);
+		Npc_SetTempAttitude(self,ATT_HOSTILE);
+		if(other.guild < GIL_SEPERATOR_ORC)
+		{
+			self.aivar[AIV_ATTACKREASON] = AIV_AR_MURDER;
+			b_start_orc_attack(self,other);
+		};
 	}
-	//ansonsten Jubel (da Kaempfer-Natur)
-	else if ( Npc_CanSeeNpc( self, other ) )
+	else if((victim.guild > GIL_SEPERATOR_ORC) || (victim.guild == GIL_ORCDOG))
 	{
-		PrintDebugNpc( PD_ORC_FRAME, "B_Orc_AssesMurder: irgendwas ist tot -> cooool" );
-		B_Say( self, NULL, "$CHEERFIGHT" );
-		AI_PlayAni( self, "T_HAPPY" );
+		B_MM_DeSynchronize(self);
+		if(C_BodyStateContains(self,BS_STAND))
+		{
+			AI_TurnToNPC(self,other);
+			if(Hlp_Random(100) % 2)
+			{
+				AI_PlayAni(self,"T_ANGRY");
+			};
+		};
+		if(other.guild < GIL_SEPERATOR_ORC)
+		{
+			b_start_orc_attack(self,other);
+		};
+	}
+	else if(Npc_CanSeeNpc(self,other))
+	{
+		if(C_BodyStateContains(self,BS_STAND) && (self.aivar[AIV_IMPORTANT] != ID_ORCSHAMAN))
+		{
+			if(Hlp_Random(100) % 2)
+			{
+				B_MM_DeSynchronize(self);
+				AI_TurnToNPC(self,other);
+				AI_PlayAni(self,"T_HAPPY");
+				AI_Wait(self,1);
+			};
+		};
 	};
 };

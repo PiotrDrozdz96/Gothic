@@ -49,7 +49,7 @@ PROTOTYPE Mst_Default_OrcWarrior(C_Npc)
 	aivar[AIV_MM_FollowTime]	= 10;
 	aivar[AIV_MM_FollowInWater] = FALSE;
 //-------------------------------------------------------------
-	start_aistate				= ZS_Guard;
+	start_aistate				= ZS_Orc_Guard; // w fix-modzie jest ZS_Orc_Guard, niestety ci¹gle jest coœ zbugowane dlatego oryginale ZS_Guard
 };
 //-------------------------------------------------------------
 func void Set_OrcWarrior_Visuals()
@@ -83,6 +83,8 @@ INSTANCE OrcWarrior1	(Mst_Default_OrcWarrior)
 	protection	[PROT_POINT]		=	60;
 	protection	[PROT_FIRE]			=	30;
 
+	aivar[AIV_IMPORTANT] = ID_ORCWARRIOR1;
+
 	//-------- inventory --------
 	EquipItem (self, ItMw2hOrcAxe02);
 };
@@ -109,6 +111,8 @@ INSTANCE OrcWarrior2	(Mst_Default_OrcWarrior)
 	protection	[PROT_EDGE]			=	70;
 	protection	[PROT_POINT]		=	70;
 	protection	[PROT_FIRE]			=	35;
+
+	aivar[AIV_IMPORTANT] = ID_ORCWARRIOR2;
 
 	//-------- inventory --------
 	EquipItem (self, ItMw2hOrcAxe03);
@@ -137,6 +141,8 @@ INSTANCE OrcWarrior3	(Mst_Default_OrcWarrior)
 	protection	[PROT_POINT]		=	80;
 	protection	[PROT_FIRE]			=	40;
 
+	aivar[AIV_IMPORTANT] = ID_ORCWARRIOR3;
+
 	//-------- inventory --------
 	EquipItem (self, ItMw2hOrcSword01);
 };
@@ -163,6 +169,8 @@ INSTANCE OrcWarrior4	(Mst_Default_OrcWarrior)
 	protection	[PROT_EDGE]			=	100;
 	protection	[PROT_POINT]		=	100;
 	protection	[PROT_FIRE]			=	45;
+
+	aivar[AIV_IMPORTANT] = ID_ORCWARRIOR4;
 
 	//-------- inventory --------
 	EquipItem (self, ItMw2hOrcaxe04);

@@ -71,9 +71,9 @@ func void Set_OrcScout_Visuals()
 INSTANCE OrcScout (Mst_Default_OrcScout)
 {
 	Set_OrcScout_Visuals	();
+	aivar[AIV_IMPORTANT] = ID_ORCSCOUT;
 	EquipItem 				(self, ItMw2hOrcAxe01);
-	//EquipItem				(self, ItRw_Crossbow_01);
-	//CreateInvItems			(self,	ItAmBolt,	30);
+	start_aistate = ZS_Orc_Guard;
 };
 
 /*************************************************************************
@@ -115,8 +115,9 @@ INSTANCE OrcScoutGYD (Mst_Default_OrcScout)
 	aivar[AIV_MM_DrohTime]		=	0;
 	aivar[AIV_MM_FollowTime]	=	10;
 
-	start_aistate				=	ZS_MM_AllScheduler;		// Monster-AI
-	self.aivar[AIV_MM_RoamStart]=	OnlyRoutine;
+	aivar[AIV_IMPORTANT] 		= 	ID_ORCSCOUT;
+	start_aistate 				= 	ZS_Orc_WalkAround;	// Monster-AI
+	// self.aivar[AIV_MM_RoamStart]=	OnlyRoutine;
 
 	Set_OrcScout_Visuals	();
 	EquipItem 				(self, ItMw2hOrcAxe01);
