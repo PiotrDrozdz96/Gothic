@@ -165,6 +165,7 @@ FUNC VOID  DIA_Torrez_BriefTausch_Info()
 		CreateInvItems(self, Staerkering, 1);
 		B_GiveInvItems(self,other, Staerkering, 1);
 		B_GiveXP(XP_XardasLetter);
+		B_LogEntry(CH1_FIREMAGESBRIEF,"Da³em list Torrezowi. W nagrodê dosta³em jakiœ zwyk³y pierœcieñ. Nie wiem czy by³o warto.");
 	}
 	else if (Npc_HasItems(other,ItWr_Fire_Letter_02)>=1) 
 	{
@@ -176,11 +177,13 @@ FUNC VOID  DIA_Torrez_BriefTausch_Info()
 		CreateInvItems(self, ItFo_Potion_Health_03, 1);
 		B_GiveInvItems(self, other, ItFo_Potion_Health_03, 1);
 		B_GiveXP(XP_XardasLetterOPEN);
+		B_LogEntry(CH1_FIREMAGESBRIEF,"Da³em list Torrezowi. Zauwa¿y³ ¿e list jest otwarty i jako nagrodê dosta³em jakiœ ¿a³osny eliksir. Nie wiem czy by³o warto.");
 	};
+	
+	Log_SetTopicStatus(CH1_FIREMAGESBRIEF,LOG_SUCCESS);
+	FIREMAGESBRIEF = LOG_SUCCESS;
 	var C_NPC corristo; corristo = Hlp_GetNpc(KdF_402_Corristo);
-	
 	CreateInvItems(corristo, ItWr_Fire_Letter_02, 1);
-	
 	AI_StopProcessInfos	( self );
 };
 

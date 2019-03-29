@@ -96,7 +96,8 @@ instance Org_826_Mordrag_Courier(C_Info)
 
 func int Org_826_Mordrag_Courier_Condition()
 {
-	if(Thorus_MordragMageMessenger)
+	if (Thorus_MordragMageMessenger)
+	&& (Npc_GetTrueGuild(other) == GIL_NONE)
 	{
 		return 1;
 	};
@@ -108,6 +109,10 @@ func void Org_826_Mordrag_Courier_Info()
 	AI_Output(self,other,"Org_826_Mordrag_Courier_11_01");	//A jeœli jestem?
 	AI_Output(other,self,"Org_826_Mordrag_Courier_15_02");	//Chcia³bym porozmawiaæ z którymœ z magów. Muszê dostaæ siê do zamku.
 	AI_Output(self,other,"Org_826_Mordrag_Courier_11_03");	//Ka¿dy kurier magów ma przy sobie magiczn¹ pieczêæ, dziêki której mo¿e wejœæ do zamku. Gdybyœ by³ jednym z nas, móg³byœ tak¹ zdobyæ.
+	if(FireMagesBrief == LOG_RUNNING)
+	{
+		B_LogEntry(CH1_FIREMAGESBRIEF,"Jeœli do³¹cze do Nowego Obozu bêdê móg³ zostaæ kuriem magów i tym samym uzyskaæ dostêp do zamku w Starym Obozie.");
+	};
 };
 
 

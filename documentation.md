@@ -78,7 +78,8 @@
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu strażnikiem
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Poprawa informacji w dzienniku po zostaniu strażnikiem z "Smitha" na "Kowala" -- by marev
-|   |   // Thorus nie może zostać przekupiony, jeśli gracz ma już dostęp do zamku -- by marev
+|   |   // Poprawiono warunki rozmów z wstępem do zamku
+|   |   // Dodano wpisy do dziennika na temat zadania "List z zewnętrznego świata"
 |   |   // Nauka broni 2H po zabiciu Mordraga
 |   |   // Po queście z mordragiem dostajemy 1 lub 2 pkt. reputacji u straży, potrzebnej przy kupowaniu lepszej zbroi
 |   |   // Nowy Quest związany z przyprowadzniem trzech kopaczy, za który możemy otrzymać 1 pkt. reputacji u straży
@@ -107,6 +108,7 @@
 |   |   // Możliwość zostania guru
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu nowicjuszem
 |   |   // Poprawny wpis do dziennika w zadaniu "Co się dzieje na bagnach?" -- by marev
+|   |   // Dodano wpis do dziennika w zadaniu "List z zewnętrznego świata"
 |   +--|-- DIA_GUR_1202_CorAngar
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Uwzględnie guru w nauce walki broni 2H
@@ -140,6 +142,7 @@
 |   +--|-- DIA_KDF_405_Torrez
 |   |   // Usunięcie magicznych run przed handlem
 |   |   // Po zostaniu magiem ognia nie otrzymamy księgi "Pierwszy krąg magii" jeśli wcześniej ją kupiliśmy
+|   |   // Dodano wpis w dzienniku do zadania "List z zewnętrznego świata"
 |   +--|-- DIA_KDW_600_Saturas
 |   |   // Zwiększenie restrykcji przy zostaniu arcymagiem
 |   |   // Zmiany w dialogach o Xardasie
@@ -153,8 +156,11 @@
 |   |   // Nie powiemy o liście do magów ognia, jeśli go nie posiadamy
 |   |   // Cronos nie wysyła już gracza z listem do Magów Ognia, jeśli oni zostali już zabici -- by marev
 |   |   // rozmowa z Cronosem o dołączeniu do obozu i zostaniu Magiem Wody jest dostępna tylko, jeśli gracz nie należy do żadnego obozu -- by marev 
+|   |   // Dodano wpis w dzienniku do zadania "List z zewnętrznego świata"
 |   +--|-- DIA_Nov_1304_Balor -- by marev
 |   |   // gracz może poprawnie odebrać bagienne ziele od Balora po raz drugi
+|   +--|-- DIA_Nov_1331_BaalTaran
+|   |   // Dodano wpis w dzienniku do zadania "List z zewnętrznego świata"
 |   +--|-- DIA_Nov_1372_Bukano
 |   |   // Dialogi nowej postaci
 |   +--|-- DIA_ORC_HighPriest5
@@ -171,6 +177,7 @@
 |   +--|-- DIA_ORG_826_Mordrag 
 |   |   // Nie zaprowadzi nas do obozu jeśli go pobiliśmy -- by marev
 |   |   // Dodanie dialogu, gdy mordrag znajduje się w obozie sekty
+|   |   // Dodano wpis w dzienniku do zadania "List z zewnętrznego świata"
 |   +--|-- DIA_ORG_833_Buster
 |   |   // Uczy akrobatyki tylko raz
 |   |   // Dodanie dialogu bezimiennemu
@@ -195,8 +202,10 @@
 |   |   // Żeby zapytać Gorna o wolną chatę, musimy być przed 3 rozdziałem
 |   +--|-- DIA_PC_Mage
 |   |   // zmiany w dialogu o zostaniu magiem ognia
+|   |   // Dodano wpisy w dzienniku do zadania "List z zewnętrznego świata"
 |   +--|-- DIA_PC_Thief
 |   |   // Odsprzedawanie starych monet
+|   |   // Otwiera zadanie "List z zewnętrznego świata", oraz może je zakończyć niepowodzeniem informując nas o śmierci magów ognia
 |   +--|-- DIA_Sfb_1037_Swiney
 |   |   // Swiney nie oddaje już swojego stroju po rozmowie z graczem -- by marev
 |   +--|-- DIA_SLD_700_Lee
@@ -271,6 +280,7 @@
 |   |   // Dodanie numeru nowego talentu NPC_TALENT_RUN = 10
 |   +--| Log_Constans
 |   |   // Dodanie stałej GE_TelentRunes do nauki tworzenia run
+|   |   // CH1_FireMagesBrief - Quest z dostarczeniem listu z zewnętrznego świata
 |   |   // CH1_RatfordMap - Quest z mapą dla Ratforda
 |   |   // CH2_KDF_Rune - Quest z pierwszą runą u magów ognia
 |   |   // CH2_Buddler - Quest dla strażnika ze znalezieniem kopaczy do kopalni
@@ -283,20 +293,21 @@
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Stała LPCOST_TALENT_RUN
 |   |   // Zmienna Shield_Equip która zapamiętuje czy mamy założoną tarcze
-|   |   // XP_Ratford_Map - doświadczenie za Quest "Mapa dla Ratforda"
 |   |   // Zmienna Uriziel_1H
 |   |   // Zmienna Knows_GetDemonHeart - umiejętność wycinania serc demonów
 |   |   // Zmienna tablica PLAYER_TALENT_RUNES - umiejętności tworzenia run
 |   |   // Zmiana punktów nauki przy nauce kregów magii
 |   |   // Dodanie kosztów nauki tworzenia run
 |   |   // Zmienna Knows_Book_Circle_01 - informacja czy przeczytaliśmy książkę "Pierwszy krąg magii"
-|   |   // Zmienna GRD_Reputation licząca naszą reputację u strażników
-|   |   // Zmienna Player_SentBuddler licząca ilu wysłaliśmy kopaczy do pracy w kopalni
+|   |   // Stała XP_Ratford_Map - doświadczenie za Quest "Mapa dla Ratforda"
 |   |   // Stała XP_Buddlers - doświadczenie za Quest "Kopacze do kopalni"
 |   |   // Stała XP_CipherBussines - doświadczenie za Quest "Cipher - Najlepszy Diler"
+|   |   // Zmienna GRD_Reputation licząca naszą reputację u strażników
+|   |   // Zmienna Player_SentBuddler licząca ilu wysłaliśmy kopaczy do pracy w kopalni
 |   |   // Zmienna CipherJoints licząca ile razy dostarczyliśmy dostawę ziela, potrzebne do ewolucji Ciphera
+|   |   // Zmienna FireMagesBrief do zadania "List z zewnętrznego świata"
 |   |   // Przeniesienie zmiennej Gorn_ShrikesHut z DIA_PC_Fighter, ponieważ jest potrzebna również w B_Story_GotoOrcGraveyard
-|   |   // Dodanie zmiennym potrzebynch do rosyjskiego fix moda
+|   |   // Dodanie zmiennych potrzebynch do rosyjskiego fix moda
 |   +--| svm
 |   |   // dodanie svm CantReadThis związanej z kartkami uczącymi
 |   +--| Text
@@ -344,6 +355,7 @@
 |   |   // Zamiana Rtęci na wodę święconą
 |   +--| MissionItems
 |   |   // 1 - Listy do Magów Ognia mają podpis "Marszałek Rigaldo
+|   |   // 1 - List do Magów Ognia tworzy wpis w dzienniku
 |   |   // 1 - Z Chromanimu 6 wypada kartka ucząca runy przywołania szkieleta
 |   |   // 1 - "Receptura Cor Kaloma" wyświetla się jako kartka, a nie książka -- by marev
 |   |   // 2 - Z almanachu wypada list od Xardasa oraz kartki uczące przywołąnie goblina oraz wilka

@@ -261,12 +261,18 @@ FUNC VOID  DIA_BaalTaran_IntoCastle_Info()
 	AI_Output (other, self,"DIA_BaalTaran_IntoCastle_15_00"); //Muszê siê dostaæ do zamku. Móg³byœ mi pomóc?
 	AI_Output (self, other,"DIA_BaalTaran_IntoCastle_05_01"); //Obawiam siê, ¿e nie. Tylko Bracia dostarczaj¹cy Gomezowi ziele maj¹ wstêp do zamku.
 	AI_Output (self, other,"DIA_BaalTaran_IntoCastle_05_02"); //Zbieramy bagienne ziele, i czêœæ zbiorów sprzedajemy do Starego Obozu w zamian za ró¿ne dobra z zewnêtrznego œwiata.
-	AI_Output (self, other,"DIA_BaalTaran_IntoCastle_05_03"); //Gdybyœ by³ jednym z kurierów pracuj¹cych dla Cor Kaloma, móg³byœ dostaæ siê do zamku. Oczywiœcie musia³byœ najpierw przyst¹piæ do Bractwa.
-	AI_Output (self, other,"DIA_BaalTaran_IntoCastle_05_04"); //A czego, jeœli wolno spytaæ, chcesz szukaæ w zamku?
-	
-	Info_ClearChoices	(DIA_BaalTaran_IntoCastle );
-	Info_AddChoice		(DIA_BaalTaran_IntoCastle,"Muszê siê tam z kimœ spotkaæ."						,DIA_BaalTaran_IntoCastle_MeetSomeone);
-	Info_AddChoice		(DIA_BaalTaran_IntoCastle,"Mam list do Arcymistrza Magów Ognia."	,DIA_BaalTaran_IntoCastle_Letter);
+	if(Npc_GetTrueGuild(other) == GIL_NONE)
+	{
+		AI_Output (self, other,"DIA_BaalTaran_IntoCastle_05_03"); //Gdybyœ by³ jednym z kurierów pracuj¹cych dla Cor Kaloma, móg³byœ dostaæ siê do zamku. Oczywiœcie musia³byœ najpierw przyst¹piæ do Bractwa.
+		AI_Output (self, other,"DIA_BaalTaran_IntoCastle_05_04"); //A czego, jeœli wolno spytaæ, chcesz szukaæ w zamku?
+		if(FireMagesBrief == LOG_RUNNING)
+		{
+			B_LogEntry(CH1_FIREMAGESBRIEF,"Nowicjusze z obozu na bagnach dostarczaj¹ Gomezowi bagienne ziele. Jeœli zosta³bym cz³onkiem bractwa móg³bym dostaæ siê do z zamku dostarczaj¹c kolejn¹ partiê ziela.");
+		};
+		Info_ClearChoices	(DIA_BaalTaran_IntoCastle );
+		Info_AddChoice		(DIA_BaalTaran_IntoCastle,"Muszê siê tam z kimœ spotkaæ."						,DIA_BaalTaran_IntoCastle_MeetSomeone);
+		Info_AddChoice		(DIA_BaalTaran_IntoCastle,"Mam list do Arcymistrza Magów Ognia."	,DIA_BaalTaran_IntoCastle_Letter);
+	};
 };
 
 func void DIA_BaalTaran_IntoCastle_MeetSomeone()

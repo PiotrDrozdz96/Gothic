@@ -42,6 +42,7 @@ var int Jesse_PayForMe;
 var int GRD_Reputation;
 var int CipherJoints;
 var int Gorn_ShrikesHut;
+var int FireMagesBrief;
 
 /*Russian fix-mod variable*/
 var int crimelevel_orccity;

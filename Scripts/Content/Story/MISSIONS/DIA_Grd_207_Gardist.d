@@ -44,12 +44,12 @@ FUNC VOID Info_Grd_207_FirstWarn_Info()
 		};
 		AI_Output (self, hero,"Info_Grd_207_Pass_Info_13_02"); //Brzmi rozs¹dnie, w porz¹dku - wchodŸ.
 		self.aivar[AIV_PASSGATE] = TRUE;
+		AI_StopProcessInfos	(self);
 	}
 	else
 	{
 		hero.aivar[AIV_LASTDISTTOWP] 		= Npc_GetDistToWP(hero,Grd_207_CHECKPOINT);
 		hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_FIRSTWARN;
-		AI_StopProcessInfos	(self);
 	};
 };
 
@@ -114,6 +114,15 @@ FUNC INT Info_Grd_207_BeforeAttack_Condition()
 func int Info_Grd_207_BeforeAttack_Info()
 {
 	AI_Output (self, other,"Info_Grd_207_Attack_07_00"); //Sam siê o to prosi³eœ..
+	hero.aivar[AIV_LASTDISTTOWP] 		= 0;
+	hero.aivar[AIV_GUARDPASSAGE_STATUS]	= AIV_GPS_PUNISH;		
+
+	B_FullStop			(self);	
+	AI_StopProcessInfos	(self);					//dem Spieler sofort wieder die Kontrolle zurückgeben
+	B_IntruderAlert		(self,	other);
+	B_SetAttackReason	(self,	AIV_AR_INTRUDER);
+	Npc_SetTarget		(self,	hero);
+	AI_StartState		(self,	ZS_Attack,	1,	"");
 
 };
 
@@ -132,8 +141,7 @@ INSTANCE Info_Grd_207_Attack (C_INFO)
 
 FUNC INT Info_Grd_207_Attack_Condition()
 {
-	if (Npc_KnowsInfo(hero, Info_Grd_207_BeforeAttack)) 
-	|| (Npc_GetDistToWP(hero,Grd_207_CHECKPOINT) < 550)
+	if (Npc_GetDistToWP(hero,Grd_207_CHECKPOINT) < 550)
 	&& (Npc_GetAttitude(self,hero)	!= ATT_FRIENDLY	) 
 	{
 		return 			TRUE;

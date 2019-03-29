@@ -38,8 +38,10 @@ INSTANCE Info_Thorus_EnterCastle(C_INFO) //E2
 
 FUNC INT Info_Thorus_EnterCastle_Condition()
 {	
+	var C_NPC wache212; wache212 = Hlp_GetNpc(Grd_212_Torwache);
 	if !C_NpcBelongsToOldCamp (other)
 	&& (Diego_GomezAudience == FALSE)
+	&& (wache212.aivar[AIV_PASSGATE] == FALSE)
 	{
 		return 1;
 	};
@@ -280,6 +282,11 @@ FUNC VOID Info_Thorus_MordragKo_MagesProtect()
 	AI_Output (self, other,"Info_Thorus_MordragKo_MagesProtect_09_02"); //Podejrzewam, ¿e nieŸle siê wkurz¹ na wieœæ, ¿e coœ przydarzy³o siê ich kurierowi.
 	AI_Output (other, self,"Info_Thorus_MordragKo_MagesProtect_15_03"); //A co ze mn¹? Co Magowie mog¹ mi zrobiæ?
 	AI_Output (self, other,"Info_Thorus_MordragKo_MagesProtect_09_04"); //Jesteœ tu nowy, nic ci nie bêdzie. Ale ja odpowiadam za wszystko, co robi¹ moi ludzie. Dlatego musisz trzymaæ jêzyk za zêbami.
+	if(FireMagesBrief == LOG_RUNNING)
+	{
+		B_LogEntry(CH1_FIREMAGESBRIEF,"Magowie ognia utrzymuj¹ kontakty z czarodziejami z Nowego Obozu i czêsto wysy³aj¹ do siebie pos³añców. Mordrag jest jednym z takich pos³añców. Muszê koniecznie z nim o tym porozmawiaæ.");
+	};
+	
 	Thorus_MordragMageMessenger = TRUE;
 };
 
@@ -410,7 +417,8 @@ INSTANCE Info_Thorus_BribeGuard (C_INFO)
 
 FUNC INT Info_Thorus_BribeGuard_Condition()
 {	
-	if (Npc_KnowsInfo(hero,Info_Thorus_EnterCastle) && (Npc_GetTrueGuild (other)!=GIL_STT) && (Npc_GetTrueGuild (other)!=GIL_GRD) )
+	var C_NPC wache212; wache212 = Hlp_GetNpc(Grd_212_Torwache);
+	if (Npc_KnowsInfo(hero,Info_Thorus_EnterCastle) && (Npc_GetTrueGuild (other)!=GIL_STT) && (Npc_GetTrueGuild (other)!=GIL_GRD) && (wache212.aivar[AIV_PASSGATE] == FALSE) )
 	{
 		return 1;
 	};
@@ -426,6 +434,11 @@ FUNC VOID Info_Thorus_BribeGuard_Info()
 	AI_Output (self, other,"Info_Thorus_BribeGuard_09_03"); //Myœlê, ¿e przeliczenie 1000 bry³ek zajmie nam wystarczaj¹co du¿o czasu.
 	AI_Output (other, self,"Info_Thorus_BribeGuard_15_04"); //1000 bry³ek?!
 	AI_Output (self, other,"Info_Thorus_BribeGuard_09_04"); //Có¿, gdybyœ do³¹czy³ do Gomeza, móg³byœ wejœæ do zamku za darmo.
+	if(FireMagesBrief == LOG_RUNNING)
+	{
+		B_LogEntry(CH1_FIREMAGESBRIEF,"Thorus mo¿e mnie wpuœciæ do zamku za 1000 bry³ek rudy. Chyba sobie ze mnie drwi.");
+		B_LogEntry(CH1_FIREMAGESBRIEF,"Jeœli jednak zostanê cz³owiekiem Gomeza, bedê móg³ wejœæ do zamku za darmo.");
+	};
 };
 
 // ************************************************************
@@ -465,6 +478,10 @@ FUNC VOID Info_Thorus_Give1000Ore_Info()
 		var C_NPC wache213; wache213 = Hlp_GetNpc(Grd_213_Torwache);
 		wache212.aivar[AIV_PASSGATE] = TRUE;
 		wache213.aivar[AIV_PASSGATE] = TRUE;
+		if(FireMagesBrief == LOG_RUNNING)
+		{
+			B_LogEntry(CH1_FIREMAGESBRIEF,"Tysi¹c bry³ek rudy! Nie mogê uwierzyæ ¿e to zrobi³em! Dlaczego? Czy nagroda za dostarczenie listu pokryje ten wydatek?");
+		};
 	}
 	else
 	{
@@ -488,8 +505,10 @@ INSTANCE Info_Thorus_LetterForMages (C_INFO)
 
 FUNC INT Info_Thorus_LetterForMages_Condition()
 {	
-	if	Npc_KnowsInfo(hero, Info_Thorus_EnterCastle)
-	&&	(Npc_HasItems (hero, ItWr_Fire_Letter_01) || Npc_HasItems (hero, ItWr_Fire_Letter_02))
+	var C_NPC wache212; wache212 = Hlp_GetNpc(Grd_212_Torwache);
+	if (Npc_KnowsInfo(hero, Info_Thorus_EnterCastle))
+	&& (Npc_HasItems (hero, ItWr_Fire_Letter_01) || Npc_HasItems (hero, ItWr_Fire_Letter_02))
+	&& (wache212.aivar[AIV_PASSGATE] == FALSE)
 	{
 		return 1;
 	};
@@ -540,9 +559,17 @@ FUNC VOID Info_Thorus_ReadyForGomez_Info()
 	var C_NPC wache212; wache212 = Hlp_GetNpc(Grd_212_Torwache);
 	var C_NPC wache213; wache213 = Hlp_GetNpc(Grd_213_Torwache);
 	var C_NPC wache218; wache218 = Hlp_GetNpc(Grd_218_Gardist);
+	
+	if (FIREMAGESBRIEF == LOG_RUNNING)
+	&& (wache212.aivar[AIV_PASSGATE] == FALSE)
+	{
+		B_LogEntry(CH1_FIREMAGESBRIEF,"Thorus pozwoli³ mi wejœæ do zamku. Teraz muszê tylko znaleœæ jakiegoœ maga ognia i dostarczyæ list. Mam nadziejê, ¿e nagroda za dostarczenie listu, bêdzie wspó³mierna do moich wysi³ków.");
+	};
+
 	wache212.aivar[AIV_PASSGATE] = TRUE;
 	wache213.aivar[AIV_PASSGATE] = TRUE;
 	wache218.aivar[AIV_PASSGATE] = TRUE;
+
 };
 
 // ************************************************************
@@ -580,6 +607,13 @@ FUNC VOID Info_Thorus_Krautbote_Info()
 		var C_NPC wache212; wache212 = Hlp_GetNpc(Grd_212_Torwache);
 		var C_NPC wache213; wache213 = Hlp_GetNpc(Grd_213_Torwache);
 		var C_NPC wache218; wache218 = Hlp_GetNpc(Grd_218_Gardist);
+		
+		if (FIREMAGESBRIEF == LOG_RUNNING)
+		&& (wache212.aivar[AIV_PASSGATE] == FALSE)
+		{
+			B_LogEntry(CH1_FIREMAGESBRIEF,"Thorus pozwoli³ mi wejœæ do zamku. Teraz muszê tylko znaleœæ jakiegoœ maga ognia i dostarczyæ list. Mam nadziejê, ¿e nagroda za dostarczenie listu, bêdzie wspó³mierna do moich wysi³ków.");
+		};
+		
 		wache212.aivar[AIV_PASSGATE] = TRUE;
 		wache213.aivar[AIV_PASSGATE] = TRUE;
 		wache218.aivar[AIV_PASSGATE] = TRUE;
@@ -625,10 +659,15 @@ FUNC VOID Info_Thorus_KdWSiegel_Info()
 		AI_Output (self, other,"Info_Thorus_KdWSiegel_09_02"); //Nie chcê mieæ nic wspólnego z magami! Przestañ mi wreszcie zawracaæ g³owê, dobrze?
 		var C_NPC wache212; wache212 = Hlp_GetNpc(Grd_212_Torwache);
 		var C_NPC wache213; wache213 = Hlp_GetNpc(Grd_213_Torwache);
+		if (FIREMAGESBRIEF == LOG_RUNNING)
+		&& (wache212.aivar[AIV_PASSGATE] == FALSE)
+		{
+			B_LogEntry(CH1_FIREMAGESBRIEF,"Thorus pozwoli³ mi wejœæ do zamku. Teraz muszê tylko znaleœæ jakiegoœ maga ognia i dostarczyæ list. Mam nadziejê, ¿e nagroda za dostarczenie listu, bêdzie wspó³mierna do moich wysi³ków.");
+		};
+		
 		wache212.aivar[AIV_PASSGATE] = TRUE;
 		wache213.aivar[AIV_PASSGATE] = TRUE;
-		
-		thorus_Amulettgezeigt = TRUE;
+		thorus_Amulettgezeigt	= TRUE;
 	}
 	else
 	{

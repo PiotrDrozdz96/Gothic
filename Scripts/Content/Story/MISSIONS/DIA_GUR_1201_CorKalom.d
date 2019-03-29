@@ -366,7 +366,14 @@ func void  GUR_1201_CorKalom_JoinPSI2_Info()
 	KALOM_KRAUTBOTE = LOG_RUNNING;
 	Log_CreateTopic		(CH1_KrautBote,	LOG_MISSION);
 	Log_SetTopicStatus	(CH1_KrautBote,	LOG_RUNNING);
-	B_LogEntry			(CH1_KrautBote,	"Cor Kalom kaza³ mi dostarczyæ partiê bagiennego ziela do Gomeza ze Starego Obozu."); 
+	B_LogEntry			(CH1_KrautBote,	"Cor Kalom kaza³ mi dostarczyæ partiê bagiennego ziela do Gomeza ze Starego Obozu.");
+
+	var C_NPC wache212; wache212 = Hlp_GetNpc(Grd_212_Torwache);
+	if (wache212.aivar[AIV_PASSGATE] == FALSE)
+	&& (FireMagesBrief == LOG_RUNNING)
+	{
+		B_LogEntry(CH1_FIREMAGESBRIEF,"Ludzie Gomeza wpuszcz¹ mnie do zamku jeœli powiem ¿e przyby³em z bagiennym zielem od Cor Kaloma.");
+	};
 	
 	AI_Output			(self, other,"GUR_1201_CorKalom_JoinPSI_10_15"); //Jeszcze tu jesteœ?!
 	AI_StopProcessInfos	(self);
