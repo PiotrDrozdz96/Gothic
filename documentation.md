@@ -157,6 +157,9 @@
 |   |   // gracz może poprawnie odebrać bagienne ziele od Balora po raz drugi
 |   +--|-- DIA_Nov_1372_Bukano
 |   |   // Dialogi nowej postaci
+|   +--|-- DIA_ORC_HighPriest5
+|   |   // Reaguje również na 1H Uriziel
+|   |   // Gdy nie zadajemy mu obrażeń i chcemy uciekać załącza nam się czasowy bieg
 |   +--|-- DIA_ORG_801_Lares
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu szkodnikiem
 |   |   // Nie przenosi wszystkich zadań do niezaliczonych po zostaniu szkodnikiem -- by marev
