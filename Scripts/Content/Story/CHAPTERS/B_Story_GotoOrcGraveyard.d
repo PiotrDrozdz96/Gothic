@@ -73,6 +73,12 @@ func void B_Story_GotoOrcGraveyard()
 		B_LogEntry			(CH1_ShrikesHut,	"Nie bêdê mia³ ju¿ okazji wygoniæ Krzykacza z chaty najemników. Kharim wróci³ ze starego obozu i sam zaj¹³ siê t¹ spraw¹.");
 		Gorn_ShrikesHut = LOG_FAILED;
 	};
+	if(Ghorim_KickHarlok == LOG_RUNNING)
+	{
+		Ghorim_KickHarlok = LOG_FAILED;
+		B_LogEntry(CH1_GhorimsRelief,"Nie znalaz³em czasu, aby pomóc biednemu Ghorimowi. Teraz jest ju¿ chyba za póŸno.");
+		Log_SetTopicStatus(CH1_GhorimsRelief,LOG_FAILED);
+	};
 
 
 	//-------- globale Missionsvariable --------

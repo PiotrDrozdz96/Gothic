@@ -103,6 +103,7 @@ FUNC INT DIA_Milten_GotoCorristo_Condition()
 {
 	if  ( (CorKalom_BringMCQBalls == LOG_SUCCESS) || Npc_KnowsInfo(hero,GRD_200_Thorus_WANNABEMAGE) )
 	&&  (Npc_GetTrueGuild (hero) == GIL_STT) 
+	&&	(Kapitel < 4)
 	{
 		return 1;
 	};
@@ -121,6 +122,9 @@ func VOID DIA_Milten_GotoCorristo_Info()
 		AI_Output (self, other,"DIA_Milten_Letter_02_03"); //Poka¿ to pismo.
 		AI_Output (other, self,"DIA_Milten_Letter_Give_15_00"); //Oto i ono.
 		B_GiveXP(XP_XardasLetter);
+		B_LogEntry(CH1_FIREMAGESBRIEF,"Da³em list Miltenowi, ale nie ma mowy o jakiejkolwiek nagrodzie. To chyba jakiœ ¿art!");
+		Log_SetTopicStatus(CH1_FIREMAGESBRIEF,LOG_SUCCESS);
+		FIREMAGESBRIEF = LOG_SUCCESS;
 		if		Npc_HasItems(other,ItWr_Fire_Letter_01)
 		{ 
 			B_GiveInvItems(other, self, ItWr_Fire_Letter_01, 1);
@@ -257,10 +261,15 @@ func VOID DIA_Milten_ComesBack_Info()
 	{
 		AI_Output (self, other,"DIA_Milten_ComesBack_02_00"); //Corristo nie by³ zachwycony brakiem szacunku, jaki okaza³eœ s³ugom Innosa.
 		AI_Output (self, other,"DIA_Milten_ComesBack_02_01"); //Ale powiedzia³, ¿e mo¿esz iœæ do Torreza i odebraæ zwyczajow¹ nagrodê pos³añców.
+		B_LogEntry(CH1_FIREMAGESBRIEF,"Nie przekaza³em listu Miltenowi, najpierw chcê zdobyæ nagrodê. W tym celu Wielki Mag krêgu ognia Corristo wys³a³ mnie do Torreza bym odebra³ co mi siê nale¿y.");
 	}
 	else
 	{
 		AI_Output (self, other,"DIA_Milten_ComesBack_02_02"); //Corristo jest niezwykle uradowany. Powiedzia³, ¿e mo¿esz iœæ do Torreza i wybraæ sobie nagrodê.
+		B_GiveXP(XP_XardasLetter);
+		B_LogEntry(CH1_FIREMAGESBRIEF,"Corristo by³ zachwycony. Powiedzia³ ¿e mogê iœæ do Torreza odebraæ swoj¹ nagrodê.");
+		Log_SetTopicStatus(CH1_FIREMAGESBRIEF,LOG_SUCCESS);
+		FIREMAGESBRIEF = LOG_SUCCESS;
 	};
 	AI_StopProcessInfos	(self);
 	B_ExchangeRoutine	(PC_Mage,	"MeetFriend");
@@ -325,6 +334,7 @@ func VOID DIA_Milten_NochEinBrief_Info()
 	
 	Cronos_Messenger = LOG_SUCCESS;
 	B_GiveInvItems (other,self,Cronos_Brief,1);
+	B_LogEntry(CH1_CRONOSBRIEF,"Dostarczy³em wiadomoœæ od Cronosa Miltenowi jednemu z magów ognia. Bêdê musia³ skontaktowaæ siê jeszcze z Cronosem w celu odebrania nagrody.");
 };
 
 //*********************************************
@@ -1135,6 +1145,7 @@ func void Info_Milten_OCWARN_Info()
 		AI_Output		(hero,self,"Info_Milten_OCWARN_15_11"); //Zawalenia Starej Kopalni?!?
 		AI_Output		(self,hero,"Info_Milten_OCWARN_02_12"); //Tak. To dzia³o siê tak szybko. Nikt nie zdo³a³ siê wydostaæ.
 		AI_Output		(self,hero,"Info_Milten_OCWARN_02_13"); //Stra¿nicy zablokowali wejœcie do kopalni.
+		B_Story_LogFailedAfterOMDown();
 	};
 };
 

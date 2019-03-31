@@ -25,6 +25,11 @@ FUNC INT Info_Diego_Gamestart_Condition()
 
 FUNC VOID Info_Diego_Gamestart_Info()
 {
+	Log_CreateTopic		(CH1_FireMagesBrief,		LOG_MISSION);
+	Log_SetTopicStatus	(CH1_FireMagesBrief,		LOG_RUNNING);
+	FireMagesBrief 		= LOG_RUNNING;
+	B_LogEntry			(CH1_FireMagesBrief,"Zanim stra¿nicy zrzucili mnie z urwiska jakiœ mag da³ mi list do Arcymistrza krêgu magów ognia. Powiedzia³ ¿e czeka mnie nagroda za dostarczenie listu. Mam nadziejê ¿e mag nie k³ama³.");
+	
 	AI_Output(self,hero,"Info_Diego_Gamestart_11_00"); //Nazywam siê Diego.
 	AI_Output(hero,self,"Info_Diego_Gamestart_15_01"); //Jestem...
 	AI_Output(self,hero,"Info_Diego_Gamestart_11_02"); //Nie interesuje mnie kim jesteœ. Jesteœ tu nowy - a do mnie nale¿y dbanie o nowych. Na razie to tyle...
@@ -125,6 +130,7 @@ INSTANCE Info_Diego_Brief (C_INFO) // E1
 FUNC INT Info_Diego_Brief_Condition()
 {
 	if (Kapitel < 2)
+	&& (Npc_HasItems(hero, ItWr_Fire_Letter_01) || Npc_HasItems(hero, ItWr_Fire_Letter_02))
 	{
 		return TRUE;
 	};
@@ -140,6 +146,9 @@ FUNC VOID Info_Diego_Brief_Info()
 	AI_Output(self,hero,"Info_Diego_Brief_11_05"); //Na twoim miejscu trzyma³bym jêzyk za zêbami a¿ do chwili, gdy spotkasz któregoœ z magów. Chocia¿ w¹tpiê, ¿eby ci siê uda³o.
 	AI_Output(hero,self,"Info_Diego_Brief_15_06");	//Dlaczego?
 	AI_Output(self,hero,"Info_Diego_Brief_11_07"); //Magowie mieszkaj¹ w zamku, w Starym Obozie. Tylko ludzie Gomeza maj¹ tam wstêp.
+	B_LogEntry(CH1_FIREMAGESBRIEF, "Wygl¹da na to ¿e dostarczenie listu nie bêdzie ³atwe. Magów Ognia mogê znaleœæ w zamku Starego Obozu, ale tylko ludzie Gomeza maj¹ tam wstêp. Muszê zostaæ jednym z nich, albo znaleœæ inny sposób na dostanie siê do zamku.");
+	B_LogEntry(CH1_FIREMAGESBRIEF, "Nie powinienem te¿ nikomu wspominaæ o liœcie. Diego powiedzia³ ¿e wiele osób w kolonii bêdzie gotowych poder¿n¹æ mi gard³o byle tylko zgarn¹æ nagrodê za dostarczenie listu.");
+
 };
 
 // **********************************************************
@@ -693,8 +702,6 @@ func void Info_Diego_Teach_DEX_5()
 // ************************************************************
 // 							BRING LIST
 // ************************************************************
-
-VAR INT Diego_BringList; //MISSIONSVARIABLE
 
 // ----------------------------- OFFER -------------------------------------
 
@@ -1445,6 +1452,7 @@ func void Info_Diego_OCWARN_Info()
 		AI_Output		(hero,self,"Info_Diego_OCWARN_15_07"); //O czym?
 		AI_Output		(self,hero,"Info_Diego_OCWARN_11_08"); //O zawaleniu siê Starej Kopalni, zamordowaniu Magów Ognia i planach ataku na Woln¹ Kopalniê.
 		AI_Output		(hero,self,"Info_Diego_OCWARN_15_09"); //CO?! O czym ty mówisz?!
+		B_Story_LogFailedAfterOMDown();
 	};
 };
 

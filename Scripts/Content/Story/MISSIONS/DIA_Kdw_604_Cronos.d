@@ -28,33 +28,6 @@ FUNC VOID  KDW_604_Cronos_Exit_Info()
 	};
 };
 
-/*
-// *****************************************
-//					Greet
-// *****************************************
-
-instance  KDW_604_Cronos_Greet (C_INFO)
-{
-	npc			=  KDW_604_Cronos;
-	nr			=  1;	
-	condition	=  KDW_604_Cronos_Greet_Condition;
-	information	=  KDW_604_Cronos_Greet_Info;
-	permanent	=  0;
-	description = "Witaj, magu!";
-};                       
-
-FUNC int  KDW_604_Cronos_Greet_Condition()
-{
-	return 1;
-};
-
-FUNC VOID  KDW_604_Cronos_Greet_Info()
-{
-	AI_Output (other, self,"DIA_Cronos_Greet_15_00"); //Witaj, magu!
-	AI_Output (self, other,"DIA_Cronos_Greet_08_01"); //Warum störst du den Hüter des Erzes?
-};
-*/
-
 // *****************************************
 //					Brief
 // *****************************************
@@ -88,6 +61,7 @@ FUNC VOID  KDW_604_Cronos_Brief_Info()
 	AI_Output (other, self,"DIA_Cronos_Brief_15_02"); //Ale stra¿nicy nie chc¹ mnie wpuœciæ do zamku? Mo¿esz mi jakoœ pomóc?
 	AI_Output (self, other,"DIA_Cronos_Brief_08_03"); //Có¿, co jakiœ czas wysy³amy kurierów do naszych braci ze Starego Obozu...
 	AI_Output (self, other,"DIA_Cronos_Brief_08_04"); //Ale przesy³ki powierzamy wy³¹cznie ludziom Laresa. Od wielu lat jego ch³opcy dbaj¹ o to, by nasze przesy³ki dociera³y do Magów Ognia nienaruszone.
+	B_LogEntry(CH1_FIREMAGESBRIEF,"Magowie z Nowego Obozu utrzymuj¹ kontakt z magami ognia i czêsto wysy³aj¹ do siebie pos³añców. Jeœli do³¹czê do Nowego Obozu, bêdê móg³ zostaæ wys³annikiem magów i tym samym uzyskaæ dostêp do zamku w Starym Obozie.");
 };
 
 // *****************************************
@@ -217,8 +191,16 @@ FUNC VOID  KDW_604_Cronos_Bandit_Info()
 	
 	CreateInvItem (other,KdW_Amulett);
 	CreateInvItem (other,Cronos_Brief);
-	
+
+	Log_CreateTopic(CH1_CRONOSBRIEF,LOG_MISSION);
+	Log_SetTopicStatus(CH1_CRONOSBRIEF,LOG_RUNNING);
 	Cronos_Messenger = LOG_RUNNING;
+	B_LogEntry(CH1_CRONOSBRIEF,"Z rozkazu Cronosa, stra¿nika rudy mam dostarczyæ wiadomoœæ do Magów Ognia w Starym Obozie. Ludzie Gomeza wpuszcz¹ mnie do zamku, gdy tylko zobacz¹ specjalny znak kurierski.");
+
+	if(FireMagesBrief == LOG_RUNNING)
+	{
+		B_LogEntry(CH1_FIREMAGESBRIEF,"Dosta³em od Cronosa znak rozpoznawczy kuriera magów. Dziêki niemu ludzie Gomeza wpuszcz¹ mnie do zamku.");
+	};
 };
 
 // *****************************************
@@ -252,6 +234,8 @@ FUNC VOID  KDW_604_Cronos_BriefBack_Info()
 	B_GiveInvItems (self, other, itminugget, 200);
 	
 	B_GiveXP(XP_CronosLetter);
+	B_LogEntry(CH1_CRONOSBRIEF,"Cronos zap³aci³ mi 200 bry³ek rudy. NieŸle bior¹c pod uwagê ¿e mia³em w³asne powody aby odwiedziæ zamek w Starym Obozie.");
+	Log_SetTopicStatus(CH1_CRONOSBRIEF,LOG_SUCCESS);
 };
 
 ///////////////////////////////////////////////////

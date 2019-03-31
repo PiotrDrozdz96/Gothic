@@ -50,6 +50,7 @@ FUNC void  Org_843_Sharky_Fisk_Info()
 	AI_Output (self, other,"Org_843_Sharky_Fisk_Info_10_01"); //A dlaczego mówisz o tym w³aœnie mi?
 	AI_Output (other, self,"Org_843_Sharky_Fisk_Info_15_02"); //Pomyœla³em, ¿e zainteresuje ciê mo¿liwoœæ zarobienia paru bry³ek rudy.
 	AI_Output (self, other,"Org_843_Sharky_Fisk_Info_10_03"); //Czemu nie... Powiedz Fiskowi, ¿e mo¿e na mnie liczyæ.
+	B_LogEntry(CH1_FiskNewDealer,"Sharky nie ma nic przeciwko przeciw wspó³pracy z Fiskiem. Muszê jak najszybciej poinformowaæ o tym Fiska.");
 };  
 
 

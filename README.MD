@@ -29,5 +29,6 @@
 * Możlwiość zostania guru, pozostanie magiem Ognia/Wody do końca gry
 * Rozwój postaci niezależnych
 * Poprawiona inteligencja orków (nie atakują się nawzajem) z Gothic Mod Fix
+* Rozbudowanie wpisów w dzienniku - inspirowane Gothic Mod Fix
 * Drobne poprawki, szczegóły opisane w pliku documentation.md, oraz w AI_documentation.md (otwierać jako RAW w celu poprawnego wyświetlenia)
 

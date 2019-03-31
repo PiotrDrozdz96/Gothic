@@ -81,6 +81,7 @@ FUNC VOID  Org_873_Cipher_Fisk_Info()
 	AI_Output (other, self,"DIA_Cipher_Fisk_15_00"); //Fisk ze Starego Obozu szuka nowego partnera do interesów.
 	AI_Output (self, other,"DIA_Cipher_Fisk_12_01"); //Nie jestem zainteresowany.
 	AI_Output (self, other,"DIA_Cipher_Fisk_12_02"); //Ale powinieneœ porozmawiaæ z Sharkym. Mo¿e on na to pójdzie.
+	B_LogEntry(CH1_FiskNewDealer,"Cipher, szkodnik z Nowego Obozu poradzi³ mi bym skontaktowa³ siê z kupcem Sharky`m. Byæ mo¿e on by³by zainteresowany wspó³prac¹ z Fiskiem.");
 };
 
 // ******************************
@@ -294,6 +295,7 @@ FUNC VOID  Org_873_Cipher_Book_Info()
 	Log_CreateTopic		(CH3_CipherBussines,	LOG_MISSION);
 	Log_SetTopicStatus	(CH3_CipherBussines,	LOG_RUNNING);
 	B_LogEntry			(CH3_CipherBussines,"Cipher niezwykle siê ucieszy³ gdy przynios³em mu ksi¹¿kê na temat bagiennego ziela któr¹ znalaz³em w kufrze Cor Kaloma. Tak bardzo ¿e od razu razem gdzieœ pognaliœmy.");
+	Cipher_Bussines = LOG_RUNNING;
 	
 	AI_StopProcessInfos(self);
 };
@@ -359,6 +361,7 @@ FUNC VOID  Org_873_Cipher_AfterFight_Info()
 
 	Log_SetTopicStatus	(CH3_CipherBussines,	LOG_SUCCESS);
 	B_LogEntry			(CH3_CipherBussines,"Pokonaliœmy nieprzyjaciela, a Cipher mo¿e siê zaj¹æ produkcj¹ najlepszego bagiennego ziela.");
+	Cipher_Bussines = LOG_SUCCESS;
 	
 	CreateInvItems(self, ItMiNugget, 1000);
 	B_GiveInvItems(self, other, ItMiNugget, 1000);

@@ -9,5 +9,23 @@ func void B_CheckDeadMissionNPCs ()
 			Log_SetTopicStatus	(CH1_CarryWater,	LOG_SUCCESS);
 			LeftyDead = TRUE;
 		};
+	}
+	else if(Hlp_GetInstanceID(NOV_1358_Harlok) == Hlp_GetInstanceID(self))
+	{
+		if(Ghorim_KickHarlok == LOG_RUNNING)
+		{
+			Ghorim_KickHarlok = LOG_FAILED;
+			B_LogEntry(CH1_GhorimsRelief,"Tak siê jakoœ z³o¿y³o ¿e Harlock zmar³. W tym stanie raczej nie bêdzie w stanie zmieniæ Ghormia przy pracy.");
+			Log_SetTopicStatus(CH1_GhorimsRelief,LOG_FAILED);
+		};
+	}
+	else if(Hlp_GetInstanceID(ORG_873_Cipher) == Hlp_GetInstanceID(self))
+	{
+		if(Cipher_Bussines == LOG_RUNNING)
+		{
+			Log_SetTopicStatus	(CH3_CipherBussines,	LOG_FAILED);
+			B_LogEntry			(CH3_CipherBussines,"Cholera Cipher nie ¿yje.");
+			Cipher_Bussines = LOG_FAILED;
+		};
 	};
 };

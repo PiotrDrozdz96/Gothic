@@ -96,7 +96,8 @@ instance Org_826_Mordrag_Courier(C_Info)
 
 func int Org_826_Mordrag_Courier_Condition()
 {
-	if(Thorus_MordragMageMessenger)
+	if (Thorus_MordragMageMessenger)
+	&& (Npc_GetTrueGuild(other) == GIL_NONE)
 	{
 		return 1;
 	};
@@ -108,6 +109,10 @@ func void Org_826_Mordrag_Courier_Info()
 	AI_Output(self,other,"Org_826_Mordrag_Courier_11_01");	//A jeœli jestem?
 	AI_Output(other,self,"Org_826_Mordrag_Courier_15_02");	//Chcia³bym porozmawiaæ z którymœ z magów. Muszê dostaæ siê do zamku.
 	AI_Output(self,other,"Org_826_Mordrag_Courier_11_03");	//Ka¿dy kurier magów ma przy sobie magiczn¹ pieczêæ, dziêki której mo¿e wejœæ do zamku. Gdybyœ by³ jednym z nas, móg³byœ tak¹ zdobyæ.
+	if(FireMagesBrief == LOG_RUNNING)
+	{
+		B_LogEntry(CH1_FIREMAGESBRIEF,"Jeœli do³¹cze do Nowego Obozu bêdê móg³ zostaæ kuriem magów i tym samym uzyskaæ dostêp do zamku w Starym Obozie.");
+	};
 };
 
 
@@ -532,5 +537,9 @@ func void Org_826_Mordrag_SekteSpy_Info()
 	AI_Output (other, self,"DIA_ARTO_What_15_00"); //Czym siê tutaj zajmujesz?
 	AI_Output(self,other,"Org_826_Mordrag_GotoKalomNOW_11_04");	//Wiem, ¿e te œwiry z sekty przygotowuj¹ siê do wielkiego przywo³ania, i choæ sam nie wierzê w Œni¹cego powiem ci jedno:
 	AI_Output(self,other,"Org_826_Mordrag_GotoKalomNOW_11_05");	//Guru dysponuj¹ potê¿n¹ magi¹, dlatego tak uwa¿nie musimy im patrzeæ na palce. Nad¹¿asz?
+	if(Raven_SpySect == LOG_RUNNING)
+	{
+		B_LogEntry(CH1_GotoPsi,"Wygl¹da na to ¿e nie tylko Stary Obóz martwi siê o to co planuje Bractwo. Na placu œwi¹tynnym spotka³em szkodnika imieniem Mordrag. Powiedzia³ mi wprost ¿e nale¿y dok³adnie obserwowaæ co robi¹ Guru z Bractwa.");
+	};
 };
 

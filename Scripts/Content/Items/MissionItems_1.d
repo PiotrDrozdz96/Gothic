@@ -990,7 +990,7 @@ func void Usefireletter ()
 {   
 		
 		CreateInvItem     (hero,ItWr_Fire_Letter_02);
-		
+		B_LogEntry(CH1_FireMagesBrief, "Nie mog³em siê oprzeæ przed przeczytaniem tego listu. Jest w nim napisane coœ o bogach, handlu i królu. Niewiele z tego rozumiem. Niestety musia³em z³amaæ pieczêæ. Mam nadziejê, ¿e nikt tego nie zauwa¿y.");
 		var int nDocID;
 		
 		nDocID = 	Doc_Create		()			  ;								// DocManager 

@@ -108,4 +108,11 @@ func void B_Evolve_Cipher()
     {
         Mdl_SetVisualBody (cipher,"hum_body_Naked0",0, 1, "Hum_Head_Bald", 50, 2, ORG_ARMOR_M);
     };
+    if(Cipher_Bussines == LOG_RUNNING)
+    {
+        Log_SetTopicStatus	(CH3_CipherBussines,	LOG_FAILED);
+	    B_LogEntry			(CH3_CipherBussines,"Porzuci³em Ciphera, mo¿e jakoœ za³atwi³ sprawê sam.");
+        Cipher_Bussines = LOG_FAILED;
+        cipher.aivar[AIV_PARTYMEMBER] = FALSE;
+    };
 };
