@@ -121,6 +121,7 @@ var int Corristo_rune;
 var int Saturas_KDWAufnahme;
 var int Thorus_Buddlers;
 var int Player_SentBuddler;
+var int Cipher_Bussines;
 
 //---------------------------------------------------------------------
 //	KAPITEL 3

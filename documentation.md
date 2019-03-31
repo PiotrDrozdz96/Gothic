@@ -23,6 +23,7 @@
 |   |   // Zwiększenie max many do 200
 |   +--|-- B_CheckDeadMissionNPCs
 |   |   // sprawdzanie czy zabitą postacią jest Harlok, jeśli tak niezaliczenie misji z zastępstwem dla Ghorima
+|   |   // sprawdzanie czy zabitą postacią jest Cipher, jeśli tak niezaliczenie misji "Cipher - najlepszy Diler"
 |   +--|-- B_Evolve
 |   |   // Funkcje obsługujące rozwój postaci niezależnych
 |   +--|-- B_Give(Darrion/Fisk/Scorpio/Sharky/Skip/Wolf)ChapterWeapons
