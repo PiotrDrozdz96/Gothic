@@ -1,5 +1,6 @@
 func void B_Story_LogFailedAfterOMDown()
 {
+    /*CH1*/
     if(FIREMAGESBRIEF == LOG_RUNNING)
     {
         B_LogEntry(CH1_FIREMAGESBRIEF,"Wszyscy magowie ognia nie ¿yj¹. Wygl¹da na to ¿e nie uda mi siê ju¿ dostarczyæ tego listu.");
@@ -16,6 +17,7 @@ func void B_Story_LogFailedAfterOMDown()
     {
         B_LogEntry(CH1_RatfordMap,"Skoro Ratford radzi³ sobie tyle czasu bez mapy. Teraz na pewno nie bêdzie mu ju¿ potrzebna.");
         Log_SetTopicStatus(CH1_RatfordMap,LOG_FAILED);
+        Ratford_Map = LOG_FAILED;
     };
     if(Snaf_Zutaten == LOG_RUNNING)
     {
@@ -40,5 +42,30 @@ func void B_Story_LogFailedAfterOMDown()
 		B_LogEntry(CH1_KalomsRecipe,"Niestety Dexter nie otrzyma ju¿ przepisu na napój leczniczy z obozu Sekty. Zwleka³em ze spraw¹, a teraz ju¿ za póŸno.");
 		Log_SetTopicStatus(CH1_KalomsRecipe,LOG_FAILED);
 		Dexter_GetKalomsRecipe = LOG_FAILED;
-	};
+    };
+    /*CH2*/
+    if(Snipes_deal == LOG_RUNNING)
+    {
+        B_LogEntry(CH2_SnipesDeal,"Razem z zawaleniem Starej Kopalni, zawali³a siê moja szansa na dokoñczenie spraw ze Skrzyni¹ Aarona.");
+        Log_SetTopicStatus(CH2_SnipesDeal,LOG_FAILED);
+        Snipes_deal = LOG_FAILED;
+    };
+    if(Ulbert_storageshed == LOG_RUNNING)
+    {
+        B_LogEntry(CH2_StorageShed,"Stara Kopalnia siê zawali³a. Ulbert najprawdopodobniej nie ¿yje.");
+        Log_SetTopicStatus(CH2_StorageShed,LOG_FAILED);
+        Ulbert_storageshed = LOG_FAILED;
+    };
+    if(Corristo_rune == LOG_RUNNING)
+    {
+        B_LogEntry(CH2_KDF_Rune,"Chyba nie by³em zbyt dobrym Magiem Ognia. Nie nauczy³em siê stworzenia nawet jednej runy. No có¿, teraz jest ju¿ za póŸno. Corristo nie ¿yje, wiêc raczej nie nauczê siê ju¿ tej sztuki.");
+        Log_SetTopicStatus(CH2_KDF_Rune,LOG_FAILED);
+        Corristo_rune = LOG_FAILED;
+    };
+    if(Thorus_Buddlers == LOG_RUNNING)
+    {
+        B_LogEntry(CH2_Buddler,"Teraz gdy Stara Kopalnia siê zawali³a, nowi kopacze raczej nie bêd¹ tam potrzebni. Przynajmniej tych trzech biedaków którzy mieli tam iœæ pracowaæ usz³o z ¿yciem.");
+        Log_SetTopicStatus(CH2_Buddler,LOG_FAILED);
+        Thorus_Buddlers = LOG_FAILED;
+    };
 };

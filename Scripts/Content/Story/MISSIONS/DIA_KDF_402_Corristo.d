@@ -671,6 +671,7 @@ FUNC void  KDF_402_Corristo_CONTEST_Info()
 	Log_CreateTopic		(CH2_KDF_Rune,		LOG_MISSION);
 	Log_SetTopicStatus	(CH2_KDF_Rune,		LOG_RUNNING);
 	B_LogEntry(CH2_KDF_Rune, "Corristo ma mnie nauczyæ formu³y runy ognistej strza³y, kiedy tylko zdobêdê wszystkie sk³adniki.");
+	Corristo_rune = LOG_RUNNING;
 };
 
 instance  KDF_402_Corristo_FIREBOLT (C_INFO)
@@ -758,6 +759,7 @@ FUNC void  KDF_402_Corristo_GOTRUNE_Info()
 	
 	B_LogEntry(CH2_KDF_Rune, "Stworzy³em runê Ognistej Strza³y.");
 	Log_SetTopicStatus	(CH2_KDF_Rune,		LOG_SUCCESS);
+	Corristo_rune = LOG_SUCCESS;
 
 };
 

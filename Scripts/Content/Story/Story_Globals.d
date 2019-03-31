@@ -110,13 +110,16 @@ var int idiots_deal;
 var int InExtremoPlaying;
 var int Aaron_lock;
 var int Snipes_deal;
+var int Ulbert_storageshed;
 var int Ian_gearwheel;
 var int CorKalom_BringBook;
 var int CorKalom_BringMCQBalls;
 var int YBerion_BringFocus; 
 var int PresseTourJanuar2001; 
 var int Corristo_KDFAufnahme;
+var int Corristo_rune;
 var int Saturas_KDWAufnahme;
+var int Thorus_Buddlers;
 var int Player_SentBuddler;
 
 //---------------------------------------------------------------------

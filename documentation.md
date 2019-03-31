@@ -112,6 +112,8 @@
 |   |   // Kirgo poprawnie daje piwo podczas rozmowy (a nie zabiera) -- by marev
 |   +--|-- DIA_GRD_255_Fletcher
 |   |   // Fletcher nie zaczyna zadania "Zaginiony Strażnik", jeśli zostało ono już ukończone -- by marev
+|   +--|-- DIA_GRD_271_Ulbert
+|   |   // Zapisywanie stanu zadania z szopą Ulberta w nowej zmiennej
 |	+--|-- DIA_GUR_1201_CorKalom
 |   |   // Możliwość zostania guru
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu nowicjuszem
@@ -335,9 +337,7 @@
 |   |   // Zmienna GRD_Reputation licząca naszą reputację u strażników
 |   |   // Zmienna Player_SentBuddler licząca ilu wysłaliśmy kopaczy do pracy w kopalni
 |   |   // Zmienna CipherJoints licząca ile razy dostarczyliśmy dostawę ziela, potrzebne do ewolucji Ciphera
-|   |   // Zmienna FireMagesBrief do zadania "List z zewnętrznego świata"
-|   |   // Zmienna RatfordMap do zadania "Mapa dla Ratforda"
-|   |   // Przeniesienie zmiennych zadaniowych z poszczególnych dialogów do Story_Globals
+|   |   // Przeniesienie zmiennych zadaniowych z poszczególnych dialogów do Story_Globals + dodanie nowych
 |   |   // Dodanie zmiennych potrzebynch do rosyjskiego fix moda
 |   +--| svm
 |   |   // dodanie svm CantReadThis związanej z kartkami uczącymi

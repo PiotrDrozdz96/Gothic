@@ -1076,6 +1076,7 @@ func void  GRD_200_Thorus_Buddler_Info()
 	Log_CreateTopic		(CH2_Buddler, LOG_MISSION);
 	Log_SetTopicStatus	(CH2_Buddler, LOG_RUNNING);
 	B_LogEntry			(CH2_Buddler,"Thorus poprosi³ mnie, bym znalaz³ trzech kopaczy zdolnych do pracy w kopalni. Bêdê siê musia³ rozejrzeæ po starym obozie.");
+	Thorus_Buddlers = LOG_RUNNING;
 	
 };
 
@@ -1114,6 +1115,7 @@ func void  GRD_200_Thorus_Sent_Info()
 	Log_SetTopicStatus	(CH2_Buddler, LOG_SUCCESS);
 	B_LogEntry			(CH2_Buddler,"Zadanie wykonane. Trójka nowych ludzi ju¿ wyrusza do starej kopalni.");
 	B_GiveXP			(XP_Buddlers);
+	Thorus_Buddlers = LOG_SUCCESS;
 	
 };
 

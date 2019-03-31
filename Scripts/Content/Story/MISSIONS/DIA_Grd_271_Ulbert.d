@@ -71,6 +71,7 @@ FUNC void  GRD_271_ULBERT_TRICK_Info()
 	Log_CreateTopic		(CH2_StorageShed,	LOG_MISSION);
 	Log_SetTopicStatus	(CH2_StorageShed,	LOG_RUNNING);
 	B_LogEntry		(CH2_StorageShed,	"Ulbert pilnuje sk³adowiska w Starej Kopalni. Muszê mu przynieœæ coœ do picia."); 
+	Ulbert_storageshed = LOG_RUNNING;
 };  
 
 // ***************** Infos *****************************
@@ -217,6 +218,7 @@ FUNC void  GRD_271_ULBERT_ANGRY_Info()
 	
 	B_LogEntry		(CH2_StorageShed,	"Spotka³em ponownie Ulberta. Ten g³upol nie zorientowa³ siê nawet, ¿e wystrychn¹³em go na dudka!");
 	Log_SetTopicStatus	(CH2_StorageShed,	LOG_SUCCESS);
+	Ulbert_storageshed = LOG_SUCCESS;
 
 	Npc_ExchangeRoutine	(self,	"start");
 	AI_StopProcessInfos	(self);
