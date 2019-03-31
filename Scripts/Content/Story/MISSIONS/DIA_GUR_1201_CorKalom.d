@@ -311,11 +311,46 @@ func void  GUR_1201_CorKalom_JoinPSI_Info()
 			Log_SetTopicStatus	(CH1_JoinNC,	LOG_FAILED);
 			B_LogEntry			(CH1_JoinNC,	"Nie mogê do³¹czyæ do Szkodników z Nowego Obozu. Moje miejsce jest w Bractwie Œni¹cego.");
 			
-			//Log_SetTopicStatus	(CH1_LostNek,	LOG_FAILED);
-			//Log_SetTopicStatus	(CH1_FiskNewDealer,	LOG_FAILED);
-			//Log_SetTopicStatus	(CH1_KalomsRecipe,	LOG_FAILED);
-			//Log_SetTopicStatus	(CH1_BringList,	LOG_FAILED);
-			//Log_SetTopicStatus	(CH1_MordragKO,	LOG_FAILED);
+			if(Ratford_Map == LOG_RUNNING)
+			{
+				B_LogEntry(CH1_RatfordMap,"Jako cz³onek Bractwa nie mam zamiaru braæ udzia³u w szkodniczych zagrywkach.");
+				Log_SetTopicStatus(CH1_RatfordMap,LOG_FAILED);
+			};
+			if(Sly_LostNek == LOG_RUNNING)
+			{
+				B_LogEntry(CH1_LostNek,"Teraz gdy jestem cz³onkiem bractwa, nie widzê sensu kontynuowaæ poszukiwañ zaginionego stra¿nika.");
+				Log_SetTopicStatus(CH1_LostNek,LOG_FAILED);
+				Sly_LostNek = LOG_FAILED;
+			};
+			if(Fisk_GetNewHehler == LOG_RUNNING)
+			{
+				B_LogEntry(CH1_FiskNewDealer,"Fisk niech sam siê zajmie swoimi brudnymi interesami. Jestem bardziej zaanga¿owny w sprawy Bractwa.");
+				Log_SetTopicStatus(CH1_FiskNewDealer,LOG_FAILED);
+				Fisk_GetNewHehler = LOG_FAILED;
+			};
+			if(Dexter_GetKalomsRecipe == LOG_RUNNING)
+			{
+				B_LogEntry(CH1_KalomsRecipe,"Jestem teraz cz³onkiem Bractwa, a to oznacza ¿e nie zamierzam zdradzaæ tajemnic bractwa niewiernym.");
+				Log_SetTopicStatus(CH1_KalomsRecipe,LOG_FAILED);
+				Dexter_GetKalomsRecipe = LOG_FAILED;
+			};
+			if(Whistler_BuyMySword == LOG_RUNNING)
+			{
+				B_LogEntry(CH1_BuyMySword,"Zwia³em z rud¹ Œwistaka. Po tym incydencie lepiej bêdzie nie pokazywaæ mu siê na oczy.");
+				Log_SetTopicStatus(CH1_BUYMYSWORD,LOG_FAILED);
+			};
+			if(Diego_BringList == LOG_RUNNING)
+			{
+				B_LogEntry(CH1_BringList,"Przystêpuj¹c do obozu Bractwa nie mogê kontynuowaæ Testu zaufania. Liczy siê dla mnie teraz tylko wiara w Œni¹cego.");
+				Log_SetTopicStatus(CH1_BringList,LOG_FAILED);
+				Diego_BringList = LOG_FAILED;
+			};
+			if(Thorus_MordragKo == LOG_RUNNING)
+			{
+				B_LogEntry(CH1_MordragKO,"Jestem teraz cz³onkiem Bractwa. Nie chcê siê anga¿owaæ w spory pomiêdzy Nowym i Starym Obozem. Thorus musi sam rozwi¹zaæ sprawê z Mordragiem.");
+				Log_SetTopicStatus(CH1_MordragKO,LOG_FAILED);
+				Thorus_MordragKo = LOG_FAILED;
+			};
 		}
 		else
 		{

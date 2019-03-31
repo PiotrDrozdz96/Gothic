@@ -41,6 +41,7 @@ const string    GE_TalentRunes          =   "Runy";
 //---------------------------------------------------------------------
 // Aufnahme Altes Lager
 const string    CH1_FireMagesBrief      =   "List z zewnêtrznego œwiata";
+const string    CH1_CronosBrief         =   "List Cronosa";
 const string    CH1_RatfordMap          =   "Mapa dla Ratforda";
 const string	CH1_MordragKO			=	"Zadanie od Thorusa";
 const string	CH1_JoinOC			    =	"Przyjêcie do Starego Obozu";
@@ -48,6 +49,7 @@ const string	CH1_SnafsRecipe			=	"Przepis Snafa";
 const string	CH1_LostNek 			=	"Zaginiony Stra¿nik";
 const string	CH1_FiskNewDealer		=	"Nowy paser dla Fiska";
 const string	CH1_KalomsRecipe		=	"Receptura Bractwa";
+const string    CH1_BuyMySword          =   "Zdobiony Miecz";
 const string	CH1_BringList     		=	"Test zaufania";
 const string	CH1_GoToPsi     		=	"Co siê dzieje na bagnach";
 //Aufnahme Neues Lager

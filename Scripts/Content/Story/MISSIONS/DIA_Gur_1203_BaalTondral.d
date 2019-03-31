@@ -114,8 +114,6 @@ FUNC VOID DIA_BaalTondral_YouTalked_Info()
 // **************************************************
 // 				Loyalität beweisen
 // **************************************************
-	var int BaalTondral_GetNewGuy;
-// **************************************************
 
 INSTANCE DIA_BaalTondral_Loyality (C_INFO)
 {

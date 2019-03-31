@@ -703,8 +703,6 @@ func void Info_Diego_Teach_DEX_5()
 // 							BRING LIST
 // ************************************************************
 
-VAR INT Diego_BringList; //MISSIONSVARIABLE
-
 // ----------------------------- OFFER -------------------------------------
 
 INSTANCE Info_Diego_BringList_Offer (C_INFO)
@@ -1454,12 +1452,7 @@ func void Info_Diego_OCWARN_Info()
 		AI_Output		(hero,self,"Info_Diego_OCWARN_15_07"); //O czym?
 		AI_Output		(self,hero,"Info_Diego_OCWARN_11_08"); //O zawaleniu siê Starej Kopalni, zamordowaniu Magów Ognia i planach ataku na Woln¹ Kopalniê.
 		AI_Output		(hero,self,"Info_Diego_OCWARN_15_09"); //CO?! O czym ty mówisz?!
-		if(FIREMAGESBRIEF == LOG_RUNNING)
-		{
-			B_LogEntry(CH1_FIREMAGESBRIEF,"Wszyscy magowie ognia nie ¿yj¹. Wygl¹da na to ¿e nie uda mi siê ju¿ dostarczyæ tego listu.");
-			Log_SetTopicStatus(CH1_FIREMAGESBRIEF,LOG_FAILED);
-			FIREMAGESBRIEF = LOG_FAILED;
-		};
+		B_Story_LogFailedAfterOMDown();
 	};
 };
 

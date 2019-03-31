@@ -191,7 +191,11 @@ FUNC VOID  KDW_604_Cronos_Bandit_Info()
 	
 	CreateInvItem (other,KdW_Amulett);
 	CreateInvItem (other,Cronos_Brief);
+
+	Log_CreateTopic(CH1_CRONOSBRIEF,LOG_MISSION);
+	Log_SetTopicStatus(CH1_CRONOSBRIEF,LOG_RUNNING);
 	Cronos_Messenger = LOG_RUNNING;
+	B_LogEntry(CH1_CRONOSBRIEF,"Z rozkazu Cronosa, stra¿nika rudy mam dostarczyæ wiadomoœæ do Magów Ognia w Starym Obozie. Ludzie Gomeza wpuszcz¹ mnie do zamku, gdy tylko zobacz¹ specjalny znak kurierski.");
 
 	if(FireMagesBrief == LOG_RUNNING)
 	{
@@ -230,6 +234,8 @@ FUNC VOID  KDW_604_Cronos_BriefBack_Info()
 	B_GiveInvItems (self, other, itminugget, 200);
 	
 	B_GiveXP(XP_CronosLetter);
+	B_LogEntry(CH1_CRONOSBRIEF,"Cronos zap³aci³ mi 200 bry³ek rudy. NieŸle bior¹c pod uwagê ¿e mia³em w³asne powody aby odwiedziæ zamek w Starym Obozie.");
+	Log_SetTopicStatus(CH1_CRONOSBRIEF,LOG_SUCCESS);
 };
 
 ///////////////////////////////////////////////////

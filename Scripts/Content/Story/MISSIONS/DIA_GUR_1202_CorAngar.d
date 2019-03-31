@@ -353,6 +353,20 @@ func void GUR_1202_CorAngar_SENDS_KNOW()
 
 	CreateInvItem		(self, Schutzring_Geschosse1);
 	B_GiveInvItems      (self, hero, Schutzring_Geschosse1, 1);
+
+	if(BaalOrun_FetchWeed == LOG_RUNNING)
+	{
+		B_LogEntry(CH1_DeliverWeed,"Myœlê ¿e w Bractwie s¹ inni ludzie którzy mog¹ nosiæ dostawy ziela. Teraz czeka mnie znacznie powa¿niejsze zadanie.");
+		Log_SetTopicStatus(CH1_DeliverWeed,LOG_FAILED);
+		BaalOrun_FetchWeed = LOG_FAILED;
+	};
+	if(BaalTondral_GetNewGuy == LOG_RUNNING)
+	{
+		B_LogEntry(CH1_RecruitDusty,"Ceremonia przywo³onia Œni¹cego nie zakoñczy³a siê zgodnie z oczekiwaniami Guru. Wydaje mi siê, ¿e Bractwu nie zale¿y ju¿ na nowych cz³onkach.");
+		Log_SetTopicStatus(CH1_RecruitDusty,LOG_FAILED);
+		BaalTondral_GetNewGuy = LOG_FAILED;
+	};
+
 	Info_ClearChoices	(GUR_1202_CorAngar_SENDS);
 };
 	
@@ -627,6 +641,19 @@ FUNC VOID Info_CorAngar_FindHerb_Success_Info()
 
 	CreateInvItem		(self,			ITKE_PSI_KALOM_01); 
 	B_GiveInvItems		(self,	other,	ITKE_PSI_KALOM_01,	1);
+
+	if(Kalom_Krautbote == LOG_RUNNING)
+	{
+		B_LogEntry(CH1_KrautBote,"Cor Kalom opuœci³ Bractwo. Nie mam jak go poinformowaæ o dostarczeniu bagiennego ziela do Gomeza.");
+		Log_SetTopicStatus(CH1_KrautBote,LOG_FAILED);
+		Kalom_Krautbote = LOG_FAILED;
+	};
+	if(Kalom_DrugMonopol == LOG_RUNNING)
+	{
+		B_LogEntry(CH1_DrugMonopol,"Po odejœciu Cor Kaloma jego zadanie traci wszelakie znaczenie.");
+		Log_SetTopicStatus(CH1_DrugMonopol,LOG_FAILED);
+		Kalom_DrugMonopol = LOG_FAILED;
+	};
 };
  
 // ------------------------------ TELEPORT ----------------------------------

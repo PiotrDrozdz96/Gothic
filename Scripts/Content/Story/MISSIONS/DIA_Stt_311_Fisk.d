@@ -160,8 +160,6 @@ func void Stt_311_Fisk_ForgetSword_Info()
 };
 
 
-var int Fisk_GetNewHehler;
-
 instance Stt_311_Fisk_MordragKO(C_Info)
 {
 	npc = Stt_311_Fisk;

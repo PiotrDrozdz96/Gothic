@@ -49,10 +49,6 @@ func void DIA_Whistler_IAmNew_Info()
 	AI_Output(self,other,"DIA_Whistler_IAmNew_11_04");	//Jeœli chcesz, ¿ebym zarekomendowa³ ciê u Diego, musisz coœ dla mnie zrobiæ.
 };
 
-
-var int Whistler_BuyMySword;
-var int Whistler_BuyMySword_Day;
-
 instance DIA_Whistler_Favour(C_Info)
 {
 	npc = Stt_309_Whistler;
@@ -90,12 +86,9 @@ func void DIA_Whistler_Favour_Ok()
 	AI_Output(other,self,"DIA_Whistler_Favour_Ok_15_00");	//Dobrze. Daj mi 100 bry³ek, a ja siê wszystkim zajmê.
 	AI_Output(self,other,"DIA_Whistler_Favour_Ok_11_01");	//Masz. Tylko nie marudŸ za d³ugo!
 	Whistler_BuyMySword = LOG_RUNNING;
-	if(Npc_GetTrueGuild(hero) == GIL_None)
-	{
-		Log_CreateTopic(CH1_JoinOC,LOG_MISSION);
-		Log_SetTopicStatus(CH1_JoinOC,LOG_RUNNING);
-	};
-	B_LogEntry(CH1_JoinOC,"Œwistak pomo¿e mi, jeœli porozmawiam z Fiskiem i kupiê od niego miecz dla Œwistaka. Da³ mi nawet 100 bry³ek rudy.");
+	Log_CreateTopic(CH1_BuyMySword,LOG_MISSION);
+	Log_SetTopicStatus(CH1_BuyMySword,LOG_RUNNING);
+	B_LogEntry(CH1_BuyMySword,"Œwistak pomo¿e mi, jeœli porozmawiam z Fiskiem i kupiê od niego miecz dla Œwistaka. Da³ mi nawet 100 bry³ek rudy.");
 	fisk = Hlp_GetNpc(Stt_311_Fisk);
 	CreateInvItems(self,ItMiNugget,100);
 	B_GiveInvItems(self,hero,ItMiNugget,100);
@@ -143,6 +136,7 @@ func void DIA_Whistler_Running110_Info()
 	AI_Output(self,other,"DIA_Whistler_Running110_11_01");	//I pewnie mam ci teraz daæ dodatkowe 10 bry³ek...
 	AI_Output(other,self,"DIA_Whistler_Running110_15_02");	//Myœla³em, ¿e zale¿y ci na tym mieczu.
 	AI_Output(self,other,"DIA_Whistler_Running110_11_03");	//Masz. Tylko siê pospiesz!
+	B_LogEntry(CH1_BUYMYSWORD,"Fisk za¿¹da³ 110 bry³ek rudy. Œwistak da³ mi dodatkowe 10 bry³ek i poprosi³ mnie, abym siê poœpieszy³.");
 	CreateInvItems(self,ItMiNugget,10);
 	B_GiveInvItems(self,hero,ItMiNugget,10);
 };
@@ -175,7 +169,8 @@ func void DIA_Whistler_RunningPayBack_Info()
 		AI_Output(self,other,"DIA_Whistler_RunningPayBack_11_01");	//Ty idioto! Nie potrzebujemy tu takich jak ty! ZejdŸ mi z oczu!
 		B_GiveInvItems(hero,self,ItMiNugget,110);
 		Whistler_BuyMySword = LOG_OBSOLETE;
-		B_LogEntry(CH1_JoinOC,"Zawali³em sprawê. Œwistak nigdy ju¿ nie dostanie tego miecza.");
+		B_LogEntry(CH1_BuyMySword,"Zawali³em sprawê. Œwistak nigdy ju¿ nie dostanie tego miecza.");
+		Log_SetTopicStatus(CH1_BUYMYSWORD,LOG_FAILED);
 		AI_StopProcessInfos(self);
 	}
 	else if((Npc_HasItems(other,ItMiNugget) >= 100) && !Npc_KnowsInfo(other,DIA_Whistler_Running110))
@@ -183,7 +178,8 @@ func void DIA_Whistler_RunningPayBack_Info()
 		AI_Output(self,other,"DIA_Whistler_RunningPayBack_11_01");	//Ty idioto! Nie potrzebujemy tu takich jak ty! ZejdŸ mi z oczu!
 		B_GiveInvItems(hero,self,ItMiNugget,100);
 		Whistler_BuyMySword = LOG_OBSOLETE;
-		B_LogEntry(CH1_JoinOC,"Zawali³em sprawê. Œwistak nigdy ju¿ nie dostanie tego miecza.");
+		B_LogEntry(CH1_BuyMySword,"Zawali³em sprawê. Œwistak nigdy ju¿ nie dostanie tego miecza.");
+		Log_SetTopicStatus(CH1_BUYMYSWORD,LOG_FAILED);
 		AI_StopProcessInfos(self);
 	}
 	else
@@ -217,7 +213,8 @@ func void DIA_Whistler_MySword_TooLate_Info()
 {
 	AI_Output(self,other,"DIA_Whistler_MySword_TooLate_11_00");	//Tu jesteœ! Próbowa³eœ zwiaæ z moj¹ rud¹, co? ChodŸ no tu, ch³opcze!
 	Whistler_BuyMySword = LOG_FAILED;
-	B_LogEntry(CH1_JoinOC,"Zawali³em sprawê. Œwistak nie chce mnie widzieæ na oczy.");
+	B_LogEntry(CH1_BuyMySword,"Zawali³em sprawê. Œwistak nie chce mnie widzieæ na oczy.");
+	Log_SetTopicStatus(CH1_BUYMYSWORD,LOG_FAILED);
 	AI_StopProcessInfos(self);
 	Npc_SetPermAttitude(self,ATT_ANGRY);
 	Npc_SetTarget(self,other);
@@ -258,6 +255,8 @@ func void DIA_Whistler_MySword_Success_Info()
 	{
 		B_LogEntry(CH1_JoinOC,"Œwistak ucieszy³ siê, gdy wrêczy³em mu jego miecz. Szkoda tylko, ¿e nie mogê ju¿ zostaæ Cieniem.");
 	};
+	B_LogEntry(CH1_BuyMySword,"Œwistak ucieszy³ siê, gdy wrêczy³em mu jego miecz.");
+	Log_SetTopicStatus(CH1_BUYMYSWORD,LOG_SUCCESS);
 	Whistler_BuyMySword = LOG_SUCCESS;
 	B_GiveXP(XP_Whistlerssword);
 	AI_StopProcessInfos(self);

@@ -49,7 +49,6 @@ func void DIA_Snaf_Hello_Info()
 };
 
 
-var int Snaf_Zutaten;
 var int Snaf_FreeMBRagout;
 
 instance DIA_Snaf_Zutaten(C_Info)
@@ -254,7 +253,7 @@ instance DIA_Snaf_WhereNek(C_Info)
 
 func int DIA_Snaf_WhereNek_Condition()
 {
-	if((Snaf_Zutaten == LOG_RUNNING) || (Snaf_Zutaten == LOG_SUCCESS))
+	if((Snaf_Zutaten == LOG_RUNNING) || (Snaf_Zutaten == LOG_SUCCESS)) && (Sly_LostNek == LOG_RUNNING)
 	{
 		return 1;
 	};
@@ -265,11 +264,6 @@ func void DIA_Snaf_WhereNek_Info()
 	AI_Output(other,self,"DIA_Snaf_WhereNek_15_00");	//Kim by³ cz³owiek, którego wys³a³eœ na poszukiwania przede mn¹?
 	AI_Output(self,other,"DIA_Snaf_WhereNek_01_01");	//Nazywa³ siê Nek. Chyba nie czu³ siê tu zbyt dobrze. Podejrzewam, ¿e uciek³ do Nowego Obozu.
 	AI_Output(self,other,"DIA_Snaf_WhereNek_01_02");	//Wys³a³em go po grzyby, ale nigdy nie wróci³...
-	if((Sly_LostNek != LOG_SUCCESS) && (Npc_GetTrueGuild(hero) == GIL_None))
-	{
-		Log_CreateTopic(CH1_LostNek,LOG_MISSION);
-		Log_SetTopicStatus(CH1_LostNek,LOG_RUNNING);
-	};
 	B_LogEntry(CH1_LostNek,"Snaf wys³a³ Neka na poszukiwanie grzybów.");
 };
 

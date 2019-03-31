@@ -334,6 +334,7 @@ func VOID DIA_Milten_NochEinBrief_Info()
 	
 	Cronos_Messenger = LOG_SUCCESS;
 	B_GiveInvItems (other,self,Cronos_Brief,1);
+	B_LogEntry(CH1_CRONOSBRIEF,"Dostarczy³em wiadomoœæ od Cronosa Miltenowi jednemu z magów ognia. Bêdê musia³ skontaktowaæ siê jeszcze z Cronosem w celu odebrania nagrody.");
 };
 
 //*********************************************
@@ -1144,12 +1145,7 @@ func void Info_Milten_OCWARN_Info()
 		AI_Output		(hero,self,"Info_Milten_OCWARN_15_11"); //Zawalenia Starej Kopalni?!?
 		AI_Output		(self,hero,"Info_Milten_OCWARN_02_12"); //Tak. To dzia³o siê tak szybko. Nikt nie zdo³a³ siê wydostaæ.
 		AI_Output		(self,hero,"Info_Milten_OCWARN_02_13"); //Stra¿nicy zablokowali wejœcie do kopalni.
-		if(FIREMAGESBRIEF == LOG_RUNNING)
-		{
-			B_LogEntry(CH1_FIREMAGESBRIEF,"Wszyscy magowie ognia nie ¿yj¹. Wygl¹da na to ¿e nie uda mi siê ju¿ dostarczyæ tego listu.");
-			Log_SetTopicStatus(CH1_FIREMAGESBRIEF,LOG_FAILED);
-			FIREMAGESBRIEF = LOG_FAILED;
-		};
+		B_Story_LogFailedAfterOMDown();
 	};
 };
 

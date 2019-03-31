@@ -170,8 +170,6 @@ FUNC VOID  Org_818_Ratford_MoreLocations_Info()
 // **************************************************
 //					Wo Karte?
 // **************************************************
-var int LOG_RatfordMap;
-// **************************************************
 
 instance Org_818_Ratford_WoKarte (C_INFO)
 {
@@ -209,7 +207,7 @@ func void Org_818_Ratford_WoKarte_Stehlen()
 
 	Log_CreateTopic		(CH1_RatfordMap,		LOG_MISSION);
 	Log_SetTopicStatus	(CH1_RatfordMap,		LOG_RUNNING);
-	LOG_RatfordMap 		= LOG_RUNNING;
+	Ratford_Map 		= LOG_RUNNING;
 	B_LogEntry			(CH1_RatfordMap,"Ratford myœliwy znajduj¹cy siê pomiêdzy Starym Obozem, a placem wymian podzieli³ siê ze mn¹ informacj¹ ¿e w Starym Obozie mieszka pewien kartograf. Zasugerowa³ ¿e mo¿na by gwizdn¹æ mu parê map. Poprosi³ by podrzuciæ mu jedn¹ jeœli uda mi siê je zdobyæ.");
 	
 	Info_ClearChoices(Org_818_Ratford_WoKarte);
@@ -265,7 +263,7 @@ instance  Org_818_Ratford_WoKarte_Get (C_INFO)
 
 FUNC int  Org_818_Ratford_WoKarte_Get_Condition()
 {
-	if (LOG_RatfordMap == LOG_RUNNING)
+	if (Ratford_Map == LOG_RUNNING)
 	&& (Npc_HasItems(hero, ItWrWorldmap))
 	{
 		return 1;
@@ -284,7 +282,7 @@ FUNC VOID  Org_818_Ratford_WoKarte_Get_Info()
 	B_GiveXP (XP_Ratford_Map);
 	B_LogEntry			(CH1_RatfordMap,	"Ratford bardzo siê ucieszy³ z otrzymanej mapy. Powiedzia³ ¿e powinienem rozwa¿yæ do³¹czenie do Nowego Obozu. Jeœli tam trafiê mam pytaæ o Laresa.");
 	Log_SetTopicStatus	(CH1_RatfordMap,	LOG_SUCCESS);
-	LOG_RatfordMap = LOG_SUCCESS;
+	Ratford_Map = LOG_SUCCESS;
 };
 
 

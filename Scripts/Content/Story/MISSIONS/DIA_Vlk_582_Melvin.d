@@ -45,10 +45,15 @@ FUNC VOID DIA_Melvin_Hello_Info()
 {
 	AI_Output (other, self,"DIA_Melvin_Hello_15_00"); //Czeœæ! Nie jesteœ z tego obozu, prawda?
 	AI_Output (self, other,"DIA_Melvin_Hello_03_01"); //Có¿, teraz ju¿ jestem! Tydzieñ temu wyruszy³em ze Starego Obozu. Mój kumpel, Dusty, mia³ iœæ ze mn¹, ale postanowi³ jeszcze trochê poczekaæ.
-
-	Log_CreateTopic		(CH1_RecruitDusty,	LOG_MISSION);
-	Log_SetTopicStatus	(CH1_RecruitDusty,	LOG_RUNNING);
-	B_LogEntry			(CH1_RecruitDusty,	"Kopacz Melvin do³¹czy³ do Bractwa. Jego kumpel, Dusty, zosta³ w Starym Obozie, ale on te¿ zastanawia siê nad przejœciem do obozu na bagnie.");
+	if(((Npc_GetTrueGuild(hero) == GIL_None) && (Kapitel < 2)) || (C_NpcBelongsToPsiCamp(hero) && (Kapitel < 3)))
+	{
+		if(!BaalTondral_GetNewGuy)
+		{
+			Log_CreateTopic		(CH1_RecruitDusty,	LOG_MISSION);
+			Log_SetTopicStatus	(CH1_RecruitDusty,	LOG_RUNNING);
+		};
+		B_LogEntry			(CH1_RecruitDusty,	"Kopacz Melvin do³¹czy³ do Bractwa. Jego kumpel, Dusty, zosta³ w Starym Obozie, ale on te¿ zastanawia siê nad przejœciem do obozu na bagnie.");
+	};
 };
 
 // **************************************************

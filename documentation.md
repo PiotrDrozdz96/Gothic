@@ -21,6 +21,8 @@
 |   +--|-- B_BuyAtrributePoints
 |   |   // Uwzględnie tarcz przy nauce siły
 |   |   // Zwiększenie max many do 200
+|   +--|-- B_CheckDeadMissionNPCs
+|   |   // sprawdzanie czy zabitą postacią jest Harlok, jeśli tak niezaliczenie misji z zastępstwem dla Ghorima
 |   +--|-- B_Evolve
 |   |   // Funkcje obsługujące rozwój postaci niezależnych
 |   +--|-- B_Give(Darrion/Fisk/Scorpio/Sharky/Skip/Wolf)ChapterWeapons
@@ -41,6 +43,7 @@
 |   |   // Nowa funkcja potrzebda do rosyjskiego fix moda
 |   +--|-- B_Kapitelwechsel
 |   |   // Dodanie funkcji B_Evolve_* i B_Story_OMFull w odpowiednich rozdziałach
+|   |   // Kapitel 2 - Nie zaliczenie misji z pozbyciem się Mordraga jeśli jesteśmy cieniem(nie zaliczenie odbywa się również gdy zostajemy członkiem innego obozu)
 |   |   // Kapitel 4 - Nie tracimy gildii Mag Ognia
 |   |   // Kapitel 4 - EBR_105_Raven,GRD_(200/210/233/255),STT_(311/329),VLK_(538,581) - Wywalenie za barierę
 |   |   // Kapitel 4 - Postacie które znajdowały się w starym obozie, ale nie były jego członkami, nie giną ponieważ się wcześniej wyprowadziły
@@ -55,9 +58,12 @@
 |   |   // Strażnicy Hanis, GorNaRan, GorNaDrak idą razem z Cor Kalomem
 |   |   // Parvez, Taran wracają do obozu sekty
 |   |   // Krzykacz wyprowadza się z chaty, ponieważ wprowadza się tam Kharim
+|   |   // Niezaliczenie misji z zastępstwem dla Ghorima
 |   +--|-- B_Story_OMFull
 |   |   // Mordrag i Grim wracają na swoje miejsca
 |   |   // Odpalenie rutyn OMFull strażnikom którzy je posiadali
+|   +--|-- B_Story_LogFailedAfterOMDown
+|   |   // Funkcja przenosząca zadania których nie da się wykonać do niezaliczonych po zawaleniu starej kopalnii i śmierci magów ognia
 |   +--|-- B_Story_AccesToXardas
 |   |   // Otrzymanie runy teleportacyjnej na parter Wieży Xardasa
 |   +--|-- B_TeachPlayerTelentRunes
@@ -71,6 +77,7 @@
 |   |   // Horacy nie zabiera już siły, jeśli gracz ma jej więcej niż 100 -- by marev
 |   +--|-- DIA_EBR_100_Gomez
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu cieniem
+|   |   // Po zostaniu cieniem nie możemy już wykonać niektórych questów
 |   +--|-- DIA_EBR_105_Raven
 |   |   // Przerobienie dialogów z informowaniem o bractwie
 |   |   // Po queście z informowaniem o bractwie dostajemy 1pkt. reputacji u straży, potrzebnej przy kupowaniu lepszej zbroi
@@ -83,6 +90,7 @@
 |   |   // Nauka broni 2H po zabiciu Mordraga
 |   |   // Po queście z mordragiem dostajemy 1 lub 2 pkt. reputacji u straży, potrzebnej przy kupowaniu lepszej zbroi
 |   |   // Nowy Quest związany z przyprowadzniem trzech kopaczy, za który możemy otrzymać 1 pkt. reputacji u straży
+|   |   // Przeniesienie zmiennej Thorus_MordragKo do Story_Globals
 |   +--|-- DIA_GRD_(201_Jackal/233_Bloodwyn) -- by marev
 |   |   // nie domaga się rudy, jeśli gracz został przyjęty do jakiegoś obozu
 |   |   // Poprawnie zbierają opłaty
@@ -109,13 +117,17 @@
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu nowicjuszem
 |   |   // Poprawny wpis do dziennika w zadaniu "Co się dzieje na bagnach?" -- by marev
 |   |   // Dodano wpis do dziennika w zadaniu "List z zewnętrznego świata"
+|   |   // Po zostaniu nowicjueszem nie możemy już wykonać niektórych questów
 |   +--|-- DIA_GUR_1202_CorAngar
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Uwzględnie guru w nauce walki broni 2H
 |   |   // Zdobycie szaty arcyguru
 |   |   // z Cor Angarem można rozmawiać o zostaniu Strażnikiem Świątynnym tylko po zostaniu Nowicjuszem -- by marev
+|   |   // Po wysłaniu na cmentarz orków część questów przechodzi do zakładki niezaliczone
+|   |   // Po odejściu Cor Kaloma questy które nam zlecał przechodzą w niezaliczone
 |   +--|-- DIA_GUR_1203_BaalTondral
 |   |   // Można przyprowadzić wrzoda zamiast dustego
+|   |   // Przeniesienie zmiennej BaalTondral_GetNewGuy do Story_Globals
 |   +--|-- DIA_GUR_1204_BaalNamib
 |   |   // Baal Namib poprawnie sprzedaje Szatę Nowicjusza -- by marev
 |   +--|-- DIA_GUR_1208_BaalCadar
@@ -157,6 +169,7 @@
 |   |   // Cronos nie wysyła już gracza z listem do Magów Ognia, jeśli oni zostali już zabici -- by marev
 |   |   // rozmowa z Cronosem o dołączeniu do obozu i zostaniu Magiem Wody jest dostępna tylko, jeśli gracz nie należy do żadnego obozu -- by marev 
 |   |   // Dodano wpis w dzienniku do zadania "List z zewnętrznego świata"
+|   |   // Zadanie z dostarczeniem listu Cronosa do magów ognia tworzy wpisy w dzienniku
 |   +--|-- DIA_Nov_1304_Balor -- by marev
 |   |   // gracz może poprawnie odebrać bagienne ziele od Balora po raz drugi
 |   +--|-- DIA_Nov_1331_BaalTaran
@@ -168,7 +181,7 @@
 |   |   // Gdy nie zadajemy mu obrażeń i chcemy uciekać załącza nam się czasowy bieg
 |   +--|-- DIA_ORG_801_Lares
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu szkodnikiem
-|   |   // Nie przenosi wszystkich zadań do niezaliczonych po zostaniu szkodnikiem -- by marev
+|   |   // Po zostaniu szkodnikiem, część zadań przechodzi do zakładki niezaliczone, wraz z wyjaśnieniami w postaci wpisu do dziennika
 |   +--|-- DIA_ORG_818_Ratford
 |   |   // Zadanie ze zdobyciem mapy
 |   +--|-- DIA_ORG_819_Drax
@@ -176,7 +189,7 @@
 |   |   // Zmiana kosztów zdobywania trofeów z 1pn na 5pn
 |   +--|-- DIA_ORG_826_Mordrag 
 |   |   // Nie zaprowadzi nas do obozu jeśli go pobiliśmy -- by marev
-|   |   // Dodanie dialogu, gdy mordrag znajduje się w obozie sekty
+|   |   // Dodanie dialogu, gdy mordrag znajduje się w obozie sekty(jeśli szpiegujemy sekte z rozkazu Kruka dostaniemy wpis w dzienniku)
 |   |   // Dodano wpis w dzienniku do zadania "List z zewnętrznego świata"
 |   +--|-- DIA_ORG_833_Buster
 |   |   // Uczy akrobatyki tylko raz
@@ -186,6 +199,8 @@
 |   |   // Naprawa handlu, był jednorazowy
 |   +--|-- DIA_ORG_842_Shrike
 |   |   // Poprawiony quest "Chata Krzykacza"
+|   +--|-- DIA_ORG_843_Sharky
+|   |   // Dodaje wpis w dzienniku, gdy szukamy nowego pasera dla Fiska
 |   +--|-- DIA_ORG_855_Wolf
 |   |   // Zmiany w sprzedawanych pancerzach
 |   |   // Przebudowa nauki walki na 11 etapów
@@ -197,15 +212,20 @@
 |   +--|-- DIA_ORG_873_Cipher
 |   |   // Usprawniono system sprzedaży ziela
 |   |   // Dodanie nowego zadania "Cipher - Najlepszy Diler"
+|   |   // Dodaje wpis w dzienniku, gdy szukamy nowego pasera dla Fiska
 |   +--|-- DIA_PC_Fighter
 |   |   // Nauka walki bronią 2H po zostaniu szkodnikiem w systemie 11 etapowym
 |   |   // Żeby zapytać Gorna o wolną chatę, musimy być przed 3 rozdziałem
 |   +--|-- DIA_PC_Mage
 |   |   // zmiany w dialogu o zostaniu magiem ognia
 |   |   // Dodano wpisy w dzienniku do zadania "List z zewnętrznego świata"
+|   |   // Dodaje wpis w dzienniku do zadania "List Cronosa"
+|   |   // Odpala funkcje B_Story_LogFailedAfterOMDown gdy informuje nas o śmierci magów ognia i zawaleniu starej kopalni
 |   +--|-- DIA_PC_Thief
 |   |   // Odsprzedawanie starych monet
-|   |   // Otwiera zadanie "List z zewnętrznego świata", oraz może je zakończyć niepowodzeniem informując nas o śmierci magów ognia
+|   |   // Otwiera zadanie "List z zewnętrznego świata"
+|   |   // Przeniesienie zmiennej Diego_BringList do Story_Globals
+|   |   // Odpala funkcje B_Story_LogFailedAfterOMDown gdy informuje nas o śmierci magów ognia i zawaleniu starej kopalni
 |   +--|-- DIA_Sfb_1037_Swiney
 |   |   // Swiney nie oddaje już swojego stroju po rozmowie z graczem -- by marev
 |   +--|-- DIA_SLD_700_Lee
@@ -219,11 +239,16 @@
 |   |   // Nauka walki tarczą
 |   +--|-- DIA_STT_309_Whistler -- by marev
 |   |   // Świstak odzyskuje 110 bryłek jeśli gracz poprosił o dadatkowe 10 bryłek
+|   |   // Zadanie świstaka zapisuje się w osobnym zadaniu w dzienniku, a nie w "dołączeniu do starego obozu"
 |   +--|-- DIA_STT_311_Fisk -- by marev
 |   |   // Zadanie "Nowy paser dla Fiska" jest aktywowane niezależnie od sposobu pozbycia się Mordraga
 |   |   // Fisk nie sprzedaje spodni kopacza, jeśli je posiadamy
+|   |   // Przeniesienie zmiennej Fisk_GetNewHehler do Story_Globals
+|   +--|-- DIA_STT_315_Sly
+|   |   // Przeniesiennie zmiennej Sly_LostNek do Story_Globals
 |   +--|-- DIA_STT_329_Dexter
 |   |   // Dexter poprawnie daje nagrodę za wykonanie zadania -- by marev
+|   |   // Przeniesienie zmiennej Dexter_GetKalomsRecipe do Story_Globals
 |   +--|-- DIA_STT_331_Fingers
 |   |   // można prosić o nauke poziomu 2, dopiero gdy poznamy poziom 1
 |   |   // rozmowa o Cavalornie i Diego nie daję w nieskończoność wpisu do dziennika
@@ -260,9 +285,12 @@
 |   |   // Poprawnie daje informacje do dziennika
 |   +--|-- DIA_VLK_580_Grim
 |   |   // Grima nie można już pytać o zostanie członkiem Obozu po dołączeniu do jakiegoś -- by marev
-|   |   // Dodanie dialogu, gdy grim znajduje się w obozie sekty
-|   +--|-- DIA_VLK_581_Snaf -- by marev
-|   |   // Snaf może zostać zapytany o Neka również po zakończeniu zadania "Przepis Snafa"
+|   |   // Dodanie dialogu, gdy grim znajduje się w obozie sekty(jeśli szpiegujemy sekte z rozkazu Laresa/Mordraga dostaniemy wpis w dzienniku)
+|   +--|-- DIA_VLK_581_Snaf
+|   |   // Przeniesienie zmiennej Snaf_Zutaten do Story_Globals
+|   |   // Snafa możemy zapytać o Neka wyłącznie jeśli mamy aktywny quest z jego poszukiwaniem
+|   +--|-- DIA_VLK_582_Melvin
+|   |   // Zmiany w warunkach otrzymania wpisu do dziennika przy rozmowie "hello"
 |/*******************************************DIALOGS END*****************************************************
 +--Events
 |   //Sleepabit.d - Dopasowanie do systemu PLAYER_MOBSI_PRODUCTION
@@ -281,7 +309,9 @@
 |   +--| Log_Constans
 |   |   // Dodanie stałej GE_TelentRunes do nauki tworzenia run
 |   |   // CH1_FireMagesBrief - Quest z dostarczeniem listu z zewnętrznego świata
+|   |   // CH1_CronosBrief - Quest z dostarczeniem listu Cronosa do magów ognia
 |   |   // CH1_RatfordMap - Quest z mapą dla Ratforda
+|   |   // CH_BuyMySword - Quest ze zdobyciem zdobionego miecza dla świstaka
 |   |   // CH2_KDF_Rune - Quest z pierwszą runą u magów ognia
 |   |   // CH2_Buddler - Quest dla strażnika ze znalezieniem kopaczy do kopalni
 |   |   // CH3_CipherBussines - Quest z wytwótrnią ziela dla Ciphera
@@ -306,7 +336,8 @@
 |   |   // Zmienna Player_SentBuddler licząca ilu wysłaliśmy kopaczy do pracy w kopalni
 |   |   // Zmienna CipherJoints licząca ile razy dostarczyliśmy dostawę ziela, potrzebne do ewolucji Ciphera
 |   |   // Zmienna FireMagesBrief do zadania "List z zewnętrznego świata"
-|   |   // Przeniesienie zmiennej Gorn_ShrikesHut z DIA_PC_Fighter, ponieważ jest potrzebna również w B_Story_GotoOrcGraveyard
+|   |   // Zmienna RatfordMap do zadania "Mapa dla Ratforda"
+|   |   // Przeniesienie zmiennych zadaniowych z poszczególnych dialogów do Story_Globals
 |   |   // Dodanie zmiennych potrzebynch do rosyjskiego fix moda
 |   +--| svm
 |   |   // dodanie svm CantReadThis związanej z kartkami uczącymi
@@ -384,7 +415,6 @@
 |   |   // SummonsSkeleton przywołuje tylko jednego szkieleta
 |   |   // Nowe zaklęcia przywołań (SummonGobbo, SummonWolf)
 |   +--| spell_pyrokinesis | spell_chainlightning
-|   |   // Postać zabita czarem pirokineza rozpada się jak szkielet
 |   |   // zmienione działanie czarów pirokineza i grom
 |/*******************************************MAGIC END*******************************************************
 +-- Monster

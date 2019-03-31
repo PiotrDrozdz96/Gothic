@@ -113,8 +113,6 @@ FUNC VOID DIA_Dexter_Trade_Info()
 // **************************************************
 // 					JOIN OC
 // **************************************************
-	var int Dexter_GetKalomsRecipe;
-// **************************************************
 
 INSTANCE DIA_Dexter_JoinOC (C_INFO)
 {

@@ -255,6 +255,33 @@ FUNC VOID DIA_Gomez_Dabei_Info()
 	Log_CreateTopic		(CH1_JoinPsi,	LOG_MISSION);
 	Log_SetTopicStatus	(CH1_JoinPsi,	LOG_FAILED);
 	B_LogEntry			(CH1_JoinPsi,	"Stary Obóz bêdzie od dziœ moim domem. Bractwo Œni¹cego bêdzie musia³o obejœæ siê jakoœ beze mnie.");
+
+	if(Ratford_Map == LOG_RUNNING)
+	{
+		B_LogEntry(CH1_RatfordMap,"Jestem teraz cz³onkiem Starego Obozu. Nie bêdê pomaga³ tym szkodnikom z Nowego Obozu.");
+		Log_SetTopicStatus(CH1_RatfordMap,LOG_FAILED);
+	};
+	if(Whistler_BuyMySword == LOG_RUNNING)
+	{
+		B_LogEntry(CH1_BuyMySword,"Zwia³em z rud¹ Œwistaka. Po tym incydencie lepiej bêdzie nie pokazywaæ mu siê na oczy.");
+		Log_SetTopicStatus(CH1_BUYMYSWORD,LOG_FAILED);
+	};
+	if(BaalOrun_FetchWeed == LOG_RUNNING)
+	{
+		B_LogEntry(CH1_DeliverWeed,"Jestem teraz cieniem i nie chce siê ju¿ zajmowaæ sprawami dla tych œwirów. Pewnie i tak ju¿ znaleŸli sobie osobê do dostarczenia ziela.");
+		Log_SetTopicStatus(CH1_DeliverWeed,LOG_FAILED);
+		BaalOrun_FetchWeed = LOG_FAILED;
+		if(Npc_KnowsInfo(hero, DIA_Balor_SellUnder) && Npc_HasItems(hero, ItMi_Plants_Swampherb_01) >= 50)
+		{
+			B_LogEntry(CH1_DeliverWeed,"Tylko co teraz zrobiæ z tym zielem? Mo¿e warto by³oby siê jednak zainteresowaæ, o jakim sprzedawcy mówi³ nowicjusz Balor.");
+		};
+	};
+	if(BaalTondral_GetNewGuy == LOG_RUNNING)
+	{
+		B_LogEntry(CH1_RecruitDusty,"Sekciarze niech sami szukaj¹ naiwniaków gotowych do pracy na bagnach. Muszê teraz chroniæ interesy Starego Obozu.");
+		Log_SetTopicStatus(CH1_RecruitDusty,LOG_FAILED);
+		BaalTondral_GetNewGuy = LOG_FAILED;
+	};
 	
 	AI_StopProcessInfos	(self);
 };

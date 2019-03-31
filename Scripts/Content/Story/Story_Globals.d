@@ -39,10 +39,22 @@ var int Bloodwyn_PayDay;
 var int Herek_ProtectionBully;
 var int Grim_ProtectionBully;
 var int Jesse_PayForMe;
+
 var int GRD_Reputation;
 var int CipherJoints;
-var int Gorn_ShrikesHut;
+
+/*Log variable */
 var int FireMagesBrief;
+var int Ratford_Map;
+var int Thorus_MordragKo;
+var int Snaf_Zutaten;
+var int Fisk_GetNewHehler;
+var int Sly_LostNek;
+var int Dexter_GetKalomsRecipe;
+var int Whistler_BuyMySword;
+var int Whistler_BuyMySword_Day;
+var int Diego_BringList;
+var int Gorn_ShrikesHut;
 
 /*Russian fix-mod variable*/
 var int crimelevel_orccity;
@@ -87,7 +99,8 @@ var int Joru_Tips_Mage;
 var int BaalNamib_Ansprechbar;
 var int BaalNamib_Sakrileg;
 var int BaalOrun_FetchWeed;
-var INT Kalom_DrugMonopol;
+var int BaalTondral_GetNewGuy;
+var int Kalom_DrugMonopol;
 var int Stooges_Fled;
 var int idiots_deal;
 

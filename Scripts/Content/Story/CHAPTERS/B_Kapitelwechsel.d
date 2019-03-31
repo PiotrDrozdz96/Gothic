@@ -49,6 +49,15 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 		B_Evolve_SekteSpy();
 		B_Evolve_Cipher();
 
+		//------------ Mission Failed -------------
+		if(Thorus_MordragKo == LOG_RUNNING)
+		&&(Npc_GetTrueGuild(hero) == GIL_STT)
+		{
+			B_LogEntry(CH1_MordragKO,"Mordrag wyniós³ siê ju¿ ze Starego Obozu, ale nie jest to moja zas³uga.");
+			Log_SetTopicStatus(CH1_MordragKO,LOG_FAILED);
+			Thorus_MordragKo = LOG_FAILED;
+		};
+
 		introducechapter ("Rozdzia³ 2","Gniazdo pe³zaczy","chapter2.tga","levelup.wav", 6000);
 		//introducechapter ("Chapter 2","The Minecrawler's nest","chapter2.tga","levelup.wav", 6000);
 	}

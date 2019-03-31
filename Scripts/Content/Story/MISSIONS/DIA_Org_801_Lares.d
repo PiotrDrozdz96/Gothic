@@ -446,11 +446,62 @@ FUNC VOID  ORG_801_Lares_Reicht_Info()
 		Log_SetTopicStatus	(CH1_JoinPsi,	LOG_FAILED);
 		B_LogEntry			(CH1_JoinPsi,	"Bractwo bêdzie musia³o radziæ sobie beze mnie. Od dziœ moim domem jest Nowy Obóz!");
 		
-		// Log_SetTopicStatus	(CH1_LostNek,	LOG_FAILED);
-		// Log_SetTopicStatus	(CH1_FiskNewDealer,	LOG_FAILED);
-		// Log_SetTopicStatus	(CH1_KalomsRecipe,	LOG_FAILED);
-		// Log_SetTopicStatus	(CH1_BringList,	LOG_FAILED);
-		// Log_SetTopicStatus	(CH1_MordragKO,	LOG_FAILED);
+		if(Sly_LostNek == LOG_RUNNING)
+		{
+			B_LogEntry(CH1_LostNek,"Teraz po wst¹pieniu do Nowego Obozu, nie widzê sensu kontynuowaæ poszukiwañ zaginionego stra¿nika.");
+			Log_SetTopicStatus(CH1_LostNek,LOG_FAILED);
+			Sly_LostNek = LOG_FAILED;
+		};
+		if(Whistler_BuyMySword == LOG_RUNNING)
+		{
+			B_LogEntry(CH1_BuyMySword,"Zwia³em z rud¹ Œwistaka. Po tym incydencie lepiej bêdzie nie pokazywaæ mu siê na oczy.");
+			Log_SetTopicStatus(CH1_BUYMYSWORD,LOG_FAILED);
+		};
+		if(Diego_BringList == LOG_RUNNING)
+		{
+			B_LogEntry(CH1_BringList,"Trudno bêdzie mi kontynuowaæ Test zaufania, bêd¹c cz³onkiem nowego obozu. Raczej nikt nie uwierzy w oryginalnoœæ tego listu.");
+			Log_SetTopicStatus(CH1_BringList,LOG_FAILED);
+			Diego_BringList = LOG_FAILED;
+		};
+		if(Thorus_MordragKo == LOG_RUNNING)
+		{
+			var C_NPC Mordrag;
+			Mordrag = Hlp_GetNpc(ORG_826_Mordrag);
+			if(Npc_IsDead(Mordrag))
+			{
+				B_LogEntry(CH1_MordragKO,"¯yczenie Thorusa siê spe³ni³o - Mordrag nie ¿yje. Jednak teraz nale¿ê do gangu Laresa i lepiej ¿eby nikt nie wiedzia³ ¿e mia³em z tym coœ wspólnego.");
+			}
+			else if(MordragKO_HauAb == TRUE)
+			{
+				B_LogEntry(CH1_MordragKO,"Szkoda ¿e tak potraktowa³êm Mordraga. Mam nadziejê ¿e nie bêdzie siê na mnie d³ugo z³oœci³. W ka¿dym b¹dŸ razie Thorus nie dowie siê ju¿ o naszej potyczce.");
+			}
+			else if(MordragKO_StayAtNC == TRUE)
+			{
+				B_LogEntry(CH1_MordragKO,"Mordrag przyprowadzi³ mnie do Nowego Obozu i jestem mu za to bardzo wdziêczny. Jednak teraz gdy jestem cz³owiekiem Laresa nie ma co siê pokazywaæ Thorusowi na oczy.");
+			}
+			else
+			{
+				B_LogEntry(CH1_MordragKO,"Od teraz jestem cz³onkiem Nowego Obozu. Niech Thorus sam rozwi¹¿e swój problem z Mordragiem.");
+			};
+			Log_SetTopicStatus(CH1_MordragKO,LOG_FAILED);
+			Thorus_MordragKo = LOG_FAILED;
+		};
+		if(BaalOrun_FetchWeed == LOG_RUNNING)
+		{
+			B_LogEntry(CH1_DeliverWeed,"Cz³onek gangu Laresa nie bêdzie lata³ z zielskiem dla sekciarzy. W obozie Sekty maj¹ doœæ naiwniaków do za³atwiania takich spraw.");
+			Log_SetTopicStatus(CH1_DeliverWeed,LOG_FAILED);
+			BaalOrun_FetchWeed = LOG_FAILED;
+			if(Npc_KnowsInfo(hero, DIA_Balor_SellUnder) && Npc_HasItems(hero, ItMi_Plants_Swampherb_01) >= 50)
+			{
+				B_LogEntry(CH1_DeliverWeed,"Tylko co teraz zrobiæ z tym zielem? Mo¿e warto by³oby siê jednak zainteresowaæ, o jakim sprzedawcy mówi³ nowicjusz Balor.");
+			};
+		};
+		if(BaalTondral_GetNewGuy == LOG_RUNNING)
+		{
+			B_LogEntry(CH1_RecruitDusty,"Sekciarze niech sami szukaj¹ naiwniaków gotowych do pracy na bagnach. Teraz nale¿ê do Nowego Obozu.");
+			Log_SetTopicStatus(CH1_RecruitDusty,LOG_FAILED);
+			BaalTondral_GetNewGuy = LOG_FAILED;
+		};
 	}
 	else
 	{
@@ -498,7 +549,7 @@ FUNC VOID  ORG_801_Lares_GotoKalom_Info()
 	Log_CreateTopic		(CH1_GotoPsiCamp,	LOG_MISSION);
 	Log_SetTopicStatus	(CH1_GotoPsiCamp,	LOG_RUNNING);
 	B_LogEntry			(CH1_GotoPsiCamp,	"Bractwo Œni¹cego planuje coœ du¿ego. Lares, przywódca Szkodników z Nowego Obozu, chce siê dowiedzieæ, co to jest.");
-
+	
 	if	(Lares_InformMordrag == LOG_RUNNING)
 	{	
 		AI_Output 		(self, other,"ORG_801_Lares_GotoKalom_11_02"); //Jeœli chcesz robiæ coœ po¿ytecznego, pogadaj z Mordragiem i pomó¿ mu w sprawie Sekty.

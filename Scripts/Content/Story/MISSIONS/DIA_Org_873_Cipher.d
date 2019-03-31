@@ -81,6 +81,7 @@ FUNC VOID  Org_873_Cipher_Fisk_Info()
 	AI_Output (other, self,"DIA_Cipher_Fisk_15_00"); //Fisk ze Starego Obozu szuka nowego partnera do interesów.
 	AI_Output (self, other,"DIA_Cipher_Fisk_12_01"); //Nie jestem zainteresowany.
 	AI_Output (self, other,"DIA_Cipher_Fisk_12_02"); //Ale powinieneœ porozmawiaæ z Sharkym. Mo¿e on na to pójdzie.
+	B_LogEntry(CH1_FiskNewDealer,"Cipher, szkodnik z Nowego Obozu poradzi³ mi bym skontaktowa³ siê z kupcem Sharky`m. Byæ mo¿e on by³by zainteresowany wspó³prac¹ z Fiskiem.");
 };
 
 // ******************************

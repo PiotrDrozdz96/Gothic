@@ -461,6 +461,10 @@ FUNC VOID  DIA_Grim_SekteSpy_Info()
 {
 	AI_Output (other, self,"DIA_ARTO_What_15_00"); //Czym siê tutaj zajmujesz?
 	AI_Output (self, other,"DIA_Grim_YourPDV_06_01"); //Tego nie mogê ci powiedzieæ. O takich rzeczach lepiej nie mówiæ g³oœno!
+	if(Mordrag_GotoKalom == LOG_RUNNING)
+	{
+		B_LogEntry(CH1_GotoPsi,"Na placu œwi¹tynnym spotka³em Grima. W miêdzy czasie zosta³ Cieniem. Nie chcia³ mi powiedzieæ co tu robi, ale podejrzewam ¿e Stary Obóz równie¿ obawia siê poczynañ Bractwa Œni¹cego.");
+	};
 };
 
 //#####################################################################
