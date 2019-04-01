@@ -23,7 +23,7 @@ instance KDW_600_Saturas (Npc_Default)
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.mds");
 	//							body mesh     		bdytex	skin	head mesh     		headtex		teethtex	ruestung	
-	Mdl_SetVisualBody (self,	"hum_body_Naked0",	0, 		3,		"Hum_Head_FatBald", 7,  		0,			KDW_ARMOR_H);
+	Mdl_SetVisualBody (self,	"hum_body_Naked0",	0, 		3,		"Hum_Head_FatBald", 7,  		0,			KDW_ARMOR_H_WH);
 	
 	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);

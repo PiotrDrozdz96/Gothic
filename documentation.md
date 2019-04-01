@@ -367,14 +367,15 @@
 |   +--| Animaltrophy
 |   |   // Dodanie Kości goblina, Kości szkieleta, serca demona, serca golema (do tworzenia run)
 |   +--| Armor
+|   |   // Funkcje obsługujące zakładanie i zdejmowanie kapturów w szatach magów
 |   |   // Dodano funkcje zmieniające skinBody podczas zakładania i zdejmowania zbroi (Głównie dla panerzy bractwa ale nie tylko)
 |   |   // Strój Szkodnika został Ciężkim pancerzem Szkodnika
 |   |   // Ciężki strój szkodnika został Lekkim pancerzem Najemnika
 |   |   // Spodnie kreta mają teraz poprawną nazwe
-|   |   // Dodano Starą Szate Xardasa(Ognia)
 |   |   // Dodano pancerze bandytów dla bandy Quentina
 |   |   // Zmodyfikowanie statystyk wszystkich pancerzy sugerując się wartościami z G2
 |   |   // Dodano dwa nowe pancerze dla cieni, oraz spodnie kopacza z kapturem
+|   |   // Dodanie wersje z kapturem szat magów i kilka nowych szat
 |   +--| Artifacts
 |   |   // Zmodyfikowanie run
 |   |   // Dodanie runy teleportującej na parter wieży Xardasa
@@ -448,8 +449,10 @@
 |   +-- NEW_CAMP
 |   |   +--| KDW_(600-605)
 |   |   |    // Zwiększenie many do 200
+|   |   |    // (600_Saturas/601_Myxir) - noszą wersję szaty maga z kapturem
 |   |   +--| KDW_604_Cronos
 |   |   |    // Usunięcie magicznej runy
+|   |   |    // Nosi wersję szaty maga z kapturem
 |   |   +--| ORG_(800/804/834/837/892) / SLD_(707/738/762)_Soeldner
 |   |   |    //Zmiany twarzy(double koło siebie), czasem pancerz i gildia
 |   |   +--| ORG_875_Tuersteher / SLD_(700/701/709)
@@ -515,6 +518,7 @@
 |   |   |    // Dodanie tarczy ITSH_G3_01_OLD
 |   |   +--| KDF_(400-406)
 |   |   |    // Zwiększenie many do 200
+|   |   |    // (401_Damarok/402_Corristo/403_Drago) - noszą wersję szaty maga z kapturem
 |   |   +--| KDF_405_Torrez
 |   |   |    // Usunięcie magicznej runy
 |   |   +--| STT_(311/329)
