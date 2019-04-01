@@ -584,8 +584,10 @@ const string NAME_RaiseHealthMax	=	"Maksymalne P¯ +";
 //---------------- MH: für B_BuildBuyArmorString ----------------------------
 
 const string NAME_CorristoHighRobe	= 	"Mistrzu, chcia³bym nosiæ szatê Arcymaga Ognia.";
-const string NAME_SaturasHighRobe	= 	"Szata Arcymaga";
+const string NAME_SaturasHighRobe	= 	"Szata Arcymaga. Broñ 80, Pociski 80, Ogieñ 40, Magia 40";
+const string NAME_ThiefShadows		=	"Strój Cienia. Premia zrêcznoœci +8, Broñ 22, Pociski 22";
 const string NAME_DiegoHeavyShadows	=	"Ciê¿ka Zbroja Cienia. Broñ 30, Pociski 30";
+const string NAME_MineHeavyShadows	=	"Zbroja Cienia z Kopalni. Broñ 30, Pociski 30";
 const string NAME_StoneHeavyGuards	= 	"Ciê¿ka Zbroja Stra¿nika. Broñ 70, Pociski 70";
 const string NAME_StoneGuards		= 	"Zbroja Stra¿nika. Broñ 50, Pociski 50";
 const string NAME_WolfBandits		= 	"Pancerz Szkodnika. Broñ 20, Pociski 20"; 
@@ -594,6 +596,7 @@ const string NAME_LeeMercs			= 	"Pancerz Najemnika. Broñ 45, Pociski 45, Ogieñ 5
 const string NAME_LeeHeavyMercs		= 	"Ciê¿ki Pancerz Najemnika. Broñ 60, Pociski 60, Ogieñ 10, Magia 10";
 const string NAME_FiskLightDiggers	= 	"Lekkie Spodnie Kopacza. Broñ 10, Pociski 10";
 const string NAME_FiskDiggers		= 	"Spodnie Kopacza. Broñ 15, Pociski 15";
+const string NAME_FiskDiggersHood	= 	"Spodnie Kopacza z kapturem. Broñ 17, Pociski 17";
 const string NAME_GorNaTothHeavyTpl = 	"Ciê¿ka Zbroja Œwi¹tynna. Broñ 70, Pociski 70, Ogieñ 35";
 const string NAME_GorNaTothTpl 		=	"Zbroja Œwi¹tynna. Broñ 45, Pociski 40, Ogieñ 25";
 const string NAME_TorwachenPsiRock	=	"Przepaska. Broñ 15, Pociski 15";

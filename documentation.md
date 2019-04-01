@@ -2,6 +2,7 @@
 |   // Szczegóły na temat zmian w AI są opisane w AI_documentation, z racji że podstawą zmian w AI była rosyjska modyfikacja Fix mod
 +--Anims
 |   +--|-- HUMANS.MDS
+|   |    // Rejestracja nowych meshy/zbroi
 |   |    // Dodanie Rmaker do obsługi stołu runicznego
 |   |    // Zmiany w animacjach strafingu
 |   |    // 2H - Możliwość ataku w biegu z g2
@@ -228,6 +229,7 @@
 |   |   // Odsprzedawanie starych monet
 |   |   // Otwiera zadanie "List z zewnętrznego świata"
 |   |   // Przeniesienie zmiennej Diego_BringList do Story_Globals
+|   |   // Sprzedaje nowe zbroje Cieni
 |   |   // Odpala funkcje B_Story_LogFailedAfterOMDown gdy informuje nas o śmierci magów ognia i zawaleniu starej kopalni
 |   +--|-- DIA_Sfb_1037_Swiney
 |   |   // Swiney nie oddaje już swojego stroju po rozmowie z graczem -- by marev
@@ -243,9 +245,9 @@
 |   +--|-- DIA_STT_309_Whistler -- by marev
 |   |   // Świstak odzyskuje 110 bryłek jeśli gracz poprosił o dadatkowe 10 bryłek
 |   |   // Zadanie świstaka zapisuje się w osobnym zadaniu w dzienniku, a nie w "dołączeniu do starego obozu"
-|   +--|-- DIA_STT_311_Fisk -- by marev
-|   |   // Zadanie "Nowy paser dla Fiska" jest aktywowane niezależnie od sposobu pozbycia się Mordraga
-|   |   // Fisk nie sprzedaje spodni kopacza, jeśli je posiadamy
+|   +--|-- DIA_STT_311_Fisk
+|   |   // Zadanie "Nowy paser dla Fiska" jest aktywowane niezależnie od sposobu pozbycia się Mordraga -- by marev
+|   |   // Fisk sprzedaje nowe spodnie kopacza z kapturem
 |   |   // Przeniesienie zmiennej Fisk_GetNewHehler do Story_Globals
 |   +--|-- DIA_STT_315_Sly
 |   |   // Przeniesiennie zmiennej Sly_LostNek do Story_Globals
@@ -347,7 +349,7 @@
 |   |   // Zmiana nazwy umiejętności na Bieg, oraz dodanie nazw poziomów (Nie|Tak)
 |   |   // Zmiany w nazwach poziomów dla broni białch (Zielony|Wojownik|Mistrz)
 |   |   // Zmiany w nazwach poziomów dla broni dystansowych (Zielony|Strzelec|Mistrz)
-|   |   // Zmiany w B_BuildBuyArmorString
+|   |   // Zmiany w B_BuildBuyArmorString, dodanie nowych zbroi
 |   |   // Dodanie stałej NAME_STR_GRAB = "Obciążenie Siły", używanej w tarczach
 |   |   // Zmiana nazw dla SPL_NEW(2-4)
 |   |   // MOBNAME_RUNEMAKER i PRINT_(RuneSuccess/ProdItemsMissing) dla stołu runicznego
@@ -372,6 +374,7 @@
 |   |   // Dodano Starą Szate Xardasa(Ognia)
 |   |   // Dodano pancerze bandytów dla bandy Quentina
 |   |   // Zmodyfikowanie statystyk wszystkich pancerzy sugerując się wartościami z G2
+|   |   // Dodano dwa nowe pancerze dla cieni, oraz spodnie kopacza z kapturem
 |   +--| Artifacts
 |   |   // Zmodyfikowanie run
 |   |   // Dodanie runy teleportującej na parter wieży Xardasa
@@ -516,8 +519,10 @@
 |   |   |    // Usunięcie magicznej runy
 |   |   +--| STT_(311/329)
 |   |   |    // Dodanie rutyny "out" - wywalenie za barierę
-|   |   +--| STT_301_Ian
-|   |   |    // Zmiana pancerza na STT_ARMOR_H
+|   |   +--| STT_(300_Alberto/301_Ian/335_Santino)
+|   |   |    // Zmiana pancerza na STT_ARMOR_H2
+|   |   +--| STT_(315_Sly/331_Fingers)
+|   |   |    // Zmiana pancerza na STT_ARMOR_H1
 |   |   +--| STT_302_Viper
 |   |   |    // Dodanie przedmiotów do tworzenia run
 |   |   +--| STT_321_Schatten
@@ -525,6 +530,10 @@
 |   |   +--| VLK_(502/504/517)_Buddler
 |   |   |    // Przywrócenie imion z Gothic alpha
 |   |   |    // Dodanie nowych rutyn związanych z Questem CH2_Buddler
+|   |   +--| VLK_511_Herek
+|   |   |    // Zmiana pancerza na VLK_ARMOR_H
+|   |   +--| VLK_(514/520/521/534/561)_Buddler
+|   |   |    // Zmiana pancerza na VLK_ARMOR_H
 |   |   +--| VLK_555_Buddler
 |   |   |    // Zmiana twarzy
 |   |   +--| VLK_573_Graham
@@ -533,6 +542,9 @@
 |   |   |    // Dodanie rutyn związanych z przebywaniem wrzoda w sekcie
 |   |   +--| VLK_580_Grim
 |   |   |    // Dodanie rutyny przebywanie w sekcie
+|   |   |    // Zmiana pancerza na VLK_ARMOR_H
+|   |   +--| VLK_(584_Snipes/585_Aleph)
+|   |   |    // Zmiana pancerza na VLK_ARMOR_H
 |   |/********************NPC OLD_CAMP END*********************************
 |   +-- SEKTE_CAMP
 |   |   +--| GUR(1200/1201/1203/1204/1209/1210/1211)

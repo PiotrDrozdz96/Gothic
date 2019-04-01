@@ -71,13 +71,12 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 	
 	// Armor
 	CreateInvItem(self,KDF_ARMOR_H2);
-	
-	//Armor in Sleeper Camp (visual change)
 	CreateInvItem(self,DMB_ARMOR_GUR);
-	
-	//Bandit Armor
 	CreateInvItem(self,BDT_ARMOR_M);
 	//CreateInvItem(self,BDT_ARMOR_H); //onEquip
+	CreateInvItem(self,VLK_ARMOR_H);
+	CreateInvItem(self,STT_ARMOR_H1);
+	CreateInvItem(self,STT_ARMOR_H2);
 
 	//Crossbow
 	CreateInvItem (self,ItRw_Crossbow_05);

@@ -1099,13 +1099,12 @@ instance  PC_Thief_ARMOR (C_INFO)
 	information		= PC_Thief_ARMOR_Info;
 	important		= 0;
 	permanent		= 1;
-	description		= B_BuildBuyArmorString(NAME_DiegoHeavyShadows,VALUE_STT_ARMOR_H); 
+	description		= "Mogê dostaæ tak¹ zbrojê jak twoja?";
 };
 
 FUNC int  PC_Thief_ARMOR_Condition()
 {	
 	if  ( Npc_GetTrueGuild (hero) == GIL_STT)
-	&&  (! Npc_HasItems(hero,STT_ARMOR_H))
 	{
 		return TRUE;
 	};
@@ -1114,10 +1113,35 @@ FUNC int  PC_Thief_ARMOR_Condition()
 FUNC void  PC_Thief_ARMOR_Info()
 {
 	
+	AI_Output			(hero, self,"PC_Thief_ARMOR_Info_15_01"); //Mogê dostaæ tak¹ zbrojê jak twoja?
+	AI_Output			(self, hero,"PC_Thief_ARMOR_Info_11_02"); //A masz doœæ rudy?
+
+	Info_ClearChoices(PC_Thief_ARMOR);
+	Info_AddChoice(PC_Thief_ARMOR, DIALOG_BACK, PC_Thief_ARMOR_BACK);
+
+	if(!Npc_HasItems(other, STT_ARMOR_H))
+	{
+		Info_AddChoice(PC_Thief_ARMOR, B_BuildBuyArmorString(NAME_DiegoHeavyShadows,VALUE_STT_ARMOR_H), PC_Thief_ARMOR_H);
+	};
+	if(!Npc_HasItems(other, STT_ARMOR_H1))
+	{
+		Info_AddChoice(PC_Thief_ARMOR, B_BuildBuyArmorString(NAME_ThiefShadows,VALUE_STT_ARMOR_H), PC_Thief_ARMOR_H1);
+	};
+	if(!Npc_HasItems(other, STT_ARMOR_H2))
+	{
+		Info_AddChoice(PC_Thief_ARMOR, B_BuildBuyArmorString(NAME_MineHeavyShadows,VALUE_STT_ARMOR_H), PC_Thief_ARMOR_H2);
+	};
+};  
+
+FUNC VOID PC_Thief_ARMOR_BACK ()
+{
+	Info_ClearChoices (PC_Thief_ARMOR);
+};
+
+FUNC VOID PC_Thief_ARMOR_H ()
+{
 	if (Npc_HasItems (hero,ItMinugget) >= VALUE_STT_ARMOR_H)
 	{
-		AI_Output			(hero, self,"PC_Thief_ARMOR_Info_15_01"); //Mogê dostaæ tak¹ zbrojê jak twoja?
-		AI_Output			(self, hero,"PC_Thief_ARMOR_Info_11_02"); //A masz doœæ rudy?
 
 		CreateInvItem 		(hero,			STT_ARMOR_H);
 		B_GiveInvItems		(hero, self,	ItMinugget,	VALUE_STT_ARMOR_H);
@@ -1131,11 +1155,48 @@ FUNC void  PC_Thief_ARMOR_Info()
 	{
 		AI_Output (self, hero,"PC_Thief_ARMOR_Info_11_03"); //Zdob¹dŸ rudê, to dostaniesz zbrojê.
 	};
-};  
+	Info_ClearChoices (PC_Thief_ARMOR);
+};
 
+FUNC VOID PC_Thief_ARMOR_H1 ()
+{
+	if (Npc_HasItems (hero,ItMinugget) >= VALUE_STT_ARMOR_H)
+	{
 
+		CreateInvItem 		(hero,			STT_ARMOR_H1);
+		B_GiveInvItems		(hero, self,	ItMinugget,	VALUE_STT_ARMOR_H);
+		
+		//hier nur ein Text für die Bildschirmausgabe
+		CreateInvItem		(self, 			ItAmArrow);
+		B_GiveInvItems		(self, hero,	ItAmArrow,	1);
+		Npc_RemoveInvItem	(hero,			ItAmArrow);
+	}
+	else
+	{
+		AI_Output (self, hero,"PC_Thief_ARMOR_Info_11_03"); //Zdob¹dŸ rudê, to dostaniesz zbrojê.
+	};
+	Info_ClearChoices (PC_Thief_ARMOR);
+};
 
+FUNC VOID PC_Thief_ARMOR_H2 ()
+{
+	if (Npc_HasItems (hero,ItMinugget) >= VALUE_STT_ARMOR_H)
+	{
 
+		CreateInvItem 		(hero,			STT_ARMOR_H2);
+		B_GiveInvItems		(hero, self,	ItMinugget,	VALUE_STT_ARMOR_H);
+		
+		//hier nur ein Text für die Bildschirmausgabe
+		CreateInvItem		(self, 			ItAmArrow);
+		B_GiveInvItems		(self, hero,	ItAmArrow,	1);
+		Npc_RemoveInvItem	(hero,			ItAmArrow);
+	}
+	else
+	{
+		AI_Output (self, hero,"PC_Thief_ARMOR_Info_11_03"); //Zdob¹dŸ rudê, to dostaniesz zbrojê.
+	};
+	Info_ClearChoices (PC_Thief_ARMOR);
+};
 
 //#####################################################################
 //##

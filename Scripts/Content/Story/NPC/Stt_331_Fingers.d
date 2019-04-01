@@ -22,7 +22,7 @@ instance STT_331_Fingers (Npc_Default)
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Relaxed.mds");
 	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung
-	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_FatBald", 56,  1, STT_ARMOR_M);
+	Mdl_SetVisualBody (self,"hum_body_Naked0", 0, 1,"Hum_Head_FatBald", 56,  1, STT_ARMOR_H1);
         
 	B_Scale (self);
 	Mdl_SetModelFatness(self,-1);

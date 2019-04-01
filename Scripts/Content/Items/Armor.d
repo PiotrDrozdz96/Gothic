@@ -34,6 +34,7 @@ const int VALUE_NOV_ARMOR_H = 1200;
 
 const int VALUE_VLK_ARMOR_L = 250;
 const int VALUE_VLK_ARMOR_M = 500;
+const int VALUE_VLK_ARMOR_H = 600;
 
 const int VALUE_SFB_ARMOR_L = 250;
 
@@ -118,6 +119,53 @@ INSTANCE VLK_ARMOR_M(C_Item)
 	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
 };
 
+INSTANCE VLK_ARMOR_H(C_Item)
+{
+	name 					=	"Spodnie Kopacza z kapturem";
+
+	mainflag 				=	ITEM_KAT_ARMOR;
+	flags 					=	0;
+
+	protection [PROT_EDGE]	=	17;
+	protection [PROT_BLUNT] = 	17;
+	protection [PROT_POINT] =   17;
+	protection [PROT_FIRE] 	= 	0;
+	protection [PROT_MAGIC] = 	0;
+
+	value 					=	VALUE_VLK_ARMOR_H;
+
+	wear 					=	WEAR_TORSO;
+
+	visual 					=	"vlkm.3ds";
+	visual_change 			=	"Hum_VLKH_ARMOR.asc";
+	visual_skin 			=	0;
+	material 				=	MAT_LEATHER;
+	on_equip				=	equip_vlkh;
+	on_unequip				=	unequip_vlkh;
+
+	description				=	name;
+	//TEXT[0]				=	"";
+	TEXT[1]					=	NAME_Prot_Edge;			COUNT[1]	= protection	[PROT_EDGE];
+	TEXT[2]					=	NAME_Prot_Point;		COUNT[2]	= protection	[PROT_POINT];
+	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
+	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
+	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};
+
+FUNC VOID equip_vlkh()
+{
+	if(hero.id == 0){
+		Mdl_SetVisualBody (hero,"hum_body_Naked0",	4,			1,	"Hum_Head_Bald",		9, 			0,			-1);
+	};
+};
+
+FUNC VOID unequip_vlkh()
+{
+	if(hero.id == 0){
+		Mdl_SetVisualBody (hero,"hum_body_Naked0",	4,			1,	"Hum_Head_Pony",		9, 			0,			-1);
+	};
+};
+
 /******************************************************************************************/
 // Schatten
 
@@ -181,6 +229,83 @@ INSTANCE STT_ARMOR_H(C_Item)
 
 	visual 					=	"stth.3ds";
 	visual_change 			=	"Hum_STTS_ARMOR.asc";
+	visual_skin 			=	0;
+	material 				=	MAT_LEATHER;
+
+	description				=	name;
+	//TEXT[0]				=	"";
+	TEXT[1]					=	NAME_Prot_Edge;			COUNT[1]	= protection	[PROT_EDGE];
+	TEXT[2]					=	NAME_Prot_Point;		COUNT[2]	= protection	[PROT_POINT];
+	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
+	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
+	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};
+
+/******************************************************************************************/
+INSTANCE STT_ARMOR_H1(C_Item)
+{
+	name 					=	"Strój Cienia - z³odzieja";
+
+	mainflag 				=	ITEM_KAT_ARMOR;
+	flags 					=	0;
+
+	protection [PROT_EDGE]	=	22;
+	protection [PROT_BLUNT] = 	22;
+	protection [PROT_POINT] = 	22;
+	protection [PROT_FIRE] 	= 	0;
+	protection [PROT_MAGIC] = 	0;
+
+	value 					=	VALUE_STT_ARMOR_H;
+
+	wear 					=	WEAR_TORSO;
+
+	visual 					=	"sttm.3ds";
+	visual_change 			=	"Hum_STTS1_ARMOR.asc";
+	visual_skin 			=	0;
+	material 				=	MAT_LEATHER;
+	on_equip 				= 	STT_ARMOR_H1_equip;
+	on_unequip 				=	STT_ARMOR_H1_unequip;
+
+	description				=	name;
+	//TEXT[0]				=	"";
+	TEXT[1]					=	"Premia do zrêcznoœci:";COUNT[1]	= 8;
+	TEXT[2]					=	NAME_Prot_Edge;			COUNT[2]	= protection	[PROT_EDGE];
+	TEXT[3]					=	NAME_Prot_Point;		COUNT[3]	= protection	[PROT_POINT];
+	// TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
+	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
+	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};
+
+FUNC VOID STT_ARMOR_H1_equip()
+{
+	self.attribute[ATR_DEXTERITY] += 8;
+};
+
+FUNC VOID STT_ARMOR_H1_unequip()
+{
+	self.attribute[ATR_DEXTERITY] -= 8;
+};
+
+/******************************************************************************************/
+INSTANCE STT_ARMOR_H2(C_Item)
+{
+	name 					=	"Zbroja Cienia z kopalni";
+
+	mainflag 				=	ITEM_KAT_ARMOR;
+	flags 					=	0;
+
+	protection [PROT_EDGE]	=	30;
+	protection [PROT_BLUNT] = 	30;
+	protection [PROT_POINT] = 	30;
+	protection [PROT_FIRE] 	= 	0;
+	protection [PROT_MAGIC] = 	0;
+
+	value 					=	VALUE_STT_ARMOR_H;
+
+	wear 					=	WEAR_TORSO;
+
+	visual 					=	"stth.3ds";
+	visual_change 			=	"Hum_STTS2_ARMOR.asc";
 	visual_skin 			=	0;
 	material 				=	MAT_LEATHER;
 
