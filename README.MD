@@ -27,6 +27,7 @@
 * Bieg i akrobatyka z moda Returning 2.0
 * Ścieżka nekromanty od samego początku, wraz z runami przywołań
 * Możlwiość zostania guru, pozostanie magiem Ognia/Wody do końca gry
+* System zakładania i zdejmowania kapturów w szatach magów
 * Rozwój postaci niezależnych
 * Poprawiona inteligencja orków (nie atakują się nawzajem) z Gothic Mod Fix
 * Rozbudowanie wpisów w dzienniku - inspirowane Gothic Mod Fix
