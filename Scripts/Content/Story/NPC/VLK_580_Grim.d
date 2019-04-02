@@ -26,7 +26,7 @@ instance VLK_580_Grim (Npc_Default)
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
 	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
-	Mdl_SetVisualBody (self,"hum_body_Naked0",2,1,"Hum_Head_Thief", 72,  2, VLK_ARMOR_M);
+	Mdl_SetVisualBody (self,"hum_body_Naked0",2,1,"Hum_Head_Thief", 72,  2, VLK_ARMOR_H);
 
 	B_Scale (self); 
 	Mdl_SetModelFatness (self, 0);

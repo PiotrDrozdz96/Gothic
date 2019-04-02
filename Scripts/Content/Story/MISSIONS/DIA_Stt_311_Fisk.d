@@ -265,7 +265,8 @@ instance Stt_311_Fisk_ARMOR(C_Info)
 
 func int Stt_311_Fisk_ARMOR_Condition()
 {
-	if((Kapitel < 2) && Npc_KnowsInfo(hero,Stt_311_Fisk_First) && (!Npc_HasItems(hero,vlk_armor_l) || !Npc_HasItems(hero,vlk_armor_m)))
+	if (Kapitel < 2)
+	&& (Npc_KnowsInfo (hero, Stt_311_Fisk_First))
 	{
 		return TRUE;
 	};
@@ -284,6 +285,10 @@ func void Stt_311_Fisk_ARMOR_Info()
 	if(!Npc_HasItems(hero,vlk_armor_m))
 	{
 		Info_AddChoice(Stt_311_Fisk_ARMOR,B_BuildBuyArmorString(NAME_FiskDiggers,VALUE_VLK_ARMOR_M),Stt_311_Fisk_ARMOR_M);
+	};
+	if(!Npc_HasItems(hero,vlk_armor_h))
+	{
+		Info_AddChoice(Stt_311_Fisk_ARMOR,B_BuildBuyArmorString(NAME_FiskDiggersHood,VALUE_VLK_ARMOR_H),Stt_311_Fisk_ARMOR_H);
 	};
 };
 
@@ -321,6 +326,22 @@ func void Stt_311_Fisk_ARMOR_M()
 		B_GiveInvItems(hero,self,ItMiNugget,VALUE_VLK_ARMOR_M);
 		CreateInvItem(self,vlk_armor_m);
 		B_GiveInvItems(self,hero,vlk_armor_m,1);
+	};
+};
+
+func void Stt_311_Fisk_ARMOR_H()
+{
+	AI_Output(other,self,"Stt_311_Fisk_ARMOR_M_Info_15_01");	//Daj mi spodnie Kopacza.
+	if(Npc_HasItems(hero,ItMiNugget) < VALUE_VLK_ARMOR_H)
+	{
+		AI_Output(self,other,"Stt_311_Fisk_ARMOR_M_Info_12_02");	//Wróæ, gdy bêdziesz mia³ wystarczaj¹co du¿o rudy.
+	}
+	else
+	{
+		AI_Output(self,other,"Stt_311_Fisk_ARMOR_M_Info_12_03");	//Dobry wybór!
+		B_GiveInvItems(hero,self,ItMiNugget,VALUE_VLK_ARMOR_H);
+		CreateInvItem(self,vlk_armor_h);
+		B_GiveInvItems(self,hero,vlk_armor_h,1);
 	};
 };
 

@@ -22,7 +22,7 @@ instance KDW_601_Myxir (Npc_Default)
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Mage.mds");
 	//			body mesh     ,bdytex,skin,head mesh     ,headtex,teethtex,ruestung	
-	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 0,"Hum_Head_Pony", 7,  4,KDW_ARMOR_L);
+	Mdl_SetVisualBody (self,"hum_body_Naked0",0, 0,"Hum_Head_Pony", 7,  4,KDW_ARMOR_L_WH);
 	
 	B_Scale (self);
 	Mdl_SetModelFatness (self, 0);

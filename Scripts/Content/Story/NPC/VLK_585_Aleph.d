@@ -26,7 +26,7 @@ instance VLK_585_Aleph (Npc_Default)
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	Mdl_ApplyOverlayMds	(self,"Humans_Tired.mds");
 	//				body mesh,				head mesh,				hairmesh,	face-tex,	hair-tex,	skin	
-	Mdl_SetVisualBody (self,"hum_body_Naked0",3,1,"Hum_Head_Thief", 71,  0, VLK_ARMOR_M);
+	Mdl_SetVisualBody (self,"hum_body_Naked0",3,1,"Hum_Head_Thief", 71,  0, VLK_ARMOR_H);
 
 	B_Scale (self); 
 	Mdl_SetModelFatness (self, 0);

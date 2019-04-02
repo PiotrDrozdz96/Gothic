@@ -2,6 +2,7 @@
 |   // Szczegóły na temat zmian w AI są opisane w AI_documentation, z racji że podstawą zmian w AI była rosyjska modyfikacja Fix mod
 +--Anims
 |   +--|-- HUMANS.MDS
+|   |    // Rejestracja nowych meshy/zbroi
 |   |    // Dodanie Rmaker do obsługi stołu runicznego
 |   |    // Zmiany w animacjach strafingu
 |   |    // 2H - Możliwość ataku w biegu z g2
@@ -147,9 +148,9 @@
 |   +--|-- DIA_KDF_403_Drago
 |   |   // Po zostaniu magiem ognia otrzymujemy pustą runę zamiast "ognistej strzały"
 |   +--|-- DIA_KDF_404_Xardas
-|   |   // Nauka 6 kręgu niezależnie czy jesteśmy KDF,KDW,GUR
+|   |   // Nauka Kręgów 4 i 5 (przy specjalnych warunkach), Nauka 6 kręgu niezależnie czy jesteśmy KDF,KDW,GUR
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu nekromantą
-|   |   // Różne szaty gdy jesteśmy guru lub magiem Ognia
+|   |   // Różne szaty gdy jesteśmy strażnikiem świątynym a guru, magiem Ognia lub magiem wody
 |   |   // Zwraca Uriziel_1H gdy lepiej posługujemy się bronią jednoręczną
 |   |   // Usunięcie magicznych run przed handlem
 |   |   // Nauka wyciania serc demonom
@@ -161,6 +162,7 @@
 |   +--|-- DIA_KDW_600_Saturas
 |   |   // Zwiększenie restrykcji przy zostaniu arcymagiem
 |   |   // Zmiany w dialogach o Xardasie
+|   |   // Zmiany w dialogach podczas uczenia kręgu 5
 |   |   // Zmiany w zostaniu magiem wody, możemy zostać wcześniej
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu magiem wody
 |   |   // Uczy tworzenia run
@@ -228,6 +230,7 @@
 |   |   // Odsprzedawanie starych monet
 |   |   // Otwiera zadanie "List z zewnętrznego świata"
 |   |   // Przeniesienie zmiennej Diego_BringList do Story_Globals
+|   |   // Sprzedaje nowe zbroje Cieni
 |   |   // Odpala funkcje B_Story_LogFailedAfterOMDown gdy informuje nas o śmierci magów ognia i zawaleniu starej kopalni
 |   +--|-- DIA_Sfb_1037_Swiney
 |   |   // Swiney nie oddaje już swojego stroju po rozmowie z graczem -- by marev
@@ -236,6 +239,7 @@
 |   |   // Inny pancerz po zostaniu najemnikiem
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Informowanie Lee o przełomie w bractwie
+|   |   // Można zostać najemnikiem jeśli jesteśym strażnikiem świątynnym
 |   |   // Poprawienie dialogu z Lee o odbiciu wolnej kopalni, zmieniona nagroda
 |   +--|-- DIA_SLD_709_Cord
 |   |   // Przebudowa nauki walki na 11 etapów
@@ -243,9 +247,9 @@
 |   +--|-- DIA_STT_309_Whistler -- by marev
 |   |   // Świstak odzyskuje 110 bryłek jeśli gracz poprosił o dadatkowe 10 bryłek
 |   |   // Zadanie świstaka zapisuje się w osobnym zadaniu w dzienniku, a nie w "dołączeniu do starego obozu"
-|   +--|-- DIA_STT_311_Fisk -- by marev
-|   |   // Zadanie "Nowy paser dla Fiska" jest aktywowane niezależnie od sposobu pozbycia się Mordraga
-|   |   // Fisk nie sprzedaje spodni kopacza, jeśli je posiadamy
+|   +--|-- DIA_STT_311_Fisk
+|   |   // Zadanie "Nowy paser dla Fiska" jest aktywowane niezależnie od sposobu pozbycia się Mordraga -- by marev
+|   |   // Fisk sprzedaje nowe spodnie kopacza z kapturem
 |   |   // Przeniesienie zmiennej Fisk_GetNewHehler do Story_Globals
 |   +--|-- DIA_STT_315_Sly
 |   |   // Przeniesiennie zmiennej Sly_LostNek do Story_Globals
@@ -329,6 +333,7 @@
 |   |   // Zmienna Uriziel_1H
 |   |   // Zmienna Knows_GetDemonHeart - umiejętność wycinania serc demonów
 |   |   // Zmienna tablica PLAYER_TALENT_RUNES - umiejętności tworzenia run
+|   |   // Zmienna TrueMageGuild - potrzeba do przetasowań w gildiach magów
 |   |   // Zmiana punktów nauki przy nauce kregów magii
 |   |   // Dodanie kosztów nauki tworzenia run
 |   |   // Zmienna Knows_Book_Circle_01 - informacja czy przeczytaliśmy książkę "Pierwszy krąg magii"
@@ -347,7 +352,7 @@
 |   |   // Zmiana nazwy umiejętności na Bieg, oraz dodanie nazw poziomów (Nie|Tak)
 |   |   // Zmiany w nazwach poziomów dla broni białch (Zielony|Wojownik|Mistrz)
 |   |   // Zmiany w nazwach poziomów dla broni dystansowych (Zielony|Strzelec|Mistrz)
-|   |   // Zmiany w B_BuildBuyArmorString
+|   |   // Zmiany w B_BuildBuyArmorString, dodanie nowych zbroi
 |   |   // Dodanie stałej NAME_STR_GRAB = "Obciążenie Siły", używanej w tarczach
 |   |   // Zmiana nazw dla SPL_NEW(2-4)
 |   |   // MOBNAME_RUNEMAKER i PRINT_(RuneSuccess/ProdItemsMissing) dla stołu runicznego
@@ -365,13 +370,15 @@
 |   +--| Animaltrophy
 |   |   // Dodanie Kości goblina, Kości szkieleta, serca demona, serca golema (do tworzenia run)
 |   +--| Armor
+|   |   // Funkcje obsługujące zakładanie i zdejmowanie kapturów w szatach magów
 |   |   // Dodano funkcje zmieniające skinBody podczas zakładania i zdejmowania zbroi (Głównie dla panerzy bractwa ale nie tylko)
 |   |   // Strój Szkodnika został Ciężkim pancerzem Szkodnika
 |   |   // Ciężki strój szkodnika został Lekkim pancerzem Najemnika
 |   |   // Spodnie kreta mają teraz poprawną nazwe
-|   |   // Dodano Starą Szate Xardasa(Ognia)
 |   |   // Dodano pancerze bandytów dla bandy Quentina
 |   |   // Zmodyfikowanie statystyk wszystkich pancerzy sugerując się wartościami z G2
+|   |   // Dodano dwa nowe pancerze dla cieni, oraz spodnie kopacza z kapturem
+|   |   // Dodanie wersje z kapturem szat magów i kilka nowych szat
 |   +--| Artifacts
 |   |   // Zmodyfikowanie run
 |   |   // Dodanie runy teleportującej na parter wieży Xardasa
@@ -445,8 +452,10 @@
 |   +-- NEW_CAMP
 |   |   +--| KDW_(600-605)
 |   |   |    // Zwiększenie many do 200
+|   |   |    // (600_Saturas/601_Myxir) - noszą wersję szaty maga z kapturem
 |   |   +--| KDW_604_Cronos
 |   |   |    // Usunięcie magicznej runy
+|   |   |    // Nosi wersję szaty maga z kapturem
 |   |   +--| ORG_(800/804/834/837/892) / SLD_(707/738/762)_Soeldner
 |   |   |    //Zmiany twarzy(double koło siebie), czasem pancerz i gildia
 |   |   +--| ORG_875_Tuersteher / SLD_(700/701/709)
@@ -512,12 +521,17 @@
 |   |   |    // Dodanie tarczy ITSH_G3_01_OLD
 |   |   +--| KDF_(400-406)
 |   |   |    // Zwiększenie many do 200
+|   |   |    // (401_Damarok/402_Corristo/403_Drago) - noszą wersję szaty maga z kapturem
 |   |   +--| KDF_405_Torrez
 |   |   |    // Usunięcie magicznej runy
+|   |   +--| KDF_(404_Xardas/406_OTXardas)
+    |   |    // Stara szata nowy kod
 |   |   +--| STT_(311/329)
 |   |   |    // Dodanie rutyny "out" - wywalenie za barierę
-|   |   +--| STT_301_Ian
-|   |   |    // Zmiana pancerza na STT_ARMOR_H
+|   |   +--| STT_(300_Alberto/301_Ian/335_Santino)
+|   |   |    // Zmiana pancerza na STT_ARMOR_H2
+|   |   +--| STT_(315_Sly/331_Fingers)
+|   |   |    // Zmiana pancerza na STT_ARMOR_H1
 |   |   +--| STT_302_Viper
 |   |   |    // Dodanie przedmiotów do tworzenia run
 |   |   +--| STT_321_Schatten
@@ -525,6 +539,10 @@
 |   |   +--| VLK_(502/504/517)_Buddler
 |   |   |    // Przywrócenie imion z Gothic alpha
 |   |   |    // Dodanie nowych rutyn związanych z Questem CH2_Buddler
+|   |   +--| VLK_511_Herek
+|   |   |    // Zmiana pancerza na VLK_ARMOR_H
+|   |   +--| VLK_(514/520/521/534/561)_Buddler
+|   |   |    // Zmiana pancerza na VLK_ARMOR_H
 |   |   +--| VLK_555_Buddler
 |   |   |    // Zmiana twarzy
 |   |   +--| VLK_573_Graham
@@ -533,6 +551,9 @@
 |   |   |    // Dodanie rutyn związanych z przebywaniem wrzoda w sekcie
 |   |   +--| VLK_580_Grim
 |   |   |    // Dodanie rutyny przebywanie w sekcie
+|   |   |    // Zmiana pancerza na VLK_ARMOR_H
+|   |   +--| VLK_(584_Snipes/585_Aleph)
+|   |   |    // Zmiana pancerza na VLK_ARMOR_H
 |   |/********************NPC OLD_CAMP END*********************************
 |   +-- SEKTE_CAMP
 |   |   +--| GUR(1200/1201/1203/1204/1209/1210/1211)

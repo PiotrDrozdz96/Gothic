@@ -780,7 +780,8 @@ FUNC void  KDW_600_Saturas_OATH_Info()
 	AI_Output			(self, other,"KDW_600_Saturas_OATH_Info_14_07"); //Ty j¹ tylko rozszerzysz. Od tej pory bêdziesz magiem w s³u¿bie obydwu ¿ywio³ów!
 	AI_Output			(self, other,"KDW_600_Saturas_OATH_Info_14_08"); //Posi¹dziesz si³ê Ognia oraz m¹droœæ Wody jednoczeœnie!
 
-	B_LogEntry			(CH4_BannedFromOC,	"Saturas pozwoli mi do³¹czyæ do Krêgu Wody. Nie bêdê przy tym musia³ ³amaæ mojej przysiêgi Ognia!"); 
+	B_LogEntry			(CH4_BannedFromOC,	"Saturas pozwoli mi do³¹czyæ do Krêgu Wody. Nie bêdê przy tym musia³ ³amaæ mojej przysiêgi Ognia!");
+	B_LogEntry			(CH4_BannedFromOC,	"Mo¿e pozostanie wiernym tylko Innosowi te¿ jest rozs¹dnym wyjœciem?");
 };  
 
 /*------------------------------------------------------------------------
@@ -856,8 +857,7 @@ instance  KDW_600_Saturas_LESSON (C_INFO)
 
 FUNC int  KDW_600_Saturas_LESSON_Condition()
 {	
-	if (Npc_GetTrueGuild (hero) == GIL_KDW) 
-	|| (	(Npc_GetTrueGuild (hero) == GIL_KDF) && Npc_KnowsInfo (hero,KDW_600_Saturas_NOMOREOC)	)
+	if ((Npc_GetTrueGuild (hero) == GIL_KDF) && Npc_KnowsInfo (hero,KDW_600_Saturas_NOMOREOC)	)
 	{
 		return TRUE;
 	};
@@ -1072,9 +1072,9 @@ FUNC void  KDW_600_Saturas_KREIS5_Info()
 	if (B_GiveSkill(other,NPC_TALENT_MAGE , 5, LPCOST_TALENT_MAGE_5))
 	{
 		AI_Output		(self, other,"KDW_600_Saturas_KREIS5_Info_14_02"); //Dobrze. Wprowadzê ciê w arkana Pi¹tego Krêgu Magii.
-		AI_Output		(self, other,"KDW_600_Saturas_KREIS5_Info_14_03"); //Od tej pory bêdziesz móg³ wykorzystywaæ magiczne runy zaklêæ Ognistej Burzy i Lodowej Fali oraz posi¹dziesz moc niszczenia O¿ywieñców.
-		AI_Output		(self, other,"KDW_600_Saturas_KREIS5_Info_14_04"); //Jednak najpotê¿niejszym zaklêciem Pi¹tego Krêgu Magii jest Tchnienie Œmierci. Gdyby uda³o ci siê kiedyœ odnaleŸæ tê runê, dysponowa³byœ niewyobra¿aln¹ moc¹.
-		AI_Output		(self, other,"KDW_600_Saturas_KREIS5_Info_14_05"); //Staraj siê nie wykorzystywaæ magii tego rodzaju bez potrzeby. Jest ona darem od boga ciemnoœci!
+		//AI_Output		(self, other,"KDW_600_Saturas_KREIS5_Info_14_03"); //Od tej pory bêdziesz móg³ wykorzystywaæ magiczne runy zaklêæ Ognistej Burzy i Lodowej Fali oraz posi¹dziesz moc niszczenia O¿ywieñców.
+		//AI_Output		(self, other,"KDW_600_Saturas_KREIS5_Info_14_04"); //Jednak najpotê¿niejszym zaklêciem Pi¹tego Krêgu Magii jest Tchnienie Œmierci. Gdyby uda³o ci siê kiedyœ odnaleŸæ tê runê, dysponowa³byœ niewyobra¿aln¹ moc¹.
+		//AI_Output		(self, other,"KDW_600_Saturas_KREIS5_Info_14_05"); //Staraj siê nie wykorzystywaæ magii tego rodzaju bez potrzeby. Jest ona darem od boga ciemnoœci!
 		AI_Output		(self, other,"KDW_600_Saturas_KREIS4_Info_14_06"); //Nauczy³em ciê wszystkiego, co sam potrafiê.
 		AI_Output		(self, other,"KDW_600_Saturas_KREIS5_Info_14_06"); //Poznaj granice swoich mo¿liwoœci, a poznasz samego siebie.
 		KDW_600_Saturas_KREIS5.permanent = 0;
@@ -1145,6 +1145,7 @@ FUNC void  KDW_600_Saturas_TEACH_Info()
 
 	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=5)
 	&&(PLAYER_TALENT_RUNES[SPL_ICEWAVE] == FALSE)
+	&&(TrueMageGuild == GIL_KDW)
 	{
 		Info_AddChoice(KDW_600_Saturas_TEACH,"Lodowa Fala 15 pn", KDW_600_Saturas_TEACH_SPL_ICEWAVE);
 	};
@@ -1229,7 +1230,7 @@ FUNC void  KDW_600_Saturas_HEAVYARMOR_Info()
 	{
 		AI_Output			(self, other,"KDW_600_Saturas_HEAVYARMOR_Info_14_04"); //Twój czas nadszed³. Jesteœ godzien, by od dziœ nosiæ szatê Arcymaga Wody.
 		KDW_600_Saturas_HEAVYARMOR.permanent = 0;
-
+		TrueMageGuild 		= GIL_KDW;
 		B_GiveInvItems		(hero,self,	ItMinugget,VALUE_KDW_ARMOR_H);
 		CreateInvItem		(hero,		KDW_ARMOR_H);
 		

@@ -387,6 +387,51 @@ FUNC void  Sld_700_Lee_CHANGESIDE_Info()
 
 	Log_CreateTopic 	(GE_TeacherNC,LOG_NOTE);
 	B_LogEntry			(GE_TeacherNC,"Lee mo¿e mnie nauczyæ walki dwurêcznym orê¿em oraz zwiêkszyæ moj¹ si³ê i zwinnoœæ.");
+};
+
+/*------------------------------------------------------------------------
+						WECHSEL VON TPL ZU SLD								
+------------------------------------------------------------------------*/
+instance  Sld_700_Lee_CHANGESIDE_TPL (C_INFO)
+{
+	npc				= Sld_700_Lee;
+	condition		= Sld_700_Lee_CHANGESIDE_TPL_Condition;
+	information		= Sld_700_Lee_CHANGESIDE_TPL_Info;
+	important		= 0;
+	permanent		= 0;
+	description		= "Chcia³bym do was do³¹czyæ."; 
+};
+
+FUNC int  Sld_700_Lee_CHANGESIDE_TPL_Condition()
+{	
+	if (Npc_GetTrueGuild(other) == GIL_TPL)
+	&& (Kapitel>=4)
+	{
+		return TRUE;
+	};
+
+};
+
+FUNC void  Sld_700_Lee_CHANGESIDE_TPL_Info()
+{
+	AI_Output 			(other, self,"DIA_Lee_Mitmachen_15_00"); //Chcia³bym do was do³¹czyæ!
+	AI_Output			(self, other,"Sld_700_Lee_CHANGESIDE_Info_08_02"); //Nasz obóz wiele ci zawdziêcza. Przyda³by mi siê ktoœ taki jak ty.
+	AI_Output			(self, other,"Sld_700_Lee_CHANGESIDE_Info_08_03"); //PrzejdŸmy od razu do rzeczy. Witaj w Nowym Obozie, Najemniku!
+	AI_Output			(self, other,"Sld_700_Lee_CHANGESIDE_Info_08_04"); //WeŸ tê zbrojê. Dobrze, ¿e mamy ciê teraz po naszej stronie.
+
+	CreateInvItem		(self, SLD_ARMOR_TPL);
+	B_GiveInvItems      (self, hero, SLD_ARMOR_TPL, 1);
+	Npc_GetInvItemBySlot(hero, INV_ARMOR, 1);
+	if (Hlp_GetInstanceID(item)==SLD_ARMOR_TPL)
+	{	
+		AI_EquipArmor	(hero, item);
+	};
+	
+	Npc_SetTrueGuild	(hero, GIL_SLD);
+	hero.guild = GIL_SLD;
+
+	Log_CreateTopic 	(GE_TeacherNC,LOG_NOTE);
+	B_LogEntry			(GE_TeacherNC,"Lee mo¿e mnie nauczyæ walki dwurêcznym orê¿em oraz zwiêkszyæ moj¹ si³ê i zwinnoœæ.");
 };  
 
 /*------------------------------------------------------------------------

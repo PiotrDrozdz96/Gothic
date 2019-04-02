@@ -525,22 +525,34 @@ instance  Info_Xardas_GIL_DMB (C_INFO)
 FUNC int  Info_Xardas_GIL_DMB_Condition()
 {	
 	if Npc_KnowsInfo(hero, Info_Xardas_RETURN)
-	&& (Npc_GetTrueGuild (hero) == GIL_KDW || Npc_GetTrueGuild (hero) == GIL_KDF || Npc_GetTrueGuild (hero) == GIL_GUR )
+	&& PLAYER_TALENT_RUNES[SPL_SUMMONSKELETON] == TRUE
+	&& (
+			(Npc_GetTrueGuild (hero) == GIL_KDF && TrueMageGuild != GIL_KDF )
+	 	 || (Npc_GetTrueGuild (hero) == GIL_KDW && TrueMageGuild != GIL_KDW )
+	 	 || (Npc_GetTrueGuild (hero) == GIL_GUR )
+		 || (Npc_GetTrueGuild (hero) == GIL_TPL )
+		 || (Npc_GetTrueGuild (hero) == GIL_SLD )
+		)
 	{			
-		if ( !Npc_KnowsInfo(hero, KDW_600_Saturas_HEAVYARMOR) )
-		&& PLAYER_TALENT_RUNES[SPL_SUMMONSKELETON] == TRUE
-		{
-			return TRUE;
-		};
+		return TRUE;
 	};	
 };
 func void  Info_Xardas_GIL_DMB_Info()
 {
 	AI_Output (other, self,"Info_Xardas_GIL_DMB_15_01");		//Chcia³bym przyst¹piæ do magicznego krêgu.
 	
-	if (Npc_GetTrueGuild (hero) == GIL_GUR && Npc_GetTalentSkill( hero,	NPC_TALENT_MAGE ) == 4 ){
+	if (Npc_GetTrueGuild (hero) == GIL_GUR || Npc_GetTrueGuild (hero) == GIL_TPL || Npc_GetTrueGuild (hero) == GIL_SLD)
+	{
 		AI_Output (self, other,"Info_Xardas_GIL_DMB_14_02"); //Jeœli tego w³aœnie chcesz, proszê.
-		CreateInvItem 		(hero, DMB_ARMOR_GUR);		
+		TrueMageGuild 		= GIL_GUR;
+		if(Npc_GetTrueGuild(hero) == GIL_GUR)
+		{
+			CreateInvItem(hero, DMB_ARMOR_M);
+		}
+		else{
+			CreateInvItem(hero, DMB_ARMOR_TPL);		
+		};
+				
 		AI_EquipBestArmor	(hero);
 		
 		//Fakeitem für Bildschirmausgabe
@@ -550,7 +562,6 @@ func void  Info_Xardas_GIL_DMB_Info()
 		
 		hero.guild 	= GIL_DMB;	
 		Npc_SetTrueGuild	( hero, GIL_DMB );
-		B_GiveSkill(hero, NPC_TALENT_MAGE, 5, 0);
 		Info_Xardas_GIL_DMB.permanent = 0;
 		hero.attribute[ATR_HITPOINTS] = 1;
 		
@@ -563,11 +574,12 @@ func void  Info_Xardas_GIL_DMB_Info()
 		AI_StopProcessInfos	( self );
 		
 	}
-	else if ( Npc_GetTalentSkill	( hero,	NPC_TALENT_MAGE ) == 5) 
+	else if ( Npc_GetTrueGuild(hero) == GIL_KDW && Npc_GetTalentSkill ( hero,	NPC_TALENT_MAGE ) == 5)
+		||	( Npc_GetTrueGuild(hero) == GIL_KDF && Npc_GetTalentSkill ( hero, 	NPC_TALENT_MAGE ) == 4)
 	{
 		
 		AI_Output (self, other,"Info_Xardas_GIL_DMB_14_02"); //Jeœli tego w³aœnie chcesz, proszê.
-		
+		TrueMageGuild 		= GIL_DMB;
 		CreateInvItem 		(hero, DMB_ARMOR_M);		// SN: kann nicht mit B_GiveInvItem() übergeben werden, da Xardas sonst nackt dasteht!
 		AI_EquipBestArmor	(hero);
 
@@ -584,14 +596,7 @@ func void  Info_Xardas_GIL_DMB_Info()
 	}
 	else 
 	{
-		if Npc_GetTrueGuild (hero) == GIL_GUR
-		{
-			AI_Output (self, other,"Info_Xardas_GIL_DMB_14_07"); 	//Jeszcze nie. Jesteœ zdolny, ale brak ci niezbêdnego doœwiadczenia.
-		}
-		else{
-			AI_Output (self, other,"Info_Xardas_GIL_DMB_14_03"); 	//Jeszcze nie. Jesteœ zdolny, ale brak ci niezbêdnego doœwiadczenia. Niech Saturas popracuje nad tob¹ przez jakiœ czas. Wtedy zobaczymy.
-		};
-		
+		AI_Output (self, other,"Info_Xardas_GIL_DMB_14_07"); 	//Jeszcze nie. Jesteœ zdolny, ale brak ci niezbêdnego doœwiadczenia.
 		AI_StopProcessInfos	( self );
 	};
 };
@@ -622,7 +627,7 @@ func void  Info_Xardas_GIL_KDF_Info()
 	{
 		
 		AI_Output (self, other,"Info_Xardas_GIL_KDF_14_02"); //Odk¹d opuœci³em Magów Ognia nie bêdê mia³ z niej po¿ytku, wiêc przynajmniej tobie na coœ siê przyda.
-		
+		TrueMageGuild 		= GIL_KDF;
 		CreateInvItem 		(hero, KDF_ARMOR_H2);
 		AI_EquipBestArmor	(hero);
 
@@ -631,15 +636,13 @@ func void  Info_Xardas_GIL_KDF_Info()
 		B_GiveInvItems		(self, hero,	ItAmArrow, 1);
 		Npc_RemoveInvItem	(hero,			ItAmArrow);
 
-		Info_Xardas_GIL_DMB.permanent = 0;
 		Info_Xardas_GIL_KDF.permanent = 0;
 		AI_StopProcessInfos	( self );
 		
 	}
 	else 
 	{
-		AI_Output (self, other,"Info_Xardas_GIL_KDF_14_03"); 	//Jeszcze nie. Jesteœ zdolny, ale brak ci niezbêdnego doœwiadczenia. Niech Saturas popracuje nad tob¹ przez jakiœ czas. Wtedy zobaczymy.
-		
+		AI_Output (self, other,"Info_Xardas_GIL_DMB_14_07"); 	//Jeszcze nie. Jesteœ zdolny, ale brak ci niezbêdnego doœwiadczenia.
 		AI_StopProcessInfos	( self );
 	};
 };
@@ -1109,10 +1112,87 @@ func void Info_Xardas_MAKERUNE_NO ()
 	AI_Output			(other, self,"Info_Xardas_MAKERUNEDOIT_15_06"); //Nie, nie chcê!
 	AI_Output			(self, other,"Info_Xardas_MAKERUNEDOIT_14_07"); //Jak sobie ¿yczysz. Ostrze zachowa sw¹ magiczn¹ moc!
 };	
-	
 
 //---------------------------------------------------------------------
-//	Info LOADSWORD9 --> SC kann DMB werden
+//	Info KREIS4
+//---------------------------------------------------------------------
+instance  Info_Xardas_KREIS4 (C_INFO)
+{
+	npc				= Kdf_404_Xardas;
+	condition		= Info_Xardas_KREIS4_Condition;
+	information		= Info_Xardas_KREIS4_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= B_BuildLearnString(NAME_LearnMage_4, LPCOST_TALENT_MAGE_4,0); 
+};
+
+FUNC int  Info_Xardas_KREIS4_Condition()
+{	
+	if (Npc_KnowsInfo(hero, Info_Xardas_RETURN))
+	&& (Npc_GetTrueGuild (hero) == GIL_DMB )
+	&& (Npc_GetTalentSkill	(hero,NPC_TALENT_MAGE ) == 3)
+	{			
+		return TRUE;
+	};	
+};
+func void  Info_Xardas_KREIS4_Info()
+{
+	AI_Output (other, self,"KDF_402_Corristo_KREIS4_Info_15_01"); //Jestem gotowy do przyst¹pienia do Czwartego Krêgu.
+		
+	if (B_GiveSkill(other, NPC_TALENT_MAGE, 4, LPCOST_TALENT_MAGE_4))
+	{
+		AI_Output (self, other,"KDF_402_Corristo_KREIS4_Info_14_02"); //Ukoñczy³eœ ju¿ pierwsze trzy Krêgi. Nadesz³a pora, byœ zg³êbi³ prawdziw¹ naturê magii.
+		AI_Output (self, other,"KDF_402_Corristo_KREIS4_Info_14_03"); //Magia runiczna jest zaklêta w kamieniu. W koñcu runy to fragmenty magicznej rudy. 
+		AI_Output (self, other,"KDF_402_Corristo_KREIS4_Info_14_04"); //Tej samej rudy, która wydobywana jest w kopalniach. Z pomoc¹ bogów runy nasycane s¹ magi¹ w naszych œwi¹tyniach staj¹c siê narzêdziem naszej potêgi.
+		AI_Output (self, other,"KDF_402_Corristo_KREIS4_Info_14_05"); //Z twoj¹ znajomoœci¹ magii runicznej, ca³a wiedza zgromadzona przez wszystkie œwi¹tynie w tym królestwie stoi przed tob¹ otworem.
+		AI_Output (self, other,"KDF_402_Corristo_KREIS4_Info_14_07"); //Pamiêtaj: poznanie natury magii jest kluczem do poznania natury potêgi i w³adzy.	
+		Info_Xardas_KREIS4.permanent = 0;
+		
+	};
+	AI_StopProcessInfos	( self );
+
+};
+
+//---------------------------------------------------------------------
+//	Info KREIS5
+//---------------------------------------------------------------------
+instance  Info_Xardas_KREIS5 (C_INFO)
+{
+	npc				= Kdf_404_Xardas;
+	condition		= Info_Xardas_KREIS5_Condition;
+	information		= Info_Xardas_KREIS5_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= B_BuildLearnString(NAME_LearnMage_5, LPCOST_TALENT_MAGE_5,0); 
+};
+
+FUNC int  Info_Xardas_KREIS5_Condition()
+{	
+	if (Npc_KnowsInfo(hero, Info_Xardas_RETURN))
+	&& (Npc_GetTrueGuild (hero) == GIL_DMB || Npc_GetTrueGuild (hero) == GIL_KDF)
+	&& ( Npc_GetTalentSkill	( hero,	NPC_TALENT_MAGE ) == 4)
+	{			
+		return TRUE;
+	};	
+};
+func void  Info_Xardas_KREIS5_Info()
+{
+	AI_Output (other, self,"Info_Xardas_LOADSWORD09_15_01");		//Mo¿esz mnie czegoœ nauczyæ?
+		
+	if (B_GiveSkill(other, NPC_TALENT_MAGE, 5, LPCOST_TALENT_MAGE_5))
+	{
+		AI_Output		(self, other,"KDW_600_Saturas_KREIS5_Info_14_02"); //Dobrze. Wprowadzê ciê w arkana Pi¹tego Krêgu Magii.
+		AI_Output		(self, other,"KDW_600_Saturas_KREIS5_Info_14_06"); //Poznaj granice swoich mo¿liwoœci, a poznasz samego siebie.
+			
+		Info_Xardas_KREIS5.permanent = 0;
+		
+	};
+	AI_StopProcessInfos	( self );
+
+};
+
+//---------------------------------------------------------------------
+//	Info LOADSWORD9 --> SC kann DMB werden -- TEACH KREIS 6
 //---------------------------------------------------------------------
 instance  Info_Xardas_LOADSWORD09 (C_INFO)
 {
@@ -1127,7 +1207,8 @@ instance  Info_Xardas_LOADSWORD09 (C_INFO)
 FUNC int  Info_Xardas_LOADSWORD09_Condition()
 {	
 	if (EnteredTemple)
-	&& (Npc_GetTrueGuild (hero) == GIL_KDW || Npc_GetTrueGuild (hero) == GIL_DMB || Npc_GetTrueGuild (hero) == GIL_KDF)
+	&& (Npc_GetTrueGuild (hero) == GIL_KDW || Npc_GetTrueGuild (hero) == GIL_DMB || Npc_GetTrueGuild (hero) == GIL_KDF || Npc_GetTrueGuild (hero) == GIL_GUR)
+	&& (Npc_GetTalentSkill	( hero,	NPC_TALENT_MAGE ) == 5)
 	{			
 		return TRUE;
 	};	
@@ -1135,28 +1216,19 @@ FUNC int  Info_Xardas_LOADSWORD09_Condition()
 func void  Info_Xardas_LOADSWORD09_Info()
 {
 	AI_Output (other, self,"Info_Xardas_LOADSWORD09_15_01");		//Mo¿esz mnie czegoœ nauczyæ?
-	
-	if ( Npc_GetTalentSkill	( hero,	NPC_TALENT_MAGE ) == 5) 
+
+	if (B_GiveSkill(other, NPC_TALENT_MAGE, 6, LPCOST_TALENT_MAGE_6))
 	{
-		
-		if (B_GiveSkill(other, NPC_TALENT_MAGE, 6, LPCOST_TALENT_MAGE_6))
-		{
-			AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_02"); //Wprowadzê ciê w Szósty Kr¹g Magii.
-			AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_03"); //Pamiêtaj, ¿e to przywilej zarezerwowany wy³¹cznie dla najbieglejszych magów. Mog¹ do niego przyst¹piæ ci, których ca³e ¿ycie jest znakiem.
-			AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_04"); //Twoim znakiem jest zjednoczenie elementów.
-			AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_05"); //Szósty Kr¹g pozwala ci wykorzystywaæ magiê dowolnej runy.
-			AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_06"); //I nie zapomnij: twoim zadaniem jest s³u¿yæ potêdze magii, a nie j¹ wykorzystywaæ.
-				
-			Info_Xardas_LOADSWORD09.permanent = 0;
-			AI_StopProcessInfos	( self );
-		};
-	}
-	else 
-	{
-		AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_07"); 	//Jeszcze nie. Jesteœ zdolny, ale brak ci niezbêdnego doœwiadczenia. Niech Saturas popracuje nad tob¹ przez jakiœ czas. Wtedy zobaczymy.
-		
-		AI_StopProcessInfos	( self );
+		AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_02"); //Wprowadzê ciê w Szósty Kr¹g Magii.
+		AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_03"); //Pamiêtaj, ¿e to przywilej zarezerwowany wy³¹cznie dla najbieglejszych magów. Mog¹ do niego przyst¹piæ ci, których ca³e ¿ycie jest znakiem.
+		AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_04"); //Twoim znakiem jest zjednoczenie elementów.
+		AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_05"); //Szósty Kr¹g pozwala ci wykorzystywaæ magiê dowolnej runy.
+		AI_Output (self, other,"Info_Xardas_LOADSWORD09_14_06"); //I nie zapomnij: twoim zadaniem jest s³u¿yæ potêdze magii, a nie j¹ wykorzystywaæ.
+			
+		Info_Xardas_LOADSWORD09.permanent = 0;
 	};
+
+	AI_StopProcessInfos	( self );
 };
 
 instance  KDF_404_Xardas_TEACH (C_INFO)
@@ -1200,13 +1272,6 @@ FUNC void  KDF_404_Xardas_TEACH_Info()
 		Info_AddChoice(KDF_404_Xardas_TEACH,"Armia Ciemnoœci 20 pn", KDF_404_Xardas_TEACH_SPL_ARMYOFDARKNESS);
 	};
 
-	if(Npc_GetTalentSkill(other, NPC_TALENT_MAGE)>=6)
-	&&(Npc_KnowsInfo(hero, Info_Xardas_GIL_KDF))
-	&&(PLAYER_TALENT_RUNES[SPL_FIRERAIN] == FALSE)
-	{
-		Info_AddChoice(KDF_404_Xardas_TEACH,"Deszcz Ognia 20 pn", KDF_404_Xardas_TEACH_SPL_FIRERAIN);
-	};
-
 };
 
 func void KDF_404_Xardas_TEACH_BACK()
@@ -1227,6 +1292,38 @@ func void KDF_404_Xardas_TEACH_SPL_SUMMONDEMON()
 func void KDF_404_Xardas_TEACH_SPL_ARMYOFDARKNESS()
 {
 	B_TeachPlayerTalentRunes(hero, SPL_ARMYOFDARKNESS, LPCOST_RUNEN_6);
+};
+
+instance  KDF_404_Xardas_TEACH_KDF (C_INFO)
+{
+	npc				= KDF_404_Xardas;
+	condition		= KDF_404_Xardas_TEACH_KDF_Condition;
+	information		= KDF_404_Xardas_TEACH_KDF_Info;
+	permanent		= 1;
+	description		= "Naucz mnie."; 
+};
+
+FUNC int KDF_404_Xardas_TEACH_KDF_Condition()
+{	
+	if (TrueMageGuild = GIL_KDF)
+	&& (Npc_GetTalentSkill(hero, NPC_TALENT_MAGE) == 6)
+	&& (PLAYER_TALENT_RUNES[SPL_FIRERAIN] == FALSE)
+	{
+		return TRUE;
+	};
+
+};
+FUNC void  KDF_404_Xardas_TEACH_KDF_Info()
+{
+	AI_Output (other, self,"KDF_402_Corristo_TEACH_15_01"); //Zostañ moim nauczycielem.
+	Info_ClearChoices(KDF_404_Xardas_TEACH_KDF);
+	Info_AddChoice(KDF_404_Xardas_TEACH_KDF, DIALOG_BACK, KDF_404_Xardas_TEACH_KDF_BACK);
+	Info_AddChoice(KDF_404_Xardas_TEACH_KDF,"Deszcz Ognia 20 pn", KDF_404_Xardas_TEACH_SPL_FIRERAIN);
+};
+
+func void KDF_404_Xardas_TEACH_KDF_BACK()
+{
+	Info_ClearChoices	(KDF_404_Xardas_TEACH_KDF);
 };
 
 func void KDF_404_Xardas_TEACH_SPL_FIRERAIN()
