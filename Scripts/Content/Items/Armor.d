@@ -60,12 +60,14 @@ FUNC VOID Hood_function ()
 	else if(armorInstance == KDF_ARMOR_H2)		{ ChangeArmor(self, 	KDF_ARMOR_H2, 		KDF_ARMOR_H2_WH	); }
 	else if(armorInstance == KDW_ARMOR_L)		{ ChangeArmor(self, 	KDW_ARMOR_L, 		KDW_ARMOR_L_WH	); }
 	else if(armorInstance == KDW_ARMOR_H)		{ ChangeArmor(self, 	KDW_ARMOR_H, 		KDW_ARMOR_H_WH	); }
+	else if(armorInstance == DMB_ARMOR_M)		{ ChangeArmor(self, 	DMB_ARMOR_M, 		DMB_ARMOR_M_WH	); }
 	/*zdejmij kaptur*/
 	else if(armorInstance == KDF_ARMOR_L_WH)	{ ChangeArmor(self, 	KDF_ARMOR_L_WH, 	KDF_ARMOR_L		); }
 	else if(armorInstance == KDF_ARMOR_H_WH)	{ ChangeArmor(self, 	KDF_ARMOR_H_WH, 	KDF_ARMOR_H		); }
 	else if(armorInstance == KDF_ARMOR_H2_WH)	{ ChangeArmor(self, 	KDF_ARMOR_H2_WH, 	KDF_ARMOR_H2	); }
 	else if(armorInstance == KDw_ARMOR_L_WH)	{ ChangeArmor(self, 	KDW_ARMOR_L_WH, 	KDW_ARMOR_L		); }
-	else if(armorInstance == KDw_ARMOR_H_WH)	{ ChangeArmor(self, 	KDW_ARMOR_H_WH, 	KDW_ARMOR_H		); };
+	else if(armorInstance == KDw_ARMOR_H_WH)	{ ChangeArmor(self, 	KDW_ARMOR_H_WH, 	KDW_ARMOR_H		); }
+	else if(armorInstance == DMB_ARMOR_M_WH)	{ ChangeArmor(self, 	DMB_ARMOR_M_WH, 	DMB_ARMOR_M		); };
 };
 
 /*******************************************************************************************
@@ -832,6 +834,40 @@ INSTANCE SLD_ARMOR_H(C_Item)
 	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
 };
 
+/******************************************************************************************/
+INSTANCE SLD_ARMOR_TPL(C_Item)
+{
+	name 					=	"Zbroja Nordmarczyka";
+
+	mainflag 				=	ITEM_KAT_ARMOR;
+	flags 					=	0;
+
+	protection [PROT_EDGE]	=	70;
+	protection [PROT_BLUNT] = 	70;
+	protection [PROT_POINT] = 	70;
+	protection [PROT_FIRE] 	= 	35;
+	protection [PROT_MAGIC] = 	0;
+
+	value 					=	VALUE_TPL_ARMOR_H;
+
+	wear 					=	WEAR_TORSO;
+
+	visual 					=	"sldh.3ds";
+	visual_change 			=	"Hum_SLD_ARMOR_TPL.asc";
+	visual_skin 			=	0;
+	material 				=	MAT_LEATHER;
+	on_equip				=	TPL_ARMOR_H_equip;
+	on_unequip				=	default_skin;
+
+	description				=	name;
+	//TEXT[0]				=	"";
+	TEXT[1]					=	NAME_Prot_Edge;			COUNT[1]	= protection	[PROT_EDGE];
+	TEXT[2]					=	NAME_Prot_Point;		COUNT[2]	= protection	[PROT_POINT];
+	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
+	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
+	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};
+
 
 /*******************************************************************************************
 **	PsiCamp 		                                               	  					  **
@@ -1520,18 +1556,18 @@ INSTANCE KDW_ARMOR_H_WH(C_Item)
 /******************************************************************************************/
 // Dämonenbeschwörer
 
-INSTANCE DMB_ARMOR_M(C_Item)
+INSTANCE DMB_ARMOR_XARDAS(C_Item)
 {
-	name 					=	"Szata Mrocznych Sztuk";
+	name 					=	"Szata Xardasa";
 
 	mainflag 				=	ITEM_KAT_ARMOR;
 	flags 					=	0;
 
-	protection [PROT_EDGE] 	= 	80;
-	protection [PROT_BLUNT] = 	80;
-	protection [PROT_POINT] = 	80;
-	protection [PROT_FIRE] 	= 	45;
-	protection [PROT_MAGIC] = 	45;
+	protection [PROT_EDGE] 	= 	100;
+	protection [PROT_BLUNT] = 	100;
+	protection [PROT_POINT] = 	100;
+	protection [PROT_FIRE] 	= 	50;
+	protection [PROT_MAGIC] = 	50;
 
 	wear 					=	WEAR_TORSO;
 
@@ -1553,7 +1589,133 @@ INSTANCE DMB_ARMOR_M(C_Item)
 	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
 };
 
+INSTANCE DMB_ARMOR_M(C_Item)
+{
+	name 					=	"Szata Mrocznych Sztuk";
 
+	mainflag 				=	ITEM_KAT_ARMOR;
+	flags 					=	0;
+
+	protection [PROT_EDGE] 	= 	80;
+	protection [PROT_BLUNT] = 	80;
+	protection [PROT_POINT] = 	80;
+	protection [PROT_FIRE] 	= 	45;
+	protection [PROT_MAGIC] = 	45;
+
+	wear 					=	WEAR_TORSO;
+
+ 	value 					=	protection [PROT_EDGE] * ARMOR_VALUE_MULTIPLIER;
+
+	ownerGuild 				= 	GIL_DMB;
+
+	visual 					=	"dmbm.3ds";
+	visual_change 			=	"Hum_DMBL_ARMOR.asc";
+	visual_skin 			=	0;
+	material 				=	MAT_LEATHER;
+	on_equip				=	equip_DMB_ARMOR_M;
+	on_unequip				=	unequip_DMB_ARMOR_M;
+
+	description				=	name;
+	//TEXT[0]				=	"";
+	TEXT[1]					=	NAME_Prot_Edge;			COUNT[1]	= protection	[PROT_EDGE];
+	TEXT[2]					=	NAME_Prot_Point;		COUNT[2]	= protection	[PROT_POINT];
+	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
+	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
+	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};
+
+func void equip_DMB_ARMOR_M()
+{
+	Create_Hood();
+	if(TrueMageGuild == GIL_GUR)
+	{
+		Mdl_SetVisualBody (hero,"hum_body_Naked0",	1,			1,	"Hum_Head_Bald",		125, 			0,			-1);
+	};
+};
+
+func void unequip_DMB_ARMOR_M()
+{
+	Remove_Hood();
+	default_skin();
+};
+
+INSTANCE DMB_ARMOR_M_WH(C_Item)
+{
+	name 					=	"Szata Mrocznych Sztuk";
+
+	mainflag 				=	ITEM_KAT_ARMOR;
+	flags 					=	0;
+
+	protection [PROT_EDGE] 	= 	80;
+	protection [PROT_BLUNT] = 	80;
+	protection [PROT_POINT] = 	80;
+	protection [PROT_FIRE] 	= 	45;
+	protection [PROT_MAGIC] = 	45;
+
+	wear 					=	WEAR_TORSO;
+
+ 	value 					=	protection [PROT_EDGE] * ARMOR_VALUE_MULTIPLIER;
+
+	ownerGuild 				= 	GIL_DMB;
+
+	visual 					=	"dmbm.3ds";
+	visual_change 			=	"Hum_DMBL_ARMOR_WH.asc";
+	visual_skin 			=	0;
+	material 				=	MAT_LEATHER;
+	on_equip				=	equip_DMB_ARMOR_M;
+	on_unequip				=	unequip_DMB_ARMOR_M;
+
+	description				=	name;
+	//TEXT[0]				=	"";
+	TEXT[1]					=	NAME_Prot_Edge;			COUNT[1]	= protection	[PROT_EDGE];
+	TEXT[2]					=	NAME_Prot_Point;		COUNT[2]	= protection	[PROT_POINT];
+	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
+	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
+	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};
+
+/******************************************************************************************/
+INSTANCE DMB_ARMOR_TPL(C_Item)
+{
+	name 					=	"Zbroja wojownika Beliara";
+
+	mainflag 				=	ITEM_KAT_ARMOR;
+	flags 					=	0;
+
+	protection [PROT_EDGE] 	= 	80;
+	protection [PROT_BLUNT] = 	80;
+	protection [PROT_POINT] = 	80;
+	protection [PROT_FIRE] 	= 	45;
+	protection [PROT_MAGIC] = 	45;
+
+	wear 					=	WEAR_TORSO;
+
+ 	value 					=	protection [PROT_EDGE] * ARMOR_VALUE_MULTIPLIER;
+
+	ownerGuild 				= 	GIL_DMB;
+
+	visual 					=	"dmbm.3ds";
+	visual_change 			=	"HUM_DMB_ARMOR_TPL.asc";
+	visual_skin 			=	0;
+	material 				=	MAT_LEATHER;
+	on_equip				=	MadSkin;
+	on_unequip				=	default_skin;
+
+	description				=	name;
+	//TEXT[0]				=	"";
+	TEXT[1]					=	NAME_Prot_Edge;			COUNT[1]	= protection	[PROT_EDGE];
+	TEXT[2]					=	NAME_Prot_Point;		COUNT[2]	= protection	[PROT_POINT];
+	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
+	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
+	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};
+
+FUNC VOID MadSkin()
+{
+	if(hero.id == 0){
+		Mdl_SetVisualBody (hero,"hum_body_Naked0",	1,			1,	"Hum_Head_Bald",		125, 			0,			-1);
+	};
+};
 
 /*******************************************************************************************
 **	Spezial-Rüstungen                                                                     **
@@ -1784,48 +1946,7 @@ INSTANCE BAB_ARMOR_BIKINI (C_Item)
 	material 				=	MAT_LEATHER;
 };
 /******************************************************************************************/
-/**********************************Drops_Armor*********************************************/
-INSTANCE DMB_ARMOR_GUR(C_Item)
-{
-	name 					=	"Szata Mrocznych Sztuk";
-
-	mainflag 				=	ITEM_KAT_ARMOR;
-	flags 					=	0;
-
-	protection [PROT_EDGE] 	= 	85;
-	protection [PROT_BLUNT] = 	85;
-	protection [PROT_POINT] = 	85;
-	protection [PROT_FIRE] 	= 	45;
-	protection [PROT_MAGIC] = 	45;
-
-	wear 					=	WEAR_TORSO;
-
- 	value 					=	protection [PROT_EDGE] * ARMOR_VALUE_MULTIPLIER;
-
-	ownerGuild 				= 	GIL_DMB;
-
-	visual 					=	"dmbm.3ds";
-	visual_change 			=	"Hum_DMBM_ARMOR.asc";
-	visual_skin 			=	2;
-	material 				=	MAT_LEATHER;
-	on_equip				=	DMB_ARMOR_GUR_equip;
-	on_unequip				=	default_skin;
-
-	description				=	name;
-	//TEXT[0]				=	"";
-	TEXT[1]					=	NAME_Prot_Edge;			COUNT[1]	= protection	[PROT_EDGE];
-	TEXT[2]					=	NAME_Prot_Point;		COUNT[2]	= protection	[PROT_POINT];
-	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
-	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
-	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
-};
-
-FUNC VOID DMB_ARMOR_GUR_equip()
-{
-	if(hero.id == 0){
-		Mdl_SetVisualBody (hero,"hum_body_Naked0",	1,			1,	"Hum_Head_Bald",		125, 			0,			-1);
-	};
-};
+/************************************BDT_Armor*********************************************/
 
 INSTANCE BDT_ARMOR_M(C_Item)
 {

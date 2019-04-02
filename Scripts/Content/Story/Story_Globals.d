@@ -31,6 +31,7 @@ var int Knows_GetDemonHeart;
 var int Knows_GetUluMulu;
 var int PLAYER_TALENT_RUNES [MAX_SPELL];
 var int Knows_Book_Circle_01;
+var int TrueMageGuild;
 
 var int LesterGuide;
 

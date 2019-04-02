@@ -613,8 +613,7 @@ FUNC int  KDF_402_Corristo_HEAVYARMOR_Condition()
 FUNC void  KDF_402_Corristo_HEAVYARMOR_Info()
 {
 	AI_Output (other, self,"KDF_402_Corristo_HEAVYARMOR_Info_15_01"); //Mistrzu, chcia³bym nosiæ szatê Arcymaga Ognia.
-	if (Npc_GetTalentSkill (hero,NPC_TALENT_MAGE ) < 4)
-	&& (Kapitel < 3)
+	if (PLAYER_TALENT_RUNES[SPL_FIRESTORM] == TRUE)
 	{
 		AI_Output (self, other,"KDF_402_Corristo_WANNBEKDF_Info_14_04"); //Nie jesteœ jeszcze gotów. Wróæ do mnie, kiedy zdobêdziesz wiêcej doœwiadczenia.
 		//AI_Output (other, self,"KDF_402_Corristo_HEAVYARMOR_Info_15_02"); //Es ist noch nicht deine Zeit, die hohe Robe zu tragen. //***FALSCHE STIMME***

@@ -71,12 +71,13 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 	
 	// Armor
 	CreateInvItem(self,KDF_ARMOR_H2);
-	CreateInvItem(self,DMB_ARMOR_GUR);
 	CreateInvItem(self,BDT_ARMOR_M);
 	//CreateInvItem(self,BDT_ARMOR_H); //onEquip
 	CreateInvItem(self,VLK_ARMOR_H);
 	CreateInvItem(self,STT_ARMOR_H1);
 	CreateInvItem(self,STT_ARMOR_H2);
+	CreateInvItem(self,DMB_ARMOR_TPL);
+	CreateInvItem(self,SLD_ARMOR_TPL);
 
 	//Crossbow
 	CreateInvItem (self,ItRw_Crossbow_05);

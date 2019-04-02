@@ -148,9 +148,9 @@
 |   +--|-- DIA_KDF_403_Drago
 |   |   // Po zostaniu magiem ognia otrzymujemy pustą runę zamiast "ognistej strzały"
 |   +--|-- DIA_KDF_404_Xardas
-|   |   // Nauka 6 kręgu niezależnie czy jesteśmy KDF,KDW,GUR
+|   |   // Nauka Kręgów 4 i 5 (przy specjalnych warunkach), Nauka 6 kręgu niezależnie czy jesteśmy KDF,KDW,GUR
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu nekromantą
-|   |   // Różne szaty gdy jesteśmy guru lub magiem Ognia
+|   |   // Różne szaty gdy jesteśmy strażnikiem świątynym a guru, magiem Ognia lub magiem wody
 |   |   // Zwraca Uriziel_1H gdy lepiej posługujemy się bronią jednoręczną
 |   |   // Usunięcie magicznych run przed handlem
 |   |   // Nauka wyciania serc demonom
@@ -162,6 +162,7 @@
 |   +--|-- DIA_KDW_600_Saturas
 |   |   // Zwiększenie restrykcji przy zostaniu arcymagiem
 |   |   // Zmiany w dialogach o Xardasie
+|   |   // Zmiany w dialogach podczas uczenia kręgu 5
 |   |   // Zmiany w zostaniu magiem wody, możemy zostać wcześniej
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu magiem wody
 |   |   // Uczy tworzenia run
@@ -238,6 +239,7 @@
 |   |   // Inny pancerz po zostaniu najemnikiem
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Informowanie Lee o przełomie w bractwie
+|   |   // Można zostać najemnikiem jeśli jesteśym strażnikiem świątynnym
 |   |   // Poprawienie dialogu z Lee o odbiciu wolnej kopalni, zmieniona nagroda
 |   +--|-- DIA_SLD_709_Cord
 |   |   // Przebudowa nauki walki na 11 etapów
@@ -331,6 +333,7 @@
 |   |   // Zmienna Uriziel_1H
 |   |   // Zmienna Knows_GetDemonHeart - umiejętność wycinania serc demonów
 |   |   // Zmienna tablica PLAYER_TALENT_RUNES - umiejętności tworzenia run
+|   |   // Zmienna TrueMageGuild - potrzeba do przetasowań w gildiach magów
 |   |   // Zmiana punktów nauki przy nauce kregów magii
 |   |   // Dodanie kosztów nauki tworzenia run
 |   |   // Zmienna Knows_Book_Circle_01 - informacja czy przeczytaliśmy książkę "Pierwszy krąg magii"
@@ -521,6 +524,8 @@
 |   |   |    // (401_Damarok/402_Corristo/403_Drago) - noszą wersję szaty maga z kapturem
 |   |   +--| KDF_405_Torrez
 |   |   |    // Usunięcie magicznej runy
+|   |   +--| KDF_(404_Xardas/406_OTXardas)
+    |   |    // Stara szata nowy kod
 |   |   +--| STT_(311/329)
 |   |   |    // Dodanie rutyny "out" - wywalenie za barierę
 |   |   +--| STT_(300_Alberto/301_Ian/335_Santino)
