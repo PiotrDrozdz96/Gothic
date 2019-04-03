@@ -1220,7 +1220,7 @@ FUNC void  GUR_1201_CorKalom_WANNABEGUR_Info()
 		Npc_SetTrueGuild(hero, GIL_GUR);
 		hero.guild = GIL_GUR;
 		CreateInvItem		(hero,GUR_ARMOR_M);
-		CreateInvItem		(hero,ItMw_2H_Staff_03);
+		CreateInvItem		(hero,ItMW_Staff_Prot_01);
 		AI_EquipBestArmor	(hero);
 	};
 

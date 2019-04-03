@@ -35,7 +35,8 @@ instance KDF_400_Rodriguez (Npc_Default)
 	Npc_SetTalentSkill		( self, NPC_TALENT_MAGE,		6);
 
 
-	//-------- Spells--------                                    
+	//-------- Spells-------- 
+	EquipItem(self, ItMW_Staff_Fire_01);                                   
 	CreateInvItem(self,ItArRuneFirebolt);
 	CreateInvItem	(self,ItMi_Stuff_OldCoin_02);	
 	

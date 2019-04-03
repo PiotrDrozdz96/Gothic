@@ -10,7 +10,8 @@ func void B_Give_XardasChapter4Runes ()
 	//-------- Scrolls --------
 	CreateInvItems (npc,ItArScrollSummonSkeletons,8);	
 	CreateInvItems (npc,ItArScrollSummonGolem,4);	
-	CreateInvItems (npc,ItArScrollShrink,2);	
+	CreateInvItems (npc,ItArScrollShrink,2);
+	CreateInvItems (npc,ItMW_Staff_Prot_03,2);	
 	
 	//-------- Bücher --------
 	CreateInvItem (npc,ItWr_Book_Necromancer);
@@ -59,4 +60,20 @@ func void B_Give_XardasChapter6Runes ()
 
 	//-------- Bücher --------
 
+};
+
+func void B_Give_XardasStaffDMB()
+{
+	var C_NPC npc;
+	npc = Hlp_GetNpc(KDF_404_Xardas);
+
+	CreateInvItems (npc,ItMW_Staff_Demon, 2);
+};
+
+func void B_Give_XardasStaffKDF()
+{
+	var C_NPC npc;
+	npc = Hlp_GetNpc(KDF_404_Xardas);
+
+	CreateInvItems (npc,ItMW_Staff_Fire_02,2);
 };

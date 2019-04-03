@@ -48,6 +48,16 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 	CreateInvItem(self,ITMW_1H_URIZIEL_1);
 	CreateInvItem(self,ITMW_1H_URIZIEL_2);
 	CreateInvItem(self,ITMW_1H_URIZIEL_3);
+	CreateInvItem(self,ItMW_Staff_Water_01);
+	CreateInvItem(self,ItmW_Staff_Prot_01);
+	CreateInvItem(self,ItMW_Staff_Fire_01);
+	CreateInvItem(self,ItMW_Staff_Magic);
+	CreateInvItem(self,ItMW_Staff_Nature);
+	CreateInvItem(self,ItmW_Staff_Prot_02);
+	CreateInvItem(self,ItMW_Staff_Water_02);
+	CreateInvItem(self,ItMW_Staff_Fire_02);
+	CreateInvItem(self,ItMW_Staff_Demon);
+	CreateInvItem(self,ItmW_Staff_Prot_03);
 	
 	// Shield
 	CreateInvItem(self,ITSH_REINFORCED_A);

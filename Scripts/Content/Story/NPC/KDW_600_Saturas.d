@@ -41,6 +41,7 @@ instance KDW_600_Saturas (Npc_Default)
 	CreateInvItem 		(self, 	ItFo_Potion_Mana_01);
 	EquipItem 			(self, 	Schutzamulett_Feuer);
 	EquipItem 			(self,	Machtring);
+	EquipItem			(self, ItMW_Staff_Prot_02);
 	CreateInvItem		(self,	ItFo_Plants_Flameberry_01 );
 
 	//------------- ai -------------

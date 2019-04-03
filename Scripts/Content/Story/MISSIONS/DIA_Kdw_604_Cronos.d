@@ -469,6 +469,7 @@ FUNC int  KDW_604_Cronos_WELCOME_Condition()
 func void  KDW_604_Cronos_WELCOME_Info()
 {
 	AI_Output			(self, other,"KDW_604_Cronos_WELCOME_Info_08_01"); //M¹drze post¹pi³eœ przystêpuj¹c do Magów Wody. B¹dŸ pozdrowiony, bracie!
+	B_Give_CronosStaff ();
 	AI_StopProcessInfos	( self );  
 };
 //--------------------------------------------------------------------------

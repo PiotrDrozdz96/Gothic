@@ -38,6 +38,7 @@ instance KDW_603_Nefarius (Npc_Default)
 
 	CreateInvItem (self, ItFo_Potion_Health_02);
 	CreateInvItem (self, ItFo_Potion_Mana_02);
+	EquipItem	  (self, ItMW_Staff_Water_01);
 	EquipItem     (self, Schutzring_Total1);
 	EquipItem     (self, Ring_der_Magie);
 	CreateInvItems(self,ItFo_Plants_Flameberry_01,2 );

@@ -34,7 +34,8 @@ instance KDW_601_Myxir (Npc_Default)
 
 			
 	
-	//-------- Spells --------        
+	//-------- Spells --------       
+	EquipItem(self, ItMW_Staff_Water_02); 
 	CreateInvItem (self, ItArRuneThunderbolt);
 	
 	//-------- inventory --------                                    

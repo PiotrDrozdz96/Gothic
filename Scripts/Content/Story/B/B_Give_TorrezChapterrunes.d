@@ -109,4 +109,12 @@ func void B_Give_TorrezChapter3Runes ()
 	CreateInvItems (npc,ItFo_Potion_Haste_02 ,6);
 };
 
+func void B_Give_TorrezStaff ()
+{
+	var C_NPC npc;
+	npc = Hlp_GetNpc(KDF_405_Torrez);
+	CreateInvItems (npc,ItMW_Staff_Fire_01,2);
+	CreateInvItems (npc,ItMW_Staff_Magic,2);
+};
+
 

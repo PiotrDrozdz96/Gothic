@@ -33,6 +33,7 @@
 |   |   // Usunięcie ze sprzedaży magicznych run
 |   |   // Dodanie przedmiotów do tworzenia run
 |   |   // Dodanie nowych książek o czarach
+|   |   // Dodanie funkcji które dodają kostury do sprzedaży
 |   +--|-- B_GiveDeathInv
 |   |   // Demony posiadają serca jeśli mamy umiejętność wycinania serc
 |   |   // Krwiopijce posiadają skrzydła jeśli posiadamy odpowiednią umiejętność
@@ -125,7 +126,7 @@
 |   +--|-- DIA_GUR_1202_CorAngar
 |   |   // Przebudowa nauki walki na 11 etapów
 |   |   // Uwzględnie guru w nauce walki broni 2H
-|   |   // Zdobycie szaty arcyguru
+|   |   // Zdobycie szaty arcyguru i nowego kostura
 |   |   // z Cor Angarem można rozmawiać o zostaniu Strażnikiem Świątynnym tylko po zostaniu Nowicjuszem -- by marev
 |   |   // Po wysłaniu na cmentarz orków część questów przechodzi do zakładki niezaliczone
 |   |   // Po odejściu Cor Kaloma questy które nam zlecał przechodzą w niezaliczone
@@ -155,10 +156,12 @@
 |   |   // Usunięcie magicznych run przed handlem
 |   |   // Nauka wyciania serc demonom
 |   |   // Uczy tworzenia run
+|   |   // Sprzedaje kostury nekromantom i magom ognia
 |   +--|-- DIA_KDF_405_Torrez
 |   |   // Usunięcie magicznych run przed handlem
 |   |   // Po zostaniu magiem ognia nie otrzymamy księgi "Pierwszy krąg magii" jeśli wcześniej ją kupiliśmy
 |   |   // Dodano wpis w dzienniku do zadania "List z zewnętrznego świata"
+|   |   // Po zostaniu magiem ognia sprzedaje kostury
 |   +--|-- DIA_KDW_600_Saturas
 |   |   // Zwiększenie restrykcji przy zostaniu arcymagiem
 |   |   // Zmiany w dialogach o Xardasie
@@ -175,6 +178,7 @@
 |   |   // rozmowa z Cronosem o dołączeniu do obozu i zostaniu Magiem Wody jest dostępna tylko, jeśli gracz nie należy do żadnego obozu -- by marev 
 |   |   // Dodano wpis w dzienniku do zadania "List z zewnętrznego świata"
 |   |   // Zadanie z dostarczeniem listu Cronosa do magów ognia tworzy wpisy w dzienniku
+|   |   // Po zostaniu magiem wody sprzedaje kostury
 |   +--|-- DIA_Nov_1304_Balor -- by marev
 |   |   // gracz może poprawnie odebrać bagienne ziele od Balora po raz drugi
 |   +--|-- DIA_Nov_1331_BaalTaran
@@ -333,7 +337,7 @@
 |   |   // Zmienna Uriziel_1H
 |   |   // Zmienna Knows_GetDemonHeart - umiejętność wycinania serc demonów
 |   |   // Zmienna tablica PLAYER_TALENT_RUNES - umiejętności tworzenia run
-|   |   // Zmienna TrueMageGuild - potrzeba do przetasowań w gildiach magów
+|   |   // Zmienna TrueMageGuild - potrzebna do przetasowań w gildiach magów
 |   |   // Zmiana punktów nauki przy nauce kregów magii
 |   |   // Dodanie kosztów nauki tworzenia run
 |   |   // Zmienna Knows_Book_Circle_01 - informacja czy przeczytaliśmy książkę "Pierwszy krąg magii"
@@ -356,6 +360,7 @@
 |   |   // Dodanie stałej NAME_STR_GRAB = "Obciążenie Siły", używanej w tarczach
 |   |   // Zmiana nazw dla SPL_NEW(2-4)
 |   |   // MOBNAME_RUNEMAKER i PRINT_(RuneSuccess/ProdItemsMissing) dla stołu runicznego
+|   |   // nowe stałe dla opisu przedmiotów (NAME_Prot_All, NAME_Bonus_ManaHpMax)
 |   +--| Gothic.src
 |   |   // Przeniesienie G_funcions wyżej w kolejce parsowania
 |   |   // Dodanie funkcji B_TeachPlayerRunes do parsowania
@@ -412,6 +417,7 @@
 |   |   // Usunięcie imiennych broni
 |   |   // Funkcje obsługujące tarcze, Dodanie Tarcz
 |   |   // 3 wersje Uriziela 1H
+|   |   // Dodanie kosturów
 |   +-- Written
 |   |   // książka o krwiopijcach uczy zarówno usuwanie żądła jak i skrzydeł
 |   |   // Z "Pierwszy Krąg Magii wypada list od Xardasa
@@ -453,6 +459,7 @@
 |   |   +--| KDW_(600-605)
 |   |   |    // Zwiększenie many do 200
 |   |   |    // (600_Saturas/601_Myxir) - noszą wersję szaty maga z kapturem
+|   |   |    // (600-603) - noszą kostury
 |   |   +--| KDW_604_Cronos
 |   |   |    // Usunięcie magicznej runy
 |   |   |    // Nosi wersję szaty maga z kapturem
@@ -522,10 +529,12 @@
 |   |   +--| KDF_(400-406)
 |   |   |    // Zwiększenie many do 200
 |   |   |    // (401_Damarok/402_Corristo/403_Drago) - noszą wersję szaty maga z kapturem
+|   |   |    // (400-403) - noszą kostury
 |   |   +--| KDF_405_Torrez
 |   |   |    // Usunięcie magicznej runy
 |   |   +--| KDF_(404_Xardas/406_OTXardas)
-    |   |    // Stara szata nowy kod
+|   |   |    // Stara szata nowy kod
+|   |   |    // 406_OTXardas posiada kostur   
 |   |   +--| STT_(311/329)
 |   |   |    // Dodanie rutyny "out" - wywalenie za barierę
 |   |   +--| STT_(300_Alberto/301_Ian/335_Santino)
@@ -558,6 +567,7 @@
 |   +-- SEKTE_CAMP
 |   |   +--| GUR(1200/1201/1203/1204/1209/1210/1211)
 |   |   |    // Zwiększenie many do 200
+|   |   |    // (1200/1203/1210) - noszą kostury
 |   |   +--| GUR_1208_BaalCadar
 |   |   |    // Usunięcie magicznej runy
 |   |   |    // Zwiększenie many do 200

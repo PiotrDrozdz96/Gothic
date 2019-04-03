@@ -172,3 +172,14 @@ func void B_Give_CronosChapter6Runes ()
 	//-------- Bücher --------
   
 };
+
+func void B_Give_CronosStaff ()
+{
+	var C_NPC npc;
+	npc = Hlp_GetNpc(KDW_604_Cronos);
+	
+	CreateInvItems (npc,ItMW_Staff_Water_01,2);
+	CreateInvItems (npc,ItMW_Staff_Prot_02,2);
+	CreateInvItems (npc,ItMW_Staff_Water_02,2);
+  
+};

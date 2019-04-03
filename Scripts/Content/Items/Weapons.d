@@ -910,3 +910,376 @@ INSTANCE ITMW_1H_URIZIEL_3 (C_Item)
 	TEXT[4] 			=	NAME_Str_needed;			COUNT[4] =	cond_value[2];
 	TEXT[5]				=	NAME_Value;					COUNT[5] =	value;
 };
+
+//-----------------------------------------------------------
+// MageStaff
+//-----------------------------------------------------------
+INSTANCE ItMW_Staff_Water_01(C_Item)
+{	
+	name 				=	"Wodny kostur";  
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_AXE;
+	material 			=	MAT_WOOD;
+
+	value 				=	950;
+
+	damageTotal  		= 	25;
+	damagetype 			=	DAM_BLUNT;
+	range    			=  	120;		
+	
+	on_equip			=	Equip_Water_01;
+	on_unequip			=	UnEquip_Water_01;
+	
+	cond_atr[2]   		=	ATR_MANA_MAX;
+	cond_value[2]  		=	50;
+	visual 				=	"ItMW_MageStaff_Blades_2H_01.3DS"; 
+
+	description			= 	name;
+
+	TEXT[1]				= NAME_Damage;					COUNT[1]	= damageTotal;
+	TEXT[2]				= NAME_Bonus_ManaMax;			COUNT[2]	= 25;
+	TEXT[3] 			= NAME_Mana_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+FUNC VOID Equip_Water_01()
+{
+	Npc_ChangeAttribute(self,ATR_MANA_MAX, 25);
+	Npc_ChangeAttribute(self,ATR_MANA, 25);
+};
+FUNC VOID UnEquip_Water_01()
+{
+	Npc_ChangeAttribute(self,ATR_MANA_MAX, -25);
+	Npc_ChangeAttribute(self,ATR_MANA, -25);
+};
+
+//-----------------------------------------------------------
+INSTANCE ItMW_Staff_Prot_01 (C_Item)
+{
+	name 				=	"Kostur Obrony";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_AXE;
+	material 			=	MAT_WOOD;
+
+	protection [PROT_EDGE] 	= 	15;
+	protection [PROT_BLUNT] = 	15;
+	protection [PROT_POINT] = 	15;
+	protection [PROT_FIRE] 	= 	15;
+	protection [PROT_MAGIC] = 	15;
+
+	value 				=	900;
+
+	damageTotal			= 	25;
+	damagetype 			=	DAM_BLUNT;
+	range    			=  	160;
+
+	cond_atr[2]   		= 	ATR_MANA_MAX;
+	cond_value[2]  		= 	40;
+
+	visual 				=	"ItMw_2H_Staff_03.3DS";
+
+	description			= name;
+	TEXT[1]				= NAME_Damage;					COUNT[1]	= damageTotal;
+	TEXT[2]				= NAME_Prot_All;				COUNT[2]	= protection[PROT_EDGE];
+	TEXT[3] 			= NAME_Mana_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+INSTANCE ItMW_Staff_Fire_01 (C_Item)
+{	
+	name 				=	"Kostur Ognia";  
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_AXE;
+	material 			=	MAT_WOOD;
+
+	value 				=	900;
+
+	damageTotal  		= 	25;
+	damagetype 			=	DAM_BLUNT;
+	range    			=  	120;		
+	
+	on_equip			=	Equip_Fire_01;
+	on_unequip			=	UnEquip_Fire_01;
+	
+	cond_atr[2]   		=	ATR_MANA_MAX;
+	cond_value[2]  		=	50;
+	visual 				=	"ItMW_MageStaff_Good_2H_01.3DS"; 
+
+	description			= 	name;
+
+	TEXT[1]				= NAME_Damage;					COUNT[1]	= damageTotal;
+	TEXT[2]				= NAME_Bonus_ManaMax;			COUNT[2]	= 25;
+	TEXT[3] 			= NAME_Mana_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+FUNC VOID Equip_Fire_01()
+{
+	Npc_ChangeAttribute(self,ATR_MANA_MAX, 25);
+	Npc_ChangeAttribute(self,ATR_MANA, 25);
+};
+FUNC VOID UnEquip_Fire_01()
+{
+	Npc_ChangeAttribute(self,ATR_MANA_MAX, -25);
+	Npc_ChangeAttribute(self,ATR_MANA, -25);
+};
+
+// *****************************************************
+INSTANCE ItMW_Staff_Magic (C_Item)
+{	
+	name 				=	"Kostur Magii";  
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_AXE;
+	material 			=	MAT_WOOD;
+
+	value 				=	1000;
+
+	damageTotal  		= 	30;
+	damagetype 			=	DAM_BLUNT;
+	range    			=  	130;		
+	
+	on_equip			=	Equip_Magic;
+	on_unequip			=	UnEquip_Magic;
+	
+	cond_atr[2]   		=	ATR_MANA_MAX;
+	cond_value[2]  		=	70;
+	visual 				=	"ItMW_MageStaff_Good_2H_02.3DS";
+
+	description			= 	name;
+
+	TEXT[1]				= NAME_Damage;					COUNT[1]	= damageTotal;
+	TEXT[2]				= NAME_Bonus_ManaMax;			COUNT[2]	= 50;
+	TEXT[3] 			= NAME_Mana_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+FUNC VOID Equip_Magic()
+{
+	Npc_ChangeAttribute(self,ATR_MANA_MAX, 50);
+	Npc_ChangeAttribute(self,ATR_MANA, 50);
+};
+FUNC VOID UnEquip_Magic()
+{
+	Npc_ChangeAttribute(self,ATR_MANA_MAX, -50);
+	Npc_ChangeAttribute(self,ATR_MANA, -50);
+};
+
+// *****************************************************
+INSTANCE ItMW_Staff_Nature (C_Item)
+{	
+	name 				=	"Kostur Natury";
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_AXE;
+	material 			=	MAT_WOOD;
+
+	value 				=	1050;
+
+	damageTotal  		= 	30;
+	damagetype 			=	DAM_BLUNT;
+	range    			=  	130;		
+	
+	on_equip			=	Equip_Nature;
+	on_unequip			=	UnEquip_Nature;
+	
+	cond_atr[2]   		=	ATR_MANA_MAX;
+	cond_value[2]  		=	70;
+	visual 				=	"ITMW_2H_G3_STAFFDRUID_01.3DS"; 
+
+	description			= 	name;
+
+	TEXT[1]				= NAME_Damage;					COUNT[1]	= damageTotal;
+	TEXT[2]				= NAME_Bonus_ManaHpMax;		COUNT[2]	= 30;
+	TEXT[3] 			= NAME_Mana_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+FUNC VOID Equip_Nature()
+{
+	Npc_ChangeAttribute(self,ATR_MANA_MAX, 30);
+	Npc_ChangeAttribute(self,ATR_MANA, 30);
+	Npc_ChangeAttribute(self,ATR_HITPOINTS_MAX, 30);
+	Npc_ChangeAttribute(self,ATR_HITPOINTS, 30);
+};
+FUNC VOID UnEquip_Nature()
+{
+	Npc_ChangeAttribute(self,ATR_MANA_MAX, -30);
+	Npc_ChangeAttribute(self,ATR_MANA, -30);
+	Npc_ChangeAttribute(self,ATR_HITPOINTS_MAX, -30);
+	Npc_ChangeAttribute(self,ATR_HITPOINTS, -30);
+};
+
+//-----------------------------------------------------------
+INSTANCE ItMW_Staff_Prot_02 (C_Item)
+{
+	name 				=	"Kostur Ochrony";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_AXE;
+	material 			=	MAT_WOOD;
+
+	protection [PROT_EDGE] 	= 	30;
+	protection [PROT_BLUNT] = 	30;
+	protection [PROT_POINT] = 	30;
+	protection [PROT_FIRE] 	= 	30;
+	protection [PROT_MAGIC] = 	30;
+
+	value 				=	1650;
+
+	damageTotal			= 	35;
+	damagetype 			=	DAM_BLUNT;
+	range    			=  	160;
+
+	cond_atr[2]   		= 	ATR_MANA_MAX;
+	cond_value[2]  		= 	70;
+
+	visual 				=	"ITMW_2H_G3_STAFFWATER_01.3DS";
+
+	description			= name;
+	TEXT[1]				= NAME_Damage;					COUNT[1]	= damageTotal;
+	TEXT[2]				= NAME_Prot_All;				COUNT[2]	= protection[PROT_EDGE];
+	TEXT[3] 			= NAME_Mana_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+// *****************************************************
+INSTANCE ItMW_Staff_Water_02 (C_Item)
+{	
+	name 				=	"Tajfun";
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_AXE;
+	material 			=	MAT_WOOD;
+
+	protection[PROT_MAGIC] = 40;
+
+	value 				=	1800;
+
+	damageTotal  		= 	40;
+	damagetype 			=	DAM_BLUNT;
+	range    			=  	130;		
+	
+	on_equip			=	Equip_Magic;
+	on_unequip			=	UnEquip_Magic;
+	
+	cond_atr[2]   		=	ATR_MANA_MAX;
+	cond_value[2]  		=	110;
+	visual 				=	"ItMW_MageStaff_Blades_2H_02.3DS"; 
+
+	description			= 	name;
+
+	TEXT[0]				= NAME_Damage;					COUNT[0]	= damageTotal;
+	TEXT[1]				= NAME_Bonus_ManaMax;			COUNT[1]	= 50;
+	TEXT[2]				= NAME_Prot_Magic;				COUNT[2]	= protection[PROT_MAGIC];
+	TEXT[3] 			= NAME_Mana_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+// *****************************************************
+INSTANCE ItMW_Staff_Fire_02 (C_Item)
+{	
+	name 				=	"Po¿oga";
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_AXE;
+	material 			=	MAT_WOOD;
+
+	protection[PROT_FIRE] = 40;
+
+	value 				=	1800;
+
+	damageTotal  		= 	40;
+	damagetype 			=	DAM_BLUNT;
+	range    			=  	130;		
+	
+	on_equip			=	Equip_Magic;
+	on_unequip			=	UnEquip_Magic;
+	
+	cond_atr[2]   		=	ATR_MANA_MAX;
+	cond_value[2]  		=	110;
+	visual 				=	"ITMW_2H_G3_STAFFFIRE_01.3DS"; 
+
+	description			= 	name;
+
+	TEXT[0]				= NAME_Damage;					COUNT[0]	= damageTotal;
+	TEXT[1]				= NAME_Bonus_ManaMax;			COUNT[1]	= 50;
+	TEXT[2]				= NAME_Prot_Fire;				COUNT[2]	= protection[PROT_FIRE];
+	TEXT[3] 			= NAME_Mana_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+// *****************************************************
+INSTANCE ItMW_Staff_Demon (C_Item)
+{	
+	name 				=	"Otch³añ";
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_AXE;
+	material 			=	MAT_WOOD;
+
+	protection[PROT_MAGIC] = 40;
+
+	value 				=	1800;
+
+	damageTotal  		= 	40;
+	damagetype 			=	DAM_BLUNT;
+	range    			=  	130;		
+	
+	on_equip			=	Equip_Magic;
+	on_unequip			=	UnEquip_Magic;
+	
+	cond_atr[2]   		=	ATR_MANA_MAX;
+	cond_value[2]  		=	110;
+	visual 				=	"ITMW_2H_KMR_XARDASSTAFF_01.3DS"; 
+
+	description			= 	name;
+
+	TEXT[0]				= NAME_Damage;					COUNT[0]	= damageTotal;
+	TEXT[1]				= NAME_Bonus_ManaMax;			COUNT[1]	= 50;
+	TEXT[2]				= NAME_Prot_Magic;				COUNT[2]	= protection[PROT_MAGIC];
+	TEXT[3] 			= NAME_Mana_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+//-----------------------------------------------------------
+INSTANCE ItMW_Staff_Prot_03 (C_Item)
+{
+	name 				=	"Kostur Niewra¿liwoœci";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_AXE;
+	material 			=	MAT_WOOD;
+
+	protection [PROT_EDGE] 	= 	40;
+	protection [PROT_BLUNT] = 	40;
+	protection [PROT_POINT] = 	40;
+	protection [PROT_FIRE] 	= 	40;
+	protection [PROT_MAGIC] = 	40;
+
+	value 				=	3180;
+
+	damageTotal			= 	45;
+	damagetype 			=	DAM_BLUNT;
+	range    			=  	160;
+
+	cond_atr[2]   		= 	ATR_MANA_MAX;
+	cond_value[2]  		= 	90;
+
+	visual 				=	"ITMW_2H_STAFF_UNDEAD_01.3DS";
+
+	description			= name;
+	TEXT[1]				= NAME_Damage;					COUNT[1]	= damageTotal;
+	TEXT[2]				= NAME_Prot_All;				COUNT[2]	= protection[PROT_EDGE];
+	TEXT[3] 			= NAME_Mana_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_TwoHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};

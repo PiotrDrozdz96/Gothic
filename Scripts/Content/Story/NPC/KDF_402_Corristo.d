@@ -43,6 +43,7 @@ instance KDF_402_Corristo (Npc_Default)
 	CreateInvItems(self, ItFo_Potion_Mana_02, 2);
 	CreateInvItems(self, ItFoWine, 2);
 	EquipItem (self, Schutzring_Magie2_Fire2);
+	EquipItem (self, ItMW_Staff_Fire_02);
  	CreateInvItem	(self,ItMi_Stuff_OldCoin_02);	
    
 

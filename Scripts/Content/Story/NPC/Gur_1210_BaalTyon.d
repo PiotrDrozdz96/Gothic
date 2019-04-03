@@ -32,6 +32,7 @@ instance GUR_1210_BaalTyon (Npc_Default)
 	Npc_SetTalentSkill		( self, NPC_TALENT_MAGE,		6);
 
 	//-------- inventory --------
+	EquipItem(self, ItMW_Staff_Prot_01);
 	CreateInvItem(self, ItArRuneWindfist);
 
 	

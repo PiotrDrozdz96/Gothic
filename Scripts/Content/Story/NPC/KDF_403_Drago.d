@@ -35,7 +35,8 @@ instance KDF_403_Drago (Npc_Default)
 	Npc_SetTalentSkill		( self, NPC_TALENT_MAGE,		6);
 
 
-	//-------- Spells--------                                    
+	//-------- Spells--------           
+	EquipItem(self, ItMW_Staff_Fire_01);                          
 	CreateInvItem (self, ItArRuneFireball);
 	
 	//-------- inventory --------                                    

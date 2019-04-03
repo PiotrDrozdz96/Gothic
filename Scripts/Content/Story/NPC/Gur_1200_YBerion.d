@@ -37,6 +37,7 @@ instance GUR_1200_YBerion (Npc_Default)
 	Npc_SetTalentSkill		( self, NPC_TALENT_MAGE,		6);
 
 	//-------- inventory --------
+	EquipItem(self, ItMW_Staff_Nature);
 	CreateInvItem(self, ItArRunePyrokinesis);
 	
 	//-------------Daily Routine-------------

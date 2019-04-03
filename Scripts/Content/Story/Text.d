@@ -411,12 +411,14 @@ const string NAME_Prot_Edge		= "Ochrona przed broni¹:";
 const string NAME_Prot_Point	= "Ochrona przed pociskami:";
 const string NAME_Prot_Fire		= "Ochrona przed ogniem:";
 const string NAME_Prot_Magic	= "Ochrona przed magi¹:";
+const string NAME_Prot_All		= "Ochrona przed wszystkim:";
 
 const string NAME_Bonus_HP		= "Bonus P¯:";
 const string NAME_Bonus_Mana	= "Bonus mana:";
 
 const string NAME_Bonus_HpMax	= "Bonus do maks. P¯:";
 const string NAME_Bonus_ManaMax	= "Bonus do maks. mana:";
+const string NAME_Bonus_ManaHpMax = "Bonus do maks. mana i P¯:";
 
 const string NAME_Bonus_Dex		= "Bonus do zrêcznoœci:";
 const string NAME_Bonus_Str		= "Bonus do si³y:";

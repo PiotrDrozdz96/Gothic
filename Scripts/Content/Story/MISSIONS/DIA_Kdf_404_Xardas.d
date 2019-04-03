@@ -570,7 +570,7 @@ func void  Info_Xardas_GIL_DMB_Info()
 		AI_Output (hero, self,"Info_Xardas_RETURN_15_11"); //Nic nie rozumiem!
 		AI_Output (self, other,"Info_Xardas_GIL_DMB_14_06"); //Ale doœæ ju¿ o tym.
 		
-		
+		B_Give_XardasStaffDMB();
 		AI_StopProcessInfos	( self );
 		
 	}
@@ -591,6 +591,7 @@ func void  Info_Xardas_GIL_DMB_Info()
 		hero.guild 	= GIL_DMB;	
 		Npc_SetTrueGuild	( hero, GIL_DMB );
 		Info_Xardas_GIL_DMB.permanent = 0;
+		B_Give_XardasStaffDMB();
 		AI_StopProcessInfos	( self );
 		
 	}
@@ -635,7 +636,7 @@ func void  Info_Xardas_GIL_KDF_Info()
 		CreateInvItem		(self,			ItAmArrow);
 		B_GiveInvItems		(self, hero,	ItAmArrow, 1);
 		Npc_RemoveInvItem	(hero,			ItAmArrow);
-
+		B_Give_XardasStaffKDF();
 		Info_Xardas_GIL_KDF.permanent = 0;
 		AI_StopProcessInfos	( self );
 		

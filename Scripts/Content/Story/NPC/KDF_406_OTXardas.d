@@ -48,6 +48,7 @@ instance KDF_406_OTXardas (Npc_Default)
 	EquipItem (self,Amulett_der_Erleuchtung);
 	EquipItem (self,Ring_der_Magie);
 	EquipItem (self,Ring_der_Erleuchtung);
+	EquipItem (self,ItMW_Staff_Demon);
 
 	//-------------AI-------------
 	senses = SENSE_SEE|SENSE_HEAR|SENSE_SMELL;

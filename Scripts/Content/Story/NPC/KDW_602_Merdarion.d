@@ -33,6 +33,7 @@ instance KDW_602_Merdarion (Npc_Default)
 	Npc_SetTalentSkill		( self, NPC_TALENT_MAGE,		6);
 
 	//-------- Spells --------        
+	EquipItem(self, ItMW_Staff_Water_01);
 	CreateInvItem (self,ItArRuneChainlightning);
 	
 	//-------- inventory --------                                    

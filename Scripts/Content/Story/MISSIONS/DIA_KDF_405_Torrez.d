@@ -257,7 +257,8 @@ func void  KDF_405_Torrez_BOOK_Info()
 		AI_Output (self, other,"KDF_405_Torrez_BOOK_Info_04_02"); //WeŸ ksiêgê Pierwszego Krêgu i przeczytaj j¹ uwa¿nie. Zrozumiesz naturê Ognia.
 		B_GiveInvItems(self,hero,ItWr_Book_Circle_01, 1);
 	};
-	
+
+	B_Give_TorrezStaff ();
 	AI_StopProcessInfos	( self );
 };
 //---------------------------------------------------------

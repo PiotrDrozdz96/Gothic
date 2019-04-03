@@ -723,7 +723,7 @@ FUNC void  GUR_1202_CorAngar_HEAVYROBE_Info()
 		GUR_1202_CorAngar_HEAVYROBE.permanent = 0;
 
 		CreateInvItem		(hero, GUR_ARMOR_H);
-		CreateInvItem		(hero, Stab_des_Lichts);
+		CreateInvItem		(hero, ItMW_Staff_Nature);
 		AI_EquipBestArmor	(hero);
 	};
 }; 
