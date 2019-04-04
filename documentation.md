@@ -366,6 +366,7 @@
 |   |   // Dodanie funkcji B_TeachPlayerRunes do parsowania
 |   |   // Dodanie funkcji B_Evolve do parsowania
 |   |   // Przeniesienie AI\ORC nad Story\ZS
+|   |   // Wydzelenie z folderu "B" dwóch osobnych folderów B_AssignAmbientInfos i B_GiveTradeInv
 |   +--| magic_intern
 |   |   // Zamiana stałej SPL_NEW(2-4)
 |   +--| PFX/SFX
