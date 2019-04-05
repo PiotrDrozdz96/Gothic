@@ -13,6 +13,7 @@
 * [Mod Fix](https://rpgrussia.com/threads/gothic-mod-fix.6520/) - AI orków
 * [L'Hiver Edition](https://themodders.org/index.php?topic=27984.0) - Animacja walki tarczą / modele tarcz
 * [Returning 2.0](http://bractwospolszczenia.pl/showthread.php?tid=468) - Animacje akrobatyki i biegu
+* [Soper Machinima Mod](https://www.facebook.com/Soper-Machinima-Mod-519780415068284/) - Szaty magów z kapturem + parę innych zbroi, kostury magów
 
 # Główne zmiany
 

@@ -4530,7 +4530,7 @@ END
 		[% zCCSAtomicBlock 0 1130]
 			[% oCMsgConversation:oCNpcMessage:zCEventMessage 0 1131]
 				subType=enum:0
-				text=string:... manche lernen eben gar nichts dazu ...
+				text=string:... niektórzy nigdy siê nie naucz¹ ...
 				name=string:SVM_3_Smalltalk15.WAV
 			[]
 		[]

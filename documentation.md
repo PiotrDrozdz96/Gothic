@@ -362,6 +362,7 @@
 |   |   // Dodanie zmiennych potrzebynch do rosyjskiego fix moda
 |   +--| svm
 |   |   // dodanie svm CantReadThis związanej z kartkami uczącymi
+|   |   // Prztłumaczenie SVM_3_Smalltalk15, było po niemiecku
 |   +--| Text
 |   |   // Zmiana nazwy umiejętności na Tarcza, oraz dodanie nazw poziomów (Brak|Adept|Mistrz)
 |   |   // Zmiana nazwy umiejętności na Bieg, oraz dodanie nazw poziomów (Nie|Tak)
