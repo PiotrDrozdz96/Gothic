@@ -25,9 +25,10 @@ instance EBR_109_Syra (Npc_Default)
 	Mdl_SetVisualBody 	(self,	"Bab_body_Naked0", 	1, 			1,			"Bab_Head_Hair1", 	1,  		DEFAULT,	-1);
 
     	
-    	self.aivar[AIV_IMPORTANT] = TRUE;
-    	
-    	fight_tactic	=	FAI_HUMAN_COWARD;
+	self.aivar[AIV_IMPORTANT] = TRUE;
+	self.aivar[AIV_DIALOGFLAGS] = TRUE;
+	
+	fight_tactic	=	FAI_HUMAN_COWARD;
 
 	//-------- Talente -------- 
 	

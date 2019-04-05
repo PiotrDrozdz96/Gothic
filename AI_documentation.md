@@ -2,8 +2,10 @@
 +-- AI
 |   +-- AI_Intern
 |   |   +-- AI_Constans
+|   |   |    // Dodanie PLAYER_MOBSI_PRODUCTION do obsługi obiektów interaktywnych
 |   |   |    // Dodanie dodatkowych AIV_AR(AttackReason)
 |   |   |    // Dodanie dodatkowych AIV_L(LOCATION)
+|   |   |    // Dodanie AIV_DIALOGFLAGS aby móc rozmawiać z kobietami
 |   |   +-- AI_MM_Constans
 |   |   |    // Dodanie dodatkowych ID (40 i wyżej)
 |   |   +-- perceptions
@@ -41,6 +43,8 @@
 |   |    // Zmiana ZS_Orc_WatchFight z fixmoda
 |   |    // Usunięcie ZS_OrcSlave_AssessDamage
 |   |    // dodanie ZS_OrcSlave_ReactToDamage.d
+|   +-- ZS_Babe
+|   |    // Zmiana w B_Babe_RefuseTalk, aby móc rozmawiać z kobietami
 |   +-- ZS_Monster
 |   |    // Zmiana ZS_MM_Master z fixmoda, dodanie zmiennej MASTER
 |   +-- ZS_Human

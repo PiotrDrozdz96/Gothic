@@ -25,6 +25,7 @@ instance EBR_110_Seraphia (Npc_Default)
 	Mdl_SetVisualBody	(self,"Bab_body_Naked0",	2, 			1,			"Bab_Head_Hair1", 	2,  		DEFAULT,	-1);
 	
 	self.aivar[AIV_IMPORTANT] = TRUE;
+	self.aivar[AIV_DIALOGFLAGS] = TRUE;
 	
 	fight_tactic	=	FAI_HUMAN_COWARD;		
 

@@ -25,6 +25,7 @@ instance EBR_108_Velaya (Npc_Default)
 	Mdl_SetVisualBody	(self,	"Bab_body_Naked0", 	0, 			1,			"Bab_Head_Hair1", 	0,  		DEFAULT, 	-1);
 	
 	self.aivar[AIV_IMPORTANT] = TRUE;
+	self.aivar[AIV_DIALOGFLAGS] = TRUE;
 	
 	fight_tactic	=	FAI_HUMAN_COWARD;
 

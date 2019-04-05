@@ -72,6 +72,7 @@ const int	AIV_TALKBEFOREATTACK			= 40;	//SN: ist dieses Flag gesetzt, so wird be
 const int	AIV_DEALDAY						= 41;	//SN: wird für Ambient NSCs benutzt, um sich den Tag des letzten Deals zu merken (z.B.:Sumpfkraut für ORG oder Wasser für BAU)
 
 const int 	AIV_ITEMSCHWEIN					= 42;   //MH: NSCs, die dieses Flag auf TRUE haben, gehen IMMER, wenn im FreeLos der HERO ein Item nimmt (assessTheft-Wn) von DIEBSTAHL aus (--> ZS_CatchThief)
+const int	AIV_DIALOGFLAGS					= 46;
 
 /********************************************************************
 **					NPC-Typ											*

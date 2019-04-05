@@ -366,6 +366,7 @@ const string NAME_MadTemplar2	=	"Apokaliptyczny Stra¿nik";
 CONST STRING DIALOG_ENDE		= "KONIEC.";
 CONST STRING DIALOG_BACK		= "WSTECZ";
 const string DIALOG_TRADE		= "HANDEL";
+const string PODRYW				= "PODRYW";
 
 // *************************************************************
 // FOKUSNAMEN DER ITEMS

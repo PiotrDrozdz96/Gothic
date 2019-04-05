@@ -82,6 +82,8 @@
 |   |   // Funkcja do nauki tworzenia run
 |/*******************************************B END***********************************************************
 +--Dialogs
+|   +--|-- DIA_Babe
+|   |   // Dialogi z kobietami
 |   +--|-- DIA_BAU_900_Ricelord -- by marev
 |   |   // Ryżowy Książę nie daje butelek wody po pobiciu Lewusa
 |   |   // nie można już w nieskończoność brać wody
@@ -319,10 +321,6 @@
 |   //PanFry.d - Obsługa patelni
 |   //MakeRune.d - Obsługa stołu runicznego
 +--Inne
-|   +--| AI_Constants
-|   |   // Dodanie PLAYER_MOBSI_PRODUCTION do obsługi obiektów interaktywnych
-|   |   // Dodanie dodatkowych AIV_AR(AttackReason) -- rosyjski fix mod
-|   |   // Dodanie dodatkowych AIV_L(LOCATION) -- rosyjski fix mod
 |   +--| constans
 |   |   // Dodanie nowej kategorii przedmiotu ITEM_SHIELD = 1 << 1
 |   |   // Dodanie nowej kategorii przedmiotu ITEM_DROPPED = 1 << 24 (nie jest nigdzie użyta) -- rosyjski fix mod
@@ -373,6 +371,7 @@
 |   |   // Zmiana nazw dla SPL_NEW(2-4)
 |   |   // MOBNAME_RUNEMAKER i PRINT_(RuneSuccess/ProdItemsMissing) dla stołu runicznego
 |   |   // nowe stałe dla opisu przedmiotów (NAME_Prot_All, NAME_Bonus_ManaHpMax)
+|   |   // Dodanie stałej "PODRYW" używanej w description w dialogach z kobietami
 |   +--| Gothic.src
 |   |   // Przeniesienie G_funcions wyżej w kolejce parsowania
 |   |   // Wydzelenie z folderu "B" dwóch osobnych folderów B_AssignAmbientInfos i B_GiveTradeInv
@@ -521,6 +520,8 @@
 |   |   |   // Dodanie bełtów
 |   |   +--| EBR_105_Raven / GRD_(200/210/233/255) / VLK_(538/581)
 |   |   |    // Dodanie rutyny "out" - wywalenie za barierę
+|   |   +--| EBR_(108-110) -- Kobiety
+|   |   |    // Ustawienie AIV_DIALOGFLAGS == TRUE, aby możliwy był dialog
 |   |   +--| GRD_(202/207)_Gardist
 |   |   |    // Nowi strażnicy na placu wymian
 |   |   +--| GRD_208_Cutter
@@ -584,6 +585,8 @@
 |   |   +--| GUR(1200/1201/1203/1204/1209/1210/1211)
 |   |   |    // Zwiększenie many do 200
 |   |   |    // (1200/1203/1210) - noszą kostury
+|   |   +--| GUR(1205/1207) -- kobiety
+|   |   |    // Ustawienie AIV_DIALOGFLAGS == TRUE, aby możliwy był dialog
 |   |   +--| GUR_1208_BaalCadar
 |   |   |    // Usunięcie magicznej runy
 |   |   |    // Zwiększenie many do 200

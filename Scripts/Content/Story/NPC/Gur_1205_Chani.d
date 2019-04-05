@@ -24,6 +24,7 @@ instance Gur_1205_Chani (Npc_Default)
 	//							Body-Mesh			Body-Tex	Skin-Color	Head-MMS			Head-Tex	Teeth-Tex	ARMOR
 	Mdl_SetVisualBody 	(self,	"Bab_body_Naked0", 	0, 			3,			"Bab_Head_Hair1", 	0,  		DEFAULT,	-1);
 
+	self.aivar[AIV_DIALOGFLAGS] = TRUE;
 
 	//-------- inventory --------
 

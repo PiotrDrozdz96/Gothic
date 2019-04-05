@@ -24,6 +24,8 @@ instance Gur_1207_Natalia (Npc_Default)
 	//							Body-Mesh			Body-Tex	Skin-Color	Head-MMS			Head-Tex	Teeth-Tex	ARMOR	
 	Mdl_SetVisualBody	(self,	"Bab_body_Naked0", 	0, 			0,			"Bab_Head_Hair1", 	0,  		DEFAULT,	-1);
 	
+	self.aivar[AIV_DIALOGFLAGS] = TRUE;
+
 	fight_tactic	=	FAI_HUMAN_COWARD;
 	
 	//-------- Talente -------- 
