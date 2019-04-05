@@ -43,6 +43,10 @@
 |   |    // dodanie ZS_OrcSlave_ReactToDamage.d
 |   +-- ZS_Monster
 |   |    // Zmiana ZS_MM_Master z fixmoda, dodanie zmiennej MASTER
+|   +-- ZS_Human
+|   |   +-- ZS_Dead | ZS_Unconscious
+|   |   |    // odpalenie funkcji B_ClearDeadTrader
+|   |   |    // oznaczenie self.aivar[ AIV_WASDEFEATEDBYSC ] = TRUE;
 +-- _Intern/constans
 |   |    // dodanie ITEM_DROPPED = 1 << 24
 +-- Story

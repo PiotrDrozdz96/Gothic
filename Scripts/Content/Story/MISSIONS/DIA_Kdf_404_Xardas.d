@@ -421,10 +421,7 @@ FUNC int  Kdf_404_Xardas_SELLMAGICSTUFF_Condition()
 };
 FUNC void  Kdf_404_Xardas_SELLMAGICSTUFF_Info()
 {
-	if( Npc_HasItems (self, ItArRuneFirebolt))
-	{
-		Npc_RemoveInvItem	(self, ItArRuneFirebolt);
-	};
+	B_ClearRuneInv(self);
 	AI_Output (other, self,"Kdf_404_Xardas_SELLMAGICSTUFF_Info_15_01"); //Poszukujê wiedzy magicznej.
 };
 

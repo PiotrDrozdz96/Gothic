@@ -27,6 +27,7 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 
 		//-------- Händler auffüllen --------
 		B_Give_FiskChapter2Weapons ();
+		B_Give_DexterChapterPotions ();
 		B_Give_DarrionChapter2Weapons ();
 		B_Give_SharkyChapter2Weapons ();
 		B_Give_BaalCadarChapter2Runes ();
@@ -48,6 +49,7 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 		B_Evolve_Sekte ();
 		B_Evolve_SekteSpy();
 		B_Evolve_Cipher();
+		B_Evolve_Cavalorn();
 
 		//------------ Mission Failed -------------
 		if(Thorus_MordragKo == LOG_RUNNING)
@@ -83,6 +85,7 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 		
 		//-------- Waffenhändler auffrischen --------
 		B_Give_FiskChapter3Weapons ();
+		B_Give_DexterChapterPotions ();
 		B_Give_DarrionChapter3Weapons ();
 		B_Give_SharkyChapter3Weapons ();
 		B_Give_BaalCadarChapter3Runes ();
@@ -122,6 +125,7 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 		//------------------ Evolve ---------------
 		B_Story_OMFull();
 		B_Evolve_Cipher();
+		B_Evolve_Cavalorn();
 		
 		introducechapter ("Rozdzia³ 3","Staro¿ytna magia","chapter3.tga","levelup.wav", 6000);
 		//introducechapter ("Chapter 3","Artifacts of ancient power","chapter3.tga","levelup.wav", 6000);
@@ -249,6 +253,7 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 		//------------------ Evolve ---------------
 		B_Evolve_NC ();
 		B_Evolve_Cipher();
+		B_Evolve_Cavalorn();
 		
 		//--------------- Kapitel 4 wird angezeigt -------------------------------
 		

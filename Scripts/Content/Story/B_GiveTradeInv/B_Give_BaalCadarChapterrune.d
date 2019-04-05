@@ -198,7 +198,6 @@ func void B_Give_BaalCadarChapter5Runes ()
 	CreateInvItems (npc,ItArScrollPyrokinesis,5);
 	CreateInvItems (npc,ItArScrollControl,2);
 	CreateInvItems (npc,ItArScrollCharm,4);
-	CreateInvItems (npc,ItArScrollDestroyUndead,16);
 
 	//-------- Bücher --------
 	//-------- Tränke --------
@@ -213,6 +212,133 @@ func void B_Give_BaalCadarChapter5Runes ()
     CreateInvItems (npc,ItFo_Potion_Haste_01 ,48);	
 	CreateInvItems (npc,ItFo_Potion_Haste_02 ,24);
 	CreateInvItems (npc,ItFo_Potion_Haste_03 ,12);
+};
+
+func void B_Give_BaalCadarDead()
+{
+	var C_NPC npc;
+	npc = Hlp_GetNpc(GUR_1208_BaalCadar);
+
+	CreateInvItems(npc, Itmi_DarkPearl, 2);
+	CreateInvItem (npc,ItWrPSImap);
+	if(Kapitel == 1)
+	{
+		CreateInvItems (npc,ItArScrollHeal,1);
+		CreateInvItems (npc,ItArScrollLight,1);
+		CreateInvItems (npc,ItArScrollWindfist,1);
+		CreateInvItems (npc,ItFo_Potion_Mana_01 ,1);
+		CreateInvItems (npc,ItFo_Potion_Health_01 ,1);
+		CreateInvItems (npc,ItFo_Potion_Water_01 ,1);
+	}
+	else if(Kapitel == 2)
+	{
+		CreateInvItems (npc,ItArScrollHeal,2);
+		CreateInvItems (npc,ItArScrollLight,2);
+		CreateInvItems (npc,ItArScrollWindfist,1);
+		CreateInvItems (npc,ItArScrollTelekinesis,1);
+		CreateInvItems (npc,ItArScrollTrfWolf,1);
+		CreateInvItems (npc,ItArScrollTrfLurker,1);
+		CreateInvItems (npc,ItArScrollTrfScavenger,1);
+		CreateInvItems (npc,ItArScrollTrfMolerat,1);
+		CreateInvItems (npc,ItArScrollTrfCrawler,1);
+		CreateInvItems (npc,ItArScrollTrfBloodfly,1);
+		CreateInvItems (npc,ItArScrollCharm,1);
+		CreateInvItems (npc,ItFo_Potion_Mana_01 ,2);
+   		CreateInvItems (npc,ItFo_Potion_Mana_02 ,1);
+   		CreateInvItems (npc,ItFo_Potion_Health_01 ,3);
+   		CreateInvItems (npc,ItFo_Potion_Health_02 ,1);
+   		CreateInvItems (npc,ItFo_Potion_Water_01 ,3);
+   		CreateInvItems (npc,ItFo_Potion_Haste_01 ,1);
+	}
+	else if(Kapitel == 3)
+	{
+		CreateInvItems (npc,ItArScrollHeal,3);
+		CreateInvItems (npc,ItArScrollLight,3);
+		CreateInvItems (npc,ItArScrollWindfist,2);
+		CreateInvItems (npc,ItArScrollTrfWolf,1);
+		CreateInvItems (npc,ItArScrollTrfLurker,1);
+		CreateInvItems (npc,ItArScrollTrfScavenger,1);
+		CreateInvItems (npc,ItArScrollTrfMolerat,1);
+		CreateInvItems (npc,ItArScrollTrfCrawler,1);
+		CreateInvItems (npc,ItArScrollTrfBloodfly,1);
+		CreateInvItems (npc,ItArScrollFear,1);
+		CreateInvItems (npc,ItArScrollSleep,1);
+		CreateInvItems (npc,ItArScrollStormfist,1);
+		CreateInvItems (npc,ItArScrollTrfMeatbug,1);
+		CreateInvItems (npc,ItArScrollTrfWaran,1);
+		CreateInvItems (npc,ItArScrollPyrokinesis,1);
+		CreateInvItems (npc,ItArScrollControl,1);
+		CreateInvItems (npc,ItArScrollCharm,1);
+		CreateInvItems (npc,ItFo_Potion_Mana_01 ,4);
+		CreateInvItems (npc,ItFo_Potion_Mana_02 ,3);
+		CreateInvItems (npc,ItFo_Potion_Mana_03 ,1);	
+		CreateInvItems (npc,ItFo_Potion_Health_01 ,6);
+		CreateInvItems (npc,ItFo_Potion_Health_02 ,3);
+		CreateInvItems (npc,ItFo_Potion_Health_03 ,1); 	
+		CreateInvItems (npc,ItFo_Potion_Haste_01 ,2);	
+		CreateInvItems (npc,ItFo_Potion_Haste_02 ,1);
+	}
+	else if(Kapitel == 4)
+	{
+		CreateInvItems (npc,ItArScrollHeal,4);
+		CreateInvItems (npc,ItArScrollLight,3);
+		CreateInvItems (npc,ItArScrollWindfist,3);
+		CreateInvItems (npc,ItArScrollTelekinesis,1);
+		CreateInvItems (npc,ItArScrollTrfWolf,1);
+		CreateInvItems (npc,ItArScrollTrfLurker,1);
+		CreateInvItems (npc,ItArScrollTrfScavenger,1);
+		CreateInvItems (npc,ItArScrollTrfCrawler,1);
+		CreateInvItems (npc,ItArScrollTrfBloodfly,1);
+		CreateInvItems (npc,ItArScrollFear,1);
+		CreateInvItems (npc,ItArScrollSleep,1);
+		CreateInvItems (npc,ItArScrollStormfist,1);
+		CreateInvItems (npc,ItArScrollTrfMeatbug,1);
+		CreateInvItems (npc,ItArScrollTrfWaran,1);
+		CreateInvItems (npc,ItArScrollPyrokinesis,1);
+		CreateInvItems (npc,ItArScrollControl,1);
+		CreateInvItems (npc,ItArScrollCharm,1);
+		CreateInvItems (npc,ItArScrollTrfSnapper,1);
+		CreateInvItems (npc,ItArScrollTrfOrcdog,1);
+		CreateInvItems (npc,ItFo_Potion_Mana_01 ,9);
+		CreateInvItems (npc,ItFo_Potion_Mana_02 ,6);
+		CreateInvItems (npc,ItFo_Potion_Mana_03 ,3);
+		CreateInvItems (npc,ItFo_Potion_Health_01 ,12);
+		CreateInvItems (npc,ItFo_Potion_Health_02 ,7);
+		CreateInvItems (npc,ItFo_Potion_Health_03 ,4); 
+		CreateInvItems (npc,ItFo_Potion_Haste_01 ,3);	
+		CreateInvItems (npc,ItFo_Potion_Haste_02 ,2); 
+		CreateInvItems (npc,ItFo_Potion_Haste_02 ,1);
+	} 
+	else // Kapitel > 4
+	{
+		CreateInvItems (npc,ItArScrollHeal,5);
+		CreateInvItems (npc,ItArScrollLight,4);
+		CreateInvItems (npc,ItArScrollWindfist,4);
+		CreateInvItems (npc,ItArScrollTelekinesis,2);
+		CreateInvItems (npc,ItArScrollTrfWolf,2);
+		CreateInvItems (npc,ItArScrollTrfLurker,2);
+		CreateInvItems (npc,ItArScrollTrfScavenger,2);
+		CreateInvItems (npc,ItArScrollTrfCrawler,2);
+		CreateInvItems (npc,ItArScrollTrfMeatbug,2);
+		CreateInvItems (npc,ItArScrollTrfWaran,2);
+		CreateInvItems (npc,ItArScrollTrfBloodfly,2);
+		CreateInvItems (npc,ItArScrollTrfShadowbeast,1);
+		CreateInvItems (npc,ItArScrollFear,2);
+		CreateInvItems (npc,ItArScrollSleep,2);
+		CreateInvItems (npc,ItArScrollStormfist,2);
+		CreateInvItems (npc,ItArScrollPyrokinesis,2);
+		CreateInvItems (npc,ItArScrollControl,2);
+		CreateInvItems (npc,ItArScrollCharm,2);
+		CreateInvItems (npc,ItFo_Potion_Mana_01 ,11);
+		CreateInvItems (npc,ItFo_Potion_Mana_02 ,8);
+		CreateInvItems (npc,ItFo_Potion_Mana_03 ,4);
+		CreateInvItems (npc,ItFo_Potion_Health_01 ,15);
+		CreateInvItems (npc,ItFo_Potion_Health_02 ,9);
+		CreateInvItems (npc,ItFo_Potion_Health_03 ,9); 
+		CreateInvItems (npc,ItFo_Potion_Haste_01 ,8);	
+		CreateInvItems (npc,ItFo_Potion_Haste_02 ,4);
+		CreateInvItems (npc,ItFo_Potion_Haste_03 ,2);
+	};
 };
 
 

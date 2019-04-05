@@ -25,15 +25,23 @@
 |   +--|-- B_CheckDeadMissionNPCs
 |   |   // sprawdzanie czy zabitą postacią jest Harlok, jeśli tak niezaliczenie misji z zastępstwem dla Ghorima
 |   |   // sprawdzanie czy zabitą postacią jest Cipher, jeśli tak niezaliczenie misji "Cipher - najlepszy Diler"
+|   +--|-- B_ClearInv
+|   |   // Nowe funkcje czyszczące cały ekwipunek postaci, lub tylko runy, oraz wykorzystanie ich przy zdefiniowanych handlarzach
 |   +--|-- B_Evolve
 |   |   // Funkcje obsługujące rozwój postaci niezależnych
+|   +--|-- B_GetInvItem
+|   |   // Nowa funkcja, pozwalająca przypisać do zmiennej globalnej "item" konkretny przedmiot
 |   +--|-- B_Give(Darrion/Fisk/Scorpio/Sharky/Skip/Wolf)ChapterWeapons
-|   |   //Zmiany w sprzedawanych broniach z powodu zmian parametrów, oraz dodanie tarcz
+|   |   // Zmiany w sprzedawanych broniach z powodu zmian parametrów, oraz dodanie tarcz
+|   |   // Dodatkowe funkcje przywracające część ekwipunku po wyczyszczeniu po pobiciu handlarza
 |   +--|-- B_Give(BallCadar/Cronos/Torrez/Xardas)Chapterrune
 |   |   // Usunięcie ze sprzedaży magicznych run
 |   |   // Dodanie przedmiotów do tworzenia run
 |   |   // Dodanie nowych książek o czarach
 |   |   // Dodanie funkcji które dodają kostury do sprzedaży
+|   |   // Dodatkowe funkcje przywracające część ekwipunku po wyczyszczeniu po pobiciu handlarza
+|   +--|-- B_Give(Dexter/Huno/Viper)
+|   |   // Funkcje obsługujące asortyment handlarzy
 |   +--|-- B_GiveDeathInv
 |   |   // Demony posiadają serca jeśli mamy umiejętność wycinania serc
 |   |   // Krwiopijce posiadają skrzydła jeśli posiadamy odpowiednią umiejętność
@@ -46,6 +54,7 @@
 |   |   // Nowa funkcja potrzebda do rosyjskiego fix moda
 |   +--|-- B_Kapitelwechsel
 |   |   // Dodanie funkcji B_Evolve_* i B_Story_OMFull w odpowiednich rozdziałach
+|   |   // Dodanie B_Give_DexterPotions w rozdziałach 2 i 3
 |   |   // Kapitel 2 - Nie zaliczenie misji z pozbyciem się Mordraga jeśli jesteśmy cieniem(nie zaliczenie odbywa się również gdy zostajemy członkiem innego obozu)
 |   |   // Kapitel 4 - Nie tracimy gildii Mag Ognia
 |   |   // Kapitel 4 - EBR_105_Raven,GRD_(200/210/233/255),STT_(311/329),VLK_(538,581) - Wywalenie za barierę
@@ -179,6 +188,8 @@
 |   |   // Dodano wpis w dzienniku do zadania "List z zewnętrznego świata"
 |   |   // Zadanie z dostarczeniem listu Cronosa do magów ognia tworzy wpisy w dzienniku
 |   |   // Po zostaniu magiem wody sprzedaje kostury
+|   +--|-- DIA_KDW_605_Riordian
+|   |   // Usunięcie magicznych run przed handlem
 |   +--|-- DIA_Nov_1304_Balor -- by marev
 |   |   // gracz może poprawnie odebrać bagienne ziele od Balora po raz drugi
 |   +--|-- DIA_Nov_1331_BaalTaran
@@ -363,10 +374,11 @@
 |   |   // nowe stałe dla opisu przedmiotów (NAME_Prot_All, NAME_Bonus_ManaHpMax)
 |   +--| Gothic.src
 |   |   // Przeniesienie G_funcions wyżej w kolejce parsowania
+|   |   // Wydzelenie z folderu "B" dwóch osobnych folderów B_AssignAmbientInfos i B_GiveTradeInv
 |   |   // Dodanie funkcji B_TeachPlayerRunes do parsowania
 |   |   // Dodanie funkcji B_Evolve do parsowania
+|   |   // Dodanie funkcji B_GetInvItem do parsowania
 |   |   // Przeniesienie AI\ORC nad Story\ZS
-|   |   // Wydzelenie z folderu "B" dwóch osobnych folderów B_AssignAmbientInfos i B_GiveTradeInv
 |   +--| magic_intern
 |   |   // Zamiana stałej SPL_NEW(2-4)
 |   +--| PFX/SFX
@@ -464,6 +476,8 @@
 |   |   +--| KDW_604_Cronos
 |   |   |    // Usunięcie magicznej runy
 |   |   |    // Nosi wersję szaty maga z kapturem
+|   |   +--| KDW_605_Riordian
+|   |   |    // Usunięcie magicznej runy
 |   |   +--| ORG_(800/804/834/837/892) / SLD_(707/738/762)_Soeldner
 |   |   |    //Zmiany twarzy(double koło siebie), czasem pancerz i gildia
 |   |   +--| ORG_875_Tuersteher / SLD_(700/701/709)

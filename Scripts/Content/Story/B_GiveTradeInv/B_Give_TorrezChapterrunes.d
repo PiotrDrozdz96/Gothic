@@ -117,4 +117,63 @@ func void B_Give_TorrezStaff ()
 	CreateInvItems (npc,ItMW_Staff_Magic,2);
 };
 
+func void B_Give_TorrezDead()
+{
+	var C_NPC npc;
+	npc = Hlp_GetNpc(KDF_405_Torrez);
+
+	if(Kapitel == 1)
+	{
+		CreateInvItems (npc,ItArScrollHeal,1);
+		CreateInvItems (npc,ItArScrollLight,2);
+		CreateInvItems (npc,ItArScrollFirebolt,2);
+		CreateInvItems (npc,ItFo_Potion_Mana_01 ,1);
+		CreateInvItems (npc,ItFo_Potion_Health_01 ,1);
+		CreateInvItems (npc,ItFo_Potion_Water_01 ,1);
+	}
+	else if(Kapitel == 2)
+	{
+		CreateInvItems (npc,ItArScrollHeal,3);
+		CreateInvItems (npc,ItArScrollLight,4);
+		CreateInvItems (npc,ItArScrollFirebolt,3);
+		CreateInvItems (npc,ItFo_Potion_Mana_01 ,2);
+		CreateInvItems (npc,ItFo_Potion_Mana_02 ,1);
+		CreateInvItems (npc,ItFo_Potion_Health_01 ,3);
+		CreateInvItems (npc,ItFo_Potion_Health_02 ,1);
+		CreateInvItems (npc,ItFo_Potion_Water_01 ,3);
+		CreateInvItems (npc,ItFo_Potion_Haste_01 ,1);
+		CreateInvItems (npc,ItArScrollFireball,1);
+		CreateInvItems (npc,ItArScrollFirestorm,1);
+		CreateInvItems (npc,ItArScrollTrfWolf,1);
+		CreateInvItems (npc,ItArScrollTrfLurker,1);
+		CreateInvItems (npc,ItArScrollTrfScavenger,1);
+		CreateInvItems (npc,ItArScrollTrfMolerat,1);
+		CreateInvItems (npc,ItArScrollTrfCrawler,1);
+		CreateInvItems (npc,ItArScrollTrfBloodfly,1);	
+	}
+	else //Kapitel > 2
+	{
+		CreateInvItems (npc,ItArScrollHeal,5);
+		CreateInvItems (npc,ItArScrollLight,5);
+		CreateInvItems (npc,ItArScrollFirebolt,5);
+		CreateInvItems (npc,ItFo_Potion_Mana_01 ,5);
+		CreateInvItems (npc,ItFo_Potion_Mana_02 ,3);
+		CreateInvItems (npc,ItFo_Potion_Mana_03 ,1);
+		CreateInvItems (npc,ItFo_Potion_Health_01 ,6);
+		CreateInvItems (npc,ItFo_Potion_Health_02 ,3);
+		CreateInvItems (npc,ItFo_Potion_Health_03 ,1);
+		CreateInvItems (npc,ItFo_Potion_Water_01 ,4);
+		CreateInvItems (npc,ItFo_Potion_Haste_01 ,2);
+		CreateInvItems (npc,ItArScrollFireball,1);
+		CreateInvItems (npc,ItArScrollFirestorm,1);
+		CreateInvItems (npc,ItArScrollFirerain,1);
+		CreateInvItems (npc,ItArScrollTrfWolf,1);
+		CreateInvItems (npc,ItArScrollTrfLurker,1);
+		CreateInvItems (npc,ItArScrollTrfScavenger,1);
+		CreateInvItems (npc,ItArScrollTrfMolerat,2);
+		CreateInvItems (npc,ItArScrollTrfCrawler,1);
+		CreateInvItems (npc,ItArScrollTrfBloodfly,1);
+	};
+};
+
 

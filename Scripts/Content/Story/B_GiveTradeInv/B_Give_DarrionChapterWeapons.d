@@ -49,7 +49,7 @@ func void B_Give_DarrionChapter3Weapons ()
 	
 	//-------- Nahkampfwaffen --------
  	CreateInvItem (npc,ItMw_1H_Mace_04); //Stalowy język 45,45
-	CreateInvItem (npc,ItMw_1H_Mace_War_03); //Łomotacz 45,35 
+	CreateInvItem (npc,ItMw_1H_Mace_War_03); //Řomotacz 45,35 
 	CreateInvItem (npc,ItMw_1H_Warhammer_01); //Młot Orków 50,40
 	CreateInvItem (npc,ItMw_1H_Warhammer_02); //Młot wojenny (58,50)
 	CreateInvItem (npc,ItMw_2H_Sword_Light_05); //Miecz demonów 55,60 
@@ -69,7 +69,7 @@ func void B_Give_DarrionChapter4Weapons () //(55-73)
 	npc = Hlp_GetNpc(NOV_1312_Darrion);
 	
 	//-------- Nahkampfwaffen --------
-	CreateInvItem (npc,ItMw_1H_Mace_War_04); //Łamacz Serc (60,50)
+	CreateInvItem (npc,ItMw_1H_Mace_War_04); //Řamacz Serc (60,50)
 	CreateInvItem (npc,ItMw_1H_Warhammer_03); //Boski Młot (65,70)
 	CreateInvItem (npc,ItMw_2H_Sword_Light_02); //Miecz nadzorcy 70,70
 	CreateInvItem (npc,ItMw_2H_Sword_01); //Dwuręczniak 60,60 
@@ -115,5 +115,45 @@ func void B_Give_DarrionChapter6Weapons ()
 
 	//-------- Munition --------
   
+};
+
+func void B_Give_DarrionDead()
+{
+	var C_NPC npc;
+	npc = Hlp_GetNpc(NOV_1312_Darrion);
+
+	CreateInvItems	(npc, ItMiSwordRaw, 4);
+	if(Kapitel == 1)
+	{
+		CreateInvItems (npc,ItMiNugget,20);
+	}
+	else if(Kapitel == 2)
+	{
+		CreateInvItems (npc,ItMiNugget,60);
+	}
+	else if(Kapitel == 3)
+	{
+		CreateInvItems (npc,ItMiNugget,120);
+	}
+	else if(Kapitel == 4)
+	{
+		CreateInvItems (npc,ItMiNugget,200);
+	}
+	else if(Kapitel == 5)
+	{
+		CreateInvItems (npc,ItMiNugget,300);
+	}
+	else // Kapitel == 6
+	{
+		CreateInvItems (npc,ItMiNugget,420);
+	};
+};
+
+func void B_Give_DarrionDeadWeapons()
+{
+	var C_NPC npc;
+	npc = Hlp_GetNpc(NOV_1312_Darrion);
+
+	CreateInvItem (npc,ItMw_1H_Nailmace_01);
 };
 

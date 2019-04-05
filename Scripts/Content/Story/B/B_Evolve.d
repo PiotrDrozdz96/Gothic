@@ -116,3 +116,14 @@ func void B_Evolve_Cipher()
         cipher.aivar[AIV_PARTYMEMBER] = FALSE;
     };
 };
+
+func void B_Evolve_Cavalorn()
+{
+    var C_NPC cavalorn; cavalorn = Hlp_GetNpc(STT_336_Cavalorn);
+    if(!Npc_HasItems(cavalorn, STT_ARMOR_H1))
+    &&(Npc_HasItems(cavalorn, ItMiNugget) > 2100)
+    {
+        Npc_RemoveInvItems(cavalorn, ItMiNugget, 2100);
+        Mdl_SetVisualBody (cavalorn,"hum_body_Naked0", 0, 3,"Hum_Head_Psionic", 10,  2, STT_ARMOR_H1);
+    };
+};

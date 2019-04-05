@@ -5,10 +5,9 @@ FUNC VOID ChangeArmor (var C_NPC typ, var int before, var int after)
 {
 	Npc_RemoveInvItem(typ, before);
 	CreateInvItem(typ, after);
-	Npc_GetInvItemBySlot(typ, INV_ARMOR, 0);
-	if (Hlp_GetInstanceID(item)==after)
-	{	
-		AI_EquipBestArmor(typ);
+	if(B_GetInvItem(typ,INV_ARMOR,after))
+	{
+		AI_EquipArmor	(hero, item);
 	};
 };
 

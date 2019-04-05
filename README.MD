@@ -23,6 +23,7 @@
 * Tworzenie run na stołach runicznych zamiast kupowanie
 * Zmiany wyglądu bohatera (łysy, tatuaże) przy pancerzach obozu sekty
 * Miniquesty z dubbingiem np. oddawanie złotych monet Diego, sprzedaż futer u Wilka
+* Parę nowych drobnych questów(brak niemych dialogów)
 * Zmiany sposobu chodzenia zależne od gildii
 * Bieg i akrobatyka z moda Returning 2.0
 * Ścieżka nekromanty od samego początku, wraz z runami przywołań
@@ -30,6 +31,7 @@
 * System zakładania i zdejmowania kapturów w szatach magów
 * Kostury dla magów
 * Rozwój postaci niezależnych
+* System bezpiecznego handlu jak w G2 lekkko rozbudowany(pobicie handlarza nie jest już tak opłacalne jak było to oryginalnie)
 * Poprawiona inteligencja orków (nie atakują się nawzajem) z Gothic Mod Fix
 * Rozbudowanie wpisów w dzienniku - inspirowane Gothic Mod Fix
 * Drobne poprawki, szczegóły opisane w pliku documentation.md, oraz w AI_documentation.md (otwierać jako RAW w celu poprawnego wyświetlenia)

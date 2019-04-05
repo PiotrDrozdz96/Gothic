@@ -321,6 +321,6 @@ FUNC int  KDW_605_Riordian_TRADE_Condition()
 };
 FUNC void  KDW_605_Riordian_TRADE_Info()
 {
+	B_ClearRuneInv(self);
 	AI_Output (other, self,"KDW_605_Riordian_TRADE_Info_15_01"); //Poka¿ mi co masz do zaoferowania.
-	
 };  

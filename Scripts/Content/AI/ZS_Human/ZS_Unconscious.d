@@ -32,6 +32,7 @@ func void ZS_Unconscious ()
 	};
 
 	//-------- Erfahrungspunkte für den Spieler ? --------
+	B_ClearDeadTrader();
 	if	Npc_IsPlayer   (other)
 	||	(C_NpcIsHuman  (other) && other.aivar[AIV_PARTYMEMBER])
 	||	(C_NpcIsMonster(other) && other.aivar[AIV_MM_PARTYMEMBER])

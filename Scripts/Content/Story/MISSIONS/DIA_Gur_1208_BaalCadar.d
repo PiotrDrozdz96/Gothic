@@ -449,10 +449,7 @@ FUNC void  Gur_1208_BaalCadar_SELLSTUFF_Info()
 		B_LogEntry			(GE_TraderPSI,"Guru Baal Cadar sprzedaje runy, magiczne zwoje, napoje, amulety i pierœcienie.");
 		log_baalcadarsell = TRUE;
 	};
-	if( Npc_HasItems (self, ItArRuneWindfist))
-	{
-		Npc_RemoveInvItem	(self, ItArRuneWindfist);
-	};
+	B_ClearRuneInv(self);
 	AI_Output (other, self,"Gur_1208_BaalCadar_SELLSTUFF_Info_15_01"); //Chcia³bym zdobyæ ksiêgi traktuj¹ce o magii.
 
 };

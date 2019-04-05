@@ -557,10 +557,7 @@ FUNC int  KDW_604_Cronos_SELLSTUFF_Condition()
 };
 FUNC void  KDW_604_Cronos_SELLSTUFF_Info()
 {
-	if( Npc_HasItems (self, ItArRuneThunderbolt))
-	{
-		Npc_RemoveInvItem	(self, ItArRuneThunderbolt);
-	};
+	B_ClearRuneInv(self);
 	AI_Output (other, self,"KDW_604_Cronos_SELLSTUFF_Info_15_01"); //Poszukujê magicznych ksi¹g.
 	
 };  

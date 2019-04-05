@@ -39,6 +39,7 @@ func void B_Give_SkipChapter3Weapons () //(40-55)
 	CreateInvItem	(npc,	ItMw_1H_Sword_Long_04); //Miecz Zwycięstwa 45,35
 	CreateInvItem	(npc,	ItMw_1H_Sword_Long_04); //Miecz Zwycięstwa 45,35
 	CreateInvItem (npc,ItMw_1H_Sword_03); //Miecz Strażnika 50,50 
+	CreateInvItem (npc,ItMw_1H_Sword_03); //Miecz Strażnika 50,50 
 	CreateInvItem (npc,ItMw_2H_Sword_Light_04); //Miecz Królewski 50,50 
 	
 	CreateInvItem	(npc, ITSH_G3_03); 
@@ -52,4 +53,50 @@ func void B_Give_SkipChapter3Weapons () //(40-55)
 
 	//-------- Munition --------
   
+};
+
+func void B_Give_SkipDead()
+{
+	var C_NPC npc;
+	npc = Hlp_GetNpc(Grd_211_Skip);
+
+	if(Kapitel == 1)
+	{
+		CreateInvItems(npc, ItMiNugget, 40);
+	}
+	else if(Kapitel == 2)
+	{
+		CreateInvItems(npc, ItMiNugget, 80);
+		CreateInvItems(npc, ItKeLockpick,2);
+		CreateInvItem(npc, ITSH_G3_04);
+		CreateInvItems (npc,ItAmArrow,20);
+		CreateInvItems (npc,ItAmBolt,20);
+	}
+	else // Kapitel > 2
+	{
+		CreateInvItems(npc, ItMiNugget, 140);
+		CreateInvItems(npc, ItKeLockpick,3);
+		CreateInvItem(npc, ITSH_G3_03);
+		CreateInvItems (npc,ItAmArrow,60);
+		CreateInvItems (npc,ItAmBolt,60);
+	};
+};
+
+func void B_Give_SkipDeadWeapons()
+{
+	var C_NPC npc;
+	npc = Hlp_GetNpc(Grd_211_Skip);
+
+	if(Kapitel == 1)
+	{
+		CreateInvItem(npc, ItMw_1H_Sword_02);
+	}
+	else if(Kapitel == 2)
+	{
+		CreateInvItem (npc,ItMw_1H_Sword_04);
+	}
+	else // Kapitel > 2
+	{
+		CreateInvItem (npc,ItMw_1H_Sword_03);
+	};
 };

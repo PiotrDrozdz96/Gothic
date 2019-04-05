@@ -35,7 +35,7 @@ instance KDW_605_Riordian (Npc_Default)
 	
 	
 	//-------- Spells --------
-	CreateInvItem (self,ItArRuneThunderball);
+	//CreateInvItem (self,ItArRuneThunderball);
 			
 	//-------- inventory --------                                    
 	B_GiveRiordianChapter1Potions ();
