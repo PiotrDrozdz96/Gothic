@@ -16,6 +16,7 @@
 /Scripts/system/*
 !/Scripts/system/PFX
 !/Scripts/system/SFX
+!/Scripts/system/VISUALFX
 
 # vscode
 /.vscode
