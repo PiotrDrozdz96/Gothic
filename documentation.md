@@ -202,6 +202,8 @@
 |   +--|-- DIA_ORC_HighPriest5
 |   |   // Reaguje również na 1H Uriziel
 |   |   // Gdy nie zadajemy mu obrażeń i chcemy uciekać załącza nam się czasowy bieg
+|   +--|-- DIA_ORC_Warriors
+|   |   // Dialogi dla specjalnych orków śledzących/upominających w orkowym mieście
 |   +--|-- DIA_ORG_801_Lares
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu szkodnikiem
 |   |   // Po zostaniu szkodnikiem, część zadań przechodzi do zakładki niezaliczone, wraz z wyjaśnieniami w postaci wpisu do dziennika
@@ -340,6 +342,7 @@
 |   |   // Dodanie tarczy ITSH_STALHRIM_S_SM w OrcTempel(TPL_254)
 |   |   // Dodanie Npc na placu wymian GRD_(202/207) i STT_321
 |   |   // Dodanie TPL_1464_GorHanisOT w świątyni śniącego
+|   |   // Zamiana kilku orków w orkowym mieście na specjalnych orków z dialogami
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Stała LPCOST_TALENT_RUN
@@ -619,6 +622,8 @@
 |   +--| ORC_Priests
 |   |    // ORC_PRIEST_5 - dodanie tarczy ITSH_STALHRIM_B_SM
 |   |    // ORC_PRIEST_5 - niewrażliwy na żadne obrażenia
+|   +--| ORC_Warriors
+|   |    // Nowi orkowie ślędzący/upominający z dialogami w mieście orków
 |/********************************NPC END***********************************
 +-- Worlds
 |   +-- World.ZEN

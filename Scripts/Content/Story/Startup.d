@@ -1882,7 +1882,7 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc	(OrcWarrior2,"OW_ORC_PATH_02_MOVEMENT");
 
 	Wld_InsertNpc	(OrcWarrior2,"OW_ORC_PATH_02_MOVE");
-	Wld_InsertNpc	(OrcWarrior3,"OW_ORC_PATH_02_MOVE");
+	Wld_InsertNpc	(OrcWarrior2,"OW_ORC_PATH_02_MOVE");
 
 	// Ork-Stadt: vorderes Lagerfeuer
 	Wld_InsertNpc	(OrcPeasantDance,		"OW_ORC_PLACE_01_MOVEMENT");
@@ -1902,7 +1902,8 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc	(OrcWarrior2,"OW_ORC_PATH_04");
 	Wld_InsertNpc	(OrcWarrior2,"OW_ORC_PATH_04_MOVEMENT");
 	Wld_InsertNpc	(OrcWarrior2,"OW_ORC_PATH_04_MOVEMENT");
-	Wld_InsertNpc	(OrcWarrior3,"OW_ORC_PATH_WALL");
+	// Wld_InsertNpc	(OrcWarrior3,"OW_ORC_PATH_WALL");
+	Wld_InsertNpc	(ORC_2941_WARRIOR3,"OW_ORC_PATH_WALL");
 
 	// Ork-Stadt: inneres Lagerfeuer
 	Wld_InsertNpc	(OrcPeasantEatAndDrink,	"OW_ORC_HUT_03");
@@ -1918,14 +1919,16 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc	(OrcPeasantEatAndDrink,	"OW_ORC_PATH_06_2");
 	Wld_InsertNpc	(OrcPeasantEatAndDrink,	"OW_ORC_PATH_06_2");
 	Wld_InsertNpc	(OrcWarrior2,			"OW_ORC_PATH_06_4");
-	Wld_InsertNpc	(OrcWarrior2,			"OW_ORC_PATH_06_4");
+	// Wld_InsertNpc	(OrcWarrior2,			"OW_ORC_PATH_06_4");
+	Wld_InsertNpc	(ORC_2942_WARRIOR3,			"OW_ORC_PATH_06_4");
 
 	// Ork-Stadt: Schamanenhöhle
 	Wld_InsertNpc	(OrcWarrior4,"OW_ORC_SHAMAN_PATH1");
 	Wld_InsertNpc	(OrcWarrior4,"OW_ORC_SHAMAN_PATH1");
 	
 	// Ork-Stadt: Zugang zum Säulenplatz
-	Wld_InsertNpc	(OrcWarrior3,"OW_PATH_06_13_GUARD");
+	// Wld_InsertNpc	(OrcWarrior3,"OW_PATH_06_13_GUARD");
+	Wld_InsertNpc	(ORC_2943_WARRIOR3,"OW_PATH_06_13_GUARD");
 	Wld_InsertNpc	(OrcWarrior4,"OW_PATH_06_13_GUARD1");
 	Wld_InsertNpc	(OrcWarrior4,"OW_PATH_06_13_GUARD1");
 	Wld_InsertNpc	(OrcWarrior4,"OW_PATH_06_13_GUARD2");
