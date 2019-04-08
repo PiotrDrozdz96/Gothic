@@ -1,6 +1,8 @@
 +--AI
 |   // Szczegóły na temat zmian w AI są opisane w AI_documentation, z racji że podstawą zmian w AI była rosyjska modyfikacja Fix mod
 +--Anims
+|   +--|-- GOBBO.MDS
+|   |    // Rejestracja szkieletu goblina
 |   +--|-- HUMANS.MDS
 |   |    // Rejestracja nowych meshy/zbroi
 |   |    // Dodanie Rmaker do obsługi stołu runicznego
