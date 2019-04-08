@@ -82,10 +82,23 @@ INSTANCE SummonedByPC_Wolf (Mst_Default_Wolf)
 	level	=	0;
 	guild					=	GIL_SKELETON;
 	aivar[AIV_MM_REAL_ID]	= 	ID_SKELETON;
+
+	//----- Attribute ----
+	attribute	[ATR_STRENGTH]		=	35;
+	attribute	[ATR_DEXTERITY]		=	35;
+	attribute	[ATR_HITPOINTS_MAX]	=	60;
+	attribute	[ATR_HITPOINTS]		=	60;
+	
+	//----- Protections ----
+	protection	[PROT_BLUNT]		=	50;
+	protection	[PROT_EDGE]			=	50;
+	protection	[PROT_POINT]		=	15;
+	protection	[PROT_FIRE]			=	50;
+	protection	[PROT_FLY]			=	50;
+
 	Set_UndeadWolf_Visuals();
 	Npc_SetToFistMode(self);
-	attribute[ATR_STRENGTH] = attribute	[ATR_STRENGTH] + 20;
-	senses						= SENSE_HEAR | SENSE_SEE;
+	senses			= SENSE_HEAR | SENSE_SEE;
 	start_aistate	=	ZS_MM_SummonedByPC;
 	self.aivar[AIV_MM_DistToMaster] = 300;
 	self.aivar[AIV_MM_TimeLooseHP] 	= 5;
@@ -96,8 +109,21 @@ INSTANCE SummonedByNPC_Wolf (Mst_Default_Wolf)
 {
 	guild					=	GIL_SKELETON;
 	aivar[AIV_MM_REAL_ID]	= 	ID_SKELETON;
+
+	//----- Attribute ----
+	attribute	[ATR_STRENGTH]		=	35;
+	attribute	[ATR_DEXTERITY]		=	35;
+	attribute	[ATR_HITPOINTS_MAX]	=	60;
+	attribute	[ATR_HITPOINTS]		=	60;
+	
+	//----- Protections ----
+	protection	[PROT_BLUNT]		=	50;
+	protection	[PROT_EDGE]			=	50;
+	protection	[PROT_POINT]		=	15;
+	protection	[PROT_FIRE]			=	50;
+	protection	[PROT_FLY]			=	50;
+
 	Set_UndeadWolf_Visuals();
 	Npc_SetToFistMode(self);
-	attribute[ATR_STRENGTH] = attribute	[ATR_STRENGTH] + 20;
 	start_aistate	=	ZS_MM_Summoned;
 };
