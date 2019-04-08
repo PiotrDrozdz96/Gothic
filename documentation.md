@@ -56,6 +56,7 @@
 |   |   // Dodanie funkcji B_Evolve_* i B_Story_OMFull w odpowiednich rozdziałach
 |   |   // Dodanie B_Give_DexterPotions w rozdziałach 2 i 3
 |   |   // Kapitel 2 - Nie zaliczenie misji z pozbyciem się Mordraga jeśli jesteśmy cieniem(nie zaliczenie odbywa się również gdy zostajemy członkiem innego obozu)
+|   |   // Kapitel 3 - Jeśli należymy do bractwa śniącego uzależniamy się od ziela
 |   |   // Kapitel 4 - Nie tracimy gildii Mag Ognia
 |   |   // Kapitel 4 - EBR_105_Raven,GRD_(200/210/233/255),STT_(311/329),VLK_(538,581) - Wywalenie za barierę
 |   |   // Kapitel 4 - Postacie które znajdowały się w starym obozie, ale nie były jego członkami, nie giną ponieważ się wcześniej wyprowadziły
@@ -317,7 +318,7 @@
 |   |   // Zmiany w warunkach otrzymania wpisu do dziennika przy rozmowie "hello"
 |/*******************************************DIALOGS END*****************************************************
 +--Events
-|   //Sleepabit.d - Dopasowanie do systemu PLAYER_MOBSI_PRODUCTION
+|   //Sleepabit.d - Dopasowanie do systemu PLAYER_MOBSI_PRODUCTION, uwzględnienie uzależnienia od ziela które nie pozwala zasnąć
 |   //PanFry.d - Obsługa patelni
 |   //MakeRune.d - Obsługa stołu runicznego
 +--Inne
@@ -358,6 +359,7 @@
 |   |   // Zmienna CipherJoints licząca ile razy dostarczyliśmy dostawę ziela, potrzebne do ewolucji Ciphera
 |   |   // Przeniesienie zmiennych zadaniowych z poszczególnych dialogów do Story_Globals + dodanie nowych
 |   |   // Dodanie zmiennych potrzebynch do rosyjskiego fix moda
+|   |   // zmienne SC_IsObessed oraz jointDay związane z uzależnieniem palenia ziela
 |   +--| svm
 |   |   // dodanie svm CantReadThis związanej z kartkami uczącymi
 |   |   // Prztłumaczenie SVM_3_Smalltalk15, było po niemiecku
@@ -383,6 +385,8 @@
 |   |   // Zamiana stałej SPL_NEW(2-4)
 |   +--| PFX/SFX
 |   |   // Dzwięk i wizualizacja do stołu runicznego
+|   +--| VISUALFX
+|   |   // wizualizacja DEMENTOR_FX używana gdy nie możemy spać z powodu uzależnienia od ziela
 |/******************************************INNE END********************************************************
 +-- Items
 |   +--| Animaltrophy
@@ -410,6 +414,7 @@
 |   +--| Misc
 |   |   // Dodanie składników potrzebnych do tworzenia run
 |   |   // Zamiana Rtęci na wodę święconą
+|   |   // ItMiJoint koją uzależnienie od ziela
 |   +--| MissionItems
 |   |   // 1 - Listy do Magów Ognia mają podpis "Marszałek Rigaldo
 |   |   // 1 - List do Magów Ognia tworzy wpis w dzienniku

@@ -126,6 +126,12 @@ FUNC VOID B_Kapitelwechsel (VAR INT neues_Kapitel)
 		B_Story_OMFull();
 		B_Evolve_Cipher();
 		B_Evolve_Cavalorn();
+
+		//------------- Joint addicted -------------
+		if	C_NpcBelongsToPsiCamp(hero)
+		{
+			SC_IsObessed = TRUE;
+		};
 		
 		introducechapter ("Rozdzia³ 3","Staro¿ytna magia","chapter3.tga","levelup.wav", 6000);
 		//introducechapter ("Chapter 3","Artifacts of ancient power","chapter3.tga","levelup.wav", 6000);

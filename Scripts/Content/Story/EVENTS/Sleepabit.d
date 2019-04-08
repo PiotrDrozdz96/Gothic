@@ -35,9 +35,18 @@ func void SLEEPABIT_S1 ()
 	//***ALT** if	(Hlp_GetInstanceID (self)== Hlp_GetInstanceID (Hero)) // MH: geändert, damit kontrollierte NSCs nicht schlafen können!
 	if ( (Hlp_GetInstanceID(self)==Hlp_GetInstanceID(her))||(Hlp_GetInstanceID(self)==Hlp_GetInstanceID(rock)) ) 
 	{	
-		self.aivar[AIV_INVINCIBLE]=TRUE;
-		PLAYER_MOBSI_PRODUCTION = MOBSI_SleepAbit;
-		Ai_ProcessInfos (her);
+		if(SC_IsObessed == TRUE && jointDay != Wld_GetDay())
+		{
+			Wld_PlayEffect("DEMENTOR_FX",  hero, hero, 0, 0, 0, FALSE );
+			PrintScreen	("Chêæ zapalenia nie pozwala ci zasn¹æ.", -1,-1,"font_old_20_white.tga",3);
+			AI_StopProcessInfos(self);
+		}
+		else
+		{
+			self.aivar[AIV_INVINCIBLE]=TRUE;
+			PLAYER_MOBSI_PRODUCTION = MOBSI_SleepAbit;
+			Ai_ProcessInfos (her);
+		};
 	};
 };
 

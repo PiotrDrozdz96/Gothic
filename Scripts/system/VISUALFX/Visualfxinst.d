@@ -2669,3 +2669,12 @@ INSTANCE BARRIERE_PC_WARNING(CFx_Base_Proto)
 	emtrjdynupdatedelay 	= 0.;
 	lightPresetname 	= "AURA";
 };
+
+INSTANCE DEMENTOR_FX(CFx_Base_Proto)
+{
+	visName_S 		= 	"screenblend.scx";
+	userString[0]	=   "1";
+	userString[1]	=	"120 0 0 0";
+	userString[2]	=	"0.5";
+	emFXLifeSpan    =	0.6;
+};

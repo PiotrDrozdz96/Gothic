@@ -434,6 +434,22 @@ func void UseItMiJoint_1()
 		B_GiveXP (5);
 		Firstjoint = TRUE;
 	};
+
+	if(SC_IsObessed == TRUE)
+	&& Npc_IsPlayer (self)
+	&&(jointDay != Wld_GetDay())
+	{
+		if( Kapitel <= 3)
+		{
+			PrintScreen	("Od razu lepiej.", -1,-1,"font_old_20_white.tga",3);
+			jointDay = Wld_GetDay();
+		}
+		else
+		{
+			PrintScreen	("Potrzebujê czegoœ mocniejszego.", -1,-1,"font_old_20_white.tga",3);
+		};
+	};
+
 };
 /******************************************************************************************/
 INSTANCE ItMiJoint_2(C_Item)
@@ -460,6 +476,21 @@ func void UseItMiJoint_2()
 	{
 		B_GiveXP (10);
 		Secondjoint = TRUE;
+	};
+	
+	if(SC_IsObessed == TRUE)
+	&& Npc_IsPlayer (self)
+	&&(jointDay != Wld_GetDay())
+	{
+		if( Kapitel <= 4)
+		{
+			PrintScreen	("Od razu lepiej.", -1,-1,"font_old_20_white.tga",3);
+			jointDay = Wld_GetDay();
+		}
+		else
+		{
+			PrintScreen	("Potrzebujê czegoœ mocniejszego.", -1,-1,"font_old_20_white.tga",3);
+		};
 	};
 };
 /******************************************************************************************/
@@ -488,6 +519,21 @@ func void UseItMiJoint_3()
 		Npc_ChangeAttribute(self,ATR_MANA_MAX,2);
 		PrintScreen	("Mana +2", -1,-1,"FONT_OLD_20_WHITE.TGA",3);
 		Thirdjoint = TRUE;
+	};
+	
+	if(SC_IsObessed == TRUE)
+	&& Npc_IsPlayer (self)
+	&&(jointDay != Wld_GetDay())
+	{
+		if( Kapitel <= 5)
+		{
+			PrintScreen	("Od razu lepiej.", -1,-1,"font_old_20_white.tga",3);
+			jointDay = Wld_GetDay();
+		}
+		else
+		{
+			PrintScreen	("Potrzebujê czegoœ mocniejszego.", -1,-1,"font_old_20_white.tga",3);
+		};
 	};
 };
 

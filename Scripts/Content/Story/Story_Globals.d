@@ -13,6 +13,8 @@ var int Play_Lute;
 var int Firstjoint;
 var int Secondjoint;
 var int Thirdjoint;
+var int SC_IsObessed;
+var int jointDay;
 var int Wissen_Almanach;
 
 var int Points_OC;
