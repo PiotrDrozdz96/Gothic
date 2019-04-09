@@ -1122,5 +1122,7 @@ INSTANCE ItMI_Kompass (C_Item)
 	material 			=	MAT_STONE;
 
 	description			= 	name;
+	TEXT[4]				= 	NAME_Value;	
+	COUNT[4]			= 	value;
 
 };
