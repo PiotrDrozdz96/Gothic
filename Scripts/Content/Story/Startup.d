@@ -1312,6 +1312,12 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc		(Firewaran,"OW_COAST_SHIPWRECK_WARAN_2");
 	Wld_InsertNpc		(Firewaran,"OW_COAST_SHIPWRECK_WARAN");
 	Wld_InsertNpc		(Firewaran,"OW_COAST_SHIPWRECK_WARAN");
+	Wld_InsertNpc		(Gobbo_Kapitan, "LOCATION_25_01");
+	Wld_InsertNpc		(Gobbo_Pirat01, "OW_PATH_201");
+	Wld_InsertNpc		(Gobbo_Pirat02, "OW_PATH_201");
+	Wld_InsertNpc		(Gobbo_Pirat03, "OW_PATH_201");
+	Wld_InsertNpc		(Gobbo_Pirat04, "OW_PATH_333");
+	Wld_InsertNpc		(Gobbo_Pirat05, "OW_PATH_333");
 	//-------------------------------------------------------------------------------//
 	
 	Wld_InsertNpc		(Bloodfly,"SPAWN_OW_BLOODFLYS_152");

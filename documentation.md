@@ -3,6 +3,7 @@
 +--Anims
 |   +--|-- GOBBO.MDS
 |   |    // Rejestracja szkieletu goblina
+|   |    // Rejestracja goblinów piratów
 |   +--|-- HUMANS.MDS
 |   |    // Rejestracja nowych meshy/zbroi
 |   |    // Dodanie Rmaker do obsługi stołu runicznego
@@ -344,7 +345,8 @@
 |   |   // Dodanie tarczy ITSH_STALHRIM_S_SM w OrcTempel(TPL_254)
 |   |   // Dodanie Npc na placu wymian GRD_(202/207) i STT_321
 |   |   // Dodanie TPL_1464_GorHanisOT w świątyni śniącego
-|   |   // Zamiana kilku orków w orkowym mieście na specjalnych orków z dialogami
+|   |   // Zamiana kilku orków w orkowym mieście na specjalnych orków z dialogami 
+|   |   // Dodanie goblinów piratów na plaży przy wraku statku
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Stała LPCOST_TALENT_RUN
@@ -420,6 +422,7 @@
 |   |   // Dodanie składników potrzebnych do tworzenia run
 |   |   // Zamiana Rtęci na wodę święconą
 |   |   // ItMiJoint koją uzależnienie od ziela
+|   |   // Dodanie złotego kompasu
 |   +--| MissionItems
 |   |   // 1 - Listy do Magów Ognia mają podpis "Marszałek Rigaldo
 |   |   // 1 - List do Magów Ognia tworzy wpis w dzienniku
@@ -464,6 +467,8 @@
 |   |   // Skeleton dodanie kości szkieleta do tworzenia run przywołań
 |   +--| Mst_Bloodfly
 |   |   // Usunięcie skrzydeł z ekwipunku
+|   +--| Mst_GobboPirat
+|   |   // Gobliny piraci od Zakona -- soper machinima mod
 |   +--| Mst_OrcScout/Mst_OrcWarrior -- związane z rosyjskim fix modem
 |   |   // Dodanie aivar[AIV_IMPORTANT]
 |   |   // czasami zmiana start_aistate

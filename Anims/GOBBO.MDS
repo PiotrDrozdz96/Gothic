@@ -13,6 +13,12 @@ Model ("Gobbo")
 
 	registerMesh ("Gob_Body.ASC")
 	registerMesh ("Gobbo_Skeleton_Body.ASC")
+	registerMesh ("Gob_Pir_1.ASC")
+	registerMesh ("Gob_Pir_2.ASC")
+	registerMesh ("Gob_Pir_3.ASC")
+	registerMesh ("Gob_Pir_4.ASC")
+	registerMesh ("Gob_Pir_5.ASC")
+	registerMesh ("Gob_Pir_Cap.ASC")
 
 	aniEnum
 	{

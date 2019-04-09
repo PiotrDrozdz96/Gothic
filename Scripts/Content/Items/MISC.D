@@ -1108,3 +1108,19 @@ INSTANCE ItMi_Aquamarine (C_Item)
 	COUNT[4]			= 	value;
 	
 };
+
+INSTANCE ItMI_Kompass (C_Item)
+{
+	name 				=	"Z³oty kompas";
+
+	mainflag 			=	ITEM_KAT_NONE;
+	flags 				=	ITEM_MULTI;
+
+	value 				=	500;
+
+	visual 				=	"ItMi_Compass_01.3DS";
+	material 			=	MAT_STONE;
+
+	description			= 	name;
+
+};
