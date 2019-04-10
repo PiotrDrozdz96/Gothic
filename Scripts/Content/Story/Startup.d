@@ -1794,6 +1794,10 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc		(Swamprat,"OW_SWAMPRAT_05");
 	Wld_InsertNpc		(Swamprat,"OW_SWAMPRAT_06");
 	Wld_InsertNpc		(Swamprat,"OW_SWAMPRAT_06");
+	Wld_InsertNpc		(ZombieSwamp,"PATH_UNDEAD_PSI0");
+	Wld_InsertNpc		(ZombieSwamp,"PATH_UNDEAD_PSI1");
+	Wld_InsertNpc		(ZombieSwamp,"PATH_UNDEAD_PSI2");
+	Wld_InsertNpc		(ZombieSwamp,"PATH_UNDEAD_PSI3");
 
 				
 	//-----------------------ORK-GEBIET---------------------------------//

@@ -6,8 +6,8 @@ PROTOTYPE Mst_Default_Swamprat (C_Npc)
 {
 	//----- Monster ----
 	name							=	"Bagienny szczur";
-	guild							=	GIL_MOLERAT;
-	aivar[AIV_MM_REAL_ID]			= 	ID_MOLERAT;
+	guild							=	GIL_SWAMPSHARK;
+	aivar[AIV_MM_REAL_ID]			= 	ID_SWAMPSHARK;
 	level							=	12;
 
 	//----- Attribute ----	

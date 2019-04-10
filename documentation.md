@@ -11,7 +11,10 @@
 |   |    // 2H - Możliwość ataku w biegu z g2
 |   |    // zmiana skoku na ten z G2
 |   |    // Zmiana w TA_CookForMe aby nie tworzyła pieczonego mięsa
-|   +--|-- SWAMPRAT.MDS -- bagienny szczur z G2NK
+|   +--|-- SWAMPRAT.MDS 
+|   |    // MDS bagiennego szczura z G2NK
+|   +--|-- ZOMBIE.MDS
+|   |    // Rejestracja zombie_monster
 |   +--|-- MDS_MOBSI
 |   |    // RMAKER_1.MDS - Animacja stołu runicznego
 |   +--|-- MDS_OVERLAY
@@ -348,7 +351,7 @@
 |   |   // Dodanie TPL_1464_GorHanisOT w świątyni śniącego
 |   |   // Zamiana kilku orków w orkowym mieście na specjalnych orków z dialogami 
 |   |   // Dodanie goblinów piratów na plaży przy wraku statku
-|   |   // Dodanie bagiennych szczurów na bagnie
+|   |   // Dodanie bagiennych szczurów i zombie na bagnie
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Stała LPCOST_TALENT_RUN
@@ -479,6 +482,8 @@
 |   |   // czasami zmiana start_aistate
 |   +--| Mst_SwampRat
 |   |   // Bagienny szczur z g2nk
+|   +--| Mst_Zombie
+|   |   // Dodanie Bagiennego Zombie -- soper machinima mod
 |/*******************************************MONSTERS END****************************************************
 +-- NPC
 |   +-- BDT_QUENTIN

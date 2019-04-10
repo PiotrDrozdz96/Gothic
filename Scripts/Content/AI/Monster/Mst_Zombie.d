@@ -81,6 +81,14 @@ func void Set_Zombie4_Visuals()
 	//								Body-Mesh		Body-Tex	Skin-Color	Head-MMS	Head-Tex	Teeth-Tex	ARMOR
 	Mdl_SetVisualBody 		(self,	"Zom_Body",		0,			1,			"Zom_Head", 1,  		3,			-1);
 };
+//-------------------------------------------------------------
+func void Set_ZombieSwamp_Visuals()
+{
+	Mdl_SetVisual			(self,	"Zombie.mds");
+	//								Body-Mesh		Body-Tex	Skin-Color	Head-MMS	Head-Tex	Teeth-Tex	ARMOR
+	Mdl_SetVisualBody 		(self,	"Zombie_monster",		0,			1,			"", 1,  		0,			-1);
+};
+
 
 
 /*************************************************************************
@@ -158,4 +166,17 @@ INSTANCE ZombieTheKeeper	(Mst_Default_Zombie)
 
 	CreateInvItem	(self,	ItMi_OrcTalisman);
 	CreateInvItem	(self,	ItKe_Focus5);
+};
+
+/*************************************************************************
+**	Zombie Swamp 														**
+*************************************************************************/
+
+INSTANCE ZombieSwamp	(Mst_Default_Zombie)
+{
+	name		=	"Jozin";
+	guild							=	GIL_SWAMPSHARK;
+	aivar[AIV_MM_REAL_ID]			= 	ID_SWAMPSHARK;
+	Set_ZombieSwamp_Visuals();
+	Npc_SetToFistMode(self);
 };
