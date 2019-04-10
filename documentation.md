@@ -11,6 +11,7 @@
 |   |    // 2H - Możliwość ataku w biegu z g2
 |   |    // zmiana skoku na ten z G2
 |   |    // Zmiana w TA_CookForMe aby nie tworzyła pieczonego mięsa
+|   +--|-- SWAMPRAT.MDS -- bagienny szczur z G2NK
 |   +--|-- MDS_MOBSI
 |   |    // RMAKER_1.MDS - Animacja stołu runicznego
 |   +--|-- MDS_OVERLAY
@@ -347,6 +348,7 @@
 |   |   // Dodanie TPL_1464_GorHanisOT w świątyni śniącego
 |   |   // Zamiana kilku orków w orkowym mieście na specjalnych orków z dialogami 
 |   |   // Dodanie goblinów piratów na plaży przy wraku statku
+|   |   // Dodanie bagiennych szczurów na bagnie
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Stała LPCOST_TALENT_RUN
@@ -390,8 +392,11 @@
 |   |   // Przeniesienie AI\ORC nad Story\ZS
 |   +--| magic_intern
 |   |   // Zamiana stałej SPL_NEW(2-4)
-|   +--| PFX/SFX
-|   |   // Dzwięk i wizualizacja do stołu runicznego
+|   +--| PFX
+|   |   // Efekt wizualny do stołu runicznego
+|   +--| SFX
+|   |   // Dzwięk do stołu runicznego
+|   |   // Dzwięki bagiennego szczura
 |   +--| VISUALFX
 |   |   // wizualizacja DEMENTOR_FX używana gdy nie możemy spać z powodu uzależnienia od ziela
 |/******************************************INNE END********************************************************
@@ -472,6 +477,8 @@
 |   +--| Mst_OrcScout/Mst_OrcWarrior -- związane z rosyjskim fix modem
 |   |   // Dodanie aivar[AIV_IMPORTANT]
 |   |   // czasami zmiana start_aistate
+|   +--| Mst_SwampRat
+|   |   // Bagienny szczur z g2nk
 |/*******************************************MONSTERS END****************************************************
 +-- NPC
 |   +-- BDT_QUENTIN
@@ -641,3 +648,4 @@
 |   |   // Osiatkowanie placu wymian, dodanie punktu zbierania ryżu
 |   |   // połączenie waypointów na ścieżce do starej kopalni
 |   |   // Dodanie księgi o bagiennym zielu do kufra Kaloma (tego z almanachem i kamieniem ogniskującym)
+|   |   // Dodatkowe waypointy na bagnie dla bagiennych szczurów i zombie

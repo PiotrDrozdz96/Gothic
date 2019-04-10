@@ -1,0 +1,236 @@
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Last Changes:
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Model ("Swamprat")
+{
+	meshAndTree ("SWAMPRAT_BODY.ASC" DONT_USE_MESH)
+	registerMesh ("SWAMPRAT_BODY.ASC")
+	registerMesh ("BAGIENNYRAT_BODY.ASC")
+	aniEnum
+	{
+		ani      ("S_FISTRUN"                  1  "S_FISTRUN"           0.0 0.0  M. "MOL_RUNAMBIENT_KM01.ASC"    F  0  60  FPS:12.5)
+		{
+			*eventSFX (1  "SWR_AMBIENT"       EMPTY_SLOT)
+			*eventSFX (30 "SWR_AMBIENT_SHORT" EMPTY_SLOT)
+		}
+		ani      ("T_FISTRUN_2_FISTRUNL"       1  "S_FISTRUNL"          0.0 0.0  M. "MOL_RUN_M01.ASC"            F  1  19)          
+		ani      ("S_FISTRUNL"                 1  "S_FISTRUNL"          0.0 0.0  M. "MOL_RUN_M01.ASC"            F  20 34)          
+		{
+			*eventSFX     (21 "SWR_AMBIENT_SHORT" EMPTY_SLOT)
+			*eventSFXGrnd (30 "RUN")                         
+		}
+		ani      ("T_FISTRUNL_2_FISTRUN"       1  "S_FISTRUN"           0.0 0.0  M. "MOL_RUN_M01.ASC"            F  35 44)          
+		aniBlend ("T_FISTRUNR_2_FISTRUN"          "S_FISTRUN"           0.2 0.2)                                                    
+		ani      ("T_FISTJUMPB"                1  "S_FISTRUN"           0.1 0.1  M. "MOL_JUMPB_M01.ASC"          F  3  17)          
+		aniAlias ("S_FISTWALK"                 1  "S_FISTWALK"          0.0 0.0  M. "S_FISTRUN"                  F)                 
+		ani      ("T_FISTWALK_2_FISTWALKL"     1  "S_FISTWALKL"         0.0 0.0  M. "MOL_WALK_KM01.ASC"          F  1  9)           
+		ani      ("S_FISTWALKL"                1  "S_FISTWALKL"         0.0 0.1  M. "MOL_WALK_KM01.ASC"          F  10 39)          
+		{
+			*eventSFXGrnd (10 "RUN")
+			*eventSFXGrnd (25 "RUN")
+		}
+		ani      ("T_FISTWALKL_2_FISTWALK"     1  "S_FISTWALK"          0.0 0.0  M. "MOL_WALK_KM01.ASC"          F  40 54)          
+		ani      ("T_FISTWALKR_2_FISTWALK"     1  "S_FISTWALK"          0.3 0.0  M. "MOL_WALK_KM01.ASC"          F  47 54)          
+		aniAlias ("T_FISTWALK_2_FISTWALKBL"    1  "S_FISTWALKBL"        0.0 0.0  M. "T_FISTWALKL_2_FISTWALK"     R)                 
+		aniAlias ("S_FISTWALKBL"               1  "S_FISTWALKBL"        0.0 0.1  M. "S_FISTWALKL"                R)                 
+		aniAlias ("T_FISTWALKBL_2_FISTWALK"    1  "S_FISTWALK"          0.0 0.0  M: "T_FISTWALK_2_FISTWALKL"     R)                 
+		aniBlend ("T_FISTWALKBR_2_FISTWALK"       "S_FISTWALK"          0.2 0.2)                                                    
+		aniAlias ("T_FISTRUNTURNL"             20 "T_FISTRUNTURNL"      0.1 0.2  M. "T_FISTWALKTURNL"            F)                 
+		aniAlias ("T_FISTRUNTURNR"             20 "T_FISTRUNTURNR"      0.1 0.2  M. "T_FISTWALKTURNR"            F)                 
+		ani      ("T_FISTWALKTURNL"            20 "T_FISTWALKTURNL"     0.1 0.2  M. "MOL_TURNL_M02.ASC"          F  1  24)          
+		{
+			*eventSFXGrnd (6  "TURN")
+			*eventSFXGrnd (18 "TURN")
+		}
+		ani      ("T_FISTWALKTURNR"            20 "T_FISTWALKTURNR"     0.1 0.2  M. "MOL_TURNR_M02.ASC"          F  1  24)          
+		{
+			*eventSFXGrnd (6  "TURN")
+			*eventSFXGrnd (18 "TURN")
+		}
+		ani      ("T_FISTRUNSTRAFEL"           1  "T_FISTRUNSTRAFEL"    0.0 0.2  M. "MOL_STRAFEL_JUE01.ASC"      F  1  16)          
+		{
+			*eventSFX     (7  "SWR_AMBIENT_SHORT" EMPTY_SLOT)
+			*eventSFXGrnd (5  "TURN")                        
+			*eventSFXGrnd (15 "TURN")                        
+		}
+		ani      ("T_FISTRUNSTRAFER"           1  "T_FISTRUNSTRAFER"    0.0 0.2  M. "MOL_STRAFER_JUE01.ASC"      F  1  16)          
+		{
+			*eventSFX     (7  "SWR_AMBIENT_SHORT" EMPTY_SLOT)
+			*eventSFXGrnd (5  "TURN")                        
+			*eventSFXGrnd (15 "TURN")                        
+		}
+		aniAlias ("T_FISTWALKSTRAFEL"          1  "T_FISTWALKSTRAFEL"   0.1 0.1  M. "T_FISTRUNSTRAFEL"           F)                 
+		aniAlias ("T_FISTWALKSTRAFER"          1  "T_FISTWALKSTRAFER"   0.1 0.1  M. "T_FISTRUNSTRAFER"           F)                 
+		aniBlend ("T_FISTRUN_2_FISTWALK"          "S_FISTWALK"          0.2 0.2)                                                    
+		aniBlend ("T_FISTWALK_2_FISTRUN"          "S_FISTRUN"           0.2 0.2)                                                    
+		aniBlend ("T_FISTRUNL_2_FISTWALKL"        "S_FISTWALKL"         0.2 0.2)                                                    
+		aniBlend ("T_FISTWALKL_2_FISTRUNL"        "S_FISTRUNL"          0.2 0.2)                                                    
+		ani      ("T_FISTRUNL_2_JUMP"          1  "S_JUMP"              0.2 0.0  M. "MOL_JUMP_M01.ASC"           F  3  12)          
+		aniAlias ("T_FISTRUNR_2_JUMP"          1  "S_JUMP"              0.2 0.0  M. "T_FISTRUNL_2_JUMP"          F)                 
+		aniBlend ("T_JUMP_2_FISTRUNL"             "S_FISTRUNL"          0.3 0.3)                                                    
+		ani      ("T_STAND_2_JUMP"             1  "S_JUMP"              0.0 0.0  M. "MOL_JUMP_M01.ASC"           F  1  12)          
+		ani      ("S_JUMP"                     1  "S_JUMP"              0.0 0.0  MF "MOL_JUMP_M01.ASC"           F  13 13)          
+		ani      ("T_JUMP_2_STAND"             1  ""                    0.0 0.1  M. "MOL_JUMP_M01.ASC"           F  14 23)          
+		{
+			*eventSFXGrnd (21 "RUN")
+		}
+		ani      ("T_STAND_2_JUMPUPLOW"        1  "S_JUMPUPLOW"         0.1 0.0  M. "MOL_JUMPUPLOW_KM01.ASC"     F  1  11)          
+		ani      ("S_JUMPUPLOW"                1  "T_JUMPUPLOW_2_STAND" 0.0 0.0  MF "MOL_JUMPUPLOW_KM01.ASC"     F  12 12)          
+		ani      ("T_JUMPUPLOW_2_STAND"        1  ""                    0.0 0.1  MF "MOL_JUMPUPLOW_KM01.ASC"     F  13 19)          
+		aniBlend ("T_JUMP_2_FALLDN"               "S_FALLDN"            0.2 0.2)                                                    
+		ani      ("S_FALLDN"                   1  "S_FALLDN"            0.0 0.1  MF "MOL_FALLDN_JUE01.ASC"       F  9  9)           
+		ani      ("T_FALLDN_2_STAND"           1  ""                    0.1 0.0  M. "MOL_FALLDN_JUE01.ASC"       F  10 35)          
+		{
+			*eventSFXGrnd (15 "RUN")                    
+			*eventSFX     (16 "M_FALL_SMALL" EMPTY_SLOT)
+		}
+		aniBlend ("T_FALLDN_2_FALL"               "S_FALL"              0.1 0.1)                                                    
+		ani      ("S_FALL"                     1  "S_FALL"              0.1 0.0  MF "MOL_FALLEN_KM02.ASC"        F  0  9)           
+		ani      ("T_FALL_2_FALLEN"            1  "S_FALLEN"            0.0 0.0  M. "MOL_FALLEN_KM02.ASC"        F  10 39)          
+		{
+			*eventSFXGrnd (15 "RUN")                    
+			*eventSFX     (16 "M_FALL_SMALL" EMPTY_SLOT)
+		}
+		ani      ("S_FALLEN"                   1  "S_FALLEN"            0.0 0.0  M. "MOL_STANDUP_KM01.ASC"       F  0  0)           
+		ani      ("T_FALLEN_2_STAND"           1  ""                    0.0 0.2  M. "MOL_STANDUP_KM01.ASC"       F  1  59)          
+		aniBlend ("T_FALLDN_2_FALLB"              "S_FALLB"             0.1 0.1)                                                    
+		aniAlias ("S_FALLB"                    1  "S_FALLB"             0.1 0.0  MF "S_FALL"                     F)                 
+		aniAlias ("T_FALLB_2_FALLENB"          1  "S_FALLENB"           0.0 0.0  M. "T_FALL_2_FALLEN"            F)                 
+		aniAlias ("S_FALLENB"                  1  "S_FALLENB"           0.0 0.0  M. "S_FALLEN"                   F)                 
+		aniAlias ("T_FALLENB_2_STAND"          1  ""                    0.0 0.2  M. "T_FALLEN_2_STAND"           F)                 
+		ani      ("T_SURPRISE_CCW"             1  "S_SURPRISE"          0.0 0.0  MR "MOL_WHIRL_AROUNDL_KM01.ASC" F  1  29)          
+		{
+			*eventSFXGrnd (18 "RUN")  
+			*eventSFXGrnd (23 "SNEAK")
+		}
+		ani      ("T_SURPRISE_CW"              1  "S_SURPRISE"          0.0 0.0  MR "MOL_WHIRL_AROUNDR_KM02.ASC" F  1  29)          
+		{
+			*eventSFXGrnd (18 "RUN")  
+			*eventSFXGrnd (23 "SNEAK")
+		}
+		ani      ("S_SURPRISE"                 1  "S_SURPRISE"          0.1 0.1  M. "MOL_WHIRL_AROUNDL_KM01.ASC" F  0  0)           
+		aniAlias ("T_FISTWALK_2_WALKWL"        1  "S_WALKWL"            0.1 0.0  M. "T_FISTWALK_2_FISTWALKL"     F)                 
+		aniAlias ("T_FISTWALK_2_WALKWBL"       1  "S_WALKWBL"           0.0 0.0  M. "T_FISTWALKL_2_FISTWALK"     R)                 
+		aniBlend ("T_WALKWBL_2_WALKBL"            "S_FISTWALK"          0.2 0.2)                                                    
+		aniAlias ("T_WALK_2_WALKWL"            1  "S_WALKWL"            0.1 0.0  M. "T_FISTWALK_2_FISTWALKL"     F)                 
+		aniAlias ("S_WALKWL"                   1  "S_WALKWL"            0.0 0.0  M. "S_FISTWALKL"                F)                 
+		aniAlias ("T_WALKWL_2_WALK"            1  "S_FISTWALK"          0.0 0.0  M. "T_FISTWALKL_2_FISTWALK"     F)                 
+		aniBlend ("T_WALKWR_2_WALK"               "S_FISTWALK"          0.1 0.1)                                                    
+		aniAlias ("T_WALK_2_WALKWBL"           1  "S_WALKWBL"           0.0 0.0  M. "T_FISTWALKL_2_FISTWALK"     R)                 
+		aniAlias ("S_WALKWBL"                  1  "S_WALKWBL"           0.0 0.0  M. "S_FISTWALKL"                R)                 
+		aniAlias ("T_WALKWBL_2_WALK"           1  "S_FISTWALK"          0.0 0.0  M. "T_FISTWALK_2_FISTWALKL"     R)                 
+		aniBlend ("T_WALKWBR_2_WALK"              "S_FISTWALK"          0.1 0.1)                                                    
+		ani      ("T_WALKWTURNL"               20 "T_WALKWTURNL"        0.2 0.2  M. "MOL_TURNL_M02.ASC"          F  0  24)          
+		{
+			*eventSFX (12 "WALK_WATER")
+			*eventSFX (24 "WALK_WATER")
+		}
+		ani      ("T_WALKWTURNR"               20 "T_WALKWTURNR"        0.2 0.2  M. "MOL_TURNR_M02.ASC"          F  0  24)          
+		{
+			*eventSFX (12 "WALK_WATER")
+			*eventSFX (24 "WALK_WATER")
+		}
+		ani      ("T_WALKWL_2_SWIMF"           1  "S_SWIMF"             0.1 0.1  M. "MOL_WALK2SWIM_M01.ASC"      F  1  4)           
+		ani      ("T_SWIMF_2_WALKWL"           1  "S_WALKWL"            0.1 0.1  M. "MOL_WALK2SWIM_M01.ASC"      F  6  9)           
+		aniAlias ("T_WALKWL_2_RUNL"            1  ""                    0.0 0.1  M. "S_FISTRUNL"                 F)                 
+		ani      ("S_SWIM"                     1  "S_SWIM"              0.0 0.1  M. "MOL_SWIM_M01.ASC"           F  0  30)          
+		ani      ("T_SWIM_2_SWIMF"             1  "S_SWIMF"             0.1 0.1  M. "MOL_SWIM_M01.ASC"           F  30 40)          
+		ani      ("S_SWIMF"                    1  "S_SWIMF"             0.0 0.0  M. "MOL_SWIM_M01.ASC"           F  40 60)          
+		{
+			*eventSFX (45 "SWIM" EMPTY_SLOT)
+		}
+		ani      ("T_SWIMF_2_SWIM"             1  "S_SWIM"              0.1 0.1  M. "MOL_SWIM_M01.ASC"           F  60 70)          
+		ani      ("T_SWIMTURNL"                20 "T_SWIMTURNL"         0.1 0.1  M. "MOL_SWIMTURNL_A01.ASC"      F  1  20)          
+		ani      ("T_SWIMTURNR"                20 "T_SWIMTURNR"         0.1 0.1  M. "MOL_SWIMTURNR_A01.ASC"      F  1  20)          
+		aniBlend ("T_SWIM_2_DIVE"                 "S_DIVE"              0.0 0.0)                                                    
+		aniBlend ("T_FALLDN_2_DIVE"               "S_DIVE"              0.0 0.0)                                                    
+		ani      ("S_DIVE"                     1  "S_DIVE"              0.1 0.1  MF "MOL_DROWN_M01.ASC"          F  0  0)           
+		ani      ("T_DIVE_2_DROWNED"           1  "S_DROWNED"           0.0 0.1  MF "MOL_DROWN_M01.ASC"          F  1  59  FPS:15)  
+		ani      ("S_DROWNED"                  1  "S_DROWNED"           0.0 0.0  MF "MOL_DROWN_M01.ASC"          F  60 60)          
+		ani      ("T_STUMBLE"                  1  ""                    0.1 0.1  M. "MOL_STUMBLEB_KM02.ASC"      F  1  17)          
+		{
+			*eventSFX     (1  "SWR_HURT" EMPTY_SLOT)
+			*eventSFXGrnd (10 "RUN")                
+			*eventSFXGrnd (17 "RUN")                
+		}
+		ani      ("T_STUMBLEB"                 1  ""                    0.1 0.1  M. "MOL_STUMBLE_KM02.ASC"       F  1  15)          
+		{
+			*eventSFX     (1  "SWR_HURT" EMPTY_SLOT)
+			*eventSFXGrnd (10 "RUN")                
+			*eventSFXGrnd (15 "RUN")                
+		}
+		ani      ("T_DEADB"                    1  "S_DEADB"             0.1 0.0  M. "MOL_DEADB_M01.ASC"          F  0  45)          
+		{
+			*eventSFX (1  "SWR_DIE"      EMPTY_SLOT)
+			*eventSFX (21 "M_FALL_SMALL" EMPTY_SLOT)
+		}
+		ani      ("S_DEADB"                    1  "S_DEADB"             0.0 0.1  M. "MOL_DEADB_M01.ASC"          F  46 46)          
+		ani      ("T_DEAD"                     1  "S_DEAD"              0.1 0.0  M. "MOL_DEAD_KM02.ASC"          F  0  59)          
+		{
+			*eventSFX (1  "SWR_DIE"      EMPTY_SLOT)
+			*eventSFX (32 "M_FALL_SMALL" EMPTY_SLOT)
+		}
+		ani      ("S_DEAD"                     1  "S_DEAD"              0.0 0.1  M. "MOL_DEAD_KM02.ASC"          F  60 60)          
+		ani      ("S_FISTATTACK"               1  ""                    0.1 0.0  M. "MOL_ATTACK_M03.ASC"         F  1  19)          
+		{
+			*eventTag (0 "DEF_HIT_LIMB"  "Bip01 Ponytail1")
+			*eventTag (0 "DEF_OPT_FRAME" "6")              
+			*eventTag (0 "DEF_HIT_END"   "18")             
+			*eventTag (0 "DEF_WINDOW"    "6 18")           
+			*eventSFX (5 "SWR_ATTACK"    EMPTY_SLOT)       
+		}
+		ani      ("T_FISTATTACKMOVE"           2  ""                    0.2 0.2  M. "MOL_JUMP_JUE01.ASC"         F  5  13)          
+		{
+			*eventTag (0 "DEF_HIT_LIMB"  "Bip01 Head")
+			*eventTag (0 "DEF_OPT_FRAME" "4")         
+			*eventSFX (6 "SWR_ATTACK"    EMPTY_SLOT)  
+		}
+		aniAlias ("T_FISTPARADEJUMPB"          1  ""                    0.0 0.1  M. "T_FISTJUMPB"                F)                 
+		aniAlias ("T_FISTPARADE_0"             1  ""                    0.0 0.1  M. "T_FISTJUMPB"                F)                 
+		ani      ("C_LOOK_1"                   9  ""                    0.0 0.0  .  "MOL_LOOK_KM01.ASC"          F  0  0)           
+		ani      ("C_LOOK_2"                   9  ""                    0.0 0.0  .  "MOL_LOOK_KM01.ASC"          F  1  1)           
+		ani      ("C_LOOK_3"                   9  ""                    0.0 0.0  .  "MOL_LOOK_KM01.ASC"          F  2  2)           
+		ani      ("C_LOOK_4"                   9  ""                    0.0 0.0  .  "MOL_LOOK_KM01.ASC"          F  3  3)           
+		ani      ("C_LOOK_5"                   9  ""                    0.0 0.0  .  "MOL_LOOK_KM01.ASC"          F  4  4)           
+		ani      ("C_LOOK_6"                   9  ""                    0.0 0.0  .  "MOL_LOOK_KM01.ASC"          F  5  5)           
+		ani      ("C_LOOK_7"                   9  ""                    0.0 0.0  .  "MOL_LOOK_KM01.ASC"          F  6  6)           
+		ani      ("C_LOOK_8"                   9  ""                    0.0 0.0  .  "MOL_LOOK_KM01.ASC"          F  7  7)           
+		ani      ("C_LOOK_9"                   9  ""                    0.0 0.0  .  "MOL_LOOK_KM01.ASC"          F  8  8)           
+		aniComb  ("T_LOOK"                     9  "T_LOOK"              0.3 0.3  M. "C_LOOK_"                    9)                 
+		ani      ("T_PERCEPTION"               2  ""                    0.0 0.0  M. "MOL_PERCEPTION_M01.ASC"     F  0  60)          
+		ani      ("T_WARN"                     1  ""                    0.1 0.1  M. "MOL_WARN_JUE01.ASC"         F  0  60)          
+		{
+			*eventSFX (1 "SWR_WARN" EMPTY_SLOT)
+		}
+		ani      ("T_STAND_2_SLEEP"            1  "S_SLEEP"             0.1 0.0  M. "MOL_LIE_KM01.ASC"           F  1  24)          
+		ani      ("S_SLEEP"                    1  "S_SLEEP"             0.0 0.0  M. "MOL_LIE_KM01.ASC"           F  25 49)          
+		ani      ("T_SLEEP_2_STAND"            1  ""                    0.0 0.1  M. "MOL_LIE_KM01.ASC"           F  50 69)          
+		ani      ("T_SNIFF"                    2  ""                    0.0 0.0  M. "MOL_SNIFFDIG_M01.ASC"       F  1  70  FPS:10)  
+		{
+			*eventSFX (20 "MOL_SNIFF" EMPTY_SLOT)
+		}
+		ani      ("T_DIG"                      2  ""                    0.0 0.0  M. "MOL_SNIFFDIG_M01.ASC"       F  71 145 FPS:10)  
+		{
+			*eventSFX (80 "MOL_DIG" EMPTY_SLOT)
+		}
+		ani      ("R_SCRATCH"                  2  ""                    0.0 0.0  M. "MOL_RANDOM_KM01.ASC"        F  1  160 FPS:10)  
+		{
+			*eventSFX (5  "SWR_AMBIENT" EMPTY_SLOT)
+			*eventSFX (45 "SCRATCH"     EMPTY_SLOT)
+		}
+		aniAlias ("R_ROAM1"                    2  ""                    0.1 0.1  M. "T_SNIFF"                    F)                 
+		aniAlias ("R_ROAM2"                    2  ""                    0.1 0.1  M. "T_DIG"                      F)                 
+		aniAlias ("R_ROAM3"                    2  ""                    0.1 0.1  M. "R_SCRATCH"                  F)                 
+		aniAlias ("S_FIRE_VICTIM"              1  "S_FIRE_VICTIM"       0.0 0.0  M. "S_LIGHTNING_VICTIM"         F)                 
+		ani      ("T_STAND_2_LIGHTNING_VICTIM" 1  "S_LIGHTNING_VICTIM"  0.0 0.0  M. "MOL_VICLIGHTNING_M01.ASC"   F  0  7)           
+		ani      ("S_LIGHTNING_VICTIM"         1  "S_LIGHTNING_VICTIM"  0.0 0.0  M. "MOL_VICLIGHTNING_M01.ASC"   F  7  60)          
+		ani      ("T_STAND_2_FREEZE_VICTIM"    1  "S_FREEZE_VICTIM"     0.1 0.0  M. "MOL_STUMBLE_KM02.ASC"       F  1  3)           
+		ani      ("S_FREEZE_VICTIM"            1  "S_FREEZE_VICTIM"     0.0 0.0  M. "MOL_STUMBLE_KM02.ASC"       F  4  4)           
+		aniAlias ("T_STAND_2_WHIRLWIND_VICTIM" 1  "S_WHIRLWIND_VICTIM"  0.1 0.0  M. "T_STAND_2_FREEZE_VICTIM"    F)                 
+		aniAlias ("S_WHIRLWIND_VICTIM"         1  "S_WHIRLWIND_VICTIM"  0.0 0.0  M. "S_FREEZE_VICTIM"            F)                 
+		aniAlias ("T_STAND_2_VICTIM_SLE"       1  "S_VICTIM_SLE"        0.1 0.0  M. "T_STAND_2_SLEEP"            F)                 
+		aniAlias ("S_VICTIM_SLE"               1  "S_VICTIM_SLE"        0.1 0.1  M. "S_SLEEP"                    F)                 
+		aniAlias ("T_VICTIM_SLE_2_STAND"       1  ""                    0.0 0.2  M. "T_SLEEP_2_STAND"            F)                 
+	}
+}

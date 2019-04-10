@@ -1779,6 +1779,21 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc		(Bloodfly,"OW_PATH_BLOODFLY12_SPAWN01");
 	Wld_InsertNpc		(Bloodfly,"OW_PATH_BLOODFLY13_SPAWN01");
 	Wld_InsertNpc		(Bloodfly,"OW_PATH_BLOODFLY13_SPAWN01");
+	Wld_InsertNpc		(Swamprat,"PATH_TAKE_HERB_03_MOVEMENT2");
+	Wld_InsertNpc		(Swamprat,"PATH_TAKE_HERB_03_MOVEMENT2");
+	Wld_InsertNpc		(Swamprat,"PATH_TAKE_HERB_03_MOVEMENT2");
+	Wld_InsertNpc		(Swamprat,"PATH_AROUND_PSI05");
+	Wld_InsertNpc		(Swamprat,"PATH_AROUND_PSI05");
+	Wld_InsertNpc		(Swamprat,"PATH_AROUND_PSI05");
+	Wld_InsertNpc		(Swamprat,"OW_SWAMPRAT_01");
+	Wld_InsertNpc		(Swamprat,"OW_SWAMPRAT_01");
+	Wld_InsertNpc		(Swamprat,"OW_SWAMPRAT_02");
+	Wld_InsertNpc		(Swamprat,"OW_SWAMPRAT_03");
+	Wld_InsertNpc		(Swamprat,"OW_SWAMPRAT_04");
+	Wld_InsertNpc		(Swamprat,"OW_SWAMPRAT_05");
+	Wld_InsertNpc		(Swamprat,"OW_SWAMPRAT_05");
+	Wld_InsertNpc		(Swamprat,"OW_SWAMPRAT_06");
+	Wld_InsertNpc		(Swamprat,"OW_SWAMPRAT_06");
 
 				
 	//-----------------------ORK-GEBIET---------------------------------//

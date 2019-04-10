@@ -518,7 +518,7 @@ instance Org_826_Mordrag_SekteSpy(C_Info)
 	nr = 2;
 	condition = Org_826_Mordrag_SekteSpy_Condition;
 	information = Org_826_Mordrag_SekteSpy_Info;
-	permanent = 1;
+	permanent = 0;
 	description = "Czym siê tutaj zajmujesz?";
 };
 

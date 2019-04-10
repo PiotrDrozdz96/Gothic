@@ -1002,7 +1002,55 @@
 				INSTANCE ZOM_Hurt_A1					(C_SFX_DEF) {file= "ZOM_Hurt02.wav";				vol = 100;			};
 				INSTANCE ZOM_Hurt_A2					(C_SFX_DEF) {file= "ZOM_Hurt03.wav";				vol = 100;			};
 				INSTANCE ZOM_Warn						(C_SFX_DEF) {file= "ZOM_Warn01.wav";				vol = 127;			};
-				INSTANCE ZOM_Warn_A1					(C_SFX_DEF) {file= "ZOM_Warn02.wav";				vol = 127;			};		
+				INSTANCE ZOM_Warn_A1					(C_SFX_DEF) {file= "ZOM_Warn02.wav";				vol = 127;			};	
+				
+/* Swamprat */
+				INSTANCE SWR_Ambient 					(C_SFX_DEF) {file= "SWR_ambient01.wav";				vol = 50;			};
+				INSTANCE SWR_Ambient_A1					(C_SFX_DEF) {file= "SWR_ambient02.wav";				vol = 50;			};
+				INSTANCE SWR_Ambient_A2 				(C_SFX_DEF) {file= "SWR_ambient03.wav";				vol = 50;			};
+				INSTANCE SWR_Ambient_A3					(C_SFX_DEF) {file= "SWR_ambient04.wav";				vol = 50;			};
+				INSTANCE SWR_Ambient_A4					(C_SFX_DEF) {file= "SWR_ambient05.wav";				vol = 50;			};
+				INSTANCE SWR_Ambient_A5					(C_SFX_DEF) {file= "SWR_ambient06.wav";				vol = 50;			};
+				INSTANCE SWR_Ambient_A6					(C_SFX_DEF) {file= "SWR_ambient07.wav";				vol = 50;			};
+				INSTANCE SWR_Ambient_A7					(C_SFX_DEF) {file= "SWR_ambient08.wav";				vol = 50;			};
+				INSTANCE SWR_Ambient_A8					(C_SFX_DEF) {file= "SWR_ambient09.wav";				vol = 50;			};
+				INSTANCE SWR_Ambient_A9					(C_SFX_DEF) {file= "SWR_ambient10.wav";				vol = 50;			};
+				INSTANCE SWR_Ambient_A10				(C_SFX_DEF) {file= "SWR_ambient11.wav";				vol = 50;			};
+				INSTANCE SWR_Ambient_A11				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE SWR_Ambient_A12				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE SWR_Ambient_A13				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE SWR_Ambient_A14				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE SWR_Ambient_A15				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE SWR_Ambient_A16				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE SWR_Ambient_A17				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE SWR_Ambient_A18				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE SWR_Ambient_A19				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE SWR_Ambient_A20				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE SWR_Ambient_A21				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE SWR_Ambient_A22				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE SWR_Ambient_A23				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE SWR_Ambient_A24				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE SWR_Ambient_A25				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE SWR_Ambient_A26				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE SWR_Ambient_Short				(C_SFX_DEF) {file= "SWR_ambient_Short01.wav";		vol = 75;			};
+				INSTANCE SWR_Ambient_Short_A1			(C_SFX_DEF) {file= "SWR_ambient_Short02.wav";		vol = 75;			};
+				INSTANCE SWR_Ambient_Short_A2			(C_SFX_DEF) {file= "SWR_ambient_Short03.wav";		vol = 75;			};
+				INSTANCE SWR_Ambient_Short_A3			(C_SFX_DEF) {file= "SWR_ambient_Short04.wav";		vol = 75;			};
+				INSTANCE SWR_Ambient_Short_A4			(C_SFX_DEF) {file= "SWR_ambient_Short05.wav";		vol = 75;			};
+				INSTANCE SWR_Ambient_Short_A5			(C_SFX_DEF) {file= "SWR_ambient_Short06.wav";		vol = 75;			};
+				INSTANCE SWR_Ambient_Short_A6			(C_SFX_DEF) {file= "SWR_ambient_Short07.wav";		vol = 75;			};
+				INSTANCE SWR_Attack 					(C_SFX_DEF) {file= "SWR_attack.wav";				vol = 100;			};
+				INSTANCE SWR_Attack_A1 					(C_SFX_DEF) {file= "SWR_attack2.wav";				vol = 100;			};
+				INSTANCE SWR_Attack_A2 					(C_SFX_DEF) {file= "SWR_attack3.wav";				vol = 100;			};
+				INSTANCE SWR_Attack_A3 					(C_SFX_DEF) {file= "SWR_attack4.wav";				vol = 100;			};
+				INSTANCE SWR_Attack_A4 					(C_SFX_DEF) {file= "SWR_attack5.wav";				vol = 100;			};
+				INSTANCE SWR_Die 						(C_SFX_DEF) {file= "SWR_die.wav";					vol = 100;			};
+				INSTANCE SWR_Die_A1						(C_SFX_DEF) {file= "SWR_die2.wav";					vol = 100;			};
+				INSTANCE SWR_Die_A2 					(C_SFX_DEF) {file= "SWR_die3.wav";					vol = 100;			};
+				INSTANCE SWR_Hurt 						(C_SFX_DEF) {file= "SWR_hurt.wav";					vol = 100;			};
+				INSTANCE SWR_Hurt_A1 					(C_SFX_DEF) {file= "SWR_hurt2.wav";					vol = 100;			};
+				INSTANCE SWR_Warn 						(C_SFX_DEF) {file= "SWR_warn.wav";					vol = 100;			};
+				INSTANCE SWR_Warn_A1 					(C_SFX_DEF) {file= "SWR_warn2.wav";					vol = 100;			};
 		
 		
 //////////////////////////////////////////////////////////////////////////////
