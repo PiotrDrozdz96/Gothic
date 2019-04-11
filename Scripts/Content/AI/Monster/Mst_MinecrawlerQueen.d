@@ -58,6 +58,13 @@ func void Set_MinecrawlerQueen_Visuals()
 	Mdl_SetVisualBody		(self,	"CrQ_Body",		DEFAULT,	DEFAULT,	"",			DEFAULT,  	DEFAULT,	-1);
 };
 
+func void Set_CRWQ2_Visuals()
+{
+	Mdl_SetVisual (self, "CRWQ2.mds");
+	// Body-Mesh Body-Tex Skin-Color Head-MMS Head-Tex Teeth-Tex ARMOR
+	Mdl_SetVisualBody (self, "CRWQ2_Body", DEFAULT, DEFAULT, "", DEFAULT, DEFAULT, -1);
+};
+
 
 /*************************************************************************
 **	MinecrawlerQueen    												**
@@ -67,4 +74,35 @@ INSTANCE MinecrawlerQueen	(Mst_Default_MinecrawlerQueen)
 {
 	Set_MinecrawlerQueen_Visuals();
 	Npc_SetToFistMode(self);
+};
+
+/*************************************************************************
+**	MinecrawlerQueen Dark Saga											**
+*************************************************************************/
+
+INSTANCE CRWQ2 (Mst_Default_MinecrawlerQueen)
+{
+	name							=	"Królowa Œwi¹tynnych Pe³zaczy";
+	level							=	250;
+	
+	Set_CRWQ2_Visuals();
+	Npc_SetToFistMode(self);
+	//------------------------------------------------------
+	attribute	[ATR_STRENGTH]		=	120;
+	attribute	[ATR_DEXTERITY]		=	120;
+	
+	attribute	[ATR_HITPOINTS_MAX]	=	600;
+	attribute	[ATR_HITPOINTS]		=	600;
+
+	attribute	[ATR_MANA_MAX] 		=	0;
+	attribute	[ATR_MANA] 			=	0;
+//------------------------------------------------------
+	protection	[PROT_BLUNT]		=	120;
+	protection	[PROT_EDGE]			=	120;
+	protection	[PROT_POINT]		=	120;
+	protection	[PROT_FIRE]			=	60;
+	protection	[PROT_FLY]			=	1000;
+	protection	[PROT_MAGIC]		=	60;
+//------------------------------------------------------
+	fight_tactic = FAI_MINECRAWLER;
 };

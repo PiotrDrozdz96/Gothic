@@ -2471,8 +2471,9 @@ FUNC VOID STARTUP_ORCTEMPEL ()
 	Wld_InsertNpc				( OTMinecrawler, "TPL_106" );	
 	Wld_InsertNpc				( OTMinecrawler, "TPL_229" );  
 	Wld_InsertNpc				( OTMinecrawler, "TPL_235" );  
-	Wld_InsertNpc				( OTMinecrawler, "TPL_405" );  
-	Wld_InsertNpc				( OTMinecrawler, "TPL_407" );  
+	Wld_InsertNpc				( CRWQ2, 		 "TPL_405" );  
+	// Wld_InsertNpc				( OTMinecrawler, "TPL_405" );  
+	// Wld_InsertNpc				( OTMinecrawler, "TPL_407" );  
 	
 	
 	// ------------------ Damon -----------------------------------------

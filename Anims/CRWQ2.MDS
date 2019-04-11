@@ -1,0 +1,205 @@
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Last Changes:
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Model ("Crwq2")
+{
+	meshAndTree ("CRWQ2_BODY.ASC" DONT_USE_MESH)
+	aniEnum
+	{
+		modelTag ("DEF_HIT_LIMB"               "Bip01 L Front Claw")                                                                                
+		ani      ("S_FISTRUN"                  1                     "S_FISTRUN"          0.0 0.0  MI "CRWQ2_AMBIENT.ASC"      F  0   30)           
+		{
+			*eventSFX (2 "CRW_AMBIENT" EMPTY_SLOT)
+		}
+		ani      ("T_FISTRUN_2_FISTRUNL"       1                     "S_FISTRUNL"         0.0 0.0  M. "CRWQ2_RUN.ASC"          F  1   10)           
+		{
+			*eventSFXGrnd (4 "SNEAK")
+		}
+		ani      ("S_FISTRUNL"                 1                     "S_FISTRUNL"         0.0 0.0  M. "CRWQ2_RUN.ASC"          F  11  30)           
+		{
+			*eventSFXGrnd (11 "SNEAK")                       
+			*eventSFXGrnd (20 "SNEAK")                       
+			*eventSFX     (12 "CRW_AMBIENT_SHORT" EMPTY_SLOT)
+		}
+		ani      ("T_FISTRUNL_2_FISTRUN"       1                     "S_FISTRUN"          0.0 0.0  M. "CRWQ2_RUN.ASC"          F  31  38)           
+		{
+			*eventSFXGrnd (32 "SNEAK")
+		}
+		aniBlend ("T_FISTRUNR_2_FISTRUN"                             "S_FISTRUN"          0.2 0.2)                                                  
+		ani      ("T_FISTJUMPB"                1                     "S_FISTRUN"          0.0 0.0  M. "CRWQ2_JUMPB.ASC"        R  0   15)           
+		{
+			*eventSFXGrnd (4  "SNEAK")
+			*eventSFXGrnd (8  "SNEAK")
+			*eventSFXGrnd (12 "SNEAK")
+		}
+		aniAlias ("S_FISTWALK"                 1                     "S_FISTWALK"         0.0 0.0  MI "S_FISTRUN"              F)                   
+		ani      ("T_FISTWALK_2_FISTWALKL"     1                     "S_FISTWALKL"        0.0 0.0  M. "CRWQ2_WALK.ASC"         F  1   16)           
+		ani      ("S_FISTWALKL"                1                     "S_FISTWALKL"        0.0 0.0  M. "CRWQ2_WALK.ASC"         F  17  47)           
+		{
+			*eventSFXGrnd (17 "SNEAK")
+			*eventSFXGrnd (47 "SNEAK")
+		}
+		ani      ("T_FISTWALKL_2_FISTWALK"     1                     "S_FISTWALK"         0.0 0.0  M. "CRWQ2_WALK.ASC"         F  48  60)           
+		{
+			*eventSFXGrnd (59 "SNEAK")
+		}
+		aniAlias ("T_FISTWALK_2_FISTWALKBL"    1                     "S_FISTWALKBL"       0.0 0.0  M. "T_FISTWALKL_2_FISTWALK" R)                   
+		aniAlias ("S_FISTWALKBL"               1                     "S_FISTWALKBL"       0.0 0.0  M. "S_FISTWALKL"            R)                   
+		aniAlias ("T_FISTWALKBL_2_FISTWALK"    1                     "S_FISTWALK"         0.0 0.0  M. "T_FISTWALK_2_FISTWALKL" R)                   
+		aniAlias ("T_WALK_2_WALKWL"            1                     "S_WALKWL"           0.0 0.0  M. "T_FISTWALK_2_FISTWALKL" F)                   
+		aniAlias ("S_WALKWL"                   1                     "S_WALKWL"           0.0 0.0  M. "S_FISTWALKL"            F)                   
+		aniAlias ("T_WALKWL_2_WALK"            1                     "S_FISTWALK"         0.0 0.0  M. "T_FISTWALKL_2_FISTWALK" F)                   
+		aniBlend ("T_WALKWR_2_WALK"                                  "S_FISTWALK"         0.2 0.2)                                                  
+		aniAlias ("T_WALK_2_WALKWBL"           1                     "S_WALKWBL"          0.1 0.0  M. "T_FISTWALKL_2_FISTWALK" R)                   
+		aniAlias ("S_WALKWBL"                  1                     "S_WALKWBL"          0.0 0.0  M. "S_FISTWALKL"            R)                   
+		aniAlias ("T_WALKWBL_2_WALK"           1                     "S_FISTWALK"         0.0 0.0  M. "T_FISTWALK_2_FISTWALKL" R)                   
+		aniBlend ("T_WALKWBR_2_WALK"                                 "S_FISTWALK"         0.2 0.2)                                                  
+		ani      ("T_FISTRUNTURNL"             20                    "T_FISTRUNTURNL"     0.1 0.1  M. "CRWQ2_TURN.ASC"         F  25  47)           
+		{
+			*eventSFXGrnd (31 "SNEAK")
+			*eventSFXGrnd (36 "SNEAK")
+			*eventSFXGrnd (41 "SNEAK")
+			*eventSFXGrnd (47 "SNEAK")
+		}
+		ani      ("T_FISTRUNTURNR"             20                    "T_FISTRUNTURNR"     0.1 0.1  M. "CRWQ2_TURN.ASC"         F  1   24)           
+		{
+			*eventSFXGrnd (6  "SNEAK")
+			*eventSFXGrnd (13 "SNEAK")
+			*eventSFXGrnd (20 "SNEAK")
+			*eventSFXGrnd (24 "SNEAK")
+		}
+		aniAlias ("T_FISTWALKTURNL"            20                    "T_FISTWALKTURNL"    0.0 0.0  M. "T_FISTRUNTURNL"         F)                   
+		aniAlias ("T_FISTWALKTURNR"            20                    "T_FISTWALKTURNR"    0.0 0.0  M. "T_FISTRUNTURNR"         F)                   
+		aniAlias ("T_WALKWTURNL"               20                    "T_FISTWALKTURNL"    0.0 0.0  M. "T_FISTRUNTURNL"         F)                   
+		aniAlias ("T_WALKWTURNR"               20                    "T_FISTWALKTURNR"    0.0 0.0  M. "T_FISTRUNTURNR"         F)                   
+		ani      ("T_FISTRUNSTRAFEL"           1                     "T_FISTRUNSTRAFEL"   0.0 0.0  M. "CRWQ2_STRAFEL.ASC"      R  1   11)           
+		{
+			*eventSFX     (10 "CRW_AMBIENT_SHORT" EMPTY_SLOT)
+			*eventSFXGrnd (4  "SNEAK")                       
+			*eventSFXGrnd (8  "SNEAK")                       
+		}
+		ani      ("T_FISTRUNSTRAFER"           1                     "T_FISTRUNSTRAFER"   0.0 0.0  M. "CRWQ2_STRAFEL.ASC"      F  1   11)           
+		{
+			*eventSFX     (2 "CRW_AMBIENT_SHORT" EMPTY_SLOT)
+			*eventSFXGrnd (4 "SNEAK")                       
+			*eventSFXGrnd (8 "SNEAK")                       
+		}
+		aniAlias ("T_FISTWALKSTRAFEL"          1                     "T_FISTWALKSTRAFEL"  0.0 0.0  M. "T_FISTRUNSTRAFEL"       R)                   
+		aniAlias ("T_FISTWALKSTRAFER"          1                     "T_FISTWALKSTRAFER"  0.0 0.0  M. "T_FISTRUNSTRAFER"       F)                   
+		ani      ("T_WALKWSTRAFEL"             1                     "T_WALKWSTRAFEL"     0.0 0.0  M. "CRWQ2_STRAFEL.ASC"      R  1   11)           
+		{
+			*eventSFX (10 "CRW_AMBIENT_SHORT" EMPTY_SLOT)
+		}
+		ani      ("T_WALKWSTRAFER"             1                     "T_WALKWSTRAFER"     0.0 0.0  M. "CRWQ2_STRAFEL.ASC"      F  1   11)           
+		{
+			*eventSFX (2 "CRW_AMBIENT_SHORT" EMPTY_SLOT)
+		}
+		aniBlend ("T_FISTRUN_2_FISTWALK"                             "S_FISTWALK"         0.0 0.0)                                                  
+		aniBlend ("T_FISTWALK_2_FISTRUN"                             "S_FISTRUN"          0.0 0.0)                                                  
+		aniBlend ("T_FISTRUNL_2_FISTWALKL"                           "S_FISTWALKL"        0.0 0.0)                                                  
+		aniBlend ("T_FISTWALKL_2_FISTRUNL"                           "S_FISTRUNL"         0.0 0.0)                                                  
+		aniAlias ("T_WALKWL_2_RUNL"            1                     ""                   0.1 0.1  M. "S_FISTWALKL"            F)                   
+		ani      ("S_FALLDN"                   1                     "S_FALLDN"           0.1 0.1  MF "CRWQ2_FALL.ASC"         F  19  19)           
+		ani      ("T_FALLDN_2_STAND"           1                     ""                   0.1 0.0  M. "CRWQ2_FALLDN.ASC"       F  1   20)           
+		{
+			*eventSFXGrnd (1  "RUN")                    
+			*eventSFXGrnd (10 "RUN")                    
+			*eventSFX     (11 "M_FALL_SMALL" EMPTY_SLOT)
+		}
+		aniBlend ("T_FALLDN_2_FALL"                                  "S_FALL"             0.1 0.1)                                                  
+		aniBlend ("T_FALLDN_2_FALLB"                                 "S_FALLB"            0.1 0.1)                                                  
+		ani      ("S_FALL"                     1                     "S_FALL"             0.2 0.0  MF "CRWQ2_FALL.ASC"         F  1   19)           
+		ani      ("T_FALL_2_FALLEN"            1                     "S_FALLEN"           0.0 0.0  M. "CRWQ2_FALL.ASC"         F  20  37)           
+		{
+			*eventSFXGrnd (27 "RUN")                    
+			*eventSFXGrnd (37 "RUN")                    
+			*eventSFX     (28 "M_FALL_SMALL" EMPTY_SLOT)
+		}
+		ani      ("S_FALLEN"                   1                     "S_FALLEN"           0.0 0.0  M. "CRWQ2_FALL.ASC"         F  38  38)           
+		ani      ("T_FALLEN_2_STAND"           1                     ""                   0.0 0.2  M. "CRWQ2_FALL.ASC"         F  39  64)           
+		{
+			*eventSFXGrnd (46 "SNEAK")
+			*eventSFXGrnd (53 "SNEAK")
+			*eventSFXGrnd (59 "SNEAK")
+			*eventSFXGrnd (64 "SNEAK")
+		}
+		aniAlias ("S_FALLB"                    1                     "S_FALLB"            0.1 0.0  MF "S_FALL"                 F)                   
+		aniAlias ("T_FALLB_2_FALLENB"          1                     "S_FALLENB"          0.0 0.0  M. "T_FALL_2_FALLEN"        F)                   
+		aniAlias ("S_FALLENB"                  1                     "S_FALLENB"          0.0 0.0  M. "S_FALLEN"               F)                   
+		aniAlias ("T_FALLENB_2_STAND"          1                     ""                   0.0 0.1  M. "T_FALLEN_2_STAND"       F)                   
+		ani      ("T_SURPRISE_CCW"             1                     "S_SURPRISE"         0.2 0.2  M. "CRWQ2_WHRIL.ASC"        F  1   19)           
+		aniAlias ("T_SURPRISE_CW"              1                     "S_SURPRISE"         0.2 0.2  M. "T_SURPRISE_CCW"         R)                   
+		aniAlias ("S_SURPRISE"                 1                     "S_SURPRISE"         0.1 0.1  M. "S_FISTRUN"              F)                   
+		ani      ("T_STUMBLEB"                 1                     ""                   0.1 0.1  M. "CRWQ2_STUMBLE.ASC"      F  0   15)           
+		{
+			*eventSFX (1 "CRW_HURT" EMPTY_SLOT)
+		}
+		ani      ("T_STUMBLE"                  1                     ""                   0.1 0.1  M. "CRWQ2_STUMBLE.ASC"      R  15  30)           
+		{
+			*eventSFX (29 "CRW_HURT" EMPTY_SLOT)
+		}
+		ani      ("T_DEAD"                     1                     "S_DEAD"             0.1 0.0  M. "CRWQ2_DEAD.ASC"         F  1   139  FPS:12.5)
+		{
+			*eventSFX (2  "CRW_DIE"      EMPTY_SLOT)
+			*eventSFX (25 "M_FALL_SMALL" EMPTY_SLOT)
+			*eventSFX (50 "CRW_DIE_LAST" EMPTY_SLOT)
+		}
+		ani      ("S_DEAD"                     1                     "S_DEAD"             0.0 0.0  M. "CRWQ2_DEAD.ASC"         F  140 140)          
+		ani      ("T_DEADB"                    1                     "S_DEADB"            0.1 0.0  M. "CRWQ2_DEAD_C.ASC"       F  1   139  FPS:12.5)
+		{
+			*eventSFX (2  "CRW_DIE"      EMPTY_SLOT)
+			*eventSFX (25 "M_FALL_SMALL" EMPTY_SLOT)
+			*eventSFX (50 "CRW_DIE_LAST" EMPTY_SLOT)
+		}
+		ani      ("S_DEADB"                    1                     "S_DEADB"            0.0 0.0  M. "CRWQ2_DEAD_C.ASC"       F  140 140)          
+		ani      ("C_LOOK_1"                   9                     ""                   0.0 0.0  .  "CRWQ2_LOOK.ASC"         F  0   0)            
+		ani      ("C_LOOK_2"                   9                     ""                   0.0 0.0  .  "CRWQ2_LOOK.ASC"         F  1   1)            
+		ani      ("C_LOOK_3"                   9                     ""                   0.0 0.0  .  "CRWQ2_LOOK.ASC"         F  2   2)            
+		ani      ("C_LOOK_4"                   9                     ""                   0.0 0.0  .  "CRWQ2_LOOK.ASC"         F  3   3)            
+		ani      ("C_LOOK_5"                   9                     ""                   0.0 0.0  .  "CRWQ2_LOOK.ASC"         F  4   4)            
+		ani      ("C_LOOK_6"                   9                     ""                   0.0 0.0  .  "CRWQ2_LOOK.ASC"         F  5   5)            
+		ani      ("C_LOOK_7"                   9                     ""                   0.0 0.0  .  "CRWQ2_LOOK.ASC"         F  6   6)            
+		ani      ("C_LOOK_8"                   9                     ""                   0.0 0.0  .  "CRWQ2_LOOK.ASC"         F  7   7)            
+		ani      ("C_LOOK_9"                   9                     ""                   0.0 0.0  .  "CRWQ2_LOOK.ASC"         F  8   8)            
+		aniComb  ("T_LOOK"                     9                     "T_LOOK"             0.3 0.3  M. "C_LOOK_"                9)                   
+		ani      ("S_FISTATTACK"               1                     ""                   0.0 0.0  M. "CRWQ2_ATTACK.ASC"       F  1   39)           
+		{
+			*eventTag (0 "DEF_HIT_LIMB"  "Bip01 R Claw2")
+			*eventTag (0 "DEF_OPT_FRAME" "22")           
+			*eventTag (0 "DEF_HIT_END"   "38")           
+			*eventTag (0 "DEF_WINDOW"    "28 39")        
+			*eventSFX (1 "CRW_ATTACK"    EMPTY_SLOT)     
+		}
+		ani      ("T_FISTATTACKMOVE"           2                     ""                   0.2 0.2  M. "CRWQ2_ATTACK.ASC"       F  1   39)           
+		{
+			*eventTag (0 "DEF_HIT_LIMB"  "Bip01 R Claw2")
+			*eventTag (0 "DEF_OPT_FRAME" "22")           
+			*eventSFX (2 "CRW_ATTACK"    EMPTY_SLOT)     
+		}
+		ani      ("T_FISTPARADEJUMPB"          1                     ""                   0.1 0.1  M. "CRWQ2_DEFEND.ASC"       R  1   29)           
+		aniAlias ("T_FISTPARADE_0"             1                     ""                   0.1 0.1  M. "T_FISTPARADEJUMPB"      R)                   
+		ani      ("R_CLEAN"                    2                     ""                   0.0 0.0  M. "CRWQ2_PERCEPTION.ASC"   F  1   99   FPS:12.5)
+		{
+			*eventSFX (2 "CRW_CLEAN" EMPTY_SLOT)
+		}
+		ani      ("T_STAND_2_EAT"              1                     "S_EAT"              0.1 0.0  M. "CRWQ2_EAT.ASC"          F  1   12)           
+		ani      ("S_EAT"                      1                     "S_EAT"              0.0 0.0  M. "CRWQ2_EAT.ASC"          F  13  72)           
+		aniAlias ("T_EAT_2_STAND"              1                     ""                   0.0 0.0  M. "T_STAND_2_EAT"          R)                   
+		ani      ("T_PERCEPTION"               2                     ""                   0.1 0.1  M. "CRWQ2_PERCEPTION.ASC"   F  1   99   FPS:12.5)
+		{
+			*eventSFX (2 "CRW_PERCEPTION" EMPTY_SLOT)
+		}
+		ani      ("T_WARN"                     1                     ""                   0.1 0.1  M. "CRWQ2_WARN.ASC"         F  1   39)           
+		{
+			*eventSFX (2 "CRW_WARN" EMPTY_SLOT)
+		}
+		aniAlias ("R_ROAM1"                    2                     ""                   0.1 0.1  M. "T_PERCEPTION"           F)                   
+		aniAlias ("R_ROAM2"                    2                     ""                   0.1 0.1  M. "R_CLEAN"                F)                   
+		aniAlias ("R_ROAM3"                    2                     ""                   0.1 0.1  M. "R_CLEAN"                F)                   
+		ani      ("T_STAND_2_FREEZE_VICTIM"    1                     "S_FREEZE_VICTIM"    0.1 0.0  M. "CRWQ2_STUMBLE.ASC"      F  1   3)            
+		ani      ("S_FREEZE_VICTIM"            1                     "S_FREEZE_VICTIM"    0.0 0.0  M. "CRWQ2_STUMBLE.ASC"      F  4   4)            
+		ani      ("T_STAND_2_WHIRLWIND_VICTIM" 1                     "S_WHIRLWIND_VICTIM" 0.1 0.0  M. "CRWQ2_STUMBLE.ASC"      F  1   3)            
+		ani      ("S_WHIRLWIND_VICTIM"         1                     "S_WHIRLWIND_VICTIM" 0.0 0.0  M. "CRWQ2_STUMBLE.ASC"      F  4   4)            
+	}
+}

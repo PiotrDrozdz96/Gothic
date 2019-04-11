@@ -1,6 +1,10 @@
 +--AI
 |   // Szczegóły na temat zmian w AI są opisane w AI_documentation, z racji że podstawą zmian w AI była rosyjska modyfikacja Fix mod
 +--Anims
+|   +--|-- CRAWLER.MDS
+|   |    // Rejestracja reskinu dla świątynnych pełzaczy
+|   +--|-- CRWQ2.MDS
+|   |    // MDS królowej świątynnych pełzaczy z dark saga -- soper machinima mod
 |   +--|-- GOBBO.MDS
 |   |    // Rejestracja szkieletu goblina
 |   |    // Rejestracja goblinów piratów
@@ -355,6 +359,7 @@
 |   |   // Dodanie goblinów piratów na plaży przy wraku statku
 |   |   // Dodanie bagiennych szczurów i zombie na bagnie
 |   |   // Zmiana wyglądu krwiopijców na bagnie
+|   |   // Zamiana dwóch świątynnych pełzaczy(TPL_405) na królową świątynnych pełzaczy
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Stała LPCOST_TALENT_RUN
@@ -483,6 +488,10 @@
 |   |   // Gobliny piraci od Zakona -- soper machinima mod
 |   +--| Mst_Lurker
 |   |   // Reskin dla topielca spod tamy
+|   +--| Mst_MinecrawlerQueen
+|   |   // Dodanie królowej świątynnych pełzaczy -- Dark Saga - soper machinima mod
+|   +--| Mst_MinecrawlerWarrior
+|   |   // Dodanie reskinu dla świątynnych pełzaczy -- Dark Saga - soper machinima mod
 |   +--| Mst_OrcScout/Mst_OrcWarrior -- związane z rosyjskim fix modem
 |   |   // Dodanie aivar[AIV_IMPORTANT]
 |   |   // czasami zmiana start_aistate

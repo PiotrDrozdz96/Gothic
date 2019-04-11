@@ -58,6 +58,13 @@ func void Set_MinecrawlerWarrior_Visuals()
 	//								Body-Mesh		Body-Tex	Skin-Color	Head-MMS	Head-Tex	Teeth-Tex	ARMOR
 	Mdl_SetVisualBody		(self,	"Cr2_Body",		DEFAULT,	DEFAULT,	"",			DEFAULT,  	DEFAULT,	-1);
 };
+//---------------------------------------------------
+func void Set_OTMinecrawler_Visuals()
+{
+	Mdl_SetVisual			(self,	"Crawler.mds");
+	//								Body-Mesh		Body-Tex	Skin-Color	Head-MMS	Head-Tex	Teeth-Tex	ARMOR
+	Mdl_SetVisualBody		(self,	"Cr3_Body",		DEFAULT,	DEFAULT,	"",			DEFAULT,  	DEFAULT,	-1);
+};
 
 
 /*************************************************************************
@@ -79,7 +86,7 @@ instance OTMinecrawler(Mst_Default_MinecrawlerWarrior)
 	name							=	"Œwi¹tynny pe³zacz";
 	level							=	25;
 
-	Set_MinecrawlerWarrior_Visuals();
+	Set_OTMinecrawler_Visuals();
 	Npc_SetToFistMode(self);
 //------------------------------------------------------
 	attribute	[ATR_STRENGTH]		=	120;
@@ -91,9 +98,9 @@ instance OTMinecrawler(Mst_Default_MinecrawlerWarrior)
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 //------------------------------------------------------
-	protection	[PROT_BLUNT]		=	70;
-	protection	[PROT_EDGE]			=	70;
-	protection	[PROT_POINT]		=	35;
+	protection	[PROT_BLUNT]		=	120;
+	protection	[PROT_EDGE]			=	120;
+	protection	[PROT_POINT]		=	120;
 	protection	[PROT_FIRE]			=	30;
 	protection	[PROT_FLY]			=	70;
 	protection	[PROT_MAGIC]		=	30;
