@@ -59,6 +59,13 @@ func void Set_Lurker_Visuals()
 	Mdl_SetVisualBody		(self,	"Lur_Body",		DEFAULT,	DEFAULT,	"",			DEFAULT,  	DEFAULT,	-1);
 };
 
+func void Set_DamLurker_Visuals()
+{
+	Mdl_SetVisual			(self,	"Lurker.mds");
+	//								Body-Mesh		Body-Tex	Skin-Color	Head-MMS	Head-Tex	Teeth-Tex	ARMOR
+	Mdl_SetVisualBody		(self,	"Lur_Body",		1,	DEFAULT,	"",			DEFAULT,  	DEFAULT,	-1);
+};
+
 
 /*************************************************************************
 **	Lurker    														**
@@ -81,7 +88,7 @@ INSTANCE DamLurker(Mst_Default_Lurker)
 	ID 		=	MID_DAMLURKER;
 	level	=	20;
 
-	Set_Lurker_Visuals	();
+	Set_DamLurker_Visuals	();
 	Npc_SetToFistMode	(self);
 
 	CreateInvItem		(self,ItAt_DamLurker_01);

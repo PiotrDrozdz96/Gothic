@@ -1299,12 +1299,12 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc		(OrcDog,"OW_PATH_WOLF04_SPAWN01");
 	
 	//----------------------Mission Bloodflies im Sumpf----------------------
-	Wld_InsertNpc		(Bloodfly,"PATH_TAKE_HERB_MOVEMENT2");
-	Wld_InsertNpc		(Bloodfly,"PATH_TAKE_HERB_MOVEMENT2");
-	Wld_InsertNpc		(Bloodfly,"PATH_TAKE_HERB_MOVEMENT2");
-	Wld_InsertNpc		(Bloodfly,"PATH_TAKE_BLOODFLY_SPAWN");
-	Wld_InsertNpc		(Bloodfly,"PATH_TAKE_BLOODFLY_SPAWN");
-	Wld_InsertNpc		(Bloodfly,"PATH_TAKE_BLOODFLY_SPAWN");
+	Wld_InsertNpc		(SwampBloodfly2,"PATH_TAKE_HERB_MOVEMENT2");
+	Wld_InsertNpc		(SwampBloodfly2,"PATH_TAKE_HERB_MOVEMENT2");
+	Wld_InsertNpc		(SwampBloodfly2,"PATH_TAKE_HERB_MOVEMENT2");
+	Wld_InsertNpc		(SwampBloodfly2,"PATH_TAKE_BLOODFLY_SPAWN");
+	Wld_InsertNpc		(SwampBloodfly2,"PATH_TAKE_BLOODFLY_SPAWN");
+	Wld_InsertNpc		(SwampBloodfly2,"PATH_TAKE_BLOODFLY_SPAWN");
 		
 	//----------------------------------SHIPWRECK----------------------------------//
 	Wld_InsertNpc		(Firewaran,"OW_COAST_SHIPWRECK_WARAN_2");
@@ -1766,19 +1766,19 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc		(Swampshark,"PATH_AROUND_PSI20");
 	Wld_InsertNpc		(Swampshark,"PATH_AROUND_PSI20");
 	Wld_InsertNpc		(Swampshark,"PATH_AROUND_PSI21");
-	Wld_InsertNpc		(Bloodfly,"OW_PATH_BLOODFLY08_SPAWN01");
-	Wld_InsertNpc		(Bloodfly,"OW_PATH_BLOODFLY08_SPAWN01");
-	Wld_InsertNpc		(Bloodfly,"OW_PATH_BLOODFLY09_SPAWN01");
-	Wld_InsertNpc		(Bloodfly,"OW_PATH_BLOODFLY09_SPAWN01");
-	Wld_InsertNpc		(Bloodfly,"OW_PATH_BLOODFLY10_SPAWN01");
-	Wld_InsertNpc		(Bloodfly,"OW_PATH_BLOODFLY10_SPAWN01");
-	Wld_InsertNpc		(Bloodfly,"OW_PATH_BLOODFLY11_SPAWN01");
-	Wld_InsertNpc		(Bloodfly,"OW_PATH_BLOODFLY11_SPAWN01");
-	Wld_InsertNpc		(Bloodfly,"OW_PATH_BLOODFLY11_SPAWN01");
-	Wld_InsertNpc		(Bloodfly,"OW_PATH_BLOODFLY12_SPAWN01");
-	Wld_InsertNpc		(Bloodfly,"OW_PATH_BLOODFLY12_SPAWN01");
-	Wld_InsertNpc		(Bloodfly,"OW_PATH_BLOODFLY13_SPAWN01");
-	Wld_InsertNpc		(Bloodfly,"OW_PATH_BLOODFLY13_SPAWN01");
+	Wld_InsertNpc		(SwampBloodfly,"OW_PATH_BLOODFLY08_SPAWN01");
+	Wld_InsertNpc		(SwampBloodfly,"OW_PATH_BLOODFLY08_SPAWN01");
+	Wld_InsertNpc		(SwampBloodfly,"OW_PATH_BLOODFLY09_SPAWN01");
+	Wld_InsertNpc		(SwampBloodfly,"OW_PATH_BLOODFLY09_SPAWN01");
+	Wld_InsertNpc		(SwampBloodfly,"OW_PATH_BLOODFLY10_SPAWN01");
+	Wld_InsertNpc		(SwampBloodfly,"OW_PATH_BLOODFLY10_SPAWN01");
+	Wld_InsertNpc		(SwampBloodfly,"OW_PATH_BLOODFLY11_SPAWN01");
+	Wld_InsertNpc		(SwampBloodfly,"OW_PATH_BLOODFLY11_SPAWN01");
+	Wld_InsertNpc		(SwampBloodfly,"OW_PATH_BLOODFLY11_SPAWN01");
+	Wld_InsertNpc		(SwampBloodfly,"OW_PATH_BLOODFLY12_SPAWN01");
+	Wld_InsertNpc		(SwampBloodfly,"OW_PATH_BLOODFLY12_SPAWN01");
+	Wld_InsertNpc		(SwampBloodfly,"OW_PATH_BLOODFLY13_SPAWN01");
+	Wld_InsertNpc		(SwampBloodfly,"OW_PATH_BLOODFLY13_SPAWN01");
 	Wld_InsertNpc		(Swamprat,"PATH_TAKE_HERB_03_MOVEMENT2");
 	Wld_InsertNpc		(Swamprat,"PATH_TAKE_HERB_03_MOVEMENT2");
 	Wld_InsertNpc		(Swamprat,"PATH_TAKE_HERB_03_MOVEMENT2");

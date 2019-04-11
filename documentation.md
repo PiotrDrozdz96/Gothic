@@ -200,6 +200,8 @@
 |   |   // Po zostaniu magiem wody sprzedaje kostury
 |   +--|-- DIA_KDW_605_Riordian
 |   |   // Usunięcie magicznych run przed handlem
+|   +--|-- DIA_Nov_1302_Viran
+|   |   // Zmiana w sprawdzaniu czy w pobliżu są krwiopijce, ze względu na zmieniony reskiny w krwiopijcach na bagnie
 |   +--|-- DIA_Nov_1304_Balor -- by marev
 |   |   // gracz może poprawnie odebrać bagienne ziele od Balora po raz drugi
 |   +--|-- DIA_Nov_1331_BaalTaran
@@ -352,6 +354,7 @@
 |   |   // Zamiana kilku orków w orkowym mieście na specjalnych orków z dialogami 
 |   |   // Dodanie goblinów piratów na plaży przy wraku statku
 |   |   // Dodanie bagiennych szczurów i zombie na bagnie
+|   |   // Zmiana wyglądu krwiopijców na bagnie
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Stała LPCOST_TALENT_RUN
@@ -475,8 +478,11 @@
 |   |   // Skeleton dodanie kości szkieleta do tworzenia run przywołań
 |   +--| Mst_Bloodfly
 |   |   // Usunięcie skrzydeł z ekwipunku
+|   |   // Dwa reskiny dla krwiopijców na bagnach -- soper machinima mod
 |   +--| Mst_GobboPirat
 |   |   // Gobliny piraci od Zakona -- soper machinima mod
+|   +--| Mst_Lurker
+|   |   // Reskin dla topielca spod tamy
 |   +--| Mst_OrcScout/Mst_OrcWarrior -- związane z rosyjskim fix modem
 |   |   // Dodanie aivar[AIV_IMPORTANT]
 |   |   // czasami zmiana start_aistate

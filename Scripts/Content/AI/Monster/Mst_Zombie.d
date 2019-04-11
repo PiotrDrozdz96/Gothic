@@ -176,7 +176,6 @@ INSTANCE ZombieSwamp	(Mst_Default_Zombie)
 {
 	name		=	"Jozin";
 	guild							=	GIL_SWAMPSHARK;
-	aivar[AIV_MM_REAL_ID]			= 	ID_SWAMPSHARK;
 	Set_ZombieSwamp_Visuals();
 	Npc_SetToFistMode(self);
 };

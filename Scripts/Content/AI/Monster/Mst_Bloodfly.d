@@ -58,6 +58,20 @@ func void Set_Bloodfly_Visuals()
 	//								Body-Mesh		Body-Tex	Skin-Color	Head-MMS	Head-Tex	Teeth-Tex	ARMOR
 	Mdl_SetVisualBody		(self,	"Blo_Body",		DEFAULT,	DEFAULT,	"",			DEFAULT,  	DEFAULT,	-1);
 };
+//---------------------------------------------------------------
+func void Set_SwampBloodfly_Visuals()
+{
+	Mdl_SetVisual			(self,	"Bloodfly.mds");
+	//								Body-Mesh		Body-Tex	Skin-Color	Head-MMS	Head-Tex	Teeth-Tex	ARMOR
+	Mdl_SetVisualBody		(self,	"Blo_Body",		1,	DEFAULT,	"",			DEFAULT,  	DEFAULT,	-1);
+};
+//---------------------------------------------------------------
+func void Set_SwampBloodfly2_Visuals()
+{
+	Mdl_SetVisual			(self,	"Bloodfly.mds");
+	//								Body-Mesh		Body-Tex	Skin-Color	Head-MMS	Head-Tex	Teeth-Tex	ARMOR
+	Mdl_SetVisualBody		(self,	"Blo_Body",		2,	DEFAULT,	"",			DEFAULT,  	DEFAULT,	-1);
+};
 
 
 /*************************************************************************
@@ -68,7 +82,18 @@ INSTANCE Bloodfly	(Mst_Default_Bloodfly)
 {
 	Set_Bloodfly_Visuals();
 	Npc_SetToFistMode(self);
-	
+};
+
+INSTANCE SwampBloodfly	(Mst_Default_Bloodfly)
+{
+	Set_SwampBloodfly_Visuals();
+	Npc_SetToFistMode(self);
+};
+
+INSTANCE SwampBloodfly2	(Mst_Default_Bloodfly)
+{
+	Set_SwampBloodfly2_Visuals();
+	Npc_SetToFistMode(self);
 };
 
 
