@@ -5,7 +5,7 @@ instance GUR_1211_BaalLukor (Npc_Default)
 	Npctype 	=		NPCTYPE_FRIEND;
 	flags		=		NPC_FLAG_IMMORTAL;
 	guild 		=		GIL_GUR;
-	level 		=		50;
+	level 		=		28;
 	
 	voice 		=		13;
 	id 			=		1211;

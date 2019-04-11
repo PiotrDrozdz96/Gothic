@@ -2,23 +2,25 @@
 |   // Szczegóły na temat zmian w AI są opisane w AI_documentation, z racji że podstawą zmian w AI była rosyjska modyfikacja Fix mod
 +--Anims
 |   +--|-- CRAWLER.MDS
-|   |    // Rejestracja reskinu dla świątynnych pełzaczy
+|   |    // Rejestracja reskinu dla świątynnych pełzaczy z dark saga -- soper machinima mod
 |   +--|-- CRWQ2.MDS
 |   |    // MDS królowej świątynnych pełzaczy z dark saga -- soper machinima mod
 |   +--|-- GOBBO.MDS
-|   |    // Rejestracja szkieletu goblina
-|   |    // Rejestracja goblinów piratów
+|   |    // Rejestracja szkieletu goblina z G2
+|   |    // Rejestracja goblinów piratów -- soper machinima mod
 |   +--|-- HUMANS.MDS
-|   |    // Rejestracja nowych meshy/zbroi
+|   |    // Rejestracja nowych meshy/zbroi -- soper machinima mod
 |   |    // Dodanie Rmaker do obsługi stołu runicznego
 |   |    // Zmiany w animacjach strafingu
 |   |    // 2H - Możliwość ataku w biegu z g2
 |   |    // zmiana skoku na ten z G2
 |   |    // Zmiana w TA_CookForMe aby nie tworzyła pieczonego mięsa
+|   +--|-- ORC.MDS
+|   |    // Rejestracja orka szkieleta -- soper machinima mod
 |   +--|-- SWAMPRAT.MDS 
 |   |    // MDS bagiennego szczura z G2NK
 |   +--|-- ZOMBIE.MDS
-|   |    // Rejestracja zombie_monster
+|   |    // Rejestracja zombie_monster -- soper machinima mod
 |   +--|-- MDS_MOBSI
 |   |    // RMAKER_1.MDS - Animacja stołu runicznego
 |   +--|-- MDS_OVERLAY
@@ -83,6 +85,8 @@
 |   |   // Parvez, Taran wracają do obozu sekty
 |   |   // Krzykacz wyprowadza się z chaty, ponieważ wprowadza się tam Kharim
 |   |   // Niezaliczenie misji z zastępstwem dla Ghorima
+|   +--|-- B_Story_OrcSkeletonRise
+|   |   // Przywołanie orków szkieletów na cmentarzysku orków
 |   +--|-- B_Story_OMFull
 |   |   // Mordrag i Grim wracają na swoje miejsca
 |   |   // Odpalenie rutyn OMFull strażnikom którzy je posiadali
@@ -163,6 +167,8 @@
 |   |   // Uczy tworzenia run 
 |   +--|-- DIA_GUR_1211_BallLukor
 |   |   // Dodanie tarczy ITSH_R_ROUND
+|   |   // Usunięcie doświadczenie za pomoc Lukorowi
+|   |   // Odpalenie funkcji B_Story_OrcSkeletonRise() w ostatnim dialogu
 |   +--|-- DIA_KDF_402_Corristo
 |   |   // Poprawa rozpoczęcia dialogu przy zostaniu magiem, musimy być na środku okręgu
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu magiem Ognia
@@ -495,6 +501,8 @@
 |   +--| Mst_OrcScout/Mst_OrcWarrior -- związane z rosyjskim fix modem
 |   |   // Dodanie aivar[AIV_IMPORTANT]
 |   |   // czasami zmiana start_aistate
+|   |   // Orkowi zwiadowcy z cmentarzyska orków mają gildie goblin, żeby Lukor się nie siepał że z nimi walczymy
+|   |   // Dodanie Orkowych szkieletów -- soper machinima mod
 |   +--| Mst_SwampRat
 |   |   // Bagienny szczur z g2nk
 |   +--| Mst_Zombie
@@ -632,6 +640,8 @@
 |   |   +--| GUR_1208_BaalCadar
 |   |   |    // Usunięcie magicznej runy
 |   |   |    // Zwiększenie many do 200
+|   |   +-- GUR_1211_BaalLukor
+|   |   |    // Zmniejszenie poziomu do 28, jak ma każdy inny guru
 |   |   +--| NOV_(1330_BaalParvez/1331_BaalTaran)
 |   |   |    // Dodanie rutyny "back", gdzie wracają do obozu sekty
 |   |   +--| NOV_1372_Bukano

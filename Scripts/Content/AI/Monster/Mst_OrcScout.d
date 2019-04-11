@@ -61,6 +61,13 @@ func void Set_OrcScout_Visuals()
 	Mdl_SetVisualBody		(self,	"Orc_BodyScout",DEFAULT,	DEFAULT,	"Orc_HeadWarrior",	DEFAULT,  	DEFAULT,	-1);
 };
 
+func void Set_OrcSkeleton_Visual()
+{
+	Mdl_SetVisual			(self,	"Orc.mds");
+	//								Body-Mesh			Body-Tex	Skin-Color	Head-MMS	Head-Tex	Teeth-Tex	ARMOR
+	Mdl_SetVisualBody		(self,	"Orc_ske_body_01",		DEFAULT,	DEFAULT,	"",			DEFAULT,  	DEFAULT,	-1);
+};
+
 
 /*************************************************************************
 **	Orc Scout    														**
@@ -105,6 +112,8 @@ INSTANCE OrcPeasantEatAndDrink (Mst_Default_OrcScout)
 INSTANCE OrcScoutGYD (Mst_Default_OrcScout)
 {
 	name						=	"Ork-zwiadowca";
+	guild						=	GIL_GOBBO;
+	aivar[AIV_MM_REAL_ID]		= 	ID_GOBBO;
 	level						=	18;
 
 	attribute[ATR_STRENGTH]		=	50;	// SN: reguläre OrcScouts wären an dieser Stelle noch zu heftig!
@@ -115,7 +124,6 @@ INSTANCE OrcScoutGYD (Mst_Default_OrcScout)
 	aivar[AIV_MM_DrohTime]		=	0;
 	aivar[AIV_MM_FollowTime]	=	10;
 
-	aivar[AIV_IMPORTANT] 		= 	ID_ORCSCOUT;
 	start_aistate 				= 	ZS_Orc_WalkAround;	// Monster-AI
 	// self.aivar[AIV_MM_RoamStart]=	OnlyRoutine;
 
@@ -123,3 +131,28 @@ INSTANCE OrcScoutGYD (Mst_Default_OrcScout)
 	EquipItem 				(self, ItMw2hOrcAxe01);
 };
 
+INSTANCE OrcSkeleton (Mst_Default_OrcScout)
+{
+	name						=	"Ork-szkielet";
+	guild						=	GIL_SKELETON;
+	level						=	18;
+
+	attribute[ATR_STRENGTH]		=	50;	// SN: reguläre OrcScouts wären an dieser Stelle noch zu heftig!
+
+	protection	[PROT_POINT]		=	100;
+	protection	[PROT_FIRE]			=	35;
+	protection	[PROT_MAGIC]		=	35;
+
+	aivar[AIV_MM_PercRange]		=	1500;
+	aivar[AIV_MM_DrohRange]		=	1200;
+	aivar[AIV_MM_AttackRange]	=	1000;
+	aivar[AIV_MM_DrohTime]		=	0;
+	aivar[AIV_MM_FollowTime]	=	10;
+
+	aivar[AIV_MM_REAL_ID]		= 	ID_SKELETON;
+	start_aistate 				= 	ZS_Orc_WalkAround;	// Monster-AI
+	// self.aivar[AIV_MM_RoamStart]=	OnlyRoutine;
+
+	Set_OrcSkeleton_Visual();
+	EquipItem 				(self, ItMw2hOrcAxe01);
+};

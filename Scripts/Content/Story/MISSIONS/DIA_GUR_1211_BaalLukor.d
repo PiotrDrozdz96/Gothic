@@ -43,7 +43,7 @@ FUNC VOID Info_BaalLukor_MEET_Info()
 {
 	AI_Output 		(self, other,"Info_BaalLukor_MEET_13_01"); //Dziêki za pomoc. Zjawi³eœ siê w ostatniej chwili.
 	
-	B_GiveXP		(XP_SaveBaalLukor);
+	// B_GiveXP		(XP_SaveBaalLukor);
 };
 
 //**************************************************************************
@@ -665,6 +665,7 @@ FUNC VOID Info_BaalLukor_ALTAR_Info()
 	BaalLukor_BringParchment = 4;
 	Npc_SetTempAttitude	(self,	ATT_HOSTILE);
 	Npc_SetPermAttitude	(self,	ATT_HOSTILE);
+	B_Story_OrcSkeletonRise();
 	//CreateInvItems		(self,	ItArScrollPyrokinesis,	3);
 
 	B_LogEntry		(CH3_OrcGraveyard,	"Gdy Baal Lukor zrozumia³, ¿e nie ma tu absolutnie nic, puœci³y mu nerwy. Szaleniec nawet rzuci³ siê na mnie miotaj¹c bezpodstawne oskar¿enia. Cor Angar nie bêdzie zadowolony, gdy dowie siê o tych wydarzeniach.");
