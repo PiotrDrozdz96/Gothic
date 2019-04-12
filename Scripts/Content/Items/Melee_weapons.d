@@ -1462,6 +1462,58 @@ INSTANCE ItMw_1H_Sword_Bastard_04 (C_Item)
 	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
 };
 
+/********************************************************************************/
+INSTANCE ItMw_1H_Sword_DHT (C_Item) 
+{	
+	name 				=	"Miecz £owcy Demonów";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_SWD;	
+	material 			=	MAT_METAL;
+
+	value 				=	2260;//880;//442
+
+	damageTotal 		= 	77;
+	damagetype 			= 	DAM_EDGE;
+	range    			=  	150;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	77;
+	visual 				=	"ITMW_1H_SPECIAL_03_NEW..3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_OneHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+/********************************************************************************/
+INSTANCE ItMw_1H_Sword_DHT_Master (C_Item) 
+{	
+	name 				=	"Miecz Mistrza £owcy Demonów";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_SWD;	
+	material 			=	MAT_METAL;
+
+	value 				=	2760;//880;//442
+
+	damageTotal 		= 	88;
+	damagetype 			= 	DAM_EDGE;
+	range    			=  	150;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	88;
+	visual 				=	"ITMW_1H_LOSTSOUL.3DS";
+
+	description			= name;
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_OneHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
 /*********************************************************************************
 ** Alte Streitäxte								**
 *********************************************************************************/

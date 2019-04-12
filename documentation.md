@@ -9,7 +9,7 @@
 |   |    // Rejestracja szkieletu goblina z G2
 |   |    // Rejestracja goblinów piratów -- soper machinima mod
 |   +--|-- HUMANS.MDS
-|   |    // Rejestracja nowych meshy/zbroi -- soper machinima mod
+|   |    // Rejestracja nowych meshy/zbroi -- soper machinima mod/Sequel
 |   |    // Dodanie Rmaker do obsługi stołu runicznego
 |   |    // Zmiany w animacjach strafingu
 |   |    // 2H - Możliwość ataku w biegu z g2
@@ -90,10 +90,13 @@
 |   +--|-- B_Story_OMFull
 |   |   // Mordrag i Grim wracają na swoje miejsca
 |   |   // Odpalenie rutyn OMFull strażnikom którzy je posiadali
+|   |   // Upgrade 3 strażników na łowców demonów
 |   +--|-- B_Story_LogFailedAfterOMDown
 |   |   // Funkcja przenosząca zadania których nie da się wykonać do niezaliczonych po zawaleniu starej kopalnii i śmierci magów ognia
 |   +--|-- B_Story_AccesToXardas
 |   |   // Otrzymanie runy teleportacyjnej na parter Wieży Xardasa
+|   +--|-- B_Story_ExploreSunkenTower
+|   |   // Przebudowa ataku na stary obóz
 |   +--|-- B_TeachPlayerTelentRunes
 |   |   // Funkcja do nauki tworzenia run
 |/*******************************************B END***********************************************************
@@ -108,9 +111,14 @@
 |   +--|-- DIA_EBR_100_Gomez
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu cieniem
 |   |   // Po zostaniu cieniem nie możemy już wykonać niektórych questów
+|   +--|-- DIA_EBR_103_Drak
+|   |   // Dodanie dialogów nowej postaci
+|   |   // Dostaje dialogi Bartholo po teleportacji bohatera do magów ognia
 |   +--|-- DIA_EBR_105_Raven
 |   |   // Przerobienie dialogów z informowaniem o bractwie
 |   |   // Po queście z informowaniem o bractwie dostajemy 1pkt. reputacji u straży, potrzebnej przy kupowaniu lepszej zbroi
+|   +--|-- DIA_EBR_106_Bartholo
+|   |   // Przeniesienie dialogów po teleportacji do magów ognia, ochroniażowi Gomeza
 |   +--|-- DIA_GRD_200_Thorus
 |   |   // Zmiana sposobu chodzenia bohatera po zostaniu strażnikiem
 |   |   // Przebudowa nauki walki na 11 etapów
@@ -366,6 +374,7 @@
 |   |   // Dodanie bagiennych szczurów i zombie na bagnie
 |   |   // Zmiana wyglądu krwiopijców na bagnie
 |   |   // Zamiana dwóch świątynnych pełzaczy(TPL_405) na królową świątynnych pełzaczy
+|   |   // Dodanie Ebr_103_Drak - ochroniarz Gomeza
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Stała LPCOST_TALENT_RUN
@@ -386,6 +395,7 @@
 |   |   // Przeniesienie zmiennych zadaniowych z poszczególnych dialogów do Story_Globals + dodanie nowych
 |   |   // Dodanie zmiennych potrzebynch do rosyjskiego fix moda
 |   |   // zmienne SC_IsObessed oraz jointDay związane z uzależnieniem palenia ziela
+|   |   // Dodanie GomezGuardTalk związanej z drażnieniem ochroniaża Gomeza
 |   +--| svm
 |   |   // dodanie svm CantReadThis związanej z kartkami uczącymi
 |   |   // Prztłumaczenie SVM_3_Smalltalk15, było po niemiecku
@@ -428,8 +438,9 @@
 |   |   // Spodnie kreta mają teraz poprawną nazwe
 |   |   // Dodano pancerze bandytów dla bandy Quentina
 |   |   // Zmodyfikowanie statystyk wszystkich pancerzy sugerując się wartościami z G2
-|   |   // Dodano dwa nowe pancerze dla cieni, oraz spodnie kopacza z kapturem
-|   |   // Dodanie wersje z kapturem szat magów i kilka nowych szat
+|   |   // Dodano dwa nowe pancerze dla cieni, oraz spodnie kopacza z kapturem -- soper machinima mod
+|   |   // Dodanie wersje z kapturem szat magów i kilka nowych szat -- soper machinima mod
+|   |   // Dodanie zbroi łowcy demonów -- Sequel
 |   +--| Artifacts
 |   |   // Zmodyfikowanie run
 |   |   // Dodanie runy teleportującej na parter wieży Xardasa
@@ -440,6 +451,7 @@
 |   |   // Przeniesienie imiennych broni z pliku weapons.d
 |   |   // ITMW_1H_SWORD_BASTARD_02 -> Naprawa wyświetlania ręczności broni
 |   |   // Zmodyfikowanie wszystkich broni sugerując się wartościami z G2
+|   |   // Dodanie mieczy dla łowców demonów -- soper machinima mod
 |   +--| Misc
 |   |   // Dodanie składników potrzebnych do tworzenia run
 |   |   // Zamiana Rtęci na wodę święconą
@@ -568,14 +580,24 @@
 |   |   +--| EBR_101_Scar
 |   |   |   // Zwiększenie zręczności
 |   |   |   // Dodanie bełtów
+|   |   +--| EBR_103_Drak
+|   |   |   // Nowa postać - ochroniarz Gomeza
 |   |   +--| EBR_105_Raven / GRD_(200/210/233/255) / VLK_(538/581)
 |   |   |    // Dodanie rutyny "out" - wywalenie za barierę
+|   |   +--| EBR_106_Bartholo
+|   |   |    // Usunięcie nieśmiertelności
 |   |   +--| EBR_(108-110) -- Kobiety
 |   |   |    // Ustawienie AIV_DIALOGFLAGS == TRUE, aby możliwy był dialog
+|   |   |    // EBR_110_Seraphia - zmiana rutyny(cały czas pucuje podłogę by nie wchodzić w drogę ochroniarzowi Gomeza)
 |   |   +--| GRD_(202/207)_Gardist
 |   |   |    // Nowi strażnicy na placu wymian
+|   |   +--| GRD_204_Gardist
+|   |   |    // Dodanie flagi nieśmiertelności
+|   |   |    // Dodanie Rutyny OT(będzie w kaplicy magów ognia)
 |   |   +--| GRD_208_Cutter
 |   |   |    // dodanie tarczy ITSH_PALADIN_A
+|   |   +--| GRD_(220/221)_Gardist
+|   |   |    // Dodanie flagi nieśmiertelności
 |   |   +--| GRD_(205/222/223/238/279)
 |   |   |    // Dodanie tarczy ITSH_G3_03
 |   |   +--| GRD_(214/215/216/217)_Torwache / GRD_(285/286)_Gardist

@@ -619,6 +619,7 @@ FUNC VOID STARTUP_SUB_OLDCAMP ()
 	Wld_InsertNpc				(Ebr_100_Gomez,"OC1");		//
 	Wld_InsertNpc				(Ebr_101_Scar,"OC1");		
 	Wld_InsertNpc				(Ebr_102_Arto,"OC1");
+	Wld_InsertNpc				(Ebr_103_Drak,"OC1");
 	Wld_InsertNpc				(Ebr_105_Raven,"OC1");		
 	Wld_InsertNpc				(Ebr_106_Bartholo,"OC1");	
 	Wld_InsertNpc				(Ebr_108_Velaya,"OC1"); 	//Gomez Zimmer 24h

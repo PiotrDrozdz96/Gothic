@@ -45,6 +45,7 @@ var int Jesse_PayForMe;
 
 var int GRD_Reputation;
 var int CipherJoints;
+var int GomezGuardTalk;
 
 /*Log variable */
 var int FireMagesBrief;

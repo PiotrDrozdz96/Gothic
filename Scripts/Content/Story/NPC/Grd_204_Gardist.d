@@ -8,6 +8,7 @@ instance GRD_204_Gardist (Npc_Default)
 	level 		=	10;
 	voice 		=	7;
 	id 			=	204;
+	flags		=	NPC_FLAG_IMMORTAL;
 		
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 35;
@@ -56,6 +57,12 @@ FUNC VOID Rtn_start_204 ()
     TA_PracticeSword	(07,30,20,00,"OCC_CENTER_4_TRAIN");	//2/3
     TA_StandAround		(20,00,00,00,"OCC_SHADOWS_CORNER_MOVEMENT4"); //CF1
     TA_Sleep            (00,00,07,30,"OCC_MERCS_UPPER_RIGHT_ROOM_BED1");
+};
+
+FUNC VOID Rtn_OT_204 ()
+{
+	TA_Guard ( 07, 00, 20, 00, "OCC_CHAPEL_MAGE_04" );
+	TA_Guard ( 20, 00, 07, 00, "OCC_CHAPEL_MAGE_04" );
 };
 
 

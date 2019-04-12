@@ -8,6 +8,7 @@ instance GRD_221_Gardist (Npc_Default)
 	level 		=	10;
 	voice 		=	13;
 	id 			=	221;
+	flags		=	NPC_FLAG_IMMORTAL;
 		
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 35;

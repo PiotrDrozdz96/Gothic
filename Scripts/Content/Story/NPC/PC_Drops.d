@@ -28,7 +28,7 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 	// 						animations
 	Mdl_SetVisual		(self,"HUMANS.MDS");
 	//						Body-Mesh			Body-Tex	Skin-Color	Head-MMS    		Head-Tex	Teeth-Tex 	Armor-Tex
-	Mdl_SetVisualBody (self,"hum_body_Naked0",	4,			1,			"Hum_Head_Pony",	9, 			0,			BDT_ARMOR_H);
+	Mdl_SetVisualBody (self,"hum_body_Naked0",	4,			1,			"Hum_Head_Pony",	9, 			0,			DHT_ARMOR_M);
 	
 	//-------- ai ----------
 	start_aistate = ZS_DROPS_Hangaround;
@@ -48,6 +48,8 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 	CreateInvItem(self,ITMW_1H_URIZIEL_1);
 	CreateInvItem(self,ITMW_1H_URIZIEL_2);
 	CreateInvItem(self,ITMW_1H_URIZIEL_3);
+	CreateInvItem(self,ItMw_1H_Sword_DHT);
+	CreateInvItem(self,ItMw_1H_Sword_DHT_Master);
 	CreateInvItem(self,ItMW_Staff_Water_01);
 	CreateInvItem(self,ItmW_Staff_Prot_01);
 	CreateInvItem(self,ItMW_Staff_Fire_01);
@@ -82,12 +84,16 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 	// Armor
 	CreateInvItem(self,KDF_ARMOR_H2);
 	CreateInvItem(self,BDT_ARMOR_M);
-	//CreateInvItem(self,BDT_ARMOR_H); //onEquip
+	CreateInvItem(self,BDT_ARMOR_H); 
 	CreateInvItem(self,VLK_ARMOR_H);
 	CreateInvItem(self,STT_ARMOR_H1);
 	CreateInvItem(self,STT_ARMOR_H2);
 	CreateInvItem(self,DMB_ARMOR_TPL);
 	CreateInvItem(self,SLD_ARMOR_TPL);
+	CreateInvItem(self,DHT_ARMOR_L);
+	// CreateInvItem(self,DHT_ARMOR_M); //onEquip
+	CreateInvItem(self,DHT_ARMOR_H);
+
 
 	//Crossbow
 	CreateInvItem (self,ItRw_Crossbow_05);

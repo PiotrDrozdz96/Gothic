@@ -58,13 +58,14 @@ FUNC VOID Rtn_start_205 ()
 	TA_Smalltalk	(20,00,01,00,"OCC_STABLE_ENTRANCE_INSERT"); //mit Stone
 	TA_Sleep		(20,00,07,25,"OCC_MERCS_UPPER_RIGHT_ROOM_BED4");
 };
-/*
-FUNC VOID Rtn_OT_205 ()
+
+FUNC VOID Rtn_OMFull_205 ()
 {
-	TA_Guard	(07,00,20,00,"OCC_WELL_FRONT");
-	TA_Guard	(20,00,07,00,"OCC_WELL_FRONT");
+	TA_Guard		(07,25,20,00,"OCC_WELL_FRONT");
+	TA_Smalltalk	(20,00,01,00,"OCC_STABLE_ENTRANCE_INSERT"); //mit Stone
+	TA_Sleep		(20,00,07,25,"OCC_MERCS_UPPER_RIGHT_ROOM_BED4");
 };
-*/
+
 func void Rtn_Bannished_205 ()
 {
 	TA_Stay	(07,00,20,00,"OW_CAVALORN_01");

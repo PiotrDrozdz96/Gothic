@@ -42,7 +42,7 @@ instance EBR_110_Seraphia (Npc_Default)
 FUNC VOID Rtn_start_110 ()
 {				
 	TA_Babe_Sweep		(00,01,08,30,"OCC_BARONS_GREATHALL_CENTER_LEFT");
-	TA_Babe_Fan			(08,30,00,01,"OCC_BARONS_GREATHALL_BERATER");
+	TA_Babe_Sweep		(08,30,00,01,"OCC_BARONS_GREATHALL_BERATER");
 };
 
 

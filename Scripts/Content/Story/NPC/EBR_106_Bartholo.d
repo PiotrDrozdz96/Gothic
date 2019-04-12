@@ -8,7 +8,6 @@ instance EBR_106_Bartholo (Npc_Default)
 	level 		=	70;
 	voice 		=	12;
 	id 			=	106;
-	flags		=	NPC_FLAG_IMMORTAL;
 
 	//-------- abilities --------
 	attribute[ATR_STRENGTH] 	= 65;

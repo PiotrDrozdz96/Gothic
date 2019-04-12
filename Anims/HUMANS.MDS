@@ -73,6 +73,9 @@ Model ("HuS")
 	registerMesh ("Hum_VLKL_ARMOR.ASC")
 	registerMesh ("Hum_VLKM_ARMOR.ASC")
 	registerMesh ("Hum_VLKH_ARMOR.ASC")
+	registerMesh ("Hum_DHTL_ARMOR.ASC")
+	registerMesh ("Hum_DHTM_ARMOR.ASC")
+	registerMesh ("Hum_DHTS_ARMOR.ASC")
 
 // Skelette
 	registerMesh ("Ske_Body.ASC")

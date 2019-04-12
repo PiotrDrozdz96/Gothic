@@ -57,7 +57,6 @@ func void B_Give_ScorpioChapter6Weapons ()
 	
 	CreateInvItems (npc,ItMiNugget,600);
 	CreateInvItems (npc,ItAmBolt,1000);
-	CreateInvItem (npc,ItRw_Crossbow_05);
 	//-------- Fernkampfwaffen --------
 
 

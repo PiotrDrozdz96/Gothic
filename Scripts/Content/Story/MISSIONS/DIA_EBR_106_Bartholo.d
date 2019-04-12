@@ -130,39 +130,3 @@ FUNC VOID Info_Bartholo_Krautbote_Info()
 		AI_Output			(self, other,"Info_Bartholo_Krautbote_NoKraut_12_00"); //Jak na pos³añca masz przy sobie trochê za ma³o ziela! Mam nadziejê, ¿e nie sprzeda³eœ go komuœ innemu! Wróæ, jak bêdziesz mia³ ca³¹ partiê.
 	};
 };
-
-// **************************************************************************
-// 				Wartet auf den SC
-// **************************************************************************
-
-instance  DIA_EBR_106_Bartholo_Wait4SC (C_INFO)
-{
-	npc				= EBR_106_Bartholo;
-	condition		= DIA_EBR_106_Bartholo_Wait4SC_Condition;
-	information		= DIA_EBR_106_Bartholo_Wait4SC_Info;
-	important		= 1;
-	permanent		= 0;
-};
-
-FUNC int  DIA_EBR_106_Bartholo_Wait4SC_Condition()
-{	
-	if	ExploreSunkenTower
-	{
-		return TRUE;
-	};
-};
-FUNC void  DIA_EBR_106_Bartholo_Wait4SC_Info()
-{
-	AI_SetWalkmode		(self, NPC_WALK);
-	AI_GotoNpc			(self, other);
-	AI_Output			(self, other,"Info_Bartholo_12_01");	//Podejrzewa³em, ¿e prêdzej czy póŸniej ktoœ spróbuje u¿yæ pentagramu.
-	AI_Output			(self, other,"Info_Bartholo_12_02");	//Ale w odró¿nieniu od tego zdradzieckiego kowala, Stone'a, CIEBIE ju¿ nie potrzebujemy!
-	AI_Output			(other, self,"Info_Bartholo_15_03");	//Gdzie jest Stone?
-	AI_Output			(self, other,"Info_Bartholo_12_04");	//Za kratkami! Ale ciebie czeka mi³y, przytulny GRÓB!
-	AI_Output			(self, other,"Info_Bartholo_12_05");	//Braæ go, ch³opcy! Posiekaæ go!
-
-	AI_StopProcessInfos	(self);
-	
-	self.guild 	= GIL_EBR;
-	Npc_SetTrueGuild	(self, GIL_EBR);	
-};

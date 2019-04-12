@@ -85,6 +85,10 @@ const int VALUE_GRD_ARMOR_L = 1350;
 const int VALUE_GRD_ARMOR_M = 1650;
 const int VALUE_GRD_ARMOR_H = 2100;
 
+const int VALUE_DHT_ARMOR_L = 2350;
+const int VALUE_DHT_ARMOR_M = 2650;
+const int VALUE_DHT_ARMOR_H = 3100;
+
 const int VALUE_KDF_ARMOR_L = 1200;
 const int VALUE_KDF_ARMOR_H = 1500;
 
@@ -1999,6 +2003,101 @@ INSTANCE BDT_ARMOR_H(C_Item)
 	visual_change 			=	"Hum_ORGM_ARMOR.asc";
 	visual_skin 			=	1;
 	material 				=	MAT_LEATHER;
+
+	description				=	name;
+	//TEXT[0]				=	"";
+	TEXT[1]					=	NAME_Prot_Edge;			COUNT[1]	= protection	[PROT_EDGE];
+	TEXT[2]					=	NAME_Prot_Point;		COUNT[2]	= protection	[PROT_POINT];
+	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
+	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
+	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};
+/******************************************************************************************/
+/************************************DHT_Armor*********************************************/
+
+INSTANCE DHT_ARMOR_L(C_Item)
+{
+	name 					=	"Lekka zbroja £owcy Demonów";
+
+	mainflag 				=	ITEM_KAT_ARMOR;
+	flags 					=	0;
+
+	protection [PROT_EDGE] 	=	70;
+	protection [PROT_BLUNT] = 	70;
+	protection [PROT_POINT] = 	70;
+	protection [PROT_FIRE] 	= 	40;
+	protection [PROT_MAGIC] = 	20;
+
+	value 					=	VALUE_DHT_ARMOR_L;
+
+	wear 					=	WEAR_TORSO;
+ 
+	visual 					=	"dhtl.3ds";
+	visual_change 			=	"Hum_DHTL_ARMOR.asc";
+	visual_skin 			=	0;
+	material 				=	MAT_METAL;
+
+	description				=	name;
+	//TEXT[0]				=	"";
+	TEXT[1]					=	NAME_Prot_Edge;			COUNT[1]	= protection	[PROT_EDGE];
+	TEXT[2]					=	NAME_Prot_Point;		COUNT[2]	= protection	[PROT_POINT];
+	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
+	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
+	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};
+
+INSTANCE DHT_ARMOR_M(C_Item)
+{
+	name 					=	"Zbroja £owcy Demonów";
+
+	mainflag 				=	ITEM_KAT_ARMOR;
+	flags 					=	0;
+
+	protection [PROT_EDGE] 	=	80;
+	protection [PROT_BLUNT] = 	80;
+	protection [PROT_POINT] = 	80;
+	protection [PROT_FIRE] 	= 	50;
+	protection [PROT_MAGIC] = 	30;
+
+	value 					=	VALUE_DHT_ARMOR_M;
+
+	wear 					=	WEAR_TORSO;
+ 
+	visual 					=	"dhtl.3ds";
+	visual_change 			=	"Hum_DHTM_ARMOR.asc";
+	visual_skin 			=	0;
+	material 				=	MAT_METAL;
+
+	description				=	name;
+	//TEXT[0]				=	"";
+	TEXT[1]					=	NAME_Prot_Edge;			COUNT[1]	= protection	[PROT_EDGE];
+	TEXT[2]					=	NAME_Prot_Point;		COUNT[2]	= protection	[PROT_POINT];
+	TEXT[3] 				=	NAME_Prot_Fire;			COUNT[3]	= protection	[PROT_FIRE];
+	TEXT[4]					=	NAME_Prot_Magic;		COUNT[4]	= protection	[PROT_MAGIC];
+	TEXT[5]					=	NAME_Value;				COUNT[5]	= value;
+};
+
+INSTANCE DHT_ARMOR_H(C_Item)
+{
+	name 					=	"Ciê¿ka zbroja £owcy Demonów";
+
+	mainflag 				=	ITEM_KAT_ARMOR;
+	flags 					=	0;
+
+	protection [PROT_EDGE] 	=	90;
+	protection [PROT_BLUNT] = 	90;
+	protection [PROT_POINT] = 	90;
+	protection [PROT_FIRE] 	= 	60;
+	protection [PROT_MAGIC] = 	40;
+
+	value 					=	VALUE_DHT_ARMOR_H;
+
+	wear 					=	WEAR_TORSO;
+ 
+	visual 					=	"dhth.3ds";
+	visual_change 			=	"Hum_DHTS_ARMOR.asc";
+	visual_skin 			=	0;
+	material 				=	MAT_METAL;
 
 	description				=	name;
 	//TEXT[0]				=	"";
