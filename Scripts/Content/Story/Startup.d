@@ -1164,7 +1164,7 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc		(GreenGobboSword,"PATH_OC_NC_4");
 	Wld_InsertNpc		(Meatbug,"OW_SAWHUT_MEATBUG_SPAWN");
 	Wld_InsertNpc		(Meatbug,"OW_SAWHUT_MEATBUG_SPAWN");
-	Wld_InsertNpc		(Wolf,"OW_PATH_02_SPAWN_HOGEWOLF");
+	Wld_InsertNpc		(Keiler,"OW_PATH_02_SPAWN_HOGEWOLF");
 	Wld_InsertNpc		(GreenGobboSword,"OW_GOBBO_PLACE_SPAWN");
 	Wld_InsertNpc		(GreenGobboSword,"OW_GOBBO_PLACE_SPAWN");
 	Wld_InsertNpc		(Molerat,"OW_MOLERAT_CAVE_SPAWN");
@@ -1226,8 +1226,8 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_PATH_WOLF_WOOD");
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_PATH_WOLF_WOOD");
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF_WOOD05_02");
-	Wld_InsertNpc		(Wolf,"FP_ROAM_OW_WOLF_08_08");
-	Wld_InsertNpc		(Wolf,"FP_ROAM_OW_WOLF_08_08");
+	Wld_InsertNpc		(Keiler,"FP_ROAM_OW_WOLF_08_08");
+	Wld_InsertNpc		(Keiler,"FP_ROAM_OW_WOLF_08_08");
 	Wld_InsertNpc		(Wolf,"OW_DEADWOOD_WOLF_SPAWN01");
 	Wld_InsertNpc		(Wolf,"OW_DEADWOOD_WOLF_SPAWN01");
 	Wld_InsertNpc		(Wolf,"OW_DEADWOOD_WOLF_SPAWN01");
@@ -1348,8 +1348,8 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc		(Razor,"SPAWN_OW_SNAPPER_CAVE_DM");
 	Wld_InsertNpc		(Razor,"SPAWN_OW_SNAPPER_CAVE_DM");
 	
-	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF2_WALD_OC2");
-	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF2_WALD_OC2");
+	Wld_InsertNpc		(Keiler,"SPAWN_OW_WOLF2_WALD_OC2");
+	Wld_InsertNpc		(Keiler,"SPAWN_OW_WOLF2_WALD_OC2");
 	Wld_InsertNpc		(Scavenger,"SPAWN_OW_SCAVENGER_INWALD_OC2");
 	Wld_InsertNpc		(Scavenger,"SPAWN_OW_SCAVENGER_INWALD_OC2");
 	
@@ -1376,10 +1376,10 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF_NEARSHADOW_PSIWOOD_02");
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF_NEARSHADOW_PSIWOOD_02");
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF_NEARSHADOW_PSIWOOD_02");
-	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLFL__PSIWOOD_OUT4");
-	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLFL__PSIWOOD_OUT4");
-	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF_NEARSHAD2_PSIWOOD_OUT");
-	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF_NEARSHAD2_PSIWOOD_OUT");
+	Wld_InsertNpc		(Keiler,"SPAWN_OW_WOLFL__PSIWOOD_OUT4");
+	Wld_InsertNpc		(Keiler,"SPAWN_OW_WOLFL__PSIWOOD_OUT4");
+	Wld_InsertNpc		(Keiler,"SPAWN_OW_WOLF_NEARSHAD2_PSIWOOD_OUT");
+	Wld_InsertNpc		(Keiler,"SPAWN_OW_WOLF_NEARSHAD2_PSIWOOD_OUT");
 	Wld_InsertNpc		(GreenGobboSword,"SPAWN_OW_GOBBO_WATERFALLCAVE_2");
 	Wld_InsertNpc		(GreenGobboSword,"SPAWN_OW_GOBBO_WATERFALLCAVE_2");
 	Wld_InsertNpc		(GreenGobboSword,"SPAWN_OW_GOBBO_WATERFALLCAVE_2");
@@ -1419,8 +1419,8 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc		(Bloodfly,"SPAWN_OW_BLOODFLYS_PSIWOOD_4");
 	Wld_InsertNpc		(Bloodfly,"SPAWN_OW_BLOODFLYS_PSIWOOD_4");
 	Wld_InsertNpc		(Bloodfly,"SPAWN_OW_BLOODFLYS_PSIWOOD_4");
-	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF2_WALD_OC3");
-	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF2_WALD_OC3");
+	Wld_InsertNpc		(Keiler,"SPAWN_OW_WOLF2_WALD_OC3");
+	Wld_InsertNpc		(Keiler,"SPAWN_OW_WOLF2_WALD_OC3");
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLFK__PSIWOOD_OUT3");
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLFK__PSIWOOD_OUT3");
 	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERATT_04_PSI1");

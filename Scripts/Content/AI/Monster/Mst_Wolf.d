@@ -18,11 +18,11 @@ PROTOTYPE Mst_Default_Wolf(C_Npc)
 	attribute	[ATR_MANA_MAX] 		=	0;
 	attribute	[ATR_MANA] 			=	0;
 //-----------------------------------------------------------
-	protection	[PROT_BLUNT]		=	10;
-	protection	[PROT_EDGE]			=	10;
-	protection	[PROT_POINT]		=	10;
-	protection	[PROT_FIRE]			=	0;
-	protection	[PROT_FLY]			=	0;
+	protection	[PROT_BLUNT]		=	20;
+	protection	[PROT_EDGE]			=	20;
+	protection	[PROT_POINT]		=	0;
+	protection	[PROT_FIRE]			=	20;
+	protection	[PROT_FLY]			=	20;
 	protection	[PROT_MAGIC]		=	0;
 //-----------------------------------------------------------
 	damagetype 						=	DAM_EDGE;

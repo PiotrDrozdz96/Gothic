@@ -8,6 +8,7 @@
 |   |   |    // Dodanie AIV_DIALOGFLAGS aby móc rozmawiać z kobietami
 |   |   +-- AI_MM_Constans
 |   |   |    // Dodanie dodatkowych ID (40 i wyżej)
+|   |   |    // Dodanie ID dzika
 |   |   +-- perceptions
 |   |   |    // dodanie funkcji b_clearperceptions
 |   |   |    // dodanie funkcji monsterrtnperception

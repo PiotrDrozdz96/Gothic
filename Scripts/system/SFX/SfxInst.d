@@ -1051,6 +1051,30 @@
 				INSTANCE SWR_Hurt_A1 					(C_SFX_DEF) {file= "SWR_hurt2.wav";					vol = 100;			};
 				INSTANCE SWR_Warn 						(C_SFX_DEF) {file= "SWR_warn.wav";					vol = 100;			};
 				INSTANCE SWR_Warn_A1 					(C_SFX_DEF) {file= "SWR_warn2.wav";					vol = 100;			};
+
+/* Keiler */
+				INSTANCE KLR_Ambient 					(C_SFX_DEF) {file= "KLR_ambient.wav";				vol = 75;			};
+				INSTANCE KLR_Ambient_A1 				(C_SFX_DEF) {file= "KLR_ambient2.wav";				vol = 75;			};
+				INSTANCE KLR_Ambient_A2					(C_SFX_DEF) {file= "KLR_ambient3.wav";				vol = 75;			};
+				INSTANCE KLR_Ambient_A3 				(C_SFX_DEF) {file= "KLR_ambient4.wav";				vol = 75;			};
+				INSTANCE KLR_Ambient_A4 				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE KLR_Ambient_A5					(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE KLR_Ambient_A6					(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE KLR_Ambient_A7					(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE KLR_Ambient_A8 				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE KLR_Ambient_A9					(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE KLR_Attack 					(C_SFX_DEF) {file= "KLR_attack.wav";				vol = 100;			};
+				INSTANCE KLR_Attack_A1 					(C_SFX_DEF) {file= "KLR_attack2.wav";				vol = 100;			};
+				INSTANCE KLR_Attack_A2 					(C_SFX_DEF) {file= "KLR_attack3.wav";				vol = 100;			};
+				INSTANCE KLR_Die 						(C_SFX_DEF) {file= "KLR_die.wav";					vol = 100;			};
+				INSTANCE KLR_Die_A1						(C_SFX_DEF) {file= "KLR_die2.wav";					vol = 100;			};
+				INSTANCE KLR_Die_A2						(C_SFX_DEF) {file= "KLR_die3.wav";					vol = 100;			};
+				INSTANCE KLR_Hurt 						(C_SFX_DEF) {file= "KLR_hurt.wav";					vol = 75;			};
+				INSTANCE KLR_Hurt_A1					(C_SFX_DEF) {file= "KLR_hurt2.wav";					vol = 75;			};
+				INSTANCE KLR_Hurt_A2					(C_SFX_DEF) {file= "KLR_hurt3.wav";					vol = 75;			};
+				INSTANCE KLR_Warn		 				(C_SFX_DEF) {file= "KLR_warn.wav";					vol = 100;			};
+				INSTANCE KLR_Warn_A1	 				(C_SFX_DEF) {file= "KLR_warn2.wav";					vol = 100;			};
+				INSTANCE KLR_Warn_A2	 				(C_SFX_DEF) {file= "KLR_warn3.wav";					vol = 100;			};
 		
 		
 //////////////////////////////////////////////////////////////////////////////

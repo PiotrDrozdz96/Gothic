@@ -109,7 +109,7 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 	CreateInvItem (self,ItArRuneSummonWolf);
 	CreateInvItem (self, ItArRuneFear);
 
-	//Runen ingredients
+	//Runen ingredients und animalTrophy
 	CreateInvItem(self, Itmi_Runeblank);
 	CreateInvItem(self, ItMi_Pliers);
 	CreateInvItem(self, ItMi_Alchemy_Sulphur_01);
@@ -123,6 +123,7 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 	CreateInvItem(self, Itat_Skeletonbone);
 	CreateInvItem(self, ItAt_StoneGolem_02);
 	CreateInvItem(self, Itat_Demonheart);
+	CreateInvItem(self, ItAt_KeilerFur);
 
 	//Written
 	CreateInvItem(self, ItWr_Necromancer_Letter_01);

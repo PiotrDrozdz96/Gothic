@@ -7,6 +7,7 @@ const int	Value_Zähne				=	10;
 const int	Value_Krallen			=	15;
 
 const int	Value_Wolfsfell			=	10;
+const int	Value_Keilersfell		=	15;
 const int	Value_Orkhundfell		=	15;
 
 const int	Value_Panzerplatte		=	50;
@@ -494,4 +495,25 @@ INSTANCE ItAt_StoneGolem_02 (C_Item)
 	TEXT[2]				= ""; 
 	TEXT[3]				= "";
 	TEXT[4]				= NAME_Value;					COUNT[4]	= Value_Steinherz;
+};
+
+/******************************************************************************************/
+INSTANCE ItAt_KeilerFur (C_Item)
+{
+	name 				=	"Skóra dzika";
+
+	mainflag 			=	ITEM_KAT_NONE;
+	flags 				=	ITEM_MULTI;
+
+	value 				=	Value_Keilersfell;
+
+	visual 				=	"ITAT_WARGFUR.3DS";
+	material 			=	MAT_STONE;
+
+	description			= name;
+	TEXT[0]				= "";
+	TEXT[1]				= "";
+	TEXT[2]				= ""; 
+	TEXT[3]				= "";
+	TEXT[4]				= NAME_Value;					COUNT[4]	= Value_Keilersfell;
 };

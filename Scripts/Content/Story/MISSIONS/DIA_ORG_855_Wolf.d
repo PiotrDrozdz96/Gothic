@@ -733,6 +733,11 @@ FUNC void  Org_855_Wolf_SellFur_Info()
 			B_GiveInvItems(self, other, itminugget, Value_Trollfell*Npc_HasItems (hero,ItAt_Troll_01));
 			B_GiveInvItems	(hero, self, ItAt_Wolf_01,	Npc_HasItems (hero,ItAt_Wolf_01));
 		};
+		if (Npc_HasItems (hero,ItAt_KeilerFur) > 0){
+			CreateInvItems(self, itminugget, Value_Keilersfell*Npc_HasItems (hero,ItAt_KeilerFur));
+			B_GiveInvItems(self, other, itminugget, Value_Keilersfell*Npc_HasItems (hero,ItAt_KeilerFur));
+			B_GiveInvItems	(hero, self, ItAt_KeilerFur,	Npc_HasItems (hero,ItAt_KeilerFur));
+		};
 		
 		AI_Output(self,other,"DIA_Wolf_SellFur_09_01");	//Fantastycznie.
 	} 

@@ -51,7 +51,7 @@ func void B_Story_RespawnOW()
 	Wld_InsertNpc		(Scavenger,"SPAWN_O_SCAVENGER_OCWOODL2");
 	Wld_InsertNpc		(Scavenger,"SPAWN_SCAVENGERPATH_OC_PSI_14");
 	Wld_InsertNpc		(OrcDog,"OW_PATH_WOLF04_SPAWN01");
-	Wld_InsertNpc		(Bloodfly,"PATH_TAKE_HERB_MOVEMENT2");
+	Wld_InsertNpc		(SwampBloodfly2,"PATH_TAKE_HERB_MOVEMENT2");
 	Wld_InsertNpc		(Firewaran,"OW_COAST_SHIPWRECK_WARAN_2");
 	Wld_InsertNpc		(Bloodfly,"SPAWN_OW_BLOODFLYS_152");
 	Wld_InsertNpc		(Bloodfly,"SPAWN_OW_BLOODFLY_06_01");
@@ -63,7 +63,7 @@ func void B_Story_RespawnOW()
 	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_WOODOLDMINE2");
 	Wld_InsertNpc		(Snapper,"SPAWN_OW_SNAPPER_WOOD05_05");
 	Wld_InsertNpc		(Razor,"SPAWN_OW_SNAPPER_CAVE_DM");
-	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF2_WALD_OC2");
+	Wld_InsertNpc		(Keiler,"SPAWN_OW_WOLF2_WALD_OC2");
 	Wld_InsertNpc		(Scavenger,"SPAWN_OW_SCAVENGER_INWALD_OC2");
 	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT2_WALD_OC1");
 	Wld_InsertNpc		(Bloodfly,"OW_PATH_BLOODFLY02_SPAWN01");
@@ -76,8 +76,8 @@ func void B_Story_RespawnOW()
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF_04_PSI5");
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_NWOLF_04_PSIWOOD5");
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF_NEARSHADOW_PSIWOOD_02");
-	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLFL__PSIWOOD_OUT4");
-	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF_NEARSHAD2_PSIWOOD_OUT");
+	Wld_InsertNpc		(Keiler,"SPAWN_OW_WOLFL__PSIWOOD_OUT4");
+	Wld_InsertNpc		(Keiler,"SPAWN_OW_WOLF_NEARSHAD2_PSIWOOD_OUT");
 	Wld_InsertNpc		(GreenGobboSword,"SPAWN_OW_GOBBO_WATERFALLCAVE_2");
 	Wld_InsertNpc		(Molerat,"FP_ROAM_OW_MOLERAT_04_PSI");
 	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERATN_PSIWOOD_1");
@@ -91,7 +91,7 @@ func void B_Story_RespawnOW()
 	Wld_InsertNpc		(Scavenger,"SPAWN_OW_SCAVENGER_NEARSHAD2_PSIWOOD3");
 	Wld_InsertNpc		(Bloodfly,"SPAWN_OW_BLOODFLY_PSIWOOD_02");
 	Wld_InsertNpc		(Bloodfly,"SPAWN_OW_BLOODFLYS_PSIWOOD_4");
-	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF2_WALD_OC3");
+	Wld_InsertNpc		(Keiler,"SPAWN_OW_WOLF2_WALD_OC3");
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLFK__PSIWOOD_OUT3");
 	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERATT_04_PSI1");
 	Wld_InsertNpc		(Scavenger,"SPAWN_OW_SCAVENGER_GOBBOCAVE_03_01");

@@ -15,6 +15,8 @@
 |   |    // 2H - Możliwość ataku w biegu z g2
 |   |    // zmiana skoku na ten z G2
 |   |    // Zmiana w TA_CookForMe aby nie tworzyła pieczonego mięsa
+|   +--|-- Keiler.MDS
+|   |    // Animacja Dzika z G2
 |   +--|-- ORC.MDS
 |   |    // Rejestracja orka szkieleta -- soper machinima mod
 |   +--|-- SWAMPRAT.MDS 
@@ -58,6 +60,7 @@
 |   +--|-- B_GiveDeathInv
 |   |   // Demony posiadają serca jeśli mamy umiejętność wycinania serc
 |   |   // Krwiopijce posiadają skrzydła jeśli posiadamy odpowiednią umiejętność
+|   |   // Dziki posiadają skórę dzika
 |   +--|-- B_GiveSkill
 |   |   // Dodanie tarcz
 |   |   // Przebudowa nauki walki na 11 etapów
@@ -87,6 +90,9 @@
 |   |   // Niezaliczenie misji z zastępstwem dla Ghorima
 |   +--|-- B_Story_OrcSkeletonRise
 |   |   // Przywołanie orków szkieletów na cmentarzysku orków
+|   +--|-- B_Story_RespawnOW
+|   |   // Dodanie reskinu krwiopicy do questa
+|   |   // Dodanie dzików 
 |   +--|-- B_Story_OMFull
 |   |   // Mordrag i Grim wracają na swoje miejsca
 |   |   // Odpalenie rutyn OMFull strażnikom którzy je posiadali
@@ -375,6 +381,7 @@
 |   |   // Zmiana wyglądu krwiopijców na bagnie
 |   |   // Zamiana dwóch świątynnych pełzaczy(TPL_405) na królową świątynnych pełzaczy
 |   |   // Dodanie Ebr_103_Drak - ochroniarz Gomeza
+|   |   // Wymiana kilku wilków na dziki
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Stała LPCOST_TALENT_RUN
@@ -424,12 +431,14 @@
 |   +--| SFX
 |   |   // Dzwięk do stołu runicznego
 |   |   // Dzwięki bagiennego szczura
+|   |   // Dzwięki dzika
 |   +--| VISUALFX
 |   |   // wizualizacja DEMENTOR_FX używana gdy nie możemy spać z powodu uzależnienia od ziela
 |/******************************************INNE END********************************************************
 +-- Items
 |   +--| Animaltrophy
 |   |   // Dodanie Kości goblina, Kości szkieleta, serca demona, serca golema (do tworzenia run)
+|   |   // Dodanie skóry dzika
 |   +--| Armor
 |   |   // Funkcje obsługujące zakładanie i zdejmowanie kapturów w szatach magów
 |   |   // Dodano funkcje zmieniające skinBody podczas zakładania i zdejmowania zbroi (Głównie dla panerzy bractwa ale nie tylko)
@@ -504,6 +513,8 @@
 |   |   // Dwa reskiny dla krwiopijców na bagnach -- soper machinima mod
 |   +--| Mst_GobboPirat
 |   |   // Gobliny piraci od Zakona -- soper machinima mod
+|   +--| Mst_Keiler
+|   |   // Dzik z G2
 |   +--| Mst_Lurker
 |   |   // Reskin dla topielca spod tamy
 |   +--| Mst_MinecrawlerQueen

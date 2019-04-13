@@ -81,6 +81,7 @@ const int   ID_ORCSHAMAN        = 55;
 const int   ID_ORCSCOUT         = 56;
 const int   ID_ORCSCOUT_OD      = 57;
 const int   ID_ORCDOG           = 58;
+const int   ID_KEILER           = 59;
 // ----------------------------------------
 const int AIV_MM_PARTYMEMBER		= 23;	// SN:  (begleitet den Spieler - für XP-Vergabe)
 const int AIV_MM_DEATHINVGIVEN		= 24;	// SN:  da ZS_Dead auch nach jedem Load Game ausgeführt wird!

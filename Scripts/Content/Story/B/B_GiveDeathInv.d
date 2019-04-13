@@ -33,6 +33,7 @@ func void B_GiveDeathInv ()
 		if (self.aivar[AIV_MM_REAL_ID]==ID_BLACKWOLF)			{	CreateInvItems(self,ItAt_Wolf_02,1);	};
 		if (self.aivar[AIV_MM_REAL_ID]==ID_SHADOWBEAST)			{	CreateInvItems(self,ItAt_Shadow_01,1);	};
 		if (self.aivar[AIV_MM_REAL_ID]==ID_TROLL)				{	CreateInvItems(self,ItAt_Troll_01,1);	};
+		if (self.aivar[AIV_MM_REAL_ID]==ID_KEILER)				{	CreateInvItems(self,ItAt_KeilerFur,1);	};
 	};
 
 	if (Knows_GetHide == TRUE)
