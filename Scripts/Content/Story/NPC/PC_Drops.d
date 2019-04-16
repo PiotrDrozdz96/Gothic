@@ -60,6 +60,7 @@ INSTANCE PC_Drops(NPC_DEFAULT)
 	CreateInvItem(self,ItMW_Staff_Fire_02);
 	CreateInvItem(self,ItMW_Staff_Demon);
 	CreateInvItem(self,ItmW_Staff_Prot_03);
+	CreateInvItem(self,OrcStone_Axe);
 	
 	// Shield
 	CreateInvItem(self,ITSH_REINFORCED_A);

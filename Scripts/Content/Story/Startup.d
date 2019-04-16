@@ -1822,6 +1822,8 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 		
 	Wld_InsertNpc	(OrcWarrior2,"OW_PATH_RUIN_7");
 	Wld_InsertNpc	(OrcWarrior2,"OW_PATH_RUIN_7");
+
+	Wld_InsertNpc	(OrcStone, "OW_PATH_ORCRUIN_GOLEM");
 	
 	
 	

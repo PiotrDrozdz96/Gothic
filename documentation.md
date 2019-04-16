@@ -19,6 +19,8 @@
 |   |    // Animacja Dzika z G2
 |   +--|-- ORC.MDS
 |   |    // Rejestracja orka szkieleta -- soper machinima mod
+|   +--|-- ORCSTONE.MDS
+|   |    // MDS kamiennego orka
 |   +--|-- SWAMPRAT.MDS 
 |   |    // MDS bagiennego szczura z G2NK
 |   +--|-- ZOMBIE.MDS
@@ -382,6 +384,7 @@
 |   |   // Zamiana dwóch świątynnych pełzaczy(TPL_405) na królową świątynnych pełzaczy
 |   |   // Dodanie Ebr_103_Drak - ochroniarz Gomeza
 |   |   // Wymiana kilku wilków na dziki
+|   |   // Dodanie kamiennego Golema w Ruinach Orków(bagienny smok)
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Stała LPCOST_TALENT_RUN
@@ -487,6 +490,7 @@
 |   |   // Funkcje obsługujące tarcze, Dodanie Tarcz
 |   |   // 3 wersje Uriziela 1H
 |   |   // Dodanie kosturów
+|   |   // Dodanie kamiennego topora dla kamiennego Orka
 |   +-- Written
 |   |   // książka o krwiopijcach uczy zarówno usuwanie żądła jak i skrzydeł
 |   |   // Z "Pierwszy Krąg Magii wypada list od Xardasa
@@ -526,6 +530,8 @@
 |   |   // czasami zmiana start_aistate
 |   |   // Orkowi zwiadowcy z cmentarzyska orków mają gildie goblin, żeby Lukor się nie siepał że z nimi walczymy
 |   |   // Dodanie Orkowych szkieletów -- soper machinima mod
+|   +--| Mst_OrcStone
+|   |   // Kamienny Ork
 |   +--| Mst_SwampRat
 |   |   // Bagienny szczur z g2nk
 |   +--| Mst_Zombie
@@ -705,7 +711,6 @@
 +-- Worlds
 |   +-- World.ZEN
 |   |   // Dodanie stołów runicznych
-|   |   // Dodanie tarczy ITSH_LONG_A w starej świątyni (bagienny smok)
 |   |   // Dodanie kości goblina w jaskini goblinów (almanach)
 |   |   // Obiekty OC_MOB_PAN mają dodane OnStateFunc = PanFry
 |   |   // Osiatkowanie placu wymian, dodanie punktu zbierania ryżu

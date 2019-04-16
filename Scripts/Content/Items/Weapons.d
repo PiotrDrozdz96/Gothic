@@ -1283,3 +1283,30 @@ INSTANCE ItMW_Staff_Prot_03 (C_Item)
 	TEXT[4] 			= NAME_TwoHanded;
 	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
 };
+
+INSTANCE OrcStone_Axe (C_Item)
+{
+	name 				=	"Kamienny Topór";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_2HD_AXE;
+	material 			=	MAT_STONE;
+
+	value 				=	0;
+
+	damageTotal			= 	50;
+	damagetype			=	DAM_FLY;
+	range    			=  	130;
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	300;
+
+	visual 				=	"ItMw_2H_Axe_Stone.3DS";
+
+	description			= name;
+	TEXT[0]				=	"Topór zabra³em Kamiennemu Orkowi.";
+	TEXT[1]				=	"Jest cholernie ciê¿ki,";
+	TEXT[2]				=	"nie wiem czy na coœ mi siê przyda.";
+	TEXT[4] 			= NAME_Str_needed;				COUNT[4]	= cond_value[2];
+	TEXT[5] 			= NAME_TwoHanded;
+};
