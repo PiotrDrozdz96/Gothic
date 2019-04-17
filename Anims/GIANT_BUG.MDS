@@ -1,0 +1,108 @@
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Last Changes:
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Model ("Giant_Bug")
+{
+	meshAndTree ("GIANT_BUG_BODY.ASC" DONT_USE_MESH)
+	registerMesh ("GIANT_BUG_BODY.ASC")
+	aniEnum
+	{
+		ani      ("S_FISTRUN"               1  "S_FISTRUN"         0.0 0.0  M. "BUG_AMBIENT_A01.ASC"    F  0  50)
+		{
+			*eventSFX (2 "GB_AMBIENT")
+		}
+		aniBlend ("T_FISTRUN_2_FISTRUNL"       "S_FISTRUNL"        0.2 0.2)                                      
+		ani      ("S_FISTRUNL"              1  "S_FISTRUNL"        0.0 0.0  M. "BUG_RUN_A01.ASC"        F  10 24)
+		{
+			*eventSFX (11 "GB_WALK")
+		}
+		ani      ("T_FISTRUNL_2_FISTRUN"    1  "S_FISTRUN"         0.1 0.1  M. "BUG_RUN_A01.ASC"        F  24 24)
+		aniAlias ("T_FISTRUNR_2_FISTRUN"    1  "S_FISTRUN"         0.1 0.1  M. "T_FISTRUNL_2_FISTRUN"   F)       
+		ani      ("T_FISTJUMPB"             1  "S_FISTRUN"         0.0 0.2  M. "BUG_JUMPB_A01.ASC"      F  1  10)
+		{
+			*eventSFX (2 "GB_WALK")
+		}
+		aniAlias ("S_FISTWALK"              1  "S_FISTWALK"        0.0 0.0  M. "S_FISTRUN"              F)       
+		ani      ("T_FISTWALK_2_FISTWALKL"  1  "S_FISTWALKL"       0.0 0.0  M. "BUG_WALK_A01.ASC"       F  1  10)
+		ani      ("S_FISTWALKL"             1  "S_FISTWALKL"       0.0 0.1  M. "BUG_WALK_A01.ASC"       F  10 30)
+		{
+			*eventSFX (11 "GB_WALK")
+		}
+		ani      ("T_FISTWALKL_2_FISTWALK"  1  "S_FISTWALK"        0.0 0.0  M. "BUG_WALK_A01.ASC"       F  30 30)
+		aniBlend ("T_FISTWALKR_2_FISTWALK"     "S_FISTWALK"        0.2 0.2)                                      
+		aniBlend ("T_FISTWALK_2_FISTWALKBL"    "S_FISTWALKBL"      0.1 0.1)                                      
+		aniAlias ("S_FISTWALKBL"            1  "S_FISTWALKBL"      0.0 0.0  M. "S_FISTWALKL"            R)       
+		aniBlend ("T_FISTWALKBL_2_FISTWALK"    "S_FISTWALK"        0.1 0.1)                                      
+		aniBlend ("T_FISTWALKBR_2_FISTWALK"    "S_FISTWALK"        0.1 0.1)                                      
+		aniBlend ("T_FISTRUN_2_FISTWALK"       "S_FISTWALK"        0.2 0.2)                                      
+		aniBlend ("T_FISTWALK_2_FISTRUN"       "S_FISTRUN"         0.2 0.2)                                      
+		aniBlend ("T_FISTRUNL_2_FISTWALKL"     "S_FISTWALKL"       0.2 0.2)                                      
+		aniBlend ("T_FISTWALKL_2_FISTRUNL"     "S_FISTRUNL"        0.2 0.2)                                      
+		ani      ("T_FISTWALKTURNL"         20 ""                  0.2 0.2  M. "BUG_TURN_A01.ASC"       F  1  14)
+		aniAlias ("T_FISTWALKTURNR"         20 ""                  0.2 0.2  M. "T_FISTWALKTURNL"        R)       
+		aniAlias ("T_FISTRUNTURNL"          20 ""                  0.2 0.2  M. "T_FISTWALKTURNL"        F)       
+		aniAlias ("T_FISTRUNTURNR"          20 ""                  0.2 0.2  M. "T_FISTWALKTURNL"        R)       
+		ani      ("T_FISTRUNSTRAFEL"        1  "T_FISTRUNSTRAFEL"  0.0 0.0  M. "BUG_STRAFEL_A01.ASC"    R  0  10)
+		aniAlias ("T_FISTRUNSTRAFER"        1  "T_FISTRUNSTRAFER"  0.0 0.0  M. "T_FISTRUNSTRAFEL"       F)       
+		aniAlias ("T_FISTWALKSTRAFEL"       1  "T_FISTWALKSTRAFEL" 0.0 0.0  M. "T_FISTRUNSTRAFEL"       R)       
+		aniAlias ("T_FISTWALKSTRAFER"       1  "T_FISTWALKSTRAFER" 0.0 0.0  M. "T_FISTRUNSTRAFEL"       F)       
+		ani      ("T_STUMBLE"               1  ""                  0.1 0.1  M. "BUG_STUMBLE_A01.ASC"    F  0  10)
+		{
+			*eventSFX (1 "GB_HURT")
+		}
+		ani      ("T_STUMBLEB"              1  ""                  0.1 0.1  M. "BUG_STUMBLEB_A01.ASC"   F  0  10)
+		{
+			*eventSFX (1 "GB_HURT")
+		}
+		ani      ("S_FALLDN"                1  "S_FALLDN"          0.1 0.1  MF "BUG_FALL_A01.ASC"       F  1  16)
+		ani      ("T_FALLDN_2_STAND"        1  ""                  0.1 0.0  M. "BUG_FALL_A01.ASC"       F  16 35)
+		{
+			*eventSFXGrnd (17 "RUN")         
+			*eventSFXGrnd (27 "RUN")         
+			*eventSFX     (33 "M_FALL_SMALL")
+		}
+		ani      ("T_DEADB"                 1  "S_DEADB"           0.1 0.0  M. "BUG_DEAD_A01.ASC"       F  0  75)
+		{
+			*eventSFX (1  "GB_DIE")      
+			*eventSFX (30 "M_FALL_SMALL")
+		}
+		ani      ("S_DEADB"                 1  "S_DEADB"           0.0 0.0  M. "BUG_DEAD_A01.ASC"       F  75 75)
+		ani      ("T_DEAD"                  1  "S_DEAD"            0.1 0.0  M. "BUG_DEADB_A01.ASC"      F  0  30)
+		{
+			*eventSFX (1  "GB_DIE")      
+			*eventSFX (18 "M_FALL_SMALL")
+		}
+		ani      ("S_DEAD"                  1  "S_DEAD"            0.0 0.0  M. "BUG_DEADB_A01.ASC"      F  30 30)
+		ani      ("S_FISTATTACK"            1  "S_FISTATTACK"      0.0 0.0  M. "BUG_ATTACK_A01.ASC"     F  0  15)
+		{
+			*eventTag (0 "DEF_HIT_LIMB"  "Bip01 Head")
+			*eventTag (0 "DEF_OPT_FRAME" "5")         
+			*eventTag (0 "DEF_HIT_END"   "15")        
+			*eventTag (0 "DEF_WINDOW"    "5 15")      
+			*eventSFX (4 "GB_ATTACK")                 
+		}
+		ani      ("T_FISTATTACKMOVE"        2  ""                  0.2 0.2  M. "BUG_ATTACKMOVE_A01.ASC" F  0  25)
+		{
+			*eventTag (0 "DEF_HIT_LIMB"  "Bip01 Head")
+			*eventTag (0 "DEF_OPT_FRAME" "8")         
+			*eventSFX (4 "GB_ATTACK")                 
+		}
+		aniAlias ("T_FISTPARADEJUMPB"       1  ""                  0.0 0.0  M. "T_FISTJUMPB"            F)       
+		ani      ("T_WARN"                  1  ""                  0.1 0.1  M. "BUG_WARN_A01.ASC"       F  0  35)
+		{
+			*eventSFX (1 "GB_WARN")
+		}
+		ani      ("T_PERCEPTION"            1  ""                  0.1 0.1  M. "BUG_PERCEPTION_A01.ASC" F  0  50)
+		{
+			*eventSFX (2 "GB_PERCEPTION")
+		}
+		ani      ("T_EAT"                   2  ""                  0.1 0.1  M. "BUG_EAT_A01.ASC"        F  0  85)
+		{
+			*eventSFX (15 "GB_PERCEPTION")
+		}
+		aniAlias ("R_ROAM1"                 2  ""                  0.1 0.1  M. "T_EAT"                  F)       
+		aniAlias ("R_ROAM2"                 2  ""                  0.1 0.1  M. "T_PERCEPTION"           F)       
+		aniAlias ("R_ROAM3"                 2  ""                  0.1 0.1  M. "T_EAT"                  F)       
+	}
+}

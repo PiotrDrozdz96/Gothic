@@ -95,6 +95,7 @@
 |   +--|-- B_Story_RespawnOW
 |   |   // Dodanie reskinu krwiopicy do questa
 |   |   // Dodanie dzików 
+|   |   // Dodanie polnych bestii
 |   +--|-- B_Story_OMFull
 |   |   // Mordrag i Grim wracają na swoje miejsca
 |   |   // Odpalenie rutyn OMFull strażnikom którzy je posiadali
@@ -385,6 +386,7 @@
 |   |   // Dodanie Ebr_103_Drak - ochroniarz Gomeza
 |   |   // Wymiana kilku wilków na dziki
 |   |   // Dodanie kamiennego Golema w Ruinach Orków(bagienny smok)
+|   |   // Wymiana niektórych potworów w okolicach nowego obozu na polne bestie
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Stała LPCOST_TALENT_RUN
@@ -435,6 +437,7 @@
 |   |   // Dzwięk do stołu runicznego
 |   |   // Dzwięki bagiennego szczura
 |   |   // Dzwięki dzika
+|   |   // Dzwięki polnej bestii
 |   +--| VISUALFX
 |   |   // wizualizacja DEMENTOR_FX używana gdy nie możemy spać z powodu uzależnienia od ziela
 |/******************************************INNE END********************************************************
@@ -515,6 +518,8 @@
 |   +--| Mst_Bloodfly
 |   |   // Usunięcie skrzydeł z ekwipunku
 |   |   // Dwa reskiny dla krwiopijców na bagnach -- soper machinima mod
+|   +--| Mst_GiantBug
+|   |   // Polna Bestia z G2
 |   +--| Mst_GobboPirat
 |   |   // Gobliny piraci od Zakona -- soper machinima mod
 |   +--| Mst_Keiler

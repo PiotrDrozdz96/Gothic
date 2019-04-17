@@ -18,7 +18,7 @@ func void B_Story_RespawnOW()
 	Wld_InsertNpc		(Scavenger,"OW_SCAVENGER_CAVE3_SPAWN");
 	Wld_InsertNpc		(Molerat,"OW_MOLERAT_CAVE_SPAWN");
 	Wld_InsertNpc		(Snapper,"OW_CAVE2_SNAPPER_SPAWN");
-	Wld_InsertNpc		(Scavenger,"OW_PATH_SCAVENGER13_SPAWN01");
+	Wld_InsertNpc		(GiantBug,"OW_PATH_SCAVENGER13_SPAWN01");
 	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_CAVE1_OC");
 	Wld_InsertNpc		(Scavenger,"SPAWN_OW_SCA_05_01");
 	Wld_InsertNpc		(Bloodfly,"SPAWN_OW_BLOODFLY_C3");
@@ -57,7 +57,7 @@ func void B_Story_RespawnOW()
 	Wld_InsertNpc		(Bloodfly,"SPAWN_OW_BLOODFLY_06_01");
 	Wld_InsertNpc		(Bloodfly,"SPAWN_OW_BLOODFLY_OC_PSI");
 	Wld_InsertNpc		(Bloodfly,"SPAWN_OW_BLOODFLY_OC_WOOD03");
-	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_A_6_NC4");
+	Wld_InsertNpc		(GiantBug,"SPAWN_OW_MOLERAT_A_6_NC4");
 	Wld_InsertNpc		(Molerat,"PATH_WALD_OC_MOLERATSPAWN");
 	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_06_CAVE_GUARD3");
 	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_WOODOLDMINE2");
@@ -104,7 +104,7 @@ func void B_Story_RespawnOW()
 	Wld_InsertNpc		(Scavenger,"SPAWN_OW_SCAVENGER_AL_ORC");
 	Wld_InsertNpc		(Scavenger,"SPAWN_OW_SCAVENGER_OCWALD_PSI_PATH2");
 	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_PSI_PATH7");
-	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_03_04");
+	Wld_InsertNpc		(GiantBug,"SPAWN_OW_MOLERAT_03_04");
 	Wld_InsertNpc		(Waran,"SPAWN_OW_WARAN_OC_PSI3");
 	Wld_InsertNpc		(Waran,"FP_ROAM_OW_WARAN_OCWALD_PSI_PATH4");
 	Wld_InsertNpc		(Waran,"SPAWN_OW_WARAN_NC_03");

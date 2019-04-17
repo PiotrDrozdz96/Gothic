@@ -1075,6 +1075,44 @@
 				INSTANCE KLR_Warn		 				(C_SFX_DEF) {file= "KLR_warn.wav";					vol = 100;			};
 				INSTANCE KLR_Warn_A1	 				(C_SFX_DEF) {file= "KLR_warn2.wav";					vol = 100;			};
 				INSTANCE KLR_Warn_A2	 				(C_SFX_DEF) {file= "KLR_warn3.wav";					vol = 100;			};
+
+/* Giant Bug */                                                                                                         		
+				INSTANCE GB_Ambient	 					(C_SFX_DEF) {file= "GB_Ambient_01.wav";				vol = 70;			};
+				INSTANCE GB_Ambient_A1	 				(C_SFX_DEF) {file= "GB_Ambient_02.wav";				vol = 60;			};
+				INSTANCE GB_Ambient_A2	 				(C_SFX_DEF) {file= "GB_Ambient_03.wav";				vol = 70;			};
+				INSTANCE GB_Ambient_A3	 				(C_SFX_DEF) {file= "GB_Ambient_04.wav";				vol = 80;			};
+				INSTANCE GB_Ambient_A4	 				(C_SFX_DEF) {file= "GB_Ambient_05.wav";				vol = 70;			};
+				INSTANCE GB_Ambient_A5	 				(C_SFX_DEF) {file= "GB_Ambient_06.wav";				vol = 60;			};
+				INSTANCE GB_Ambient_A6	 				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE GB_Ambient_A7	 				(C_SFX_DEF) {file= "nosound.wav";					vol = 0;			};
+				INSTANCE GB_Ambient_A8	 				(C_SFX_DEF) {file= "GB_Ambient_02.wav";				vol = 70;			};
+				INSTANCE GB_Ambient_A9	 				(C_SFX_DEF) {file= "GB_Ambient_05.wav";				vol = 80;			};
+				INSTANCE GB_Ambient_A10 				(C_SFX_DEF) {file= "GB_Ambient_06.wav";				vol = 70;			};
+				INSTANCE GB_Ambient_A11	 				(C_SFX_DEF) {file= "GB_Ambient_02.wav";				vol = 60;			};
+				INSTANCE GB_Ambient_A12	 				(C_SFX_DEF) {file= "GB_Ambient_05.wav";				vol = 70;			};
+				INSTANCE GB_Ambient_A13 				(C_SFX_DEF) {file= "GB_Ambient_06.wav";				vol = 80;			};
+
+				INSTANCE GB_Attack						(C_SFX_DEF) {file= "GB_Attack_01.wav";				vol = 120;			};
+				INSTANCE GB_Attack_A1	 				(C_SFX_DEF) {file= "GB_Attack_03.wav";				vol = 120;			};
+				INSTANCE GB_Attack_A2	 				(C_SFX_DEF) {file= "GB_Attack_03.wav";				vol = 120;			};
+				INSTANCE GB_Attack_A3	 				(C_SFX_DEF) {file= "GB_Attack_04.wav";				vol = 120;			};
+				INSTANCE GB_Attack_A4	 				(C_SFX_DEF) {file= "GB_Attack_04.wav";				vol = 120;			};
+
+				INSTANCE GB_Walk	 					(C_SFX_DEF) {file= "GB_Walk_01.wav";				vol = 40;			};
+				INSTANCE GB_Walk_A1	 					(C_SFX_DEF) {file= "GB_Walk_02.wav";				vol = 40;			};
+				INSTANCE GB_Walk_A2	 					(C_SFX_DEF) {file= "GB_Walk_03.wav";				vol = 40;			};
+
+				INSTANCE GB_Warn	 					(C_SFX_DEF) {file= "GB_Warn_01.wav";				vol = 120;			};
+				INSTANCE GB_Warn_A1	 					(C_SFX_DEF) {file= "GB_Warn_02.wav";				vol = 120;			};
+
+				INSTANCE GB_Perception					(C_SFX_DEF) {file= "GB_Perception_01.wav";			vol = 80;			};
+
+				INSTANCE GB_Hurt	 					(C_SFX_DEF) {file= "GB_Hurt_01.wav";				vol = 80;			};
+				INSTANCE GB_Hurt_A1	 					(C_SFX_DEF) {file= "GB_Hurt_02.wav";				vol = 80;			};
+				INSTANCE GB_Hurt_A2	 					(C_SFX_DEF) {file= "GB_Hurt_03.wav";				vol = 80;			};
+
+				INSTANCE GB_Die	 						(C_SFX_DEF) {file= "GB_Die_01.wav";					vol = 80;			};
+				INSTANCE GB_Die_A1	 					(C_SFX_DEF) {file= "GB_Die_02.wav";					vol = 80;			};
 		
 		
 //////////////////////////////////////////////////////////////////////////////

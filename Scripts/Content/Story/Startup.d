@@ -1190,10 +1190,10 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc		(Snapper,"OW_CAVE2_SNAPPER_SPAWN");
 	Wld_InsertNpc		(Snapper,"OW_CAVE2_SNAPPER_SPAWN");
 	Wld_InsertNpc		(Snapper,"OW_CAVE2_SNAPPER_SPAWN");
-	Wld_InsertNpc		(Scavenger,"OW_PATH_SCAVENGER13_SPAWN01");
-	Wld_InsertNpc		(Scavenger,"OW_PATH_SCAVENGER13_SPAWN01");
-	Wld_InsertNpc		(Scavenger,"OW_PATH_SCAVENGER13_SPAWN01");
-	Wld_InsertNpc		(Scavenger,"OW_PATH_SCAVENGER13_SPAWN01");
+	Wld_InsertNpc		(GiantBug,"OW_PATH_SCAVENGER13_SPAWN01");
+	Wld_InsertNpc		(GiantBug,"OW_PATH_SCAVENGER13_SPAWN01");
+	Wld_InsertNpc		(GiantBug,"OW_PATH_SCAVENGER13_SPAWN01");
+	Wld_InsertNpc		(GiantBug,"OW_PATH_SCAVENGER13_SPAWN01");
 	Wld_InsertNpc		(Scavenger,"OW_SCAVENGER_SPAWN_TREE");
 	//--------------------------------------------------------
 	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_CAVE1_OC");
@@ -1334,9 +1334,9 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc		(Bloodfly,"SPAWN_OW_BLOODFLY_OC_WOOD03");
 	Wld_InsertNpc		(Bloodfly,"SPAWN_OW_BLOODFLY_OC_WOOD03");
 	Wld_InsertNpc		(Bloodfly,"SPAWN_OW_BLOODFLY_OC_WOOD03");
-	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_A_6_NC4");
-	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_A_6_NC4");
-	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_A_6_NC4");
+	Wld_InsertNpc		(GiantBug,"SPAWN_OW_MOLERAT_A_6_NC4");
+	Wld_InsertNpc		(GiantBug,"SPAWN_OW_MOLERAT_A_6_NC4");
+	Wld_InsertNpc		(GiantBug,"SPAWN_OW_MOLERAT_A_6_NC4");
 	Wld_InsertNpc		(Molerat,"PATH_WALD_OC_MOLERATSPAWN");
 	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_06_CAVE_GUARD3");
 	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_06_CAVE_GUARD3");
@@ -1485,9 +1485,9 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_PSI_PATH7");
 	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_PSI_PATH7");
 	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_PSI_PATH7");
-	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_03_04");
-	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_03_04");
-	Wld_InsertNpc		(Molerat,"SPAWN_OW_MOLERAT_03_04");
+	Wld_InsertNpc		(GiantBug,"SPAWN_OW_MOLERAT_03_04");
+	Wld_InsertNpc		(GiantBug,"SPAWN_OW_MOLERAT_03_04");
+	Wld_InsertNpc		(GiantBug,"SPAWN_OW_MOLERAT_03_04");
 	Wld_InsertNpc		(Waran,"SPAWN_OW_WARAN_OC_PSI3");
 	Wld_InsertNpc		(Waran,"FP_ROAM_OW_WARAN_OCWALD_PSI_PATH4");
 	Wld_InsertNpc		(Waran,"FP_ROAM_OW_WARAN_OCWALD_PSI_PATH4");
