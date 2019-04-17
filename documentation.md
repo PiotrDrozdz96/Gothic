@@ -8,6 +8,8 @@
 |   +--|-- GOBBO.MDS
 |   |    // Rejestracja szkieletu goblina z G2
 |   |    // Rejestracja goblinów piratów -- soper machinima mod
+|   +--|-- GIANT_BUG.MDS
+|   |    // Animacja Polnej Bestii z G2
 |   +--|-- HUMANS.MDS
 |   |    // Rejestracja nowych meshy/zbroi -- soper machinima mod/Sequel
 |   |    // Dodanie Rmaker do obsługi stołu runicznego
