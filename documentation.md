@@ -98,6 +98,7 @@
 |   |   // Dodanie reskinu krwiopicy do questa
 |   |   // Dodanie dzików 
 |   |   // Dodanie polnych bestii
+|   |   // Dodanie szkieletów goblinów
 |   +--|-- B_Story_OMFull
 |   |   // Mordrag i Grim wracają na swoje miejsca
 |   |   // Odpalenie rutyn OMFull strażnikom którzy je posiadali
@@ -389,6 +390,7 @@
 |   |   // Wymiana kilku wilków na dziki
 |   |   // Dodanie kamiennego Golema w Ruinach Orków(bagienny smok)
 |   |   // Wymiana niektórych potworów w okolicach nowego obozu na polne bestie
+|   |   // Wymiana wilków w jednym waypoincie na szkielety goblinów
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Stała LPCOST_TALENT_RUN

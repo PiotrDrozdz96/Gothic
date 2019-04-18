@@ -1368,9 +1368,9 @@ FUNC VOID STARTUP_SUB_SURFACE ()
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF_PSIWOOD_5");
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF_PSIWOOD_5");
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF_PSIWOOD_5");
-	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF_04_PSI5");
-	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF_04_PSI5");
-	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF_04_PSI5");
+	Wld_InsertNpc		(SkeletonGobbo,"SPAWN_OW_WOLF_04_PSI5");
+	Wld_InsertNpc		(SkeletonGobbo,"SPAWN_OW_WOLF_04_PSI5");
+	Wld_InsertNpc		(SkeletonGobbo,"SPAWN_OW_WOLF_04_PSI5");
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_NWOLF_04_PSIWOOD5");
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_NWOLF_04_PSIWOOD5");
 	Wld_InsertNpc		(Wolf,"SPAWN_OW_WOLF_NEARSHADOW_PSIWOOD_02");
