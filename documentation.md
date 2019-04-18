@@ -59,6 +59,7 @@
 |   |   // Dodanie nowych książek o czarach
 |   |   // Dodanie funkcji które dodają kostury do sprzedaży
 |   |   // Dodatkowe funkcje przywracające część ekwipunku po wyczyszczeniu po pobiciu handlarza
+|   |   // Cronos w 3 rozdziale ma w sprzedaży zwoje śmierci ożywieńcom potrzeba do questa ze zdobyciem kamienia ogniskującego z Miltenem, jeśli zużyjemy zwój otrzymany od Miltena
 |   +--|-- B_Give(Dexter/Huno/Viper)
 |   |   // Funkcje obsługujące asortyment handlarzy
 |   +--|-- B_GiveDeathInv
@@ -284,6 +285,7 @@
 |   |   // zmiany w dialogu o zostaniu magiem ognia
 |   |   // Dodano wpisy w dzienniku do zadania "List z zewnętrznego świata"
 |   |   // Dodaje wpis w dzienniku do zadania "List Cronosa"
+|   |   // Gdy zbieramy kamienie ogniskujące milten zwiększana nam manę żebyśmy mogli użyć zwoju, potem odpowiednio nam ją zmniejsza
 |   |   // Odpala funkcje B_Story_LogFailedAfterOMDown gdy informuje nas o śmierci magów ognia i zawaleniu starej kopalni
 |   +--|-- DIA_PC_Thief
 |   |   // Odsprzedawanie starych monet
@@ -412,6 +414,7 @@
 |   |   // Dodanie zmiennych potrzebynch do rosyjskiego fix moda
 |   |   // zmienne SC_IsObessed oraz jointDay związane z uzależnieniem palenia ziela
 |   |   // Dodanie GomezGuardTalk związanej z drażnieniem ochroniaża Gomeza
+|   |   // Zmienna MiltenFokiManaBonus, aby wiedzieć czy Milten zwiększył nam manę do questa
 |   +--| svm
 |   |   // dodanie svm CantReadThis związanej z kartkami uczącymi
 |   |   // Prztłumaczenie SVM_3_Smalltalk15, było po niemiecku
@@ -505,6 +508,7 @@
 |   |   // Dodanie książek Sekty oraz książki Przyzwania
 |/*******************************************ITEMS END*******************************************************
 |   +--| Spell_params | Spells_process_mana | Spells_process_released
+|   |   // Zmiany w kosztach many, oraz w zadawanych obrażeniach
 |   |   // Dodanie zaklęcia SPL_TELEPORT6
 |   |   // SummonsSkeleton przywołuje tylko jednego szkieleta
 |   |   // Nowe zaklęcia przywołań (SummonGobbo, SummonWolf)

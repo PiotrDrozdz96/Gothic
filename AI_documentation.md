@@ -52,6 +52,7 @@
 |   |   +-- ZS_Dead | ZS_Unconscious
 |   |   |    // odpalenie funkcji B_ClearDeadTrader
 |   |   |    // oznaczenie self.aivar[ AIV_WASDEFEATEDBYSC ] = TRUE;
+|   |   |    // Odpalenie funkcji B_ClearRuneInv
 +-- _Intern/constans
 |   |    // dodanie ITEM_DROPPED = 1 << 24
 +-- Story

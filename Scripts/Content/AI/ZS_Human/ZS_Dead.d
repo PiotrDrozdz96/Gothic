@@ -10,6 +10,7 @@ func void ZS_Dead ()
 	//-------- Erfahrungspunkte für den Spieler ? --------
 	//SN: VORSICHT, auch in B_MagicHurtNpc() vorhanden!
 	B_ClearDeadTrader();
+	B_ClearRuneInv(self);
 	if	Npc_IsPlayer   (other)
 	||	(C_NpcIsHuman  (other) && other.aivar[AIV_PARTYMEMBER])
 	||	(C_NpcIsMonster(other) && other.aivar[AIV_MM_PARTYMEMBER])

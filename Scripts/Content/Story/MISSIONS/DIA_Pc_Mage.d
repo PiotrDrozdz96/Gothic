@@ -794,6 +794,13 @@ func void Info_Milten_SHACCEPT_Info()
 	CreateInvItem		(self,	ItArScrollDestroyUndead);
 	B_GiveInvItems  (self, hero, ItArScrollDestroyUndead, 1);
 
+	if(hero.attribute[ATR_MANA_MAX] < 40)
+	{
+		MiltenFokiManaBonus = TRUE;
+		hero.attribute[ATR_MANA_MAX] = hero.attribute[ATR_MANA_MAX] + 40;
+		hero.attribute[ATR_MANA] = hero.attribute[ATR_MANA] + 40;
+	};
+
   	self.aivar[AIV_PARTYMEMBER] =	TRUE;
 	Npc_ExchangeRoutine	(self, "SHGuide");
 	AI_StopProcessInfos	(self);
@@ -1083,7 +1090,12 @@ func void Info_Milten_SHSUCCESS_Info()
 	B_LogEntry		(CH3_Stonehenge,	"Wspólnymi si³ami uda³o siê nam pokonaæ stra¿nika kamiennego krêgu. Milten zabra³ swoj¹ czêœæ zdobyczy i wróci³ do Starego Obozu.");
 	B_LogEntry		(CH3_Stonehenge,	"Saturas ucieszy siê, ¿e odnalaz³em ten kamieñ ogniskuj¹cy!");
 	
-  	self.aivar[AIV_PARTYMEMBER] =	FALSE;
+	if(MiltenFokiManaBonus == TRUE)
+	{
+		hero.attribute[ATR_MANA_MAX] = hero.attribute[ATR_MANA_MAX] - 40;
+	};
+	
+	self.aivar[AIV_PARTYMEMBER] =	FALSE;
 	Npc_ExchangeRoutine	(self, "ReturnToOC");
 	AI_StopProcessInfos	(self);
 };

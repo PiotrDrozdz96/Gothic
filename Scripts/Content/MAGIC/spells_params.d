@@ -56,7 +56,7 @@ const int	SPL_SENDCAST_SUMMONGOLEM	=	60; //
 const int	SPL_SENDCAST_ARMYOFDARKNESS	=	100; //
 
 const int	SPL_SENDCAST_MASSDEATH		=	150; //Runa Uriziela ??
-const int	SPL_SENDCAST_DESTROYUNDEAD	=	5; //Przez quest nie mogê zwiêkszyæ ??
+const int	SPL_SENDCAST_DESTROYUNDEAD	=	40; //
 const int	SPL_SENDCAST_WINDFIST		=	50; //
 const int	SPL_SENDCAST_STORMFIST		=	50; //
 const int	SPL_SENDCAST_CHARM			=	10; // 

@@ -36,6 +36,7 @@ var int Knows_Book_Circle_01;
 var int TrueMageGuild;
 
 var int LesterGuide;
+var int MiltenFokiManaBonus;
 
 var int Bloodwyn_ProtectionPaid;
 var int Bloodwyn_PayDay;

@@ -82,6 +82,7 @@ func void B_Give_CronosChapter3Runes ()
 	CreateInvItems (npc,ItArScrollTrfMeatbug,2);
 	CreateInvItems (npc,ItArScrollTrfWaran,3);
 	CreateInvItems (npc,ItArScrollTrfBloodfly,2);
+	CreateInvItems (npc,ItArScrollDestroyUndead,5);
 	
 	//-------- Ringe und Amulette --------
   	CreateInvItem (npc,Machtring);
