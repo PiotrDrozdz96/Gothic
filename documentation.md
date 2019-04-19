@@ -38,6 +38,8 @@
 |   |    // SHIELD_ST(1/2).MDS - Animacje walki tarczą z L`Hivier
 |/****************************************ANIMS END**********************************************************
 +--B
+|   +--|-- B_BuildLearnSmithString
+|   |   // Funkcja budująca tekst do nauki kowalstwa
 |   +--|-- B_BuyAtrributePoints
 |   |   // Uwzględnie tarcz przy nauce siły
 |   |   // Zwiększenie max many do 200
@@ -110,8 +112,10 @@
 |   |   // Otrzymanie runy teleportacyjnej na parter Wieży Xardasa
 |   +--|-- B_Story_ExploreSunkenTower
 |   |   // Przebudowa ataku na stary obóz
-|   +--|-- B_TeachPlayerTelentRunes
+|   +--|-- B_TeachPlayerTalentRunes
 |   |   // Funkcja do nauki tworzenia run
+|   +--|-- B_TeachPlayerTalentSmith
+|   |   // Funkcja do nauki kowalstwa
 |/*******************************************B END***********************************************************
 +--Dialogs
 |   +--|-- DIA_Babe
@@ -376,6 +380,7 @@
 |   |   // Dodanie numeru nowego talentu NPC_TALENT_RUN = 10
 |   +--| Log_Constans
 |   |   // Dodanie stałej GE_TelentRunes do nauki tworzenia run
+|   |   // Dodanie stałej GE_TelentSmith do nauki kowalstwa
 |   |   // CH1_FireMagesBrief - Quest z dostarczeniem listu z zewnętrznego świata
 |   |   // CH1_CronosBrief - Quest z dostarczeniem listu Cronosa do magów ognia
 |   |   // CH1_RatfordMap - Quest z mapą dla Ratforda
@@ -400,10 +405,10 @@
 |   +--| Story_Globals
 |   |   // Stałe LPCOST_TALENT_SHIELD_(1/2)
 |   |   // Stała LPCOST_TALENT_RUN
+|   |   // Stałe LPCOST_SMITH
 |   |   // Zmienna Shield_Equip która zapamiętuje czy mamy założoną tarcze
 |   |   // Zmienna Uriziel_1H
 |   |   // Zmienna Knows_GetDemonHeart - umiejętność wycinania serc demonów
-|   |   // Zmienna tablica PLAYER_TALENT_RUNES - umiejętności tworzenia run
 |   |   // Zmienna TrueMageGuild - potrzebna do przetasowań w gildiach magów
 |   |   // Zmiana punktów nauki przy nauce kregów magii
 |   |   // Dodanie kosztów nauki tworzenia run
@@ -434,14 +439,21 @@
 |   |   // nowe stałe dla opisu przedmiotów (NAME_Prot_All, NAME_Bonus_ManaHpMax)
 |   |   // Dodanie stałej "PODRYW" używanej w description w dialogach z kobietami
 |   +--| Gothic.src
+|   |   // Dodanie smith_intern do parsowania
 |   |   // Przeniesienie G_funcions wyżej w kolejce parsowania
 |   |   // Wydzelenie z folderu "B" dwóch osobnych folderów B_AssignAmbientInfos i B_GiveTradeInv
 |   |   // Dodanie funkcji B_TeachPlayerRunes do parsowania
+|   |   // Dodanie funkcji B_TeachPlayerSmith do parsowania
 |   |   // Dodanie funkcji B_Evolve do parsowania
 |   |   // Dodanie funkcji B_GetInvItem do parsowania
 |   |   // Przeniesienie AI\ORC nad Story\ZS
 |   +--| magic_intern
 |   |   // Zamiana stałej SPL_NEW(2-4)
+|   |   // Dodanie zmiennej tablicy PLAYER_TALENT_RUNES do nauki tworzenia run
+|   +--| smith_intern
+|   |   // Stałe związane z nauką kowalstwa
+|   |   // Zmienna tablica PLAYER_TALENT_SMITH, oraz zmienna PLAYER_TALENT_SMITHLEVEL do nauki kowalstwa
+|   |   // Funkcje pomocniczne HlpSmith_* pozwalające uzyskać nazwę, zadawane obrażenia, wymaganą siłę wykuwanych broni
 |   +--| PFX
 |   |   // Efekt wizualny do stołu runicznego
 |   +--| SFX

@@ -35,6 +35,7 @@ const string	GE_TeacherOW			=	"Niezale¿ny nauczyciel";
 
 const string	GE_AnimalTrophies		=	"Oprawianie zwierzyny";
 const string    GE_TalentRunes          =   "Runy";
+const string    GE_TalentSmith          =   "Kowalstwo";
 
 //---------------------------------------------------------------------
 //	KAPITEL 1

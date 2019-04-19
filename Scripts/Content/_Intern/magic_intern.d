@@ -89,6 +89,7 @@ const int SPL_SUMMONGOBBO	=	56;
 const int SPL_SUMMONWOLF	=	57;
 const int SPL_NEW5			=	58;
 
+var int PLAYER_TALENT_RUNES [MAX_SPELL];
 
 CLASS C_Spell {
 	VAR FLOAT	time_per_mana;			// Zeit pro investierten Manapunkt (ms)

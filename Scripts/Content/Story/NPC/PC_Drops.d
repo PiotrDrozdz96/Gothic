@@ -428,7 +428,6 @@ FUNC void PC_DROPS_TEACH_TALENT_RUNES_Info()
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Kula Ognia 5 pn", PC_DROPS_TEACH_SPL_FIREBALL);
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Ognista Burza 10 pn", PC_DROPS_TEACH_SPL_FIRESTORM);
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Deszcz Ognia 20 pn", PC_DROPS_TEACH_SPL_FIRERAIN);
-	//*
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Uzdrowienie 5 pn", PC_DROPS_TEACH_SPL_HEAL);
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Grom 10 pn", PC_DROPS_TEACH_SPL_CHAINLIGHTNING);
 	Info_AddChoice		(PC_DROPS_TEACH_TALENT_RUNES,"Sopel Lodu 5 pn", PC_DROPS_TEACH_SPL_THUNDERBOLT);
@@ -591,4 +590,58 @@ func void PC_DROPS_TEACH_SPL_FEAR()
 func void PC_DROPS_TEACH_SPL_BREATHOFDEATH()
 {
 	B_TeachPlayerTalentRunes(hero, SPL_BREATHOFDEATH, LPCOST_RUNEN_6);
+};
+
+//***************************************************************************
+//	TEACH SMITH
+//***************************************************************************
+
+instance  PC_DROPS_TEACH_SMITH (C_INFO)
+{
+	npc				= PC_Drops;
+	condition		= PC_DROPS_TEACH_SMITH_Condition;
+	information		= PC_DROPS_TEACH_SMITH_Info;
+	important		= 0;
+	permanent		= 1;
+	description		= "Nauka Kowalstwa"; 
+};
+
+FUNC int PC_DROPS_TEACH_SMITH_Condition()
+{	
+	return TRUE;
+};
+
+FUNC void PC_DROPS_TEACH_SMITH_Info()
+{
+	Info_ClearChoices	(PC_DROPS_TEACH_SMITH);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,DIALOG_BACK, PC_DROPS_TEACH_SMITH_BACK);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_Common,LPCOST_SMITH_0), PC_DROPS_TEACH_WEAPON_COMMON);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_1H_Sword_01,LPCOST_SMITH_1), PC_DROPS_TEACH_WEAPON_1H_Sword_01);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_1H_Sword_02,LPCOST_SMITH_2), PC_DROPS_TEACH_WEAPON_1H_Sword_02);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_1H_Sword_03,LPCOST_SMITH_3), PC_DROPS_TEACH_WEAPON_1H_Sword_03);
+};
+
+func void PC_DROPS_TEACH_SMITH_BACK()
+{
+	Info_ClearChoices	(PC_DROPS_TEACH_SMITH);
+};
+
+func void PC_DROPS_TEACH_WEAPON_COMMON()
+{
+	B_TeachPlayerTalentSmith(hero, WEAPON_Common, 0);
+};
+
+func void PC_DROPS_TEACH_WEAPON_1H_Sword_01()
+{
+	B_TeachPlayerTalentSmith(hero, WEAPON_1H_Sword_01, 1);
+};
+
+func void PC_DROPS_TEACH_WEAPON_1H_Sword_02()
+{
+	B_TeachPlayerTalentSmith(hero, WEAPON_1H_Sword_02, 2);
+};
+
+func void PC_DROPS_TEACH_WEAPON_1H_Sword_03()
+{
+	B_TeachPlayerTalentSmith(hero, WEAPON_1H_Sword_03, 3);
 };

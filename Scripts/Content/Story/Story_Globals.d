@@ -31,7 +31,6 @@ var int Knows_GetMCPlates;
 var int Knows_GetBFSting;
 var int Knows_GetDemonHeart;
 var int Knows_GetUluMulu;
-var int PLAYER_TALENT_RUNES [MAX_SPELL];
 var int Knows_Book_Circle_01;
 var int TrueMageGuild;
 
@@ -399,6 +398,12 @@ const int	LPCOST_TALENT_PICKLOCK_1	=	10;
 const int	LPCOST_TALENT_PICKLOCK_2	=	20;	
 const int	LPCOST_TALENT_PICKPOCKET_1	=	10;	
 const int	LPCOST_TALENT_PICKPOCKET_2	=	20;	
+
+const int	LPCOST_SMITH_0				=	2;
+const int	LPCOST_SMITH_1				=	4;
+const int	LPCOST_SMITH_2				=	6;
+const int	LPCOST_SMITH_3				=	8;
+const int	LPCOST_SMITH_4				=	10;
 /*-------------------------------------------------------------------------
 
 						LOG EINTRAGS VARIABLEN
