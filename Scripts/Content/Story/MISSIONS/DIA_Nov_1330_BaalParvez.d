@@ -76,10 +76,13 @@ FUNC VOID  DIA_BaalParvez_RightWay_Info()
 {
 	AI_Output (other, self,"DIA_BaalParvez_RightWay_15_00"); //A która œcie¿ka jest w³aœciwa?
 	AI_Output (self, other,"DIA_BaalParvez_RightWay_10_01"); //Œcie¿ka Œni¹cego, oczywiœcie. Tylko on mo¿e nas st¹d uwolniæ.
-	AI_Output (self, other,"DIA_BaalParvez_RightWay_10_02"); //Guru przygotowuj¹ w naszym obozie rytua³ wielkiego przyzwania. Zamierzaj¹ nawi¹zaæ kontakt ze Œni¹cym.
-	AI_Output (self, other,"DIA_BaalParvez_RightWay_10_03"); //Do tej pory przemawia³ do nas wy³¹cznie za poœrednictwem wizji, ale ju¿ wkrótce stanie przed nami w pe³ni swej chwa³y.
-	AI_Output (self, other,"DIA_BaalParvez_RightWay_10_04"); //Jednak aby to osi¹gn¹æ, potrzebujemy jak najwiêkszej rzeszy wyznawców. Jednocz¹c nasze si³y duchowe uda nam siê nawi¹zaæ z nim kontakt.
-	AI_Output (self, other,"DIA_BaalParvez_RightWay_10_05"); //Nasz obóz znajduje siê doœæ daleko st¹d - na wielkim bagnie. Mogê ciê tam zaprowadziæ, jeœli chcesz.
+	if(Kapitel < 3)
+	{
+		AI_Output (self, other,"DIA_BaalParvez_RightWay_10_02"); //Guru przygotowuj¹ w naszym obozie rytua³ wielkiego przyzwania. Zamierzaj¹ nawi¹zaæ kontakt ze Œni¹cym.
+		AI_Output (self, other,"DIA_BaalParvez_RightWay_10_03"); //Do tej pory przemawia³ do nas wy³¹cznie za poœrednictwem wizji, ale ju¿ wkrótce stanie przed nami w pe³ni swej chwa³y.
+		AI_Output (self, other,"DIA_BaalParvez_RightWay_10_04"); //Jednak aby to osi¹gn¹æ, potrzebujemy jak najwiêkszej rzeszy wyznawców. Jednocz¹c nasze si³y duchowe uda nam siê nawi¹zaæ z nim kontakt.
+		AI_Output (self, other,"DIA_BaalParvez_RightWay_10_05"); //Nasz obóz znajduje siê doœæ daleko st¹d - na wielkim bagnie. Mogê ciê tam zaprowadziæ, jeœli chcesz.
+	};
 };
 
 // **************************************************
@@ -99,6 +102,7 @@ instance  DIA_BaalParvez_MyAdvantage (C_INFO)
 FUNC int  DIA_BaalParvez_MyAdvantage_Condition()
 {
 	if (Npc_KnowsInfo(hero, DIA_BaalParvez_RightWay))
+	&& (Npc_GetTrueGuild(hero, GIL_NONE))
 	{
 		return 1;
 	};
@@ -228,6 +232,7 @@ FUNC int  DIA_BaalParvez_GotoPSI_Condition()
 	&&	(Npc_KnowsInfo(hero, DIA_BaalParvez_RightWay))
 	&&	(Npc_GetDistToWP(self,"PATH_OC_PSI_18")>5000)
 	&&	!Npc_KnowsInfo(hero, DIA_BaalParvez_AtPSI)
+	&&	(Kapitel < 3)
 	{
 		return 1;
 	};

@@ -64,6 +64,7 @@ instance  DIA_BaalTaran_Bruderschaft (C_INFO)
 FUNC int  DIA_BaalTaran_Bruderschaft_Condition()
 {
 	if (Npc_KnowsInfo(hero, DIA_BaalTaran_Greet))
+	&& (Kapitel < 3)
 	{
 		return 1;
 	};
@@ -214,6 +215,7 @@ instance  DIA_BaalTaran_WayToST (C_INFO)
 FUNC int  DIA_BaalTaran_WayToST_Condition()
 {
 	if (Npc_KnowsInfo(hero, DIA_BaalTaran_Bruderschaft))
+	&& (Kapitel < 3)
 	{
 		return 1;
 	};
@@ -251,6 +253,7 @@ instance  DIA_BaalTaran_IntoCastle (C_INFO)
 FUNC int  DIA_BaalTaran_IntoCastle_Condition()
 {
 	if (Npc_KnowsInfo(hero, DIA_BaalTaran_Greet))
+	&& (wache212.aivar[AIV_PASSGATE] == FALSE)
 	{
 		return 1;
 	};

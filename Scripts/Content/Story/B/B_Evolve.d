@@ -85,6 +85,7 @@ func void B_Evolve_NC()
     var C_NPC senyan; senyan = Hlp_GetNpc(SFB_1000_Senyan);
     senyan.level = 4;
     senyan.guild = GIL_ORG;
+    senyan.attribute[ATR_STRENGTH] = 30;
     Mdl_ApplyOverlayMds	(senyan,"Humans_Relaxed.mds");
     Mdl_SetVisualBody (senyan,"hum_body_Naked0",2,3,"Hum_Head_Bald", 1,  1, ORG_ARMOR_L);
     senyan.fight_tactic	=	FAI_HUMAN_STRONG;

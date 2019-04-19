@@ -15,7 +15,7 @@ func void B_Story_OMFull ()
         B_ExchangeRoutine(Grd_213_Torwache, "OMFull");
     };
 
-    // B_ExchangeRoutine(Grd_240_Gardist, "OMFull");
+    B_ExchangeRoutine(Grd_240_Gardist, "OMFull");
     B_ExchangeRoutine(Grd_241_Gardist, "OMFull");
     B_ExchangeRoutine(Grd_242_Gardist, "OMFull");
     B_ExchangeRoutine(Grd_243_Gardist, "OMFull");

@@ -235,8 +235,12 @@
 |   |   // Zmiana w sprawdzaniu czy w pobliżu są krwiopijce, ze względu na zmieniony reskiny w krwiopijcach na bagnie
 |   +--|-- DIA_Nov_1304_Balor -- by marev
 |   |   // gracz może poprawnie odebrać bagienne ziele od Balora po raz drugi
+|   +--|-- DIA_Nov_1330_BaalParvez
+|   |   // Dodanie dodatkowych warunków do rozmów, aby nie można była gadać bez sensu początkowych dialogów w późniejszych etapch gry
 |   +--|-- DIA_Nov_1331_BaalTaran
 |   |   // Dodano wpis w dzienniku do zadania "List z zewnętrznego świata"
+|   |   // Dodanie dodatkowych warunków do rozmów, aby nie można była gadać bez sensu początkowych dialogów w późniejszych etapch gry
+|   |   // Nie można zapytać o to jak dostać się do zamku, jeśli uzyskaliśmy już prawo wstępu
 |   +--|-- DIA_Nov_1372_Bukano
 |   |   // Dialogi nowej postaci
 |   +--|-- DIA_ORC_HighPriest5
@@ -638,6 +642,8 @@
 |   |   |    // Dodanie tarczy ITSH_W2_E2_KEADWEN
 |   |   +--| GRD_224_Pacho/GRD_(237/238)_Gardist
 |   |   |    // Dodanie rutyn FMTaken2 przenoszący na plac wymian
+|   |   +--| GRD_240_Gardist
+|   |   |    // Zmiana w rutynie OMFull, zamiast stać przed siedzibą magnatów idzie szpiegować sekte
 |   |   +--| GRD_(275/276)
 |   |   |    // Dodanie tarczy ITSH_W2_E2_KEADWEN
 |   |   |    // Dodanie rutyn FMTaken2 przenoszący na plac wymian
