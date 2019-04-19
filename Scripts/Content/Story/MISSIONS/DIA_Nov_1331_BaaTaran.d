@@ -252,6 +252,7 @@ instance  DIA_BaalTaran_IntoCastle (C_INFO)
 
 FUNC int  DIA_BaalTaran_IntoCastle_Condition()
 {
+	var C_NPC wache212; wache212 = Hlp_GetNpc(Grd_212_Torwache);
 	if (Npc_KnowsInfo(hero, DIA_BaalTaran_Greet))
 	&& (wache212.aivar[AIV_PASSGATE] == FALSE)
 	{

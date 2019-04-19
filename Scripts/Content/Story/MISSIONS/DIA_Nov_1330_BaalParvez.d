@@ -102,7 +102,7 @@ instance  DIA_BaalParvez_MyAdvantage (C_INFO)
 FUNC int  DIA_BaalParvez_MyAdvantage_Condition()
 {
 	if (Npc_KnowsInfo(hero, DIA_BaalParvez_RightWay))
-	&& (Npc_GetTrueGuild(hero, GIL_NONE))
+	&& (Npc_GetTrueGuild(hero) == GIL_NONE)
 	{
 		return 1;
 	};
