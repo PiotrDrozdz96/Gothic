@@ -12,3 +12,12 @@ func string B_BuildLearnSmithString (var int waffe, var int LP_Cost)
 
 	return msg;
 };
+
+func string B_BuildLogSmithString(var int waffe)
+{
+	var string msg;
+
+	msg = ConcatStrings("Teraz mogê wykuæ ", HlpSmith_GetName(waffe));
+
+	return msg;
+};

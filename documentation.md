@@ -40,6 +40,7 @@
 +--B
 |   +--|-- B_BuildLearnSmithString
 |   |   // Funkcja budująca tekst do nauki kowalstwa
+|   |   // Funkcja budująca wpis w dzienniku kowalstwa
 |   +--|-- B_BuyAtrributePoints
 |   |   // Uwzględnie tarcz przy nauce siły
 |   |   // Zwiększenie max many do 200

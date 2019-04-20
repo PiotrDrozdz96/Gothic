@@ -615,10 +615,17 @@ FUNC void PC_DROPS_TEACH_SMITH_Info()
 {
 	Info_ClearChoices	(PC_DROPS_TEACH_SMITH);
 	Info_AddChoice		(PC_DROPS_TEACH_SMITH,DIALOG_BACK, PC_DROPS_TEACH_SMITH_BACK);
+	//1H Sword
 	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_Common,LPCOST_SMITH_0), PC_DROPS_TEACH_WEAPON_COMMON);
 	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_1H_Sword_01,LPCOST_SMITH_1), PC_DROPS_TEACH_WEAPON_1H_Sword_01);
 	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_1H_Sword_02,LPCOST_SMITH_2), PC_DROPS_TEACH_WEAPON_1H_Sword_02);
 	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_1H_Sword_03,LPCOST_SMITH_3), PC_DROPS_TEACH_WEAPON_1H_Sword_03);
+	//2H Sword
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_2H_Sword_01,LPCOST_SMITH_1), PC_DROPS_TEACH_WEAPON_2H_Sword_01);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_2H_Sword_02,LPCOST_SMITH_2), PC_DROPS_TEACH_WEAPON_2H_Sword_02);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_2H_Sword_03,LPCOST_SMITH_2), PC_DROPS_TEACH_WEAPON_2H_Sword_03);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_2H_Sword_04,LPCOST_SMITH_3), PC_DROPS_TEACH_WEAPON_2H_Sword_04);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_2H_Sword_05,LPCOST_SMITH_4), PC_DROPS_TEACH_WEAPON_2H_Sword_05);
 };
 
 func void PC_DROPS_TEACH_SMITH_BACK()
@@ -626,6 +633,7 @@ func void PC_DROPS_TEACH_SMITH_BACK()
 	Info_ClearChoices	(PC_DROPS_TEACH_SMITH);
 };
 
+//1H Sword
 func void PC_DROPS_TEACH_WEAPON_COMMON()
 {
 	B_TeachPlayerTalentSmith(hero, WEAPON_Common, 0);
@@ -644,4 +652,30 @@ func void PC_DROPS_TEACH_WEAPON_1H_Sword_02()
 func void PC_DROPS_TEACH_WEAPON_1H_Sword_03()
 {
 	B_TeachPlayerTalentSmith(hero, WEAPON_1H_Sword_03, 3);
+};
+
+//2H Sword
+func void PC_DROPS_TEACH_WEAPON_2H_Sword_01()
+{
+	B_TeachPlayerTalentSmith(hero, WEAPON_2H_Sword_01, 1);
+};
+
+func void PC_DROPS_TEACH_WEAPON_2H_Sword_02()
+{
+	B_TeachPlayerTalentSmith(hero, WEAPON_2H_Sword_02, 2);
+};
+
+func void PC_DROPS_TEACH_WEAPON_2H_Sword_03()
+{
+	B_TeachPlayerTalentSmith(hero, WEAPON_2H_Sword_03, 2);
+};
+
+func void PC_DROPS_TEACH_WEAPON_2H_Sword_04()
+{
+	B_TeachPlayerTalentSmith(hero, WEAPON_2H_Sword_04, 3);
+};
+
+func void PC_DROPS_TEACH_WEAPON_2H_Sword_05()
+{
+	B_TeachPlayerTalentSmith(hero, WEAPON_2H_Sword_05, 4);
 };
