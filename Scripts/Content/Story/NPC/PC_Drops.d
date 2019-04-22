@@ -614,18 +614,55 @@ FUNC int PC_DROPS_TEACH_SMITH_Condition()
 FUNC void PC_DROPS_TEACH_SMITH_Info()
 {
 	Info_ClearChoices	(PC_DROPS_TEACH_SMITH);
+
 	Info_AddChoice		(PC_DROPS_TEACH_SMITH,DIALOG_BACK, PC_DROPS_TEACH_SMITH_BACK);
-	//1H Sword
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,"1H Sword", PC_DROPS_TEACH_SMITH_1H_Sword);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,"1H Mace", PC_DROPS_TEACH_SMITH_1H_Mace);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,"2H Sword", PC_DROPS_TEACH_SMITH_2H_Sword);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,"2H Axe", PC_DROPS_TEACH_SMITH_2H_Axe);
+};
+
+func void PC_DROPS_TEACH_SMITH_1H_Sword()
+{
+	Info_ClearChoices	(PC_DROPS_TEACH_SMITH);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,DIALOG_BACK, PC_DROPS_TEACH_SMITH_BACK);
+	
 	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_Common,LPCOST_SMITH_0), PC_DROPS_TEACH_WEAPON_COMMON);
 	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_1H_Sword_01,LPCOST_SMITH_1), PC_DROPS_TEACH_WEAPON_1H_Sword_01);
 	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_1H_Sword_02,LPCOST_SMITH_2), PC_DROPS_TEACH_WEAPON_1H_Sword_02);
 	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_1H_Sword_03,LPCOST_SMITH_3), PC_DROPS_TEACH_WEAPON_1H_Sword_03);
-	//2H Sword
+};
+
+func void PC_DROPS_TEACH_SMITH_1H_Mace()
+{
+	Info_ClearChoices	(PC_DROPS_TEACH_SMITH);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,DIALOG_BACK, PC_DROPS_TEACH_SMITH_BACK);
+
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_1H_Mace_01,LPCOST_SMITH_1), PC_DROPS_TEACH_WEAPON_1H_Mace_01);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_1H_Mace_02,LPCOST_SMITH_2), PC_DROPS_TEACH_WEAPON_1H_Mace_02);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_1H_Mace_03,LPCOST_SMITH_3), PC_DROPS_TEACH_WEAPON_1H_Mace_03);
+};
+
+func void PC_DROPS_TEACH_SMITH_2H_Sword()
+{
+	Info_ClearChoices	(PC_DROPS_TEACH_SMITH);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,DIALOG_BACK, PC_DROPS_TEACH_SMITH_BACK);
+
 	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_2H_Sword_01,LPCOST_SMITH_1), PC_DROPS_TEACH_WEAPON_2H_Sword_01);
 	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_2H_Sword_02,LPCOST_SMITH_2), PC_DROPS_TEACH_WEAPON_2H_Sword_02);
-	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_2H_Sword_03,LPCOST_SMITH_2), PC_DROPS_TEACH_WEAPON_2H_Sword_03);
-	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_2H_Sword_04,LPCOST_SMITH_3), PC_DROPS_TEACH_WEAPON_2H_Sword_04);
-	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_2H_Sword_05,LPCOST_SMITH_4), PC_DROPS_TEACH_WEAPON_2H_Sword_05);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_2H_Sword_03,LPCOST_SMITH_3), PC_DROPS_TEACH_WEAPON_2H_Sword_03);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_2H_Sword_04,LPCOST_SMITH_4), PC_DROPS_TEACH_WEAPON_2H_Sword_04);
+};
+
+func void PC_DROPS_TEACH_SMITH_2H_Axe()
+{
+	Info_ClearChoices	(PC_DROPS_TEACH_SMITH);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,DIALOG_BACK, PC_DROPS_TEACH_SMITH_BACK);
+
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_2H_Axe_01,LPCOST_SMITH_1), PC_DROPS_TEACH_WEAPON_2H_Axe_01);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_2H_Axe_02,LPCOST_SMITH_2), PC_DROPS_TEACH_WEAPON_2H_Axe_02);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_2H_Axe_03,LPCOST_SMITH_3), PC_DROPS_TEACH_WEAPON_2H_Axe_03);
+	Info_AddChoice		(PC_DROPS_TEACH_SMITH,B_BuildLearnSmithString(WEAPON_2H_Axe_04,LPCOST_SMITH_4), PC_DROPS_TEACH_WEAPON_2H_Axe_04);
 };
 
 func void PC_DROPS_TEACH_SMITH_BACK()
@@ -667,15 +704,47 @@ func void PC_DROPS_TEACH_WEAPON_2H_Sword_02()
 
 func void PC_DROPS_TEACH_WEAPON_2H_Sword_03()
 {
-	B_TeachPlayerTalentSmith(hero, WEAPON_2H_Sword_03, 2);
+	B_TeachPlayerTalentSmith(hero, WEAPON_2H_Sword_03, 3);
 };
 
 func void PC_DROPS_TEACH_WEAPON_2H_Sword_04()
 {
-	B_TeachPlayerTalentSmith(hero, WEAPON_2H_Sword_04, 3);
+	B_TeachPlayerTalentSmith(hero, WEAPON_2H_Sword_04, 4);
 };
 
-func void PC_DROPS_TEACH_WEAPON_2H_Sword_05()
+//1H Mace
+func void PC_DROPS_TEACH_WEAPON_1H_Mace_01()
 {
-	B_TeachPlayerTalentSmith(hero, WEAPON_2H_Sword_05, 4);
+	B_TeachPlayerTalentSmith(hero, WEAPON_1H_Mace_01, 1);
+};
+
+func void PC_DROPS_TEACH_WEAPON_1H_Mace_02()
+{
+	B_TeachPlayerTalentSmith(hero, WEAPON_1H_Mace_02, 2);
+};
+
+func void PC_DROPS_TEACH_WEAPON_1H_Mace_03()
+{
+	B_TeachPlayerTalentSmith(hero, WEAPON_1H_Mace_03, 3);
+};
+
+//2H Axe
+func void PC_DROPS_TEACH_WEAPON_2H_Axe_01()
+{
+	B_TeachPlayerTalentSmith(hero, WEAPON_2H_Axe_01, 1);
+};
+
+func void PC_DROPS_TEACH_WEAPON_2H_Axe_02()
+{
+	B_TeachPlayerTalentSmith(hero, WEAPON_2H_Axe_02, 2);
+};
+
+func void PC_DROPS_TEACH_WEAPON_2H_Axe_03()
+{
+	B_TeachPlayerTalentSmith(hero, WEAPON_2H_Axe_03, 3);
+};
+
+func void PC_DROPS_TEACH_WEAPON_2H_Axe_04()
+{
+	B_TeachPlayerTalentSmith(hero, WEAPON_2H_Axe_04, 4);
 };

@@ -67,21 +67,54 @@ func int B_TeachPlayerTalentSmith(var C_NPC typ, var int waffe, var int smithLev
             PLAYER_TALENT_SMITH[WEAPON_2H_Sword_02] = TRUE; //ItMw_2H_Sword_Light_04 -- Miecz Królewski
             B_LogEntry (GE_TalentSmith,B_BuildLogSmithString(WEAPON_2H_Sword_02));
         };
-        if(waffe == WEAPON_2H_Sword_03) //CH2
+        if(waffe == WEAPON_2H_Sword_03) //CH3
         {
-            PLAYER_TALENT_SMITH[WEAPON_2H_Sword_03] = TRUE; //ItMw_2H_Sword_Light_05 -- Miecz demonów
+            PLAYER_TALENT_SMITH[WEAPON_2H_Sword_03] = TRUE; //ItMw_2H_Sword_Heavy_01 -- Ciê¿ki dwurêczniak
             B_LogEntry (GE_TalentSmith,B_BuildLogSmithString(WEAPON_2H_Sword_03));
         };
-        if(waffe == WEAPON_2H_Sword_04) //CH3
+        if(waffe == WEAPON_2H_Sword_04) //CH4
         {
-            PLAYER_TALENT_SMITH[WEAPON_2H_Sword_04] = TRUE; //ItMw_2H_Sword_Heavy_01 -- Ciê¿ki dwurêczniak
+            PLAYER_TALENT_SMITH[WEAPON_2H_Sword_04] = TRUE; //ItMw_2H_Sword_Heavy_04 -- Mœciwa Stal
             B_LogEntry (GE_TalentSmith,B_BuildLogSmithString(WEAPON_2H_Sword_04));
         };
-        if(waffe == WEAPON_2H_Sword_05) //CH4
+        //1H Mace
+        if(waffe == WEAPON_1H_Mace_01) //CH1
         {
-            PLAYER_TALENT_SMITH[WEAPON_2H_Sword_05] = TRUE; //ItMw_2H_Sword_Heavy_04 -- Mœciwa Stal
-            B_LogEntry (GE_TalentSmith,B_BuildLogSmithString(WEAPON_2H_Sword_05));
+            PLAYER_TALENT_SMITH[WEAPON_1H_Mace_01] = TRUE; //ItMw_1H_Mace_War_02 -- ¯elazna Maczuga
+            B_LogEntry (GE_TalentSmith,B_BuildLogSmithString(WEAPON_1H_Mace_01));
         };
+        if(waffe == WEAPON_1H_Mace_02) //CH2
+        {
+            PLAYER_TALENT_SMITH[WEAPON_1H_Mace_02] = TRUE; //ItMw_1H_Mace_War_03 -- £omotacz
+            B_LogEntry (GE_TalentSmith,B_BuildLogSmithString(WEAPON_1H_Mace_02));
+        };
+        if(waffe == WEAPON_1H_Mace_03) //CH3
+        {
+            PLAYER_TALENT_SMITH[WEAPON_1H_Mace_03] = TRUE; //ItMw_1H_Mace_War_04 -- £amacz Serc
+            B_LogEntry (GE_TalentSmith,B_BuildLogSmithString(WEAPON_1H_Mace_03));
+        };
+        //2H Axe
+        if(waffe == WEAPON_2H_Axe_01) //CH1
+        {
+            PLAYER_TALENT_SMITH[WEAPON_2H_Axe_01] = TRUE; //ItMw_2H_Axe_light_01 -- Lekki Topór bojowy
+            B_LogEntry (GE_TalentSmith,B_BuildLogSmithString(WEAPON_2H_Axe_01));
+        };
+        if(waffe == WEAPON_2H_Axe_02) //CH2
+        {
+            PLAYER_TALENT_SMITH[WEAPON_2H_Axe_02] = TRUE; //ItMw_2H_Sword_Light_03 -- Ostrze Najemnika
+            B_LogEntry (GE_TalentSmith,B_BuildLogSmithString(WEAPON_2H_Axe_02));
+        };
+        if(waffe == WEAPON_2H_Axe_03) //CH3
+        {
+            PLAYER_TALENT_SMITH[WEAPON_2H_Axe_03] = TRUE; //ItMw_2H_Axe_Heavy_01 -- Topór Wojenny
+            B_LogEntry (GE_TalentSmith,B_BuildLogSmithString(WEAPON_2H_Axe_03));
+        };
+        if(waffe == WEAPON_2H_Axe_04) //CH4
+        {
+            PLAYER_TALENT_SMITH[WEAPON_2H_Axe_04] = TRUE; //ItMw_2H_Axe_Heavy_02 -- Krzyk Wojownika
+            B_LogEntry (GE_TalentSmith,B_BuildLogSmithString(WEAPON_2H_Axe_04));
+        };
+
         return 1;
     };
 };
