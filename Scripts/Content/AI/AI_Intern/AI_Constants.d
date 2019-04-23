@@ -99,6 +99,7 @@ const int MOBSI_NONE			= 0;
 const int MOBSI_SleepAbit		= 1;
 const int MOBSI_MakeRune		= 2;
 const int MOBSI_PanFry			= 3;
+const int MOBSI_SmithWeapon		= 4;
 
 var int PLAYER_MOBSI_PRODUCTION;
 

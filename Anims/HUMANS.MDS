@@ -3334,7 +3334,7 @@ Model ("HuS")
 			ani			("t_BSANVIL_S1_2_S0"		1	"s_BSANVIL_S0"		0.0	0.0	M.	"Hum_BSAnvil_Jue00.asc"		R	4	9)
 			{
 				*eventTag(	(9	"DEF_EXCHANGE_ITEM"	"ZS_LEFTHAND"	"ItMiSwordbladehot")
-				*eventTag	(4	"DEF_REMOVE_ITEM")
+				*eventTag	(4	"DEF_DESTROY_ITEM")
 			}
 
 	// Water Cooling - useWithItem = BS_SWORD_BLADEHOT

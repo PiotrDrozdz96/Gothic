@@ -17,6 +17,7 @@
 |   |    // 2H - Możliwość ataku w biegu z g2
 |   |    // zmiana skoku na ten z G2
 |   |    // Zmiana w TA_CookForMe aby nie tworzyła pieczonego mięsa
+|   |    // Zmiana w BSAnvil aby nie tworzyła rozgrzanego ostrza
 |   +--|-- Keiler.MDS
 |   |    // Animacja Dzika z G2
 |   +--|-- ORC.MDS
@@ -38,9 +39,8 @@
 |   |    // SHIELD_ST(1/2).MDS - Animacje walki tarczą z L`Hivier
 |/****************************************ANIMS END**********************************************************
 +--B
-|   +--|-- B_BuildLearnSmithString
-|   |   // Funkcja budująca tekst do nauki kowalstwa
-|   |   // Funkcja budująca wpis w dzienniku kowalstwa
+|   +--|-- B_BuildSmithString
+|   |   // Funkcje zwracające odpowiednie stringi związane z kowalstwem
 |   +--|-- B_BuyAtrributePoints
 |   |   // Uwzględnie tarcz przy nauce siły
 |   |   // Zwiększenie max many do 200
@@ -373,6 +373,7 @@
 |   //Sleepabit.d - Dopasowanie do systemu PLAYER_MOBSI_PRODUCTION, uwzględnienie uzależnienia od ziela które nie pozwala zasnąć
 |   //PanFry.d - Obsługa patelni
 |   //MakeRune.d - Obsługa stołu runicznego
+|   //SmithWeapon.d - Obsługa kowadła
 +--Inne
 |   +--| constans
 |   |   // Dodanie nowej kategorii przedmiotu ITEM_SHIELD = 1 << 1
@@ -745,7 +746,9 @@
 |   |   // Dodanie stołów runicznych
 |   |   // Dodanie kości goblina w jaskini goblinów (almanach)
 |   |   // Obiekty OC_MOB_PAN mają dodane OnStateFunc = PanFry
+|   |   // Obiekty BSANVIL mają dodane OnStateFunc = SmithWeapon
 |   |   // Osiatkowanie placu wymian, dodanie punktu zbierania ryżu
 |   |   // połączenie waypointów na ścieżce do starej kopalni
 |   |   // Dodanie księgi o bagiennym zielu do kufra Kaloma (tego z almanachem i kamieniem ogniskującym)
 |   |   // Dodatkowe waypointy na bagnie dla bagiennych szczurów i zombie
+|   |   // Zatopiona chata przed nowym obozem posiada właściwości fizyczne

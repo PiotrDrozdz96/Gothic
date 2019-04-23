@@ -44,7 +44,7 @@ func void PC_PanFryEnd_Info ()
 INSTANCE PC_PanFry1 (C_INFO)
 {
 	npc				= PC_Hero;
-	nr				= 1;
+	nr				= 3;
 	condition		= PC_PanFry1_Condition;
 	information		= PC_PanFry1_Info;
 	important		= 0;
@@ -102,7 +102,7 @@ func void PC_PanFry5_Info ()
 INSTANCE PC_PanFryAll (C_INFO)
 {
 	npc				= PC_Hero;
-	nr				= 3;
+	nr				= 1;
 	condition		= PC_PanFryAll_Condition;
 	information		= PC_PanFryAll_Info;
 	important		= 0;
